@@ -225,6 +225,7 @@ func (cISCOSESSBORDERCTRLRSTATSMIB *CISCOSESSBORDERCTRLRSTATSMIB) GetEntityData(
     cISCOSESSBORDERCTRLRSTATSMIB.EntityData.BundleName = "cisco_ios_xe"
     cISCOSESSBORDERCTRLRSTATSMIB.EntityData.ParentYangName = "CISCO-SESS-BORDER-CTRLR-STATS-MIB"
     cISCOSESSBORDERCTRLRSTATSMIB.EntityData.SegmentPath = "CISCO-SESS-BORDER-CTRLR-STATS-MIB:CISCO-SESS-BORDER-CTRLR-STATS-MIB"
+    cISCOSESSBORDERCTRLRSTATSMIB.EntityData.AbsolutePath = cISCOSESSBORDERCTRLRSTATSMIB.EntityData.SegmentPath
     cISCOSESSBORDERCTRLRSTATSMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cISCOSESSBORDERCTRLRSTATSMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOSESSBORDERCTRLRSTATSMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -270,6 +271,7 @@ func (csbRadiusStatsTable *CISCOSESSBORDERCTRLRSTATSMIB_CsbRadiusStatsTable) Get
     csbRadiusStatsTable.EntityData.BundleName = "cisco_ios_xe"
     csbRadiusStatsTable.EntityData.ParentYangName = "CISCO-SESS-BORDER-CTRLR-STATS-MIB"
     csbRadiusStatsTable.EntityData.SegmentPath = "csbRadiusStatsTable"
+    csbRadiusStatsTable.EntityData.AbsolutePath = "CISCO-SESS-BORDER-CTRLR-STATS-MIB:CISCO-SESS-BORDER-CTRLR-STATS-MIB/" + csbRadiusStatsTable.EntityData.SegmentPath
     csbRadiusStatsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     csbRadiusStatsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     csbRadiusStatsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -296,6 +298,7 @@ func (csbRadiusStatsTable *CISCOSESSBORDERCTRLRSTATSMIB_CsbRadiusStatsTable) Get
 type CISCOSESSBORDERCTRLRSTATSMIB_CsbRadiusStatsTable_CsbRadiusStatsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 0..4294967295.
     // Refers to
@@ -409,6 +412,7 @@ func (csbRadiusStatsEntry *CISCOSESSBORDERCTRLRSTATSMIB_CsbRadiusStatsTable_CsbR
     csbRadiusStatsEntry.EntityData.BundleName = "cisco_ios_xe"
     csbRadiusStatsEntry.EntityData.ParentYangName = "csbRadiusStatsTable"
     csbRadiusStatsEntry.EntityData.SegmentPath = "csbRadiusStatsEntry" + types.AddKeyToken(csbRadiusStatsEntry.CsbCallStatsInstanceIndex, "csbCallStatsInstanceIndex") + types.AddKeyToken(csbRadiusStatsEntry.CsbCallStatsServiceIndex, "csbCallStatsServiceIndex") + types.AddKeyToken(csbRadiusStatsEntry.CsbRadiusStatsEntIndex, "csbRadiusStatsEntIndex")
+    csbRadiusStatsEntry.EntityData.AbsolutePath = "CISCO-SESS-BORDER-CTRLR-STATS-MIB:CISCO-SESS-BORDER-CTRLR-STATS-MIB/csbRadiusStatsTable/" + csbRadiusStatsEntry.EntityData.SegmentPath
     csbRadiusStatsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     csbRadiusStatsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     csbRadiusStatsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -480,6 +484,7 @@ func (csbRfBillRealmStatsTable *CISCOSESSBORDERCTRLRSTATSMIB_CsbRfBillRealmStats
     csbRfBillRealmStatsTable.EntityData.BundleName = "cisco_ios_xe"
     csbRfBillRealmStatsTable.EntityData.ParentYangName = "CISCO-SESS-BORDER-CTRLR-STATS-MIB"
     csbRfBillRealmStatsTable.EntityData.SegmentPath = "csbRfBillRealmStatsTable"
+    csbRfBillRealmStatsTable.EntityData.AbsolutePath = "CISCO-SESS-BORDER-CTRLR-STATS-MIB:CISCO-SESS-BORDER-CTRLR-STATS-MIB/" + csbRfBillRealmStatsTable.EntityData.SegmentPath
     csbRfBillRealmStatsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     csbRfBillRealmStatsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     csbRfBillRealmStatsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -507,6 +512,7 @@ func (csbRfBillRealmStatsTable *CISCOSESSBORDERCTRLRSTATSMIB_CsbRfBillRealmStats
 type CISCOSESSBORDERCTRLRSTATSMIB_CsbRfBillRealmStatsTable_CsbRfBillRealmStatsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 0..4294967295.
     // Refers to
@@ -595,6 +601,7 @@ func (csbRfBillRealmStatsEntry *CISCOSESSBORDERCTRLRSTATSMIB_CsbRfBillRealmStats
     csbRfBillRealmStatsEntry.EntityData.BundleName = "cisco_ios_xe"
     csbRfBillRealmStatsEntry.EntityData.ParentYangName = "csbRfBillRealmStatsTable"
     csbRfBillRealmStatsEntry.EntityData.SegmentPath = "csbRfBillRealmStatsEntry" + types.AddKeyToken(csbRfBillRealmStatsEntry.CsbCallStatsInstanceIndex, "csbCallStatsInstanceIndex") + types.AddKeyToken(csbRfBillRealmStatsEntry.CsbCallStatsServiceIndex, "csbCallStatsServiceIndex") + types.AddKeyToken(csbRfBillRealmStatsEntry.CsbRfBillRealmStatsIndex, "csbRfBillRealmStatsIndex") + types.AddKeyToken(csbRfBillRealmStatsEntry.CsbRfBillRealmStatsRealmName, "csbRfBillRealmStatsRealmName")
+    csbRfBillRealmStatsEntry.EntityData.AbsolutePath = "CISCO-SESS-BORDER-CTRLR-STATS-MIB:CISCO-SESS-BORDER-CTRLR-STATS-MIB/csbRfBillRealmStatsTable/" + csbRfBillRealmStatsEntry.EntityData.SegmentPath
     csbRfBillRealmStatsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     csbRfBillRealmStatsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     csbRfBillRealmStatsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -659,6 +666,7 @@ func (csbSIPMthdCurrentStatsTable *CISCOSESSBORDERCTRLRSTATSMIB_CsbSIPMthdCurren
     csbSIPMthdCurrentStatsTable.EntityData.BundleName = "cisco_ios_xe"
     csbSIPMthdCurrentStatsTable.EntityData.ParentYangName = "CISCO-SESS-BORDER-CTRLR-STATS-MIB"
     csbSIPMthdCurrentStatsTable.EntityData.SegmentPath = "csbSIPMthdCurrentStatsTable"
+    csbSIPMthdCurrentStatsTable.EntityData.AbsolutePath = "CISCO-SESS-BORDER-CTRLR-STATS-MIB:CISCO-SESS-BORDER-CTRLR-STATS-MIB/" + csbSIPMthdCurrentStatsTable.EntityData.SegmentPath
     csbSIPMthdCurrentStatsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     csbSIPMthdCurrentStatsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     csbSIPMthdCurrentStatsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -688,6 +696,7 @@ func (csbSIPMthdCurrentStatsTable *CISCOSESSBORDERCTRLRSTATSMIB_CsbSIPMthdCurren
 type CISCOSESSBORDERCTRLRSTATSMIB_CsbSIPMthdCurrentStatsTable_CsbSIPMthdCurrentStatsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 0..4294967295.
     // Refers to
@@ -796,6 +805,7 @@ func (csbSIPMthdCurrentStatsEntry *CISCOSESSBORDERCTRLRSTATSMIB_CsbSIPMthdCurren
     csbSIPMthdCurrentStatsEntry.EntityData.BundleName = "cisco_ios_xe"
     csbSIPMthdCurrentStatsEntry.EntityData.ParentYangName = "csbSIPMthdCurrentStatsTable"
     csbSIPMthdCurrentStatsEntry.EntityData.SegmentPath = "csbSIPMthdCurrentStatsEntry" + types.AddKeyToken(csbSIPMthdCurrentStatsEntry.CsbCallStatsInstanceIndex, "csbCallStatsInstanceIndex") + types.AddKeyToken(csbSIPMthdCurrentStatsEntry.CsbCallStatsServiceIndex, "csbCallStatsServiceIndex") + types.AddKeyToken(csbSIPMthdCurrentStatsEntry.CsbSIPMthdCurrentStatsAdjName, "csbSIPMthdCurrentStatsAdjName") + types.AddKeyToken(csbSIPMthdCurrentStatsEntry.CsbSIPMthdCurrentStatsMethod, "csbSIPMthdCurrentStatsMethod") + types.AddKeyToken(csbSIPMthdCurrentStatsEntry.CsbSIPMthdCurrentStatsInterval, "csbSIPMthdCurrentStatsInterval")
+    csbSIPMthdCurrentStatsEntry.EntityData.AbsolutePath = "CISCO-SESS-BORDER-CTRLR-STATS-MIB:CISCO-SESS-BORDER-CTRLR-STATS-MIB/csbSIPMthdCurrentStatsTable/" + csbSIPMthdCurrentStatsEntry.EntityData.SegmentPath
     csbSIPMthdCurrentStatsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     csbSIPMthdCurrentStatsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     csbSIPMthdCurrentStatsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -866,6 +876,7 @@ func (csbSIPMthdHistoryStatsTable *CISCOSESSBORDERCTRLRSTATSMIB_CsbSIPMthdHistor
     csbSIPMthdHistoryStatsTable.EntityData.BundleName = "cisco_ios_xe"
     csbSIPMthdHistoryStatsTable.EntityData.ParentYangName = "CISCO-SESS-BORDER-CTRLR-STATS-MIB"
     csbSIPMthdHistoryStatsTable.EntityData.SegmentPath = "csbSIPMthdHistoryStatsTable"
+    csbSIPMthdHistoryStatsTable.EntityData.AbsolutePath = "CISCO-SESS-BORDER-CTRLR-STATS-MIB:CISCO-SESS-BORDER-CTRLR-STATS-MIB/" + csbSIPMthdHistoryStatsTable.EntityData.SegmentPath
     csbSIPMthdHistoryStatsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     csbSIPMthdHistoryStatsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     csbSIPMthdHistoryStatsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -896,6 +907,7 @@ func (csbSIPMthdHistoryStatsTable *CISCOSESSBORDERCTRLRSTATSMIB_CsbSIPMthdHistor
 type CISCOSESSBORDERCTRLRSTATSMIB_CsbSIPMthdHistoryStatsTable_CsbSIPMthdHistoryStatsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 0..4294967295.
     // Refers to
@@ -1005,6 +1017,7 @@ func (csbSIPMthdHistoryStatsEntry *CISCOSESSBORDERCTRLRSTATSMIB_CsbSIPMthdHistor
     csbSIPMthdHistoryStatsEntry.EntityData.BundleName = "cisco_ios_xe"
     csbSIPMthdHistoryStatsEntry.EntityData.ParentYangName = "csbSIPMthdHistoryStatsTable"
     csbSIPMthdHistoryStatsEntry.EntityData.SegmentPath = "csbSIPMthdHistoryStatsEntry" + types.AddKeyToken(csbSIPMthdHistoryStatsEntry.CsbCallStatsInstanceIndex, "csbCallStatsInstanceIndex") + types.AddKeyToken(csbSIPMthdHistoryStatsEntry.CsbCallStatsServiceIndex, "csbCallStatsServiceIndex") + types.AddKeyToken(csbSIPMthdHistoryStatsEntry.CsbSIPMthdHistoryStatsAdjName, "csbSIPMthdHistoryStatsAdjName") + types.AddKeyToken(csbSIPMthdHistoryStatsEntry.CsbSIPMthdHistoryStatsMethod, "csbSIPMthdHistoryStatsMethod") + types.AddKeyToken(csbSIPMthdHistoryStatsEntry.CsbSIPMthdHistoryStatsInterval, "csbSIPMthdHistoryStatsInterval")
+    csbSIPMthdHistoryStatsEntry.EntityData.AbsolutePath = "CISCO-SESS-BORDER-CTRLR-STATS-MIB:CISCO-SESS-BORDER-CTRLR-STATS-MIB/csbSIPMthdHistoryStatsTable/" + csbSIPMthdHistoryStatsEntry.EntityData.SegmentPath
     csbSIPMthdHistoryStatsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     csbSIPMthdHistoryStatsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     csbSIPMthdHistoryStatsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1071,6 +1084,7 @@ func (csbSIPMthdRCCurrentStatsTable *CISCOSESSBORDERCTRLRSTATSMIB_CsbSIPMthdRCCu
     csbSIPMthdRCCurrentStatsTable.EntityData.BundleName = "cisco_ios_xe"
     csbSIPMthdRCCurrentStatsTable.EntityData.ParentYangName = "CISCO-SESS-BORDER-CTRLR-STATS-MIB"
     csbSIPMthdRCCurrentStatsTable.EntityData.SegmentPath = "csbSIPMthdRCCurrentStatsTable"
+    csbSIPMthdRCCurrentStatsTable.EntityData.AbsolutePath = "CISCO-SESS-BORDER-CTRLR-STATS-MIB:CISCO-SESS-BORDER-CTRLR-STATS-MIB/" + csbSIPMthdRCCurrentStatsTable.EntityData.SegmentPath
     csbSIPMthdRCCurrentStatsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     csbSIPMthdRCCurrentStatsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     csbSIPMthdRCCurrentStatsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1101,6 +1115,7 @@ func (csbSIPMthdRCCurrentStatsTable *CISCOSESSBORDERCTRLRSTATSMIB_CsbSIPMthdRCCu
 type CISCOSESSBORDERCTRLRSTATSMIB_CsbSIPMthdRCCurrentStatsTable_CsbSIPMthdRCCurrentStatsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 0..4294967295.
     // Refers to
@@ -1154,6 +1169,7 @@ func (csbSIPMthdRCCurrentStatsEntry *CISCOSESSBORDERCTRLRSTATSMIB_CsbSIPMthdRCCu
     csbSIPMthdRCCurrentStatsEntry.EntityData.BundleName = "cisco_ios_xe"
     csbSIPMthdRCCurrentStatsEntry.EntityData.ParentYangName = "csbSIPMthdRCCurrentStatsTable"
     csbSIPMthdRCCurrentStatsEntry.EntityData.SegmentPath = "csbSIPMthdRCCurrentStatsEntry" + types.AddKeyToken(csbSIPMthdRCCurrentStatsEntry.CsbCallStatsInstanceIndex, "csbCallStatsInstanceIndex") + types.AddKeyToken(csbSIPMthdRCCurrentStatsEntry.CsbCallStatsServiceIndex, "csbCallStatsServiceIndex") + types.AddKeyToken(csbSIPMthdRCCurrentStatsEntry.CsbSIPMthdRCCurrentStatsAdjName, "csbSIPMthdRCCurrentStatsAdjName") + types.AddKeyToken(csbSIPMthdRCCurrentStatsEntry.CsbSIPMthdRCCurrentStatsMethod, "csbSIPMthdRCCurrentStatsMethod") + types.AddKeyToken(csbSIPMthdRCCurrentStatsEntry.CsbSIPMthdRCCurrentStatsRespCode, "csbSIPMthdRCCurrentStatsRespCode") + types.AddKeyToken(csbSIPMthdRCCurrentStatsEntry.CsbSIPMthdRCCurrentStatsInterval, "csbSIPMthdRCCurrentStatsInterval")
+    csbSIPMthdRCCurrentStatsEntry.EntityData.AbsolutePath = "CISCO-SESS-BORDER-CTRLR-STATS-MIB:CISCO-SESS-BORDER-CTRLR-STATS-MIB/csbSIPMthdRCCurrentStatsTable/" + csbSIPMthdRCCurrentStatsEntry.EntityData.SegmentPath
     csbSIPMthdRCCurrentStatsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     csbSIPMthdRCCurrentStatsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     csbSIPMthdRCCurrentStatsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1213,6 +1229,7 @@ func (csbSIPMthdRCHistoryStatsTable *CISCOSESSBORDERCTRLRSTATSMIB_CsbSIPMthdRCHi
     csbSIPMthdRCHistoryStatsTable.EntityData.BundleName = "cisco_ios_xe"
     csbSIPMthdRCHistoryStatsTable.EntityData.ParentYangName = "CISCO-SESS-BORDER-CTRLR-STATS-MIB"
     csbSIPMthdRCHistoryStatsTable.EntityData.SegmentPath = "csbSIPMthdRCHistoryStatsTable"
+    csbSIPMthdRCHistoryStatsTable.EntityData.AbsolutePath = "CISCO-SESS-BORDER-CTRLR-STATS-MIB:CISCO-SESS-BORDER-CTRLR-STATS-MIB/" + csbSIPMthdRCHistoryStatsTable.EntityData.SegmentPath
     csbSIPMthdRCHistoryStatsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     csbSIPMthdRCHistoryStatsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     csbSIPMthdRCHistoryStatsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1244,6 +1261,7 @@ func (csbSIPMthdRCHistoryStatsTable *CISCOSESSBORDERCTRLRSTATSMIB_CsbSIPMthdRCHi
 type CISCOSESSBORDERCTRLRSTATSMIB_CsbSIPMthdRCHistoryStatsTable_CsbSIPMthdRCHistoryStatsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 0..4294967295.
     // Refers to
@@ -1298,6 +1316,7 @@ func (csbSIPMthdRCHistoryStatsEntry *CISCOSESSBORDERCTRLRSTATSMIB_CsbSIPMthdRCHi
     csbSIPMthdRCHistoryStatsEntry.EntityData.BundleName = "cisco_ios_xe"
     csbSIPMthdRCHistoryStatsEntry.EntityData.ParentYangName = "csbSIPMthdRCHistoryStatsTable"
     csbSIPMthdRCHistoryStatsEntry.EntityData.SegmentPath = "csbSIPMthdRCHistoryStatsEntry" + types.AddKeyToken(csbSIPMthdRCHistoryStatsEntry.CsbCallStatsInstanceIndex, "csbCallStatsInstanceIndex") + types.AddKeyToken(csbSIPMthdRCHistoryStatsEntry.CsbCallStatsServiceIndex, "csbCallStatsServiceIndex") + types.AddKeyToken(csbSIPMthdRCHistoryStatsEntry.CsbSIPMthdRCHistoryStatsAdjName, "csbSIPMthdRCHistoryStatsAdjName") + types.AddKeyToken(csbSIPMthdRCHistoryStatsEntry.CsbSIPMthdRCHistoryStatsMethod, "csbSIPMthdRCHistoryStatsMethod") + types.AddKeyToken(csbSIPMthdRCHistoryStatsEntry.CsbSIPMthdRCHistoryStatsRespCode, "csbSIPMthdRCHistoryStatsRespCode") + types.AddKeyToken(csbSIPMthdRCHistoryStatsEntry.CsbSIPMthdRCHistoryStatsInterval, "csbSIPMthdRCHistoryStatsInterval")
+    csbSIPMthdRCHistoryStatsEntry.EntityData.AbsolutePath = "CISCO-SESS-BORDER-CTRLR-STATS-MIB:CISCO-SESS-BORDER-CTRLR-STATS-MIB/csbSIPMthdRCHistoryStatsTable/" + csbSIPMthdRCHistoryStatsEntry.EntityData.SegmentPath
     csbSIPMthdRCHistoryStatsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     csbSIPMthdRCHistoryStatsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     csbSIPMthdRCHistoryStatsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

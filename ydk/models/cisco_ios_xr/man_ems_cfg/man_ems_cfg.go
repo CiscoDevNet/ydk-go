@@ -155,6 +155,9 @@ type Grpc struct {
 
     // TLS ciphers.
     TlsCipher Grpc_TlsCipher
+
+    // Transport Layer Security (TLS).
+    Tls Grpc_Tls
 }
 
 func (grpc *Grpc) GetEntityData() *types.CommonEntityData {
@@ -163,6 +166,7 @@ func (grpc *Grpc) GetEntityData() *types.CommonEntityData {
     grpc.EntityData.BundleName = "cisco_ios_xr"
     grpc.EntityData.ParentYangName = "Cisco-IOS-XR-man-ems-cfg"
     grpc.EntityData.SegmentPath = "Cisco-IOS-XR-man-ems-cfg:grpc"
+    grpc.EntityData.AbsolutePath = grpc.EntityData.SegmentPath
     grpc.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     grpc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     grpc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -170,6 +174,7 @@ func (grpc *Grpc) GetEntityData() *types.CommonEntityData {
     grpc.EntityData.Children = types.NewOrderedMap()
     grpc.EntityData.Children.Append("service-layer", types.YChild{"ServiceLayer", &grpc.ServiceLayer})
     grpc.EntityData.Children.Append("tls-cipher", types.YChild{"TlsCipher", &grpc.TlsCipher})
+    grpc.EntityData.Children.Append("tls", types.YChild{"Tls", &grpc.Tls})
     grpc.EntityData.Leafs = types.NewOrderedMap()
     grpc.EntityData.Leafs.Append("port", types.YLeaf{"Port", grpc.Port})
     grpc.EntityData.Leafs.Append("vrf", types.YLeaf{"Vrf", grpc.Vrf})
@@ -205,6 +210,7 @@ func (serviceLayer *Grpc_ServiceLayer) GetEntityData() *types.CommonEntityData {
     serviceLayer.EntityData.BundleName = "cisco_ios_xr"
     serviceLayer.EntityData.ParentYangName = "grpc"
     serviceLayer.EntityData.SegmentPath = "service-layer"
+    serviceLayer.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ems-cfg:grpc/" + serviceLayer.EntityData.SegmentPath
     serviceLayer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     serviceLayer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     serviceLayer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -240,6 +246,7 @@ func (tlsCipher *Grpc_TlsCipher) GetEntityData() *types.CommonEntityData {
     tlsCipher.EntityData.BundleName = "cisco_ios_xr"
     tlsCipher.EntityData.ParentYangName = "grpc"
     tlsCipher.EntityData.SegmentPath = "tls-cipher"
+    tlsCipher.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ems-cfg:grpc/" + tlsCipher.EntityData.SegmentPath
     tlsCipher.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tlsCipher.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tlsCipher.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -253,5 +260,35 @@ func (tlsCipher *Grpc_TlsCipher) GetEntityData() *types.CommonEntityData {
     tlsCipher.EntityData.YListKeys = []string {}
 
     return &(tlsCipher.EntityData)
+}
+
+// Grpc_Tls
+// Transport Layer Security (TLS)
+type Grpc_Tls struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Enable TLS. The type is interface{}.
+    Enable interface{}
+}
+
+func (tls *Grpc_Tls) GetEntityData() *types.CommonEntityData {
+    tls.EntityData.YFilter = tls.YFilter
+    tls.EntityData.YangName = "tls"
+    tls.EntityData.BundleName = "cisco_ios_xr"
+    tls.EntityData.ParentYangName = "grpc"
+    tls.EntityData.SegmentPath = "tls"
+    tls.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ems-cfg:grpc/" + tls.EntityData.SegmentPath
+    tls.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    tls.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    tls.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    tls.EntityData.Children = types.NewOrderedMap()
+    tls.EntityData.Leafs = types.NewOrderedMap()
+    tls.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", tls.Enable})
+
+    tls.EntityData.YListKeys = []string {}
+
+    return &(tls.EntityData)
 }
 

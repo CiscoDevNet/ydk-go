@@ -38,6 +38,10 @@ type Lldp struct {
     // interface{} with range: 0..65535.
     Holdtime interface{}
 
+    // Enable or disable Priority to advertise Mgmt-interface Addr First. The type
+    // is bool. The default value is false.
+    EnablePriorityAddr interface{}
+
     // Enable or disable LLDP Show LLDP Neighbor Extended Width. The type is bool.
     // The default value is false.
     ExtendedShowWidth interface{}
@@ -72,6 +76,7 @@ func (lldp *Lldp) GetEntityData() *types.CommonEntityData {
     lldp.EntityData.BundleName = "cisco_ios_xr"
     lldp.EntityData.ParentYangName = "Cisco-IOS-XR-ethernet-lldp-cfg"
     lldp.EntityData.SegmentPath = "Cisco-IOS-XR-ethernet-lldp-cfg:lldp"
+    lldp.EntityData.AbsolutePath = lldp.EntityData.SegmentPath
     lldp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lldp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lldp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -80,6 +85,7 @@ func (lldp *Lldp) GetEntityData() *types.CommonEntityData {
     lldp.EntityData.Children.Append("tlv-select", types.YChild{"TlvSelect", &lldp.TlvSelect})
     lldp.EntityData.Leafs = types.NewOrderedMap()
     lldp.EntityData.Leafs.Append("holdtime", types.YLeaf{"Holdtime", lldp.Holdtime})
+    lldp.EntityData.Leafs.Append("enable-priority-addr", types.YLeaf{"EnablePriorityAddr", lldp.EnablePriorityAddr})
     lldp.EntityData.Leafs.Append("extended-show-width", types.YLeaf{"ExtendedShowWidth", lldp.ExtendedShowWidth})
     lldp.EntityData.Leafs.Append("enable-subintf", types.YLeaf{"EnableSubintf", lldp.EnableSubintf})
     lldp.EntityData.Leafs.Append("enable-mgmtintf", types.YLeaf{"EnableMgmtintf", lldp.EnableMgmtintf})
@@ -126,6 +132,7 @@ func (tlvSelect *Lldp_TlvSelect) GetEntityData() *types.CommonEntityData {
     tlvSelect.EntityData.BundleName = "cisco_ios_xr"
     tlvSelect.EntityData.ParentYangName = "lldp"
     tlvSelect.EntityData.SegmentPath = "tlv-select"
+    tlvSelect.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-lldp-cfg:lldp/" + tlvSelect.EntityData.SegmentPath
     tlvSelect.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tlvSelect.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tlvSelect.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -160,6 +167,7 @@ func (systemName *Lldp_TlvSelect_SystemName) GetEntityData() *types.CommonEntity
     systemName.EntityData.BundleName = "cisco_ios_xr"
     systemName.EntityData.ParentYangName = "tlv-select"
     systemName.EntityData.SegmentPath = "system-name"
+    systemName.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-lldp-cfg:lldp/tlv-select/" + systemName.EntityData.SegmentPath
     systemName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     systemName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     systemName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -189,6 +197,7 @@ func (portDescription *Lldp_TlvSelect_PortDescription) GetEntityData() *types.Co
     portDescription.EntityData.BundleName = "cisco_ios_xr"
     portDescription.EntityData.ParentYangName = "tlv-select"
     portDescription.EntityData.SegmentPath = "port-description"
+    portDescription.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-lldp-cfg:lldp/tlv-select/" + portDescription.EntityData.SegmentPath
     portDescription.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     portDescription.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     portDescription.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -219,6 +228,7 @@ func (systemDescription *Lldp_TlvSelect_SystemDescription) GetEntityData() *type
     systemDescription.EntityData.BundleName = "cisco_ios_xr"
     systemDescription.EntityData.ParentYangName = "tlv-select"
     systemDescription.EntityData.SegmentPath = "system-description"
+    systemDescription.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-lldp-cfg:lldp/tlv-select/" + systemDescription.EntityData.SegmentPath
     systemDescription.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     systemDescription.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     systemDescription.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -249,6 +259,7 @@ func (systemCapabilities *Lldp_TlvSelect_SystemCapabilities) GetEntityData() *ty
     systemCapabilities.EntityData.BundleName = "cisco_ios_xr"
     systemCapabilities.EntityData.ParentYangName = "tlv-select"
     systemCapabilities.EntityData.SegmentPath = "system-capabilities"
+    systemCapabilities.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-lldp-cfg:lldp/tlv-select/" + systemCapabilities.EntityData.SegmentPath
     systemCapabilities.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     systemCapabilities.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     systemCapabilities.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -279,6 +290,7 @@ func (managementAddress *Lldp_TlvSelect_ManagementAddress) GetEntityData() *type
     managementAddress.EntityData.BundleName = "cisco_ios_xr"
     managementAddress.EntityData.ParentYangName = "tlv-select"
     managementAddress.EntityData.SegmentPath = "management-address"
+    managementAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-lldp-cfg:lldp/tlv-select/" + managementAddress.EntityData.SegmentPath
     managementAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     managementAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     managementAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

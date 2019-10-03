@@ -40,6 +40,7 @@ func (rebootHistory *RebootHistory) GetEntityData() *types.CommonEntityData {
     rebootHistory.EntityData.BundleName = "cisco_ios_xr"
     rebootHistory.EntityData.ParentYangName = "Cisco-IOS-XR-linux-os-reboot-history-oper"
     rebootHistory.EntityData.SegmentPath = "Cisco-IOS-XR-linux-os-reboot-history-oper:reboot-history"
+    rebootHistory.EntityData.AbsolutePath = rebootHistory.EntityData.SegmentPath
     rebootHistory.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rebootHistory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rebootHistory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -61,6 +62,7 @@ func (rebootHistory *RebootHistory) GetEntityData() *types.CommonEntityData {
 type RebootHistory_Node struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Node name. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -76,6 +78,7 @@ func (node *RebootHistory_Node) GetEntityData() *types.CommonEntityData {
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "reboot-history"
     node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeName, "node-name")
+    node.EntityData.AbsolutePath = "Cisco-IOS-XR-linux-os-reboot-history-oper:reboot-history/" + node.EntityData.SegmentPath
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -83,6 +86,7 @@ func (node *RebootHistory_Node) GetEntityData() *types.CommonEntityData {
     node.EntityData.Children = types.NewOrderedMap()
     node.EntityData.Children.Append("reboot-history", types.YChild{"RebootHistory", nil})
     for i := range node.RebootHistory {
+        types.SetYListKey(node.RebootHistory[i], i)
         node.EntityData.Children.Append(types.GetSegmentPath(node.RebootHistory[i]), types.YChild{"RebootHistory", node.RebootHistory[i]})
     }
     node.EntityData.Leafs = types.NewOrderedMap()
@@ -98,6 +102,7 @@ func (node *RebootHistory_Node) GetEntityData() *types.CommonEntityData {
 type RebootHistory_Node_RebootHistory struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Number count. The type is interface{} with range: 0..4294967295.
     No interface{}
@@ -117,7 +122,8 @@ func (rebootHistory *RebootHistory_Node_RebootHistory) GetEntityData() *types.Co
     rebootHistory.EntityData.YangName = "reboot-history"
     rebootHistory.EntityData.BundleName = "cisco_ios_xr"
     rebootHistory.EntityData.ParentYangName = "node"
-    rebootHistory.EntityData.SegmentPath = "reboot-history"
+    rebootHistory.EntityData.SegmentPath = "reboot-history" + types.AddNoKeyToken(rebootHistory)
+    rebootHistory.EntityData.AbsolutePath = "Cisco-IOS-XR-linux-os-reboot-history-oper:reboot-history/node/" + rebootHistory.EntityData.SegmentPath
     rebootHistory.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rebootHistory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rebootHistory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

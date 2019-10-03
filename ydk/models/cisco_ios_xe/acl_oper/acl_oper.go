@@ -41,6 +41,7 @@ func (accessLists *AccessLists) GetEntityData() *types.CommonEntityData {
     accessLists.EntityData.BundleName = "cisco_ios_xe"
     accessLists.EntityData.ParentYangName = "Cisco-IOS-XE-acl-oper"
     accessLists.EntityData.SegmentPath = "Cisco-IOS-XE-acl-oper:access-lists"
+    accessLists.EntityData.AbsolutePath = accessLists.EntityData.SegmentPath
     accessLists.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     accessLists.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     accessLists.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -69,6 +70,7 @@ func (accessLists *AccessLists) GetEntityData() *types.CommonEntityData {
 type AccessLists_AccessList struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The name of access-list. A device MAY restrict the
     // length and value of this name, possibly space and special characters are
@@ -85,6 +87,7 @@ func (accessList *AccessLists_AccessList) GetEntityData() *types.CommonEntityDat
     accessList.EntityData.BundleName = "cisco_ios_xe"
     accessList.EntityData.ParentYangName = "access-lists"
     accessList.EntityData.SegmentPath = "access-list" + types.AddKeyToken(accessList.AccessControlListName, "access-control-list-name")
+    accessList.EntityData.AbsolutePath = "Cisco-IOS-XE-acl-oper:access-lists/" + accessList.EntityData.SegmentPath
     accessList.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     accessList.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     accessList.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -116,6 +119,7 @@ func (accessListEntries *AccessLists_AccessList_AccessListEntries) GetEntityData
     accessListEntries.EntityData.BundleName = "cisco_ios_xe"
     accessListEntries.EntityData.ParentYangName = "access-list"
     accessListEntries.EntityData.SegmentPath = "access-list-entries"
+    accessListEntries.EntityData.AbsolutePath = "Cisco-IOS-XE-acl-oper:access-lists/access-list/" + accessListEntries.EntityData.SegmentPath
     accessListEntries.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     accessListEntries.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     accessListEntries.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -137,6 +141,7 @@ func (accessListEntries *AccessLists_AccessList_AccessListEntries) GetEntityData
 type AccessLists_AccessList_AccessListEntries_AccessListEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Entry number. The type is interface{} with range:
     // 0..4294967295.
@@ -152,6 +157,7 @@ func (accessListEntry *AccessLists_AccessList_AccessListEntries_AccessListEntry)
     accessListEntry.EntityData.BundleName = "cisco_ios_xe"
     accessListEntry.EntityData.ParentYangName = "access-list-entries"
     accessListEntry.EntityData.SegmentPath = "access-list-entry" + types.AddKeyToken(accessListEntry.RuleName, "rule-name")
+    accessListEntry.EntityData.AbsolutePath = "Cisco-IOS-XE-acl-oper:access-lists/access-list/access-list-entries/" + accessListEntry.EntityData.SegmentPath
     accessListEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     accessListEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     accessListEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -183,6 +189,7 @@ func (accessListEntriesOperData *AccessLists_AccessList_AccessListEntries_Access
     accessListEntriesOperData.EntityData.BundleName = "cisco_ios_xe"
     accessListEntriesOperData.EntityData.ParentYangName = "access-list-entry"
     accessListEntriesOperData.EntityData.SegmentPath = "access-list-entries-oper-data"
+    accessListEntriesOperData.EntityData.AbsolutePath = "Cisco-IOS-XE-acl-oper:access-lists/access-list/access-list-entries/access-list-entry/" + accessListEntriesOperData.EntityData.SegmentPath
     accessListEntriesOperData.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     accessListEntriesOperData.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     accessListEntriesOperData.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

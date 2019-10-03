@@ -153,6 +153,7 @@ func (alarmMgr *AlarmMgr) GetEntityData() *types.CommonEntityData {
     alarmMgr.EntityData.BundleName = "cisco_ios_xr"
     alarmMgr.EntityData.ParentYangName = "Cisco-IOS-XR-sysadmin-alarm-mgr"
     alarmMgr.EntityData.SegmentPath = "Cisco-IOS-XR-sysadmin-alarm-mgr:alarm_mgr"
+    alarmMgr.EntityData.AbsolutePath = alarmMgr.EntityData.SegmentPath
     alarmMgr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     alarmMgr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     alarmMgr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -176,6 +177,7 @@ func (alarmMgr *AlarmMgr) GetEntityData() *types.CommonEntityData {
 type AlarmMgr_Trace struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     Buffer interface{}
@@ -190,6 +192,7 @@ func (trace *AlarmMgr_Trace) GetEntityData() *types.CommonEntityData {
     trace.EntityData.BundleName = "cisco_ios_xr"
     trace.EntityData.ParentYangName = "alarm_mgr"
     trace.EntityData.SegmentPath = "trace" + types.AddKeyToken(trace.Buffer, "buffer")
+    trace.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-alarm-mgr:alarm_mgr/" + trace.EntityData.SegmentPath
     trace.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trace.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trace.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -211,6 +214,7 @@ func (trace *AlarmMgr_Trace) GetEntityData() *types.CommonEntityData {
 type AlarmMgr_Trace_Location struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     LocationName interface{}
@@ -225,6 +229,7 @@ func (location *AlarmMgr_Trace_Location) GetEntityData() *types.CommonEntityData
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "trace"
     location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.LocationName, "location_name")
+    location.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-alarm-mgr:alarm_mgr/trace/" + location.EntityData.SegmentPath
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -246,6 +251,7 @@ func (location *AlarmMgr_Trace_Location) GetEntityData() *types.CommonEntityData
 type AlarmMgr_Trace_Location_AllOptions struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     Option interface{}
@@ -260,6 +266,7 @@ func (allOptions *AlarmMgr_Trace_Location_AllOptions) GetEntityData() *types.Com
     allOptions.EntityData.BundleName = "cisco_ios_xr"
     allOptions.EntityData.ParentYangName = "location"
     allOptions.EntityData.SegmentPath = "all-options" + types.AddKeyToken(allOptions.Option, "option")
+    allOptions.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-alarm-mgr:alarm_mgr/trace/location/" + allOptions.EntityData.SegmentPath
     allOptions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     allOptions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     allOptions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -267,6 +274,7 @@ func (allOptions *AlarmMgr_Trace_Location_AllOptions) GetEntityData() *types.Com
     allOptions.EntityData.Children = types.NewOrderedMap()
     allOptions.EntityData.Children.Append("trace-blocks", types.YChild{"TraceBlocks", nil})
     for i := range allOptions.TraceBlocks {
+        types.SetYListKey(allOptions.TraceBlocks[i], i)
         allOptions.EntityData.Children.Append(types.GetSegmentPath(allOptions.TraceBlocks[i]), types.YChild{"TraceBlocks", allOptions.TraceBlocks[i]})
     }
     allOptions.EntityData.Leafs = types.NewOrderedMap()
@@ -281,6 +289,7 @@ func (allOptions *AlarmMgr_Trace_Location_AllOptions) GetEntityData() *types.Com
 type AlarmMgr_Trace_Location_AllOptions_TraceBlocks struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Trace output block. The type is string.
     Data interface{}
@@ -291,7 +300,8 @@ func (traceBlocks *AlarmMgr_Trace_Location_AllOptions_TraceBlocks) GetEntityData
     traceBlocks.EntityData.YangName = "trace-blocks"
     traceBlocks.EntityData.BundleName = "cisco_ios_xr"
     traceBlocks.EntityData.ParentYangName = "all-options"
-    traceBlocks.EntityData.SegmentPath = "trace-blocks"
+    traceBlocks.EntityData.SegmentPath = "trace-blocks" + types.AddNoKeyToken(traceBlocks)
+    traceBlocks.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-alarm-mgr:alarm_mgr/trace/location/all-options/" + traceBlocks.EntityData.SegmentPath
     traceBlocks.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     traceBlocks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     traceBlocks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -311,10 +321,10 @@ type AlarmMgr_Brief struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Alarms reported at the local card as  specified by the location parameter.
+    // Alarms reported at the local card as specified by the location parameter.
     Card AlarmMgr_Brief_Card
 
-    // Alarms reported at the rack scope    specified by the rack-id.
+    // Alarms reported at the rack scope specified by the rack-id.
     Rack AlarmMgr_Brief_Rack
 
     // Alarms reported at the system scope.
@@ -327,6 +337,7 @@ func (brief *AlarmMgr_Brief) GetEntityData() *types.CommonEntityData {
     brief.EntityData.BundleName = "cisco_ios_xr"
     brief.EntityData.ParentYangName = "alarm_mgr"
     brief.EntityData.SegmentPath = "brief"
+    brief.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-alarm-mgr:alarm_mgr/" + brief.EntityData.SegmentPath
     brief.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     brief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     brief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -343,7 +354,7 @@ func (brief *AlarmMgr_Brief) GetEntityData() *types.CommonEntityData {
 }
 
 // AlarmMgr_Brief_Card
-// Alarms reported at the local card as 
+// Alarms reported at the local card as
 // specified by the location parameter
 type AlarmMgr_Brief_Card struct {
     EntityData types.CommonEntityData
@@ -359,6 +370,7 @@ func (card *AlarmMgr_Brief_Card) GetEntityData() *types.CommonEntityData {
     card.EntityData.BundleName = "cisco_ios_xr"
     card.EntityData.ParentYangName = "brief"
     card.EntityData.SegmentPath = "card"
+    card.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-alarm-mgr:alarm_mgr/brief/" + card.EntityData.SegmentPath
     card.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     card.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     card.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -379,6 +391,7 @@ func (card *AlarmMgr_Brief_Card) GetEntityData() *types.CommonEntityData {
 type AlarmMgr_Brief_Card_Location struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with pattern:
     // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-7])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[0-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
@@ -400,6 +413,7 @@ func (location *AlarmMgr_Brief_Card_Location) GetEntityData() *types.CommonEntit
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "card"
     location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.Locations, "locations")
+    location.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-alarm-mgr:alarm_mgr/brief/card/" + location.EntityData.SegmentPath
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -429,6 +443,7 @@ func (location *AlarmMgr_Brief_Card_Location) GetEntityData() *types.CommonEntit
 type AlarmMgr_Brief_Card_Location_Active struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The AID for the current alarm. The type is string.
     Aid interface{}
@@ -465,6 +480,7 @@ func (active *AlarmMgr_Brief_Card_Location_Active) GetEntityData() *types.Common
     active.EntityData.BundleName = "cisco_ios_xr"
     active.EntityData.ParentYangName = "location"
     active.EntityData.SegmentPath = "active" + types.AddKeyToken(active.Aid, "aid") + types.AddKeyToken(active.Eid, "eid")
+    active.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-alarm-mgr:alarm_mgr/brief/card/location/" + active.EntityData.SegmentPath
     active.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     active.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     active.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -490,6 +506,7 @@ func (active *AlarmMgr_Brief_Card_Location_Active) GetEntityData() *types.Common
 type AlarmMgr_Brief_Card_Location_History struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The AID for the current alarm. The type is string.
     Aid interface{}
@@ -529,6 +546,7 @@ func (history *AlarmMgr_Brief_Card_Location_History) GetEntityData() *types.Comm
     history.EntityData.BundleName = "cisco_ios_xr"
     history.EntityData.ParentYangName = "location"
     history.EntityData.SegmentPath = "history" + types.AddKeyToken(history.Aid, "aid") + types.AddKeyToken(history.Eid, "eid")
+    history.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-alarm-mgr:alarm_mgr/brief/card/location/" + history.EntityData.SegmentPath
     history.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     history.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     history.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -555,6 +573,7 @@ func (history *AlarmMgr_Brief_Card_Location_History) GetEntityData() *types.Comm
 type AlarmMgr_Brief_Card_Location_Suppressed struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The AID for the current alarm. The type is string.
     Aid interface{}
@@ -594,6 +613,7 @@ func (suppressed *AlarmMgr_Brief_Card_Location_Suppressed) GetEntityData() *type
     suppressed.EntityData.BundleName = "cisco_ios_xr"
     suppressed.EntityData.ParentYangName = "location"
     suppressed.EntityData.SegmentPath = "suppressed" + types.AddKeyToken(suppressed.Aid, "aid") + types.AddKeyToken(suppressed.Eid, "eid")
+    suppressed.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-alarm-mgr:alarm_mgr/brief/card/location/" + suppressed.EntityData.SegmentPath
     suppressed.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     suppressed.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     suppressed.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -617,7 +637,7 @@ func (suppressed *AlarmMgr_Brief_Card_Location_Suppressed) GetEntityData() *type
 }
 
 // AlarmMgr_Brief_Rack
-// Alarms reported at the rack scope   
+// Alarms reported at the rack scope
 // specified by the rack-id
 type AlarmMgr_Brief_Rack struct {
     EntityData types.CommonEntityData
@@ -633,6 +653,7 @@ func (rack *AlarmMgr_Brief_Rack) GetEntityData() *types.CommonEntityData {
     rack.EntityData.BundleName = "cisco_ios_xr"
     rack.EntityData.ParentYangName = "brief"
     rack.EntityData.SegmentPath = "rack"
+    rack.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-alarm-mgr:alarm_mgr/brief/" + rack.EntityData.SegmentPath
     rack.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rack.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rack.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -653,6 +674,7 @@ func (rack *AlarmMgr_Brief_Rack) GetEntityData() *types.CommonEntityData {
 type AlarmMgr_Brief_Rack_RackLocations struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is interface{} with range: 0..4294967295.
     Rackid interface{}
@@ -673,6 +695,7 @@ func (rackLocations *AlarmMgr_Brief_Rack_RackLocations) GetEntityData() *types.C
     rackLocations.EntityData.BundleName = "cisco_ios_xr"
     rackLocations.EntityData.ParentYangName = "rack"
     rackLocations.EntityData.SegmentPath = "rack_locations" + types.AddKeyToken(rackLocations.Rackid, "rackid")
+    rackLocations.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-alarm-mgr:alarm_mgr/brief/rack/" + rackLocations.EntityData.SegmentPath
     rackLocations.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rackLocations.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rackLocations.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -702,6 +725,7 @@ func (rackLocations *AlarmMgr_Brief_Rack_RackLocations) GetEntityData() *types.C
 type AlarmMgr_Brief_Rack_RackLocations_Active struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The AID for the current alarm. The type is string.
     Aid interface{}
@@ -738,6 +762,7 @@ func (active *AlarmMgr_Brief_Rack_RackLocations_Active) GetEntityData() *types.C
     active.EntityData.BundleName = "cisco_ios_xr"
     active.EntityData.ParentYangName = "rack_locations"
     active.EntityData.SegmentPath = "active" + types.AddKeyToken(active.Aid, "aid") + types.AddKeyToken(active.Eid, "eid")
+    active.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-alarm-mgr:alarm_mgr/brief/rack/rack_locations/" + active.EntityData.SegmentPath
     active.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     active.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     active.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -763,6 +788,7 @@ func (active *AlarmMgr_Brief_Rack_RackLocations_Active) GetEntityData() *types.C
 type AlarmMgr_Brief_Rack_RackLocations_History struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The AID for the current alarm. The type is string.
     Aid interface{}
@@ -802,6 +828,7 @@ func (history *AlarmMgr_Brief_Rack_RackLocations_History) GetEntityData() *types
     history.EntityData.BundleName = "cisco_ios_xr"
     history.EntityData.ParentYangName = "rack_locations"
     history.EntityData.SegmentPath = "history" + types.AddKeyToken(history.Aid, "aid") + types.AddKeyToken(history.Eid, "eid")
+    history.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-alarm-mgr:alarm_mgr/brief/rack/rack_locations/" + history.EntityData.SegmentPath
     history.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     history.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     history.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -828,6 +855,7 @@ func (history *AlarmMgr_Brief_Rack_RackLocations_History) GetEntityData() *types
 type AlarmMgr_Brief_Rack_RackLocations_Suppressed struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The AID for the current alarm. The type is string.
     Aid interface{}
@@ -867,6 +895,7 @@ func (suppressed *AlarmMgr_Brief_Rack_RackLocations_Suppressed) GetEntityData() 
     suppressed.EntityData.BundleName = "cisco_ios_xr"
     suppressed.EntityData.ParentYangName = "rack_locations"
     suppressed.EntityData.SegmentPath = "suppressed" + types.AddKeyToken(suppressed.Aid, "aid") + types.AddKeyToken(suppressed.Eid, "eid")
+    suppressed.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-alarm-mgr:alarm_mgr/brief/rack/rack_locations/" + suppressed.EntityData.SegmentPath
     suppressed.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     suppressed.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     suppressed.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -911,6 +940,7 @@ func (system *AlarmMgr_Brief_System) GetEntityData() *types.CommonEntityData {
     system.EntityData.BundleName = "cisco_ios_xr"
     system.EntityData.ParentYangName = "brief"
     system.EntityData.SegmentPath = "system"
+    system.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-alarm-mgr:alarm_mgr/brief/" + system.EntityData.SegmentPath
     system.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     system.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     system.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -939,6 +969,7 @@ func (system *AlarmMgr_Brief_System) GetEntityData() *types.CommonEntityData {
 type AlarmMgr_Brief_System_Active struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The AID for the current alarm. The type is string.
     Aid interface{}
@@ -975,6 +1006,7 @@ func (active *AlarmMgr_Brief_System_Active) GetEntityData() *types.CommonEntityD
     active.EntityData.BundleName = "cisco_ios_xr"
     active.EntityData.ParentYangName = "system"
     active.EntityData.SegmentPath = "active" + types.AddKeyToken(active.Aid, "aid") + types.AddKeyToken(active.Eid, "eid")
+    active.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-alarm-mgr:alarm_mgr/brief/system/" + active.EntityData.SegmentPath
     active.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     active.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     active.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1000,6 +1032,7 @@ func (active *AlarmMgr_Brief_System_Active) GetEntityData() *types.CommonEntityD
 type AlarmMgr_Brief_System_History struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The AID for the current alarm. The type is string.
     Aid interface{}
@@ -1039,6 +1072,7 @@ func (history *AlarmMgr_Brief_System_History) GetEntityData() *types.CommonEntit
     history.EntityData.BundleName = "cisco_ios_xr"
     history.EntityData.ParentYangName = "system"
     history.EntityData.SegmentPath = "history" + types.AddKeyToken(history.Aid, "aid") + types.AddKeyToken(history.Eid, "eid")
+    history.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-alarm-mgr:alarm_mgr/brief/system/" + history.EntityData.SegmentPath
     history.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     history.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     history.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1065,6 +1099,7 @@ func (history *AlarmMgr_Brief_System_History) GetEntityData() *types.CommonEntit
 type AlarmMgr_Brief_System_Suppressed struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The AID for the current alarm. The type is string.
     Aid interface{}
@@ -1104,6 +1139,7 @@ func (suppressed *AlarmMgr_Brief_System_Suppressed) GetEntityData() *types.Commo
     suppressed.EntityData.BundleName = "cisco_ios_xr"
     suppressed.EntityData.ParentYangName = "system"
     suppressed.EntityData.SegmentPath = "suppressed" + types.AddKeyToken(suppressed.Aid, "aid") + types.AddKeyToken(suppressed.Eid, "eid")
+    suppressed.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-alarm-mgr:alarm_mgr/brief/system/" + suppressed.EntityData.SegmentPath
     suppressed.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     suppressed.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     suppressed.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1132,13 +1168,13 @@ type AlarmMgr_Detail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Alarms reported at the local card as  specified by the location parameter.
+    // Alarms reported at the local card as specified by the location parameter.
     Card AlarmMgr_Detail_Card
 
-    // Alarms reported at the rack as  specified by the location parameter.
+    // Alarms reported at the rack as specified by the location parameter.
     Rack AlarmMgr_Detail_Rack
 
-    // Alarms reported at the system as  specified by the location parameter.
+    // Alarms reported at the system as specified by the location parameter.
     System AlarmMgr_Detail_System
 }
 
@@ -1148,6 +1184,7 @@ func (detail *AlarmMgr_Detail) GetEntityData() *types.CommonEntityData {
     detail.EntityData.BundleName = "cisco_ios_xr"
     detail.EntityData.ParentYangName = "alarm_mgr"
     detail.EntityData.SegmentPath = "detail"
+    detail.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-alarm-mgr:alarm_mgr/" + detail.EntityData.SegmentPath
     detail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     detail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     detail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1164,7 +1201,7 @@ func (detail *AlarmMgr_Detail) GetEntityData() *types.CommonEntityData {
 }
 
 // AlarmMgr_Detail_Card
-// Alarms reported at the local card as 
+// Alarms reported at the local card as
 // specified by the location parameter
 type AlarmMgr_Detail_Card struct {
     EntityData types.CommonEntityData
@@ -1180,6 +1217,7 @@ func (card *AlarmMgr_Detail_Card) GetEntityData() *types.CommonEntityData {
     card.EntityData.BundleName = "cisco_ios_xr"
     card.EntityData.ParentYangName = "detail"
     card.EntityData.SegmentPath = "card"
+    card.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-alarm-mgr:alarm_mgr/detail/" + card.EntityData.SegmentPath
     card.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     card.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     card.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1200,6 +1238,7 @@ func (card *AlarmMgr_Detail_Card) GetEntityData() *types.CommonEntityData {
 type AlarmMgr_Detail_Card_Location struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with pattern:
     // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-7])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[0-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
@@ -1227,6 +1266,7 @@ func (location *AlarmMgr_Detail_Card_Location) GetEntityData() *types.CommonEnti
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "card"
     location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.Locations, "locations")
+    location.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-alarm-mgr:alarm_mgr/detail/card/" + location.EntityData.SegmentPath
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1264,6 +1304,7 @@ func (location *AlarmMgr_Detail_Card_Location) GetEntityData() *types.CommonEnti
 type AlarmMgr_Detail_Card_Location_Active struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The AID for the current alarm. The type is string.
     Aid interface{}
@@ -1316,6 +1357,7 @@ func (active *AlarmMgr_Detail_Card_Location_Active) GetEntityData() *types.Commo
     active.EntityData.BundleName = "cisco_ios_xr"
     active.EntityData.ParentYangName = "location"
     active.EntityData.SegmentPath = "active" + types.AddKeyToken(active.Aid, "aid") + types.AddKeyToken(active.Eid, "eid")
+    active.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-alarm-mgr:alarm_mgr/detail/card/location/" + active.EntityData.SegmentPath
     active.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     active.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     active.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1346,6 +1388,7 @@ func (active *AlarmMgr_Detail_Card_Location_Active) GetEntityData() *types.Commo
 type AlarmMgr_Detail_Card_Location_History struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The AID for the current alarm. The type is string.
     Aid interface{}
@@ -1398,6 +1441,7 @@ func (history *AlarmMgr_Detail_Card_Location_History) GetEntityData() *types.Com
     history.EntityData.BundleName = "cisco_ios_xr"
     history.EntityData.ParentYangName = "location"
     history.EntityData.SegmentPath = "history" + types.AddKeyToken(history.Aid, "aid") + types.AddKeyToken(history.Eid, "eid")
+    history.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-alarm-mgr:alarm_mgr/detail/card/location/" + history.EntityData.SegmentPath
     history.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     history.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     history.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1428,6 +1472,7 @@ func (history *AlarmMgr_Detail_Card_Location_History) GetEntityData() *types.Com
 type AlarmMgr_Detail_Card_Location_Stats struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Alarms statistics at specified time. The type is
     // string.
@@ -1488,6 +1533,7 @@ func (stats *AlarmMgr_Detail_Card_Location_Stats) GetEntityData() *types.CommonE
     stats.EntityData.BundleName = "cisco_ios_xr"
     stats.EntityData.ParentYangName = "location"
     stats.EntityData.SegmentPath = "stats" + types.AddKeyToken(stats.Attime, "attime")
+    stats.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-alarm-mgr:alarm_mgr/detail/card/location/" + stats.EntityData.SegmentPath
     stats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     stats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1517,6 +1563,7 @@ func (stats *AlarmMgr_Detail_Card_Location_Stats) GetEntityData() *types.CommonE
 type AlarmMgr_Detail_Card_Location_Clients struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The client handle through which interface. The
     // type is string.
@@ -1584,6 +1631,7 @@ func (clients *AlarmMgr_Detail_Card_Location_Clients) GetEntityData() *types.Com
     clients.EntityData.BundleName = "cisco_ios_xr"
     clients.EntityData.ParentYangName = "location"
     clients.EntityData.SegmentPath = "clients" + types.AddKeyToken(clients.AgentHandle, "agent_handle")
+    clients.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-alarm-mgr:alarm_mgr/detail/card/location/" + clients.EntityData.SegmentPath
     clients.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clients.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clients.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1617,6 +1665,7 @@ func (clients *AlarmMgr_Detail_Card_Location_Clients) GetEntityData() *types.Com
 type AlarmMgr_Detail_Card_Location_Suppressed struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The AID for the current alarm. The type is string.
     Aid interface{}
@@ -1669,6 +1718,7 @@ func (suppressed *AlarmMgr_Detail_Card_Location_Suppressed) GetEntityData() *typ
     suppressed.EntityData.BundleName = "cisco_ios_xr"
     suppressed.EntityData.ParentYangName = "location"
     suppressed.EntityData.SegmentPath = "suppressed" + types.AddKeyToken(suppressed.Aid, "aid") + types.AddKeyToken(suppressed.Eid, "eid")
+    suppressed.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-alarm-mgr:alarm_mgr/detail/card/location/" + suppressed.EntityData.SegmentPath
     suppressed.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     suppressed.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     suppressed.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1696,7 +1746,7 @@ func (suppressed *AlarmMgr_Detail_Card_Location_Suppressed) GetEntityData() *typ
 }
 
 // AlarmMgr_Detail_Rack
-// Alarms reported at the rack as 
+// Alarms reported at the rack as
 // specified by the location parameter
 type AlarmMgr_Detail_Rack struct {
     EntityData types.CommonEntityData
@@ -1712,6 +1762,7 @@ func (rack *AlarmMgr_Detail_Rack) GetEntityData() *types.CommonEntityData {
     rack.EntityData.BundleName = "cisco_ios_xr"
     rack.EntityData.ParentYangName = "detail"
     rack.EntityData.SegmentPath = "rack"
+    rack.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-alarm-mgr:alarm_mgr/detail/" + rack.EntityData.SegmentPath
     rack.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rack.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rack.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1732,6 +1783,7 @@ func (rack *AlarmMgr_Detail_Rack) GetEntityData() *types.CommonEntityData {
 type AlarmMgr_Detail_Rack_RackLocations struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is interface{} with range: 0..4294967295.
     Rackid interface{}
@@ -1758,6 +1810,7 @@ func (rackLocations *AlarmMgr_Detail_Rack_RackLocations) GetEntityData() *types.
     rackLocations.EntityData.BundleName = "cisco_ios_xr"
     rackLocations.EntityData.ParentYangName = "rack"
     rackLocations.EntityData.SegmentPath = "rack_locations" + types.AddKeyToken(rackLocations.Rackid, "rackid")
+    rackLocations.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-alarm-mgr:alarm_mgr/detail/rack/" + rackLocations.EntityData.SegmentPath
     rackLocations.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rackLocations.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rackLocations.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1795,6 +1848,7 @@ func (rackLocations *AlarmMgr_Detail_Rack_RackLocations) GetEntityData() *types.
 type AlarmMgr_Detail_Rack_RackLocations_Active struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The AID for the current alarm. The type is string.
     Aid interface{}
@@ -1847,6 +1901,7 @@ func (active *AlarmMgr_Detail_Rack_RackLocations_Active) GetEntityData() *types.
     active.EntityData.BundleName = "cisco_ios_xr"
     active.EntityData.ParentYangName = "rack_locations"
     active.EntityData.SegmentPath = "active" + types.AddKeyToken(active.Aid, "aid") + types.AddKeyToken(active.Eid, "eid")
+    active.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-alarm-mgr:alarm_mgr/detail/rack/rack_locations/" + active.EntityData.SegmentPath
     active.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     active.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     active.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1877,6 +1932,7 @@ func (active *AlarmMgr_Detail_Rack_RackLocations_Active) GetEntityData() *types.
 type AlarmMgr_Detail_Rack_RackLocations_History struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The AID for the current alarm. The type is string.
     Aid interface{}
@@ -1929,6 +1985,7 @@ func (history *AlarmMgr_Detail_Rack_RackLocations_History) GetEntityData() *type
     history.EntityData.BundleName = "cisco_ios_xr"
     history.EntityData.ParentYangName = "rack_locations"
     history.EntityData.SegmentPath = "history" + types.AddKeyToken(history.Aid, "aid") + types.AddKeyToken(history.Eid, "eid")
+    history.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-alarm-mgr:alarm_mgr/detail/rack/rack_locations/" + history.EntityData.SegmentPath
     history.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     history.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     history.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1959,6 +2016,7 @@ func (history *AlarmMgr_Detail_Rack_RackLocations_History) GetEntityData() *type
 type AlarmMgr_Detail_Rack_RackLocations_Stats struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Alarms statistics at specified time. The type is
     // string.
@@ -2019,6 +2077,7 @@ func (stats *AlarmMgr_Detail_Rack_RackLocations_Stats) GetEntityData() *types.Co
     stats.EntityData.BundleName = "cisco_ios_xr"
     stats.EntityData.ParentYangName = "rack_locations"
     stats.EntityData.SegmentPath = "stats" + types.AddKeyToken(stats.Attime, "attime")
+    stats.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-alarm-mgr:alarm_mgr/detail/rack/rack_locations/" + stats.EntityData.SegmentPath
     stats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     stats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2048,6 +2107,7 @@ func (stats *AlarmMgr_Detail_Rack_RackLocations_Stats) GetEntityData() *types.Co
 type AlarmMgr_Detail_Rack_RackLocations_Clients struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The client handle through which interface. The
     // type is string.
@@ -2115,6 +2175,7 @@ func (clients *AlarmMgr_Detail_Rack_RackLocations_Clients) GetEntityData() *type
     clients.EntityData.BundleName = "cisco_ios_xr"
     clients.EntityData.ParentYangName = "rack_locations"
     clients.EntityData.SegmentPath = "clients" + types.AddKeyToken(clients.AgentHandle, "agent_handle")
+    clients.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-alarm-mgr:alarm_mgr/detail/rack/rack_locations/" + clients.EntityData.SegmentPath
     clients.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clients.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clients.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2148,6 +2209,7 @@ func (clients *AlarmMgr_Detail_Rack_RackLocations_Clients) GetEntityData() *type
 type AlarmMgr_Detail_Rack_RackLocations_Suppressed struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The AID for the current alarm. The type is string.
     Aid interface{}
@@ -2200,6 +2262,7 @@ func (suppressed *AlarmMgr_Detail_Rack_RackLocations_Suppressed) GetEntityData()
     suppressed.EntityData.BundleName = "cisco_ios_xr"
     suppressed.EntityData.ParentYangName = "rack_locations"
     suppressed.EntityData.SegmentPath = "suppressed" + types.AddKeyToken(suppressed.Aid, "aid") + types.AddKeyToken(suppressed.Eid, "eid")
+    suppressed.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-alarm-mgr:alarm_mgr/detail/rack/rack_locations/" + suppressed.EntityData.SegmentPath
     suppressed.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     suppressed.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     suppressed.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2227,7 +2290,7 @@ func (suppressed *AlarmMgr_Detail_Rack_RackLocations_Suppressed) GetEntityData()
 }
 
 // AlarmMgr_Detail_System
-// Alarms reported at the system as 
+// Alarms reported at the system as
 // specified by the location parameter
 type AlarmMgr_Detail_System struct {
     EntityData types.CommonEntityData
@@ -2255,6 +2318,7 @@ func (system *AlarmMgr_Detail_System) GetEntityData() *types.CommonEntityData {
     system.EntityData.BundleName = "cisco_ios_xr"
     system.EntityData.ParentYangName = "detail"
     system.EntityData.SegmentPath = "system"
+    system.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-alarm-mgr:alarm_mgr/detail/" + system.EntityData.SegmentPath
     system.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     system.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     system.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2291,6 +2355,7 @@ func (system *AlarmMgr_Detail_System) GetEntityData() *types.CommonEntityData {
 type AlarmMgr_Detail_System_Active struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The AID for the current alarm. The type is string.
     Aid interface{}
@@ -2343,6 +2408,7 @@ func (active *AlarmMgr_Detail_System_Active) GetEntityData() *types.CommonEntity
     active.EntityData.BundleName = "cisco_ios_xr"
     active.EntityData.ParentYangName = "system"
     active.EntityData.SegmentPath = "active" + types.AddKeyToken(active.Aid, "aid") + types.AddKeyToken(active.Eid, "eid")
+    active.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-alarm-mgr:alarm_mgr/detail/system/" + active.EntityData.SegmentPath
     active.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     active.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     active.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2373,6 +2439,7 @@ func (active *AlarmMgr_Detail_System_Active) GetEntityData() *types.CommonEntity
 type AlarmMgr_Detail_System_History struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The AID for the current alarm. The type is string.
     Aid interface{}
@@ -2425,6 +2492,7 @@ func (history *AlarmMgr_Detail_System_History) GetEntityData() *types.CommonEnti
     history.EntityData.BundleName = "cisco_ios_xr"
     history.EntityData.ParentYangName = "system"
     history.EntityData.SegmentPath = "history" + types.AddKeyToken(history.Aid, "aid") + types.AddKeyToken(history.Eid, "eid")
+    history.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-alarm-mgr:alarm_mgr/detail/system/" + history.EntityData.SegmentPath
     history.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     history.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     history.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2455,6 +2523,7 @@ func (history *AlarmMgr_Detail_System_History) GetEntityData() *types.CommonEnti
 type AlarmMgr_Detail_System_Stats struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Alarms statistics at specified time. The type is
     // string.
@@ -2515,6 +2584,7 @@ func (stats *AlarmMgr_Detail_System_Stats) GetEntityData() *types.CommonEntityDa
     stats.EntityData.BundleName = "cisco_ios_xr"
     stats.EntityData.ParentYangName = "system"
     stats.EntityData.SegmentPath = "stats" + types.AddKeyToken(stats.Attime, "attime")
+    stats.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-alarm-mgr:alarm_mgr/detail/system/" + stats.EntityData.SegmentPath
     stats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     stats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2544,6 +2614,7 @@ func (stats *AlarmMgr_Detail_System_Stats) GetEntityData() *types.CommonEntityDa
 type AlarmMgr_Detail_System_Clients struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The client handle through which interface. The
     // type is string.
@@ -2611,6 +2682,7 @@ func (clients *AlarmMgr_Detail_System_Clients) GetEntityData() *types.CommonEnti
     clients.EntityData.BundleName = "cisco_ios_xr"
     clients.EntityData.ParentYangName = "system"
     clients.EntityData.SegmentPath = "clients" + types.AddKeyToken(clients.AgentHandle, "agent_handle")
+    clients.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-alarm-mgr:alarm_mgr/detail/system/" + clients.EntityData.SegmentPath
     clients.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clients.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clients.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2644,6 +2716,7 @@ func (clients *AlarmMgr_Detail_System_Clients) GetEntityData() *types.CommonEnti
 type AlarmMgr_Detail_System_Suppressed struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The AID for the current alarm. The type is string.
     Aid interface{}
@@ -2696,6 +2769,7 @@ func (suppressed *AlarmMgr_Detail_System_Suppressed) GetEntityData() *types.Comm
     suppressed.EntityData.BundleName = "cisco_ios_xr"
     suppressed.EntityData.ParentYangName = "system"
     suppressed.EntityData.SegmentPath = "suppressed" + types.AddKeyToken(suppressed.Aid, "aid") + types.AddKeyToken(suppressed.Eid, "eid")
+    suppressed.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-alarm-mgr:alarm_mgr/detail/system/" + suppressed.EntityData.SegmentPath
     suppressed.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     suppressed.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     suppressed.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

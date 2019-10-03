@@ -40,6 +40,7 @@ func (cLABTOPOMIB *CLABTOPOMIB) GetEntityData() *types.CommonEntityData {
     cLABTOPOMIB.EntityData.BundleName = "cisco_ios_xe"
     cLABTOPOMIB.EntityData.ParentYangName = "CLAB-TOPO-MIB"
     cLABTOPOMIB.EntityData.SegmentPath = "CLAB-TOPO-MIB:CLAB-TOPO-MIB"
+    cLABTOPOMIB.EntityData.AbsolutePath = cLABTOPOMIB.EntityData.SegmentPath
     cLABTOPOMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cLABTOPOMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cLABTOPOMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -75,6 +76,7 @@ func (clabTopoFiberNodeCfgTable *CLABTOPOMIB_ClabTopoFiberNodeCfgTable) GetEntit
     clabTopoFiberNodeCfgTable.EntityData.BundleName = "cisco_ios_xe"
     clabTopoFiberNodeCfgTable.EntityData.ParentYangName = "CLAB-TOPO-MIB"
     clabTopoFiberNodeCfgTable.EntityData.SegmentPath = "clabTopoFiberNodeCfgTable"
+    clabTopoFiberNodeCfgTable.EntityData.AbsolutePath = "CLAB-TOPO-MIB:CLAB-TOPO-MIB/" + clabTopoFiberNodeCfgTable.EntityData.SegmentPath
     clabTopoFiberNodeCfgTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     clabTopoFiberNodeCfgTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     clabTopoFiberNodeCfgTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -98,6 +100,7 @@ func (clabTopoFiberNodeCfgTable *CLABTOPOMIB_ClabTopoFiberNodeCfgTable) GetEntit
 type CLABTOPOMIB_ClabTopoFiberNodeCfgTable_ClabTopoFiberNodeCfgEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. This key represents a human-readable name for a
     // fiber node. The type is string with length: 1..16.
@@ -117,6 +120,7 @@ func (clabTopoFiberNodeCfgEntry *CLABTOPOMIB_ClabTopoFiberNodeCfgTable_ClabTopoF
     clabTopoFiberNodeCfgEntry.EntityData.BundleName = "cisco_ios_xe"
     clabTopoFiberNodeCfgEntry.EntityData.ParentYangName = "clabTopoFiberNodeCfgTable"
     clabTopoFiberNodeCfgEntry.EntityData.SegmentPath = "clabTopoFiberNodeCfgEntry" + types.AddKeyToken(clabTopoFiberNodeCfgEntry.ClabTopoFiberNodeCfgNodeName, "clabTopoFiberNodeCfgNodeName")
+    clabTopoFiberNodeCfgEntry.EntityData.AbsolutePath = "CLAB-TOPO-MIB:CLAB-TOPO-MIB/clabTopoFiberNodeCfgTable/" + clabTopoFiberNodeCfgEntry.EntityData.SegmentPath
     clabTopoFiberNodeCfgEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     clabTopoFiberNodeCfgEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     clabTopoFiberNodeCfgEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -156,6 +160,7 @@ func (clabTopoChFnCfgTable *CLABTOPOMIB_ClabTopoChFnCfgTable) GetEntityData() *t
     clabTopoChFnCfgTable.EntityData.BundleName = "cisco_ios_xe"
     clabTopoChFnCfgTable.EntityData.ParentYangName = "CLAB-TOPO-MIB"
     clabTopoChFnCfgTable.EntityData.SegmentPath = "clabTopoChFnCfgTable"
+    clabTopoChFnCfgTable.EntityData.AbsolutePath = "CLAB-TOPO-MIB:CLAB-TOPO-MIB/" + clabTopoChFnCfgTable.EntityData.SegmentPath
     clabTopoChFnCfgTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     clabTopoChFnCfgTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     clabTopoChFnCfgTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -179,6 +184,7 @@ func (clabTopoChFnCfgTable *CLABTOPOMIB_ClabTopoChFnCfgTable) GetEntityData() *t
 type CLABTOPOMIB_ClabTopoChFnCfgTable_ClabTopoChFnCfgEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with length: 1..16. Refers to
     // clab_topo_mib.CLABTOPOMIB_ClabTopoFiberNodeCfgTable_ClabTopoFiberNodeCfgEntry_ClabTopoFiberNodeCfgNodeName
@@ -200,6 +206,7 @@ func (clabTopoChFnCfgEntry *CLABTOPOMIB_ClabTopoChFnCfgTable_ClabTopoChFnCfgEntr
     clabTopoChFnCfgEntry.EntityData.BundleName = "cisco_ios_xe"
     clabTopoChFnCfgEntry.EntityData.ParentYangName = "clabTopoChFnCfgTable"
     clabTopoChFnCfgEntry.EntityData.SegmentPath = "clabTopoChFnCfgEntry" + types.AddKeyToken(clabTopoChFnCfgEntry.ClabTopoFiberNodeCfgNodeName, "clabTopoFiberNodeCfgNodeName") + types.AddKeyToken(clabTopoChFnCfgEntry.ClabTopoChFnCfgChIfIndex, "clabTopoChFnCfgChIfIndex")
+    clabTopoChFnCfgEntry.EntityData.AbsolutePath = "CLAB-TOPO-MIB:CLAB-TOPO-MIB/clabTopoChFnCfgTable/" + clabTopoChFnCfgEntry.EntityData.SegmentPath
     clabTopoChFnCfgEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     clabTopoChFnCfgEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     clabTopoChFnCfgEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

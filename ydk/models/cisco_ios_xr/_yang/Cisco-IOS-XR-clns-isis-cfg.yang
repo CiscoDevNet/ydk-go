@@ -42,6 +42,14 @@ module Cisco-IOS-XR-clns-isis-cfg {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-11-23 {
+    description
+      "Added advertise-definition configuration item.";
+  }
+  revision 2018-11-02 {
+    description
+      "Added purge-transmit strict configuration item.";
+  }
   revision 2018-06-14 {
     description
       "Added FRR InitialDelay under address-family fast-reroute submode.";
@@ -328,6 +336,28 @@ module Cisco-IOS-XR-clns-isis-cfg {
     }
     description
       "Isis configurable levels";
+  }
+
+  typedef Isis-configurable-level {
+    type enumeration {
+      enum "level-12" {
+        value 0;
+        description
+          "Both Levels";
+      }
+      enum "level-1" {
+        value 1;
+        description
+          "level 1";
+      }
+      enum "level-2" {
+        value 2;
+        description
+          "level 2";
+      }
+    }
+    description
+      "Isis configurable level";
   }
 
   typedef Isissid {
@@ -1592,6 +1622,11 @@ module Cisco-IOS-XR-clns-isis-cfg {
                   description
                     "Enable per bundle member adjacency SID";
                 }
+                leaf labeled-only {
+                  type empty;
+                  description
+                    "Only install SR labeled paths";
+                }
                 leaf mpls {
                   type Isis-label-preference;
                   description
@@ -1672,11 +1707,6 @@ module Cisco-IOS-XR-clns-isis-cfg {
                   description
                     "FRR prefix-limit configuration";
                   list priority-limit {
-                    must "priority-limit-data or frr-type" {
-                      description
-                        "priority-limit-data or frr-type must be
-                         present.";
-                    }
                     key "level";
                     description
                       "Limit backup computation upto the prefix
@@ -1692,11 +1722,6 @@ module Cisco-IOS-XR-clns-isis-cfg {
                           "Compute for all prefixes upto the
                            specified priority";
                       }
-                    }
-                    container priority-limit-data {
-                      description
-                        "Data container.";
-                      uses PRIORITY-LIMIT-CONTENT;
                     }
                     leaf level {
                       type dt1:Isis-internal-level;
@@ -2640,6 +2665,11 @@ module Cisco-IOS-XR-clns-isis-cfg {
               }
               description
                 "Set the Flex-Algo priority";
+            }
+            leaf advertise-definition {
+              type boolean;
+              description
+                "If TRUE, Flex-Algo definition is advertised";
             }
             leaf flex-algo {
               type uint32 {
@@ -3926,6 +3956,12 @@ module Cisco-IOS-XR-clns-isis-cfg {
             "If TRUE, dynamic hostname resolution is
              disabled, and system IDs will always be
              displayed by show and debug output.";
+        }
+        leaf purge-transmit-strict {
+          type Isis-configurable-level;
+          default "level-12";
+          description
+            "Allow only authentication TLV in purge LSPs";
         }
         leaf nsr {
           type empty;

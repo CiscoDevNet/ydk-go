@@ -65,6 +65,7 @@ func (cISCOIPTAPMIB *CISCOIPTAPMIB) GetEntityData() *types.CommonEntityData {
     cISCOIPTAPMIB.EntityData.BundleName = "cisco_ios_xe"
     cISCOIPTAPMIB.EntityData.ParentYangName = "CISCO-IP-TAP-MIB"
     cISCOIPTAPMIB.EntityData.SegmentPath = "CISCO-IP-TAP-MIB:CISCO-IP-TAP-MIB"
+    cISCOIPTAPMIB.EntityData.AbsolutePath = cISCOIPTAPMIB.EntityData.SegmentPath
     cISCOIPTAPMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cISCOIPTAPMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOIPTAPMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -110,6 +111,7 @@ func (citapStreamEncodePacket *CISCOIPTAPMIB_CitapStreamEncodePacket) GetEntityD
     citapStreamEncodePacket.EntityData.BundleName = "cisco_ios_xe"
     citapStreamEncodePacket.EntityData.ParentYangName = "CISCO-IP-TAP-MIB"
     citapStreamEncodePacket.EntityData.SegmentPath = "citapStreamEncodePacket"
+    citapStreamEncodePacket.EntityData.AbsolutePath = "CISCO-IP-TAP-MIB:CISCO-IP-TAP-MIB/" + citapStreamEncodePacket.EntityData.SegmentPath
     citapStreamEncodePacket.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     citapStreamEncodePacket.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     citapStreamEncodePacket.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -172,6 +174,7 @@ func (citapStreamTable *CISCOIPTAPMIB_CitapStreamTable) GetEntityData() *types.C
     citapStreamTable.EntityData.BundleName = "cisco_ios_xe"
     citapStreamTable.EntityData.ParentYangName = "CISCO-IP-TAP-MIB"
     citapStreamTable.EntityData.SegmentPath = "citapStreamTable"
+    citapStreamTable.EntityData.AbsolutePath = "CISCO-IP-TAP-MIB:CISCO-IP-TAP-MIB/" + citapStreamTable.EntityData.SegmentPath
     citapStreamTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     citapStreamTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     citapStreamTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -196,6 +199,7 @@ func (citapStreamTable *CISCOIPTAPMIB_CitapStreamTable) GetEntityData() *types.C
 type CISCOIPTAPMIB_CitapStreamTable_CitapStreamEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -335,6 +339,7 @@ func (citapStreamEntry *CISCOIPTAPMIB_CitapStreamTable_CitapStreamEntry) GetEnti
     citapStreamEntry.EntityData.BundleName = "cisco_ios_xe"
     citapStreamEntry.EntityData.ParentYangName = "citapStreamTable"
     citapStreamEntry.EntityData.SegmentPath = "citapStreamEntry" + types.AddKeyToken(citapStreamEntry.CTap2MediationContentId, "cTap2MediationContentId") + types.AddKeyToken(citapStreamEntry.CTap2StreamIndex, "cTap2StreamIndex")
+    citapStreamEntry.EntityData.AbsolutePath = "CISCO-IP-TAP-MIB:CISCO-IP-TAP-MIB/citapStreamTable/" + citapStreamEntry.EntityData.SegmentPath
     citapStreamEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     citapStreamEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     citapStreamEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

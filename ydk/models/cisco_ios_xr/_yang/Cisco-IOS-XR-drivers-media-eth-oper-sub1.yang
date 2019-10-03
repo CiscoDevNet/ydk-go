@@ -2158,6 +2158,15 @@ submodule Cisco-IOS-XR-drivers-media-eth-oper-sub1 {
         description
           "4 lane CWDM Lite cable";
       }
+      enum "ethernet-100gbase-sr-bd" {
+        description
+          "Bi-directional fiber over 2 lane optics (short
+           reach)";
+      }
+      enum "ethernet-100gbase-fr" {
+        description
+          "duplex single mode fiber (Far Reach/2 km)";
+      }
       enum "ethernet-base-max" {
         description
           "ethernet base max";

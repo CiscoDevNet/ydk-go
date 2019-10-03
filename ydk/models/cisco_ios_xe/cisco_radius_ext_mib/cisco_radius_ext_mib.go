@@ -66,6 +66,7 @@ func (cISCORADIUSEXTMIB *CISCORADIUSEXTMIB) GetEntityData() *types.CommonEntityD
     cISCORADIUSEXTMIB.EntityData.BundleName = "cisco_ios_xe"
     cISCORADIUSEXTMIB.EntityData.ParentYangName = "CISCO-RADIUS-EXT-MIB"
     cISCORADIUSEXTMIB.EntityData.SegmentPath = "CISCO-RADIUS-EXT-MIB:CISCO-RADIUS-EXT-MIB"
+    cISCORADIUSEXTMIB.EntityData.AbsolutePath = cISCORADIUSEXTMIB.EntityData.SegmentPath
     cISCORADIUSEXTMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cISCORADIUSEXTMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCORADIUSEXTMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -144,6 +145,7 @@ func (creClientGlobal *CISCORADIUSEXTMIB_CreClientGlobal) GetEntityData() *types
     creClientGlobal.EntityData.BundleName = "cisco_ios_xe"
     creClientGlobal.EntityData.ParentYangName = "CISCO-RADIUS-EXT-MIB"
     creClientGlobal.EntityData.SegmentPath = "creClientGlobal"
+    creClientGlobal.EntityData.AbsolutePath = "CISCO-RADIUS-EXT-MIB:CISCO-RADIUS-EXT-MIB/" + creClientGlobal.EntityData.SegmentPath
     creClientGlobal.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     creClientGlobal.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     creClientGlobal.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -245,6 +247,7 @@ func (creClientAuthentication *CISCORADIUSEXTMIB_CreClientAuthentication) GetEnt
     creClientAuthentication.EntityData.BundleName = "cisco_ios_xe"
     creClientAuthentication.EntityData.ParentYangName = "CISCO-RADIUS-EXT-MIB"
     creClientAuthentication.EntityData.SegmentPath = "creClientAuthentication"
+    creClientAuthentication.EntityData.AbsolutePath = "CISCO-RADIUS-EXT-MIB:CISCO-RADIUS-EXT-MIB/" + creClientAuthentication.EntityData.SegmentPath
     creClientAuthentication.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     creClientAuthentication.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     creClientAuthentication.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -350,6 +353,7 @@ func (creClientAccounting *CISCORADIUSEXTMIB_CreClientAccounting) GetEntityData(
     creClientAccounting.EntityData.BundleName = "cisco_ios_xe"
     creClientAccounting.EntityData.ParentYangName = "CISCO-RADIUS-EXT-MIB"
     creClientAccounting.EntityData.SegmentPath = "creClientAccounting"
+    creClientAccounting.EntityData.AbsolutePath = "CISCO-RADIUS-EXT-MIB:CISCO-RADIUS-EXT-MIB/" + creClientAccounting.EntityData.SegmentPath
     creClientAccounting.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     creClientAccounting.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     creClientAccounting.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

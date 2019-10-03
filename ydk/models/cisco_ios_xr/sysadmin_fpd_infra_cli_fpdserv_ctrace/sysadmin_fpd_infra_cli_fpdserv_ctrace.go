@@ -1,3 +1,8 @@
+// This module contains definitions
+// for the Calvados model objects.
+// 
+// Copyright (c) 2012-2018 by Cisco Systems, Inc.
+// All rights reserved.
 package sysadmin_fpd_infra_cli_fpdserv_ctrace
 
 import (
@@ -30,6 +35,7 @@ func (fpdserv *Fpdserv) GetEntityData() *types.CommonEntityData {
     fpdserv.EntityData.BundleName = "cisco_ios_xr"
     fpdserv.EntityData.ParentYangName = "Cisco-IOS-XR-sysadmin-fpd-infra-cli-fpdserv-ctrace"
     fpdserv.EntityData.SegmentPath = "Cisco-IOS-XR-sysadmin-fpd-infra-cli-fpdserv-ctrace:fpdserv"
+    fpdserv.EntityData.AbsolutePath = fpdserv.EntityData.SegmentPath
     fpdserv.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fpdserv.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fpdserv.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -51,6 +57,7 @@ func (fpdserv *Fpdserv) GetEntityData() *types.CommonEntityData {
 type Fpdserv_Trace struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     Buffer interface{}
@@ -65,6 +72,7 @@ func (trace *Fpdserv_Trace) GetEntityData() *types.CommonEntityData {
     trace.EntityData.BundleName = "cisco_ios_xr"
     trace.EntityData.ParentYangName = "fpdserv"
     trace.EntityData.SegmentPath = "trace" + types.AddKeyToken(trace.Buffer, "buffer")
+    trace.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-fpd-infra-cli-fpdserv-ctrace:fpdserv/" + trace.EntityData.SegmentPath
     trace.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trace.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trace.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -86,6 +94,7 @@ func (trace *Fpdserv_Trace) GetEntityData() *types.CommonEntityData {
 type Fpdserv_Trace_Location struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     LocationName interface{}
@@ -100,6 +109,7 @@ func (location *Fpdserv_Trace_Location) GetEntityData() *types.CommonEntityData 
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "trace"
     location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.LocationName, "location_name")
+    location.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-fpd-infra-cli-fpdserv-ctrace:fpdserv/trace/" + location.EntityData.SegmentPath
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -121,6 +131,7 @@ func (location *Fpdserv_Trace_Location) GetEntityData() *types.CommonEntityData 
 type Fpdserv_Trace_Location_AllOptions struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     Option interface{}
@@ -135,6 +146,7 @@ func (allOptions *Fpdserv_Trace_Location_AllOptions) GetEntityData() *types.Comm
     allOptions.EntityData.BundleName = "cisco_ios_xr"
     allOptions.EntityData.ParentYangName = "location"
     allOptions.EntityData.SegmentPath = "all-options" + types.AddKeyToken(allOptions.Option, "option")
+    allOptions.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-fpd-infra-cli-fpdserv-ctrace:fpdserv/trace/location/" + allOptions.EntityData.SegmentPath
     allOptions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     allOptions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     allOptions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -142,6 +154,7 @@ func (allOptions *Fpdserv_Trace_Location_AllOptions) GetEntityData() *types.Comm
     allOptions.EntityData.Children = types.NewOrderedMap()
     allOptions.EntityData.Children.Append("trace-blocks", types.YChild{"TraceBlocks", nil})
     for i := range allOptions.TraceBlocks {
+        types.SetYListKey(allOptions.TraceBlocks[i], i)
         allOptions.EntityData.Children.Append(types.GetSegmentPath(allOptions.TraceBlocks[i]), types.YChild{"TraceBlocks", allOptions.TraceBlocks[i]})
     }
     allOptions.EntityData.Leafs = types.NewOrderedMap()
@@ -156,6 +169,7 @@ func (allOptions *Fpdserv_Trace_Location_AllOptions) GetEntityData() *types.Comm
 type Fpdserv_Trace_Location_AllOptions_TraceBlocks struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Trace output block. The type is string.
     Data interface{}
@@ -166,7 +180,8 @@ func (traceBlocks *Fpdserv_Trace_Location_AllOptions_TraceBlocks) GetEntityData(
     traceBlocks.EntityData.YangName = "trace-blocks"
     traceBlocks.EntityData.BundleName = "cisco_ios_xr"
     traceBlocks.EntityData.ParentYangName = "all-options"
-    traceBlocks.EntityData.SegmentPath = "trace-blocks"
+    traceBlocks.EntityData.SegmentPath = "trace-blocks" + types.AddNoKeyToken(traceBlocks)
+    traceBlocks.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-fpd-infra-cli-fpdserv-ctrace:fpdserv/trace/location/all-options/" + traceBlocks.EntityData.SegmentPath
     traceBlocks.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     traceBlocks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     traceBlocks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

@@ -60,6 +60,7 @@ func (ribStdby *RibStdby) GetEntityData() *types.CommonEntityData {
     ribStdby.EntityData.BundleName = "cisco_ios_xr"
     ribStdby.EntityData.ParentYangName = "Cisco-IOS-XR-ip-rib-ipv4-oper"
     ribStdby.EntityData.SegmentPath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby"
+    ribStdby.EntityData.AbsolutePath = ribStdby.EntityData.SegmentPath
     ribStdby.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ribStdby.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ribStdby.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -90,6 +91,7 @@ func (vrfs *RibStdby_Vrfs) GetEntityData() *types.CommonEntityData {
     vrfs.EntityData.BundleName = "cisco_ios_xr"
     vrfs.EntityData.ParentYangName = "rib-stdby"
     vrfs.EntityData.SegmentPath = "vrfs"
+    vrfs.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/" + vrfs.EntityData.SegmentPath
     vrfs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -111,6 +113,7 @@ func (vrfs *RibStdby_Vrfs) GetEntityData() *types.CommonEntityData {
 type RibStdby_Vrfs_Vrf struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of the VRF. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -126,6 +129,7 @@ func (vrf *RibStdby_Vrfs_Vrf) GetEntityData() *types.CommonEntityData {
     vrf.EntityData.BundleName = "cisco_ios_xr"
     vrf.EntityData.ParentYangName = "vrfs"
     vrf.EntityData.SegmentPath = "vrf" + types.AddKeyToken(vrf.VrfName, "vrf-name")
+    vrf.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/" + vrf.EntityData.SegmentPath
     vrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -156,6 +160,7 @@ func (afs *RibStdby_Vrfs_Vrf_Afs) GetEntityData() *types.CommonEntityData {
     afs.EntityData.BundleName = "cisco_ios_xr"
     afs.EntityData.ParentYangName = "vrf"
     afs.EntityData.SegmentPath = "afs"
+    afs.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/" + afs.EntityData.SegmentPath
     afs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     afs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     afs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -177,6 +182,7 @@ func (afs *RibStdby_Vrfs_Vrf_Afs) GetEntityData() *types.CommonEntityData {
 type RibStdby_Vrfs_Vrf_Afs_Af struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of the AF. The type is string with pattern:
     // (IPv4)|(IPv6).
@@ -192,6 +198,7 @@ func (af *RibStdby_Vrfs_Vrf_Afs_Af) GetEntityData() *types.CommonEntityData {
     af.EntityData.BundleName = "cisco_ios_xr"
     af.EntityData.ParentYangName = "afs"
     af.EntityData.SegmentPath = "af" + types.AddKeyToken(af.AfName, "af-name")
+    af.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/" + af.EntityData.SegmentPath
     af.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     af.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     af.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -223,6 +230,7 @@ func (safs *RibStdby_Vrfs_Vrf_Afs_Af_Safs) GetEntityData() *types.CommonEntityDa
     safs.EntityData.BundleName = "cisco_ios_xr"
     safs.EntityData.ParentYangName = "af"
     safs.EntityData.SegmentPath = "safs"
+    safs.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/" + safs.EntityData.SegmentPath
     safs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     safs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     safs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -244,6 +252,7 @@ func (safs *RibStdby_Vrfs_Vrf_Afs_Af_Safs) GetEntityData() *types.CommonEntityDa
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of the SAF. The type is string with pattern:
     // (Unicast)|(Multicast).
@@ -259,6 +268,7 @@ func (saf *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf) GetEntityData() *types.CommonEntit
     saf.EntityData.BundleName = "cisco_ios_xr"
     saf.EntityData.ParentYangName = "safs"
     saf.EntityData.SegmentPath = "saf" + types.AddKeyToken(saf.SafName, "saf-name")
+    saf.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/" + saf.EntityData.SegmentPath
     saf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     saf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     saf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -290,6 +300,7 @@ func (ipRibRouteTableNames *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNam
     ipRibRouteTableNames.EntityData.BundleName = "cisco_ios_xr"
     ipRibRouteTableNames.EntityData.ParentYangName = "saf"
     ipRibRouteTableNames.EntityData.SegmentPath = "ip-rib-route-table-names"
+    ipRibRouteTableNames.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/" + ipRibRouteTableNames.EntityData.SegmentPath
     ipRibRouteTableNames.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipRibRouteTableNames.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipRibRouteTableNames.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -311,6 +322,7 @@ func (ipRibRouteTableNames *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNam
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of the route table. The type is string with
     // pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -347,6 +359,7 @@ func (ipRibRouteTableName *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableName
     ipRibRouteTableName.EntityData.BundleName = "cisco_ios_xr"
     ipRibRouteTableName.EntityData.ParentYangName = "ip-rib-route-table-names"
     ipRibRouteTableName.EntityData.SegmentPath = "ip-rib-route-table-name" + types.AddKeyToken(ipRibRouteTableName.RouteTableName, "route-table-name")
+    ipRibRouteTableName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/" + ipRibRouteTableName.EntityData.SegmentPath
     ipRibRouteTableName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipRibRouteTableName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipRibRouteTableName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -385,6 +398,7 @@ func (routes *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteT
     routes.EntityData.BundleName = "cisco_ios_xr"
     routes.EntityData.ParentYangName = "ip-rib-route-table-name"
     routes.EntityData.SegmentPath = "routes"
+    routes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/" + routes.EntityData.SegmentPath
     routes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -407,20 +421,15 @@ func (routes *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteT
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Routes_Route struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
-    // Network Address. The type is string with pattern:
+    // This attribute is a key. Network Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Prefix Length. The type is interface{} with range: 0..32.
+    // This attribute is a key. Prefix Length. The type is interface{} with range:
+    // 0..32.
     PrefixLength interface{}
-
-    // NextHop Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
-    NextHopAddress interface{}
-
-    // Outgoing Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
-    InterfaceName interface{}
 
     // Route prefix. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -537,7 +546,8 @@ func (route *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTa
     route.EntityData.YangName = "route"
     route.EntityData.BundleName = "cisco_ios_xr"
     route.EntityData.ParentYangName = "routes"
-    route.EntityData.SegmentPath = "route"
+    route.EntityData.SegmentPath = "route" + types.AddKeyToken(route.Address, "address") + types.AddKeyToken(route.PrefixLength, "prefix-length")
+    route.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/routes/" + route.EntityData.SegmentPath
     route.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     route.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     route.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -547,8 +557,6 @@ func (route *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTa
     route.EntityData.Leafs = types.NewOrderedMap()
     route.EntityData.Leafs.Append("address", types.YLeaf{"Address", route.Address})
     route.EntityData.Leafs.Append("prefix-length", types.YLeaf{"PrefixLength", route.PrefixLength})
-    route.EntityData.Leafs.Append("next-hop-address", types.YLeaf{"NextHopAddress", route.NextHopAddress})
-    route.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", route.InterfaceName})
     route.EntityData.Leafs.Append("prefix", types.YLeaf{"Prefix", route.Prefix})
     route.EntityData.Leafs.Append("prefix-length-xr", types.YLeaf{"PrefixLengthXr", route.PrefixLengthXr})
     route.EntityData.Leafs.Append("route-version", types.YLeaf{"RouteVersion", route.RouteVersion})
@@ -582,7 +590,7 @@ func (route *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTa
     route.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", route.TblVersion})
     route.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", route.RouteModifyTime})
 
-    route.EntityData.YListKeys = []string {}
+    route.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
     return &(route.EntityData)
 }
@@ -604,6 +612,7 @@ func (routePath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     routePath.EntityData.BundleName = "cisco_ios_xr"
     routePath.EntityData.ParentYangName = "route"
     routePath.EntityData.SegmentPath = "route-path"
+    routePath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/routes/route/" + routePath.EntityData.SegmentPath
     routePath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routePath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routePath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -611,6 +620,7 @@ func (routePath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     routePath.EntityData.Children = types.NewOrderedMap()
     routePath.EntityData.Children.Append("ipv4-rib-edm-path", types.YChild{"Ipv4RibEdmPath", nil})
     for i := range routePath.Ipv4RibEdmPath {
+        types.SetYListKey(routePath.Ipv4RibEdmPath[i], i)
         routePath.EntityData.Children.Append(types.GetSegmentPath(routePath.Ipv4RibEdmPath[i]), types.YChild{"Ipv4RibEdmPath", routePath.Ipv4RibEdmPath[i]})
     }
     routePath.EntityData.Leafs = types.NewOrderedMap()
@@ -625,6 +635,7 @@ func (routePath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Routes_Route_RoutePath_Ipv4RibEdmPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Nexthop. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -804,7 +815,8 @@ func (ipv4RibEdmPath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
     ipv4RibEdmPath.EntityData.YangName = "ipv4-rib-edm-path"
     ipv4RibEdmPath.EntityData.BundleName = "cisco_ios_xr"
     ipv4RibEdmPath.EntityData.ParentYangName = "route-path"
-    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path"
+    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path" + types.AddNoKeyToken(ipv4RibEdmPath)
+    ipv4RibEdmPath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/routes/route/route-path/" + ipv4RibEdmPath.EntityData.SegmentPath
     ipv4RibEdmPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4RibEdmPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4RibEdmPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -812,14 +824,17 @@ func (ipv4RibEdmPath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
     ipv4RibEdmPath.EntityData.Children = types.NewOrderedMap()
     ipv4RibEdmPath.EntityData.Children.Append("remote-backup-addr", types.YChild{"RemoteBackupAddr", nil})
     for i := range ipv4RibEdmPath.RemoteBackupAddr {
+        types.SetYListKey(ipv4RibEdmPath.RemoteBackupAddr[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.RemoteBackupAddr[i]), types.YChild{"RemoteBackupAddr", ipv4RibEdmPath.RemoteBackupAddr[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("labelstk", types.YChild{"Labelstk", nil})
     for i := range ipv4RibEdmPath.Labelstk {
+        types.SetYListKey(ipv4RibEdmPath.Labelstk[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.Labelstk[i]), types.YChild{"Labelstk", ipv4RibEdmPath.Labelstk[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("next-next-hop", types.YChild{"NextNextHop", nil})
     for i := range ipv4RibEdmPath.NextNextHop {
+        types.SetYListKey(ipv4RibEdmPath.NextNextHop[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.NextNextHop[i]), types.YChild{"NextNextHop", ipv4RibEdmPath.NextNextHop[i]})
     }
     ipv4RibEdmPath.EntityData.Leafs = types.NewOrderedMap()
@@ -881,6 +896,7 @@ func (ipv4RibEdmPath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Routes_Route_RoutePath_Ipv4RibEdmPath_RemoteBackupAddr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -892,7 +908,8 @@ func (remoteBackupAddr *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_I
     remoteBackupAddr.EntityData.YangName = "remote-backup-addr"
     remoteBackupAddr.EntityData.BundleName = "cisco_ios_xr"
     remoteBackupAddr.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr"
+    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr" + types.AddNoKeyToken(remoteBackupAddr)
+    remoteBackupAddr.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/routes/route/route-path/ipv4-rib-edm-path/" + remoteBackupAddr.EntityData.SegmentPath
     remoteBackupAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteBackupAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteBackupAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -911,6 +928,7 @@ func (remoteBackupAddr *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_I
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Routes_Route_RoutePath_Ipv4RibEdmPath_Labelstk struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -921,7 +939,8 @@ func (labelstk *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
     labelstk.EntityData.YangName = "labelstk"
     labelstk.EntityData.BundleName = "cisco_ios_xr"
     labelstk.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    labelstk.EntityData.SegmentPath = "labelstk"
+    labelstk.EntityData.SegmentPath = "labelstk" + types.AddNoKeyToken(labelstk)
+    labelstk.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/routes/route/route-path/ipv4-rib-edm-path/" + labelstk.EntityData.SegmentPath
     labelstk.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labelstk.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelstk.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -940,6 +959,7 @@ func (labelstk *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Routes_Route_RoutePath_Ipv4RibEdmPath_NextNextHop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // type. The type is RibEdmNnh.
     Type interface{}
@@ -960,7 +980,8 @@ func (nextNextHop *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
     nextNextHop.EntityData.YangName = "next-next-hop"
     nextNextHop.EntityData.BundleName = "cisco_ios_xr"
     nextNextHop.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    nextNextHop.EntityData.SegmentPath = "next-next-hop"
+    nextNextHop.EntityData.SegmentPath = "next-next-hop" + types.AddNoKeyToken(nextNextHop)
+    nextNextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/routes/route/route-path/ipv4-rib-edm-path/" + nextNextHop.EntityData.SegmentPath
     nextNextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextNextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextNextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -994,6 +1015,7 @@ func (deletedRoutes *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     deletedRoutes.EntityData.BundleName = "cisco_ios_xr"
     deletedRoutes.EntityData.ParentYangName = "ip-rib-route-table-name"
     deletedRoutes.EntityData.SegmentPath = "deleted-routes"
+    deletedRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/" + deletedRoutes.EntityData.SegmentPath
     deletedRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     deletedRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     deletedRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1016,12 +1038,14 @@ func (deletedRoutes *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DeletedRoutes_DeletedRoute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
-    // Network Address. The type is string with pattern:
+    // This attribute is a key. Network Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Prefix Length. The type is interface{} with range: 0..32.
+    // This attribute is a key. Prefix Length. The type is interface{} with range:
+    // 0..32.
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
@@ -1139,7 +1163,8 @@ func (deletedRoute *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRib
     deletedRoute.EntityData.YangName = "deleted-route"
     deletedRoute.EntityData.BundleName = "cisco_ios_xr"
     deletedRoute.EntityData.ParentYangName = "deleted-routes"
-    deletedRoute.EntityData.SegmentPath = "deleted-route"
+    deletedRoute.EntityData.SegmentPath = "deleted-route" + types.AddKeyToken(deletedRoute.Address, "address") + types.AddKeyToken(deletedRoute.PrefixLength, "prefix-length")
+    deletedRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/deleted-routes/" + deletedRoute.EntityData.SegmentPath
     deletedRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     deletedRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     deletedRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1182,7 +1207,7 @@ func (deletedRoute *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRib
     deletedRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", deletedRoute.TblVersion})
     deletedRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", deletedRoute.RouteModifyTime})
 
-    deletedRoute.EntityData.YListKeys = []string {}
+    deletedRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
     return &(deletedRoute.EntityData)
 }
@@ -1204,6 +1229,7 @@ func (routePath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     routePath.EntityData.BundleName = "cisco_ios_xr"
     routePath.EntityData.ParentYangName = "deleted-route"
     routePath.EntityData.SegmentPath = "route-path"
+    routePath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/deleted-routes/deleted-route/" + routePath.EntityData.SegmentPath
     routePath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routePath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routePath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1211,6 +1237,7 @@ func (routePath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     routePath.EntityData.Children = types.NewOrderedMap()
     routePath.EntityData.Children.Append("ipv4-rib-edm-path", types.YChild{"Ipv4RibEdmPath", nil})
     for i := range routePath.Ipv4RibEdmPath {
+        types.SetYListKey(routePath.Ipv4RibEdmPath[i], i)
         routePath.EntityData.Children.Append(types.GetSegmentPath(routePath.Ipv4RibEdmPath[i]), types.YChild{"Ipv4RibEdmPath", routePath.Ipv4RibEdmPath[i]})
     }
     routePath.EntityData.Leafs = types.NewOrderedMap()
@@ -1225,6 +1252,7 @@ func (routePath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DeletedRoutes_DeletedRoute_RoutePath_Ipv4RibEdmPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Nexthop. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -1404,7 +1432,8 @@ func (ipv4RibEdmPath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
     ipv4RibEdmPath.EntityData.YangName = "ipv4-rib-edm-path"
     ipv4RibEdmPath.EntityData.BundleName = "cisco_ios_xr"
     ipv4RibEdmPath.EntityData.ParentYangName = "route-path"
-    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path"
+    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path" + types.AddNoKeyToken(ipv4RibEdmPath)
+    ipv4RibEdmPath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/deleted-routes/deleted-route/route-path/" + ipv4RibEdmPath.EntityData.SegmentPath
     ipv4RibEdmPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4RibEdmPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4RibEdmPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1412,14 +1441,17 @@ func (ipv4RibEdmPath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
     ipv4RibEdmPath.EntityData.Children = types.NewOrderedMap()
     ipv4RibEdmPath.EntityData.Children.Append("remote-backup-addr", types.YChild{"RemoteBackupAddr", nil})
     for i := range ipv4RibEdmPath.RemoteBackupAddr {
+        types.SetYListKey(ipv4RibEdmPath.RemoteBackupAddr[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.RemoteBackupAddr[i]), types.YChild{"RemoteBackupAddr", ipv4RibEdmPath.RemoteBackupAddr[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("labelstk", types.YChild{"Labelstk", nil})
     for i := range ipv4RibEdmPath.Labelstk {
+        types.SetYListKey(ipv4RibEdmPath.Labelstk[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.Labelstk[i]), types.YChild{"Labelstk", ipv4RibEdmPath.Labelstk[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("next-next-hop", types.YChild{"NextNextHop", nil})
     for i := range ipv4RibEdmPath.NextNextHop {
+        types.SetYListKey(ipv4RibEdmPath.NextNextHop[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.NextNextHop[i]), types.YChild{"NextNextHop", ipv4RibEdmPath.NextNextHop[i]})
     }
     ipv4RibEdmPath.EntityData.Leafs = types.NewOrderedMap()
@@ -1481,6 +1513,7 @@ func (ipv4RibEdmPath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DeletedRoutes_DeletedRoute_RoutePath_Ipv4RibEdmPath_RemoteBackupAddr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -1492,7 +1525,8 @@ func (remoteBackupAddr *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_I
     remoteBackupAddr.EntityData.YangName = "remote-backup-addr"
     remoteBackupAddr.EntityData.BundleName = "cisco_ios_xr"
     remoteBackupAddr.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr"
+    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr" + types.AddNoKeyToken(remoteBackupAddr)
+    remoteBackupAddr.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/deleted-routes/deleted-route/route-path/ipv4-rib-edm-path/" + remoteBackupAddr.EntityData.SegmentPath
     remoteBackupAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteBackupAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteBackupAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1511,6 +1545,7 @@ func (remoteBackupAddr *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_I
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DeletedRoutes_DeletedRoute_RoutePath_Ipv4RibEdmPath_Labelstk struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -1521,7 +1556,8 @@ func (labelstk *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
     labelstk.EntityData.YangName = "labelstk"
     labelstk.EntityData.BundleName = "cisco_ios_xr"
     labelstk.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    labelstk.EntityData.SegmentPath = "labelstk"
+    labelstk.EntityData.SegmentPath = "labelstk" + types.AddNoKeyToken(labelstk)
+    labelstk.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/deleted-routes/deleted-route/route-path/ipv4-rib-edm-path/" + labelstk.EntityData.SegmentPath
     labelstk.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labelstk.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelstk.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1540,6 +1576,7 @@ func (labelstk *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DeletedRoutes_DeletedRoute_RoutePath_Ipv4RibEdmPath_NextNextHop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // type. The type is RibEdmNnh.
     Type interface{}
@@ -1560,7 +1597,8 @@ func (nextNextHop *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
     nextNextHop.EntityData.YangName = "next-next-hop"
     nextNextHop.EntityData.BundleName = "cisco_ios_xr"
     nextNextHop.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    nextNextHop.EntityData.SegmentPath = "next-next-hop"
+    nextNextHop.EntityData.SegmentPath = "next-next-hop" + types.AddNoKeyToken(nextNextHop)
+    nextNextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/deleted-routes/deleted-route/route-path/ipv4-rib-edm-path/" + nextNextHop.EntityData.SegmentPath
     nextNextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextNextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextNextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1602,6 +1640,7 @@ func (destinationKw *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     destinationKw.EntityData.BundleName = "cisco_ios_xr"
     destinationKw.EntityData.ParentYangName = "ip-rib-route-table-name"
     destinationKw.EntityData.SegmentPath = "destination-kw"
+    destinationKw.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/" + destinationKw.EntityData.SegmentPath
     destinationKw.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     destinationKw.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     destinationKw.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1635,6 +1674,7 @@ func (destBestRoutes *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
     destBestRoutes.EntityData.BundleName = "cisco_ios_xr"
     destBestRoutes.EntityData.ParentYangName = "destination-kw"
     destBestRoutes.EntityData.SegmentPath = "dest-best-routes"
+    destBestRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/destination-kw/" + destBestRoutes.EntityData.SegmentPath
     destBestRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     destBestRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     destBestRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1657,6 +1697,7 @@ func (destBestRoutes *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestBestRoutes_DestBestRoute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Network Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -1778,6 +1819,7 @@ func (destBestRoute *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     destBestRoute.EntityData.BundleName = "cisco_ios_xr"
     destBestRoute.EntityData.ParentYangName = "dest-best-routes"
     destBestRoute.EntityData.SegmentPath = "dest-best-route" + types.AddKeyToken(destBestRoute.Address, "address")
+    destBestRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/destination-kw/dest-best-routes/" + destBestRoute.EntityData.SegmentPath
     destBestRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     destBestRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     destBestRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1841,6 +1883,7 @@ func (routePath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     routePath.EntityData.BundleName = "cisco_ios_xr"
     routePath.EntityData.ParentYangName = "dest-best-route"
     routePath.EntityData.SegmentPath = "route-path"
+    routePath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/destination-kw/dest-best-routes/dest-best-route/" + routePath.EntityData.SegmentPath
     routePath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routePath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routePath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1848,6 +1891,7 @@ func (routePath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     routePath.EntityData.Children = types.NewOrderedMap()
     routePath.EntityData.Children.Append("ipv4-rib-edm-path", types.YChild{"Ipv4RibEdmPath", nil})
     for i := range routePath.Ipv4RibEdmPath {
+        types.SetYListKey(routePath.Ipv4RibEdmPath[i], i)
         routePath.EntityData.Children.Append(types.GetSegmentPath(routePath.Ipv4RibEdmPath[i]), types.YChild{"Ipv4RibEdmPath", routePath.Ipv4RibEdmPath[i]})
     }
     routePath.EntityData.Leafs = types.NewOrderedMap()
@@ -1862,6 +1906,7 @@ func (routePath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestBestRoutes_DestBestRoute_RoutePath_Ipv4RibEdmPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Nexthop. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -2041,7 +2086,8 @@ func (ipv4RibEdmPath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
     ipv4RibEdmPath.EntityData.YangName = "ipv4-rib-edm-path"
     ipv4RibEdmPath.EntityData.BundleName = "cisco_ios_xr"
     ipv4RibEdmPath.EntityData.ParentYangName = "route-path"
-    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path"
+    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path" + types.AddNoKeyToken(ipv4RibEdmPath)
+    ipv4RibEdmPath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/destination-kw/dest-best-routes/dest-best-route/route-path/" + ipv4RibEdmPath.EntityData.SegmentPath
     ipv4RibEdmPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4RibEdmPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4RibEdmPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2049,14 +2095,17 @@ func (ipv4RibEdmPath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
     ipv4RibEdmPath.EntityData.Children = types.NewOrderedMap()
     ipv4RibEdmPath.EntityData.Children.Append("remote-backup-addr", types.YChild{"RemoteBackupAddr", nil})
     for i := range ipv4RibEdmPath.RemoteBackupAddr {
+        types.SetYListKey(ipv4RibEdmPath.RemoteBackupAddr[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.RemoteBackupAddr[i]), types.YChild{"RemoteBackupAddr", ipv4RibEdmPath.RemoteBackupAddr[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("labelstk", types.YChild{"Labelstk", nil})
     for i := range ipv4RibEdmPath.Labelstk {
+        types.SetYListKey(ipv4RibEdmPath.Labelstk[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.Labelstk[i]), types.YChild{"Labelstk", ipv4RibEdmPath.Labelstk[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("next-next-hop", types.YChild{"NextNextHop", nil})
     for i := range ipv4RibEdmPath.NextNextHop {
+        types.SetYListKey(ipv4RibEdmPath.NextNextHop[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.NextNextHop[i]), types.YChild{"NextNextHop", ipv4RibEdmPath.NextNextHop[i]})
     }
     ipv4RibEdmPath.EntityData.Leafs = types.NewOrderedMap()
@@ -2118,6 +2167,7 @@ func (ipv4RibEdmPath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestBestRoutes_DestBestRoute_RoutePath_Ipv4RibEdmPath_RemoteBackupAddr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -2129,7 +2179,8 @@ func (remoteBackupAddr *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_I
     remoteBackupAddr.EntityData.YangName = "remote-backup-addr"
     remoteBackupAddr.EntityData.BundleName = "cisco_ios_xr"
     remoteBackupAddr.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr"
+    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr" + types.AddNoKeyToken(remoteBackupAddr)
+    remoteBackupAddr.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/destination-kw/dest-best-routes/dest-best-route/route-path/ipv4-rib-edm-path/" + remoteBackupAddr.EntityData.SegmentPath
     remoteBackupAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteBackupAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteBackupAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2148,6 +2199,7 @@ func (remoteBackupAddr *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_I
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestBestRoutes_DestBestRoute_RoutePath_Ipv4RibEdmPath_Labelstk struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -2158,7 +2210,8 @@ func (labelstk *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
     labelstk.EntityData.YangName = "labelstk"
     labelstk.EntityData.BundleName = "cisco_ios_xr"
     labelstk.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    labelstk.EntityData.SegmentPath = "labelstk"
+    labelstk.EntityData.SegmentPath = "labelstk" + types.AddNoKeyToken(labelstk)
+    labelstk.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/destination-kw/dest-best-routes/dest-best-route/route-path/ipv4-rib-edm-path/" + labelstk.EntityData.SegmentPath
     labelstk.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labelstk.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelstk.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2177,6 +2230,7 @@ func (labelstk *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestBestRoutes_DestBestRoute_RoutePath_Ipv4RibEdmPath_NextNextHop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // type. The type is RibEdmNnh.
     Type interface{}
@@ -2197,7 +2251,8 @@ func (nextNextHop *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
     nextNextHop.EntityData.YangName = "next-next-hop"
     nextNextHop.EntityData.BundleName = "cisco_ios_xr"
     nextNextHop.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    nextNextHop.EntityData.SegmentPath = "next-next-hop"
+    nextNextHop.EntityData.SegmentPath = "next-next-hop" + types.AddNoKeyToken(nextNextHop)
+    nextNextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/destination-kw/dest-best-routes/dest-best-route/route-path/ipv4-rib-edm-path/" + nextNextHop.EntityData.SegmentPath
     nextNextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextNextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextNextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2231,6 +2286,7 @@ func (destQRoutes *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
     destQRoutes.EntityData.BundleName = "cisco_ios_xr"
     destQRoutes.EntityData.ParentYangName = "destination-kw"
     destQRoutes.EntityData.SegmentPath = "dest-q-routes"
+    destQRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/destination-kw/" + destQRoutes.EntityData.SegmentPath
     destQRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     destQRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     destQRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2253,12 +2309,14 @@ func (destQRoutes *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestQRoutes_DestQRoute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
-    // Network Address. The type is string with pattern:
+    // This attribute is a key. Network Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Prefix Length. The type is interface{} with range: 0..32.
+    // This attribute is a key. Prefix Length. The type is interface{} with range:
+    // 0..32.
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
@@ -2376,7 +2434,8 @@ func (destQRoute *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRo
     destQRoute.EntityData.YangName = "dest-q-route"
     destQRoute.EntityData.BundleName = "cisco_ios_xr"
     destQRoute.EntityData.ParentYangName = "dest-q-routes"
-    destQRoute.EntityData.SegmentPath = "dest-q-route"
+    destQRoute.EntityData.SegmentPath = "dest-q-route" + types.AddKeyToken(destQRoute.Address, "address") + types.AddKeyToken(destQRoute.PrefixLength, "prefix-length")
+    destQRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/destination-kw/dest-q-routes/" + destQRoute.EntityData.SegmentPath
     destQRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     destQRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     destQRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2419,7 +2478,7 @@ func (destQRoute *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRo
     destQRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", destQRoute.TblVersion})
     destQRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", destQRoute.RouteModifyTime})
 
-    destQRoute.EntityData.YListKeys = []string {}
+    destQRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
     return &(destQRoute.EntityData)
 }
@@ -2441,6 +2500,7 @@ func (routePath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     routePath.EntityData.BundleName = "cisco_ios_xr"
     routePath.EntityData.ParentYangName = "dest-q-route"
     routePath.EntityData.SegmentPath = "route-path"
+    routePath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/destination-kw/dest-q-routes/dest-q-route/" + routePath.EntityData.SegmentPath
     routePath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routePath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routePath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2448,6 +2508,7 @@ func (routePath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     routePath.EntityData.Children = types.NewOrderedMap()
     routePath.EntityData.Children.Append("ipv4-rib-edm-path", types.YChild{"Ipv4RibEdmPath", nil})
     for i := range routePath.Ipv4RibEdmPath {
+        types.SetYListKey(routePath.Ipv4RibEdmPath[i], i)
         routePath.EntityData.Children.Append(types.GetSegmentPath(routePath.Ipv4RibEdmPath[i]), types.YChild{"Ipv4RibEdmPath", routePath.Ipv4RibEdmPath[i]})
     }
     routePath.EntityData.Leafs = types.NewOrderedMap()
@@ -2462,6 +2523,7 @@ func (routePath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestQRoutes_DestQRoute_RoutePath_Ipv4RibEdmPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Nexthop. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -2641,7 +2703,8 @@ func (ipv4RibEdmPath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
     ipv4RibEdmPath.EntityData.YangName = "ipv4-rib-edm-path"
     ipv4RibEdmPath.EntityData.BundleName = "cisco_ios_xr"
     ipv4RibEdmPath.EntityData.ParentYangName = "route-path"
-    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path"
+    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path" + types.AddNoKeyToken(ipv4RibEdmPath)
+    ipv4RibEdmPath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/destination-kw/dest-q-routes/dest-q-route/route-path/" + ipv4RibEdmPath.EntityData.SegmentPath
     ipv4RibEdmPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4RibEdmPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4RibEdmPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2649,14 +2712,17 @@ func (ipv4RibEdmPath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
     ipv4RibEdmPath.EntityData.Children = types.NewOrderedMap()
     ipv4RibEdmPath.EntityData.Children.Append("remote-backup-addr", types.YChild{"RemoteBackupAddr", nil})
     for i := range ipv4RibEdmPath.RemoteBackupAddr {
+        types.SetYListKey(ipv4RibEdmPath.RemoteBackupAddr[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.RemoteBackupAddr[i]), types.YChild{"RemoteBackupAddr", ipv4RibEdmPath.RemoteBackupAddr[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("labelstk", types.YChild{"Labelstk", nil})
     for i := range ipv4RibEdmPath.Labelstk {
+        types.SetYListKey(ipv4RibEdmPath.Labelstk[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.Labelstk[i]), types.YChild{"Labelstk", ipv4RibEdmPath.Labelstk[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("next-next-hop", types.YChild{"NextNextHop", nil})
     for i := range ipv4RibEdmPath.NextNextHop {
+        types.SetYListKey(ipv4RibEdmPath.NextNextHop[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.NextNextHop[i]), types.YChild{"NextNextHop", ipv4RibEdmPath.NextNextHop[i]})
     }
     ipv4RibEdmPath.EntityData.Leafs = types.NewOrderedMap()
@@ -2718,6 +2784,7 @@ func (ipv4RibEdmPath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestQRoutes_DestQRoute_RoutePath_Ipv4RibEdmPath_RemoteBackupAddr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -2729,7 +2796,8 @@ func (remoteBackupAddr *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_I
     remoteBackupAddr.EntityData.YangName = "remote-backup-addr"
     remoteBackupAddr.EntityData.BundleName = "cisco_ios_xr"
     remoteBackupAddr.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr"
+    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr" + types.AddNoKeyToken(remoteBackupAddr)
+    remoteBackupAddr.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/destination-kw/dest-q-routes/dest-q-route/route-path/ipv4-rib-edm-path/" + remoteBackupAddr.EntityData.SegmentPath
     remoteBackupAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteBackupAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteBackupAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2748,6 +2816,7 @@ func (remoteBackupAddr *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_I
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestQRoutes_DestQRoute_RoutePath_Ipv4RibEdmPath_Labelstk struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -2758,7 +2827,8 @@ func (labelstk *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
     labelstk.EntityData.YangName = "labelstk"
     labelstk.EntityData.BundleName = "cisco_ios_xr"
     labelstk.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    labelstk.EntityData.SegmentPath = "labelstk"
+    labelstk.EntityData.SegmentPath = "labelstk" + types.AddNoKeyToken(labelstk)
+    labelstk.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/destination-kw/dest-q-routes/dest-q-route/route-path/ipv4-rib-edm-path/" + labelstk.EntityData.SegmentPath
     labelstk.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labelstk.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelstk.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2777,6 +2847,7 @@ func (labelstk *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestQRoutes_DestQRoute_RoutePath_Ipv4RibEdmPath_NextNextHop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // type. The type is RibEdmNnh.
     Type interface{}
@@ -2797,7 +2868,8 @@ func (nextNextHop *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
     nextNextHop.EntityData.YangName = "next-next-hop"
     nextNextHop.EntityData.BundleName = "cisco_ios_xr"
     nextNextHop.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    nextNextHop.EntityData.SegmentPath = "next-next-hop"
+    nextNextHop.EntityData.SegmentPath = "next-next-hop" + types.AddNoKeyToken(nextNextHop)
+    nextNextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/destination-kw/dest-q-routes/dest-q-route/route-path/ipv4-rib-edm-path/" + nextNextHop.EntityData.SegmentPath
     nextNextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextNextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextNextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2831,6 +2903,7 @@ func (destBackupRoutes *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_I
     destBackupRoutes.EntityData.BundleName = "cisco_ios_xr"
     destBackupRoutes.EntityData.ParentYangName = "destination-kw"
     destBackupRoutes.EntityData.SegmentPath = "dest-backup-routes"
+    destBackupRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/destination-kw/" + destBackupRoutes.EntityData.SegmentPath
     destBackupRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     destBackupRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     destBackupRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2853,12 +2926,14 @@ func (destBackupRoutes *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_I
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestBackupRoutes_DestBackupRoute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
-    // Network Address. The type is string with pattern:
+    // This attribute is a key. Network Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Prefix Length. The type is interface{} with range: 0..32.
+    // This attribute is a key. Prefix Length. The type is interface{} with range:
+    // 0..32.
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
@@ -2976,7 +3051,8 @@ func (destBackupRoute *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_Ip
     destBackupRoute.EntityData.YangName = "dest-backup-route"
     destBackupRoute.EntityData.BundleName = "cisco_ios_xr"
     destBackupRoute.EntityData.ParentYangName = "dest-backup-routes"
-    destBackupRoute.EntityData.SegmentPath = "dest-backup-route"
+    destBackupRoute.EntityData.SegmentPath = "dest-backup-route" + types.AddKeyToken(destBackupRoute.Address, "address") + types.AddKeyToken(destBackupRoute.PrefixLength, "prefix-length")
+    destBackupRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/destination-kw/dest-backup-routes/" + destBackupRoute.EntityData.SegmentPath
     destBackupRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     destBackupRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     destBackupRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3019,7 +3095,7 @@ func (destBackupRoute *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_Ip
     destBackupRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", destBackupRoute.TblVersion})
     destBackupRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", destBackupRoute.RouteModifyTime})
 
-    destBackupRoute.EntityData.YListKeys = []string {}
+    destBackupRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
     return &(destBackupRoute.EntityData)
 }
@@ -3041,6 +3117,7 @@ func (routePath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     routePath.EntityData.BundleName = "cisco_ios_xr"
     routePath.EntityData.ParentYangName = "dest-backup-route"
     routePath.EntityData.SegmentPath = "route-path"
+    routePath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/destination-kw/dest-backup-routes/dest-backup-route/" + routePath.EntityData.SegmentPath
     routePath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routePath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routePath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3048,6 +3125,7 @@ func (routePath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     routePath.EntityData.Children = types.NewOrderedMap()
     routePath.EntityData.Children.Append("ipv4-rib-edm-path", types.YChild{"Ipv4RibEdmPath", nil})
     for i := range routePath.Ipv4RibEdmPath {
+        types.SetYListKey(routePath.Ipv4RibEdmPath[i], i)
         routePath.EntityData.Children.Append(types.GetSegmentPath(routePath.Ipv4RibEdmPath[i]), types.YChild{"Ipv4RibEdmPath", routePath.Ipv4RibEdmPath[i]})
     }
     routePath.EntityData.Leafs = types.NewOrderedMap()
@@ -3062,6 +3140,7 @@ func (routePath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestBackupRoutes_DestBackupRoute_RoutePath_Ipv4RibEdmPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Nexthop. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -3241,7 +3320,8 @@ func (ipv4RibEdmPath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
     ipv4RibEdmPath.EntityData.YangName = "ipv4-rib-edm-path"
     ipv4RibEdmPath.EntityData.BundleName = "cisco_ios_xr"
     ipv4RibEdmPath.EntityData.ParentYangName = "route-path"
-    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path"
+    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path" + types.AddNoKeyToken(ipv4RibEdmPath)
+    ipv4RibEdmPath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/destination-kw/dest-backup-routes/dest-backup-route/route-path/" + ipv4RibEdmPath.EntityData.SegmentPath
     ipv4RibEdmPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4RibEdmPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4RibEdmPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3249,14 +3329,17 @@ func (ipv4RibEdmPath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
     ipv4RibEdmPath.EntityData.Children = types.NewOrderedMap()
     ipv4RibEdmPath.EntityData.Children.Append("remote-backup-addr", types.YChild{"RemoteBackupAddr", nil})
     for i := range ipv4RibEdmPath.RemoteBackupAddr {
+        types.SetYListKey(ipv4RibEdmPath.RemoteBackupAddr[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.RemoteBackupAddr[i]), types.YChild{"RemoteBackupAddr", ipv4RibEdmPath.RemoteBackupAddr[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("labelstk", types.YChild{"Labelstk", nil})
     for i := range ipv4RibEdmPath.Labelstk {
+        types.SetYListKey(ipv4RibEdmPath.Labelstk[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.Labelstk[i]), types.YChild{"Labelstk", ipv4RibEdmPath.Labelstk[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("next-next-hop", types.YChild{"NextNextHop", nil})
     for i := range ipv4RibEdmPath.NextNextHop {
+        types.SetYListKey(ipv4RibEdmPath.NextNextHop[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.NextNextHop[i]), types.YChild{"NextNextHop", ipv4RibEdmPath.NextNextHop[i]})
     }
     ipv4RibEdmPath.EntityData.Leafs = types.NewOrderedMap()
@@ -3318,6 +3401,7 @@ func (ipv4RibEdmPath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestBackupRoutes_DestBackupRoute_RoutePath_Ipv4RibEdmPath_RemoteBackupAddr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -3329,7 +3413,8 @@ func (remoteBackupAddr *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_I
     remoteBackupAddr.EntityData.YangName = "remote-backup-addr"
     remoteBackupAddr.EntityData.BundleName = "cisco_ios_xr"
     remoteBackupAddr.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr"
+    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr" + types.AddNoKeyToken(remoteBackupAddr)
+    remoteBackupAddr.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/destination-kw/dest-backup-routes/dest-backup-route/route-path/ipv4-rib-edm-path/" + remoteBackupAddr.EntityData.SegmentPath
     remoteBackupAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteBackupAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteBackupAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3348,6 +3433,7 @@ func (remoteBackupAddr *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_I
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestBackupRoutes_DestBackupRoute_RoutePath_Ipv4RibEdmPath_Labelstk struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -3358,7 +3444,8 @@ func (labelstk *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
     labelstk.EntityData.YangName = "labelstk"
     labelstk.EntityData.BundleName = "cisco_ios_xr"
     labelstk.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    labelstk.EntityData.SegmentPath = "labelstk"
+    labelstk.EntityData.SegmentPath = "labelstk" + types.AddNoKeyToken(labelstk)
+    labelstk.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/destination-kw/dest-backup-routes/dest-backup-route/route-path/ipv4-rib-edm-path/" + labelstk.EntityData.SegmentPath
     labelstk.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labelstk.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelstk.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3377,6 +3464,7 @@ func (labelstk *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestBackupRoutes_DestBackupRoute_RoutePath_Ipv4RibEdmPath_NextNextHop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // type. The type is RibEdmNnh.
     Type interface{}
@@ -3397,7 +3485,8 @@ func (nextNextHop *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
     nextNextHop.EntityData.YangName = "next-next-hop"
     nextNextHop.EntityData.BundleName = "cisco_ios_xr"
     nextNextHop.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    nextNextHop.EntityData.SegmentPath = "next-next-hop"
+    nextNextHop.EntityData.SegmentPath = "next-next-hop" + types.AddNoKeyToken(nextNextHop)
+    nextNextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/destination-kw/dest-backup-routes/dest-backup-route/route-path/ipv4-rib-edm-path/" + nextNextHop.EntityData.SegmentPath
     nextNextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextNextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextNextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3431,6 +3520,7 @@ func (destNextHopRoutes *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_
     destNextHopRoutes.EntityData.BundleName = "cisco_ios_xr"
     destNextHopRoutes.EntityData.ParentYangName = "destination-kw"
     destNextHopRoutes.EntityData.SegmentPath = "dest-next-hop-routes"
+    destNextHopRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/destination-kw/" + destNextHopRoutes.EntityData.SegmentPath
     destNextHopRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     destNextHopRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     destNextHopRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3453,6 +3543,7 @@ func (destNextHopRoutes *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestNextHopRoutes_DestNextHopRoute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Network Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -3574,6 +3665,7 @@ func (destNextHopRoute *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_I
     destNextHopRoute.EntityData.BundleName = "cisco_ios_xr"
     destNextHopRoute.EntityData.ParentYangName = "dest-next-hop-routes"
     destNextHopRoute.EntityData.SegmentPath = "dest-next-hop-route" + types.AddKeyToken(destNextHopRoute.Address, "address")
+    destNextHopRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/destination-kw/dest-next-hop-routes/" + destNextHopRoute.EntityData.SegmentPath
     destNextHopRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     destNextHopRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     destNextHopRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3637,6 +3729,7 @@ func (routePath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     routePath.EntityData.BundleName = "cisco_ios_xr"
     routePath.EntityData.ParentYangName = "dest-next-hop-route"
     routePath.EntityData.SegmentPath = "route-path"
+    routePath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/destination-kw/dest-next-hop-routes/dest-next-hop-route/" + routePath.EntityData.SegmentPath
     routePath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routePath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routePath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3644,6 +3737,7 @@ func (routePath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     routePath.EntityData.Children = types.NewOrderedMap()
     routePath.EntityData.Children.Append("ipv4-rib-edm-path", types.YChild{"Ipv4RibEdmPath", nil})
     for i := range routePath.Ipv4RibEdmPath {
+        types.SetYListKey(routePath.Ipv4RibEdmPath[i], i)
         routePath.EntityData.Children.Append(types.GetSegmentPath(routePath.Ipv4RibEdmPath[i]), types.YChild{"Ipv4RibEdmPath", routePath.Ipv4RibEdmPath[i]})
     }
     routePath.EntityData.Leafs = types.NewOrderedMap()
@@ -3658,6 +3752,7 @@ func (routePath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestNextHopRoutes_DestNextHopRoute_RoutePath_Ipv4RibEdmPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Nexthop. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -3837,7 +3932,8 @@ func (ipv4RibEdmPath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
     ipv4RibEdmPath.EntityData.YangName = "ipv4-rib-edm-path"
     ipv4RibEdmPath.EntityData.BundleName = "cisco_ios_xr"
     ipv4RibEdmPath.EntityData.ParentYangName = "route-path"
-    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path"
+    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path" + types.AddNoKeyToken(ipv4RibEdmPath)
+    ipv4RibEdmPath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/destination-kw/dest-next-hop-routes/dest-next-hop-route/route-path/" + ipv4RibEdmPath.EntityData.SegmentPath
     ipv4RibEdmPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4RibEdmPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4RibEdmPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3845,14 +3941,17 @@ func (ipv4RibEdmPath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
     ipv4RibEdmPath.EntityData.Children = types.NewOrderedMap()
     ipv4RibEdmPath.EntityData.Children.Append("remote-backup-addr", types.YChild{"RemoteBackupAddr", nil})
     for i := range ipv4RibEdmPath.RemoteBackupAddr {
+        types.SetYListKey(ipv4RibEdmPath.RemoteBackupAddr[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.RemoteBackupAddr[i]), types.YChild{"RemoteBackupAddr", ipv4RibEdmPath.RemoteBackupAddr[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("labelstk", types.YChild{"Labelstk", nil})
     for i := range ipv4RibEdmPath.Labelstk {
+        types.SetYListKey(ipv4RibEdmPath.Labelstk[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.Labelstk[i]), types.YChild{"Labelstk", ipv4RibEdmPath.Labelstk[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("next-next-hop", types.YChild{"NextNextHop", nil})
     for i := range ipv4RibEdmPath.NextNextHop {
+        types.SetYListKey(ipv4RibEdmPath.NextNextHop[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.NextNextHop[i]), types.YChild{"NextNextHop", ipv4RibEdmPath.NextNextHop[i]})
     }
     ipv4RibEdmPath.EntityData.Leafs = types.NewOrderedMap()
@@ -3914,6 +4013,7 @@ func (ipv4RibEdmPath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestNextHopRoutes_DestNextHopRoute_RoutePath_Ipv4RibEdmPath_RemoteBackupAddr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -3925,7 +4025,8 @@ func (remoteBackupAddr *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_I
     remoteBackupAddr.EntityData.YangName = "remote-backup-addr"
     remoteBackupAddr.EntityData.BundleName = "cisco_ios_xr"
     remoteBackupAddr.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr"
+    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr" + types.AddNoKeyToken(remoteBackupAddr)
+    remoteBackupAddr.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/destination-kw/dest-next-hop-routes/dest-next-hop-route/route-path/ipv4-rib-edm-path/" + remoteBackupAddr.EntityData.SegmentPath
     remoteBackupAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteBackupAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteBackupAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3944,6 +4045,7 @@ func (remoteBackupAddr *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_I
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestNextHopRoutes_DestNextHopRoute_RoutePath_Ipv4RibEdmPath_Labelstk struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -3954,7 +4056,8 @@ func (labelstk *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
     labelstk.EntityData.YangName = "labelstk"
     labelstk.EntityData.BundleName = "cisco_ios_xr"
     labelstk.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    labelstk.EntityData.SegmentPath = "labelstk"
+    labelstk.EntityData.SegmentPath = "labelstk" + types.AddNoKeyToken(labelstk)
+    labelstk.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/destination-kw/dest-next-hop-routes/dest-next-hop-route/route-path/ipv4-rib-edm-path/" + labelstk.EntityData.SegmentPath
     labelstk.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labelstk.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelstk.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3973,6 +4076,7 @@ func (labelstk *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestNextHopRoutes_DestNextHopRoute_RoutePath_Ipv4RibEdmPath_NextNextHop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // type. The type is RibEdmNnh.
     Type interface{}
@@ -3993,7 +4097,8 @@ func (nextNextHop *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
     nextNextHop.EntityData.YangName = "next-next-hop"
     nextNextHop.EntityData.BundleName = "cisco_ios_xr"
     nextNextHop.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    nextNextHop.EntityData.SegmentPath = "next-next-hop"
+    nextNextHop.EntityData.SegmentPath = "next-next-hop" + types.AddNoKeyToken(nextNextHop)
+    nextNextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/destination-kw/dest-next-hop-routes/dest-next-hop-route/route-path/ipv4-rib-edm-path/" + nextNextHop.EntityData.SegmentPath
     nextNextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextNextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextNextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4027,6 +4132,7 @@ func (opaques *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRoute
     opaques.EntityData.BundleName = "cisco_ios_xr"
     opaques.EntityData.ParentYangName = "ip-rib-route-table-name"
     opaques.EntityData.SegmentPath = "opaques"
+    opaques.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/" + opaques.EntityData.SegmentPath
     opaques.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     opaques.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     opaques.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4034,6 +4140,7 @@ func (opaques *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRoute
     opaques.EntityData.Children = types.NewOrderedMap()
     opaques.EntityData.Children.Append("opaque", types.YChild{"Opaque", nil})
     for i := range opaques.Opaque {
+        types.SetYListKey(opaques.Opaque[i], i)
         opaques.EntityData.Children.Append(types.GetSegmentPath(opaques.Opaque[i]), types.YChild{"Opaque", opaques.Opaque[i]})
     }
     opaques.EntityData.Leafs = types.NewOrderedMap()
@@ -4048,6 +4155,7 @@ func (opaques *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRoute
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Opaques_Opaque struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Opaque Client ID. The type is interface{} with range: 0..4294967295.
     OpaqueClientid interface{}
@@ -4079,7 +4187,8 @@ func (opaque *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteT
     opaque.EntityData.YangName = "opaque"
     opaque.EntityData.BundleName = "cisco_ios_xr"
     opaque.EntityData.ParentYangName = "opaques"
-    opaque.EntityData.SegmentPath = "opaque"
+    opaque.EntityData.SegmentPath = "opaque" + types.AddNoKeyToken(opaque)
+    opaque.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/opaques/" + opaque.EntityData.SegmentPath
     opaque.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     opaque.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     opaque.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4159,6 +4268,7 @@ func (protocol *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
     protocol.EntityData.BundleName = "cisco_ios_xr"
     protocol.EntityData.ParentYangName = "ip-rib-route-table-name"
     protocol.EntityData.SegmentPath = "protocol"
+    protocol.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/" + protocol.EntityData.SegmentPath
     protocol.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4202,6 +4312,7 @@ func (mobile *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteT
     mobile.EntityData.BundleName = "cisco_ios_xr"
     mobile.EntityData.ParentYangName = "protocol"
     mobile.EntityData.SegmentPath = "mobile"
+    mobile.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/" + mobile.EntityData.SegmentPath
     mobile.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mobile.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mobile.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4234,6 +4345,7 @@ func (nonAs *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTa
     nonAs.EntityData.BundleName = "cisco_ios_xr"
     nonAs.EntityData.ParentYangName = "mobile"
     nonAs.EntityData.SegmentPath = "non-as"
+    nonAs.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/mobile/" + nonAs.EntityData.SegmentPath
     nonAs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nonAs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nonAs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4265,6 +4377,7 @@ func (protocolRoutes *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
     protocolRoutes.EntityData.BundleName = "cisco_ios_xr"
     protocolRoutes.EntityData.ParentYangName = "non-as"
     protocolRoutes.EntityData.SegmentPath = "protocol-routes"
+    protocolRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/mobile/non-as/" + protocolRoutes.EntityData.SegmentPath
     protocolRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocolRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4287,12 +4400,14 @@ func (protocolRoutes *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Mobile_NonAs_ProtocolRoutes_ProtocolRoute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
-    // Network Address. The type is string with pattern:
+    // This attribute is a key. Network Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Prefix Length. The type is interface{} with range: 0..32.
+    // This attribute is a key. Prefix Length. The type is interface{} with range:
+    // 0..32.
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
@@ -4410,7 +4525,8 @@ func (protocolRoute *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     protocolRoute.EntityData.YangName = "protocol-route"
     protocolRoute.EntityData.BundleName = "cisco_ios_xr"
     protocolRoute.EntityData.ParentYangName = "protocol-routes"
-    protocolRoute.EntityData.SegmentPath = "protocol-route"
+    protocolRoute.EntityData.SegmentPath = "protocol-route" + types.AddKeyToken(protocolRoute.Address, "address") + types.AddKeyToken(protocolRoute.PrefixLength, "prefix-length")
+    protocolRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/mobile/non-as/protocol-routes/" + protocolRoute.EntityData.SegmentPath
     protocolRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocolRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4453,7 +4569,7 @@ func (protocolRoute *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     protocolRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", protocolRoute.TblVersion})
     protocolRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", protocolRoute.RouteModifyTime})
 
-    protocolRoute.EntityData.YListKeys = []string {}
+    protocolRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
     return &(protocolRoute.EntityData)
 }
@@ -4475,6 +4591,7 @@ func (routePath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     routePath.EntityData.BundleName = "cisco_ios_xr"
     routePath.EntityData.ParentYangName = "protocol-route"
     routePath.EntityData.SegmentPath = "route-path"
+    routePath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/mobile/non-as/protocol-routes/protocol-route/" + routePath.EntityData.SegmentPath
     routePath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routePath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routePath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4482,6 +4599,7 @@ func (routePath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     routePath.EntityData.Children = types.NewOrderedMap()
     routePath.EntityData.Children.Append("ipv4-rib-edm-path", types.YChild{"Ipv4RibEdmPath", nil})
     for i := range routePath.Ipv4RibEdmPath {
+        types.SetYListKey(routePath.Ipv4RibEdmPath[i], i)
         routePath.EntityData.Children.Append(types.GetSegmentPath(routePath.Ipv4RibEdmPath[i]), types.YChild{"Ipv4RibEdmPath", routePath.Ipv4RibEdmPath[i]})
     }
     routePath.EntityData.Leafs = types.NewOrderedMap()
@@ -4496,6 +4614,7 @@ func (routePath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Mobile_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Nexthop. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -4675,7 +4794,8 @@ func (ipv4RibEdmPath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
     ipv4RibEdmPath.EntityData.YangName = "ipv4-rib-edm-path"
     ipv4RibEdmPath.EntityData.BundleName = "cisco_ios_xr"
     ipv4RibEdmPath.EntityData.ParentYangName = "route-path"
-    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path"
+    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path" + types.AddNoKeyToken(ipv4RibEdmPath)
+    ipv4RibEdmPath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/mobile/non-as/protocol-routes/protocol-route/route-path/" + ipv4RibEdmPath.EntityData.SegmentPath
     ipv4RibEdmPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4RibEdmPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4RibEdmPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4683,14 +4803,17 @@ func (ipv4RibEdmPath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
     ipv4RibEdmPath.EntityData.Children = types.NewOrderedMap()
     ipv4RibEdmPath.EntityData.Children.Append("remote-backup-addr", types.YChild{"RemoteBackupAddr", nil})
     for i := range ipv4RibEdmPath.RemoteBackupAddr {
+        types.SetYListKey(ipv4RibEdmPath.RemoteBackupAddr[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.RemoteBackupAddr[i]), types.YChild{"RemoteBackupAddr", ipv4RibEdmPath.RemoteBackupAddr[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("labelstk", types.YChild{"Labelstk", nil})
     for i := range ipv4RibEdmPath.Labelstk {
+        types.SetYListKey(ipv4RibEdmPath.Labelstk[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.Labelstk[i]), types.YChild{"Labelstk", ipv4RibEdmPath.Labelstk[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("next-next-hop", types.YChild{"NextNextHop", nil})
     for i := range ipv4RibEdmPath.NextNextHop {
+        types.SetYListKey(ipv4RibEdmPath.NextNextHop[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.NextNextHop[i]), types.YChild{"NextNextHop", ipv4RibEdmPath.NextNextHop[i]})
     }
     ipv4RibEdmPath.EntityData.Leafs = types.NewOrderedMap()
@@ -4752,6 +4875,7 @@ func (ipv4RibEdmPath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Mobile_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_RemoteBackupAddr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -4763,7 +4887,8 @@ func (remoteBackupAddr *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_I
     remoteBackupAddr.EntityData.YangName = "remote-backup-addr"
     remoteBackupAddr.EntityData.BundleName = "cisco_ios_xr"
     remoteBackupAddr.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr"
+    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr" + types.AddNoKeyToken(remoteBackupAddr)
+    remoteBackupAddr.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/mobile/non-as/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + remoteBackupAddr.EntityData.SegmentPath
     remoteBackupAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteBackupAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteBackupAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4782,6 +4907,7 @@ func (remoteBackupAddr *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_I
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Mobile_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_Labelstk struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -4792,7 +4918,8 @@ func (labelstk *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
     labelstk.EntityData.YangName = "labelstk"
     labelstk.EntityData.BundleName = "cisco_ios_xr"
     labelstk.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    labelstk.EntityData.SegmentPath = "labelstk"
+    labelstk.EntityData.SegmentPath = "labelstk" + types.AddNoKeyToken(labelstk)
+    labelstk.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/mobile/non-as/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + labelstk.EntityData.SegmentPath
     labelstk.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labelstk.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelstk.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4811,6 +4938,7 @@ func (labelstk *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Mobile_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_NextNextHop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // type. The type is RibEdmNnh.
     Type interface{}
@@ -4831,7 +4959,8 @@ func (nextNextHop *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
     nextNextHop.EntityData.YangName = "next-next-hop"
     nextNextHop.EntityData.BundleName = "cisco_ios_xr"
     nextNextHop.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    nextNextHop.EntityData.SegmentPath = "next-next-hop"
+    nextNextHop.EntityData.SegmentPath = "next-next-hop" + types.AddNoKeyToken(nextNextHop)
+    nextNextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/mobile/non-as/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + nextNextHop.EntityData.SegmentPath
     nextNextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextNextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextNextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4901,6 +5030,7 @@ func (information *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
     information.EntityData.BundleName = "cisco_ios_xr"
     information.EntityData.ParentYangName = "non-as"
     information.EntityData.SegmentPath = "information"
+    information.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/mobile/non-as/" + information.EntityData.SegmentPath
     information.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     information.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     information.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4940,6 +5070,7 @@ func (subscriber *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRo
     subscriber.EntityData.BundleName = "cisco_ios_xr"
     subscriber.EntityData.ParentYangName = "protocol"
     subscriber.EntityData.SegmentPath = "subscriber"
+    subscriber.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/" + subscriber.EntityData.SegmentPath
     subscriber.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     subscriber.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     subscriber.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4972,6 +5103,7 @@ func (nonAs *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTa
     nonAs.EntityData.BundleName = "cisco_ios_xr"
     nonAs.EntityData.ParentYangName = "subscriber"
     nonAs.EntityData.SegmentPath = "non-as"
+    nonAs.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/subscriber/" + nonAs.EntityData.SegmentPath
     nonAs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nonAs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nonAs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5003,6 +5135,7 @@ func (protocolRoutes *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
     protocolRoutes.EntityData.BundleName = "cisco_ios_xr"
     protocolRoutes.EntityData.ParentYangName = "non-as"
     protocolRoutes.EntityData.SegmentPath = "protocol-routes"
+    protocolRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/subscriber/non-as/" + protocolRoutes.EntityData.SegmentPath
     protocolRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocolRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5025,12 +5158,14 @@ func (protocolRoutes *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Subscriber_NonAs_ProtocolRoutes_ProtocolRoute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
-    // Network Address. The type is string with pattern:
+    // This attribute is a key. Network Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Prefix Length. The type is interface{} with range: 0..32.
+    // This attribute is a key. Prefix Length. The type is interface{} with range:
+    // 0..32.
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
@@ -5148,7 +5283,8 @@ func (protocolRoute *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     protocolRoute.EntityData.YangName = "protocol-route"
     protocolRoute.EntityData.BundleName = "cisco_ios_xr"
     protocolRoute.EntityData.ParentYangName = "protocol-routes"
-    protocolRoute.EntityData.SegmentPath = "protocol-route"
+    protocolRoute.EntityData.SegmentPath = "protocol-route" + types.AddKeyToken(protocolRoute.Address, "address") + types.AddKeyToken(protocolRoute.PrefixLength, "prefix-length")
+    protocolRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/subscriber/non-as/protocol-routes/" + protocolRoute.EntityData.SegmentPath
     protocolRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocolRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5191,7 +5327,7 @@ func (protocolRoute *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     protocolRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", protocolRoute.TblVersion})
     protocolRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", protocolRoute.RouteModifyTime})
 
-    protocolRoute.EntityData.YListKeys = []string {}
+    protocolRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
     return &(protocolRoute.EntityData)
 }
@@ -5213,6 +5349,7 @@ func (routePath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     routePath.EntityData.BundleName = "cisco_ios_xr"
     routePath.EntityData.ParentYangName = "protocol-route"
     routePath.EntityData.SegmentPath = "route-path"
+    routePath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/subscriber/non-as/protocol-routes/protocol-route/" + routePath.EntityData.SegmentPath
     routePath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routePath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routePath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5220,6 +5357,7 @@ func (routePath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     routePath.EntityData.Children = types.NewOrderedMap()
     routePath.EntityData.Children.Append("ipv4-rib-edm-path", types.YChild{"Ipv4RibEdmPath", nil})
     for i := range routePath.Ipv4RibEdmPath {
+        types.SetYListKey(routePath.Ipv4RibEdmPath[i], i)
         routePath.EntityData.Children.Append(types.GetSegmentPath(routePath.Ipv4RibEdmPath[i]), types.YChild{"Ipv4RibEdmPath", routePath.Ipv4RibEdmPath[i]})
     }
     routePath.EntityData.Leafs = types.NewOrderedMap()
@@ -5234,6 +5372,7 @@ func (routePath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Subscriber_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Nexthop. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -5413,7 +5552,8 @@ func (ipv4RibEdmPath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
     ipv4RibEdmPath.EntityData.YangName = "ipv4-rib-edm-path"
     ipv4RibEdmPath.EntityData.BundleName = "cisco_ios_xr"
     ipv4RibEdmPath.EntityData.ParentYangName = "route-path"
-    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path"
+    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path" + types.AddNoKeyToken(ipv4RibEdmPath)
+    ipv4RibEdmPath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/subscriber/non-as/protocol-routes/protocol-route/route-path/" + ipv4RibEdmPath.EntityData.SegmentPath
     ipv4RibEdmPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4RibEdmPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4RibEdmPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5421,14 +5561,17 @@ func (ipv4RibEdmPath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
     ipv4RibEdmPath.EntityData.Children = types.NewOrderedMap()
     ipv4RibEdmPath.EntityData.Children.Append("remote-backup-addr", types.YChild{"RemoteBackupAddr", nil})
     for i := range ipv4RibEdmPath.RemoteBackupAddr {
+        types.SetYListKey(ipv4RibEdmPath.RemoteBackupAddr[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.RemoteBackupAddr[i]), types.YChild{"RemoteBackupAddr", ipv4RibEdmPath.RemoteBackupAddr[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("labelstk", types.YChild{"Labelstk", nil})
     for i := range ipv4RibEdmPath.Labelstk {
+        types.SetYListKey(ipv4RibEdmPath.Labelstk[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.Labelstk[i]), types.YChild{"Labelstk", ipv4RibEdmPath.Labelstk[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("next-next-hop", types.YChild{"NextNextHop", nil})
     for i := range ipv4RibEdmPath.NextNextHop {
+        types.SetYListKey(ipv4RibEdmPath.NextNextHop[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.NextNextHop[i]), types.YChild{"NextNextHop", ipv4RibEdmPath.NextNextHop[i]})
     }
     ipv4RibEdmPath.EntityData.Leafs = types.NewOrderedMap()
@@ -5490,6 +5633,7 @@ func (ipv4RibEdmPath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Subscriber_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_RemoteBackupAddr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -5501,7 +5645,8 @@ func (remoteBackupAddr *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_I
     remoteBackupAddr.EntityData.YangName = "remote-backup-addr"
     remoteBackupAddr.EntityData.BundleName = "cisco_ios_xr"
     remoteBackupAddr.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr"
+    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr" + types.AddNoKeyToken(remoteBackupAddr)
+    remoteBackupAddr.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/subscriber/non-as/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + remoteBackupAddr.EntityData.SegmentPath
     remoteBackupAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteBackupAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteBackupAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5520,6 +5665,7 @@ func (remoteBackupAddr *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_I
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Subscriber_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_Labelstk struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -5530,7 +5676,8 @@ func (labelstk *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
     labelstk.EntityData.YangName = "labelstk"
     labelstk.EntityData.BundleName = "cisco_ios_xr"
     labelstk.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    labelstk.EntityData.SegmentPath = "labelstk"
+    labelstk.EntityData.SegmentPath = "labelstk" + types.AddNoKeyToken(labelstk)
+    labelstk.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/subscriber/non-as/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + labelstk.EntityData.SegmentPath
     labelstk.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labelstk.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelstk.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5549,6 +5696,7 @@ func (labelstk *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Subscriber_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_NextNextHop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // type. The type is RibEdmNnh.
     Type interface{}
@@ -5569,7 +5717,8 @@ func (nextNextHop *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
     nextNextHop.EntityData.YangName = "next-next-hop"
     nextNextHop.EntityData.BundleName = "cisco_ios_xr"
     nextNextHop.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    nextNextHop.EntityData.SegmentPath = "next-next-hop"
+    nextNextHop.EntityData.SegmentPath = "next-next-hop" + types.AddNoKeyToken(nextNextHop)
+    nextNextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/subscriber/non-as/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + nextNextHop.EntityData.SegmentPath
     nextNextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextNextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextNextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5639,6 +5788,7 @@ func (information *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
     information.EntityData.BundleName = "cisco_ios_xr"
     information.EntityData.ParentYangName = "non-as"
     information.EntityData.SegmentPath = "information"
+    information.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/subscriber/non-as/" + information.EntityData.SegmentPath
     information.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     information.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     information.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5678,6 +5828,7 @@ func (connected *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     connected.EntityData.BundleName = "cisco_ios_xr"
     connected.EntityData.ParentYangName = "protocol"
     connected.EntityData.SegmentPath = "connected"
+    connected.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/" + connected.EntityData.SegmentPath
     connected.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     connected.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     connected.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5710,6 +5861,7 @@ func (nonAs *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTa
     nonAs.EntityData.BundleName = "cisco_ios_xr"
     nonAs.EntityData.ParentYangName = "connected"
     nonAs.EntityData.SegmentPath = "non-as"
+    nonAs.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/connected/" + nonAs.EntityData.SegmentPath
     nonAs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nonAs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nonAs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5741,6 +5893,7 @@ func (protocolRoutes *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
     protocolRoutes.EntityData.BundleName = "cisco_ios_xr"
     protocolRoutes.EntityData.ParentYangName = "non-as"
     protocolRoutes.EntityData.SegmentPath = "protocol-routes"
+    protocolRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/connected/non-as/" + protocolRoutes.EntityData.SegmentPath
     protocolRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocolRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5763,12 +5916,14 @@ func (protocolRoutes *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Connected_NonAs_ProtocolRoutes_ProtocolRoute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
-    // Network Address. The type is string with pattern:
+    // This attribute is a key. Network Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Prefix Length. The type is interface{} with range: 0..32.
+    // This attribute is a key. Prefix Length. The type is interface{} with range:
+    // 0..32.
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
@@ -5886,7 +6041,8 @@ func (protocolRoute *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     protocolRoute.EntityData.YangName = "protocol-route"
     protocolRoute.EntityData.BundleName = "cisco_ios_xr"
     protocolRoute.EntityData.ParentYangName = "protocol-routes"
-    protocolRoute.EntityData.SegmentPath = "protocol-route"
+    protocolRoute.EntityData.SegmentPath = "protocol-route" + types.AddKeyToken(protocolRoute.Address, "address") + types.AddKeyToken(protocolRoute.PrefixLength, "prefix-length")
+    protocolRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/connected/non-as/protocol-routes/" + protocolRoute.EntityData.SegmentPath
     protocolRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocolRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5929,7 +6085,7 @@ func (protocolRoute *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     protocolRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", protocolRoute.TblVersion})
     protocolRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", protocolRoute.RouteModifyTime})
 
-    protocolRoute.EntityData.YListKeys = []string {}
+    protocolRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
     return &(protocolRoute.EntityData)
 }
@@ -5951,6 +6107,7 @@ func (routePath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     routePath.EntityData.BundleName = "cisco_ios_xr"
     routePath.EntityData.ParentYangName = "protocol-route"
     routePath.EntityData.SegmentPath = "route-path"
+    routePath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/connected/non-as/protocol-routes/protocol-route/" + routePath.EntityData.SegmentPath
     routePath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routePath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routePath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5958,6 +6115,7 @@ func (routePath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     routePath.EntityData.Children = types.NewOrderedMap()
     routePath.EntityData.Children.Append("ipv4-rib-edm-path", types.YChild{"Ipv4RibEdmPath", nil})
     for i := range routePath.Ipv4RibEdmPath {
+        types.SetYListKey(routePath.Ipv4RibEdmPath[i], i)
         routePath.EntityData.Children.Append(types.GetSegmentPath(routePath.Ipv4RibEdmPath[i]), types.YChild{"Ipv4RibEdmPath", routePath.Ipv4RibEdmPath[i]})
     }
     routePath.EntityData.Leafs = types.NewOrderedMap()
@@ -5972,6 +6130,7 @@ func (routePath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Connected_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Nexthop. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -6151,7 +6310,8 @@ func (ipv4RibEdmPath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
     ipv4RibEdmPath.EntityData.YangName = "ipv4-rib-edm-path"
     ipv4RibEdmPath.EntityData.BundleName = "cisco_ios_xr"
     ipv4RibEdmPath.EntityData.ParentYangName = "route-path"
-    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path"
+    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path" + types.AddNoKeyToken(ipv4RibEdmPath)
+    ipv4RibEdmPath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/connected/non-as/protocol-routes/protocol-route/route-path/" + ipv4RibEdmPath.EntityData.SegmentPath
     ipv4RibEdmPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4RibEdmPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4RibEdmPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6159,14 +6319,17 @@ func (ipv4RibEdmPath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
     ipv4RibEdmPath.EntityData.Children = types.NewOrderedMap()
     ipv4RibEdmPath.EntityData.Children.Append("remote-backup-addr", types.YChild{"RemoteBackupAddr", nil})
     for i := range ipv4RibEdmPath.RemoteBackupAddr {
+        types.SetYListKey(ipv4RibEdmPath.RemoteBackupAddr[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.RemoteBackupAddr[i]), types.YChild{"RemoteBackupAddr", ipv4RibEdmPath.RemoteBackupAddr[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("labelstk", types.YChild{"Labelstk", nil})
     for i := range ipv4RibEdmPath.Labelstk {
+        types.SetYListKey(ipv4RibEdmPath.Labelstk[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.Labelstk[i]), types.YChild{"Labelstk", ipv4RibEdmPath.Labelstk[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("next-next-hop", types.YChild{"NextNextHop", nil})
     for i := range ipv4RibEdmPath.NextNextHop {
+        types.SetYListKey(ipv4RibEdmPath.NextNextHop[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.NextNextHop[i]), types.YChild{"NextNextHop", ipv4RibEdmPath.NextNextHop[i]})
     }
     ipv4RibEdmPath.EntityData.Leafs = types.NewOrderedMap()
@@ -6228,6 +6391,7 @@ func (ipv4RibEdmPath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Connected_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_RemoteBackupAddr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -6239,7 +6403,8 @@ func (remoteBackupAddr *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_I
     remoteBackupAddr.EntityData.YangName = "remote-backup-addr"
     remoteBackupAddr.EntityData.BundleName = "cisco_ios_xr"
     remoteBackupAddr.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr"
+    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr" + types.AddNoKeyToken(remoteBackupAddr)
+    remoteBackupAddr.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/connected/non-as/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + remoteBackupAddr.EntityData.SegmentPath
     remoteBackupAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteBackupAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteBackupAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6258,6 +6423,7 @@ func (remoteBackupAddr *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_I
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Connected_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_Labelstk struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -6268,7 +6434,8 @@ func (labelstk *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
     labelstk.EntityData.YangName = "labelstk"
     labelstk.EntityData.BundleName = "cisco_ios_xr"
     labelstk.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    labelstk.EntityData.SegmentPath = "labelstk"
+    labelstk.EntityData.SegmentPath = "labelstk" + types.AddNoKeyToken(labelstk)
+    labelstk.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/connected/non-as/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + labelstk.EntityData.SegmentPath
     labelstk.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labelstk.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelstk.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6287,6 +6454,7 @@ func (labelstk *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Connected_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_NextNextHop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // type. The type is RibEdmNnh.
     Type interface{}
@@ -6307,7 +6475,8 @@ func (nextNextHop *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
     nextNextHop.EntityData.YangName = "next-next-hop"
     nextNextHop.EntityData.BundleName = "cisco_ios_xr"
     nextNextHop.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    nextNextHop.EntityData.SegmentPath = "next-next-hop"
+    nextNextHop.EntityData.SegmentPath = "next-next-hop" + types.AddNoKeyToken(nextNextHop)
+    nextNextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/connected/non-as/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + nextNextHop.EntityData.SegmentPath
     nextNextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextNextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextNextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6377,6 +6546,7 @@ func (information *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
     information.EntityData.BundleName = "cisco_ios_xr"
     information.EntityData.ParentYangName = "non-as"
     information.EntityData.SegmentPath = "information"
+    information.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/connected/non-as/" + information.EntityData.SegmentPath
     information.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     information.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     information.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6417,6 +6587,7 @@ func (dagr *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTab
     dagr.EntityData.BundleName = "cisco_ios_xr"
     dagr.EntityData.ParentYangName = "protocol"
     dagr.EntityData.SegmentPath = "dagr"
+    dagr.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/" + dagr.EntityData.SegmentPath
     dagr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dagr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dagr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6449,6 +6620,7 @@ func (nonAs *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTa
     nonAs.EntityData.BundleName = "cisco_ios_xr"
     nonAs.EntityData.ParentYangName = "dagr"
     nonAs.EntityData.SegmentPath = "non-as"
+    nonAs.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/dagr/" + nonAs.EntityData.SegmentPath
     nonAs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nonAs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nonAs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6480,6 +6652,7 @@ func (protocolRoutes *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
     protocolRoutes.EntityData.BundleName = "cisco_ios_xr"
     protocolRoutes.EntityData.ParentYangName = "non-as"
     protocolRoutes.EntityData.SegmentPath = "protocol-routes"
+    protocolRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/dagr/non-as/" + protocolRoutes.EntityData.SegmentPath
     protocolRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocolRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6502,12 +6675,14 @@ func (protocolRoutes *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Dagr_NonAs_ProtocolRoutes_ProtocolRoute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
-    // Network Address. The type is string with pattern:
+    // This attribute is a key. Network Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Prefix Length. The type is interface{} with range: 0..32.
+    // This attribute is a key. Prefix Length. The type is interface{} with range:
+    // 0..32.
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
@@ -6625,7 +6800,8 @@ func (protocolRoute *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     protocolRoute.EntityData.YangName = "protocol-route"
     protocolRoute.EntityData.BundleName = "cisco_ios_xr"
     protocolRoute.EntityData.ParentYangName = "protocol-routes"
-    protocolRoute.EntityData.SegmentPath = "protocol-route"
+    protocolRoute.EntityData.SegmentPath = "protocol-route" + types.AddKeyToken(protocolRoute.Address, "address") + types.AddKeyToken(protocolRoute.PrefixLength, "prefix-length")
+    protocolRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/dagr/non-as/protocol-routes/" + protocolRoute.EntityData.SegmentPath
     protocolRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocolRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6668,7 +6844,7 @@ func (protocolRoute *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     protocolRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", protocolRoute.TblVersion})
     protocolRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", protocolRoute.RouteModifyTime})
 
-    protocolRoute.EntityData.YListKeys = []string {}
+    protocolRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
     return &(protocolRoute.EntityData)
 }
@@ -6690,6 +6866,7 @@ func (routePath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     routePath.EntityData.BundleName = "cisco_ios_xr"
     routePath.EntityData.ParentYangName = "protocol-route"
     routePath.EntityData.SegmentPath = "route-path"
+    routePath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/dagr/non-as/protocol-routes/protocol-route/" + routePath.EntityData.SegmentPath
     routePath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routePath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routePath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6697,6 +6874,7 @@ func (routePath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     routePath.EntityData.Children = types.NewOrderedMap()
     routePath.EntityData.Children.Append("ipv4-rib-edm-path", types.YChild{"Ipv4RibEdmPath", nil})
     for i := range routePath.Ipv4RibEdmPath {
+        types.SetYListKey(routePath.Ipv4RibEdmPath[i], i)
         routePath.EntityData.Children.Append(types.GetSegmentPath(routePath.Ipv4RibEdmPath[i]), types.YChild{"Ipv4RibEdmPath", routePath.Ipv4RibEdmPath[i]})
     }
     routePath.EntityData.Leafs = types.NewOrderedMap()
@@ -6711,6 +6889,7 @@ func (routePath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Dagr_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Nexthop. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -6890,7 +7069,8 @@ func (ipv4RibEdmPath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
     ipv4RibEdmPath.EntityData.YangName = "ipv4-rib-edm-path"
     ipv4RibEdmPath.EntityData.BundleName = "cisco_ios_xr"
     ipv4RibEdmPath.EntityData.ParentYangName = "route-path"
-    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path"
+    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path" + types.AddNoKeyToken(ipv4RibEdmPath)
+    ipv4RibEdmPath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/dagr/non-as/protocol-routes/protocol-route/route-path/" + ipv4RibEdmPath.EntityData.SegmentPath
     ipv4RibEdmPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4RibEdmPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4RibEdmPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6898,14 +7078,17 @@ func (ipv4RibEdmPath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
     ipv4RibEdmPath.EntityData.Children = types.NewOrderedMap()
     ipv4RibEdmPath.EntityData.Children.Append("remote-backup-addr", types.YChild{"RemoteBackupAddr", nil})
     for i := range ipv4RibEdmPath.RemoteBackupAddr {
+        types.SetYListKey(ipv4RibEdmPath.RemoteBackupAddr[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.RemoteBackupAddr[i]), types.YChild{"RemoteBackupAddr", ipv4RibEdmPath.RemoteBackupAddr[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("labelstk", types.YChild{"Labelstk", nil})
     for i := range ipv4RibEdmPath.Labelstk {
+        types.SetYListKey(ipv4RibEdmPath.Labelstk[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.Labelstk[i]), types.YChild{"Labelstk", ipv4RibEdmPath.Labelstk[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("next-next-hop", types.YChild{"NextNextHop", nil})
     for i := range ipv4RibEdmPath.NextNextHop {
+        types.SetYListKey(ipv4RibEdmPath.NextNextHop[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.NextNextHop[i]), types.YChild{"NextNextHop", ipv4RibEdmPath.NextNextHop[i]})
     }
     ipv4RibEdmPath.EntityData.Leafs = types.NewOrderedMap()
@@ -6967,6 +7150,7 @@ func (ipv4RibEdmPath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Dagr_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_RemoteBackupAddr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -6978,7 +7162,8 @@ func (remoteBackupAddr *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_I
     remoteBackupAddr.EntityData.YangName = "remote-backup-addr"
     remoteBackupAddr.EntityData.BundleName = "cisco_ios_xr"
     remoteBackupAddr.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr"
+    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr" + types.AddNoKeyToken(remoteBackupAddr)
+    remoteBackupAddr.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/dagr/non-as/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + remoteBackupAddr.EntityData.SegmentPath
     remoteBackupAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteBackupAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteBackupAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6997,6 +7182,7 @@ func (remoteBackupAddr *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_I
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Dagr_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_Labelstk struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -7007,7 +7193,8 @@ func (labelstk *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
     labelstk.EntityData.YangName = "labelstk"
     labelstk.EntityData.BundleName = "cisco_ios_xr"
     labelstk.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    labelstk.EntityData.SegmentPath = "labelstk"
+    labelstk.EntityData.SegmentPath = "labelstk" + types.AddNoKeyToken(labelstk)
+    labelstk.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/dagr/non-as/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + labelstk.EntityData.SegmentPath
     labelstk.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labelstk.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelstk.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7026,6 +7213,7 @@ func (labelstk *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Dagr_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_NextNextHop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // type. The type is RibEdmNnh.
     Type interface{}
@@ -7046,7 +7234,8 @@ func (nextNextHop *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
     nextNextHop.EntityData.YangName = "next-next-hop"
     nextNextHop.EntityData.BundleName = "cisco_ios_xr"
     nextNextHop.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    nextNextHop.EntityData.SegmentPath = "next-next-hop"
+    nextNextHop.EntityData.SegmentPath = "next-next-hop" + types.AddNoKeyToken(nextNextHop)
+    nextNextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/dagr/non-as/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + nextNextHop.EntityData.SegmentPath
     nextNextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextNextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextNextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7116,6 +7305,7 @@ func (information *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
     information.EntityData.BundleName = "cisco_ios_xr"
     information.EntityData.ParentYangName = "non-as"
     information.EntityData.SegmentPath = "information"
+    information.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/dagr/non-as/" + information.EntityData.SegmentPath
     information.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     information.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     information.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7155,6 +7345,7 @@ func (rip *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTabl
     rip.EntityData.BundleName = "cisco_ios_xr"
     rip.EntityData.ParentYangName = "protocol"
     rip.EntityData.SegmentPath = "rip"
+    rip.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/" + rip.EntityData.SegmentPath
     rip.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rip.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rip.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7187,6 +7378,7 @@ func (nonAs *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTa
     nonAs.EntityData.BundleName = "cisco_ios_xr"
     nonAs.EntityData.ParentYangName = "rip"
     nonAs.EntityData.SegmentPath = "non-as"
+    nonAs.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/rip/" + nonAs.EntityData.SegmentPath
     nonAs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nonAs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nonAs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7218,6 +7410,7 @@ func (protocolRoutes *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
     protocolRoutes.EntityData.BundleName = "cisco_ios_xr"
     protocolRoutes.EntityData.ParentYangName = "non-as"
     protocolRoutes.EntityData.SegmentPath = "protocol-routes"
+    protocolRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/rip/non-as/" + protocolRoutes.EntityData.SegmentPath
     protocolRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocolRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7240,12 +7433,14 @@ func (protocolRoutes *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Rip_NonAs_ProtocolRoutes_ProtocolRoute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
-    // Network Address. The type is string with pattern:
+    // This attribute is a key. Network Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Prefix Length. The type is interface{} with range: 0..32.
+    // This attribute is a key. Prefix Length. The type is interface{} with range:
+    // 0..32.
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
@@ -7363,7 +7558,8 @@ func (protocolRoute *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     protocolRoute.EntityData.YangName = "protocol-route"
     protocolRoute.EntityData.BundleName = "cisco_ios_xr"
     protocolRoute.EntityData.ParentYangName = "protocol-routes"
-    protocolRoute.EntityData.SegmentPath = "protocol-route"
+    protocolRoute.EntityData.SegmentPath = "protocol-route" + types.AddKeyToken(protocolRoute.Address, "address") + types.AddKeyToken(protocolRoute.PrefixLength, "prefix-length")
+    protocolRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/rip/non-as/protocol-routes/" + protocolRoute.EntityData.SegmentPath
     protocolRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocolRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7406,7 +7602,7 @@ func (protocolRoute *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     protocolRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", protocolRoute.TblVersion})
     protocolRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", protocolRoute.RouteModifyTime})
 
-    protocolRoute.EntityData.YListKeys = []string {}
+    protocolRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
     return &(protocolRoute.EntityData)
 }
@@ -7428,6 +7624,7 @@ func (routePath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     routePath.EntityData.BundleName = "cisco_ios_xr"
     routePath.EntityData.ParentYangName = "protocol-route"
     routePath.EntityData.SegmentPath = "route-path"
+    routePath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/rip/non-as/protocol-routes/protocol-route/" + routePath.EntityData.SegmentPath
     routePath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routePath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routePath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7435,6 +7632,7 @@ func (routePath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     routePath.EntityData.Children = types.NewOrderedMap()
     routePath.EntityData.Children.Append("ipv4-rib-edm-path", types.YChild{"Ipv4RibEdmPath", nil})
     for i := range routePath.Ipv4RibEdmPath {
+        types.SetYListKey(routePath.Ipv4RibEdmPath[i], i)
         routePath.EntityData.Children.Append(types.GetSegmentPath(routePath.Ipv4RibEdmPath[i]), types.YChild{"Ipv4RibEdmPath", routePath.Ipv4RibEdmPath[i]})
     }
     routePath.EntityData.Leafs = types.NewOrderedMap()
@@ -7449,6 +7647,7 @@ func (routePath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Rip_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Nexthop. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -7628,7 +7827,8 @@ func (ipv4RibEdmPath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
     ipv4RibEdmPath.EntityData.YangName = "ipv4-rib-edm-path"
     ipv4RibEdmPath.EntityData.BundleName = "cisco_ios_xr"
     ipv4RibEdmPath.EntityData.ParentYangName = "route-path"
-    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path"
+    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path" + types.AddNoKeyToken(ipv4RibEdmPath)
+    ipv4RibEdmPath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/rip/non-as/protocol-routes/protocol-route/route-path/" + ipv4RibEdmPath.EntityData.SegmentPath
     ipv4RibEdmPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4RibEdmPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4RibEdmPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7636,14 +7836,17 @@ func (ipv4RibEdmPath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
     ipv4RibEdmPath.EntityData.Children = types.NewOrderedMap()
     ipv4RibEdmPath.EntityData.Children.Append("remote-backup-addr", types.YChild{"RemoteBackupAddr", nil})
     for i := range ipv4RibEdmPath.RemoteBackupAddr {
+        types.SetYListKey(ipv4RibEdmPath.RemoteBackupAddr[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.RemoteBackupAddr[i]), types.YChild{"RemoteBackupAddr", ipv4RibEdmPath.RemoteBackupAddr[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("labelstk", types.YChild{"Labelstk", nil})
     for i := range ipv4RibEdmPath.Labelstk {
+        types.SetYListKey(ipv4RibEdmPath.Labelstk[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.Labelstk[i]), types.YChild{"Labelstk", ipv4RibEdmPath.Labelstk[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("next-next-hop", types.YChild{"NextNextHop", nil})
     for i := range ipv4RibEdmPath.NextNextHop {
+        types.SetYListKey(ipv4RibEdmPath.NextNextHop[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.NextNextHop[i]), types.YChild{"NextNextHop", ipv4RibEdmPath.NextNextHop[i]})
     }
     ipv4RibEdmPath.EntityData.Leafs = types.NewOrderedMap()
@@ -7705,6 +7908,7 @@ func (ipv4RibEdmPath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Rip_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_RemoteBackupAddr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -7716,7 +7920,8 @@ func (remoteBackupAddr *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_I
     remoteBackupAddr.EntityData.YangName = "remote-backup-addr"
     remoteBackupAddr.EntityData.BundleName = "cisco_ios_xr"
     remoteBackupAddr.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr"
+    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr" + types.AddNoKeyToken(remoteBackupAddr)
+    remoteBackupAddr.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/rip/non-as/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + remoteBackupAddr.EntityData.SegmentPath
     remoteBackupAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteBackupAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteBackupAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7735,6 +7940,7 @@ func (remoteBackupAddr *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_I
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Rip_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_Labelstk struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -7745,7 +7951,8 @@ func (labelstk *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
     labelstk.EntityData.YangName = "labelstk"
     labelstk.EntityData.BundleName = "cisco_ios_xr"
     labelstk.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    labelstk.EntityData.SegmentPath = "labelstk"
+    labelstk.EntityData.SegmentPath = "labelstk" + types.AddNoKeyToken(labelstk)
+    labelstk.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/rip/non-as/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + labelstk.EntityData.SegmentPath
     labelstk.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labelstk.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelstk.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7764,6 +7971,7 @@ func (labelstk *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Rip_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_NextNextHop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // type. The type is RibEdmNnh.
     Type interface{}
@@ -7784,7 +7992,8 @@ func (nextNextHop *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
     nextNextHop.EntityData.YangName = "next-next-hop"
     nextNextHop.EntityData.BundleName = "cisco_ios_xr"
     nextNextHop.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    nextNextHop.EntityData.SegmentPath = "next-next-hop"
+    nextNextHop.EntityData.SegmentPath = "next-next-hop" + types.AddNoKeyToken(nextNextHop)
+    nextNextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/rip/non-as/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + nextNextHop.EntityData.SegmentPath
     nextNextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextNextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextNextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7854,6 +8063,7 @@ func (information *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
     information.EntityData.BundleName = "cisco_ios_xr"
     information.EntityData.ParentYangName = "non-as"
     information.EntityData.SegmentPath = "information"
+    information.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/rip/non-as/" + information.EntityData.SegmentPath
     information.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     information.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     information.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7894,6 +8104,7 @@ func (ospf *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTab
     ospf.EntityData.BundleName = "cisco_ios_xr"
     ospf.EntityData.ParentYangName = "protocol"
     ospf.EntityData.SegmentPath = "ospf"
+    ospf.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/" + ospf.EntityData.SegmentPath
     ospf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ospf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ospf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7915,6 +8126,7 @@ func (ospf *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTab
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Ospf_As struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Autonomous system. The type is string with
     // pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -7933,6 +8145,7 @@ func (as *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTable
     as.EntityData.BundleName = "cisco_ios_xr"
     as.EntityData.ParentYangName = "ospf"
     as.EntityData.SegmentPath = "as" + types.AddKeyToken(as.As, "as")
+    as.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/ospf/" + as.EntityData.SegmentPath
     as.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     as.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     as.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7965,6 +8178,7 @@ func (protocolRoutes *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
     protocolRoutes.EntityData.BundleName = "cisco_ios_xr"
     protocolRoutes.EntityData.ParentYangName = "as"
     protocolRoutes.EntityData.SegmentPath = "protocol-routes"
+    protocolRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/ospf/as/" + protocolRoutes.EntityData.SegmentPath
     protocolRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocolRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7987,12 +8201,14 @@ func (protocolRoutes *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Ospf_As_ProtocolRoutes_ProtocolRoute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
-    // Network Address. The type is string with pattern:
+    // This attribute is a key. Network Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Prefix Length. The type is interface{} with range: 0..32.
+    // This attribute is a key. Prefix Length. The type is interface{} with range:
+    // 0..32.
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
@@ -8110,7 +8326,8 @@ func (protocolRoute *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     protocolRoute.EntityData.YangName = "protocol-route"
     protocolRoute.EntityData.BundleName = "cisco_ios_xr"
     protocolRoute.EntityData.ParentYangName = "protocol-routes"
-    protocolRoute.EntityData.SegmentPath = "protocol-route"
+    protocolRoute.EntityData.SegmentPath = "protocol-route" + types.AddKeyToken(protocolRoute.Address, "address") + types.AddKeyToken(protocolRoute.PrefixLength, "prefix-length")
+    protocolRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/ospf/as/protocol-routes/" + protocolRoute.EntityData.SegmentPath
     protocolRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocolRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8153,7 +8370,7 @@ func (protocolRoute *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     protocolRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", protocolRoute.TblVersion})
     protocolRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", protocolRoute.RouteModifyTime})
 
-    protocolRoute.EntityData.YListKeys = []string {}
+    protocolRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
     return &(protocolRoute.EntityData)
 }
@@ -8175,6 +8392,7 @@ func (routePath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     routePath.EntityData.BundleName = "cisco_ios_xr"
     routePath.EntityData.ParentYangName = "protocol-route"
     routePath.EntityData.SegmentPath = "route-path"
+    routePath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/ospf/as/protocol-routes/protocol-route/" + routePath.EntityData.SegmentPath
     routePath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routePath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routePath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8182,6 +8400,7 @@ func (routePath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     routePath.EntityData.Children = types.NewOrderedMap()
     routePath.EntityData.Children.Append("ipv4-rib-edm-path", types.YChild{"Ipv4RibEdmPath", nil})
     for i := range routePath.Ipv4RibEdmPath {
+        types.SetYListKey(routePath.Ipv4RibEdmPath[i], i)
         routePath.EntityData.Children.Append(types.GetSegmentPath(routePath.Ipv4RibEdmPath[i]), types.YChild{"Ipv4RibEdmPath", routePath.Ipv4RibEdmPath[i]})
     }
     routePath.EntityData.Leafs = types.NewOrderedMap()
@@ -8196,6 +8415,7 @@ func (routePath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Ospf_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Nexthop. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -8375,7 +8595,8 @@ func (ipv4RibEdmPath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
     ipv4RibEdmPath.EntityData.YangName = "ipv4-rib-edm-path"
     ipv4RibEdmPath.EntityData.BundleName = "cisco_ios_xr"
     ipv4RibEdmPath.EntityData.ParentYangName = "route-path"
-    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path"
+    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path" + types.AddNoKeyToken(ipv4RibEdmPath)
+    ipv4RibEdmPath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/ospf/as/protocol-routes/protocol-route/route-path/" + ipv4RibEdmPath.EntityData.SegmentPath
     ipv4RibEdmPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4RibEdmPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4RibEdmPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8383,14 +8604,17 @@ func (ipv4RibEdmPath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
     ipv4RibEdmPath.EntityData.Children = types.NewOrderedMap()
     ipv4RibEdmPath.EntityData.Children.Append("remote-backup-addr", types.YChild{"RemoteBackupAddr", nil})
     for i := range ipv4RibEdmPath.RemoteBackupAddr {
+        types.SetYListKey(ipv4RibEdmPath.RemoteBackupAddr[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.RemoteBackupAddr[i]), types.YChild{"RemoteBackupAddr", ipv4RibEdmPath.RemoteBackupAddr[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("labelstk", types.YChild{"Labelstk", nil})
     for i := range ipv4RibEdmPath.Labelstk {
+        types.SetYListKey(ipv4RibEdmPath.Labelstk[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.Labelstk[i]), types.YChild{"Labelstk", ipv4RibEdmPath.Labelstk[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("next-next-hop", types.YChild{"NextNextHop", nil})
     for i := range ipv4RibEdmPath.NextNextHop {
+        types.SetYListKey(ipv4RibEdmPath.NextNextHop[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.NextNextHop[i]), types.YChild{"NextNextHop", ipv4RibEdmPath.NextNextHop[i]})
     }
     ipv4RibEdmPath.EntityData.Leafs = types.NewOrderedMap()
@@ -8452,6 +8676,7 @@ func (ipv4RibEdmPath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Ospf_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_RemoteBackupAddr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -8463,7 +8688,8 @@ func (remoteBackupAddr *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_I
     remoteBackupAddr.EntityData.YangName = "remote-backup-addr"
     remoteBackupAddr.EntityData.BundleName = "cisco_ios_xr"
     remoteBackupAddr.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr"
+    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr" + types.AddNoKeyToken(remoteBackupAddr)
+    remoteBackupAddr.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/ospf/as/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + remoteBackupAddr.EntityData.SegmentPath
     remoteBackupAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteBackupAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteBackupAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8482,6 +8708,7 @@ func (remoteBackupAddr *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_I
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Ospf_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_Labelstk struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -8492,7 +8719,8 @@ func (labelstk *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
     labelstk.EntityData.YangName = "labelstk"
     labelstk.EntityData.BundleName = "cisco_ios_xr"
     labelstk.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    labelstk.EntityData.SegmentPath = "labelstk"
+    labelstk.EntityData.SegmentPath = "labelstk" + types.AddNoKeyToken(labelstk)
+    labelstk.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/ospf/as/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + labelstk.EntityData.SegmentPath
     labelstk.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labelstk.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelstk.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8511,6 +8739,7 @@ func (labelstk *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Ospf_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_NextNextHop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // type. The type is RibEdmNnh.
     Type interface{}
@@ -8531,7 +8760,8 @@ func (nextNextHop *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
     nextNextHop.EntityData.YangName = "next-next-hop"
     nextNextHop.EntityData.BundleName = "cisco_ios_xr"
     nextNextHop.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    nextNextHop.EntityData.SegmentPath = "next-next-hop"
+    nextNextHop.EntityData.SegmentPath = "next-next-hop" + types.AddNoKeyToken(nextNextHop)
+    nextNextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/ospf/as/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + nextNextHop.EntityData.SegmentPath
     nextNextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextNextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextNextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8601,6 +8831,7 @@ func (information *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
     information.EntityData.BundleName = "cisco_ios_xr"
     information.EntityData.ParentYangName = "as"
     information.EntityData.SegmentPath = "information"
+    information.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/ospf/as/" + information.EntityData.SegmentPath
     information.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     information.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     information.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8640,6 +8871,7 @@ func (srv6Local *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     srv6Local.EntityData.BundleName = "cisco_ios_xr"
     srv6Local.EntityData.ParentYangName = "protocol"
     srv6Local.EntityData.SegmentPath = "srv6-local"
+    srv6Local.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/" + srv6Local.EntityData.SegmentPath
     srv6Local.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     srv6Local.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     srv6Local.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8672,6 +8904,7 @@ func (nonAs *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTa
     nonAs.EntityData.BundleName = "cisco_ios_xr"
     nonAs.EntityData.ParentYangName = "srv6-local"
     nonAs.EntityData.SegmentPath = "non-as"
+    nonAs.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/srv6-local/" + nonAs.EntityData.SegmentPath
     nonAs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nonAs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nonAs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8703,6 +8936,7 @@ func (protocolRoutes *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
     protocolRoutes.EntityData.BundleName = "cisco_ios_xr"
     protocolRoutes.EntityData.ParentYangName = "non-as"
     protocolRoutes.EntityData.SegmentPath = "protocol-routes"
+    protocolRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/srv6-local/non-as/" + protocolRoutes.EntityData.SegmentPath
     protocolRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocolRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8725,12 +8959,14 @@ func (protocolRoutes *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Srv6Local_NonAs_ProtocolRoutes_ProtocolRoute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
-    // Network Address. The type is string with pattern:
+    // This attribute is a key. Network Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Prefix Length. The type is interface{} with range: 0..32.
+    // This attribute is a key. Prefix Length. The type is interface{} with range:
+    // 0..32.
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
@@ -8848,7 +9084,8 @@ func (protocolRoute *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     protocolRoute.EntityData.YangName = "protocol-route"
     protocolRoute.EntityData.BundleName = "cisco_ios_xr"
     protocolRoute.EntityData.ParentYangName = "protocol-routes"
-    protocolRoute.EntityData.SegmentPath = "protocol-route"
+    protocolRoute.EntityData.SegmentPath = "protocol-route" + types.AddKeyToken(protocolRoute.Address, "address") + types.AddKeyToken(protocolRoute.PrefixLength, "prefix-length")
+    protocolRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/srv6-local/non-as/protocol-routes/" + protocolRoute.EntityData.SegmentPath
     protocolRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocolRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8891,7 +9128,7 @@ func (protocolRoute *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     protocolRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", protocolRoute.TblVersion})
     protocolRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", protocolRoute.RouteModifyTime})
 
-    protocolRoute.EntityData.YListKeys = []string {}
+    protocolRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
     return &(protocolRoute.EntityData)
 }
@@ -8913,6 +9150,7 @@ func (routePath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     routePath.EntityData.BundleName = "cisco_ios_xr"
     routePath.EntityData.ParentYangName = "protocol-route"
     routePath.EntityData.SegmentPath = "route-path"
+    routePath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/srv6-local/non-as/protocol-routes/protocol-route/" + routePath.EntityData.SegmentPath
     routePath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routePath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routePath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8920,6 +9158,7 @@ func (routePath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     routePath.EntityData.Children = types.NewOrderedMap()
     routePath.EntityData.Children.Append("ipv4-rib-edm-path", types.YChild{"Ipv4RibEdmPath", nil})
     for i := range routePath.Ipv4RibEdmPath {
+        types.SetYListKey(routePath.Ipv4RibEdmPath[i], i)
         routePath.EntityData.Children.Append(types.GetSegmentPath(routePath.Ipv4RibEdmPath[i]), types.YChild{"Ipv4RibEdmPath", routePath.Ipv4RibEdmPath[i]})
     }
     routePath.EntityData.Leafs = types.NewOrderedMap()
@@ -8934,6 +9173,7 @@ func (routePath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Srv6Local_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Nexthop. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -9113,7 +9353,8 @@ func (ipv4RibEdmPath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
     ipv4RibEdmPath.EntityData.YangName = "ipv4-rib-edm-path"
     ipv4RibEdmPath.EntityData.BundleName = "cisco_ios_xr"
     ipv4RibEdmPath.EntityData.ParentYangName = "route-path"
-    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path"
+    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path" + types.AddNoKeyToken(ipv4RibEdmPath)
+    ipv4RibEdmPath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/srv6-local/non-as/protocol-routes/protocol-route/route-path/" + ipv4RibEdmPath.EntityData.SegmentPath
     ipv4RibEdmPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4RibEdmPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4RibEdmPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9121,14 +9362,17 @@ func (ipv4RibEdmPath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
     ipv4RibEdmPath.EntityData.Children = types.NewOrderedMap()
     ipv4RibEdmPath.EntityData.Children.Append("remote-backup-addr", types.YChild{"RemoteBackupAddr", nil})
     for i := range ipv4RibEdmPath.RemoteBackupAddr {
+        types.SetYListKey(ipv4RibEdmPath.RemoteBackupAddr[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.RemoteBackupAddr[i]), types.YChild{"RemoteBackupAddr", ipv4RibEdmPath.RemoteBackupAddr[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("labelstk", types.YChild{"Labelstk", nil})
     for i := range ipv4RibEdmPath.Labelstk {
+        types.SetYListKey(ipv4RibEdmPath.Labelstk[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.Labelstk[i]), types.YChild{"Labelstk", ipv4RibEdmPath.Labelstk[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("next-next-hop", types.YChild{"NextNextHop", nil})
     for i := range ipv4RibEdmPath.NextNextHop {
+        types.SetYListKey(ipv4RibEdmPath.NextNextHop[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.NextNextHop[i]), types.YChild{"NextNextHop", ipv4RibEdmPath.NextNextHop[i]})
     }
     ipv4RibEdmPath.EntityData.Leafs = types.NewOrderedMap()
@@ -9190,6 +9434,7 @@ func (ipv4RibEdmPath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Srv6Local_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_RemoteBackupAddr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -9201,7 +9446,8 @@ func (remoteBackupAddr *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_I
     remoteBackupAddr.EntityData.YangName = "remote-backup-addr"
     remoteBackupAddr.EntityData.BundleName = "cisco_ios_xr"
     remoteBackupAddr.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr"
+    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr" + types.AddNoKeyToken(remoteBackupAddr)
+    remoteBackupAddr.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/srv6-local/non-as/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + remoteBackupAddr.EntityData.SegmentPath
     remoteBackupAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteBackupAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteBackupAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9220,6 +9466,7 @@ func (remoteBackupAddr *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_I
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Srv6Local_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_Labelstk struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -9230,7 +9477,8 @@ func (labelstk *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
     labelstk.EntityData.YangName = "labelstk"
     labelstk.EntityData.BundleName = "cisco_ios_xr"
     labelstk.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    labelstk.EntityData.SegmentPath = "labelstk"
+    labelstk.EntityData.SegmentPath = "labelstk" + types.AddNoKeyToken(labelstk)
+    labelstk.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/srv6-local/non-as/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + labelstk.EntityData.SegmentPath
     labelstk.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labelstk.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelstk.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9249,6 +9497,7 @@ func (labelstk *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Srv6Local_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_NextNextHop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // type. The type is RibEdmNnh.
     Type interface{}
@@ -9269,7 +9518,8 @@ func (nextNextHop *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
     nextNextHop.EntityData.YangName = "next-next-hop"
     nextNextHop.EntityData.BundleName = "cisco_ios_xr"
     nextNextHop.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    nextNextHop.EntityData.SegmentPath = "next-next-hop"
+    nextNextHop.EntityData.SegmentPath = "next-next-hop" + types.AddNoKeyToken(nextNextHop)
+    nextNextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/srv6-local/non-as/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + nextNextHop.EntityData.SegmentPath
     nextNextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextNextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextNextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9339,6 +9589,7 @@ func (information *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
     information.EntityData.BundleName = "cisco_ios_xr"
     information.EntityData.ParentYangName = "non-as"
     information.EntityData.SegmentPath = "information"
+    information.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/srv6-local/non-as/" + information.EntityData.SegmentPath
     information.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     information.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     information.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9378,6 +9629,7 @@ func (static *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteT
     static.EntityData.BundleName = "cisco_ios_xr"
     static.EntityData.ParentYangName = "protocol"
     static.EntityData.SegmentPath = "static"
+    static.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/" + static.EntityData.SegmentPath
     static.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     static.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     static.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9410,6 +9662,7 @@ func (nonAs *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTa
     nonAs.EntityData.BundleName = "cisco_ios_xr"
     nonAs.EntityData.ParentYangName = "static"
     nonAs.EntityData.SegmentPath = "non-as"
+    nonAs.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/static/" + nonAs.EntityData.SegmentPath
     nonAs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nonAs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nonAs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9441,6 +9694,7 @@ func (protocolRoutes *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
     protocolRoutes.EntityData.BundleName = "cisco_ios_xr"
     protocolRoutes.EntityData.ParentYangName = "non-as"
     protocolRoutes.EntityData.SegmentPath = "protocol-routes"
+    protocolRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/static/non-as/" + protocolRoutes.EntityData.SegmentPath
     protocolRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocolRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9463,12 +9717,14 @@ func (protocolRoutes *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Static_NonAs_ProtocolRoutes_ProtocolRoute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
-    // Network Address. The type is string with pattern:
+    // This attribute is a key. Network Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Prefix Length. The type is interface{} with range: 0..32.
+    // This attribute is a key. Prefix Length. The type is interface{} with range:
+    // 0..32.
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
@@ -9586,7 +9842,8 @@ func (protocolRoute *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     protocolRoute.EntityData.YangName = "protocol-route"
     protocolRoute.EntityData.BundleName = "cisco_ios_xr"
     protocolRoute.EntityData.ParentYangName = "protocol-routes"
-    protocolRoute.EntityData.SegmentPath = "protocol-route"
+    protocolRoute.EntityData.SegmentPath = "protocol-route" + types.AddKeyToken(protocolRoute.Address, "address") + types.AddKeyToken(protocolRoute.PrefixLength, "prefix-length")
+    protocolRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/static/non-as/protocol-routes/" + protocolRoute.EntityData.SegmentPath
     protocolRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocolRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9629,7 +9886,7 @@ func (protocolRoute *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     protocolRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", protocolRoute.TblVersion})
     protocolRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", protocolRoute.RouteModifyTime})
 
-    protocolRoute.EntityData.YListKeys = []string {}
+    protocolRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
     return &(protocolRoute.EntityData)
 }
@@ -9651,6 +9908,7 @@ func (routePath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     routePath.EntityData.BundleName = "cisco_ios_xr"
     routePath.EntityData.ParentYangName = "protocol-route"
     routePath.EntityData.SegmentPath = "route-path"
+    routePath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/static/non-as/protocol-routes/protocol-route/" + routePath.EntityData.SegmentPath
     routePath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routePath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routePath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9658,6 +9916,7 @@ func (routePath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     routePath.EntityData.Children = types.NewOrderedMap()
     routePath.EntityData.Children.Append("ipv4-rib-edm-path", types.YChild{"Ipv4RibEdmPath", nil})
     for i := range routePath.Ipv4RibEdmPath {
+        types.SetYListKey(routePath.Ipv4RibEdmPath[i], i)
         routePath.EntityData.Children.Append(types.GetSegmentPath(routePath.Ipv4RibEdmPath[i]), types.YChild{"Ipv4RibEdmPath", routePath.Ipv4RibEdmPath[i]})
     }
     routePath.EntityData.Leafs = types.NewOrderedMap()
@@ -9672,6 +9931,7 @@ func (routePath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Static_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Nexthop. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -9851,7 +10111,8 @@ func (ipv4RibEdmPath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
     ipv4RibEdmPath.EntityData.YangName = "ipv4-rib-edm-path"
     ipv4RibEdmPath.EntityData.BundleName = "cisco_ios_xr"
     ipv4RibEdmPath.EntityData.ParentYangName = "route-path"
-    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path"
+    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path" + types.AddNoKeyToken(ipv4RibEdmPath)
+    ipv4RibEdmPath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/static/non-as/protocol-routes/protocol-route/route-path/" + ipv4RibEdmPath.EntityData.SegmentPath
     ipv4RibEdmPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4RibEdmPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4RibEdmPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9859,14 +10120,17 @@ func (ipv4RibEdmPath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
     ipv4RibEdmPath.EntityData.Children = types.NewOrderedMap()
     ipv4RibEdmPath.EntityData.Children.Append("remote-backup-addr", types.YChild{"RemoteBackupAddr", nil})
     for i := range ipv4RibEdmPath.RemoteBackupAddr {
+        types.SetYListKey(ipv4RibEdmPath.RemoteBackupAddr[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.RemoteBackupAddr[i]), types.YChild{"RemoteBackupAddr", ipv4RibEdmPath.RemoteBackupAddr[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("labelstk", types.YChild{"Labelstk", nil})
     for i := range ipv4RibEdmPath.Labelstk {
+        types.SetYListKey(ipv4RibEdmPath.Labelstk[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.Labelstk[i]), types.YChild{"Labelstk", ipv4RibEdmPath.Labelstk[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("next-next-hop", types.YChild{"NextNextHop", nil})
     for i := range ipv4RibEdmPath.NextNextHop {
+        types.SetYListKey(ipv4RibEdmPath.NextNextHop[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.NextNextHop[i]), types.YChild{"NextNextHop", ipv4RibEdmPath.NextNextHop[i]})
     }
     ipv4RibEdmPath.EntityData.Leafs = types.NewOrderedMap()
@@ -9928,6 +10192,7 @@ func (ipv4RibEdmPath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Static_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_RemoteBackupAddr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -9939,7 +10204,8 @@ func (remoteBackupAddr *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_I
     remoteBackupAddr.EntityData.YangName = "remote-backup-addr"
     remoteBackupAddr.EntityData.BundleName = "cisco_ios_xr"
     remoteBackupAddr.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr"
+    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr" + types.AddNoKeyToken(remoteBackupAddr)
+    remoteBackupAddr.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/static/non-as/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + remoteBackupAddr.EntityData.SegmentPath
     remoteBackupAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteBackupAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteBackupAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9958,6 +10224,7 @@ func (remoteBackupAddr *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_I
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Static_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_Labelstk struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -9968,7 +10235,8 @@ func (labelstk *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
     labelstk.EntityData.YangName = "labelstk"
     labelstk.EntityData.BundleName = "cisco_ios_xr"
     labelstk.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    labelstk.EntityData.SegmentPath = "labelstk"
+    labelstk.EntityData.SegmentPath = "labelstk" + types.AddNoKeyToken(labelstk)
+    labelstk.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/static/non-as/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + labelstk.EntityData.SegmentPath
     labelstk.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labelstk.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelstk.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9987,6 +10255,7 @@ func (labelstk *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Static_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_NextNextHop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // type. The type is RibEdmNnh.
     Type interface{}
@@ -10007,7 +10276,8 @@ func (nextNextHop *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
     nextNextHop.EntityData.YangName = "next-next-hop"
     nextNextHop.EntityData.BundleName = "cisco_ios_xr"
     nextNextHop.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    nextNextHop.EntityData.SegmentPath = "next-next-hop"
+    nextNextHop.EntityData.SegmentPath = "next-next-hop" + types.AddNoKeyToken(nextNextHop)
+    nextNextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/static/non-as/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + nextNextHop.EntityData.SegmentPath
     nextNextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextNextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextNextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10077,6 +10347,7 @@ func (information *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
     information.EntityData.BundleName = "cisco_ios_xr"
     information.EntityData.ParentYangName = "non-as"
     information.EntityData.SegmentPath = "information"
+    information.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/static/non-as/" + information.EntityData.SegmentPath
     information.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     information.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     information.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10117,6 +10388,7 @@ func (rpl *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTabl
     rpl.EntityData.BundleName = "cisco_ios_xr"
     rpl.EntityData.ParentYangName = "protocol"
     rpl.EntityData.SegmentPath = "rpl"
+    rpl.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/" + rpl.EntityData.SegmentPath
     rpl.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rpl.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rpl.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10138,6 +10410,7 @@ func (rpl *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTabl
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Rpl_As struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Autonomous system. The type is string with
     // pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -10156,6 +10429,7 @@ func (as *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTable
     as.EntityData.BundleName = "cisco_ios_xr"
     as.EntityData.ParentYangName = "rpl"
     as.EntityData.SegmentPath = "as" + types.AddKeyToken(as.As, "as")
+    as.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/rpl/" + as.EntityData.SegmentPath
     as.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     as.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     as.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10188,6 +10462,7 @@ func (protocolRoutes *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
     protocolRoutes.EntityData.BundleName = "cisco_ios_xr"
     protocolRoutes.EntityData.ParentYangName = "as"
     protocolRoutes.EntityData.SegmentPath = "protocol-routes"
+    protocolRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/rpl/as/" + protocolRoutes.EntityData.SegmentPath
     protocolRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocolRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10210,12 +10485,14 @@ func (protocolRoutes *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Rpl_As_ProtocolRoutes_ProtocolRoute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
-    // Network Address. The type is string with pattern:
+    // This attribute is a key. Network Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Prefix Length. The type is interface{} with range: 0..32.
+    // This attribute is a key. Prefix Length. The type is interface{} with range:
+    // 0..32.
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
@@ -10333,7 +10610,8 @@ func (protocolRoute *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     protocolRoute.EntityData.YangName = "protocol-route"
     protocolRoute.EntityData.BundleName = "cisco_ios_xr"
     protocolRoute.EntityData.ParentYangName = "protocol-routes"
-    protocolRoute.EntityData.SegmentPath = "protocol-route"
+    protocolRoute.EntityData.SegmentPath = "protocol-route" + types.AddKeyToken(protocolRoute.Address, "address") + types.AddKeyToken(protocolRoute.PrefixLength, "prefix-length")
+    protocolRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/rpl/as/protocol-routes/" + protocolRoute.EntityData.SegmentPath
     protocolRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocolRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10376,7 +10654,7 @@ func (protocolRoute *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     protocolRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", protocolRoute.TblVersion})
     protocolRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", protocolRoute.RouteModifyTime})
 
-    protocolRoute.EntityData.YListKeys = []string {}
+    protocolRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
     return &(protocolRoute.EntityData)
 }
@@ -10398,6 +10676,7 @@ func (routePath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     routePath.EntityData.BundleName = "cisco_ios_xr"
     routePath.EntityData.ParentYangName = "protocol-route"
     routePath.EntityData.SegmentPath = "route-path"
+    routePath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/rpl/as/protocol-routes/protocol-route/" + routePath.EntityData.SegmentPath
     routePath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routePath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routePath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10405,6 +10684,7 @@ func (routePath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     routePath.EntityData.Children = types.NewOrderedMap()
     routePath.EntityData.Children.Append("ipv4-rib-edm-path", types.YChild{"Ipv4RibEdmPath", nil})
     for i := range routePath.Ipv4RibEdmPath {
+        types.SetYListKey(routePath.Ipv4RibEdmPath[i], i)
         routePath.EntityData.Children.Append(types.GetSegmentPath(routePath.Ipv4RibEdmPath[i]), types.YChild{"Ipv4RibEdmPath", routePath.Ipv4RibEdmPath[i]})
     }
     routePath.EntityData.Leafs = types.NewOrderedMap()
@@ -10419,6 +10699,7 @@ func (routePath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Rpl_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Nexthop. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -10598,7 +10879,8 @@ func (ipv4RibEdmPath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
     ipv4RibEdmPath.EntityData.YangName = "ipv4-rib-edm-path"
     ipv4RibEdmPath.EntityData.BundleName = "cisco_ios_xr"
     ipv4RibEdmPath.EntityData.ParentYangName = "route-path"
-    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path"
+    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path" + types.AddNoKeyToken(ipv4RibEdmPath)
+    ipv4RibEdmPath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/rpl/as/protocol-routes/protocol-route/route-path/" + ipv4RibEdmPath.EntityData.SegmentPath
     ipv4RibEdmPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4RibEdmPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4RibEdmPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10606,14 +10888,17 @@ func (ipv4RibEdmPath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
     ipv4RibEdmPath.EntityData.Children = types.NewOrderedMap()
     ipv4RibEdmPath.EntityData.Children.Append("remote-backup-addr", types.YChild{"RemoteBackupAddr", nil})
     for i := range ipv4RibEdmPath.RemoteBackupAddr {
+        types.SetYListKey(ipv4RibEdmPath.RemoteBackupAddr[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.RemoteBackupAddr[i]), types.YChild{"RemoteBackupAddr", ipv4RibEdmPath.RemoteBackupAddr[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("labelstk", types.YChild{"Labelstk", nil})
     for i := range ipv4RibEdmPath.Labelstk {
+        types.SetYListKey(ipv4RibEdmPath.Labelstk[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.Labelstk[i]), types.YChild{"Labelstk", ipv4RibEdmPath.Labelstk[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("next-next-hop", types.YChild{"NextNextHop", nil})
     for i := range ipv4RibEdmPath.NextNextHop {
+        types.SetYListKey(ipv4RibEdmPath.NextNextHop[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.NextNextHop[i]), types.YChild{"NextNextHop", ipv4RibEdmPath.NextNextHop[i]})
     }
     ipv4RibEdmPath.EntityData.Leafs = types.NewOrderedMap()
@@ -10675,6 +10960,7 @@ func (ipv4RibEdmPath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Rpl_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_RemoteBackupAddr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -10686,7 +10972,8 @@ func (remoteBackupAddr *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_I
     remoteBackupAddr.EntityData.YangName = "remote-backup-addr"
     remoteBackupAddr.EntityData.BundleName = "cisco_ios_xr"
     remoteBackupAddr.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr"
+    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr" + types.AddNoKeyToken(remoteBackupAddr)
+    remoteBackupAddr.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/rpl/as/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + remoteBackupAddr.EntityData.SegmentPath
     remoteBackupAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteBackupAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteBackupAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10705,6 +10992,7 @@ func (remoteBackupAddr *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_I
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Rpl_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_Labelstk struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -10715,7 +11003,8 @@ func (labelstk *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
     labelstk.EntityData.YangName = "labelstk"
     labelstk.EntityData.BundleName = "cisco_ios_xr"
     labelstk.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    labelstk.EntityData.SegmentPath = "labelstk"
+    labelstk.EntityData.SegmentPath = "labelstk" + types.AddNoKeyToken(labelstk)
+    labelstk.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/rpl/as/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + labelstk.EntityData.SegmentPath
     labelstk.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labelstk.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelstk.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10734,6 +11023,7 @@ func (labelstk *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Rpl_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_NextNextHop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // type. The type is RibEdmNnh.
     Type interface{}
@@ -10754,7 +11044,8 @@ func (nextNextHop *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
     nextNextHop.EntityData.YangName = "next-next-hop"
     nextNextHop.EntityData.BundleName = "cisco_ios_xr"
     nextNextHop.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    nextNextHop.EntityData.SegmentPath = "next-next-hop"
+    nextNextHop.EntityData.SegmentPath = "next-next-hop" + types.AddNoKeyToken(nextNextHop)
+    nextNextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/rpl/as/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + nextNextHop.EntityData.SegmentPath
     nextNextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextNextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextNextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10824,6 +11115,7 @@ func (information *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
     information.EntityData.BundleName = "cisco_ios_xr"
     information.EntityData.ParentYangName = "as"
     information.EntityData.SegmentPath = "information"
+    information.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/rpl/as/" + information.EntityData.SegmentPath
     information.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     information.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     information.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10863,6 +11155,7 @@ func (application *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
     application.EntityData.BundleName = "cisco_ios_xr"
     application.EntityData.ParentYangName = "protocol"
     application.EntityData.SegmentPath = "application"
+    application.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/" + application.EntityData.SegmentPath
     application.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     application.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     application.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10895,6 +11188,7 @@ func (nonAs *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTa
     nonAs.EntityData.BundleName = "cisco_ios_xr"
     nonAs.EntityData.ParentYangName = "application"
     nonAs.EntityData.SegmentPath = "non-as"
+    nonAs.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/application/" + nonAs.EntityData.SegmentPath
     nonAs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nonAs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nonAs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10926,6 +11220,7 @@ func (protocolRoutes *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
     protocolRoutes.EntityData.BundleName = "cisco_ios_xr"
     protocolRoutes.EntityData.ParentYangName = "non-as"
     protocolRoutes.EntityData.SegmentPath = "protocol-routes"
+    protocolRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/application/non-as/" + protocolRoutes.EntityData.SegmentPath
     protocolRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocolRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10948,12 +11243,14 @@ func (protocolRoutes *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Application_NonAs_ProtocolRoutes_ProtocolRoute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
-    // Network Address. The type is string with pattern:
+    // This attribute is a key. Network Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Prefix Length. The type is interface{} with range: 0..32.
+    // This attribute is a key. Prefix Length. The type is interface{} with range:
+    // 0..32.
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
@@ -11071,7 +11368,8 @@ func (protocolRoute *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     protocolRoute.EntityData.YangName = "protocol-route"
     protocolRoute.EntityData.BundleName = "cisco_ios_xr"
     protocolRoute.EntityData.ParentYangName = "protocol-routes"
-    protocolRoute.EntityData.SegmentPath = "protocol-route"
+    protocolRoute.EntityData.SegmentPath = "protocol-route" + types.AddKeyToken(protocolRoute.Address, "address") + types.AddKeyToken(protocolRoute.PrefixLength, "prefix-length")
+    protocolRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/application/non-as/protocol-routes/" + protocolRoute.EntityData.SegmentPath
     protocolRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocolRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11114,7 +11412,7 @@ func (protocolRoute *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     protocolRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", protocolRoute.TblVersion})
     protocolRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", protocolRoute.RouteModifyTime})
 
-    protocolRoute.EntityData.YListKeys = []string {}
+    protocolRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
     return &(protocolRoute.EntityData)
 }
@@ -11136,6 +11434,7 @@ func (routePath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     routePath.EntityData.BundleName = "cisco_ios_xr"
     routePath.EntityData.ParentYangName = "protocol-route"
     routePath.EntityData.SegmentPath = "route-path"
+    routePath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/application/non-as/protocol-routes/protocol-route/" + routePath.EntityData.SegmentPath
     routePath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routePath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routePath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11143,6 +11442,7 @@ func (routePath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     routePath.EntityData.Children = types.NewOrderedMap()
     routePath.EntityData.Children.Append("ipv4-rib-edm-path", types.YChild{"Ipv4RibEdmPath", nil})
     for i := range routePath.Ipv4RibEdmPath {
+        types.SetYListKey(routePath.Ipv4RibEdmPath[i], i)
         routePath.EntityData.Children.Append(types.GetSegmentPath(routePath.Ipv4RibEdmPath[i]), types.YChild{"Ipv4RibEdmPath", routePath.Ipv4RibEdmPath[i]})
     }
     routePath.EntityData.Leafs = types.NewOrderedMap()
@@ -11157,6 +11457,7 @@ func (routePath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Application_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Nexthop. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -11336,7 +11637,8 @@ func (ipv4RibEdmPath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
     ipv4RibEdmPath.EntityData.YangName = "ipv4-rib-edm-path"
     ipv4RibEdmPath.EntityData.BundleName = "cisco_ios_xr"
     ipv4RibEdmPath.EntityData.ParentYangName = "route-path"
-    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path"
+    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path" + types.AddNoKeyToken(ipv4RibEdmPath)
+    ipv4RibEdmPath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/application/non-as/protocol-routes/protocol-route/route-path/" + ipv4RibEdmPath.EntityData.SegmentPath
     ipv4RibEdmPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4RibEdmPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4RibEdmPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11344,14 +11646,17 @@ func (ipv4RibEdmPath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
     ipv4RibEdmPath.EntityData.Children = types.NewOrderedMap()
     ipv4RibEdmPath.EntityData.Children.Append("remote-backup-addr", types.YChild{"RemoteBackupAddr", nil})
     for i := range ipv4RibEdmPath.RemoteBackupAddr {
+        types.SetYListKey(ipv4RibEdmPath.RemoteBackupAddr[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.RemoteBackupAddr[i]), types.YChild{"RemoteBackupAddr", ipv4RibEdmPath.RemoteBackupAddr[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("labelstk", types.YChild{"Labelstk", nil})
     for i := range ipv4RibEdmPath.Labelstk {
+        types.SetYListKey(ipv4RibEdmPath.Labelstk[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.Labelstk[i]), types.YChild{"Labelstk", ipv4RibEdmPath.Labelstk[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("next-next-hop", types.YChild{"NextNextHop", nil})
     for i := range ipv4RibEdmPath.NextNextHop {
+        types.SetYListKey(ipv4RibEdmPath.NextNextHop[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.NextNextHop[i]), types.YChild{"NextNextHop", ipv4RibEdmPath.NextNextHop[i]})
     }
     ipv4RibEdmPath.EntityData.Leafs = types.NewOrderedMap()
@@ -11413,6 +11718,7 @@ func (ipv4RibEdmPath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Application_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_RemoteBackupAddr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -11424,7 +11730,8 @@ func (remoteBackupAddr *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_I
     remoteBackupAddr.EntityData.YangName = "remote-backup-addr"
     remoteBackupAddr.EntityData.BundleName = "cisco_ios_xr"
     remoteBackupAddr.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr"
+    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr" + types.AddNoKeyToken(remoteBackupAddr)
+    remoteBackupAddr.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/application/non-as/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + remoteBackupAddr.EntityData.SegmentPath
     remoteBackupAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteBackupAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteBackupAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11443,6 +11750,7 @@ func (remoteBackupAddr *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_I
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Application_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_Labelstk struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -11453,7 +11761,8 @@ func (labelstk *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
     labelstk.EntityData.YangName = "labelstk"
     labelstk.EntityData.BundleName = "cisco_ios_xr"
     labelstk.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    labelstk.EntityData.SegmentPath = "labelstk"
+    labelstk.EntityData.SegmentPath = "labelstk" + types.AddNoKeyToken(labelstk)
+    labelstk.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/application/non-as/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + labelstk.EntityData.SegmentPath
     labelstk.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labelstk.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelstk.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11472,6 +11781,7 @@ func (labelstk *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Application_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_NextNextHop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // type. The type is RibEdmNnh.
     Type interface{}
@@ -11492,7 +11802,8 @@ func (nextNextHop *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
     nextNextHop.EntityData.YangName = "next-next-hop"
     nextNextHop.EntityData.BundleName = "cisco_ios_xr"
     nextNextHop.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    nextNextHop.EntityData.SegmentPath = "next-next-hop"
+    nextNextHop.EntityData.SegmentPath = "next-next-hop" + types.AddNoKeyToken(nextNextHop)
+    nextNextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/application/non-as/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + nextNextHop.EntityData.SegmentPath
     nextNextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextNextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextNextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11562,6 +11873,7 @@ func (information *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
     information.EntityData.BundleName = "cisco_ios_xr"
     information.EntityData.ParentYangName = "non-as"
     information.EntityData.SegmentPath = "information"
+    information.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/application/non-as/" + information.EntityData.SegmentPath
     information.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     information.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     information.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11601,6 +11913,7 @@ func (teClient *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
     teClient.EntityData.BundleName = "cisco_ios_xr"
     teClient.EntityData.ParentYangName = "protocol"
     teClient.EntityData.SegmentPath = "te-client"
+    teClient.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/" + teClient.EntityData.SegmentPath
     teClient.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     teClient.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     teClient.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11633,6 +11946,7 @@ func (nonAs *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTa
     nonAs.EntityData.BundleName = "cisco_ios_xr"
     nonAs.EntityData.ParentYangName = "te-client"
     nonAs.EntityData.SegmentPath = "non-as"
+    nonAs.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/te-client/" + nonAs.EntityData.SegmentPath
     nonAs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nonAs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nonAs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11664,6 +11978,7 @@ func (protocolRoutes *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
     protocolRoutes.EntityData.BundleName = "cisco_ios_xr"
     protocolRoutes.EntityData.ParentYangName = "non-as"
     protocolRoutes.EntityData.SegmentPath = "protocol-routes"
+    protocolRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/te-client/non-as/" + protocolRoutes.EntityData.SegmentPath
     protocolRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocolRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11686,12 +12001,14 @@ func (protocolRoutes *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_TeClient_NonAs_ProtocolRoutes_ProtocolRoute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
-    // Network Address. The type is string with pattern:
+    // This attribute is a key. Network Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Prefix Length. The type is interface{} with range: 0..32.
+    // This attribute is a key. Prefix Length. The type is interface{} with range:
+    // 0..32.
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
@@ -11809,7 +12126,8 @@ func (protocolRoute *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     protocolRoute.EntityData.YangName = "protocol-route"
     protocolRoute.EntityData.BundleName = "cisco_ios_xr"
     protocolRoute.EntityData.ParentYangName = "protocol-routes"
-    protocolRoute.EntityData.SegmentPath = "protocol-route"
+    protocolRoute.EntityData.SegmentPath = "protocol-route" + types.AddKeyToken(protocolRoute.Address, "address") + types.AddKeyToken(protocolRoute.PrefixLength, "prefix-length")
+    protocolRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/te-client/non-as/protocol-routes/" + protocolRoute.EntityData.SegmentPath
     protocolRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocolRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11852,7 +12170,7 @@ func (protocolRoute *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     protocolRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", protocolRoute.TblVersion})
     protocolRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", protocolRoute.RouteModifyTime})
 
-    protocolRoute.EntityData.YListKeys = []string {}
+    protocolRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
     return &(protocolRoute.EntityData)
 }
@@ -11874,6 +12192,7 @@ func (routePath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     routePath.EntityData.BundleName = "cisco_ios_xr"
     routePath.EntityData.ParentYangName = "protocol-route"
     routePath.EntityData.SegmentPath = "route-path"
+    routePath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/te-client/non-as/protocol-routes/protocol-route/" + routePath.EntityData.SegmentPath
     routePath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routePath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routePath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11881,6 +12200,7 @@ func (routePath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     routePath.EntityData.Children = types.NewOrderedMap()
     routePath.EntityData.Children.Append("ipv4-rib-edm-path", types.YChild{"Ipv4RibEdmPath", nil})
     for i := range routePath.Ipv4RibEdmPath {
+        types.SetYListKey(routePath.Ipv4RibEdmPath[i], i)
         routePath.EntityData.Children.Append(types.GetSegmentPath(routePath.Ipv4RibEdmPath[i]), types.YChild{"Ipv4RibEdmPath", routePath.Ipv4RibEdmPath[i]})
     }
     routePath.EntityData.Leafs = types.NewOrderedMap()
@@ -11895,6 +12215,7 @@ func (routePath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_TeClient_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Nexthop. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -12074,7 +12395,8 @@ func (ipv4RibEdmPath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
     ipv4RibEdmPath.EntityData.YangName = "ipv4-rib-edm-path"
     ipv4RibEdmPath.EntityData.BundleName = "cisco_ios_xr"
     ipv4RibEdmPath.EntityData.ParentYangName = "route-path"
-    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path"
+    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path" + types.AddNoKeyToken(ipv4RibEdmPath)
+    ipv4RibEdmPath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/te-client/non-as/protocol-routes/protocol-route/route-path/" + ipv4RibEdmPath.EntityData.SegmentPath
     ipv4RibEdmPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4RibEdmPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4RibEdmPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12082,14 +12404,17 @@ func (ipv4RibEdmPath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
     ipv4RibEdmPath.EntityData.Children = types.NewOrderedMap()
     ipv4RibEdmPath.EntityData.Children.Append("remote-backup-addr", types.YChild{"RemoteBackupAddr", nil})
     for i := range ipv4RibEdmPath.RemoteBackupAddr {
+        types.SetYListKey(ipv4RibEdmPath.RemoteBackupAddr[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.RemoteBackupAddr[i]), types.YChild{"RemoteBackupAddr", ipv4RibEdmPath.RemoteBackupAddr[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("labelstk", types.YChild{"Labelstk", nil})
     for i := range ipv4RibEdmPath.Labelstk {
+        types.SetYListKey(ipv4RibEdmPath.Labelstk[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.Labelstk[i]), types.YChild{"Labelstk", ipv4RibEdmPath.Labelstk[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("next-next-hop", types.YChild{"NextNextHop", nil})
     for i := range ipv4RibEdmPath.NextNextHop {
+        types.SetYListKey(ipv4RibEdmPath.NextNextHop[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.NextNextHop[i]), types.YChild{"NextNextHop", ipv4RibEdmPath.NextNextHop[i]})
     }
     ipv4RibEdmPath.EntityData.Leafs = types.NewOrderedMap()
@@ -12151,6 +12476,7 @@ func (ipv4RibEdmPath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_TeClient_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_RemoteBackupAddr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -12162,7 +12488,8 @@ func (remoteBackupAddr *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_I
     remoteBackupAddr.EntityData.YangName = "remote-backup-addr"
     remoteBackupAddr.EntityData.BundleName = "cisco_ios_xr"
     remoteBackupAddr.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr"
+    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr" + types.AddNoKeyToken(remoteBackupAddr)
+    remoteBackupAddr.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/te-client/non-as/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + remoteBackupAddr.EntityData.SegmentPath
     remoteBackupAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteBackupAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteBackupAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12181,6 +12508,7 @@ func (remoteBackupAddr *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_I
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_TeClient_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_Labelstk struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -12191,7 +12519,8 @@ func (labelstk *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
     labelstk.EntityData.YangName = "labelstk"
     labelstk.EntityData.BundleName = "cisco_ios_xr"
     labelstk.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    labelstk.EntityData.SegmentPath = "labelstk"
+    labelstk.EntityData.SegmentPath = "labelstk" + types.AddNoKeyToken(labelstk)
+    labelstk.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/te-client/non-as/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + labelstk.EntityData.SegmentPath
     labelstk.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labelstk.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelstk.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12210,6 +12539,7 @@ func (labelstk *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_TeClient_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_NextNextHop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // type. The type is RibEdmNnh.
     Type interface{}
@@ -12230,7 +12560,8 @@ func (nextNextHop *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
     nextNextHop.EntityData.YangName = "next-next-hop"
     nextNextHop.EntityData.BundleName = "cisco_ios_xr"
     nextNextHop.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    nextNextHop.EntityData.SegmentPath = "next-next-hop"
+    nextNextHop.EntityData.SegmentPath = "next-next-hop" + types.AddNoKeyToken(nextNextHop)
+    nextNextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/te-client/non-as/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + nextNextHop.EntityData.SegmentPath
     nextNextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextNextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextNextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12300,6 +12631,7 @@ func (information *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
     information.EntityData.BundleName = "cisco_ios_xr"
     information.EntityData.ParentYangName = "non-as"
     information.EntityData.SegmentPath = "information"
+    information.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/te-client/non-as/" + information.EntityData.SegmentPath
     information.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     information.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     information.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12340,6 +12672,7 @@ func (eigrp *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTa
     eigrp.EntityData.BundleName = "cisco_ios_xr"
     eigrp.EntityData.ParentYangName = "protocol"
     eigrp.EntityData.SegmentPath = "eigrp"
+    eigrp.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/" + eigrp.EntityData.SegmentPath
     eigrp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eigrp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eigrp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12361,6 +12694,7 @@ func (eigrp *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTa
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Eigrp_As struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Autonomous system. The type is string with
     // pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -12379,6 +12713,7 @@ func (as *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTable
     as.EntityData.BundleName = "cisco_ios_xr"
     as.EntityData.ParentYangName = "eigrp"
     as.EntityData.SegmentPath = "as" + types.AddKeyToken(as.As, "as")
+    as.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/eigrp/" + as.EntityData.SegmentPath
     as.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     as.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     as.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12411,6 +12746,7 @@ func (protocolRoutes *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
     protocolRoutes.EntityData.BundleName = "cisco_ios_xr"
     protocolRoutes.EntityData.ParentYangName = "as"
     protocolRoutes.EntityData.SegmentPath = "protocol-routes"
+    protocolRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/eigrp/as/" + protocolRoutes.EntityData.SegmentPath
     protocolRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocolRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12433,12 +12769,14 @@ func (protocolRoutes *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Eigrp_As_ProtocolRoutes_ProtocolRoute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
-    // Network Address. The type is string with pattern:
+    // This attribute is a key. Network Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Prefix Length. The type is interface{} with range: 0..32.
+    // This attribute is a key. Prefix Length. The type is interface{} with range:
+    // 0..32.
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
@@ -12556,7 +12894,8 @@ func (protocolRoute *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     protocolRoute.EntityData.YangName = "protocol-route"
     protocolRoute.EntityData.BundleName = "cisco_ios_xr"
     protocolRoute.EntityData.ParentYangName = "protocol-routes"
-    protocolRoute.EntityData.SegmentPath = "protocol-route"
+    protocolRoute.EntityData.SegmentPath = "protocol-route" + types.AddKeyToken(protocolRoute.Address, "address") + types.AddKeyToken(protocolRoute.PrefixLength, "prefix-length")
+    protocolRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/eigrp/as/protocol-routes/" + protocolRoute.EntityData.SegmentPath
     protocolRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocolRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12599,7 +12938,7 @@ func (protocolRoute *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     protocolRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", protocolRoute.TblVersion})
     protocolRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", protocolRoute.RouteModifyTime})
 
-    protocolRoute.EntityData.YListKeys = []string {}
+    protocolRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
     return &(protocolRoute.EntityData)
 }
@@ -12621,6 +12960,7 @@ func (routePath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     routePath.EntityData.BundleName = "cisco_ios_xr"
     routePath.EntityData.ParentYangName = "protocol-route"
     routePath.EntityData.SegmentPath = "route-path"
+    routePath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/eigrp/as/protocol-routes/protocol-route/" + routePath.EntityData.SegmentPath
     routePath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routePath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routePath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12628,6 +12968,7 @@ func (routePath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     routePath.EntityData.Children = types.NewOrderedMap()
     routePath.EntityData.Children.Append("ipv4-rib-edm-path", types.YChild{"Ipv4RibEdmPath", nil})
     for i := range routePath.Ipv4RibEdmPath {
+        types.SetYListKey(routePath.Ipv4RibEdmPath[i], i)
         routePath.EntityData.Children.Append(types.GetSegmentPath(routePath.Ipv4RibEdmPath[i]), types.YChild{"Ipv4RibEdmPath", routePath.Ipv4RibEdmPath[i]})
     }
     routePath.EntityData.Leafs = types.NewOrderedMap()
@@ -12642,6 +12983,7 @@ func (routePath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Eigrp_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Nexthop. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -12821,7 +13163,8 @@ func (ipv4RibEdmPath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
     ipv4RibEdmPath.EntityData.YangName = "ipv4-rib-edm-path"
     ipv4RibEdmPath.EntityData.BundleName = "cisco_ios_xr"
     ipv4RibEdmPath.EntityData.ParentYangName = "route-path"
-    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path"
+    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path" + types.AddNoKeyToken(ipv4RibEdmPath)
+    ipv4RibEdmPath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/eigrp/as/protocol-routes/protocol-route/route-path/" + ipv4RibEdmPath.EntityData.SegmentPath
     ipv4RibEdmPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4RibEdmPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4RibEdmPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12829,14 +13172,17 @@ func (ipv4RibEdmPath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
     ipv4RibEdmPath.EntityData.Children = types.NewOrderedMap()
     ipv4RibEdmPath.EntityData.Children.Append("remote-backup-addr", types.YChild{"RemoteBackupAddr", nil})
     for i := range ipv4RibEdmPath.RemoteBackupAddr {
+        types.SetYListKey(ipv4RibEdmPath.RemoteBackupAddr[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.RemoteBackupAddr[i]), types.YChild{"RemoteBackupAddr", ipv4RibEdmPath.RemoteBackupAddr[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("labelstk", types.YChild{"Labelstk", nil})
     for i := range ipv4RibEdmPath.Labelstk {
+        types.SetYListKey(ipv4RibEdmPath.Labelstk[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.Labelstk[i]), types.YChild{"Labelstk", ipv4RibEdmPath.Labelstk[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("next-next-hop", types.YChild{"NextNextHop", nil})
     for i := range ipv4RibEdmPath.NextNextHop {
+        types.SetYListKey(ipv4RibEdmPath.NextNextHop[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.NextNextHop[i]), types.YChild{"NextNextHop", ipv4RibEdmPath.NextNextHop[i]})
     }
     ipv4RibEdmPath.EntityData.Leafs = types.NewOrderedMap()
@@ -12898,6 +13244,7 @@ func (ipv4RibEdmPath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Eigrp_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_RemoteBackupAddr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -12909,7 +13256,8 @@ func (remoteBackupAddr *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_I
     remoteBackupAddr.EntityData.YangName = "remote-backup-addr"
     remoteBackupAddr.EntityData.BundleName = "cisco_ios_xr"
     remoteBackupAddr.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr"
+    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr" + types.AddNoKeyToken(remoteBackupAddr)
+    remoteBackupAddr.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/eigrp/as/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + remoteBackupAddr.EntityData.SegmentPath
     remoteBackupAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteBackupAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteBackupAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12928,6 +13276,7 @@ func (remoteBackupAddr *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_I
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Eigrp_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_Labelstk struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -12938,7 +13287,8 @@ func (labelstk *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
     labelstk.EntityData.YangName = "labelstk"
     labelstk.EntityData.BundleName = "cisco_ios_xr"
     labelstk.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    labelstk.EntityData.SegmentPath = "labelstk"
+    labelstk.EntityData.SegmentPath = "labelstk" + types.AddNoKeyToken(labelstk)
+    labelstk.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/eigrp/as/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + labelstk.EntityData.SegmentPath
     labelstk.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labelstk.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelstk.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12957,6 +13307,7 @@ func (labelstk *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Eigrp_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_NextNextHop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // type. The type is RibEdmNnh.
     Type interface{}
@@ -12977,7 +13328,8 @@ func (nextNextHop *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
     nextNextHop.EntityData.YangName = "next-next-hop"
     nextNextHop.EntityData.BundleName = "cisco_ios_xr"
     nextNextHop.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    nextNextHop.EntityData.SegmentPath = "next-next-hop"
+    nextNextHop.EntityData.SegmentPath = "next-next-hop" + types.AddNoKeyToken(nextNextHop)
+    nextNextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/eigrp/as/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + nextNextHop.EntityData.SegmentPath
     nextNextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextNextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextNextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13047,6 +13399,7 @@ func (information *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
     information.EntityData.BundleName = "cisco_ios_xr"
     information.EntityData.ParentYangName = "as"
     information.EntityData.SegmentPath = "information"
+    information.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/eigrp/as/" + information.EntityData.SegmentPath
     information.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     information.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     information.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13092,6 +13445,7 @@ func (local *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTa
     local.EntityData.BundleName = "cisco_ios_xr"
     local.EntityData.ParentYangName = "protocol"
     local.EntityData.SegmentPath = "local"
+    local.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/" + local.EntityData.SegmentPath
     local.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     local.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     local.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13126,6 +13480,7 @@ func (smiap *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTa
     smiap.EntityData.BundleName = "cisco_ios_xr"
     smiap.EntityData.ParentYangName = "local"
     smiap.EntityData.SegmentPath = "smiap"
+    smiap.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/local/" + smiap.EntityData.SegmentPath
     smiap.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     smiap.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     smiap.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13157,6 +13512,7 @@ func (protocolRoutes *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
     protocolRoutes.EntityData.BundleName = "cisco_ios_xr"
     protocolRoutes.EntityData.ParentYangName = "smiap"
     protocolRoutes.EntityData.SegmentPath = "protocol-routes"
+    protocolRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/local/smiap/" + protocolRoutes.EntityData.SegmentPath
     protocolRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocolRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13179,12 +13535,14 @@ func (protocolRoutes *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Local_Smiap_ProtocolRoutes_ProtocolRoute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
-    // Network Address. The type is string with pattern:
+    // This attribute is a key. Network Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Prefix Length. The type is interface{} with range: 0..32.
+    // This attribute is a key. Prefix Length. The type is interface{} with range:
+    // 0..32.
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
@@ -13302,7 +13660,8 @@ func (protocolRoute *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     protocolRoute.EntityData.YangName = "protocol-route"
     protocolRoute.EntityData.BundleName = "cisco_ios_xr"
     protocolRoute.EntityData.ParentYangName = "protocol-routes"
-    protocolRoute.EntityData.SegmentPath = "protocol-route"
+    protocolRoute.EntityData.SegmentPath = "protocol-route" + types.AddKeyToken(protocolRoute.Address, "address") + types.AddKeyToken(protocolRoute.PrefixLength, "prefix-length")
+    protocolRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/local/smiap/protocol-routes/" + protocolRoute.EntityData.SegmentPath
     protocolRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocolRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13345,7 +13704,7 @@ func (protocolRoute *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     protocolRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", protocolRoute.TblVersion})
     protocolRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", protocolRoute.RouteModifyTime})
 
-    protocolRoute.EntityData.YListKeys = []string {}
+    protocolRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
     return &(protocolRoute.EntityData)
 }
@@ -13367,6 +13726,7 @@ func (routePath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     routePath.EntityData.BundleName = "cisco_ios_xr"
     routePath.EntityData.ParentYangName = "protocol-route"
     routePath.EntityData.SegmentPath = "route-path"
+    routePath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/local/smiap/protocol-routes/protocol-route/" + routePath.EntityData.SegmentPath
     routePath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routePath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routePath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13374,6 +13734,7 @@ func (routePath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     routePath.EntityData.Children = types.NewOrderedMap()
     routePath.EntityData.Children.Append("ipv4-rib-edm-path", types.YChild{"Ipv4RibEdmPath", nil})
     for i := range routePath.Ipv4RibEdmPath {
+        types.SetYListKey(routePath.Ipv4RibEdmPath[i], i)
         routePath.EntityData.Children.Append(types.GetSegmentPath(routePath.Ipv4RibEdmPath[i]), types.YChild{"Ipv4RibEdmPath", routePath.Ipv4RibEdmPath[i]})
     }
     routePath.EntityData.Leafs = types.NewOrderedMap()
@@ -13388,6 +13749,7 @@ func (routePath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Local_Smiap_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Nexthop. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -13567,7 +13929,8 @@ func (ipv4RibEdmPath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
     ipv4RibEdmPath.EntityData.YangName = "ipv4-rib-edm-path"
     ipv4RibEdmPath.EntityData.BundleName = "cisco_ios_xr"
     ipv4RibEdmPath.EntityData.ParentYangName = "route-path"
-    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path"
+    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path" + types.AddNoKeyToken(ipv4RibEdmPath)
+    ipv4RibEdmPath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/local/smiap/protocol-routes/protocol-route/route-path/" + ipv4RibEdmPath.EntityData.SegmentPath
     ipv4RibEdmPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4RibEdmPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4RibEdmPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13575,14 +13938,17 @@ func (ipv4RibEdmPath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
     ipv4RibEdmPath.EntityData.Children = types.NewOrderedMap()
     ipv4RibEdmPath.EntityData.Children.Append("remote-backup-addr", types.YChild{"RemoteBackupAddr", nil})
     for i := range ipv4RibEdmPath.RemoteBackupAddr {
+        types.SetYListKey(ipv4RibEdmPath.RemoteBackupAddr[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.RemoteBackupAddr[i]), types.YChild{"RemoteBackupAddr", ipv4RibEdmPath.RemoteBackupAddr[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("labelstk", types.YChild{"Labelstk", nil})
     for i := range ipv4RibEdmPath.Labelstk {
+        types.SetYListKey(ipv4RibEdmPath.Labelstk[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.Labelstk[i]), types.YChild{"Labelstk", ipv4RibEdmPath.Labelstk[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("next-next-hop", types.YChild{"NextNextHop", nil})
     for i := range ipv4RibEdmPath.NextNextHop {
+        types.SetYListKey(ipv4RibEdmPath.NextNextHop[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.NextNextHop[i]), types.YChild{"NextNextHop", ipv4RibEdmPath.NextNextHop[i]})
     }
     ipv4RibEdmPath.EntityData.Leafs = types.NewOrderedMap()
@@ -13644,6 +14010,7 @@ func (ipv4RibEdmPath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Local_Smiap_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_RemoteBackupAddr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -13655,7 +14022,8 @@ func (remoteBackupAddr *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_I
     remoteBackupAddr.EntityData.YangName = "remote-backup-addr"
     remoteBackupAddr.EntityData.BundleName = "cisco_ios_xr"
     remoteBackupAddr.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr"
+    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr" + types.AddNoKeyToken(remoteBackupAddr)
+    remoteBackupAddr.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/local/smiap/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + remoteBackupAddr.EntityData.SegmentPath
     remoteBackupAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteBackupAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteBackupAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13674,6 +14042,7 @@ func (remoteBackupAddr *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_I
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Local_Smiap_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_Labelstk struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -13684,7 +14053,8 @@ func (labelstk *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
     labelstk.EntityData.YangName = "labelstk"
     labelstk.EntityData.BundleName = "cisco_ios_xr"
     labelstk.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    labelstk.EntityData.SegmentPath = "labelstk"
+    labelstk.EntityData.SegmentPath = "labelstk" + types.AddNoKeyToken(labelstk)
+    labelstk.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/local/smiap/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + labelstk.EntityData.SegmentPath
     labelstk.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labelstk.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelstk.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13703,6 +14073,7 @@ func (labelstk *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Local_Smiap_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_NextNextHop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // type. The type is RibEdmNnh.
     Type interface{}
@@ -13723,7 +14094,8 @@ func (nextNextHop *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
     nextNextHop.EntityData.YangName = "next-next-hop"
     nextNextHop.EntityData.BundleName = "cisco_ios_xr"
     nextNextHop.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    nextNextHop.EntityData.SegmentPath = "next-next-hop"
+    nextNextHop.EntityData.SegmentPath = "next-next-hop" + types.AddNoKeyToken(nextNextHop)
+    nextNextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/local/smiap/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + nextNextHop.EntityData.SegmentPath
     nextNextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextNextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextNextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13793,6 +14165,7 @@ func (information *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
     information.EntityData.BundleName = "cisco_ios_xr"
     information.EntityData.ParentYangName = "smiap"
     information.EntityData.SegmentPath = "information"
+    information.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/local/smiap/" + information.EntityData.SegmentPath
     information.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     information.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     information.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13836,6 +14209,7 @@ func (lspv *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTab
     lspv.EntityData.BundleName = "cisco_ios_xr"
     lspv.EntityData.ParentYangName = "local"
     lspv.EntityData.SegmentPath = "lspv"
+    lspv.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/local/" + lspv.EntityData.SegmentPath
     lspv.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lspv.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspv.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13867,6 +14241,7 @@ func (protocolRoutes *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
     protocolRoutes.EntityData.BundleName = "cisco_ios_xr"
     protocolRoutes.EntityData.ParentYangName = "lspv"
     protocolRoutes.EntityData.SegmentPath = "protocol-routes"
+    protocolRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/local/lspv/" + protocolRoutes.EntityData.SegmentPath
     protocolRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocolRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13889,12 +14264,14 @@ func (protocolRoutes *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Local_Lspv_ProtocolRoutes_ProtocolRoute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
-    // Network Address. The type is string with pattern:
+    // This attribute is a key. Network Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Prefix Length. The type is interface{} with range: 0..32.
+    // This attribute is a key. Prefix Length. The type is interface{} with range:
+    // 0..32.
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
@@ -14012,7 +14389,8 @@ func (protocolRoute *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     protocolRoute.EntityData.YangName = "protocol-route"
     protocolRoute.EntityData.BundleName = "cisco_ios_xr"
     protocolRoute.EntityData.ParentYangName = "protocol-routes"
-    protocolRoute.EntityData.SegmentPath = "protocol-route"
+    protocolRoute.EntityData.SegmentPath = "protocol-route" + types.AddKeyToken(protocolRoute.Address, "address") + types.AddKeyToken(protocolRoute.PrefixLength, "prefix-length")
+    protocolRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/local/lspv/protocol-routes/" + protocolRoute.EntityData.SegmentPath
     protocolRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocolRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14055,7 +14433,7 @@ func (protocolRoute *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     protocolRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", protocolRoute.TblVersion})
     protocolRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", protocolRoute.RouteModifyTime})
 
-    protocolRoute.EntityData.YListKeys = []string {}
+    protocolRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
     return &(protocolRoute.EntityData)
 }
@@ -14077,6 +14455,7 @@ func (routePath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     routePath.EntityData.BundleName = "cisco_ios_xr"
     routePath.EntityData.ParentYangName = "protocol-route"
     routePath.EntityData.SegmentPath = "route-path"
+    routePath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/local/lspv/protocol-routes/protocol-route/" + routePath.EntityData.SegmentPath
     routePath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routePath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routePath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14084,6 +14463,7 @@ func (routePath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     routePath.EntityData.Children = types.NewOrderedMap()
     routePath.EntityData.Children.Append("ipv4-rib-edm-path", types.YChild{"Ipv4RibEdmPath", nil})
     for i := range routePath.Ipv4RibEdmPath {
+        types.SetYListKey(routePath.Ipv4RibEdmPath[i], i)
         routePath.EntityData.Children.Append(types.GetSegmentPath(routePath.Ipv4RibEdmPath[i]), types.YChild{"Ipv4RibEdmPath", routePath.Ipv4RibEdmPath[i]})
     }
     routePath.EntityData.Leafs = types.NewOrderedMap()
@@ -14098,6 +14478,7 @@ func (routePath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Local_Lspv_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Nexthop. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -14277,7 +14658,8 @@ func (ipv4RibEdmPath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
     ipv4RibEdmPath.EntityData.YangName = "ipv4-rib-edm-path"
     ipv4RibEdmPath.EntityData.BundleName = "cisco_ios_xr"
     ipv4RibEdmPath.EntityData.ParentYangName = "route-path"
-    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path"
+    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path" + types.AddNoKeyToken(ipv4RibEdmPath)
+    ipv4RibEdmPath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/local/lspv/protocol-routes/protocol-route/route-path/" + ipv4RibEdmPath.EntityData.SegmentPath
     ipv4RibEdmPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4RibEdmPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4RibEdmPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14285,14 +14667,17 @@ func (ipv4RibEdmPath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
     ipv4RibEdmPath.EntityData.Children = types.NewOrderedMap()
     ipv4RibEdmPath.EntityData.Children.Append("remote-backup-addr", types.YChild{"RemoteBackupAddr", nil})
     for i := range ipv4RibEdmPath.RemoteBackupAddr {
+        types.SetYListKey(ipv4RibEdmPath.RemoteBackupAddr[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.RemoteBackupAddr[i]), types.YChild{"RemoteBackupAddr", ipv4RibEdmPath.RemoteBackupAddr[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("labelstk", types.YChild{"Labelstk", nil})
     for i := range ipv4RibEdmPath.Labelstk {
+        types.SetYListKey(ipv4RibEdmPath.Labelstk[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.Labelstk[i]), types.YChild{"Labelstk", ipv4RibEdmPath.Labelstk[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("next-next-hop", types.YChild{"NextNextHop", nil})
     for i := range ipv4RibEdmPath.NextNextHop {
+        types.SetYListKey(ipv4RibEdmPath.NextNextHop[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.NextNextHop[i]), types.YChild{"NextNextHop", ipv4RibEdmPath.NextNextHop[i]})
     }
     ipv4RibEdmPath.EntityData.Leafs = types.NewOrderedMap()
@@ -14354,6 +14739,7 @@ func (ipv4RibEdmPath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Local_Lspv_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_RemoteBackupAddr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -14365,7 +14751,8 @@ func (remoteBackupAddr *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_I
     remoteBackupAddr.EntityData.YangName = "remote-backup-addr"
     remoteBackupAddr.EntityData.BundleName = "cisco_ios_xr"
     remoteBackupAddr.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr"
+    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr" + types.AddNoKeyToken(remoteBackupAddr)
+    remoteBackupAddr.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/local/lspv/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + remoteBackupAddr.EntityData.SegmentPath
     remoteBackupAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteBackupAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteBackupAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14384,6 +14771,7 @@ func (remoteBackupAddr *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_I
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Local_Lspv_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_Labelstk struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -14394,7 +14782,8 @@ func (labelstk *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
     labelstk.EntityData.YangName = "labelstk"
     labelstk.EntityData.BundleName = "cisco_ios_xr"
     labelstk.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    labelstk.EntityData.SegmentPath = "labelstk"
+    labelstk.EntityData.SegmentPath = "labelstk" + types.AddNoKeyToken(labelstk)
+    labelstk.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/local/lspv/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + labelstk.EntityData.SegmentPath
     labelstk.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labelstk.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelstk.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14413,6 +14802,7 @@ func (labelstk *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Local_Lspv_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_NextNextHop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // type. The type is RibEdmNnh.
     Type interface{}
@@ -14433,7 +14823,8 @@ func (nextNextHop *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
     nextNextHop.EntityData.YangName = "next-next-hop"
     nextNextHop.EntityData.BundleName = "cisco_ios_xr"
     nextNextHop.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    nextNextHop.EntityData.SegmentPath = "next-next-hop"
+    nextNextHop.EntityData.SegmentPath = "next-next-hop" + types.AddNoKeyToken(nextNextHop)
+    nextNextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/local/lspv/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + nextNextHop.EntityData.SegmentPath
     nextNextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextNextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextNextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14503,6 +14894,7 @@ func (information *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
     information.EntityData.BundleName = "cisco_ios_xr"
     information.EntityData.ParentYangName = "lspv"
     information.EntityData.SegmentPath = "information"
+    information.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/local/lspv/" + information.EntityData.SegmentPath
     information.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     information.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     information.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14545,6 +14937,7 @@ func (nonAs *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTa
     nonAs.EntityData.BundleName = "cisco_ios_xr"
     nonAs.EntityData.ParentYangName = "local"
     nonAs.EntityData.SegmentPath = "non-as"
+    nonAs.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/local/" + nonAs.EntityData.SegmentPath
     nonAs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nonAs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nonAs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14576,6 +14969,7 @@ func (protocolRoutes *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
     protocolRoutes.EntityData.BundleName = "cisco_ios_xr"
     protocolRoutes.EntityData.ParentYangName = "non-as"
     protocolRoutes.EntityData.SegmentPath = "protocol-routes"
+    protocolRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/local/non-as/" + protocolRoutes.EntityData.SegmentPath
     protocolRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocolRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14598,12 +14992,14 @@ func (protocolRoutes *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Local_NonAs_ProtocolRoutes_ProtocolRoute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
-    // Network Address. The type is string with pattern:
+    // This attribute is a key. Network Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Prefix Length. The type is interface{} with range: 0..32.
+    // This attribute is a key. Prefix Length. The type is interface{} with range:
+    // 0..32.
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
@@ -14721,7 +15117,8 @@ func (protocolRoute *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     protocolRoute.EntityData.YangName = "protocol-route"
     protocolRoute.EntityData.BundleName = "cisco_ios_xr"
     protocolRoute.EntityData.ParentYangName = "protocol-routes"
-    protocolRoute.EntityData.SegmentPath = "protocol-route"
+    protocolRoute.EntityData.SegmentPath = "protocol-route" + types.AddKeyToken(protocolRoute.Address, "address") + types.AddKeyToken(protocolRoute.PrefixLength, "prefix-length")
+    protocolRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/local/non-as/protocol-routes/" + protocolRoute.EntityData.SegmentPath
     protocolRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocolRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14764,7 +15161,7 @@ func (protocolRoute *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     protocolRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", protocolRoute.TblVersion})
     protocolRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", protocolRoute.RouteModifyTime})
 
-    protocolRoute.EntityData.YListKeys = []string {}
+    protocolRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
     return &(protocolRoute.EntityData)
 }
@@ -14786,6 +15183,7 @@ func (routePath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     routePath.EntityData.BundleName = "cisco_ios_xr"
     routePath.EntityData.ParentYangName = "protocol-route"
     routePath.EntityData.SegmentPath = "route-path"
+    routePath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/local/non-as/protocol-routes/protocol-route/" + routePath.EntityData.SegmentPath
     routePath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routePath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routePath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14793,6 +15191,7 @@ func (routePath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     routePath.EntityData.Children = types.NewOrderedMap()
     routePath.EntityData.Children.Append("ipv4-rib-edm-path", types.YChild{"Ipv4RibEdmPath", nil})
     for i := range routePath.Ipv4RibEdmPath {
+        types.SetYListKey(routePath.Ipv4RibEdmPath[i], i)
         routePath.EntityData.Children.Append(types.GetSegmentPath(routePath.Ipv4RibEdmPath[i]), types.YChild{"Ipv4RibEdmPath", routePath.Ipv4RibEdmPath[i]})
     }
     routePath.EntityData.Leafs = types.NewOrderedMap()
@@ -14807,6 +15206,7 @@ func (routePath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Local_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Nexthop. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -14986,7 +15386,8 @@ func (ipv4RibEdmPath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
     ipv4RibEdmPath.EntityData.YangName = "ipv4-rib-edm-path"
     ipv4RibEdmPath.EntityData.BundleName = "cisco_ios_xr"
     ipv4RibEdmPath.EntityData.ParentYangName = "route-path"
-    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path"
+    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path" + types.AddNoKeyToken(ipv4RibEdmPath)
+    ipv4RibEdmPath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/local/non-as/protocol-routes/protocol-route/route-path/" + ipv4RibEdmPath.EntityData.SegmentPath
     ipv4RibEdmPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4RibEdmPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4RibEdmPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14994,14 +15395,17 @@ func (ipv4RibEdmPath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
     ipv4RibEdmPath.EntityData.Children = types.NewOrderedMap()
     ipv4RibEdmPath.EntityData.Children.Append("remote-backup-addr", types.YChild{"RemoteBackupAddr", nil})
     for i := range ipv4RibEdmPath.RemoteBackupAddr {
+        types.SetYListKey(ipv4RibEdmPath.RemoteBackupAddr[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.RemoteBackupAddr[i]), types.YChild{"RemoteBackupAddr", ipv4RibEdmPath.RemoteBackupAddr[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("labelstk", types.YChild{"Labelstk", nil})
     for i := range ipv4RibEdmPath.Labelstk {
+        types.SetYListKey(ipv4RibEdmPath.Labelstk[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.Labelstk[i]), types.YChild{"Labelstk", ipv4RibEdmPath.Labelstk[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("next-next-hop", types.YChild{"NextNextHop", nil})
     for i := range ipv4RibEdmPath.NextNextHop {
+        types.SetYListKey(ipv4RibEdmPath.NextNextHop[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.NextNextHop[i]), types.YChild{"NextNextHop", ipv4RibEdmPath.NextNextHop[i]})
     }
     ipv4RibEdmPath.EntityData.Leafs = types.NewOrderedMap()
@@ -15063,6 +15467,7 @@ func (ipv4RibEdmPath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Local_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_RemoteBackupAddr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -15074,7 +15479,8 @@ func (remoteBackupAddr *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_I
     remoteBackupAddr.EntityData.YangName = "remote-backup-addr"
     remoteBackupAddr.EntityData.BundleName = "cisco_ios_xr"
     remoteBackupAddr.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr"
+    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr" + types.AddNoKeyToken(remoteBackupAddr)
+    remoteBackupAddr.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/local/non-as/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + remoteBackupAddr.EntityData.SegmentPath
     remoteBackupAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteBackupAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteBackupAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15093,6 +15499,7 @@ func (remoteBackupAddr *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_I
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Local_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_Labelstk struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -15103,7 +15510,8 @@ func (labelstk *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
     labelstk.EntityData.YangName = "labelstk"
     labelstk.EntityData.BundleName = "cisco_ios_xr"
     labelstk.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    labelstk.EntityData.SegmentPath = "labelstk"
+    labelstk.EntityData.SegmentPath = "labelstk" + types.AddNoKeyToken(labelstk)
+    labelstk.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/local/non-as/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + labelstk.EntityData.SegmentPath
     labelstk.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labelstk.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelstk.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15122,6 +15530,7 @@ func (labelstk *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Local_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_NextNextHop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // type. The type is RibEdmNnh.
     Type interface{}
@@ -15142,7 +15551,8 @@ func (nextNextHop *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
     nextNextHop.EntityData.YangName = "next-next-hop"
     nextNextHop.EntityData.BundleName = "cisco_ios_xr"
     nextNextHop.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    nextNextHop.EntityData.SegmentPath = "next-next-hop"
+    nextNextHop.EntityData.SegmentPath = "next-next-hop" + types.AddNoKeyToken(nextNextHop)
+    nextNextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/local/non-as/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + nextNextHop.EntityData.SegmentPath
     nextNextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextNextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextNextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15212,6 +15622,7 @@ func (information *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
     information.EntityData.BundleName = "cisco_ios_xr"
     information.EntityData.ParentYangName = "non-as"
     information.EntityData.SegmentPath = "information"
+    information.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/local/non-as/" + information.EntityData.SegmentPath
     information.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     information.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     information.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15252,6 +15663,7 @@ func (bgp *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTabl
     bgp.EntityData.BundleName = "cisco_ios_xr"
     bgp.EntityData.ParentYangName = "protocol"
     bgp.EntityData.SegmentPath = "bgp"
+    bgp.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/" + bgp.EntityData.SegmentPath
     bgp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bgp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bgp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15273,6 +15685,7 @@ func (bgp *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTabl
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Bgp_As struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Autonomous system. The type is string with
     // pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -15291,6 +15704,7 @@ func (as *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTable
     as.EntityData.BundleName = "cisco_ios_xr"
     as.EntityData.ParentYangName = "bgp"
     as.EntityData.SegmentPath = "as" + types.AddKeyToken(as.As, "as")
+    as.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/bgp/" + as.EntityData.SegmentPath
     as.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     as.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     as.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15323,6 +15737,7 @@ func (protocolRoutes *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
     protocolRoutes.EntityData.BundleName = "cisco_ios_xr"
     protocolRoutes.EntityData.ParentYangName = "as"
     protocolRoutes.EntityData.SegmentPath = "protocol-routes"
+    protocolRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/bgp/as/" + protocolRoutes.EntityData.SegmentPath
     protocolRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocolRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15345,12 +15760,14 @@ func (protocolRoutes *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Bgp_As_ProtocolRoutes_ProtocolRoute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
-    // Network Address. The type is string with pattern:
+    // This attribute is a key. Network Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Prefix Length. The type is interface{} with range: 0..32.
+    // This attribute is a key. Prefix Length. The type is interface{} with range:
+    // 0..32.
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
@@ -15468,7 +15885,8 @@ func (protocolRoute *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     protocolRoute.EntityData.YangName = "protocol-route"
     protocolRoute.EntityData.BundleName = "cisco_ios_xr"
     protocolRoute.EntityData.ParentYangName = "protocol-routes"
-    protocolRoute.EntityData.SegmentPath = "protocol-route"
+    protocolRoute.EntityData.SegmentPath = "protocol-route" + types.AddKeyToken(protocolRoute.Address, "address") + types.AddKeyToken(protocolRoute.PrefixLength, "prefix-length")
+    protocolRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/bgp/as/protocol-routes/" + protocolRoute.EntityData.SegmentPath
     protocolRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocolRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15511,7 +15929,7 @@ func (protocolRoute *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     protocolRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", protocolRoute.TblVersion})
     protocolRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", protocolRoute.RouteModifyTime})
 
-    protocolRoute.EntityData.YListKeys = []string {}
+    protocolRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
     return &(protocolRoute.EntityData)
 }
@@ -15533,6 +15951,7 @@ func (routePath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     routePath.EntityData.BundleName = "cisco_ios_xr"
     routePath.EntityData.ParentYangName = "protocol-route"
     routePath.EntityData.SegmentPath = "route-path"
+    routePath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/bgp/as/protocol-routes/protocol-route/" + routePath.EntityData.SegmentPath
     routePath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routePath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routePath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15540,6 +15959,7 @@ func (routePath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     routePath.EntityData.Children = types.NewOrderedMap()
     routePath.EntityData.Children.Append("ipv4-rib-edm-path", types.YChild{"Ipv4RibEdmPath", nil})
     for i := range routePath.Ipv4RibEdmPath {
+        types.SetYListKey(routePath.Ipv4RibEdmPath[i], i)
         routePath.EntityData.Children.Append(types.GetSegmentPath(routePath.Ipv4RibEdmPath[i]), types.YChild{"Ipv4RibEdmPath", routePath.Ipv4RibEdmPath[i]})
     }
     routePath.EntityData.Leafs = types.NewOrderedMap()
@@ -15554,6 +15974,7 @@ func (routePath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Bgp_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Nexthop. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -15733,7 +16154,8 @@ func (ipv4RibEdmPath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
     ipv4RibEdmPath.EntityData.YangName = "ipv4-rib-edm-path"
     ipv4RibEdmPath.EntityData.BundleName = "cisco_ios_xr"
     ipv4RibEdmPath.EntityData.ParentYangName = "route-path"
-    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path"
+    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path" + types.AddNoKeyToken(ipv4RibEdmPath)
+    ipv4RibEdmPath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/bgp/as/protocol-routes/protocol-route/route-path/" + ipv4RibEdmPath.EntityData.SegmentPath
     ipv4RibEdmPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4RibEdmPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4RibEdmPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15741,14 +16163,17 @@ func (ipv4RibEdmPath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
     ipv4RibEdmPath.EntityData.Children = types.NewOrderedMap()
     ipv4RibEdmPath.EntityData.Children.Append("remote-backup-addr", types.YChild{"RemoteBackupAddr", nil})
     for i := range ipv4RibEdmPath.RemoteBackupAddr {
+        types.SetYListKey(ipv4RibEdmPath.RemoteBackupAddr[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.RemoteBackupAddr[i]), types.YChild{"RemoteBackupAddr", ipv4RibEdmPath.RemoteBackupAddr[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("labelstk", types.YChild{"Labelstk", nil})
     for i := range ipv4RibEdmPath.Labelstk {
+        types.SetYListKey(ipv4RibEdmPath.Labelstk[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.Labelstk[i]), types.YChild{"Labelstk", ipv4RibEdmPath.Labelstk[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("next-next-hop", types.YChild{"NextNextHop", nil})
     for i := range ipv4RibEdmPath.NextNextHop {
+        types.SetYListKey(ipv4RibEdmPath.NextNextHop[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.NextNextHop[i]), types.YChild{"NextNextHop", ipv4RibEdmPath.NextNextHop[i]})
     }
     ipv4RibEdmPath.EntityData.Leafs = types.NewOrderedMap()
@@ -15810,6 +16235,7 @@ func (ipv4RibEdmPath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Bgp_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_RemoteBackupAddr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -15821,7 +16247,8 @@ func (remoteBackupAddr *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_I
     remoteBackupAddr.EntityData.YangName = "remote-backup-addr"
     remoteBackupAddr.EntityData.BundleName = "cisco_ios_xr"
     remoteBackupAddr.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr"
+    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr" + types.AddNoKeyToken(remoteBackupAddr)
+    remoteBackupAddr.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/bgp/as/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + remoteBackupAddr.EntityData.SegmentPath
     remoteBackupAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteBackupAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteBackupAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15840,6 +16267,7 @@ func (remoteBackupAddr *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_I
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Bgp_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_Labelstk struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -15850,7 +16278,8 @@ func (labelstk *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
     labelstk.EntityData.YangName = "labelstk"
     labelstk.EntityData.BundleName = "cisco_ios_xr"
     labelstk.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    labelstk.EntityData.SegmentPath = "labelstk"
+    labelstk.EntityData.SegmentPath = "labelstk" + types.AddNoKeyToken(labelstk)
+    labelstk.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/bgp/as/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + labelstk.EntityData.SegmentPath
     labelstk.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labelstk.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelstk.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15869,6 +16298,7 @@ func (labelstk *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Bgp_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_NextNextHop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // type. The type is RibEdmNnh.
     Type interface{}
@@ -15889,7 +16319,8 @@ func (nextNextHop *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
     nextNextHop.EntityData.YangName = "next-next-hop"
     nextNextHop.EntityData.BundleName = "cisco_ios_xr"
     nextNextHop.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    nextNextHop.EntityData.SegmentPath = "next-next-hop"
+    nextNextHop.EntityData.SegmentPath = "next-next-hop" + types.AddNoKeyToken(nextNextHop)
+    nextNextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/bgp/as/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + nextNextHop.EntityData.SegmentPath
     nextNextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextNextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextNextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15959,6 +16390,7 @@ func (information *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
     information.EntityData.BundleName = "cisco_ios_xr"
     information.EntityData.ParentYangName = "as"
     information.EntityData.SegmentPath = "information"
+    information.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/bgp/as/" + information.EntityData.SegmentPath
     information.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     information.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     information.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15999,6 +16431,7 @@ func (isis *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTab
     isis.EntityData.BundleName = "cisco_ios_xr"
     isis.EntityData.ParentYangName = "protocol"
     isis.EntityData.SegmentPath = "isis"
+    isis.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/" + isis.EntityData.SegmentPath
     isis.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     isis.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     isis.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16020,6 +16453,7 @@ func (isis *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTab
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Isis_As struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Autonomous system. The type is string with
     // pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -16038,6 +16472,7 @@ func (as *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTable
     as.EntityData.BundleName = "cisco_ios_xr"
     as.EntityData.ParentYangName = "isis"
     as.EntityData.SegmentPath = "as" + types.AddKeyToken(as.As, "as")
+    as.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/isis/" + as.EntityData.SegmentPath
     as.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     as.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     as.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16070,6 +16505,7 @@ func (protocolRoutes *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
     protocolRoutes.EntityData.BundleName = "cisco_ios_xr"
     protocolRoutes.EntityData.ParentYangName = "as"
     protocolRoutes.EntityData.SegmentPath = "protocol-routes"
+    protocolRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/isis/as/" + protocolRoutes.EntityData.SegmentPath
     protocolRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocolRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16092,12 +16528,14 @@ func (protocolRoutes *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Isis_As_ProtocolRoutes_ProtocolRoute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
-    // Network Address. The type is string with pattern:
+    // This attribute is a key. Network Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Prefix Length. The type is interface{} with range: 0..32.
+    // This attribute is a key. Prefix Length. The type is interface{} with range:
+    // 0..32.
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
@@ -16215,7 +16653,8 @@ func (protocolRoute *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     protocolRoute.EntityData.YangName = "protocol-route"
     protocolRoute.EntityData.BundleName = "cisco_ios_xr"
     protocolRoute.EntityData.ParentYangName = "protocol-routes"
-    protocolRoute.EntityData.SegmentPath = "protocol-route"
+    protocolRoute.EntityData.SegmentPath = "protocol-route" + types.AddKeyToken(protocolRoute.Address, "address") + types.AddKeyToken(protocolRoute.PrefixLength, "prefix-length")
+    protocolRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/isis/as/protocol-routes/" + protocolRoute.EntityData.SegmentPath
     protocolRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocolRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16258,7 +16697,7 @@ func (protocolRoute *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRi
     protocolRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", protocolRoute.TblVersion})
     protocolRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", protocolRoute.RouteModifyTime})
 
-    protocolRoute.EntityData.YListKeys = []string {}
+    protocolRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
     return &(protocolRoute.EntityData)
 }
@@ -16280,6 +16719,7 @@ func (routePath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     routePath.EntityData.BundleName = "cisco_ios_xr"
     routePath.EntityData.ParentYangName = "protocol-route"
     routePath.EntityData.SegmentPath = "route-path"
+    routePath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/isis/as/protocol-routes/protocol-route/" + routePath.EntityData.SegmentPath
     routePath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routePath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routePath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16287,6 +16727,7 @@ func (routePath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     routePath.EntityData.Children = types.NewOrderedMap()
     routePath.EntityData.Children.Append("ipv4-rib-edm-path", types.YChild{"Ipv4RibEdmPath", nil})
     for i := range routePath.Ipv4RibEdmPath {
+        types.SetYListKey(routePath.Ipv4RibEdmPath[i], i)
         routePath.EntityData.Children.Append(types.GetSegmentPath(routePath.Ipv4RibEdmPath[i]), types.YChild{"Ipv4RibEdmPath", routePath.Ipv4RibEdmPath[i]})
     }
     routePath.EntityData.Leafs = types.NewOrderedMap()
@@ -16301,6 +16742,7 @@ func (routePath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Isis_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Nexthop. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -16480,7 +16922,8 @@ func (ipv4RibEdmPath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
     ipv4RibEdmPath.EntityData.YangName = "ipv4-rib-edm-path"
     ipv4RibEdmPath.EntityData.BundleName = "cisco_ios_xr"
     ipv4RibEdmPath.EntityData.ParentYangName = "route-path"
-    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path"
+    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path" + types.AddNoKeyToken(ipv4RibEdmPath)
+    ipv4RibEdmPath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/isis/as/protocol-routes/protocol-route/route-path/" + ipv4RibEdmPath.EntityData.SegmentPath
     ipv4RibEdmPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4RibEdmPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4RibEdmPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16488,14 +16931,17 @@ func (ipv4RibEdmPath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
     ipv4RibEdmPath.EntityData.Children = types.NewOrderedMap()
     ipv4RibEdmPath.EntityData.Children.Append("remote-backup-addr", types.YChild{"RemoteBackupAddr", nil})
     for i := range ipv4RibEdmPath.RemoteBackupAddr {
+        types.SetYListKey(ipv4RibEdmPath.RemoteBackupAddr[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.RemoteBackupAddr[i]), types.YChild{"RemoteBackupAddr", ipv4RibEdmPath.RemoteBackupAddr[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("labelstk", types.YChild{"Labelstk", nil})
     for i := range ipv4RibEdmPath.Labelstk {
+        types.SetYListKey(ipv4RibEdmPath.Labelstk[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.Labelstk[i]), types.YChild{"Labelstk", ipv4RibEdmPath.Labelstk[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("next-next-hop", types.YChild{"NextNextHop", nil})
     for i := range ipv4RibEdmPath.NextNextHop {
+        types.SetYListKey(ipv4RibEdmPath.NextNextHop[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.NextNextHop[i]), types.YChild{"NextNextHop", ipv4RibEdmPath.NextNextHop[i]})
     }
     ipv4RibEdmPath.EntityData.Leafs = types.NewOrderedMap()
@@ -16557,6 +17003,7 @@ func (ipv4RibEdmPath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Isis_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_RemoteBackupAddr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -16568,7 +17015,8 @@ func (remoteBackupAddr *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_I
     remoteBackupAddr.EntityData.YangName = "remote-backup-addr"
     remoteBackupAddr.EntityData.BundleName = "cisco_ios_xr"
     remoteBackupAddr.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr"
+    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr" + types.AddNoKeyToken(remoteBackupAddr)
+    remoteBackupAddr.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/isis/as/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + remoteBackupAddr.EntityData.SegmentPath
     remoteBackupAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteBackupAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteBackupAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16587,6 +17035,7 @@ func (remoteBackupAddr *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_I
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Isis_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_Labelstk struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -16597,7 +17046,8 @@ func (labelstk *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
     labelstk.EntityData.YangName = "labelstk"
     labelstk.EntityData.BundleName = "cisco_ios_xr"
     labelstk.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    labelstk.EntityData.SegmentPath = "labelstk"
+    labelstk.EntityData.SegmentPath = "labelstk" + types.AddNoKeyToken(labelstk)
+    labelstk.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/isis/as/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + labelstk.EntityData.SegmentPath
     labelstk.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labelstk.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelstk.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16616,6 +17066,7 @@ func (labelstk *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Isis_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_NextNextHop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // type. The type is RibEdmNnh.
     Type interface{}
@@ -16636,7 +17087,8 @@ func (nextNextHop *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
     nextNextHop.EntityData.YangName = "next-next-hop"
     nextNextHop.EntityData.BundleName = "cisco_ios_xr"
     nextNextHop.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    nextNextHop.EntityData.SegmentPath = "next-next-hop"
+    nextNextHop.EntityData.SegmentPath = "next-next-hop" + types.AddNoKeyToken(nextNextHop)
+    nextNextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/isis/as/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + nextNextHop.EntityData.SegmentPath
     nextNextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextNextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextNextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16706,6 +17158,7 @@ func (information *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
     information.EntityData.BundleName = "cisco_ios_xr"
     information.EntityData.ParentYangName = "as"
     information.EntityData.SegmentPath = "information"
+    information.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/isis/as/" + information.EntityData.SegmentPath
     information.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     information.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     information.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16746,6 +17199,7 @@ func (qRoutes *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRoute
     qRoutes.EntityData.BundleName = "cisco_ios_xr"
     qRoutes.EntityData.ParentYangName = "ip-rib-route-table-name"
     qRoutes.EntityData.SegmentPath = "q-routes"
+    qRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/" + qRoutes.EntityData.SegmentPath
     qRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     qRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     qRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16768,12 +17222,14 @@ func (qRoutes *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRoute
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_QRoutes_QRoute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
-    // Network Address. The type is string with pattern:
+    // This attribute is a key. Network Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Prefix Length. The type is interface{} with range: 0..32.
+    // This attribute is a key. Prefix Length. The type is interface{} with range:
+    // 0..32.
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
@@ -16891,7 +17347,8 @@ func (qRoute *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteT
     qRoute.EntityData.YangName = "q-route"
     qRoute.EntityData.BundleName = "cisco_ios_xr"
     qRoute.EntityData.ParentYangName = "q-routes"
-    qRoute.EntityData.SegmentPath = "q-route"
+    qRoute.EntityData.SegmentPath = "q-route" + types.AddKeyToken(qRoute.Address, "address") + types.AddKeyToken(qRoute.PrefixLength, "prefix-length")
+    qRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/q-routes/" + qRoute.EntityData.SegmentPath
     qRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     qRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     qRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16934,7 +17391,7 @@ func (qRoute *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteT
     qRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", qRoute.TblVersion})
     qRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", qRoute.RouteModifyTime})
 
-    qRoute.EntityData.YListKeys = []string {}
+    qRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
     return &(qRoute.EntityData)
 }
@@ -16956,6 +17413,7 @@ func (routePath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     routePath.EntityData.BundleName = "cisco_ios_xr"
     routePath.EntityData.ParentYangName = "q-route"
     routePath.EntityData.SegmentPath = "route-path"
+    routePath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/q-routes/q-route/" + routePath.EntityData.SegmentPath
     routePath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routePath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routePath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16963,6 +17421,7 @@ func (routePath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     routePath.EntityData.Children = types.NewOrderedMap()
     routePath.EntityData.Children.Append("ipv4-rib-edm-path", types.YChild{"Ipv4RibEdmPath", nil})
     for i := range routePath.Ipv4RibEdmPath {
+        types.SetYListKey(routePath.Ipv4RibEdmPath[i], i)
         routePath.EntityData.Children.Append(types.GetSegmentPath(routePath.Ipv4RibEdmPath[i]), types.YChild{"Ipv4RibEdmPath", routePath.Ipv4RibEdmPath[i]})
     }
     routePath.EntityData.Leafs = types.NewOrderedMap()
@@ -16977,6 +17436,7 @@ func (routePath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_QRoutes_QRoute_RoutePath_Ipv4RibEdmPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Nexthop. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -17156,7 +17616,8 @@ func (ipv4RibEdmPath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
     ipv4RibEdmPath.EntityData.YangName = "ipv4-rib-edm-path"
     ipv4RibEdmPath.EntityData.BundleName = "cisco_ios_xr"
     ipv4RibEdmPath.EntityData.ParentYangName = "route-path"
-    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path"
+    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path" + types.AddNoKeyToken(ipv4RibEdmPath)
+    ipv4RibEdmPath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/q-routes/q-route/route-path/" + ipv4RibEdmPath.EntityData.SegmentPath
     ipv4RibEdmPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4RibEdmPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4RibEdmPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17164,14 +17625,17 @@ func (ipv4RibEdmPath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
     ipv4RibEdmPath.EntityData.Children = types.NewOrderedMap()
     ipv4RibEdmPath.EntityData.Children.Append("remote-backup-addr", types.YChild{"RemoteBackupAddr", nil})
     for i := range ipv4RibEdmPath.RemoteBackupAddr {
+        types.SetYListKey(ipv4RibEdmPath.RemoteBackupAddr[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.RemoteBackupAddr[i]), types.YChild{"RemoteBackupAddr", ipv4RibEdmPath.RemoteBackupAddr[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("labelstk", types.YChild{"Labelstk", nil})
     for i := range ipv4RibEdmPath.Labelstk {
+        types.SetYListKey(ipv4RibEdmPath.Labelstk[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.Labelstk[i]), types.YChild{"Labelstk", ipv4RibEdmPath.Labelstk[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("next-next-hop", types.YChild{"NextNextHop", nil})
     for i := range ipv4RibEdmPath.NextNextHop {
+        types.SetYListKey(ipv4RibEdmPath.NextNextHop[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.NextNextHop[i]), types.YChild{"NextNextHop", ipv4RibEdmPath.NextNextHop[i]})
     }
     ipv4RibEdmPath.EntityData.Leafs = types.NewOrderedMap()
@@ -17233,6 +17697,7 @@ func (ipv4RibEdmPath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_QRoutes_QRoute_RoutePath_Ipv4RibEdmPath_RemoteBackupAddr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -17244,7 +17709,8 @@ func (remoteBackupAddr *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_I
     remoteBackupAddr.EntityData.YangName = "remote-backup-addr"
     remoteBackupAddr.EntityData.BundleName = "cisco_ios_xr"
     remoteBackupAddr.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr"
+    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr" + types.AddNoKeyToken(remoteBackupAddr)
+    remoteBackupAddr.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/q-routes/q-route/route-path/ipv4-rib-edm-path/" + remoteBackupAddr.EntityData.SegmentPath
     remoteBackupAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteBackupAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteBackupAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17263,6 +17729,7 @@ func (remoteBackupAddr *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_I
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_QRoutes_QRoute_RoutePath_Ipv4RibEdmPath_Labelstk struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -17273,7 +17740,8 @@ func (labelstk *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
     labelstk.EntityData.YangName = "labelstk"
     labelstk.EntityData.BundleName = "cisco_ios_xr"
     labelstk.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    labelstk.EntityData.SegmentPath = "labelstk"
+    labelstk.EntityData.SegmentPath = "labelstk" + types.AddNoKeyToken(labelstk)
+    labelstk.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/q-routes/q-route/route-path/ipv4-rib-edm-path/" + labelstk.EntityData.SegmentPath
     labelstk.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labelstk.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelstk.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17292,6 +17760,7 @@ func (labelstk *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_QRoutes_QRoute_RoutePath_Ipv4RibEdmPath_NextNextHop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // type. The type is RibEdmNnh.
     Type interface{}
@@ -17312,7 +17781,8 @@ func (nextNextHop *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
     nextNextHop.EntityData.YangName = "next-next-hop"
     nextNextHop.EntityData.BundleName = "cisco_ios_xr"
     nextNextHop.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    nextNextHop.EntityData.SegmentPath = "next-next-hop"
+    nextNextHop.EntityData.SegmentPath = "next-next-hop" + types.AddNoKeyToken(nextNextHop)
+    nextNextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/q-routes/q-route/route-path/ipv4-rib-edm-path/" + nextNextHop.EntityData.SegmentPath
     nextNextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextNextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextNextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17347,6 +17817,7 @@ func (backupRoutes *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRib
     backupRoutes.EntityData.BundleName = "cisco_ios_xr"
     backupRoutes.EntityData.ParentYangName = "ip-rib-route-table-name"
     backupRoutes.EntityData.SegmentPath = "backup-routes"
+    backupRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/" + backupRoutes.EntityData.SegmentPath
     backupRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     backupRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     backupRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17369,15 +17840,18 @@ func (backupRoutes *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRib
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_BackupRoutes_BackupRoute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
-    // Network Address. The type is string with pattern:
+    // This attribute is a key. Network Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Prefix Length. The type is interface{} with range: 0..32.
+    // This attribute is a key. Prefix Length. The type is interface{} with range:
+    // 0..32.
     PrefixLength interface{}
 
-    // Proto ID. The type is interface{} with range: 0..4294967295.
+    // This attribute is a key. Proto ID. The type is interface{} with range:
+    // 0..4294967295.
     Protoid interface{}
 
     // Route prefix. The type is string with pattern:
@@ -17495,7 +17969,8 @@ func (backupRoute *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
     backupRoute.EntityData.YangName = "backup-route"
     backupRoute.EntityData.BundleName = "cisco_ios_xr"
     backupRoute.EntityData.ParentYangName = "backup-routes"
-    backupRoute.EntityData.SegmentPath = "backup-route"
+    backupRoute.EntityData.SegmentPath = "backup-route" + types.AddKeyToken(backupRoute.Address, "address") + types.AddKeyToken(backupRoute.PrefixLength, "prefix-length") + types.AddKeyToken(backupRoute.Protoid, "protoid")
+    backupRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/backup-routes/" + backupRoute.EntityData.SegmentPath
     backupRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     backupRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     backupRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17539,7 +18014,7 @@ func (backupRoute *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
     backupRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", backupRoute.TblVersion})
     backupRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", backupRoute.RouteModifyTime})
 
-    backupRoute.EntityData.YListKeys = []string {}
+    backupRoute.EntityData.YListKeys = []string {"Address", "PrefixLength", "Protoid"}
 
     return &(backupRoute.EntityData)
 }
@@ -17561,6 +18036,7 @@ func (routePath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     routePath.EntityData.BundleName = "cisco_ios_xr"
     routePath.EntityData.ParentYangName = "backup-route"
     routePath.EntityData.SegmentPath = "route-path"
+    routePath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/backup-routes/backup-route/" + routePath.EntityData.SegmentPath
     routePath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routePath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routePath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17568,6 +18044,7 @@ func (routePath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     routePath.EntityData.Children = types.NewOrderedMap()
     routePath.EntityData.Children.Append("ipv4-rib-edm-path", types.YChild{"Ipv4RibEdmPath", nil})
     for i := range routePath.Ipv4RibEdmPath {
+        types.SetYListKey(routePath.Ipv4RibEdmPath[i], i)
         routePath.EntityData.Children.Append(types.GetSegmentPath(routePath.Ipv4RibEdmPath[i]), types.YChild{"Ipv4RibEdmPath", routePath.Ipv4RibEdmPath[i]})
     }
     routePath.EntityData.Leafs = types.NewOrderedMap()
@@ -17582,6 +18059,7 @@ func (routePath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_BackupRoutes_BackupRoute_RoutePath_Ipv4RibEdmPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Nexthop. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -17761,7 +18239,8 @@ func (ipv4RibEdmPath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
     ipv4RibEdmPath.EntityData.YangName = "ipv4-rib-edm-path"
     ipv4RibEdmPath.EntityData.BundleName = "cisco_ios_xr"
     ipv4RibEdmPath.EntityData.ParentYangName = "route-path"
-    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path"
+    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path" + types.AddNoKeyToken(ipv4RibEdmPath)
+    ipv4RibEdmPath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/backup-routes/backup-route/route-path/" + ipv4RibEdmPath.EntityData.SegmentPath
     ipv4RibEdmPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4RibEdmPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4RibEdmPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17769,14 +18248,17 @@ func (ipv4RibEdmPath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
     ipv4RibEdmPath.EntityData.Children = types.NewOrderedMap()
     ipv4RibEdmPath.EntityData.Children.Append("remote-backup-addr", types.YChild{"RemoteBackupAddr", nil})
     for i := range ipv4RibEdmPath.RemoteBackupAddr {
+        types.SetYListKey(ipv4RibEdmPath.RemoteBackupAddr[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.RemoteBackupAddr[i]), types.YChild{"RemoteBackupAddr", ipv4RibEdmPath.RemoteBackupAddr[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("labelstk", types.YChild{"Labelstk", nil})
     for i := range ipv4RibEdmPath.Labelstk {
+        types.SetYListKey(ipv4RibEdmPath.Labelstk[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.Labelstk[i]), types.YChild{"Labelstk", ipv4RibEdmPath.Labelstk[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("next-next-hop", types.YChild{"NextNextHop", nil})
     for i := range ipv4RibEdmPath.NextNextHop {
+        types.SetYListKey(ipv4RibEdmPath.NextNextHop[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.NextNextHop[i]), types.YChild{"NextNextHop", ipv4RibEdmPath.NextNextHop[i]})
     }
     ipv4RibEdmPath.EntityData.Leafs = types.NewOrderedMap()
@@ -17838,6 +18320,7 @@ func (ipv4RibEdmPath *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_BackupRoutes_BackupRoute_RoutePath_Ipv4RibEdmPath_RemoteBackupAddr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -17849,7 +18332,8 @@ func (remoteBackupAddr *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_I
     remoteBackupAddr.EntityData.YangName = "remote-backup-addr"
     remoteBackupAddr.EntityData.BundleName = "cisco_ios_xr"
     remoteBackupAddr.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr"
+    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr" + types.AddNoKeyToken(remoteBackupAddr)
+    remoteBackupAddr.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/backup-routes/backup-route/route-path/ipv4-rib-edm-path/" + remoteBackupAddr.EntityData.SegmentPath
     remoteBackupAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteBackupAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteBackupAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17868,6 +18352,7 @@ func (remoteBackupAddr *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_I
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_BackupRoutes_BackupRoute_RoutePath_Ipv4RibEdmPath_Labelstk struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -17878,7 +18363,8 @@ func (labelstk *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
     labelstk.EntityData.YangName = "labelstk"
     labelstk.EntityData.BundleName = "cisco_ios_xr"
     labelstk.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    labelstk.EntityData.SegmentPath = "labelstk"
+    labelstk.EntityData.SegmentPath = "labelstk" + types.AddNoKeyToken(labelstk)
+    labelstk.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/backup-routes/backup-route/route-path/ipv4-rib-edm-path/" + labelstk.EntityData.SegmentPath
     labelstk.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labelstk.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelstk.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17897,6 +18383,7 @@ func (labelstk *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_BackupRoutes_BackupRoute_RoutePath_Ipv4RibEdmPath_NextNextHop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // type. The type is RibEdmNnh.
     Type interface{}
@@ -17917,7 +18404,8 @@ func (nextNextHop *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
     nextNextHop.EntityData.YangName = "next-next-hop"
     nextNextHop.EntityData.BundleName = "cisco_ios_xr"
     nextNextHop.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    nextNextHop.EntityData.SegmentPath = "next-next-hop"
+    nextNextHop.EntityData.SegmentPath = "next-next-hop" + types.AddNoKeyToken(nextNextHop)
+    nextNextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/backup-routes/backup-route/route-path/ipv4-rib-edm-path/" + nextNextHop.EntityData.SegmentPath
     nextNextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextNextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextNextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17951,6 +18439,7 @@ func (adverts *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRoute
     adverts.EntityData.BundleName = "cisco_ios_xr"
     adverts.EntityData.ParentYangName = "ip-rib-route-table-name"
     adverts.EntityData.SegmentPath = "adverts"
+    adverts.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/" + adverts.EntityData.SegmentPath
     adverts.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     adverts.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     adverts.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17973,12 +18462,14 @@ func (adverts *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRoute
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Adverts_Advert struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
-    // Network Address. The type is string with pattern:
+    // This attribute is a key. Network Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Prefix Length. The type is interface{} with range: 0..32.
+    // This attribute is a key. Prefix Length. The type is interface{} with range:
+    // 0..32.
     PrefixLength interface{}
 
     // ipv4 rib edm advert. The type is slice of
@@ -17991,7 +18482,8 @@ func (advert *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteT
     advert.EntityData.YangName = "advert"
     advert.EntityData.BundleName = "cisco_ios_xr"
     advert.EntityData.ParentYangName = "adverts"
-    advert.EntityData.SegmentPath = "advert"
+    advert.EntityData.SegmentPath = "advert" + types.AddKeyToken(advert.Address, "address") + types.AddKeyToken(advert.PrefixLength, "prefix-length")
+    advert.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/adverts/" + advert.EntityData.SegmentPath
     advert.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     advert.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advert.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17999,13 +18491,14 @@ func (advert *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteT
     advert.EntityData.Children = types.NewOrderedMap()
     advert.EntityData.Children.Append("ipv4-rib-edm-advert", types.YChild{"Ipv4RibEdmAdvert", nil})
     for i := range advert.Ipv4RibEdmAdvert {
+        types.SetYListKey(advert.Ipv4RibEdmAdvert[i], i)
         advert.EntityData.Children.Append(types.GetSegmentPath(advert.Ipv4RibEdmAdvert[i]), types.YChild{"Ipv4RibEdmAdvert", advert.Ipv4RibEdmAdvert[i]})
     }
     advert.EntityData.Leafs = types.NewOrderedMap()
     advert.EntityData.Leafs.Append("address", types.YLeaf{"Address", advert.Address})
     advert.EntityData.Leafs.Append("prefix-length", types.YLeaf{"PrefixLength", advert.PrefixLength})
 
-    advert.EntityData.YListKeys = []string {}
+    advert.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
     return &(advert.EntityData)
 }
@@ -18015,6 +18508,7 @@ func (advert *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteT
 type RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Adverts_Advert_Ipv4RibEdmAdvert struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Protocol advertising the route. The type is interface{} with range:
     // 0..4294967295.
@@ -18050,7 +18544,8 @@ func (ipv4RibEdmAdvert *RibStdby_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_I
     ipv4RibEdmAdvert.EntityData.YangName = "ipv4-rib-edm-advert"
     ipv4RibEdmAdvert.EntityData.BundleName = "cisco_ios_xr"
     ipv4RibEdmAdvert.EntityData.ParentYangName = "advert"
-    ipv4RibEdmAdvert.EntityData.SegmentPath = "ipv4-rib-edm-advert"
+    ipv4RibEdmAdvert.EntityData.SegmentPath = "ipv4-rib-edm-advert" + types.AddNoKeyToken(ipv4RibEdmAdvert)
+    ipv4RibEdmAdvert.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/adverts/advert/" + ipv4RibEdmAdvert.EntityData.SegmentPath
     ipv4RibEdmAdvert.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4RibEdmAdvert.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4RibEdmAdvert.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18087,6 +18582,7 @@ func (ribTableIds *RibStdby_RibTableIds) GetEntityData() *types.CommonEntityData
     ribTableIds.EntityData.BundleName = "cisco_ios_xr"
     ribTableIds.EntityData.ParentYangName = "rib-stdby"
     ribTableIds.EntityData.SegmentPath = "rib-table-ids"
+    ribTableIds.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/" + ribTableIds.EntityData.SegmentPath
     ribTableIds.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ribTableIds.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ribTableIds.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18108,6 +18604,7 @@ func (ribTableIds *RibStdby_RibTableIds) GetEntityData() *types.CommonEntityData
 type RibStdby_RibTableIds_RibTableId struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Table ID. The type is string with pattern:
     // [0-9a-fA-F]{1,8}.
@@ -18129,6 +18626,7 @@ func (ribTableId *RibStdby_RibTableIds_RibTableId) GetEntityData() *types.Common
     ribTableId.EntityData.BundleName = "cisco_ios_xr"
     ribTableId.EntityData.ParentYangName = "rib-table-ids"
     ribTableId.EntityData.SegmentPath = "rib-table-id" + types.AddKeyToken(ribTableId.Tableid, "tableid")
+    ribTableId.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/rib-table-ids/" + ribTableId.EntityData.SegmentPath
     ribTableId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ribTableId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ribTableId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18162,6 +18660,7 @@ func (summaryProtos *RibStdby_RibTableIds_RibTableId_SummaryProtos) GetEntityDat
     summaryProtos.EntityData.BundleName = "cisco_ios_xr"
     summaryProtos.EntityData.ParentYangName = "rib-table-id"
     summaryProtos.EntityData.SegmentPath = "summary-protos"
+    summaryProtos.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/rib-table-ids/rib-table-id/" + summaryProtos.EntityData.SegmentPath
     summaryProtos.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     summaryProtos.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     summaryProtos.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18184,6 +18683,7 @@ func (summaryProtos *RibStdby_RibTableIds_RibTableId_SummaryProtos) GetEntityDat
 type RibStdby_RibTableIds_RibTableId_SummaryProtos_SummaryProto struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Proto ID. The type is interface{} with range:
     // 0..4294967295.
@@ -18256,6 +18756,7 @@ func (summaryProto *RibStdby_RibTableIds_RibTableId_SummaryProtos_SummaryProto) 
     summaryProto.EntityData.BundleName = "cisco_ios_xr"
     summaryProto.EntityData.ParentYangName = "summary-protos"
     summaryProto.EntityData.SegmentPath = "summary-proto" + types.AddKeyToken(summaryProto.Protoid, "protoid")
+    summaryProto.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/rib-table-ids/rib-table-id/summary-protos/" + summaryProto.EntityData.SegmentPath
     summaryProto.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     summaryProto.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     summaryProto.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18317,6 +18818,7 @@ func (protoRouteCount *RibStdby_RibTableIds_RibTableId_SummaryProtos_SummaryProt
     protoRouteCount.EntityData.BundleName = "cisco_ios_xr"
     protoRouteCount.EntityData.ParentYangName = "summary-proto"
     protoRouteCount.EntityData.SegmentPath = "proto-route-count"
+    protoRouteCount.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/rib-table-ids/rib-table-id/summary-protos/summary-proto/" + protoRouteCount.EntityData.SegmentPath
     protoRouteCount.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protoRouteCount.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protoRouteCount.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18361,6 +18863,7 @@ func (rtypeNone *RibStdby_RibTableIds_RibTableId_SummaryProtos_SummaryProto_Rtyp
     rtypeNone.EntityData.BundleName = "cisco_ios_xr"
     rtypeNone.EntityData.ParentYangName = "summary-proto"
     rtypeNone.EntityData.SegmentPath = "rtype-none"
+    rtypeNone.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/rib-table-ids/rib-table-id/summary-protos/summary-proto/" + rtypeNone.EntityData.SegmentPath
     rtypeNone.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rtypeNone.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rtypeNone.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18405,6 +18908,7 @@ func (rtypeOther *RibStdby_RibTableIds_RibTableId_SummaryProtos_SummaryProto_Rty
     rtypeOther.EntityData.BundleName = "cisco_ios_xr"
     rtypeOther.EntityData.ParentYangName = "summary-proto"
     rtypeOther.EntityData.SegmentPath = "rtype-other"
+    rtypeOther.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/rib-table-ids/rib-table-id/summary-protos/summary-proto/" + rtypeOther.EntityData.SegmentPath
     rtypeOther.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rtypeOther.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rtypeOther.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18449,6 +18953,7 @@ func (rtypeOspfIntra *RibStdby_RibTableIds_RibTableId_SummaryProtos_SummaryProto
     rtypeOspfIntra.EntityData.BundleName = "cisco_ios_xr"
     rtypeOspfIntra.EntityData.ParentYangName = "summary-proto"
     rtypeOspfIntra.EntityData.SegmentPath = "rtype-ospf-intra"
+    rtypeOspfIntra.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/rib-table-ids/rib-table-id/summary-protos/summary-proto/" + rtypeOspfIntra.EntityData.SegmentPath
     rtypeOspfIntra.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rtypeOspfIntra.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rtypeOspfIntra.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18493,6 +18998,7 @@ func (rtypeOspfInter *RibStdby_RibTableIds_RibTableId_SummaryProtos_SummaryProto
     rtypeOspfInter.EntityData.BundleName = "cisco_ios_xr"
     rtypeOspfInter.EntityData.ParentYangName = "summary-proto"
     rtypeOspfInter.EntityData.SegmentPath = "rtype-ospf-inter"
+    rtypeOspfInter.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/rib-table-ids/rib-table-id/summary-protos/summary-proto/" + rtypeOspfInter.EntityData.SegmentPath
     rtypeOspfInter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rtypeOspfInter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rtypeOspfInter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18537,6 +19043,7 @@ func (rtypeOspfExtern1 *RibStdby_RibTableIds_RibTableId_SummaryProtos_SummaryPro
     rtypeOspfExtern1.EntityData.BundleName = "cisco_ios_xr"
     rtypeOspfExtern1.EntityData.ParentYangName = "summary-proto"
     rtypeOspfExtern1.EntityData.SegmentPath = "rtype-ospf-extern1"
+    rtypeOspfExtern1.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/rib-table-ids/rib-table-id/summary-protos/summary-proto/" + rtypeOspfExtern1.EntityData.SegmentPath
     rtypeOspfExtern1.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rtypeOspfExtern1.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rtypeOspfExtern1.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18581,6 +19088,7 @@ func (rtypeOspfExtern2 *RibStdby_RibTableIds_RibTableId_SummaryProtos_SummaryPro
     rtypeOspfExtern2.EntityData.BundleName = "cisco_ios_xr"
     rtypeOspfExtern2.EntityData.ParentYangName = "summary-proto"
     rtypeOspfExtern2.EntityData.SegmentPath = "rtype-ospf-extern2"
+    rtypeOspfExtern2.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/rib-table-ids/rib-table-id/summary-protos/summary-proto/" + rtypeOspfExtern2.EntityData.SegmentPath
     rtypeOspfExtern2.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rtypeOspfExtern2.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rtypeOspfExtern2.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18625,6 +19133,7 @@ func (rtypeIsisSum *RibStdby_RibTableIds_RibTableId_SummaryProtos_SummaryProto_R
     rtypeIsisSum.EntityData.BundleName = "cisco_ios_xr"
     rtypeIsisSum.EntityData.ParentYangName = "summary-proto"
     rtypeIsisSum.EntityData.SegmentPath = "rtype-isis-sum"
+    rtypeIsisSum.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/rib-table-ids/rib-table-id/summary-protos/summary-proto/" + rtypeIsisSum.EntityData.SegmentPath
     rtypeIsisSum.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rtypeIsisSum.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rtypeIsisSum.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18669,6 +19178,7 @@ func (rtypeIsisL1 *RibStdby_RibTableIds_RibTableId_SummaryProtos_SummaryProto_Rt
     rtypeIsisL1.EntityData.BundleName = "cisco_ios_xr"
     rtypeIsisL1.EntityData.ParentYangName = "summary-proto"
     rtypeIsisL1.EntityData.SegmentPath = "rtype-isis-l1"
+    rtypeIsisL1.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/rib-table-ids/rib-table-id/summary-protos/summary-proto/" + rtypeIsisL1.EntityData.SegmentPath
     rtypeIsisL1.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rtypeIsisL1.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rtypeIsisL1.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18713,6 +19223,7 @@ func (rtypeIsisL2 *RibStdby_RibTableIds_RibTableId_SummaryProtos_SummaryProto_Rt
     rtypeIsisL2.EntityData.BundleName = "cisco_ios_xr"
     rtypeIsisL2.EntityData.ParentYangName = "summary-proto"
     rtypeIsisL2.EntityData.SegmentPath = "rtype-isis-l2"
+    rtypeIsisL2.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/rib-table-ids/rib-table-id/summary-protos/summary-proto/" + rtypeIsisL2.EntityData.SegmentPath
     rtypeIsisL2.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rtypeIsisL2.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rtypeIsisL2.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18757,6 +19268,7 @@ func (rtypeIsisL1Ia *RibStdby_RibTableIds_RibTableId_SummaryProtos_SummaryProto_
     rtypeIsisL1Ia.EntityData.BundleName = "cisco_ios_xr"
     rtypeIsisL1Ia.EntityData.ParentYangName = "summary-proto"
     rtypeIsisL1Ia.EntityData.SegmentPath = "rtype-isis-l1-ia"
+    rtypeIsisL1Ia.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/rib-table-ids/rib-table-id/summary-protos/summary-proto/" + rtypeIsisL1Ia.EntityData.SegmentPath
     rtypeIsisL1Ia.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rtypeIsisL1Ia.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rtypeIsisL1Ia.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18801,6 +19313,7 @@ func (rtypeBgpInt *RibStdby_RibTableIds_RibTableId_SummaryProtos_SummaryProto_Rt
     rtypeBgpInt.EntityData.BundleName = "cisco_ios_xr"
     rtypeBgpInt.EntityData.ParentYangName = "summary-proto"
     rtypeBgpInt.EntityData.SegmentPath = "rtype-bgp-int"
+    rtypeBgpInt.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/rib-table-ids/rib-table-id/summary-protos/summary-proto/" + rtypeBgpInt.EntityData.SegmentPath
     rtypeBgpInt.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rtypeBgpInt.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rtypeBgpInt.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18845,6 +19358,7 @@ func (rtypeBgpExt *RibStdby_RibTableIds_RibTableId_SummaryProtos_SummaryProto_Rt
     rtypeBgpExt.EntityData.BundleName = "cisco_ios_xr"
     rtypeBgpExt.EntityData.ParentYangName = "summary-proto"
     rtypeBgpExt.EntityData.SegmentPath = "rtype-bgp-ext"
+    rtypeBgpExt.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/rib-table-ids/rib-table-id/summary-protos/summary-proto/" + rtypeBgpExt.EntityData.SegmentPath
     rtypeBgpExt.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rtypeBgpExt.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rtypeBgpExt.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18889,6 +19403,7 @@ func (rtypeBgpLoc *RibStdby_RibTableIds_RibTableId_SummaryProtos_SummaryProto_Rt
     rtypeBgpLoc.EntityData.BundleName = "cisco_ios_xr"
     rtypeBgpLoc.EntityData.ParentYangName = "summary-proto"
     rtypeBgpLoc.EntityData.SegmentPath = "rtype-bgp-loc"
+    rtypeBgpLoc.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/rib-table-ids/rib-table-id/summary-protos/summary-proto/" + rtypeBgpLoc.EntityData.SegmentPath
     rtypeBgpLoc.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rtypeBgpLoc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rtypeBgpLoc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18933,6 +19448,7 @@ func (rtypeOspfNssa1 *RibStdby_RibTableIds_RibTableId_SummaryProtos_SummaryProto
     rtypeOspfNssa1.EntityData.BundleName = "cisco_ios_xr"
     rtypeOspfNssa1.EntityData.ParentYangName = "summary-proto"
     rtypeOspfNssa1.EntityData.SegmentPath = "rtype-ospf-nssa1"
+    rtypeOspfNssa1.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/rib-table-ids/rib-table-id/summary-protos/summary-proto/" + rtypeOspfNssa1.EntityData.SegmentPath
     rtypeOspfNssa1.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rtypeOspfNssa1.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rtypeOspfNssa1.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18977,6 +19493,7 @@ func (rtypeOspfNssa2 *RibStdby_RibTableIds_RibTableId_SummaryProtos_SummaryProto
     rtypeOspfNssa2.EntityData.BundleName = "cisco_ios_xr"
     rtypeOspfNssa2.EntityData.ParentYangName = "summary-proto"
     rtypeOspfNssa2.EntityData.SegmentPath = "rtype-ospf-nssa2"
+    rtypeOspfNssa2.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/rib-table-ids/rib-table-id/summary-protos/summary-proto/" + rtypeOspfNssa2.EntityData.SegmentPath
     rtypeOspfNssa2.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rtypeOspfNssa2.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rtypeOspfNssa2.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19021,6 +19538,7 @@ func (rtypeIgrp2Int *RibStdby_RibTableIds_RibTableId_SummaryProtos_SummaryProto_
     rtypeIgrp2Int.EntityData.BundleName = "cisco_ios_xr"
     rtypeIgrp2Int.EntityData.ParentYangName = "summary-proto"
     rtypeIgrp2Int.EntityData.SegmentPath = "rtype-igrp2-int"
+    rtypeIgrp2Int.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/rib-table-ids/rib-table-id/summary-protos/summary-proto/" + rtypeIgrp2Int.EntityData.SegmentPath
     rtypeIgrp2Int.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rtypeIgrp2Int.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rtypeIgrp2Int.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19065,6 +19583,7 @@ func (rtypeIgrp2Ext *RibStdby_RibTableIds_RibTableId_SummaryProtos_SummaryProto_
     rtypeIgrp2Ext.EntityData.BundleName = "cisco_ios_xr"
     rtypeIgrp2Ext.EntityData.ParentYangName = "summary-proto"
     rtypeIgrp2Ext.EntityData.SegmentPath = "rtype-igrp2-ext"
+    rtypeIgrp2Ext.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/rib-table-ids/rib-table-id/summary-protos/summary-proto/" + rtypeIgrp2Ext.EntityData.SegmentPath
     rtypeIgrp2Ext.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rtypeIgrp2Ext.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rtypeIgrp2Ext.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19098,6 +19617,7 @@ func (ribTableItfHndls *RibStdby_RibTableIds_RibTableId_RibTableItfHndls) GetEnt
     ribTableItfHndls.EntityData.BundleName = "cisco_ios_xr"
     ribTableItfHndls.EntityData.ParentYangName = "rib-table-id"
     ribTableItfHndls.EntityData.SegmentPath = "rib-table-itf-hndls"
+    ribTableItfHndls.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/rib-table-ids/rib-table-id/" + ribTableItfHndls.EntityData.SegmentPath
     ribTableItfHndls.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ribTableItfHndls.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ribTableItfHndls.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19119,6 +19639,7 @@ func (ribTableItfHndls *RibStdby_RibTableIds_RibTableId_RibTableItfHndls) GetEnt
 type RibStdby_RibTableIds_RibTableId_RibTableItfHndls_RibTableItfHndl struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Itf Handle. The type is interface{} with range:
     // 0..4294967295.
@@ -19135,6 +19656,7 @@ func (ribTableItfHndl *RibStdby_RibTableIds_RibTableId_RibTableItfHndls_RibTable
     ribTableItfHndl.EntityData.BundleName = "cisco_ios_xr"
     ribTableItfHndl.EntityData.ParentYangName = "rib-table-itf-hndls"
     ribTableItfHndl.EntityData.SegmentPath = "rib-table-itf-hndl" + types.AddKeyToken(ribTableItfHndl.Handle, "handle")
+    ribTableItfHndl.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/rib-table-ids/rib-table-id/rib-table-itf-hndls/" + ribTableItfHndl.EntityData.SegmentPath
     ribTableItfHndl.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ribTableItfHndl.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ribTableItfHndl.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19158,6 +19680,7 @@ func (ribTableItfHndl *RibStdby_RibTableIds_RibTableId_RibTableItfHndls_RibTable
 type RibStdby_RibTableIds_RibTableId_RibTableItfHndls_RibTableItfHndl_ItfRoute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Network Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -19279,6 +19802,7 @@ func (itfRoute *RibStdby_RibTableIds_RibTableId_RibTableItfHndls_RibTableItfHndl
     itfRoute.EntityData.BundleName = "cisco_ios_xr"
     itfRoute.EntityData.ParentYangName = "rib-table-itf-hndl"
     itfRoute.EntityData.SegmentPath = "itf-route" + types.AddKeyToken(itfRoute.Address, "address")
+    itfRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/rib-table-ids/rib-table-id/rib-table-itf-hndls/rib-table-itf-hndl/" + itfRoute.EntityData.SegmentPath
     itfRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     itfRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     itfRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19342,6 +19866,7 @@ func (routePath *RibStdby_RibTableIds_RibTableId_RibTableItfHndls_RibTableItfHnd
     routePath.EntityData.BundleName = "cisco_ios_xr"
     routePath.EntityData.ParentYangName = "itf-route"
     routePath.EntityData.SegmentPath = "route-path"
+    routePath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/rib-table-ids/rib-table-id/rib-table-itf-hndls/rib-table-itf-hndl/itf-route/" + routePath.EntityData.SegmentPath
     routePath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routePath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routePath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19349,6 +19874,7 @@ func (routePath *RibStdby_RibTableIds_RibTableId_RibTableItfHndls_RibTableItfHnd
     routePath.EntityData.Children = types.NewOrderedMap()
     routePath.EntityData.Children.Append("ipv4-rib-edm-path", types.YChild{"Ipv4RibEdmPath", nil})
     for i := range routePath.Ipv4RibEdmPath {
+        types.SetYListKey(routePath.Ipv4RibEdmPath[i], i)
         routePath.EntityData.Children.Append(types.GetSegmentPath(routePath.Ipv4RibEdmPath[i]), types.YChild{"Ipv4RibEdmPath", routePath.Ipv4RibEdmPath[i]})
     }
     routePath.EntityData.Leafs = types.NewOrderedMap()
@@ -19363,6 +19889,7 @@ func (routePath *RibStdby_RibTableIds_RibTableId_RibTableItfHndls_RibTableItfHnd
 type RibStdby_RibTableIds_RibTableId_RibTableItfHndls_RibTableItfHndl_ItfRoute_RoutePath_Ipv4RibEdmPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Nexthop. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -19542,7 +20069,8 @@ func (ipv4RibEdmPath *RibStdby_RibTableIds_RibTableId_RibTableItfHndls_RibTableI
     ipv4RibEdmPath.EntityData.YangName = "ipv4-rib-edm-path"
     ipv4RibEdmPath.EntityData.BundleName = "cisco_ios_xr"
     ipv4RibEdmPath.EntityData.ParentYangName = "route-path"
-    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path"
+    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path" + types.AddNoKeyToken(ipv4RibEdmPath)
+    ipv4RibEdmPath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/rib-table-ids/rib-table-id/rib-table-itf-hndls/rib-table-itf-hndl/itf-route/route-path/" + ipv4RibEdmPath.EntityData.SegmentPath
     ipv4RibEdmPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4RibEdmPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4RibEdmPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19550,14 +20078,17 @@ func (ipv4RibEdmPath *RibStdby_RibTableIds_RibTableId_RibTableItfHndls_RibTableI
     ipv4RibEdmPath.EntityData.Children = types.NewOrderedMap()
     ipv4RibEdmPath.EntityData.Children.Append("remote-backup-addr", types.YChild{"RemoteBackupAddr", nil})
     for i := range ipv4RibEdmPath.RemoteBackupAddr {
+        types.SetYListKey(ipv4RibEdmPath.RemoteBackupAddr[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.RemoteBackupAddr[i]), types.YChild{"RemoteBackupAddr", ipv4RibEdmPath.RemoteBackupAddr[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("labelstk", types.YChild{"Labelstk", nil})
     for i := range ipv4RibEdmPath.Labelstk {
+        types.SetYListKey(ipv4RibEdmPath.Labelstk[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.Labelstk[i]), types.YChild{"Labelstk", ipv4RibEdmPath.Labelstk[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("next-next-hop", types.YChild{"NextNextHop", nil})
     for i := range ipv4RibEdmPath.NextNextHop {
+        types.SetYListKey(ipv4RibEdmPath.NextNextHop[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.NextNextHop[i]), types.YChild{"NextNextHop", ipv4RibEdmPath.NextNextHop[i]})
     }
     ipv4RibEdmPath.EntityData.Leafs = types.NewOrderedMap()
@@ -19619,6 +20150,7 @@ func (ipv4RibEdmPath *RibStdby_RibTableIds_RibTableId_RibTableItfHndls_RibTableI
 type RibStdby_RibTableIds_RibTableId_RibTableItfHndls_RibTableItfHndl_ItfRoute_RoutePath_Ipv4RibEdmPath_RemoteBackupAddr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -19630,7 +20162,8 @@ func (remoteBackupAddr *RibStdby_RibTableIds_RibTableId_RibTableItfHndls_RibTabl
     remoteBackupAddr.EntityData.YangName = "remote-backup-addr"
     remoteBackupAddr.EntityData.BundleName = "cisco_ios_xr"
     remoteBackupAddr.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr"
+    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr" + types.AddNoKeyToken(remoteBackupAddr)
+    remoteBackupAddr.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/rib-table-ids/rib-table-id/rib-table-itf-hndls/rib-table-itf-hndl/itf-route/route-path/ipv4-rib-edm-path/" + remoteBackupAddr.EntityData.SegmentPath
     remoteBackupAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteBackupAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteBackupAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19649,6 +20182,7 @@ func (remoteBackupAddr *RibStdby_RibTableIds_RibTableId_RibTableItfHndls_RibTabl
 type RibStdby_RibTableIds_RibTableId_RibTableItfHndls_RibTableItfHndl_ItfRoute_RoutePath_Ipv4RibEdmPath_Labelstk struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -19659,7 +20193,8 @@ func (labelstk *RibStdby_RibTableIds_RibTableId_RibTableItfHndls_RibTableItfHndl
     labelstk.EntityData.YangName = "labelstk"
     labelstk.EntityData.BundleName = "cisco_ios_xr"
     labelstk.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    labelstk.EntityData.SegmentPath = "labelstk"
+    labelstk.EntityData.SegmentPath = "labelstk" + types.AddNoKeyToken(labelstk)
+    labelstk.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/rib-table-ids/rib-table-id/rib-table-itf-hndls/rib-table-itf-hndl/itf-route/route-path/ipv4-rib-edm-path/" + labelstk.EntityData.SegmentPath
     labelstk.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labelstk.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelstk.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19678,6 +20213,7 @@ func (labelstk *RibStdby_RibTableIds_RibTableId_RibTableItfHndls_RibTableItfHndl
 type RibStdby_RibTableIds_RibTableId_RibTableItfHndls_RibTableItfHndl_ItfRoute_RoutePath_Ipv4RibEdmPath_NextNextHop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // type. The type is RibEdmNnh.
     Type interface{}
@@ -19698,7 +20234,8 @@ func (nextNextHop *RibStdby_RibTableIds_RibTableId_RibTableItfHndls_RibTableItfH
     nextNextHop.EntityData.YangName = "next-next-hop"
     nextNextHop.EntityData.BundleName = "cisco_ios_xr"
     nextNextHop.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    nextNextHop.EntityData.SegmentPath = "next-next-hop"
+    nextNextHop.EntityData.SegmentPath = "next-next-hop" + types.AddNoKeyToken(nextNextHop)
+    nextNextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/rib-table-ids/rib-table-id/rib-table-itf-hndls/rib-table-itf-hndl/itf-route/route-path/ipv4-rib-edm-path/" + nextNextHop.EntityData.SegmentPath
     nextNextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextNextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextNextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19774,6 +20311,7 @@ func (information *RibStdby_RibTableIds_RibTableId_Information) GetEntityData() 
     information.EntityData.BundleName = "cisco_ios_xr"
     information.EntityData.ParentYangName = "rib-table-id"
     information.EntityData.SegmentPath = "information"
+    information.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib-stdby/rib-table-ids/rib-table-id/" + information.EntityData.SegmentPath
     information.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     information.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     information.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19820,6 +20358,7 @@ func (rib *Rib) GetEntityData() *types.CommonEntityData {
     rib.EntityData.BundleName = "cisco_ios_xr"
     rib.EntityData.ParentYangName = "Cisco-IOS-XR-ip-rib-ipv4-oper"
     rib.EntityData.SegmentPath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib"
+    rib.EntityData.AbsolutePath = rib.EntityData.SegmentPath
     rib.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rib.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rib.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19850,6 +20389,7 @@ func (vrfs *Rib_Vrfs) GetEntityData() *types.CommonEntityData {
     vrfs.EntityData.BundleName = "cisco_ios_xr"
     vrfs.EntityData.ParentYangName = "rib"
     vrfs.EntityData.SegmentPath = "vrfs"
+    vrfs.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/" + vrfs.EntityData.SegmentPath
     vrfs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19871,6 +20411,7 @@ func (vrfs *Rib_Vrfs) GetEntityData() *types.CommonEntityData {
 type Rib_Vrfs_Vrf struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of the VRF. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -19886,6 +20427,7 @@ func (vrf *Rib_Vrfs_Vrf) GetEntityData() *types.CommonEntityData {
     vrf.EntityData.BundleName = "cisco_ios_xr"
     vrf.EntityData.ParentYangName = "vrfs"
     vrf.EntityData.SegmentPath = "vrf" + types.AddKeyToken(vrf.VrfName, "vrf-name")
+    vrf.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/" + vrf.EntityData.SegmentPath
     vrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19916,6 +20458,7 @@ func (afs *Rib_Vrfs_Vrf_Afs) GetEntityData() *types.CommonEntityData {
     afs.EntityData.BundleName = "cisco_ios_xr"
     afs.EntityData.ParentYangName = "vrf"
     afs.EntityData.SegmentPath = "afs"
+    afs.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/" + afs.EntityData.SegmentPath
     afs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     afs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     afs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19937,6 +20480,7 @@ func (afs *Rib_Vrfs_Vrf_Afs) GetEntityData() *types.CommonEntityData {
 type Rib_Vrfs_Vrf_Afs_Af struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of the AF. The type is string with pattern:
     // (IPv4)|(IPv6).
@@ -19952,6 +20496,7 @@ func (af *Rib_Vrfs_Vrf_Afs_Af) GetEntityData() *types.CommonEntityData {
     af.EntityData.BundleName = "cisco_ios_xr"
     af.EntityData.ParentYangName = "afs"
     af.EntityData.SegmentPath = "af" + types.AddKeyToken(af.AfName, "af-name")
+    af.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/" + af.EntityData.SegmentPath
     af.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     af.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     af.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19983,6 +20528,7 @@ func (safs *Rib_Vrfs_Vrf_Afs_Af_Safs) GetEntityData() *types.CommonEntityData {
     safs.EntityData.BundleName = "cisco_ios_xr"
     safs.EntityData.ParentYangName = "af"
     safs.EntityData.SegmentPath = "safs"
+    safs.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/" + safs.EntityData.SegmentPath
     safs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     safs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     safs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20004,6 +20550,7 @@ func (safs *Rib_Vrfs_Vrf_Afs_Af_Safs) GetEntityData() *types.CommonEntityData {
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of the SAF. The type is string with pattern:
     // (Unicast)|(Multicast).
@@ -20019,6 +20566,7 @@ func (saf *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf) GetEntityData() *types.CommonEntityData
     saf.EntityData.BundleName = "cisco_ios_xr"
     saf.EntityData.ParentYangName = "safs"
     saf.EntityData.SegmentPath = "saf" + types.AddKeyToken(saf.SafName, "saf-name")
+    saf.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/" + saf.EntityData.SegmentPath
     saf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     saf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     saf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20050,6 +20598,7 @@ func (ipRibRouteTableNames *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames) G
     ipRibRouteTableNames.EntityData.BundleName = "cisco_ios_xr"
     ipRibRouteTableNames.EntityData.ParentYangName = "saf"
     ipRibRouteTableNames.EntityData.SegmentPath = "ip-rib-route-table-names"
+    ipRibRouteTableNames.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/" + ipRibRouteTableNames.EntityData.SegmentPath
     ipRibRouteTableNames.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipRibRouteTableNames.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipRibRouteTableNames.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20071,6 +20620,7 @@ func (ipRibRouteTableNames *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames) G
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of the route table. The type is string with
     // pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -20107,6 +20657,7 @@ func (ipRibRouteTableName *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpR
     ipRibRouteTableName.EntityData.BundleName = "cisco_ios_xr"
     ipRibRouteTableName.EntityData.ParentYangName = "ip-rib-route-table-names"
     ipRibRouteTableName.EntityData.SegmentPath = "ip-rib-route-table-name" + types.AddKeyToken(ipRibRouteTableName.RouteTableName, "route-table-name")
+    ipRibRouteTableName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/" + ipRibRouteTableName.EntityData.SegmentPath
     ipRibRouteTableName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipRibRouteTableName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipRibRouteTableName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20145,6 +20696,7 @@ func (routes *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     routes.EntityData.BundleName = "cisco_ios_xr"
     routes.EntityData.ParentYangName = "ip-rib-route-table-name"
     routes.EntityData.SegmentPath = "routes"
+    routes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/" + routes.EntityData.SegmentPath
     routes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20167,20 +20719,15 @@ func (routes *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Routes_Route struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
-    // Network Address. The type is string with pattern:
+    // This attribute is a key. Network Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Prefix Length. The type is interface{} with range: 0..32.
+    // This attribute is a key. Prefix Length. The type is interface{} with range:
+    // 0..32.
     PrefixLength interface{}
-
-    // NextHop Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
-    NextHopAddress interface{}
-
-    // Outgoing Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
-    InterfaceName interface{}
 
     // Route prefix. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -20297,7 +20844,8 @@ func (route *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableNa
     route.EntityData.YangName = "route"
     route.EntityData.BundleName = "cisco_ios_xr"
     route.EntityData.ParentYangName = "routes"
-    route.EntityData.SegmentPath = "route"
+    route.EntityData.SegmentPath = "route" + types.AddKeyToken(route.Address, "address") + types.AddKeyToken(route.PrefixLength, "prefix-length")
+    route.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/routes/" + route.EntityData.SegmentPath
     route.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     route.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     route.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20307,8 +20855,6 @@ func (route *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableNa
     route.EntityData.Leafs = types.NewOrderedMap()
     route.EntityData.Leafs.Append("address", types.YLeaf{"Address", route.Address})
     route.EntityData.Leafs.Append("prefix-length", types.YLeaf{"PrefixLength", route.PrefixLength})
-    route.EntityData.Leafs.Append("next-hop-address", types.YLeaf{"NextHopAddress", route.NextHopAddress})
-    route.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", route.InterfaceName})
     route.EntityData.Leafs.Append("prefix", types.YLeaf{"Prefix", route.Prefix})
     route.EntityData.Leafs.Append("prefix-length-xr", types.YLeaf{"PrefixLengthXr", route.PrefixLengthXr})
     route.EntityData.Leafs.Append("route-version", types.YLeaf{"RouteVersion", route.RouteVersion})
@@ -20342,7 +20888,7 @@ func (route *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableNa
     route.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", route.TblVersion})
     route.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", route.RouteModifyTime})
 
-    route.EntityData.YListKeys = []string {}
+    route.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
     return &(route.EntityData)
 }
@@ -20364,6 +20910,7 @@ func (routePath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTab
     routePath.EntityData.BundleName = "cisco_ios_xr"
     routePath.EntityData.ParentYangName = "route"
     routePath.EntityData.SegmentPath = "route-path"
+    routePath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/routes/route/" + routePath.EntityData.SegmentPath
     routePath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routePath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routePath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20371,6 +20918,7 @@ func (routePath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTab
     routePath.EntityData.Children = types.NewOrderedMap()
     routePath.EntityData.Children.Append("ipv4-rib-edm-path", types.YChild{"Ipv4RibEdmPath", nil})
     for i := range routePath.Ipv4RibEdmPath {
+        types.SetYListKey(routePath.Ipv4RibEdmPath[i], i)
         routePath.EntityData.Children.Append(types.GetSegmentPath(routePath.Ipv4RibEdmPath[i]), types.YChild{"Ipv4RibEdmPath", routePath.Ipv4RibEdmPath[i]})
     }
     routePath.EntityData.Leafs = types.NewOrderedMap()
@@ -20385,6 +20933,7 @@ func (routePath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTab
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Routes_Route_RoutePath_Ipv4RibEdmPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Nexthop. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -20564,7 +21113,8 @@ func (ipv4RibEdmPath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     ipv4RibEdmPath.EntityData.YangName = "ipv4-rib-edm-path"
     ipv4RibEdmPath.EntityData.BundleName = "cisco_ios_xr"
     ipv4RibEdmPath.EntityData.ParentYangName = "route-path"
-    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path"
+    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path" + types.AddNoKeyToken(ipv4RibEdmPath)
+    ipv4RibEdmPath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/routes/route/route-path/" + ipv4RibEdmPath.EntityData.SegmentPath
     ipv4RibEdmPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4RibEdmPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4RibEdmPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20572,14 +21122,17 @@ func (ipv4RibEdmPath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     ipv4RibEdmPath.EntityData.Children = types.NewOrderedMap()
     ipv4RibEdmPath.EntityData.Children.Append("remote-backup-addr", types.YChild{"RemoteBackupAddr", nil})
     for i := range ipv4RibEdmPath.RemoteBackupAddr {
+        types.SetYListKey(ipv4RibEdmPath.RemoteBackupAddr[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.RemoteBackupAddr[i]), types.YChild{"RemoteBackupAddr", ipv4RibEdmPath.RemoteBackupAddr[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("labelstk", types.YChild{"Labelstk", nil})
     for i := range ipv4RibEdmPath.Labelstk {
+        types.SetYListKey(ipv4RibEdmPath.Labelstk[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.Labelstk[i]), types.YChild{"Labelstk", ipv4RibEdmPath.Labelstk[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("next-next-hop", types.YChild{"NextNextHop", nil})
     for i := range ipv4RibEdmPath.NextNextHop {
+        types.SetYListKey(ipv4RibEdmPath.NextNextHop[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.NextNextHop[i]), types.YChild{"NextNextHop", ipv4RibEdmPath.NextNextHop[i]})
     }
     ipv4RibEdmPath.EntityData.Leafs = types.NewOrderedMap()
@@ -20641,6 +21194,7 @@ func (ipv4RibEdmPath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Routes_Route_RoutePath_Ipv4RibEdmPath_RemoteBackupAddr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -20652,7 +21206,8 @@ func (remoteBackupAddr *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
     remoteBackupAddr.EntityData.YangName = "remote-backup-addr"
     remoteBackupAddr.EntityData.BundleName = "cisco_ios_xr"
     remoteBackupAddr.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr"
+    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr" + types.AddNoKeyToken(remoteBackupAddr)
+    remoteBackupAddr.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/routes/route/route-path/ipv4-rib-edm-path/" + remoteBackupAddr.EntityData.SegmentPath
     remoteBackupAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteBackupAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteBackupAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20671,6 +21226,7 @@ func (remoteBackupAddr *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Routes_Route_RoutePath_Ipv4RibEdmPath_Labelstk struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -20681,7 +21237,8 @@ func (labelstk *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTabl
     labelstk.EntityData.YangName = "labelstk"
     labelstk.EntityData.BundleName = "cisco_ios_xr"
     labelstk.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    labelstk.EntityData.SegmentPath = "labelstk"
+    labelstk.EntityData.SegmentPath = "labelstk" + types.AddNoKeyToken(labelstk)
+    labelstk.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/routes/route/route-path/ipv4-rib-edm-path/" + labelstk.EntityData.SegmentPath
     labelstk.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labelstk.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelstk.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20700,6 +21257,7 @@ func (labelstk *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTabl
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Routes_Route_RoutePath_Ipv4RibEdmPath_NextNextHop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // type. The type is RibEdmNnh.
     Type interface{}
@@ -20720,7 +21278,8 @@ func (nextNextHop *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteT
     nextNextHop.EntityData.YangName = "next-next-hop"
     nextNextHop.EntityData.BundleName = "cisco_ios_xr"
     nextNextHop.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    nextNextHop.EntityData.SegmentPath = "next-next-hop"
+    nextNextHop.EntityData.SegmentPath = "next-next-hop" + types.AddNoKeyToken(nextNextHop)
+    nextNextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/routes/route/route-path/ipv4-rib-edm-path/" + nextNextHop.EntityData.SegmentPath
     nextNextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextNextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextNextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20754,6 +21313,7 @@ func (deletedRoutes *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
     deletedRoutes.EntityData.BundleName = "cisco_ios_xr"
     deletedRoutes.EntityData.ParentYangName = "ip-rib-route-table-name"
     deletedRoutes.EntityData.SegmentPath = "deleted-routes"
+    deletedRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/" + deletedRoutes.EntityData.SegmentPath
     deletedRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     deletedRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     deletedRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20776,12 +21336,14 @@ func (deletedRoutes *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DeletedRoutes_DeletedRoute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
-    // Network Address. The type is string with pattern:
+    // This attribute is a key. Network Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Prefix Length. The type is interface{} with range: 0..32.
+    // This attribute is a key. Prefix Length. The type is interface{} with range:
+    // 0..32.
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
@@ -20899,7 +21461,8 @@ func (deletedRoute *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRoute
     deletedRoute.EntityData.YangName = "deleted-route"
     deletedRoute.EntityData.BundleName = "cisco_ios_xr"
     deletedRoute.EntityData.ParentYangName = "deleted-routes"
-    deletedRoute.EntityData.SegmentPath = "deleted-route"
+    deletedRoute.EntityData.SegmentPath = "deleted-route" + types.AddKeyToken(deletedRoute.Address, "address") + types.AddKeyToken(deletedRoute.PrefixLength, "prefix-length")
+    deletedRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/deleted-routes/" + deletedRoute.EntityData.SegmentPath
     deletedRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     deletedRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     deletedRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20942,7 +21505,7 @@ func (deletedRoute *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRoute
     deletedRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", deletedRoute.TblVersion})
     deletedRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", deletedRoute.RouteModifyTime})
 
-    deletedRoute.EntityData.YListKeys = []string {}
+    deletedRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
     return &(deletedRoute.EntityData)
 }
@@ -20964,6 +21527,7 @@ func (routePath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTab
     routePath.EntityData.BundleName = "cisco_ios_xr"
     routePath.EntityData.ParentYangName = "deleted-route"
     routePath.EntityData.SegmentPath = "route-path"
+    routePath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/deleted-routes/deleted-route/" + routePath.EntityData.SegmentPath
     routePath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routePath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routePath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20971,6 +21535,7 @@ func (routePath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTab
     routePath.EntityData.Children = types.NewOrderedMap()
     routePath.EntityData.Children.Append("ipv4-rib-edm-path", types.YChild{"Ipv4RibEdmPath", nil})
     for i := range routePath.Ipv4RibEdmPath {
+        types.SetYListKey(routePath.Ipv4RibEdmPath[i], i)
         routePath.EntityData.Children.Append(types.GetSegmentPath(routePath.Ipv4RibEdmPath[i]), types.YChild{"Ipv4RibEdmPath", routePath.Ipv4RibEdmPath[i]})
     }
     routePath.EntityData.Leafs = types.NewOrderedMap()
@@ -20985,6 +21550,7 @@ func (routePath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTab
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DeletedRoutes_DeletedRoute_RoutePath_Ipv4RibEdmPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Nexthop. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -21164,7 +21730,8 @@ func (ipv4RibEdmPath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     ipv4RibEdmPath.EntityData.YangName = "ipv4-rib-edm-path"
     ipv4RibEdmPath.EntityData.BundleName = "cisco_ios_xr"
     ipv4RibEdmPath.EntityData.ParentYangName = "route-path"
-    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path"
+    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path" + types.AddNoKeyToken(ipv4RibEdmPath)
+    ipv4RibEdmPath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/deleted-routes/deleted-route/route-path/" + ipv4RibEdmPath.EntityData.SegmentPath
     ipv4RibEdmPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4RibEdmPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4RibEdmPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21172,14 +21739,17 @@ func (ipv4RibEdmPath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     ipv4RibEdmPath.EntityData.Children = types.NewOrderedMap()
     ipv4RibEdmPath.EntityData.Children.Append("remote-backup-addr", types.YChild{"RemoteBackupAddr", nil})
     for i := range ipv4RibEdmPath.RemoteBackupAddr {
+        types.SetYListKey(ipv4RibEdmPath.RemoteBackupAddr[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.RemoteBackupAddr[i]), types.YChild{"RemoteBackupAddr", ipv4RibEdmPath.RemoteBackupAddr[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("labelstk", types.YChild{"Labelstk", nil})
     for i := range ipv4RibEdmPath.Labelstk {
+        types.SetYListKey(ipv4RibEdmPath.Labelstk[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.Labelstk[i]), types.YChild{"Labelstk", ipv4RibEdmPath.Labelstk[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("next-next-hop", types.YChild{"NextNextHop", nil})
     for i := range ipv4RibEdmPath.NextNextHop {
+        types.SetYListKey(ipv4RibEdmPath.NextNextHop[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.NextNextHop[i]), types.YChild{"NextNextHop", ipv4RibEdmPath.NextNextHop[i]})
     }
     ipv4RibEdmPath.EntityData.Leafs = types.NewOrderedMap()
@@ -21241,6 +21811,7 @@ func (ipv4RibEdmPath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DeletedRoutes_DeletedRoute_RoutePath_Ipv4RibEdmPath_RemoteBackupAddr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -21252,7 +21823,8 @@ func (remoteBackupAddr *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
     remoteBackupAddr.EntityData.YangName = "remote-backup-addr"
     remoteBackupAddr.EntityData.BundleName = "cisco_ios_xr"
     remoteBackupAddr.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr"
+    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr" + types.AddNoKeyToken(remoteBackupAddr)
+    remoteBackupAddr.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/deleted-routes/deleted-route/route-path/ipv4-rib-edm-path/" + remoteBackupAddr.EntityData.SegmentPath
     remoteBackupAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteBackupAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteBackupAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21271,6 +21843,7 @@ func (remoteBackupAddr *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DeletedRoutes_DeletedRoute_RoutePath_Ipv4RibEdmPath_Labelstk struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -21281,7 +21854,8 @@ func (labelstk *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTabl
     labelstk.EntityData.YangName = "labelstk"
     labelstk.EntityData.BundleName = "cisco_ios_xr"
     labelstk.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    labelstk.EntityData.SegmentPath = "labelstk"
+    labelstk.EntityData.SegmentPath = "labelstk" + types.AddNoKeyToken(labelstk)
+    labelstk.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/deleted-routes/deleted-route/route-path/ipv4-rib-edm-path/" + labelstk.EntityData.SegmentPath
     labelstk.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labelstk.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelstk.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21300,6 +21874,7 @@ func (labelstk *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTabl
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DeletedRoutes_DeletedRoute_RoutePath_Ipv4RibEdmPath_NextNextHop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // type. The type is RibEdmNnh.
     Type interface{}
@@ -21320,7 +21895,8 @@ func (nextNextHop *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteT
     nextNextHop.EntityData.YangName = "next-next-hop"
     nextNextHop.EntityData.BundleName = "cisco_ios_xr"
     nextNextHop.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    nextNextHop.EntityData.SegmentPath = "next-next-hop"
+    nextNextHop.EntityData.SegmentPath = "next-next-hop" + types.AddNoKeyToken(nextNextHop)
+    nextNextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/deleted-routes/deleted-route/route-path/ipv4-rib-edm-path/" + nextNextHop.EntityData.SegmentPath
     nextNextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextNextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextNextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21362,6 +21938,7 @@ func (destinationKw *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
     destinationKw.EntityData.BundleName = "cisco_ios_xr"
     destinationKw.EntityData.ParentYangName = "ip-rib-route-table-name"
     destinationKw.EntityData.SegmentPath = "destination-kw"
+    destinationKw.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/" + destinationKw.EntityData.SegmentPath
     destinationKw.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     destinationKw.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     destinationKw.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21395,6 +21972,7 @@ func (destBestRoutes *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     destBestRoutes.EntityData.BundleName = "cisco_ios_xr"
     destBestRoutes.EntityData.ParentYangName = "destination-kw"
     destBestRoutes.EntityData.SegmentPath = "dest-best-routes"
+    destBestRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/destination-kw/" + destBestRoutes.EntityData.SegmentPath
     destBestRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     destBestRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     destBestRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21417,6 +21995,7 @@ func (destBestRoutes *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestBestRoutes_DestBestRoute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Network Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -21538,6 +22117,7 @@ func (destBestRoute *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
     destBestRoute.EntityData.BundleName = "cisco_ios_xr"
     destBestRoute.EntityData.ParentYangName = "dest-best-routes"
     destBestRoute.EntityData.SegmentPath = "dest-best-route" + types.AddKeyToken(destBestRoute.Address, "address")
+    destBestRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/destination-kw/dest-best-routes/" + destBestRoute.EntityData.SegmentPath
     destBestRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     destBestRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     destBestRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21601,6 +22181,7 @@ func (routePath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTab
     routePath.EntityData.BundleName = "cisco_ios_xr"
     routePath.EntityData.ParentYangName = "dest-best-route"
     routePath.EntityData.SegmentPath = "route-path"
+    routePath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/destination-kw/dest-best-routes/dest-best-route/" + routePath.EntityData.SegmentPath
     routePath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routePath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routePath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21608,6 +22189,7 @@ func (routePath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTab
     routePath.EntityData.Children = types.NewOrderedMap()
     routePath.EntityData.Children.Append("ipv4-rib-edm-path", types.YChild{"Ipv4RibEdmPath", nil})
     for i := range routePath.Ipv4RibEdmPath {
+        types.SetYListKey(routePath.Ipv4RibEdmPath[i], i)
         routePath.EntityData.Children.Append(types.GetSegmentPath(routePath.Ipv4RibEdmPath[i]), types.YChild{"Ipv4RibEdmPath", routePath.Ipv4RibEdmPath[i]})
     }
     routePath.EntityData.Leafs = types.NewOrderedMap()
@@ -21622,6 +22204,7 @@ func (routePath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTab
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestBestRoutes_DestBestRoute_RoutePath_Ipv4RibEdmPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Nexthop. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -21801,7 +22384,8 @@ func (ipv4RibEdmPath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     ipv4RibEdmPath.EntityData.YangName = "ipv4-rib-edm-path"
     ipv4RibEdmPath.EntityData.BundleName = "cisco_ios_xr"
     ipv4RibEdmPath.EntityData.ParentYangName = "route-path"
-    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path"
+    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path" + types.AddNoKeyToken(ipv4RibEdmPath)
+    ipv4RibEdmPath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/destination-kw/dest-best-routes/dest-best-route/route-path/" + ipv4RibEdmPath.EntityData.SegmentPath
     ipv4RibEdmPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4RibEdmPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4RibEdmPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21809,14 +22393,17 @@ func (ipv4RibEdmPath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     ipv4RibEdmPath.EntityData.Children = types.NewOrderedMap()
     ipv4RibEdmPath.EntityData.Children.Append("remote-backup-addr", types.YChild{"RemoteBackupAddr", nil})
     for i := range ipv4RibEdmPath.RemoteBackupAddr {
+        types.SetYListKey(ipv4RibEdmPath.RemoteBackupAddr[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.RemoteBackupAddr[i]), types.YChild{"RemoteBackupAddr", ipv4RibEdmPath.RemoteBackupAddr[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("labelstk", types.YChild{"Labelstk", nil})
     for i := range ipv4RibEdmPath.Labelstk {
+        types.SetYListKey(ipv4RibEdmPath.Labelstk[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.Labelstk[i]), types.YChild{"Labelstk", ipv4RibEdmPath.Labelstk[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("next-next-hop", types.YChild{"NextNextHop", nil})
     for i := range ipv4RibEdmPath.NextNextHop {
+        types.SetYListKey(ipv4RibEdmPath.NextNextHop[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.NextNextHop[i]), types.YChild{"NextNextHop", ipv4RibEdmPath.NextNextHop[i]})
     }
     ipv4RibEdmPath.EntityData.Leafs = types.NewOrderedMap()
@@ -21878,6 +22465,7 @@ func (ipv4RibEdmPath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestBestRoutes_DestBestRoute_RoutePath_Ipv4RibEdmPath_RemoteBackupAddr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -21889,7 +22477,8 @@ func (remoteBackupAddr *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
     remoteBackupAddr.EntityData.YangName = "remote-backup-addr"
     remoteBackupAddr.EntityData.BundleName = "cisco_ios_xr"
     remoteBackupAddr.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr"
+    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr" + types.AddNoKeyToken(remoteBackupAddr)
+    remoteBackupAddr.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/destination-kw/dest-best-routes/dest-best-route/route-path/ipv4-rib-edm-path/" + remoteBackupAddr.EntityData.SegmentPath
     remoteBackupAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteBackupAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteBackupAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21908,6 +22497,7 @@ func (remoteBackupAddr *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestBestRoutes_DestBestRoute_RoutePath_Ipv4RibEdmPath_Labelstk struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -21918,7 +22508,8 @@ func (labelstk *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTabl
     labelstk.EntityData.YangName = "labelstk"
     labelstk.EntityData.BundleName = "cisco_ios_xr"
     labelstk.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    labelstk.EntityData.SegmentPath = "labelstk"
+    labelstk.EntityData.SegmentPath = "labelstk" + types.AddNoKeyToken(labelstk)
+    labelstk.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/destination-kw/dest-best-routes/dest-best-route/route-path/ipv4-rib-edm-path/" + labelstk.EntityData.SegmentPath
     labelstk.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labelstk.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelstk.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21937,6 +22528,7 @@ func (labelstk *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTabl
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestBestRoutes_DestBestRoute_RoutePath_Ipv4RibEdmPath_NextNextHop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // type. The type is RibEdmNnh.
     Type interface{}
@@ -21957,7 +22549,8 @@ func (nextNextHop *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteT
     nextNextHop.EntityData.YangName = "next-next-hop"
     nextNextHop.EntityData.BundleName = "cisco_ios_xr"
     nextNextHop.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    nextNextHop.EntityData.SegmentPath = "next-next-hop"
+    nextNextHop.EntityData.SegmentPath = "next-next-hop" + types.AddNoKeyToken(nextNextHop)
+    nextNextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/destination-kw/dest-best-routes/dest-best-route/route-path/ipv4-rib-edm-path/" + nextNextHop.EntityData.SegmentPath
     nextNextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextNextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextNextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21991,6 +22584,7 @@ func (destQRoutes *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteT
     destQRoutes.EntityData.BundleName = "cisco_ios_xr"
     destQRoutes.EntityData.ParentYangName = "destination-kw"
     destQRoutes.EntityData.SegmentPath = "dest-q-routes"
+    destQRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/destination-kw/" + destQRoutes.EntityData.SegmentPath
     destQRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     destQRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     destQRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22013,12 +22607,14 @@ func (destQRoutes *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteT
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestQRoutes_DestQRoute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
-    // Network Address. The type is string with pattern:
+    // This attribute is a key. Network Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Prefix Length. The type is interface{} with range: 0..32.
+    // This attribute is a key. Prefix Length. The type is interface{} with range:
+    // 0..32.
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
@@ -22136,7 +22732,8 @@ func (destQRoute *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTa
     destQRoute.EntityData.YangName = "dest-q-route"
     destQRoute.EntityData.BundleName = "cisco_ios_xr"
     destQRoute.EntityData.ParentYangName = "dest-q-routes"
-    destQRoute.EntityData.SegmentPath = "dest-q-route"
+    destQRoute.EntityData.SegmentPath = "dest-q-route" + types.AddKeyToken(destQRoute.Address, "address") + types.AddKeyToken(destQRoute.PrefixLength, "prefix-length")
+    destQRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/destination-kw/dest-q-routes/" + destQRoute.EntityData.SegmentPath
     destQRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     destQRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     destQRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22179,7 +22776,7 @@ func (destQRoute *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTa
     destQRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", destQRoute.TblVersion})
     destQRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", destQRoute.RouteModifyTime})
 
-    destQRoute.EntityData.YListKeys = []string {}
+    destQRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
     return &(destQRoute.EntityData)
 }
@@ -22201,6 +22798,7 @@ func (routePath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTab
     routePath.EntityData.BundleName = "cisco_ios_xr"
     routePath.EntityData.ParentYangName = "dest-q-route"
     routePath.EntityData.SegmentPath = "route-path"
+    routePath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/destination-kw/dest-q-routes/dest-q-route/" + routePath.EntityData.SegmentPath
     routePath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routePath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routePath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22208,6 +22806,7 @@ func (routePath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTab
     routePath.EntityData.Children = types.NewOrderedMap()
     routePath.EntityData.Children.Append("ipv4-rib-edm-path", types.YChild{"Ipv4RibEdmPath", nil})
     for i := range routePath.Ipv4RibEdmPath {
+        types.SetYListKey(routePath.Ipv4RibEdmPath[i], i)
         routePath.EntityData.Children.Append(types.GetSegmentPath(routePath.Ipv4RibEdmPath[i]), types.YChild{"Ipv4RibEdmPath", routePath.Ipv4RibEdmPath[i]})
     }
     routePath.EntityData.Leafs = types.NewOrderedMap()
@@ -22222,6 +22821,7 @@ func (routePath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTab
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestQRoutes_DestQRoute_RoutePath_Ipv4RibEdmPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Nexthop. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -22401,7 +23001,8 @@ func (ipv4RibEdmPath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     ipv4RibEdmPath.EntityData.YangName = "ipv4-rib-edm-path"
     ipv4RibEdmPath.EntityData.BundleName = "cisco_ios_xr"
     ipv4RibEdmPath.EntityData.ParentYangName = "route-path"
-    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path"
+    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path" + types.AddNoKeyToken(ipv4RibEdmPath)
+    ipv4RibEdmPath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/destination-kw/dest-q-routes/dest-q-route/route-path/" + ipv4RibEdmPath.EntityData.SegmentPath
     ipv4RibEdmPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4RibEdmPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4RibEdmPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22409,14 +23010,17 @@ func (ipv4RibEdmPath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     ipv4RibEdmPath.EntityData.Children = types.NewOrderedMap()
     ipv4RibEdmPath.EntityData.Children.Append("remote-backup-addr", types.YChild{"RemoteBackupAddr", nil})
     for i := range ipv4RibEdmPath.RemoteBackupAddr {
+        types.SetYListKey(ipv4RibEdmPath.RemoteBackupAddr[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.RemoteBackupAddr[i]), types.YChild{"RemoteBackupAddr", ipv4RibEdmPath.RemoteBackupAddr[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("labelstk", types.YChild{"Labelstk", nil})
     for i := range ipv4RibEdmPath.Labelstk {
+        types.SetYListKey(ipv4RibEdmPath.Labelstk[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.Labelstk[i]), types.YChild{"Labelstk", ipv4RibEdmPath.Labelstk[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("next-next-hop", types.YChild{"NextNextHop", nil})
     for i := range ipv4RibEdmPath.NextNextHop {
+        types.SetYListKey(ipv4RibEdmPath.NextNextHop[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.NextNextHop[i]), types.YChild{"NextNextHop", ipv4RibEdmPath.NextNextHop[i]})
     }
     ipv4RibEdmPath.EntityData.Leafs = types.NewOrderedMap()
@@ -22478,6 +23082,7 @@ func (ipv4RibEdmPath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestQRoutes_DestQRoute_RoutePath_Ipv4RibEdmPath_RemoteBackupAddr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -22489,7 +23094,8 @@ func (remoteBackupAddr *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
     remoteBackupAddr.EntityData.YangName = "remote-backup-addr"
     remoteBackupAddr.EntityData.BundleName = "cisco_ios_xr"
     remoteBackupAddr.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr"
+    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr" + types.AddNoKeyToken(remoteBackupAddr)
+    remoteBackupAddr.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/destination-kw/dest-q-routes/dest-q-route/route-path/ipv4-rib-edm-path/" + remoteBackupAddr.EntityData.SegmentPath
     remoteBackupAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteBackupAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteBackupAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22508,6 +23114,7 @@ func (remoteBackupAddr *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestQRoutes_DestQRoute_RoutePath_Ipv4RibEdmPath_Labelstk struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -22518,7 +23125,8 @@ func (labelstk *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTabl
     labelstk.EntityData.YangName = "labelstk"
     labelstk.EntityData.BundleName = "cisco_ios_xr"
     labelstk.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    labelstk.EntityData.SegmentPath = "labelstk"
+    labelstk.EntityData.SegmentPath = "labelstk" + types.AddNoKeyToken(labelstk)
+    labelstk.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/destination-kw/dest-q-routes/dest-q-route/route-path/ipv4-rib-edm-path/" + labelstk.EntityData.SegmentPath
     labelstk.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labelstk.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelstk.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22537,6 +23145,7 @@ func (labelstk *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTabl
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestQRoutes_DestQRoute_RoutePath_Ipv4RibEdmPath_NextNextHop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // type. The type is RibEdmNnh.
     Type interface{}
@@ -22557,7 +23166,8 @@ func (nextNextHop *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteT
     nextNextHop.EntityData.YangName = "next-next-hop"
     nextNextHop.EntityData.BundleName = "cisco_ios_xr"
     nextNextHop.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    nextNextHop.EntityData.SegmentPath = "next-next-hop"
+    nextNextHop.EntityData.SegmentPath = "next-next-hop" + types.AddNoKeyToken(nextNextHop)
+    nextNextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/destination-kw/dest-q-routes/dest-q-route/route-path/ipv4-rib-edm-path/" + nextNextHop.EntityData.SegmentPath
     nextNextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextNextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextNextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22591,6 +23201,7 @@ func (destBackupRoutes *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
     destBackupRoutes.EntityData.BundleName = "cisco_ios_xr"
     destBackupRoutes.EntityData.ParentYangName = "destination-kw"
     destBackupRoutes.EntityData.SegmentPath = "dest-backup-routes"
+    destBackupRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/destination-kw/" + destBackupRoutes.EntityData.SegmentPath
     destBackupRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     destBackupRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     destBackupRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22613,12 +23224,14 @@ func (destBackupRoutes *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestBackupRoutes_DestBackupRoute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
-    // Network Address. The type is string with pattern:
+    // This attribute is a key. Network Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Prefix Length. The type is interface{} with range: 0..32.
+    // This attribute is a key. Prefix Length. The type is interface{} with range:
+    // 0..32.
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
@@ -22736,7 +23349,8 @@ func (destBackupRoute *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRo
     destBackupRoute.EntityData.YangName = "dest-backup-route"
     destBackupRoute.EntityData.BundleName = "cisco_ios_xr"
     destBackupRoute.EntityData.ParentYangName = "dest-backup-routes"
-    destBackupRoute.EntityData.SegmentPath = "dest-backup-route"
+    destBackupRoute.EntityData.SegmentPath = "dest-backup-route" + types.AddKeyToken(destBackupRoute.Address, "address") + types.AddKeyToken(destBackupRoute.PrefixLength, "prefix-length")
+    destBackupRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/destination-kw/dest-backup-routes/" + destBackupRoute.EntityData.SegmentPath
     destBackupRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     destBackupRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     destBackupRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22779,7 +23393,7 @@ func (destBackupRoute *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRo
     destBackupRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", destBackupRoute.TblVersion})
     destBackupRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", destBackupRoute.RouteModifyTime})
 
-    destBackupRoute.EntityData.YListKeys = []string {}
+    destBackupRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
     return &(destBackupRoute.EntityData)
 }
@@ -22801,6 +23415,7 @@ func (routePath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTab
     routePath.EntityData.BundleName = "cisco_ios_xr"
     routePath.EntityData.ParentYangName = "dest-backup-route"
     routePath.EntityData.SegmentPath = "route-path"
+    routePath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/destination-kw/dest-backup-routes/dest-backup-route/" + routePath.EntityData.SegmentPath
     routePath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routePath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routePath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22808,6 +23423,7 @@ func (routePath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTab
     routePath.EntityData.Children = types.NewOrderedMap()
     routePath.EntityData.Children.Append("ipv4-rib-edm-path", types.YChild{"Ipv4RibEdmPath", nil})
     for i := range routePath.Ipv4RibEdmPath {
+        types.SetYListKey(routePath.Ipv4RibEdmPath[i], i)
         routePath.EntityData.Children.Append(types.GetSegmentPath(routePath.Ipv4RibEdmPath[i]), types.YChild{"Ipv4RibEdmPath", routePath.Ipv4RibEdmPath[i]})
     }
     routePath.EntityData.Leafs = types.NewOrderedMap()
@@ -22822,6 +23438,7 @@ func (routePath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTab
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestBackupRoutes_DestBackupRoute_RoutePath_Ipv4RibEdmPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Nexthop. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -23001,7 +23618,8 @@ func (ipv4RibEdmPath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     ipv4RibEdmPath.EntityData.YangName = "ipv4-rib-edm-path"
     ipv4RibEdmPath.EntityData.BundleName = "cisco_ios_xr"
     ipv4RibEdmPath.EntityData.ParentYangName = "route-path"
-    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path"
+    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path" + types.AddNoKeyToken(ipv4RibEdmPath)
+    ipv4RibEdmPath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/destination-kw/dest-backup-routes/dest-backup-route/route-path/" + ipv4RibEdmPath.EntityData.SegmentPath
     ipv4RibEdmPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4RibEdmPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4RibEdmPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23009,14 +23627,17 @@ func (ipv4RibEdmPath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     ipv4RibEdmPath.EntityData.Children = types.NewOrderedMap()
     ipv4RibEdmPath.EntityData.Children.Append("remote-backup-addr", types.YChild{"RemoteBackupAddr", nil})
     for i := range ipv4RibEdmPath.RemoteBackupAddr {
+        types.SetYListKey(ipv4RibEdmPath.RemoteBackupAddr[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.RemoteBackupAddr[i]), types.YChild{"RemoteBackupAddr", ipv4RibEdmPath.RemoteBackupAddr[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("labelstk", types.YChild{"Labelstk", nil})
     for i := range ipv4RibEdmPath.Labelstk {
+        types.SetYListKey(ipv4RibEdmPath.Labelstk[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.Labelstk[i]), types.YChild{"Labelstk", ipv4RibEdmPath.Labelstk[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("next-next-hop", types.YChild{"NextNextHop", nil})
     for i := range ipv4RibEdmPath.NextNextHop {
+        types.SetYListKey(ipv4RibEdmPath.NextNextHop[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.NextNextHop[i]), types.YChild{"NextNextHop", ipv4RibEdmPath.NextNextHop[i]})
     }
     ipv4RibEdmPath.EntityData.Leafs = types.NewOrderedMap()
@@ -23078,6 +23699,7 @@ func (ipv4RibEdmPath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestBackupRoutes_DestBackupRoute_RoutePath_Ipv4RibEdmPath_RemoteBackupAddr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -23089,7 +23711,8 @@ func (remoteBackupAddr *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
     remoteBackupAddr.EntityData.YangName = "remote-backup-addr"
     remoteBackupAddr.EntityData.BundleName = "cisco_ios_xr"
     remoteBackupAddr.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr"
+    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr" + types.AddNoKeyToken(remoteBackupAddr)
+    remoteBackupAddr.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/destination-kw/dest-backup-routes/dest-backup-route/route-path/ipv4-rib-edm-path/" + remoteBackupAddr.EntityData.SegmentPath
     remoteBackupAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteBackupAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteBackupAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23108,6 +23731,7 @@ func (remoteBackupAddr *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestBackupRoutes_DestBackupRoute_RoutePath_Ipv4RibEdmPath_Labelstk struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -23118,7 +23742,8 @@ func (labelstk *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTabl
     labelstk.EntityData.YangName = "labelstk"
     labelstk.EntityData.BundleName = "cisco_ios_xr"
     labelstk.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    labelstk.EntityData.SegmentPath = "labelstk"
+    labelstk.EntityData.SegmentPath = "labelstk" + types.AddNoKeyToken(labelstk)
+    labelstk.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/destination-kw/dest-backup-routes/dest-backup-route/route-path/ipv4-rib-edm-path/" + labelstk.EntityData.SegmentPath
     labelstk.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labelstk.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelstk.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23137,6 +23762,7 @@ func (labelstk *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTabl
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestBackupRoutes_DestBackupRoute_RoutePath_Ipv4RibEdmPath_NextNextHop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // type. The type is RibEdmNnh.
     Type interface{}
@@ -23157,7 +23783,8 @@ func (nextNextHop *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteT
     nextNextHop.EntityData.YangName = "next-next-hop"
     nextNextHop.EntityData.BundleName = "cisco_ios_xr"
     nextNextHop.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    nextNextHop.EntityData.SegmentPath = "next-next-hop"
+    nextNextHop.EntityData.SegmentPath = "next-next-hop" + types.AddNoKeyToken(nextNextHop)
+    nextNextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/destination-kw/dest-backup-routes/dest-backup-route/route-path/ipv4-rib-edm-path/" + nextNextHop.EntityData.SegmentPath
     nextNextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextNextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextNextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23191,6 +23818,7 @@ func (destNextHopRoutes *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRib
     destNextHopRoutes.EntityData.BundleName = "cisco_ios_xr"
     destNextHopRoutes.EntityData.ParentYangName = "destination-kw"
     destNextHopRoutes.EntityData.SegmentPath = "dest-next-hop-routes"
+    destNextHopRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/destination-kw/" + destNextHopRoutes.EntityData.SegmentPath
     destNextHopRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     destNextHopRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     destNextHopRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23213,6 +23841,7 @@ func (destNextHopRoutes *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRib
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestNextHopRoutes_DestNextHopRoute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Network Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -23334,6 +23963,7 @@ func (destNextHopRoute *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
     destNextHopRoute.EntityData.BundleName = "cisco_ios_xr"
     destNextHopRoute.EntityData.ParentYangName = "dest-next-hop-routes"
     destNextHopRoute.EntityData.SegmentPath = "dest-next-hop-route" + types.AddKeyToken(destNextHopRoute.Address, "address")
+    destNextHopRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/destination-kw/dest-next-hop-routes/" + destNextHopRoute.EntityData.SegmentPath
     destNextHopRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     destNextHopRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     destNextHopRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23397,6 +24027,7 @@ func (routePath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTab
     routePath.EntityData.BundleName = "cisco_ios_xr"
     routePath.EntityData.ParentYangName = "dest-next-hop-route"
     routePath.EntityData.SegmentPath = "route-path"
+    routePath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/destination-kw/dest-next-hop-routes/dest-next-hop-route/" + routePath.EntityData.SegmentPath
     routePath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routePath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routePath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23404,6 +24035,7 @@ func (routePath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTab
     routePath.EntityData.Children = types.NewOrderedMap()
     routePath.EntityData.Children.Append("ipv4-rib-edm-path", types.YChild{"Ipv4RibEdmPath", nil})
     for i := range routePath.Ipv4RibEdmPath {
+        types.SetYListKey(routePath.Ipv4RibEdmPath[i], i)
         routePath.EntityData.Children.Append(types.GetSegmentPath(routePath.Ipv4RibEdmPath[i]), types.YChild{"Ipv4RibEdmPath", routePath.Ipv4RibEdmPath[i]})
     }
     routePath.EntityData.Leafs = types.NewOrderedMap()
@@ -23418,6 +24050,7 @@ func (routePath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTab
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestNextHopRoutes_DestNextHopRoute_RoutePath_Ipv4RibEdmPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Nexthop. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -23597,7 +24230,8 @@ func (ipv4RibEdmPath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     ipv4RibEdmPath.EntityData.YangName = "ipv4-rib-edm-path"
     ipv4RibEdmPath.EntityData.BundleName = "cisco_ios_xr"
     ipv4RibEdmPath.EntityData.ParentYangName = "route-path"
-    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path"
+    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path" + types.AddNoKeyToken(ipv4RibEdmPath)
+    ipv4RibEdmPath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/destination-kw/dest-next-hop-routes/dest-next-hop-route/route-path/" + ipv4RibEdmPath.EntityData.SegmentPath
     ipv4RibEdmPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4RibEdmPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4RibEdmPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23605,14 +24239,17 @@ func (ipv4RibEdmPath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     ipv4RibEdmPath.EntityData.Children = types.NewOrderedMap()
     ipv4RibEdmPath.EntityData.Children.Append("remote-backup-addr", types.YChild{"RemoteBackupAddr", nil})
     for i := range ipv4RibEdmPath.RemoteBackupAddr {
+        types.SetYListKey(ipv4RibEdmPath.RemoteBackupAddr[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.RemoteBackupAddr[i]), types.YChild{"RemoteBackupAddr", ipv4RibEdmPath.RemoteBackupAddr[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("labelstk", types.YChild{"Labelstk", nil})
     for i := range ipv4RibEdmPath.Labelstk {
+        types.SetYListKey(ipv4RibEdmPath.Labelstk[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.Labelstk[i]), types.YChild{"Labelstk", ipv4RibEdmPath.Labelstk[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("next-next-hop", types.YChild{"NextNextHop", nil})
     for i := range ipv4RibEdmPath.NextNextHop {
+        types.SetYListKey(ipv4RibEdmPath.NextNextHop[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.NextNextHop[i]), types.YChild{"NextNextHop", ipv4RibEdmPath.NextNextHop[i]})
     }
     ipv4RibEdmPath.EntityData.Leafs = types.NewOrderedMap()
@@ -23674,6 +24311,7 @@ func (ipv4RibEdmPath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestNextHopRoutes_DestNextHopRoute_RoutePath_Ipv4RibEdmPath_RemoteBackupAddr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -23685,7 +24323,8 @@ func (remoteBackupAddr *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
     remoteBackupAddr.EntityData.YangName = "remote-backup-addr"
     remoteBackupAddr.EntityData.BundleName = "cisco_ios_xr"
     remoteBackupAddr.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr"
+    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr" + types.AddNoKeyToken(remoteBackupAddr)
+    remoteBackupAddr.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/destination-kw/dest-next-hop-routes/dest-next-hop-route/route-path/ipv4-rib-edm-path/" + remoteBackupAddr.EntityData.SegmentPath
     remoteBackupAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteBackupAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteBackupAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23704,6 +24343,7 @@ func (remoteBackupAddr *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestNextHopRoutes_DestNextHopRoute_RoutePath_Ipv4RibEdmPath_Labelstk struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -23714,7 +24354,8 @@ func (labelstk *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTabl
     labelstk.EntityData.YangName = "labelstk"
     labelstk.EntityData.BundleName = "cisco_ios_xr"
     labelstk.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    labelstk.EntityData.SegmentPath = "labelstk"
+    labelstk.EntityData.SegmentPath = "labelstk" + types.AddNoKeyToken(labelstk)
+    labelstk.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/destination-kw/dest-next-hop-routes/dest-next-hop-route/route-path/ipv4-rib-edm-path/" + labelstk.EntityData.SegmentPath
     labelstk.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labelstk.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelstk.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23733,6 +24374,7 @@ func (labelstk *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTabl
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_DestinationKw_DestNextHopRoutes_DestNextHopRoute_RoutePath_Ipv4RibEdmPath_NextNextHop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // type. The type is RibEdmNnh.
     Type interface{}
@@ -23753,7 +24395,8 @@ func (nextNextHop *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteT
     nextNextHop.EntityData.YangName = "next-next-hop"
     nextNextHop.EntityData.BundleName = "cisco_ios_xr"
     nextNextHop.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    nextNextHop.EntityData.SegmentPath = "next-next-hop"
+    nextNextHop.EntityData.SegmentPath = "next-next-hop" + types.AddNoKeyToken(nextNextHop)
+    nextNextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/destination-kw/dest-next-hop-routes/dest-next-hop-route/route-path/ipv4-rib-edm-path/" + nextNextHop.EntityData.SegmentPath
     nextNextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextNextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextNextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23787,6 +24430,7 @@ func (opaques *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTable
     opaques.EntityData.BundleName = "cisco_ios_xr"
     opaques.EntityData.ParentYangName = "ip-rib-route-table-name"
     opaques.EntityData.SegmentPath = "opaques"
+    opaques.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/" + opaques.EntityData.SegmentPath
     opaques.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     opaques.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     opaques.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23794,6 +24438,7 @@ func (opaques *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTable
     opaques.EntityData.Children = types.NewOrderedMap()
     opaques.EntityData.Children.Append("opaque", types.YChild{"Opaque", nil})
     for i := range opaques.Opaque {
+        types.SetYListKey(opaques.Opaque[i], i)
         opaques.EntityData.Children.Append(types.GetSegmentPath(opaques.Opaque[i]), types.YChild{"Opaque", opaques.Opaque[i]})
     }
     opaques.EntityData.Leafs = types.NewOrderedMap()
@@ -23808,6 +24453,7 @@ func (opaques *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTable
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Opaques_Opaque struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Opaque Client ID. The type is interface{} with range: 0..4294967295.
     OpaqueClientid interface{}
@@ -23839,7 +24485,8 @@ func (opaque *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     opaque.EntityData.YangName = "opaque"
     opaque.EntityData.BundleName = "cisco_ios_xr"
     opaque.EntityData.ParentYangName = "opaques"
-    opaque.EntityData.SegmentPath = "opaque"
+    opaque.EntityData.SegmentPath = "opaque" + types.AddNoKeyToken(opaque)
+    opaque.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/opaques/" + opaque.EntityData.SegmentPath
     opaque.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     opaque.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     opaque.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23919,6 +24566,7 @@ func (protocol *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTabl
     protocol.EntityData.BundleName = "cisco_ios_xr"
     protocol.EntityData.ParentYangName = "ip-rib-route-table-name"
     protocol.EntityData.SegmentPath = "protocol"
+    protocol.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/" + protocol.EntityData.SegmentPath
     protocol.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23962,6 +24610,7 @@ func (mobile *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     mobile.EntityData.BundleName = "cisco_ios_xr"
     mobile.EntityData.ParentYangName = "protocol"
     mobile.EntityData.SegmentPath = "mobile"
+    mobile.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/" + mobile.EntityData.SegmentPath
     mobile.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mobile.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mobile.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23994,6 +24643,7 @@ func (nonAs *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableNa
     nonAs.EntityData.BundleName = "cisco_ios_xr"
     nonAs.EntityData.ParentYangName = "mobile"
     nonAs.EntityData.SegmentPath = "non-as"
+    nonAs.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/mobile/" + nonAs.EntityData.SegmentPath
     nonAs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nonAs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nonAs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24025,6 +24675,7 @@ func (protocolRoutes *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     protocolRoutes.EntityData.BundleName = "cisco_ios_xr"
     protocolRoutes.EntityData.ParentYangName = "non-as"
     protocolRoutes.EntityData.SegmentPath = "protocol-routes"
+    protocolRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/mobile/non-as/" + protocolRoutes.EntityData.SegmentPath
     protocolRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocolRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24047,12 +24698,14 @@ func (protocolRoutes *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Mobile_NonAs_ProtocolRoutes_ProtocolRoute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
-    // Network Address. The type is string with pattern:
+    // This attribute is a key. Network Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Prefix Length. The type is interface{} with range: 0..32.
+    // This attribute is a key. Prefix Length. The type is interface{} with range:
+    // 0..32.
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
@@ -24170,7 +24823,8 @@ func (protocolRoute *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
     protocolRoute.EntityData.YangName = "protocol-route"
     protocolRoute.EntityData.BundleName = "cisco_ios_xr"
     protocolRoute.EntityData.ParentYangName = "protocol-routes"
-    protocolRoute.EntityData.SegmentPath = "protocol-route"
+    protocolRoute.EntityData.SegmentPath = "protocol-route" + types.AddKeyToken(protocolRoute.Address, "address") + types.AddKeyToken(protocolRoute.PrefixLength, "prefix-length")
+    protocolRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/mobile/non-as/protocol-routes/" + protocolRoute.EntityData.SegmentPath
     protocolRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocolRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24213,7 +24867,7 @@ func (protocolRoute *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
     protocolRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", protocolRoute.TblVersion})
     protocolRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", protocolRoute.RouteModifyTime})
 
-    protocolRoute.EntityData.YListKeys = []string {}
+    protocolRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
     return &(protocolRoute.EntityData)
 }
@@ -24235,6 +24889,7 @@ func (routePath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTab
     routePath.EntityData.BundleName = "cisco_ios_xr"
     routePath.EntityData.ParentYangName = "protocol-route"
     routePath.EntityData.SegmentPath = "route-path"
+    routePath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/mobile/non-as/protocol-routes/protocol-route/" + routePath.EntityData.SegmentPath
     routePath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routePath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routePath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24242,6 +24897,7 @@ func (routePath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTab
     routePath.EntityData.Children = types.NewOrderedMap()
     routePath.EntityData.Children.Append("ipv4-rib-edm-path", types.YChild{"Ipv4RibEdmPath", nil})
     for i := range routePath.Ipv4RibEdmPath {
+        types.SetYListKey(routePath.Ipv4RibEdmPath[i], i)
         routePath.EntityData.Children.Append(types.GetSegmentPath(routePath.Ipv4RibEdmPath[i]), types.YChild{"Ipv4RibEdmPath", routePath.Ipv4RibEdmPath[i]})
     }
     routePath.EntityData.Leafs = types.NewOrderedMap()
@@ -24256,6 +24912,7 @@ func (routePath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTab
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Mobile_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Nexthop. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -24435,7 +25092,8 @@ func (ipv4RibEdmPath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     ipv4RibEdmPath.EntityData.YangName = "ipv4-rib-edm-path"
     ipv4RibEdmPath.EntityData.BundleName = "cisco_ios_xr"
     ipv4RibEdmPath.EntityData.ParentYangName = "route-path"
-    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path"
+    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path" + types.AddNoKeyToken(ipv4RibEdmPath)
+    ipv4RibEdmPath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/mobile/non-as/protocol-routes/protocol-route/route-path/" + ipv4RibEdmPath.EntityData.SegmentPath
     ipv4RibEdmPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4RibEdmPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4RibEdmPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24443,14 +25101,17 @@ func (ipv4RibEdmPath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     ipv4RibEdmPath.EntityData.Children = types.NewOrderedMap()
     ipv4RibEdmPath.EntityData.Children.Append("remote-backup-addr", types.YChild{"RemoteBackupAddr", nil})
     for i := range ipv4RibEdmPath.RemoteBackupAddr {
+        types.SetYListKey(ipv4RibEdmPath.RemoteBackupAddr[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.RemoteBackupAddr[i]), types.YChild{"RemoteBackupAddr", ipv4RibEdmPath.RemoteBackupAddr[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("labelstk", types.YChild{"Labelstk", nil})
     for i := range ipv4RibEdmPath.Labelstk {
+        types.SetYListKey(ipv4RibEdmPath.Labelstk[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.Labelstk[i]), types.YChild{"Labelstk", ipv4RibEdmPath.Labelstk[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("next-next-hop", types.YChild{"NextNextHop", nil})
     for i := range ipv4RibEdmPath.NextNextHop {
+        types.SetYListKey(ipv4RibEdmPath.NextNextHop[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.NextNextHop[i]), types.YChild{"NextNextHop", ipv4RibEdmPath.NextNextHop[i]})
     }
     ipv4RibEdmPath.EntityData.Leafs = types.NewOrderedMap()
@@ -24512,6 +25173,7 @@ func (ipv4RibEdmPath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Mobile_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_RemoteBackupAddr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -24523,7 +25185,8 @@ func (remoteBackupAddr *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
     remoteBackupAddr.EntityData.YangName = "remote-backup-addr"
     remoteBackupAddr.EntityData.BundleName = "cisco_ios_xr"
     remoteBackupAddr.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr"
+    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr" + types.AddNoKeyToken(remoteBackupAddr)
+    remoteBackupAddr.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/mobile/non-as/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + remoteBackupAddr.EntityData.SegmentPath
     remoteBackupAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteBackupAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteBackupAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24542,6 +25205,7 @@ func (remoteBackupAddr *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Mobile_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_Labelstk struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -24552,7 +25216,8 @@ func (labelstk *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTabl
     labelstk.EntityData.YangName = "labelstk"
     labelstk.EntityData.BundleName = "cisco_ios_xr"
     labelstk.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    labelstk.EntityData.SegmentPath = "labelstk"
+    labelstk.EntityData.SegmentPath = "labelstk" + types.AddNoKeyToken(labelstk)
+    labelstk.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/mobile/non-as/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + labelstk.EntityData.SegmentPath
     labelstk.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labelstk.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelstk.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24571,6 +25236,7 @@ func (labelstk *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTabl
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Mobile_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_NextNextHop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // type. The type is RibEdmNnh.
     Type interface{}
@@ -24591,7 +25257,8 @@ func (nextNextHop *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteT
     nextNextHop.EntityData.YangName = "next-next-hop"
     nextNextHop.EntityData.BundleName = "cisco_ios_xr"
     nextNextHop.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    nextNextHop.EntityData.SegmentPath = "next-next-hop"
+    nextNextHop.EntityData.SegmentPath = "next-next-hop" + types.AddNoKeyToken(nextNextHop)
+    nextNextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/mobile/non-as/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + nextNextHop.EntityData.SegmentPath
     nextNextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextNextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextNextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24661,6 +25328,7 @@ func (information *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteT
     information.EntityData.BundleName = "cisco_ios_xr"
     information.EntityData.ParentYangName = "non-as"
     information.EntityData.SegmentPath = "information"
+    information.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/mobile/non-as/" + information.EntityData.SegmentPath
     information.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     information.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     information.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24700,6 +25368,7 @@ func (subscriber *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTa
     subscriber.EntityData.BundleName = "cisco_ios_xr"
     subscriber.EntityData.ParentYangName = "protocol"
     subscriber.EntityData.SegmentPath = "subscriber"
+    subscriber.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/" + subscriber.EntityData.SegmentPath
     subscriber.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     subscriber.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     subscriber.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24732,6 +25401,7 @@ func (nonAs *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableNa
     nonAs.EntityData.BundleName = "cisco_ios_xr"
     nonAs.EntityData.ParentYangName = "subscriber"
     nonAs.EntityData.SegmentPath = "non-as"
+    nonAs.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/subscriber/" + nonAs.EntityData.SegmentPath
     nonAs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nonAs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nonAs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24763,6 +25433,7 @@ func (protocolRoutes *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     protocolRoutes.EntityData.BundleName = "cisco_ios_xr"
     protocolRoutes.EntityData.ParentYangName = "non-as"
     protocolRoutes.EntityData.SegmentPath = "protocol-routes"
+    protocolRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/subscriber/non-as/" + protocolRoutes.EntityData.SegmentPath
     protocolRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocolRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24785,12 +25456,14 @@ func (protocolRoutes *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Subscriber_NonAs_ProtocolRoutes_ProtocolRoute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
-    // Network Address. The type is string with pattern:
+    // This attribute is a key. Network Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Prefix Length. The type is interface{} with range: 0..32.
+    // This attribute is a key. Prefix Length. The type is interface{} with range:
+    // 0..32.
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
@@ -24908,7 +25581,8 @@ func (protocolRoute *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
     protocolRoute.EntityData.YangName = "protocol-route"
     protocolRoute.EntityData.BundleName = "cisco_ios_xr"
     protocolRoute.EntityData.ParentYangName = "protocol-routes"
-    protocolRoute.EntityData.SegmentPath = "protocol-route"
+    protocolRoute.EntityData.SegmentPath = "protocol-route" + types.AddKeyToken(protocolRoute.Address, "address") + types.AddKeyToken(protocolRoute.PrefixLength, "prefix-length")
+    protocolRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/subscriber/non-as/protocol-routes/" + protocolRoute.EntityData.SegmentPath
     protocolRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocolRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24951,7 +25625,7 @@ func (protocolRoute *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
     protocolRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", protocolRoute.TblVersion})
     protocolRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", protocolRoute.RouteModifyTime})
 
-    protocolRoute.EntityData.YListKeys = []string {}
+    protocolRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
     return &(protocolRoute.EntityData)
 }
@@ -24973,6 +25647,7 @@ func (routePath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTab
     routePath.EntityData.BundleName = "cisco_ios_xr"
     routePath.EntityData.ParentYangName = "protocol-route"
     routePath.EntityData.SegmentPath = "route-path"
+    routePath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/subscriber/non-as/protocol-routes/protocol-route/" + routePath.EntityData.SegmentPath
     routePath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routePath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routePath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24980,6 +25655,7 @@ func (routePath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTab
     routePath.EntityData.Children = types.NewOrderedMap()
     routePath.EntityData.Children.Append("ipv4-rib-edm-path", types.YChild{"Ipv4RibEdmPath", nil})
     for i := range routePath.Ipv4RibEdmPath {
+        types.SetYListKey(routePath.Ipv4RibEdmPath[i], i)
         routePath.EntityData.Children.Append(types.GetSegmentPath(routePath.Ipv4RibEdmPath[i]), types.YChild{"Ipv4RibEdmPath", routePath.Ipv4RibEdmPath[i]})
     }
     routePath.EntityData.Leafs = types.NewOrderedMap()
@@ -24994,6 +25670,7 @@ func (routePath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTab
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Subscriber_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Nexthop. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -25173,7 +25850,8 @@ func (ipv4RibEdmPath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     ipv4RibEdmPath.EntityData.YangName = "ipv4-rib-edm-path"
     ipv4RibEdmPath.EntityData.BundleName = "cisco_ios_xr"
     ipv4RibEdmPath.EntityData.ParentYangName = "route-path"
-    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path"
+    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path" + types.AddNoKeyToken(ipv4RibEdmPath)
+    ipv4RibEdmPath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/subscriber/non-as/protocol-routes/protocol-route/route-path/" + ipv4RibEdmPath.EntityData.SegmentPath
     ipv4RibEdmPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4RibEdmPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4RibEdmPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25181,14 +25859,17 @@ func (ipv4RibEdmPath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     ipv4RibEdmPath.EntityData.Children = types.NewOrderedMap()
     ipv4RibEdmPath.EntityData.Children.Append("remote-backup-addr", types.YChild{"RemoteBackupAddr", nil})
     for i := range ipv4RibEdmPath.RemoteBackupAddr {
+        types.SetYListKey(ipv4RibEdmPath.RemoteBackupAddr[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.RemoteBackupAddr[i]), types.YChild{"RemoteBackupAddr", ipv4RibEdmPath.RemoteBackupAddr[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("labelstk", types.YChild{"Labelstk", nil})
     for i := range ipv4RibEdmPath.Labelstk {
+        types.SetYListKey(ipv4RibEdmPath.Labelstk[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.Labelstk[i]), types.YChild{"Labelstk", ipv4RibEdmPath.Labelstk[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("next-next-hop", types.YChild{"NextNextHop", nil})
     for i := range ipv4RibEdmPath.NextNextHop {
+        types.SetYListKey(ipv4RibEdmPath.NextNextHop[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.NextNextHop[i]), types.YChild{"NextNextHop", ipv4RibEdmPath.NextNextHop[i]})
     }
     ipv4RibEdmPath.EntityData.Leafs = types.NewOrderedMap()
@@ -25250,6 +25931,7 @@ func (ipv4RibEdmPath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Subscriber_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_RemoteBackupAddr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -25261,7 +25943,8 @@ func (remoteBackupAddr *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
     remoteBackupAddr.EntityData.YangName = "remote-backup-addr"
     remoteBackupAddr.EntityData.BundleName = "cisco_ios_xr"
     remoteBackupAddr.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr"
+    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr" + types.AddNoKeyToken(remoteBackupAddr)
+    remoteBackupAddr.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/subscriber/non-as/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + remoteBackupAddr.EntityData.SegmentPath
     remoteBackupAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteBackupAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteBackupAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25280,6 +25963,7 @@ func (remoteBackupAddr *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Subscriber_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_Labelstk struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -25290,7 +25974,8 @@ func (labelstk *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTabl
     labelstk.EntityData.YangName = "labelstk"
     labelstk.EntityData.BundleName = "cisco_ios_xr"
     labelstk.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    labelstk.EntityData.SegmentPath = "labelstk"
+    labelstk.EntityData.SegmentPath = "labelstk" + types.AddNoKeyToken(labelstk)
+    labelstk.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/subscriber/non-as/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + labelstk.EntityData.SegmentPath
     labelstk.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labelstk.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelstk.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25309,6 +25994,7 @@ func (labelstk *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTabl
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Subscriber_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_NextNextHop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // type. The type is RibEdmNnh.
     Type interface{}
@@ -25329,7 +26015,8 @@ func (nextNextHop *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteT
     nextNextHop.EntityData.YangName = "next-next-hop"
     nextNextHop.EntityData.BundleName = "cisco_ios_xr"
     nextNextHop.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    nextNextHop.EntityData.SegmentPath = "next-next-hop"
+    nextNextHop.EntityData.SegmentPath = "next-next-hop" + types.AddNoKeyToken(nextNextHop)
+    nextNextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/subscriber/non-as/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + nextNextHop.EntityData.SegmentPath
     nextNextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextNextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextNextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25399,6 +26086,7 @@ func (information *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteT
     information.EntityData.BundleName = "cisco_ios_xr"
     information.EntityData.ParentYangName = "non-as"
     information.EntityData.SegmentPath = "information"
+    information.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/subscriber/non-as/" + information.EntityData.SegmentPath
     information.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     information.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     information.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25438,6 +26126,7 @@ func (connected *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTab
     connected.EntityData.BundleName = "cisco_ios_xr"
     connected.EntityData.ParentYangName = "protocol"
     connected.EntityData.SegmentPath = "connected"
+    connected.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/" + connected.EntityData.SegmentPath
     connected.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     connected.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     connected.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25470,6 +26159,7 @@ func (nonAs *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableNa
     nonAs.EntityData.BundleName = "cisco_ios_xr"
     nonAs.EntityData.ParentYangName = "connected"
     nonAs.EntityData.SegmentPath = "non-as"
+    nonAs.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/connected/" + nonAs.EntityData.SegmentPath
     nonAs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nonAs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nonAs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25501,6 +26191,7 @@ func (protocolRoutes *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     protocolRoutes.EntityData.BundleName = "cisco_ios_xr"
     protocolRoutes.EntityData.ParentYangName = "non-as"
     protocolRoutes.EntityData.SegmentPath = "protocol-routes"
+    protocolRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/connected/non-as/" + protocolRoutes.EntityData.SegmentPath
     protocolRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocolRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25523,12 +26214,14 @@ func (protocolRoutes *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Connected_NonAs_ProtocolRoutes_ProtocolRoute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
-    // Network Address. The type is string with pattern:
+    // This attribute is a key. Network Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Prefix Length. The type is interface{} with range: 0..32.
+    // This attribute is a key. Prefix Length. The type is interface{} with range:
+    // 0..32.
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
@@ -25646,7 +26339,8 @@ func (protocolRoute *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
     protocolRoute.EntityData.YangName = "protocol-route"
     protocolRoute.EntityData.BundleName = "cisco_ios_xr"
     protocolRoute.EntityData.ParentYangName = "protocol-routes"
-    protocolRoute.EntityData.SegmentPath = "protocol-route"
+    protocolRoute.EntityData.SegmentPath = "protocol-route" + types.AddKeyToken(protocolRoute.Address, "address") + types.AddKeyToken(protocolRoute.PrefixLength, "prefix-length")
+    protocolRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/connected/non-as/protocol-routes/" + protocolRoute.EntityData.SegmentPath
     protocolRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocolRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25689,7 +26383,7 @@ func (protocolRoute *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
     protocolRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", protocolRoute.TblVersion})
     protocolRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", protocolRoute.RouteModifyTime})
 
-    protocolRoute.EntityData.YListKeys = []string {}
+    protocolRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
     return &(protocolRoute.EntityData)
 }
@@ -25711,6 +26405,7 @@ func (routePath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTab
     routePath.EntityData.BundleName = "cisco_ios_xr"
     routePath.EntityData.ParentYangName = "protocol-route"
     routePath.EntityData.SegmentPath = "route-path"
+    routePath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/connected/non-as/protocol-routes/protocol-route/" + routePath.EntityData.SegmentPath
     routePath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routePath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routePath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25718,6 +26413,7 @@ func (routePath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTab
     routePath.EntityData.Children = types.NewOrderedMap()
     routePath.EntityData.Children.Append("ipv4-rib-edm-path", types.YChild{"Ipv4RibEdmPath", nil})
     for i := range routePath.Ipv4RibEdmPath {
+        types.SetYListKey(routePath.Ipv4RibEdmPath[i], i)
         routePath.EntityData.Children.Append(types.GetSegmentPath(routePath.Ipv4RibEdmPath[i]), types.YChild{"Ipv4RibEdmPath", routePath.Ipv4RibEdmPath[i]})
     }
     routePath.EntityData.Leafs = types.NewOrderedMap()
@@ -25732,6 +26428,7 @@ func (routePath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTab
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Connected_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Nexthop. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -25911,7 +26608,8 @@ func (ipv4RibEdmPath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     ipv4RibEdmPath.EntityData.YangName = "ipv4-rib-edm-path"
     ipv4RibEdmPath.EntityData.BundleName = "cisco_ios_xr"
     ipv4RibEdmPath.EntityData.ParentYangName = "route-path"
-    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path"
+    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path" + types.AddNoKeyToken(ipv4RibEdmPath)
+    ipv4RibEdmPath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/connected/non-as/protocol-routes/protocol-route/route-path/" + ipv4RibEdmPath.EntityData.SegmentPath
     ipv4RibEdmPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4RibEdmPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4RibEdmPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25919,14 +26617,17 @@ func (ipv4RibEdmPath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     ipv4RibEdmPath.EntityData.Children = types.NewOrderedMap()
     ipv4RibEdmPath.EntityData.Children.Append("remote-backup-addr", types.YChild{"RemoteBackupAddr", nil})
     for i := range ipv4RibEdmPath.RemoteBackupAddr {
+        types.SetYListKey(ipv4RibEdmPath.RemoteBackupAddr[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.RemoteBackupAddr[i]), types.YChild{"RemoteBackupAddr", ipv4RibEdmPath.RemoteBackupAddr[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("labelstk", types.YChild{"Labelstk", nil})
     for i := range ipv4RibEdmPath.Labelstk {
+        types.SetYListKey(ipv4RibEdmPath.Labelstk[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.Labelstk[i]), types.YChild{"Labelstk", ipv4RibEdmPath.Labelstk[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("next-next-hop", types.YChild{"NextNextHop", nil})
     for i := range ipv4RibEdmPath.NextNextHop {
+        types.SetYListKey(ipv4RibEdmPath.NextNextHop[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.NextNextHop[i]), types.YChild{"NextNextHop", ipv4RibEdmPath.NextNextHop[i]})
     }
     ipv4RibEdmPath.EntityData.Leafs = types.NewOrderedMap()
@@ -25988,6 +26689,7 @@ func (ipv4RibEdmPath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Connected_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_RemoteBackupAddr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -25999,7 +26701,8 @@ func (remoteBackupAddr *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
     remoteBackupAddr.EntityData.YangName = "remote-backup-addr"
     remoteBackupAddr.EntityData.BundleName = "cisco_ios_xr"
     remoteBackupAddr.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr"
+    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr" + types.AddNoKeyToken(remoteBackupAddr)
+    remoteBackupAddr.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/connected/non-as/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + remoteBackupAddr.EntityData.SegmentPath
     remoteBackupAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteBackupAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteBackupAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26018,6 +26721,7 @@ func (remoteBackupAddr *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Connected_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_Labelstk struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -26028,7 +26732,8 @@ func (labelstk *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTabl
     labelstk.EntityData.YangName = "labelstk"
     labelstk.EntityData.BundleName = "cisco_ios_xr"
     labelstk.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    labelstk.EntityData.SegmentPath = "labelstk"
+    labelstk.EntityData.SegmentPath = "labelstk" + types.AddNoKeyToken(labelstk)
+    labelstk.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/connected/non-as/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + labelstk.EntityData.SegmentPath
     labelstk.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labelstk.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelstk.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26047,6 +26752,7 @@ func (labelstk *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTabl
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Connected_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_NextNextHop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // type. The type is RibEdmNnh.
     Type interface{}
@@ -26067,7 +26773,8 @@ func (nextNextHop *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteT
     nextNextHop.EntityData.YangName = "next-next-hop"
     nextNextHop.EntityData.BundleName = "cisco_ios_xr"
     nextNextHop.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    nextNextHop.EntityData.SegmentPath = "next-next-hop"
+    nextNextHop.EntityData.SegmentPath = "next-next-hop" + types.AddNoKeyToken(nextNextHop)
+    nextNextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/connected/non-as/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + nextNextHop.EntityData.SegmentPath
     nextNextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextNextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextNextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26137,6 +26844,7 @@ func (information *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteT
     information.EntityData.BundleName = "cisco_ios_xr"
     information.EntityData.ParentYangName = "non-as"
     information.EntityData.SegmentPath = "information"
+    information.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/connected/non-as/" + information.EntityData.SegmentPath
     information.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     information.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     information.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26177,6 +26885,7 @@ func (dagr *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableNam
     dagr.EntityData.BundleName = "cisco_ios_xr"
     dagr.EntityData.ParentYangName = "protocol"
     dagr.EntityData.SegmentPath = "dagr"
+    dagr.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/" + dagr.EntityData.SegmentPath
     dagr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dagr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dagr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26209,6 +26918,7 @@ func (nonAs *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableNa
     nonAs.EntityData.BundleName = "cisco_ios_xr"
     nonAs.EntityData.ParentYangName = "dagr"
     nonAs.EntityData.SegmentPath = "non-as"
+    nonAs.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/dagr/" + nonAs.EntityData.SegmentPath
     nonAs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nonAs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nonAs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26240,6 +26950,7 @@ func (protocolRoutes *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     protocolRoutes.EntityData.BundleName = "cisco_ios_xr"
     protocolRoutes.EntityData.ParentYangName = "non-as"
     protocolRoutes.EntityData.SegmentPath = "protocol-routes"
+    protocolRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/dagr/non-as/" + protocolRoutes.EntityData.SegmentPath
     protocolRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocolRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26262,12 +26973,14 @@ func (protocolRoutes *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Dagr_NonAs_ProtocolRoutes_ProtocolRoute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
-    // Network Address. The type is string with pattern:
+    // This attribute is a key. Network Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Prefix Length. The type is interface{} with range: 0..32.
+    // This attribute is a key. Prefix Length. The type is interface{} with range:
+    // 0..32.
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
@@ -26385,7 +27098,8 @@ func (protocolRoute *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
     protocolRoute.EntityData.YangName = "protocol-route"
     protocolRoute.EntityData.BundleName = "cisco_ios_xr"
     protocolRoute.EntityData.ParentYangName = "protocol-routes"
-    protocolRoute.EntityData.SegmentPath = "protocol-route"
+    protocolRoute.EntityData.SegmentPath = "protocol-route" + types.AddKeyToken(protocolRoute.Address, "address") + types.AddKeyToken(protocolRoute.PrefixLength, "prefix-length")
+    protocolRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/dagr/non-as/protocol-routes/" + protocolRoute.EntityData.SegmentPath
     protocolRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocolRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26428,7 +27142,7 @@ func (protocolRoute *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
     protocolRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", protocolRoute.TblVersion})
     protocolRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", protocolRoute.RouteModifyTime})
 
-    protocolRoute.EntityData.YListKeys = []string {}
+    protocolRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
     return &(protocolRoute.EntityData)
 }
@@ -26450,6 +27164,7 @@ func (routePath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTab
     routePath.EntityData.BundleName = "cisco_ios_xr"
     routePath.EntityData.ParentYangName = "protocol-route"
     routePath.EntityData.SegmentPath = "route-path"
+    routePath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/dagr/non-as/protocol-routes/protocol-route/" + routePath.EntityData.SegmentPath
     routePath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routePath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routePath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26457,6 +27172,7 @@ func (routePath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTab
     routePath.EntityData.Children = types.NewOrderedMap()
     routePath.EntityData.Children.Append("ipv4-rib-edm-path", types.YChild{"Ipv4RibEdmPath", nil})
     for i := range routePath.Ipv4RibEdmPath {
+        types.SetYListKey(routePath.Ipv4RibEdmPath[i], i)
         routePath.EntityData.Children.Append(types.GetSegmentPath(routePath.Ipv4RibEdmPath[i]), types.YChild{"Ipv4RibEdmPath", routePath.Ipv4RibEdmPath[i]})
     }
     routePath.EntityData.Leafs = types.NewOrderedMap()
@@ -26471,6 +27187,7 @@ func (routePath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTab
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Dagr_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Nexthop. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -26650,7 +27367,8 @@ func (ipv4RibEdmPath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     ipv4RibEdmPath.EntityData.YangName = "ipv4-rib-edm-path"
     ipv4RibEdmPath.EntityData.BundleName = "cisco_ios_xr"
     ipv4RibEdmPath.EntityData.ParentYangName = "route-path"
-    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path"
+    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path" + types.AddNoKeyToken(ipv4RibEdmPath)
+    ipv4RibEdmPath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/dagr/non-as/protocol-routes/protocol-route/route-path/" + ipv4RibEdmPath.EntityData.SegmentPath
     ipv4RibEdmPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4RibEdmPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4RibEdmPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26658,14 +27376,17 @@ func (ipv4RibEdmPath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     ipv4RibEdmPath.EntityData.Children = types.NewOrderedMap()
     ipv4RibEdmPath.EntityData.Children.Append("remote-backup-addr", types.YChild{"RemoteBackupAddr", nil})
     for i := range ipv4RibEdmPath.RemoteBackupAddr {
+        types.SetYListKey(ipv4RibEdmPath.RemoteBackupAddr[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.RemoteBackupAddr[i]), types.YChild{"RemoteBackupAddr", ipv4RibEdmPath.RemoteBackupAddr[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("labelstk", types.YChild{"Labelstk", nil})
     for i := range ipv4RibEdmPath.Labelstk {
+        types.SetYListKey(ipv4RibEdmPath.Labelstk[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.Labelstk[i]), types.YChild{"Labelstk", ipv4RibEdmPath.Labelstk[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("next-next-hop", types.YChild{"NextNextHop", nil})
     for i := range ipv4RibEdmPath.NextNextHop {
+        types.SetYListKey(ipv4RibEdmPath.NextNextHop[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.NextNextHop[i]), types.YChild{"NextNextHop", ipv4RibEdmPath.NextNextHop[i]})
     }
     ipv4RibEdmPath.EntityData.Leafs = types.NewOrderedMap()
@@ -26727,6 +27448,7 @@ func (ipv4RibEdmPath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Dagr_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_RemoteBackupAddr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -26738,7 +27460,8 @@ func (remoteBackupAddr *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
     remoteBackupAddr.EntityData.YangName = "remote-backup-addr"
     remoteBackupAddr.EntityData.BundleName = "cisco_ios_xr"
     remoteBackupAddr.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr"
+    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr" + types.AddNoKeyToken(remoteBackupAddr)
+    remoteBackupAddr.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/dagr/non-as/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + remoteBackupAddr.EntityData.SegmentPath
     remoteBackupAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteBackupAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteBackupAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26757,6 +27480,7 @@ func (remoteBackupAddr *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Dagr_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_Labelstk struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -26767,7 +27491,8 @@ func (labelstk *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTabl
     labelstk.EntityData.YangName = "labelstk"
     labelstk.EntityData.BundleName = "cisco_ios_xr"
     labelstk.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    labelstk.EntityData.SegmentPath = "labelstk"
+    labelstk.EntityData.SegmentPath = "labelstk" + types.AddNoKeyToken(labelstk)
+    labelstk.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/dagr/non-as/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + labelstk.EntityData.SegmentPath
     labelstk.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labelstk.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelstk.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26786,6 +27511,7 @@ func (labelstk *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTabl
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Dagr_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_NextNextHop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // type. The type is RibEdmNnh.
     Type interface{}
@@ -26806,7 +27532,8 @@ func (nextNextHop *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteT
     nextNextHop.EntityData.YangName = "next-next-hop"
     nextNextHop.EntityData.BundleName = "cisco_ios_xr"
     nextNextHop.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    nextNextHop.EntityData.SegmentPath = "next-next-hop"
+    nextNextHop.EntityData.SegmentPath = "next-next-hop" + types.AddNoKeyToken(nextNextHop)
+    nextNextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/dagr/non-as/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + nextNextHop.EntityData.SegmentPath
     nextNextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextNextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextNextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26876,6 +27603,7 @@ func (information *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteT
     information.EntityData.BundleName = "cisco_ios_xr"
     information.EntityData.ParentYangName = "non-as"
     information.EntityData.SegmentPath = "information"
+    information.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/dagr/non-as/" + information.EntityData.SegmentPath
     information.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     information.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     information.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26915,6 +27643,7 @@ func (rip *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName
     rip.EntityData.BundleName = "cisco_ios_xr"
     rip.EntityData.ParentYangName = "protocol"
     rip.EntityData.SegmentPath = "rip"
+    rip.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/" + rip.EntityData.SegmentPath
     rip.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rip.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rip.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26947,6 +27676,7 @@ func (nonAs *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableNa
     nonAs.EntityData.BundleName = "cisco_ios_xr"
     nonAs.EntityData.ParentYangName = "rip"
     nonAs.EntityData.SegmentPath = "non-as"
+    nonAs.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/rip/" + nonAs.EntityData.SegmentPath
     nonAs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nonAs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nonAs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26978,6 +27708,7 @@ func (protocolRoutes *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     protocolRoutes.EntityData.BundleName = "cisco_ios_xr"
     protocolRoutes.EntityData.ParentYangName = "non-as"
     protocolRoutes.EntityData.SegmentPath = "protocol-routes"
+    protocolRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/rip/non-as/" + protocolRoutes.EntityData.SegmentPath
     protocolRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocolRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27000,12 +27731,14 @@ func (protocolRoutes *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Rip_NonAs_ProtocolRoutes_ProtocolRoute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
-    // Network Address. The type is string with pattern:
+    // This attribute is a key. Network Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Prefix Length. The type is interface{} with range: 0..32.
+    // This attribute is a key. Prefix Length. The type is interface{} with range:
+    // 0..32.
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
@@ -27123,7 +27856,8 @@ func (protocolRoute *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
     protocolRoute.EntityData.YangName = "protocol-route"
     protocolRoute.EntityData.BundleName = "cisco_ios_xr"
     protocolRoute.EntityData.ParentYangName = "protocol-routes"
-    protocolRoute.EntityData.SegmentPath = "protocol-route"
+    protocolRoute.EntityData.SegmentPath = "protocol-route" + types.AddKeyToken(protocolRoute.Address, "address") + types.AddKeyToken(protocolRoute.PrefixLength, "prefix-length")
+    protocolRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/rip/non-as/protocol-routes/" + protocolRoute.EntityData.SegmentPath
     protocolRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocolRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27166,7 +27900,7 @@ func (protocolRoute *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
     protocolRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", protocolRoute.TblVersion})
     protocolRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", protocolRoute.RouteModifyTime})
 
-    protocolRoute.EntityData.YListKeys = []string {}
+    protocolRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
     return &(protocolRoute.EntityData)
 }
@@ -27188,6 +27922,7 @@ func (routePath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTab
     routePath.EntityData.BundleName = "cisco_ios_xr"
     routePath.EntityData.ParentYangName = "protocol-route"
     routePath.EntityData.SegmentPath = "route-path"
+    routePath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/rip/non-as/protocol-routes/protocol-route/" + routePath.EntityData.SegmentPath
     routePath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routePath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routePath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27195,6 +27930,7 @@ func (routePath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTab
     routePath.EntityData.Children = types.NewOrderedMap()
     routePath.EntityData.Children.Append("ipv4-rib-edm-path", types.YChild{"Ipv4RibEdmPath", nil})
     for i := range routePath.Ipv4RibEdmPath {
+        types.SetYListKey(routePath.Ipv4RibEdmPath[i], i)
         routePath.EntityData.Children.Append(types.GetSegmentPath(routePath.Ipv4RibEdmPath[i]), types.YChild{"Ipv4RibEdmPath", routePath.Ipv4RibEdmPath[i]})
     }
     routePath.EntityData.Leafs = types.NewOrderedMap()
@@ -27209,6 +27945,7 @@ func (routePath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTab
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Rip_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Nexthop. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -27388,7 +28125,8 @@ func (ipv4RibEdmPath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     ipv4RibEdmPath.EntityData.YangName = "ipv4-rib-edm-path"
     ipv4RibEdmPath.EntityData.BundleName = "cisco_ios_xr"
     ipv4RibEdmPath.EntityData.ParentYangName = "route-path"
-    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path"
+    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path" + types.AddNoKeyToken(ipv4RibEdmPath)
+    ipv4RibEdmPath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/rip/non-as/protocol-routes/protocol-route/route-path/" + ipv4RibEdmPath.EntityData.SegmentPath
     ipv4RibEdmPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4RibEdmPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4RibEdmPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27396,14 +28134,17 @@ func (ipv4RibEdmPath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     ipv4RibEdmPath.EntityData.Children = types.NewOrderedMap()
     ipv4RibEdmPath.EntityData.Children.Append("remote-backup-addr", types.YChild{"RemoteBackupAddr", nil})
     for i := range ipv4RibEdmPath.RemoteBackupAddr {
+        types.SetYListKey(ipv4RibEdmPath.RemoteBackupAddr[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.RemoteBackupAddr[i]), types.YChild{"RemoteBackupAddr", ipv4RibEdmPath.RemoteBackupAddr[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("labelstk", types.YChild{"Labelstk", nil})
     for i := range ipv4RibEdmPath.Labelstk {
+        types.SetYListKey(ipv4RibEdmPath.Labelstk[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.Labelstk[i]), types.YChild{"Labelstk", ipv4RibEdmPath.Labelstk[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("next-next-hop", types.YChild{"NextNextHop", nil})
     for i := range ipv4RibEdmPath.NextNextHop {
+        types.SetYListKey(ipv4RibEdmPath.NextNextHop[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.NextNextHop[i]), types.YChild{"NextNextHop", ipv4RibEdmPath.NextNextHop[i]})
     }
     ipv4RibEdmPath.EntityData.Leafs = types.NewOrderedMap()
@@ -27465,6 +28206,7 @@ func (ipv4RibEdmPath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Rip_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_RemoteBackupAddr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -27476,7 +28218,8 @@ func (remoteBackupAddr *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
     remoteBackupAddr.EntityData.YangName = "remote-backup-addr"
     remoteBackupAddr.EntityData.BundleName = "cisco_ios_xr"
     remoteBackupAddr.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr"
+    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr" + types.AddNoKeyToken(remoteBackupAddr)
+    remoteBackupAddr.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/rip/non-as/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + remoteBackupAddr.EntityData.SegmentPath
     remoteBackupAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteBackupAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteBackupAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27495,6 +28238,7 @@ func (remoteBackupAddr *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Rip_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_Labelstk struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -27505,7 +28249,8 @@ func (labelstk *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTabl
     labelstk.EntityData.YangName = "labelstk"
     labelstk.EntityData.BundleName = "cisco_ios_xr"
     labelstk.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    labelstk.EntityData.SegmentPath = "labelstk"
+    labelstk.EntityData.SegmentPath = "labelstk" + types.AddNoKeyToken(labelstk)
+    labelstk.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/rip/non-as/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + labelstk.EntityData.SegmentPath
     labelstk.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labelstk.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelstk.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27524,6 +28269,7 @@ func (labelstk *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTabl
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Rip_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_NextNextHop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // type. The type is RibEdmNnh.
     Type interface{}
@@ -27544,7 +28290,8 @@ func (nextNextHop *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteT
     nextNextHop.EntityData.YangName = "next-next-hop"
     nextNextHop.EntityData.BundleName = "cisco_ios_xr"
     nextNextHop.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    nextNextHop.EntityData.SegmentPath = "next-next-hop"
+    nextNextHop.EntityData.SegmentPath = "next-next-hop" + types.AddNoKeyToken(nextNextHop)
+    nextNextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/rip/non-as/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + nextNextHop.EntityData.SegmentPath
     nextNextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextNextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextNextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27614,6 +28361,7 @@ func (information *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteT
     information.EntityData.BundleName = "cisco_ios_xr"
     information.EntityData.ParentYangName = "non-as"
     information.EntityData.SegmentPath = "information"
+    information.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/rip/non-as/" + information.EntityData.SegmentPath
     information.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     information.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     information.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27654,6 +28402,7 @@ func (ospf *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableNam
     ospf.EntityData.BundleName = "cisco_ios_xr"
     ospf.EntityData.ParentYangName = "protocol"
     ospf.EntityData.SegmentPath = "ospf"
+    ospf.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/" + ospf.EntityData.SegmentPath
     ospf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ospf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ospf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27675,6 +28424,7 @@ func (ospf *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableNam
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Ospf_As struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Autonomous system. The type is string with
     // pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -27693,6 +28443,7 @@ func (as *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_
     as.EntityData.BundleName = "cisco_ios_xr"
     as.EntityData.ParentYangName = "ospf"
     as.EntityData.SegmentPath = "as" + types.AddKeyToken(as.As, "as")
+    as.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/ospf/" + as.EntityData.SegmentPath
     as.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     as.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     as.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27725,6 +28476,7 @@ func (protocolRoutes *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     protocolRoutes.EntityData.BundleName = "cisco_ios_xr"
     protocolRoutes.EntityData.ParentYangName = "as"
     protocolRoutes.EntityData.SegmentPath = "protocol-routes"
+    protocolRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/ospf/as/" + protocolRoutes.EntityData.SegmentPath
     protocolRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocolRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27747,12 +28499,14 @@ func (protocolRoutes *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Ospf_As_ProtocolRoutes_ProtocolRoute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
-    // Network Address. The type is string with pattern:
+    // This attribute is a key. Network Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Prefix Length. The type is interface{} with range: 0..32.
+    // This attribute is a key. Prefix Length. The type is interface{} with range:
+    // 0..32.
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
@@ -27870,7 +28624,8 @@ func (protocolRoute *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
     protocolRoute.EntityData.YangName = "protocol-route"
     protocolRoute.EntityData.BundleName = "cisco_ios_xr"
     protocolRoute.EntityData.ParentYangName = "protocol-routes"
-    protocolRoute.EntityData.SegmentPath = "protocol-route"
+    protocolRoute.EntityData.SegmentPath = "protocol-route" + types.AddKeyToken(protocolRoute.Address, "address") + types.AddKeyToken(protocolRoute.PrefixLength, "prefix-length")
+    protocolRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/ospf/as/protocol-routes/" + protocolRoute.EntityData.SegmentPath
     protocolRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocolRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27913,7 +28668,7 @@ func (protocolRoute *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
     protocolRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", protocolRoute.TblVersion})
     protocolRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", protocolRoute.RouteModifyTime})
 
-    protocolRoute.EntityData.YListKeys = []string {}
+    protocolRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
     return &(protocolRoute.EntityData)
 }
@@ -27935,6 +28690,7 @@ func (routePath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTab
     routePath.EntityData.BundleName = "cisco_ios_xr"
     routePath.EntityData.ParentYangName = "protocol-route"
     routePath.EntityData.SegmentPath = "route-path"
+    routePath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/ospf/as/protocol-routes/protocol-route/" + routePath.EntityData.SegmentPath
     routePath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routePath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routePath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27942,6 +28698,7 @@ func (routePath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTab
     routePath.EntityData.Children = types.NewOrderedMap()
     routePath.EntityData.Children.Append("ipv4-rib-edm-path", types.YChild{"Ipv4RibEdmPath", nil})
     for i := range routePath.Ipv4RibEdmPath {
+        types.SetYListKey(routePath.Ipv4RibEdmPath[i], i)
         routePath.EntityData.Children.Append(types.GetSegmentPath(routePath.Ipv4RibEdmPath[i]), types.YChild{"Ipv4RibEdmPath", routePath.Ipv4RibEdmPath[i]})
     }
     routePath.EntityData.Leafs = types.NewOrderedMap()
@@ -27956,6 +28713,7 @@ func (routePath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTab
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Ospf_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Nexthop. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -28135,7 +28893,8 @@ func (ipv4RibEdmPath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     ipv4RibEdmPath.EntityData.YangName = "ipv4-rib-edm-path"
     ipv4RibEdmPath.EntityData.BundleName = "cisco_ios_xr"
     ipv4RibEdmPath.EntityData.ParentYangName = "route-path"
-    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path"
+    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path" + types.AddNoKeyToken(ipv4RibEdmPath)
+    ipv4RibEdmPath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/ospf/as/protocol-routes/protocol-route/route-path/" + ipv4RibEdmPath.EntityData.SegmentPath
     ipv4RibEdmPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4RibEdmPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4RibEdmPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28143,14 +28902,17 @@ func (ipv4RibEdmPath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     ipv4RibEdmPath.EntityData.Children = types.NewOrderedMap()
     ipv4RibEdmPath.EntityData.Children.Append("remote-backup-addr", types.YChild{"RemoteBackupAddr", nil})
     for i := range ipv4RibEdmPath.RemoteBackupAddr {
+        types.SetYListKey(ipv4RibEdmPath.RemoteBackupAddr[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.RemoteBackupAddr[i]), types.YChild{"RemoteBackupAddr", ipv4RibEdmPath.RemoteBackupAddr[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("labelstk", types.YChild{"Labelstk", nil})
     for i := range ipv4RibEdmPath.Labelstk {
+        types.SetYListKey(ipv4RibEdmPath.Labelstk[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.Labelstk[i]), types.YChild{"Labelstk", ipv4RibEdmPath.Labelstk[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("next-next-hop", types.YChild{"NextNextHop", nil})
     for i := range ipv4RibEdmPath.NextNextHop {
+        types.SetYListKey(ipv4RibEdmPath.NextNextHop[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.NextNextHop[i]), types.YChild{"NextNextHop", ipv4RibEdmPath.NextNextHop[i]})
     }
     ipv4RibEdmPath.EntityData.Leafs = types.NewOrderedMap()
@@ -28212,6 +28974,7 @@ func (ipv4RibEdmPath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Ospf_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_RemoteBackupAddr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -28223,7 +28986,8 @@ func (remoteBackupAddr *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
     remoteBackupAddr.EntityData.YangName = "remote-backup-addr"
     remoteBackupAddr.EntityData.BundleName = "cisco_ios_xr"
     remoteBackupAddr.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr"
+    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr" + types.AddNoKeyToken(remoteBackupAddr)
+    remoteBackupAddr.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/ospf/as/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + remoteBackupAddr.EntityData.SegmentPath
     remoteBackupAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteBackupAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteBackupAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28242,6 +29006,7 @@ func (remoteBackupAddr *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Ospf_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_Labelstk struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -28252,7 +29017,8 @@ func (labelstk *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTabl
     labelstk.EntityData.YangName = "labelstk"
     labelstk.EntityData.BundleName = "cisco_ios_xr"
     labelstk.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    labelstk.EntityData.SegmentPath = "labelstk"
+    labelstk.EntityData.SegmentPath = "labelstk" + types.AddNoKeyToken(labelstk)
+    labelstk.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/ospf/as/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + labelstk.EntityData.SegmentPath
     labelstk.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labelstk.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelstk.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28271,6 +29037,7 @@ func (labelstk *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTabl
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Ospf_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_NextNextHop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // type. The type is RibEdmNnh.
     Type interface{}
@@ -28291,7 +29058,8 @@ func (nextNextHop *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteT
     nextNextHop.EntityData.YangName = "next-next-hop"
     nextNextHop.EntityData.BundleName = "cisco_ios_xr"
     nextNextHop.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    nextNextHop.EntityData.SegmentPath = "next-next-hop"
+    nextNextHop.EntityData.SegmentPath = "next-next-hop" + types.AddNoKeyToken(nextNextHop)
+    nextNextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/ospf/as/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + nextNextHop.EntityData.SegmentPath
     nextNextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextNextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextNextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28361,6 +29129,7 @@ func (information *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteT
     information.EntityData.BundleName = "cisco_ios_xr"
     information.EntityData.ParentYangName = "as"
     information.EntityData.SegmentPath = "information"
+    information.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/ospf/as/" + information.EntityData.SegmentPath
     information.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     information.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     information.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28400,6 +29169,7 @@ func (srv6Local *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTab
     srv6Local.EntityData.BundleName = "cisco_ios_xr"
     srv6Local.EntityData.ParentYangName = "protocol"
     srv6Local.EntityData.SegmentPath = "srv6-local"
+    srv6Local.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/" + srv6Local.EntityData.SegmentPath
     srv6Local.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     srv6Local.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     srv6Local.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28432,6 +29202,7 @@ func (nonAs *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableNa
     nonAs.EntityData.BundleName = "cisco_ios_xr"
     nonAs.EntityData.ParentYangName = "srv6-local"
     nonAs.EntityData.SegmentPath = "non-as"
+    nonAs.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/srv6-local/" + nonAs.EntityData.SegmentPath
     nonAs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nonAs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nonAs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28463,6 +29234,7 @@ func (protocolRoutes *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     protocolRoutes.EntityData.BundleName = "cisco_ios_xr"
     protocolRoutes.EntityData.ParentYangName = "non-as"
     protocolRoutes.EntityData.SegmentPath = "protocol-routes"
+    protocolRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/srv6-local/non-as/" + protocolRoutes.EntityData.SegmentPath
     protocolRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocolRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28485,12 +29257,14 @@ func (protocolRoutes *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Srv6Local_NonAs_ProtocolRoutes_ProtocolRoute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
-    // Network Address. The type is string with pattern:
+    // This attribute is a key. Network Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Prefix Length. The type is interface{} with range: 0..32.
+    // This attribute is a key. Prefix Length. The type is interface{} with range:
+    // 0..32.
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
@@ -28608,7 +29382,8 @@ func (protocolRoute *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
     protocolRoute.EntityData.YangName = "protocol-route"
     protocolRoute.EntityData.BundleName = "cisco_ios_xr"
     protocolRoute.EntityData.ParentYangName = "protocol-routes"
-    protocolRoute.EntityData.SegmentPath = "protocol-route"
+    protocolRoute.EntityData.SegmentPath = "protocol-route" + types.AddKeyToken(protocolRoute.Address, "address") + types.AddKeyToken(protocolRoute.PrefixLength, "prefix-length")
+    protocolRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/srv6-local/non-as/protocol-routes/" + protocolRoute.EntityData.SegmentPath
     protocolRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocolRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28651,7 +29426,7 @@ func (protocolRoute *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
     protocolRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", protocolRoute.TblVersion})
     protocolRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", protocolRoute.RouteModifyTime})
 
-    protocolRoute.EntityData.YListKeys = []string {}
+    protocolRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
     return &(protocolRoute.EntityData)
 }
@@ -28673,6 +29448,7 @@ func (routePath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTab
     routePath.EntityData.BundleName = "cisco_ios_xr"
     routePath.EntityData.ParentYangName = "protocol-route"
     routePath.EntityData.SegmentPath = "route-path"
+    routePath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/srv6-local/non-as/protocol-routes/protocol-route/" + routePath.EntityData.SegmentPath
     routePath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routePath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routePath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28680,6 +29456,7 @@ func (routePath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTab
     routePath.EntityData.Children = types.NewOrderedMap()
     routePath.EntityData.Children.Append("ipv4-rib-edm-path", types.YChild{"Ipv4RibEdmPath", nil})
     for i := range routePath.Ipv4RibEdmPath {
+        types.SetYListKey(routePath.Ipv4RibEdmPath[i], i)
         routePath.EntityData.Children.Append(types.GetSegmentPath(routePath.Ipv4RibEdmPath[i]), types.YChild{"Ipv4RibEdmPath", routePath.Ipv4RibEdmPath[i]})
     }
     routePath.EntityData.Leafs = types.NewOrderedMap()
@@ -28694,6 +29471,7 @@ func (routePath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTab
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Srv6Local_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Nexthop. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -28873,7 +29651,8 @@ func (ipv4RibEdmPath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     ipv4RibEdmPath.EntityData.YangName = "ipv4-rib-edm-path"
     ipv4RibEdmPath.EntityData.BundleName = "cisco_ios_xr"
     ipv4RibEdmPath.EntityData.ParentYangName = "route-path"
-    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path"
+    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path" + types.AddNoKeyToken(ipv4RibEdmPath)
+    ipv4RibEdmPath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/srv6-local/non-as/protocol-routes/protocol-route/route-path/" + ipv4RibEdmPath.EntityData.SegmentPath
     ipv4RibEdmPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4RibEdmPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4RibEdmPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28881,14 +29660,17 @@ func (ipv4RibEdmPath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     ipv4RibEdmPath.EntityData.Children = types.NewOrderedMap()
     ipv4RibEdmPath.EntityData.Children.Append("remote-backup-addr", types.YChild{"RemoteBackupAddr", nil})
     for i := range ipv4RibEdmPath.RemoteBackupAddr {
+        types.SetYListKey(ipv4RibEdmPath.RemoteBackupAddr[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.RemoteBackupAddr[i]), types.YChild{"RemoteBackupAddr", ipv4RibEdmPath.RemoteBackupAddr[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("labelstk", types.YChild{"Labelstk", nil})
     for i := range ipv4RibEdmPath.Labelstk {
+        types.SetYListKey(ipv4RibEdmPath.Labelstk[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.Labelstk[i]), types.YChild{"Labelstk", ipv4RibEdmPath.Labelstk[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("next-next-hop", types.YChild{"NextNextHop", nil})
     for i := range ipv4RibEdmPath.NextNextHop {
+        types.SetYListKey(ipv4RibEdmPath.NextNextHop[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.NextNextHop[i]), types.YChild{"NextNextHop", ipv4RibEdmPath.NextNextHop[i]})
     }
     ipv4RibEdmPath.EntityData.Leafs = types.NewOrderedMap()
@@ -28950,6 +29732,7 @@ func (ipv4RibEdmPath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Srv6Local_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_RemoteBackupAddr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -28961,7 +29744,8 @@ func (remoteBackupAddr *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
     remoteBackupAddr.EntityData.YangName = "remote-backup-addr"
     remoteBackupAddr.EntityData.BundleName = "cisco_ios_xr"
     remoteBackupAddr.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr"
+    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr" + types.AddNoKeyToken(remoteBackupAddr)
+    remoteBackupAddr.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/srv6-local/non-as/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + remoteBackupAddr.EntityData.SegmentPath
     remoteBackupAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteBackupAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteBackupAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28980,6 +29764,7 @@ func (remoteBackupAddr *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Srv6Local_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_Labelstk struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -28990,7 +29775,8 @@ func (labelstk *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTabl
     labelstk.EntityData.YangName = "labelstk"
     labelstk.EntityData.BundleName = "cisco_ios_xr"
     labelstk.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    labelstk.EntityData.SegmentPath = "labelstk"
+    labelstk.EntityData.SegmentPath = "labelstk" + types.AddNoKeyToken(labelstk)
+    labelstk.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/srv6-local/non-as/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + labelstk.EntityData.SegmentPath
     labelstk.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labelstk.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelstk.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29009,6 +29795,7 @@ func (labelstk *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTabl
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Srv6Local_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_NextNextHop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // type. The type is RibEdmNnh.
     Type interface{}
@@ -29029,7 +29816,8 @@ func (nextNextHop *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteT
     nextNextHop.EntityData.YangName = "next-next-hop"
     nextNextHop.EntityData.BundleName = "cisco_ios_xr"
     nextNextHop.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    nextNextHop.EntityData.SegmentPath = "next-next-hop"
+    nextNextHop.EntityData.SegmentPath = "next-next-hop" + types.AddNoKeyToken(nextNextHop)
+    nextNextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/srv6-local/non-as/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + nextNextHop.EntityData.SegmentPath
     nextNextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextNextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextNextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29099,6 +29887,7 @@ func (information *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteT
     information.EntityData.BundleName = "cisco_ios_xr"
     information.EntityData.ParentYangName = "non-as"
     information.EntityData.SegmentPath = "information"
+    information.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/srv6-local/non-as/" + information.EntityData.SegmentPath
     information.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     information.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     information.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29138,6 +29927,7 @@ func (static *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     static.EntityData.BundleName = "cisco_ios_xr"
     static.EntityData.ParentYangName = "protocol"
     static.EntityData.SegmentPath = "static"
+    static.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/" + static.EntityData.SegmentPath
     static.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     static.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     static.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29170,6 +29960,7 @@ func (nonAs *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableNa
     nonAs.EntityData.BundleName = "cisco_ios_xr"
     nonAs.EntityData.ParentYangName = "static"
     nonAs.EntityData.SegmentPath = "non-as"
+    nonAs.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/static/" + nonAs.EntityData.SegmentPath
     nonAs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nonAs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nonAs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29201,6 +29992,7 @@ func (protocolRoutes *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     protocolRoutes.EntityData.BundleName = "cisco_ios_xr"
     protocolRoutes.EntityData.ParentYangName = "non-as"
     protocolRoutes.EntityData.SegmentPath = "protocol-routes"
+    protocolRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/static/non-as/" + protocolRoutes.EntityData.SegmentPath
     protocolRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocolRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29223,12 +30015,14 @@ func (protocolRoutes *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Static_NonAs_ProtocolRoutes_ProtocolRoute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
-    // Network Address. The type is string with pattern:
+    // This attribute is a key. Network Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Prefix Length. The type is interface{} with range: 0..32.
+    // This attribute is a key. Prefix Length. The type is interface{} with range:
+    // 0..32.
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
@@ -29346,7 +30140,8 @@ func (protocolRoute *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
     protocolRoute.EntityData.YangName = "protocol-route"
     protocolRoute.EntityData.BundleName = "cisco_ios_xr"
     protocolRoute.EntityData.ParentYangName = "protocol-routes"
-    protocolRoute.EntityData.SegmentPath = "protocol-route"
+    protocolRoute.EntityData.SegmentPath = "protocol-route" + types.AddKeyToken(protocolRoute.Address, "address") + types.AddKeyToken(protocolRoute.PrefixLength, "prefix-length")
+    protocolRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/static/non-as/protocol-routes/" + protocolRoute.EntityData.SegmentPath
     protocolRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocolRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29389,7 +30184,7 @@ func (protocolRoute *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
     protocolRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", protocolRoute.TblVersion})
     protocolRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", protocolRoute.RouteModifyTime})
 
-    protocolRoute.EntityData.YListKeys = []string {}
+    protocolRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
     return &(protocolRoute.EntityData)
 }
@@ -29411,6 +30206,7 @@ func (routePath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTab
     routePath.EntityData.BundleName = "cisco_ios_xr"
     routePath.EntityData.ParentYangName = "protocol-route"
     routePath.EntityData.SegmentPath = "route-path"
+    routePath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/static/non-as/protocol-routes/protocol-route/" + routePath.EntityData.SegmentPath
     routePath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routePath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routePath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29418,6 +30214,7 @@ func (routePath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTab
     routePath.EntityData.Children = types.NewOrderedMap()
     routePath.EntityData.Children.Append("ipv4-rib-edm-path", types.YChild{"Ipv4RibEdmPath", nil})
     for i := range routePath.Ipv4RibEdmPath {
+        types.SetYListKey(routePath.Ipv4RibEdmPath[i], i)
         routePath.EntityData.Children.Append(types.GetSegmentPath(routePath.Ipv4RibEdmPath[i]), types.YChild{"Ipv4RibEdmPath", routePath.Ipv4RibEdmPath[i]})
     }
     routePath.EntityData.Leafs = types.NewOrderedMap()
@@ -29432,6 +30229,7 @@ func (routePath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTab
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Static_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Nexthop. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -29611,7 +30409,8 @@ func (ipv4RibEdmPath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     ipv4RibEdmPath.EntityData.YangName = "ipv4-rib-edm-path"
     ipv4RibEdmPath.EntityData.BundleName = "cisco_ios_xr"
     ipv4RibEdmPath.EntityData.ParentYangName = "route-path"
-    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path"
+    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path" + types.AddNoKeyToken(ipv4RibEdmPath)
+    ipv4RibEdmPath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/static/non-as/protocol-routes/protocol-route/route-path/" + ipv4RibEdmPath.EntityData.SegmentPath
     ipv4RibEdmPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4RibEdmPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4RibEdmPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29619,14 +30418,17 @@ func (ipv4RibEdmPath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     ipv4RibEdmPath.EntityData.Children = types.NewOrderedMap()
     ipv4RibEdmPath.EntityData.Children.Append("remote-backup-addr", types.YChild{"RemoteBackupAddr", nil})
     for i := range ipv4RibEdmPath.RemoteBackupAddr {
+        types.SetYListKey(ipv4RibEdmPath.RemoteBackupAddr[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.RemoteBackupAddr[i]), types.YChild{"RemoteBackupAddr", ipv4RibEdmPath.RemoteBackupAddr[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("labelstk", types.YChild{"Labelstk", nil})
     for i := range ipv4RibEdmPath.Labelstk {
+        types.SetYListKey(ipv4RibEdmPath.Labelstk[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.Labelstk[i]), types.YChild{"Labelstk", ipv4RibEdmPath.Labelstk[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("next-next-hop", types.YChild{"NextNextHop", nil})
     for i := range ipv4RibEdmPath.NextNextHop {
+        types.SetYListKey(ipv4RibEdmPath.NextNextHop[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.NextNextHop[i]), types.YChild{"NextNextHop", ipv4RibEdmPath.NextNextHop[i]})
     }
     ipv4RibEdmPath.EntityData.Leafs = types.NewOrderedMap()
@@ -29688,6 +30490,7 @@ func (ipv4RibEdmPath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Static_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_RemoteBackupAddr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -29699,7 +30502,8 @@ func (remoteBackupAddr *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
     remoteBackupAddr.EntityData.YangName = "remote-backup-addr"
     remoteBackupAddr.EntityData.BundleName = "cisco_ios_xr"
     remoteBackupAddr.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr"
+    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr" + types.AddNoKeyToken(remoteBackupAddr)
+    remoteBackupAddr.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/static/non-as/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + remoteBackupAddr.EntityData.SegmentPath
     remoteBackupAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteBackupAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteBackupAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29718,6 +30522,7 @@ func (remoteBackupAddr *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Static_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_Labelstk struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -29728,7 +30533,8 @@ func (labelstk *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTabl
     labelstk.EntityData.YangName = "labelstk"
     labelstk.EntityData.BundleName = "cisco_ios_xr"
     labelstk.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    labelstk.EntityData.SegmentPath = "labelstk"
+    labelstk.EntityData.SegmentPath = "labelstk" + types.AddNoKeyToken(labelstk)
+    labelstk.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/static/non-as/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + labelstk.EntityData.SegmentPath
     labelstk.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labelstk.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelstk.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29747,6 +30553,7 @@ func (labelstk *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTabl
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Static_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_NextNextHop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // type. The type is RibEdmNnh.
     Type interface{}
@@ -29767,7 +30574,8 @@ func (nextNextHop *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteT
     nextNextHop.EntityData.YangName = "next-next-hop"
     nextNextHop.EntityData.BundleName = "cisco_ios_xr"
     nextNextHop.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    nextNextHop.EntityData.SegmentPath = "next-next-hop"
+    nextNextHop.EntityData.SegmentPath = "next-next-hop" + types.AddNoKeyToken(nextNextHop)
+    nextNextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/static/non-as/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + nextNextHop.EntityData.SegmentPath
     nextNextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextNextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextNextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29837,6 +30645,7 @@ func (information *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteT
     information.EntityData.BundleName = "cisco_ios_xr"
     information.EntityData.ParentYangName = "non-as"
     information.EntityData.SegmentPath = "information"
+    information.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/static/non-as/" + information.EntityData.SegmentPath
     information.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     information.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     information.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29877,6 +30686,7 @@ func (rpl *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName
     rpl.EntityData.BundleName = "cisco_ios_xr"
     rpl.EntityData.ParentYangName = "protocol"
     rpl.EntityData.SegmentPath = "rpl"
+    rpl.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/" + rpl.EntityData.SegmentPath
     rpl.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rpl.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rpl.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29898,6 +30708,7 @@ func (rpl *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Rpl_As struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Autonomous system. The type is string with
     // pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -29916,6 +30727,7 @@ func (as *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_
     as.EntityData.BundleName = "cisco_ios_xr"
     as.EntityData.ParentYangName = "rpl"
     as.EntityData.SegmentPath = "as" + types.AddKeyToken(as.As, "as")
+    as.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/rpl/" + as.EntityData.SegmentPath
     as.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     as.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     as.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29948,6 +30760,7 @@ func (protocolRoutes *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     protocolRoutes.EntityData.BundleName = "cisco_ios_xr"
     protocolRoutes.EntityData.ParentYangName = "as"
     protocolRoutes.EntityData.SegmentPath = "protocol-routes"
+    protocolRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/rpl/as/" + protocolRoutes.EntityData.SegmentPath
     protocolRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocolRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29970,12 +30783,14 @@ func (protocolRoutes *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Rpl_As_ProtocolRoutes_ProtocolRoute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
-    // Network Address. The type is string with pattern:
+    // This attribute is a key. Network Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Prefix Length. The type is interface{} with range: 0..32.
+    // This attribute is a key. Prefix Length. The type is interface{} with range:
+    // 0..32.
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
@@ -30093,7 +30908,8 @@ func (protocolRoute *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
     protocolRoute.EntityData.YangName = "protocol-route"
     protocolRoute.EntityData.BundleName = "cisco_ios_xr"
     protocolRoute.EntityData.ParentYangName = "protocol-routes"
-    protocolRoute.EntityData.SegmentPath = "protocol-route"
+    protocolRoute.EntityData.SegmentPath = "protocol-route" + types.AddKeyToken(protocolRoute.Address, "address") + types.AddKeyToken(protocolRoute.PrefixLength, "prefix-length")
+    protocolRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/rpl/as/protocol-routes/" + protocolRoute.EntityData.SegmentPath
     protocolRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocolRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30136,7 +30952,7 @@ func (protocolRoute *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
     protocolRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", protocolRoute.TblVersion})
     protocolRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", protocolRoute.RouteModifyTime})
 
-    protocolRoute.EntityData.YListKeys = []string {}
+    protocolRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
     return &(protocolRoute.EntityData)
 }
@@ -30158,6 +30974,7 @@ func (routePath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTab
     routePath.EntityData.BundleName = "cisco_ios_xr"
     routePath.EntityData.ParentYangName = "protocol-route"
     routePath.EntityData.SegmentPath = "route-path"
+    routePath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/rpl/as/protocol-routes/protocol-route/" + routePath.EntityData.SegmentPath
     routePath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routePath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routePath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30165,6 +30982,7 @@ func (routePath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTab
     routePath.EntityData.Children = types.NewOrderedMap()
     routePath.EntityData.Children.Append("ipv4-rib-edm-path", types.YChild{"Ipv4RibEdmPath", nil})
     for i := range routePath.Ipv4RibEdmPath {
+        types.SetYListKey(routePath.Ipv4RibEdmPath[i], i)
         routePath.EntityData.Children.Append(types.GetSegmentPath(routePath.Ipv4RibEdmPath[i]), types.YChild{"Ipv4RibEdmPath", routePath.Ipv4RibEdmPath[i]})
     }
     routePath.EntityData.Leafs = types.NewOrderedMap()
@@ -30179,6 +30997,7 @@ func (routePath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTab
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Rpl_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Nexthop. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -30358,7 +31177,8 @@ func (ipv4RibEdmPath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     ipv4RibEdmPath.EntityData.YangName = "ipv4-rib-edm-path"
     ipv4RibEdmPath.EntityData.BundleName = "cisco_ios_xr"
     ipv4RibEdmPath.EntityData.ParentYangName = "route-path"
-    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path"
+    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path" + types.AddNoKeyToken(ipv4RibEdmPath)
+    ipv4RibEdmPath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/rpl/as/protocol-routes/protocol-route/route-path/" + ipv4RibEdmPath.EntityData.SegmentPath
     ipv4RibEdmPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4RibEdmPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4RibEdmPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30366,14 +31186,17 @@ func (ipv4RibEdmPath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     ipv4RibEdmPath.EntityData.Children = types.NewOrderedMap()
     ipv4RibEdmPath.EntityData.Children.Append("remote-backup-addr", types.YChild{"RemoteBackupAddr", nil})
     for i := range ipv4RibEdmPath.RemoteBackupAddr {
+        types.SetYListKey(ipv4RibEdmPath.RemoteBackupAddr[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.RemoteBackupAddr[i]), types.YChild{"RemoteBackupAddr", ipv4RibEdmPath.RemoteBackupAddr[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("labelstk", types.YChild{"Labelstk", nil})
     for i := range ipv4RibEdmPath.Labelstk {
+        types.SetYListKey(ipv4RibEdmPath.Labelstk[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.Labelstk[i]), types.YChild{"Labelstk", ipv4RibEdmPath.Labelstk[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("next-next-hop", types.YChild{"NextNextHop", nil})
     for i := range ipv4RibEdmPath.NextNextHop {
+        types.SetYListKey(ipv4RibEdmPath.NextNextHop[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.NextNextHop[i]), types.YChild{"NextNextHop", ipv4RibEdmPath.NextNextHop[i]})
     }
     ipv4RibEdmPath.EntityData.Leafs = types.NewOrderedMap()
@@ -30435,6 +31258,7 @@ func (ipv4RibEdmPath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Rpl_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_RemoteBackupAddr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -30446,7 +31270,8 @@ func (remoteBackupAddr *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
     remoteBackupAddr.EntityData.YangName = "remote-backup-addr"
     remoteBackupAddr.EntityData.BundleName = "cisco_ios_xr"
     remoteBackupAddr.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr"
+    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr" + types.AddNoKeyToken(remoteBackupAddr)
+    remoteBackupAddr.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/rpl/as/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + remoteBackupAddr.EntityData.SegmentPath
     remoteBackupAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteBackupAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteBackupAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30465,6 +31290,7 @@ func (remoteBackupAddr *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Rpl_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_Labelstk struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -30475,7 +31301,8 @@ func (labelstk *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTabl
     labelstk.EntityData.YangName = "labelstk"
     labelstk.EntityData.BundleName = "cisco_ios_xr"
     labelstk.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    labelstk.EntityData.SegmentPath = "labelstk"
+    labelstk.EntityData.SegmentPath = "labelstk" + types.AddNoKeyToken(labelstk)
+    labelstk.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/rpl/as/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + labelstk.EntityData.SegmentPath
     labelstk.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labelstk.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelstk.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30494,6 +31321,7 @@ func (labelstk *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTabl
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Rpl_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_NextNextHop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // type. The type is RibEdmNnh.
     Type interface{}
@@ -30514,7 +31342,8 @@ func (nextNextHop *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteT
     nextNextHop.EntityData.YangName = "next-next-hop"
     nextNextHop.EntityData.BundleName = "cisco_ios_xr"
     nextNextHop.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    nextNextHop.EntityData.SegmentPath = "next-next-hop"
+    nextNextHop.EntityData.SegmentPath = "next-next-hop" + types.AddNoKeyToken(nextNextHop)
+    nextNextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/rpl/as/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + nextNextHop.EntityData.SegmentPath
     nextNextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextNextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextNextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30584,6 +31413,7 @@ func (information *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteT
     information.EntityData.BundleName = "cisco_ios_xr"
     information.EntityData.ParentYangName = "as"
     information.EntityData.SegmentPath = "information"
+    information.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/rpl/as/" + information.EntityData.SegmentPath
     information.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     information.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     information.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30623,6 +31453,7 @@ func (application *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteT
     application.EntityData.BundleName = "cisco_ios_xr"
     application.EntityData.ParentYangName = "protocol"
     application.EntityData.SegmentPath = "application"
+    application.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/" + application.EntityData.SegmentPath
     application.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     application.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     application.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30655,6 +31486,7 @@ func (nonAs *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableNa
     nonAs.EntityData.BundleName = "cisco_ios_xr"
     nonAs.EntityData.ParentYangName = "application"
     nonAs.EntityData.SegmentPath = "non-as"
+    nonAs.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/application/" + nonAs.EntityData.SegmentPath
     nonAs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nonAs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nonAs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30686,6 +31518,7 @@ func (protocolRoutes *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     protocolRoutes.EntityData.BundleName = "cisco_ios_xr"
     protocolRoutes.EntityData.ParentYangName = "non-as"
     protocolRoutes.EntityData.SegmentPath = "protocol-routes"
+    protocolRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/application/non-as/" + protocolRoutes.EntityData.SegmentPath
     protocolRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocolRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30708,12 +31541,14 @@ func (protocolRoutes *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Application_NonAs_ProtocolRoutes_ProtocolRoute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
-    // Network Address. The type is string with pattern:
+    // This attribute is a key. Network Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Prefix Length. The type is interface{} with range: 0..32.
+    // This attribute is a key. Prefix Length. The type is interface{} with range:
+    // 0..32.
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
@@ -30831,7 +31666,8 @@ func (protocolRoute *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
     protocolRoute.EntityData.YangName = "protocol-route"
     protocolRoute.EntityData.BundleName = "cisco_ios_xr"
     protocolRoute.EntityData.ParentYangName = "protocol-routes"
-    protocolRoute.EntityData.SegmentPath = "protocol-route"
+    protocolRoute.EntityData.SegmentPath = "protocol-route" + types.AddKeyToken(protocolRoute.Address, "address") + types.AddKeyToken(protocolRoute.PrefixLength, "prefix-length")
+    protocolRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/application/non-as/protocol-routes/" + protocolRoute.EntityData.SegmentPath
     protocolRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocolRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30874,7 +31710,7 @@ func (protocolRoute *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
     protocolRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", protocolRoute.TblVersion})
     protocolRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", protocolRoute.RouteModifyTime})
 
-    protocolRoute.EntityData.YListKeys = []string {}
+    protocolRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
     return &(protocolRoute.EntityData)
 }
@@ -30896,6 +31732,7 @@ func (routePath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTab
     routePath.EntityData.BundleName = "cisco_ios_xr"
     routePath.EntityData.ParentYangName = "protocol-route"
     routePath.EntityData.SegmentPath = "route-path"
+    routePath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/application/non-as/protocol-routes/protocol-route/" + routePath.EntityData.SegmentPath
     routePath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routePath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routePath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30903,6 +31740,7 @@ func (routePath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTab
     routePath.EntityData.Children = types.NewOrderedMap()
     routePath.EntityData.Children.Append("ipv4-rib-edm-path", types.YChild{"Ipv4RibEdmPath", nil})
     for i := range routePath.Ipv4RibEdmPath {
+        types.SetYListKey(routePath.Ipv4RibEdmPath[i], i)
         routePath.EntityData.Children.Append(types.GetSegmentPath(routePath.Ipv4RibEdmPath[i]), types.YChild{"Ipv4RibEdmPath", routePath.Ipv4RibEdmPath[i]})
     }
     routePath.EntityData.Leafs = types.NewOrderedMap()
@@ -30917,6 +31755,7 @@ func (routePath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTab
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Application_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Nexthop. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -31096,7 +31935,8 @@ func (ipv4RibEdmPath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     ipv4RibEdmPath.EntityData.YangName = "ipv4-rib-edm-path"
     ipv4RibEdmPath.EntityData.BundleName = "cisco_ios_xr"
     ipv4RibEdmPath.EntityData.ParentYangName = "route-path"
-    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path"
+    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path" + types.AddNoKeyToken(ipv4RibEdmPath)
+    ipv4RibEdmPath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/application/non-as/protocol-routes/protocol-route/route-path/" + ipv4RibEdmPath.EntityData.SegmentPath
     ipv4RibEdmPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4RibEdmPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4RibEdmPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31104,14 +31944,17 @@ func (ipv4RibEdmPath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     ipv4RibEdmPath.EntityData.Children = types.NewOrderedMap()
     ipv4RibEdmPath.EntityData.Children.Append("remote-backup-addr", types.YChild{"RemoteBackupAddr", nil})
     for i := range ipv4RibEdmPath.RemoteBackupAddr {
+        types.SetYListKey(ipv4RibEdmPath.RemoteBackupAddr[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.RemoteBackupAddr[i]), types.YChild{"RemoteBackupAddr", ipv4RibEdmPath.RemoteBackupAddr[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("labelstk", types.YChild{"Labelstk", nil})
     for i := range ipv4RibEdmPath.Labelstk {
+        types.SetYListKey(ipv4RibEdmPath.Labelstk[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.Labelstk[i]), types.YChild{"Labelstk", ipv4RibEdmPath.Labelstk[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("next-next-hop", types.YChild{"NextNextHop", nil})
     for i := range ipv4RibEdmPath.NextNextHop {
+        types.SetYListKey(ipv4RibEdmPath.NextNextHop[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.NextNextHop[i]), types.YChild{"NextNextHop", ipv4RibEdmPath.NextNextHop[i]})
     }
     ipv4RibEdmPath.EntityData.Leafs = types.NewOrderedMap()
@@ -31173,6 +32016,7 @@ func (ipv4RibEdmPath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Application_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_RemoteBackupAddr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -31184,7 +32028,8 @@ func (remoteBackupAddr *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
     remoteBackupAddr.EntityData.YangName = "remote-backup-addr"
     remoteBackupAddr.EntityData.BundleName = "cisco_ios_xr"
     remoteBackupAddr.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr"
+    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr" + types.AddNoKeyToken(remoteBackupAddr)
+    remoteBackupAddr.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/application/non-as/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + remoteBackupAddr.EntityData.SegmentPath
     remoteBackupAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteBackupAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteBackupAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31203,6 +32048,7 @@ func (remoteBackupAddr *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Application_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_Labelstk struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -31213,7 +32059,8 @@ func (labelstk *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTabl
     labelstk.EntityData.YangName = "labelstk"
     labelstk.EntityData.BundleName = "cisco_ios_xr"
     labelstk.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    labelstk.EntityData.SegmentPath = "labelstk"
+    labelstk.EntityData.SegmentPath = "labelstk" + types.AddNoKeyToken(labelstk)
+    labelstk.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/application/non-as/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + labelstk.EntityData.SegmentPath
     labelstk.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labelstk.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelstk.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31232,6 +32079,7 @@ func (labelstk *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTabl
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Application_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_NextNextHop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // type. The type is RibEdmNnh.
     Type interface{}
@@ -31252,7 +32100,8 @@ func (nextNextHop *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteT
     nextNextHop.EntityData.YangName = "next-next-hop"
     nextNextHop.EntityData.BundleName = "cisco_ios_xr"
     nextNextHop.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    nextNextHop.EntityData.SegmentPath = "next-next-hop"
+    nextNextHop.EntityData.SegmentPath = "next-next-hop" + types.AddNoKeyToken(nextNextHop)
+    nextNextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/application/non-as/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + nextNextHop.EntityData.SegmentPath
     nextNextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextNextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextNextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31322,6 +32171,7 @@ func (information *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteT
     information.EntityData.BundleName = "cisco_ios_xr"
     information.EntityData.ParentYangName = "non-as"
     information.EntityData.SegmentPath = "information"
+    information.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/application/non-as/" + information.EntityData.SegmentPath
     information.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     information.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     information.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31361,6 +32211,7 @@ func (teClient *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTabl
     teClient.EntityData.BundleName = "cisco_ios_xr"
     teClient.EntityData.ParentYangName = "protocol"
     teClient.EntityData.SegmentPath = "te-client"
+    teClient.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/" + teClient.EntityData.SegmentPath
     teClient.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     teClient.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     teClient.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31393,6 +32244,7 @@ func (nonAs *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableNa
     nonAs.EntityData.BundleName = "cisco_ios_xr"
     nonAs.EntityData.ParentYangName = "te-client"
     nonAs.EntityData.SegmentPath = "non-as"
+    nonAs.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/te-client/" + nonAs.EntityData.SegmentPath
     nonAs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nonAs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nonAs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31424,6 +32276,7 @@ func (protocolRoutes *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     protocolRoutes.EntityData.BundleName = "cisco_ios_xr"
     protocolRoutes.EntityData.ParentYangName = "non-as"
     protocolRoutes.EntityData.SegmentPath = "protocol-routes"
+    protocolRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/te-client/non-as/" + protocolRoutes.EntityData.SegmentPath
     protocolRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocolRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31446,12 +32299,14 @@ func (protocolRoutes *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_TeClient_NonAs_ProtocolRoutes_ProtocolRoute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
-    // Network Address. The type is string with pattern:
+    // This attribute is a key. Network Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Prefix Length. The type is interface{} with range: 0..32.
+    // This attribute is a key. Prefix Length. The type is interface{} with range:
+    // 0..32.
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
@@ -31569,7 +32424,8 @@ func (protocolRoute *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
     protocolRoute.EntityData.YangName = "protocol-route"
     protocolRoute.EntityData.BundleName = "cisco_ios_xr"
     protocolRoute.EntityData.ParentYangName = "protocol-routes"
-    protocolRoute.EntityData.SegmentPath = "protocol-route"
+    protocolRoute.EntityData.SegmentPath = "protocol-route" + types.AddKeyToken(protocolRoute.Address, "address") + types.AddKeyToken(protocolRoute.PrefixLength, "prefix-length")
+    protocolRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/te-client/non-as/protocol-routes/" + protocolRoute.EntityData.SegmentPath
     protocolRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocolRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31612,7 +32468,7 @@ func (protocolRoute *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
     protocolRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", protocolRoute.TblVersion})
     protocolRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", protocolRoute.RouteModifyTime})
 
-    protocolRoute.EntityData.YListKeys = []string {}
+    protocolRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
     return &(protocolRoute.EntityData)
 }
@@ -31634,6 +32490,7 @@ func (routePath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTab
     routePath.EntityData.BundleName = "cisco_ios_xr"
     routePath.EntityData.ParentYangName = "protocol-route"
     routePath.EntityData.SegmentPath = "route-path"
+    routePath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/te-client/non-as/protocol-routes/protocol-route/" + routePath.EntityData.SegmentPath
     routePath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routePath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routePath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31641,6 +32498,7 @@ func (routePath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTab
     routePath.EntityData.Children = types.NewOrderedMap()
     routePath.EntityData.Children.Append("ipv4-rib-edm-path", types.YChild{"Ipv4RibEdmPath", nil})
     for i := range routePath.Ipv4RibEdmPath {
+        types.SetYListKey(routePath.Ipv4RibEdmPath[i], i)
         routePath.EntityData.Children.Append(types.GetSegmentPath(routePath.Ipv4RibEdmPath[i]), types.YChild{"Ipv4RibEdmPath", routePath.Ipv4RibEdmPath[i]})
     }
     routePath.EntityData.Leafs = types.NewOrderedMap()
@@ -31655,6 +32513,7 @@ func (routePath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTab
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_TeClient_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Nexthop. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -31834,7 +32693,8 @@ func (ipv4RibEdmPath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     ipv4RibEdmPath.EntityData.YangName = "ipv4-rib-edm-path"
     ipv4RibEdmPath.EntityData.BundleName = "cisco_ios_xr"
     ipv4RibEdmPath.EntityData.ParentYangName = "route-path"
-    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path"
+    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path" + types.AddNoKeyToken(ipv4RibEdmPath)
+    ipv4RibEdmPath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/te-client/non-as/protocol-routes/protocol-route/route-path/" + ipv4RibEdmPath.EntityData.SegmentPath
     ipv4RibEdmPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4RibEdmPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4RibEdmPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31842,14 +32702,17 @@ func (ipv4RibEdmPath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     ipv4RibEdmPath.EntityData.Children = types.NewOrderedMap()
     ipv4RibEdmPath.EntityData.Children.Append("remote-backup-addr", types.YChild{"RemoteBackupAddr", nil})
     for i := range ipv4RibEdmPath.RemoteBackupAddr {
+        types.SetYListKey(ipv4RibEdmPath.RemoteBackupAddr[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.RemoteBackupAddr[i]), types.YChild{"RemoteBackupAddr", ipv4RibEdmPath.RemoteBackupAddr[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("labelstk", types.YChild{"Labelstk", nil})
     for i := range ipv4RibEdmPath.Labelstk {
+        types.SetYListKey(ipv4RibEdmPath.Labelstk[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.Labelstk[i]), types.YChild{"Labelstk", ipv4RibEdmPath.Labelstk[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("next-next-hop", types.YChild{"NextNextHop", nil})
     for i := range ipv4RibEdmPath.NextNextHop {
+        types.SetYListKey(ipv4RibEdmPath.NextNextHop[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.NextNextHop[i]), types.YChild{"NextNextHop", ipv4RibEdmPath.NextNextHop[i]})
     }
     ipv4RibEdmPath.EntityData.Leafs = types.NewOrderedMap()
@@ -31911,6 +32774,7 @@ func (ipv4RibEdmPath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_TeClient_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_RemoteBackupAddr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -31922,7 +32786,8 @@ func (remoteBackupAddr *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
     remoteBackupAddr.EntityData.YangName = "remote-backup-addr"
     remoteBackupAddr.EntityData.BundleName = "cisco_ios_xr"
     remoteBackupAddr.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr"
+    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr" + types.AddNoKeyToken(remoteBackupAddr)
+    remoteBackupAddr.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/te-client/non-as/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + remoteBackupAddr.EntityData.SegmentPath
     remoteBackupAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteBackupAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteBackupAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31941,6 +32806,7 @@ func (remoteBackupAddr *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_TeClient_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_Labelstk struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -31951,7 +32817,8 @@ func (labelstk *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTabl
     labelstk.EntityData.YangName = "labelstk"
     labelstk.EntityData.BundleName = "cisco_ios_xr"
     labelstk.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    labelstk.EntityData.SegmentPath = "labelstk"
+    labelstk.EntityData.SegmentPath = "labelstk" + types.AddNoKeyToken(labelstk)
+    labelstk.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/te-client/non-as/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + labelstk.EntityData.SegmentPath
     labelstk.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labelstk.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelstk.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31970,6 +32837,7 @@ func (labelstk *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTabl
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_TeClient_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_NextNextHop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // type. The type is RibEdmNnh.
     Type interface{}
@@ -31990,7 +32858,8 @@ func (nextNextHop *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteT
     nextNextHop.EntityData.YangName = "next-next-hop"
     nextNextHop.EntityData.BundleName = "cisco_ios_xr"
     nextNextHop.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    nextNextHop.EntityData.SegmentPath = "next-next-hop"
+    nextNextHop.EntityData.SegmentPath = "next-next-hop" + types.AddNoKeyToken(nextNextHop)
+    nextNextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/te-client/non-as/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + nextNextHop.EntityData.SegmentPath
     nextNextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextNextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextNextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32060,6 +32929,7 @@ func (information *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteT
     information.EntityData.BundleName = "cisco_ios_xr"
     information.EntityData.ParentYangName = "non-as"
     information.EntityData.SegmentPath = "information"
+    information.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/te-client/non-as/" + information.EntityData.SegmentPath
     information.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     information.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     information.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32100,6 +32970,7 @@ func (eigrp *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableNa
     eigrp.EntityData.BundleName = "cisco_ios_xr"
     eigrp.EntityData.ParentYangName = "protocol"
     eigrp.EntityData.SegmentPath = "eigrp"
+    eigrp.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/" + eigrp.EntityData.SegmentPath
     eigrp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eigrp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eigrp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32121,6 +32992,7 @@ func (eigrp *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableNa
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Eigrp_As struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Autonomous system. The type is string with
     // pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -32139,6 +33011,7 @@ func (as *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_
     as.EntityData.BundleName = "cisco_ios_xr"
     as.EntityData.ParentYangName = "eigrp"
     as.EntityData.SegmentPath = "as" + types.AddKeyToken(as.As, "as")
+    as.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/eigrp/" + as.EntityData.SegmentPath
     as.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     as.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     as.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32171,6 +33044,7 @@ func (protocolRoutes *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     protocolRoutes.EntityData.BundleName = "cisco_ios_xr"
     protocolRoutes.EntityData.ParentYangName = "as"
     protocolRoutes.EntityData.SegmentPath = "protocol-routes"
+    protocolRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/eigrp/as/" + protocolRoutes.EntityData.SegmentPath
     protocolRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocolRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32193,12 +33067,14 @@ func (protocolRoutes *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Eigrp_As_ProtocolRoutes_ProtocolRoute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
-    // Network Address. The type is string with pattern:
+    // This attribute is a key. Network Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Prefix Length. The type is interface{} with range: 0..32.
+    // This attribute is a key. Prefix Length. The type is interface{} with range:
+    // 0..32.
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
@@ -32316,7 +33192,8 @@ func (protocolRoute *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
     protocolRoute.EntityData.YangName = "protocol-route"
     protocolRoute.EntityData.BundleName = "cisco_ios_xr"
     protocolRoute.EntityData.ParentYangName = "protocol-routes"
-    protocolRoute.EntityData.SegmentPath = "protocol-route"
+    protocolRoute.EntityData.SegmentPath = "protocol-route" + types.AddKeyToken(protocolRoute.Address, "address") + types.AddKeyToken(protocolRoute.PrefixLength, "prefix-length")
+    protocolRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/eigrp/as/protocol-routes/" + protocolRoute.EntityData.SegmentPath
     protocolRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocolRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32359,7 +33236,7 @@ func (protocolRoute *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
     protocolRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", protocolRoute.TblVersion})
     protocolRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", protocolRoute.RouteModifyTime})
 
-    protocolRoute.EntityData.YListKeys = []string {}
+    protocolRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
     return &(protocolRoute.EntityData)
 }
@@ -32381,6 +33258,7 @@ func (routePath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTab
     routePath.EntityData.BundleName = "cisco_ios_xr"
     routePath.EntityData.ParentYangName = "protocol-route"
     routePath.EntityData.SegmentPath = "route-path"
+    routePath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/eigrp/as/protocol-routes/protocol-route/" + routePath.EntityData.SegmentPath
     routePath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routePath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routePath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32388,6 +33266,7 @@ func (routePath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTab
     routePath.EntityData.Children = types.NewOrderedMap()
     routePath.EntityData.Children.Append("ipv4-rib-edm-path", types.YChild{"Ipv4RibEdmPath", nil})
     for i := range routePath.Ipv4RibEdmPath {
+        types.SetYListKey(routePath.Ipv4RibEdmPath[i], i)
         routePath.EntityData.Children.Append(types.GetSegmentPath(routePath.Ipv4RibEdmPath[i]), types.YChild{"Ipv4RibEdmPath", routePath.Ipv4RibEdmPath[i]})
     }
     routePath.EntityData.Leafs = types.NewOrderedMap()
@@ -32402,6 +33281,7 @@ func (routePath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTab
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Eigrp_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Nexthop. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -32581,7 +33461,8 @@ func (ipv4RibEdmPath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     ipv4RibEdmPath.EntityData.YangName = "ipv4-rib-edm-path"
     ipv4RibEdmPath.EntityData.BundleName = "cisco_ios_xr"
     ipv4RibEdmPath.EntityData.ParentYangName = "route-path"
-    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path"
+    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path" + types.AddNoKeyToken(ipv4RibEdmPath)
+    ipv4RibEdmPath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/eigrp/as/protocol-routes/protocol-route/route-path/" + ipv4RibEdmPath.EntityData.SegmentPath
     ipv4RibEdmPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4RibEdmPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4RibEdmPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32589,14 +33470,17 @@ func (ipv4RibEdmPath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     ipv4RibEdmPath.EntityData.Children = types.NewOrderedMap()
     ipv4RibEdmPath.EntityData.Children.Append("remote-backup-addr", types.YChild{"RemoteBackupAddr", nil})
     for i := range ipv4RibEdmPath.RemoteBackupAddr {
+        types.SetYListKey(ipv4RibEdmPath.RemoteBackupAddr[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.RemoteBackupAddr[i]), types.YChild{"RemoteBackupAddr", ipv4RibEdmPath.RemoteBackupAddr[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("labelstk", types.YChild{"Labelstk", nil})
     for i := range ipv4RibEdmPath.Labelstk {
+        types.SetYListKey(ipv4RibEdmPath.Labelstk[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.Labelstk[i]), types.YChild{"Labelstk", ipv4RibEdmPath.Labelstk[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("next-next-hop", types.YChild{"NextNextHop", nil})
     for i := range ipv4RibEdmPath.NextNextHop {
+        types.SetYListKey(ipv4RibEdmPath.NextNextHop[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.NextNextHop[i]), types.YChild{"NextNextHop", ipv4RibEdmPath.NextNextHop[i]})
     }
     ipv4RibEdmPath.EntityData.Leafs = types.NewOrderedMap()
@@ -32658,6 +33542,7 @@ func (ipv4RibEdmPath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Eigrp_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_RemoteBackupAddr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -32669,7 +33554,8 @@ func (remoteBackupAddr *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
     remoteBackupAddr.EntityData.YangName = "remote-backup-addr"
     remoteBackupAddr.EntityData.BundleName = "cisco_ios_xr"
     remoteBackupAddr.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr"
+    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr" + types.AddNoKeyToken(remoteBackupAddr)
+    remoteBackupAddr.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/eigrp/as/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + remoteBackupAddr.EntityData.SegmentPath
     remoteBackupAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteBackupAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteBackupAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32688,6 +33574,7 @@ func (remoteBackupAddr *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Eigrp_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_Labelstk struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -32698,7 +33585,8 @@ func (labelstk *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTabl
     labelstk.EntityData.YangName = "labelstk"
     labelstk.EntityData.BundleName = "cisco_ios_xr"
     labelstk.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    labelstk.EntityData.SegmentPath = "labelstk"
+    labelstk.EntityData.SegmentPath = "labelstk" + types.AddNoKeyToken(labelstk)
+    labelstk.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/eigrp/as/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + labelstk.EntityData.SegmentPath
     labelstk.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labelstk.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelstk.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32717,6 +33605,7 @@ func (labelstk *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTabl
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Eigrp_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_NextNextHop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // type. The type is RibEdmNnh.
     Type interface{}
@@ -32737,7 +33626,8 @@ func (nextNextHop *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteT
     nextNextHop.EntityData.YangName = "next-next-hop"
     nextNextHop.EntityData.BundleName = "cisco_ios_xr"
     nextNextHop.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    nextNextHop.EntityData.SegmentPath = "next-next-hop"
+    nextNextHop.EntityData.SegmentPath = "next-next-hop" + types.AddNoKeyToken(nextNextHop)
+    nextNextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/eigrp/as/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + nextNextHop.EntityData.SegmentPath
     nextNextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextNextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextNextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32807,6 +33697,7 @@ func (information *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteT
     information.EntityData.BundleName = "cisco_ios_xr"
     information.EntityData.ParentYangName = "as"
     information.EntityData.SegmentPath = "information"
+    information.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/eigrp/as/" + information.EntityData.SegmentPath
     information.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     information.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     information.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32852,6 +33743,7 @@ func (local *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableNa
     local.EntityData.BundleName = "cisco_ios_xr"
     local.EntityData.ParentYangName = "protocol"
     local.EntityData.SegmentPath = "local"
+    local.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/" + local.EntityData.SegmentPath
     local.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     local.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     local.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32886,6 +33778,7 @@ func (smiap *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableNa
     smiap.EntityData.BundleName = "cisco_ios_xr"
     smiap.EntityData.ParentYangName = "local"
     smiap.EntityData.SegmentPath = "smiap"
+    smiap.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/local/" + smiap.EntityData.SegmentPath
     smiap.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     smiap.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     smiap.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32917,6 +33810,7 @@ func (protocolRoutes *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     protocolRoutes.EntityData.BundleName = "cisco_ios_xr"
     protocolRoutes.EntityData.ParentYangName = "smiap"
     protocolRoutes.EntityData.SegmentPath = "protocol-routes"
+    protocolRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/local/smiap/" + protocolRoutes.EntityData.SegmentPath
     protocolRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocolRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32939,12 +33833,14 @@ func (protocolRoutes *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Local_Smiap_ProtocolRoutes_ProtocolRoute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
-    // Network Address. The type is string with pattern:
+    // This attribute is a key. Network Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Prefix Length. The type is interface{} with range: 0..32.
+    // This attribute is a key. Prefix Length. The type is interface{} with range:
+    // 0..32.
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
@@ -33062,7 +33958,8 @@ func (protocolRoute *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
     protocolRoute.EntityData.YangName = "protocol-route"
     protocolRoute.EntityData.BundleName = "cisco_ios_xr"
     protocolRoute.EntityData.ParentYangName = "protocol-routes"
-    protocolRoute.EntityData.SegmentPath = "protocol-route"
+    protocolRoute.EntityData.SegmentPath = "protocol-route" + types.AddKeyToken(protocolRoute.Address, "address") + types.AddKeyToken(protocolRoute.PrefixLength, "prefix-length")
+    protocolRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/local/smiap/protocol-routes/" + protocolRoute.EntityData.SegmentPath
     protocolRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocolRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33105,7 +34002,7 @@ func (protocolRoute *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
     protocolRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", protocolRoute.TblVersion})
     protocolRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", protocolRoute.RouteModifyTime})
 
-    protocolRoute.EntityData.YListKeys = []string {}
+    protocolRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
     return &(protocolRoute.EntityData)
 }
@@ -33127,6 +34024,7 @@ func (routePath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTab
     routePath.EntityData.BundleName = "cisco_ios_xr"
     routePath.EntityData.ParentYangName = "protocol-route"
     routePath.EntityData.SegmentPath = "route-path"
+    routePath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/local/smiap/protocol-routes/protocol-route/" + routePath.EntityData.SegmentPath
     routePath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routePath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routePath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33134,6 +34032,7 @@ func (routePath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTab
     routePath.EntityData.Children = types.NewOrderedMap()
     routePath.EntityData.Children.Append("ipv4-rib-edm-path", types.YChild{"Ipv4RibEdmPath", nil})
     for i := range routePath.Ipv4RibEdmPath {
+        types.SetYListKey(routePath.Ipv4RibEdmPath[i], i)
         routePath.EntityData.Children.Append(types.GetSegmentPath(routePath.Ipv4RibEdmPath[i]), types.YChild{"Ipv4RibEdmPath", routePath.Ipv4RibEdmPath[i]})
     }
     routePath.EntityData.Leafs = types.NewOrderedMap()
@@ -33148,6 +34047,7 @@ func (routePath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTab
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Local_Smiap_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Nexthop. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -33327,7 +34227,8 @@ func (ipv4RibEdmPath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     ipv4RibEdmPath.EntityData.YangName = "ipv4-rib-edm-path"
     ipv4RibEdmPath.EntityData.BundleName = "cisco_ios_xr"
     ipv4RibEdmPath.EntityData.ParentYangName = "route-path"
-    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path"
+    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path" + types.AddNoKeyToken(ipv4RibEdmPath)
+    ipv4RibEdmPath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/local/smiap/protocol-routes/protocol-route/route-path/" + ipv4RibEdmPath.EntityData.SegmentPath
     ipv4RibEdmPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4RibEdmPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4RibEdmPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33335,14 +34236,17 @@ func (ipv4RibEdmPath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     ipv4RibEdmPath.EntityData.Children = types.NewOrderedMap()
     ipv4RibEdmPath.EntityData.Children.Append("remote-backup-addr", types.YChild{"RemoteBackupAddr", nil})
     for i := range ipv4RibEdmPath.RemoteBackupAddr {
+        types.SetYListKey(ipv4RibEdmPath.RemoteBackupAddr[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.RemoteBackupAddr[i]), types.YChild{"RemoteBackupAddr", ipv4RibEdmPath.RemoteBackupAddr[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("labelstk", types.YChild{"Labelstk", nil})
     for i := range ipv4RibEdmPath.Labelstk {
+        types.SetYListKey(ipv4RibEdmPath.Labelstk[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.Labelstk[i]), types.YChild{"Labelstk", ipv4RibEdmPath.Labelstk[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("next-next-hop", types.YChild{"NextNextHop", nil})
     for i := range ipv4RibEdmPath.NextNextHop {
+        types.SetYListKey(ipv4RibEdmPath.NextNextHop[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.NextNextHop[i]), types.YChild{"NextNextHop", ipv4RibEdmPath.NextNextHop[i]})
     }
     ipv4RibEdmPath.EntityData.Leafs = types.NewOrderedMap()
@@ -33404,6 +34308,7 @@ func (ipv4RibEdmPath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Local_Smiap_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_RemoteBackupAddr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -33415,7 +34320,8 @@ func (remoteBackupAddr *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
     remoteBackupAddr.EntityData.YangName = "remote-backup-addr"
     remoteBackupAddr.EntityData.BundleName = "cisco_ios_xr"
     remoteBackupAddr.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr"
+    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr" + types.AddNoKeyToken(remoteBackupAddr)
+    remoteBackupAddr.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/local/smiap/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + remoteBackupAddr.EntityData.SegmentPath
     remoteBackupAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteBackupAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteBackupAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33434,6 +34340,7 @@ func (remoteBackupAddr *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Local_Smiap_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_Labelstk struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -33444,7 +34351,8 @@ func (labelstk *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTabl
     labelstk.EntityData.YangName = "labelstk"
     labelstk.EntityData.BundleName = "cisco_ios_xr"
     labelstk.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    labelstk.EntityData.SegmentPath = "labelstk"
+    labelstk.EntityData.SegmentPath = "labelstk" + types.AddNoKeyToken(labelstk)
+    labelstk.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/local/smiap/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + labelstk.EntityData.SegmentPath
     labelstk.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labelstk.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelstk.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33463,6 +34371,7 @@ func (labelstk *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTabl
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Local_Smiap_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_NextNextHop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // type. The type is RibEdmNnh.
     Type interface{}
@@ -33483,7 +34392,8 @@ func (nextNextHop *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteT
     nextNextHop.EntityData.YangName = "next-next-hop"
     nextNextHop.EntityData.BundleName = "cisco_ios_xr"
     nextNextHop.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    nextNextHop.EntityData.SegmentPath = "next-next-hop"
+    nextNextHop.EntityData.SegmentPath = "next-next-hop" + types.AddNoKeyToken(nextNextHop)
+    nextNextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/local/smiap/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + nextNextHop.EntityData.SegmentPath
     nextNextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextNextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextNextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33553,6 +34463,7 @@ func (information *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteT
     information.EntityData.BundleName = "cisco_ios_xr"
     information.EntityData.ParentYangName = "smiap"
     information.EntityData.SegmentPath = "information"
+    information.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/local/smiap/" + information.EntityData.SegmentPath
     information.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     information.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     information.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33596,6 +34507,7 @@ func (lspv *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableNam
     lspv.EntityData.BundleName = "cisco_ios_xr"
     lspv.EntityData.ParentYangName = "local"
     lspv.EntityData.SegmentPath = "lspv"
+    lspv.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/local/" + lspv.EntityData.SegmentPath
     lspv.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lspv.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspv.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33627,6 +34539,7 @@ func (protocolRoutes *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     protocolRoutes.EntityData.BundleName = "cisco_ios_xr"
     protocolRoutes.EntityData.ParentYangName = "lspv"
     protocolRoutes.EntityData.SegmentPath = "protocol-routes"
+    protocolRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/local/lspv/" + protocolRoutes.EntityData.SegmentPath
     protocolRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocolRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33649,12 +34562,14 @@ func (protocolRoutes *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Local_Lspv_ProtocolRoutes_ProtocolRoute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
-    // Network Address. The type is string with pattern:
+    // This attribute is a key. Network Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Prefix Length. The type is interface{} with range: 0..32.
+    // This attribute is a key. Prefix Length. The type is interface{} with range:
+    // 0..32.
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
@@ -33772,7 +34687,8 @@ func (protocolRoute *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
     protocolRoute.EntityData.YangName = "protocol-route"
     protocolRoute.EntityData.BundleName = "cisco_ios_xr"
     protocolRoute.EntityData.ParentYangName = "protocol-routes"
-    protocolRoute.EntityData.SegmentPath = "protocol-route"
+    protocolRoute.EntityData.SegmentPath = "protocol-route" + types.AddKeyToken(protocolRoute.Address, "address") + types.AddKeyToken(protocolRoute.PrefixLength, "prefix-length")
+    protocolRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/local/lspv/protocol-routes/" + protocolRoute.EntityData.SegmentPath
     protocolRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocolRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33815,7 +34731,7 @@ func (protocolRoute *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
     protocolRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", protocolRoute.TblVersion})
     protocolRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", protocolRoute.RouteModifyTime})
 
-    protocolRoute.EntityData.YListKeys = []string {}
+    protocolRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
     return &(protocolRoute.EntityData)
 }
@@ -33837,6 +34753,7 @@ func (routePath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTab
     routePath.EntityData.BundleName = "cisco_ios_xr"
     routePath.EntityData.ParentYangName = "protocol-route"
     routePath.EntityData.SegmentPath = "route-path"
+    routePath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/local/lspv/protocol-routes/protocol-route/" + routePath.EntityData.SegmentPath
     routePath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routePath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routePath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33844,6 +34761,7 @@ func (routePath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTab
     routePath.EntityData.Children = types.NewOrderedMap()
     routePath.EntityData.Children.Append("ipv4-rib-edm-path", types.YChild{"Ipv4RibEdmPath", nil})
     for i := range routePath.Ipv4RibEdmPath {
+        types.SetYListKey(routePath.Ipv4RibEdmPath[i], i)
         routePath.EntityData.Children.Append(types.GetSegmentPath(routePath.Ipv4RibEdmPath[i]), types.YChild{"Ipv4RibEdmPath", routePath.Ipv4RibEdmPath[i]})
     }
     routePath.EntityData.Leafs = types.NewOrderedMap()
@@ -33858,6 +34776,7 @@ func (routePath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTab
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Local_Lspv_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Nexthop. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -34037,7 +34956,8 @@ func (ipv4RibEdmPath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     ipv4RibEdmPath.EntityData.YangName = "ipv4-rib-edm-path"
     ipv4RibEdmPath.EntityData.BundleName = "cisco_ios_xr"
     ipv4RibEdmPath.EntityData.ParentYangName = "route-path"
-    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path"
+    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path" + types.AddNoKeyToken(ipv4RibEdmPath)
+    ipv4RibEdmPath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/local/lspv/protocol-routes/protocol-route/route-path/" + ipv4RibEdmPath.EntityData.SegmentPath
     ipv4RibEdmPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4RibEdmPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4RibEdmPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34045,14 +34965,17 @@ func (ipv4RibEdmPath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     ipv4RibEdmPath.EntityData.Children = types.NewOrderedMap()
     ipv4RibEdmPath.EntityData.Children.Append("remote-backup-addr", types.YChild{"RemoteBackupAddr", nil})
     for i := range ipv4RibEdmPath.RemoteBackupAddr {
+        types.SetYListKey(ipv4RibEdmPath.RemoteBackupAddr[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.RemoteBackupAddr[i]), types.YChild{"RemoteBackupAddr", ipv4RibEdmPath.RemoteBackupAddr[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("labelstk", types.YChild{"Labelstk", nil})
     for i := range ipv4RibEdmPath.Labelstk {
+        types.SetYListKey(ipv4RibEdmPath.Labelstk[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.Labelstk[i]), types.YChild{"Labelstk", ipv4RibEdmPath.Labelstk[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("next-next-hop", types.YChild{"NextNextHop", nil})
     for i := range ipv4RibEdmPath.NextNextHop {
+        types.SetYListKey(ipv4RibEdmPath.NextNextHop[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.NextNextHop[i]), types.YChild{"NextNextHop", ipv4RibEdmPath.NextNextHop[i]})
     }
     ipv4RibEdmPath.EntityData.Leafs = types.NewOrderedMap()
@@ -34114,6 +35037,7 @@ func (ipv4RibEdmPath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Local_Lspv_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_RemoteBackupAddr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -34125,7 +35049,8 @@ func (remoteBackupAddr *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
     remoteBackupAddr.EntityData.YangName = "remote-backup-addr"
     remoteBackupAddr.EntityData.BundleName = "cisco_ios_xr"
     remoteBackupAddr.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr"
+    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr" + types.AddNoKeyToken(remoteBackupAddr)
+    remoteBackupAddr.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/local/lspv/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + remoteBackupAddr.EntityData.SegmentPath
     remoteBackupAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteBackupAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteBackupAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34144,6 +35069,7 @@ func (remoteBackupAddr *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Local_Lspv_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_Labelstk struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -34154,7 +35080,8 @@ func (labelstk *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTabl
     labelstk.EntityData.YangName = "labelstk"
     labelstk.EntityData.BundleName = "cisco_ios_xr"
     labelstk.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    labelstk.EntityData.SegmentPath = "labelstk"
+    labelstk.EntityData.SegmentPath = "labelstk" + types.AddNoKeyToken(labelstk)
+    labelstk.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/local/lspv/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + labelstk.EntityData.SegmentPath
     labelstk.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labelstk.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelstk.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34173,6 +35100,7 @@ func (labelstk *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTabl
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Local_Lspv_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_NextNextHop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // type. The type is RibEdmNnh.
     Type interface{}
@@ -34193,7 +35121,8 @@ func (nextNextHop *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteT
     nextNextHop.EntityData.YangName = "next-next-hop"
     nextNextHop.EntityData.BundleName = "cisco_ios_xr"
     nextNextHop.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    nextNextHop.EntityData.SegmentPath = "next-next-hop"
+    nextNextHop.EntityData.SegmentPath = "next-next-hop" + types.AddNoKeyToken(nextNextHop)
+    nextNextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/local/lspv/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + nextNextHop.EntityData.SegmentPath
     nextNextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextNextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextNextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34263,6 +35192,7 @@ func (information *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteT
     information.EntityData.BundleName = "cisco_ios_xr"
     information.EntityData.ParentYangName = "lspv"
     information.EntityData.SegmentPath = "information"
+    information.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/local/lspv/" + information.EntityData.SegmentPath
     information.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     information.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     information.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34305,6 +35235,7 @@ func (nonAs *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableNa
     nonAs.EntityData.BundleName = "cisco_ios_xr"
     nonAs.EntityData.ParentYangName = "local"
     nonAs.EntityData.SegmentPath = "non-as"
+    nonAs.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/local/" + nonAs.EntityData.SegmentPath
     nonAs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nonAs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nonAs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34336,6 +35267,7 @@ func (protocolRoutes *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     protocolRoutes.EntityData.BundleName = "cisco_ios_xr"
     protocolRoutes.EntityData.ParentYangName = "non-as"
     protocolRoutes.EntityData.SegmentPath = "protocol-routes"
+    protocolRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/local/non-as/" + protocolRoutes.EntityData.SegmentPath
     protocolRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocolRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34358,12 +35290,14 @@ func (protocolRoutes *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Local_NonAs_ProtocolRoutes_ProtocolRoute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
-    // Network Address. The type is string with pattern:
+    // This attribute is a key. Network Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Prefix Length. The type is interface{} with range: 0..32.
+    // This attribute is a key. Prefix Length. The type is interface{} with range:
+    // 0..32.
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
@@ -34481,7 +35415,8 @@ func (protocolRoute *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
     protocolRoute.EntityData.YangName = "protocol-route"
     protocolRoute.EntityData.BundleName = "cisco_ios_xr"
     protocolRoute.EntityData.ParentYangName = "protocol-routes"
-    protocolRoute.EntityData.SegmentPath = "protocol-route"
+    protocolRoute.EntityData.SegmentPath = "protocol-route" + types.AddKeyToken(protocolRoute.Address, "address") + types.AddKeyToken(protocolRoute.PrefixLength, "prefix-length")
+    protocolRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/local/non-as/protocol-routes/" + protocolRoute.EntityData.SegmentPath
     protocolRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocolRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34524,7 +35459,7 @@ func (protocolRoute *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
     protocolRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", protocolRoute.TblVersion})
     protocolRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", protocolRoute.RouteModifyTime})
 
-    protocolRoute.EntityData.YListKeys = []string {}
+    protocolRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
     return &(protocolRoute.EntityData)
 }
@@ -34546,6 +35481,7 @@ func (routePath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTab
     routePath.EntityData.BundleName = "cisco_ios_xr"
     routePath.EntityData.ParentYangName = "protocol-route"
     routePath.EntityData.SegmentPath = "route-path"
+    routePath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/local/non-as/protocol-routes/protocol-route/" + routePath.EntityData.SegmentPath
     routePath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routePath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routePath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34553,6 +35489,7 @@ func (routePath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTab
     routePath.EntityData.Children = types.NewOrderedMap()
     routePath.EntityData.Children.Append("ipv4-rib-edm-path", types.YChild{"Ipv4RibEdmPath", nil})
     for i := range routePath.Ipv4RibEdmPath {
+        types.SetYListKey(routePath.Ipv4RibEdmPath[i], i)
         routePath.EntityData.Children.Append(types.GetSegmentPath(routePath.Ipv4RibEdmPath[i]), types.YChild{"Ipv4RibEdmPath", routePath.Ipv4RibEdmPath[i]})
     }
     routePath.EntityData.Leafs = types.NewOrderedMap()
@@ -34567,6 +35504,7 @@ func (routePath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTab
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Local_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Nexthop. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -34746,7 +35684,8 @@ func (ipv4RibEdmPath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     ipv4RibEdmPath.EntityData.YangName = "ipv4-rib-edm-path"
     ipv4RibEdmPath.EntityData.BundleName = "cisco_ios_xr"
     ipv4RibEdmPath.EntityData.ParentYangName = "route-path"
-    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path"
+    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path" + types.AddNoKeyToken(ipv4RibEdmPath)
+    ipv4RibEdmPath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/local/non-as/protocol-routes/protocol-route/route-path/" + ipv4RibEdmPath.EntityData.SegmentPath
     ipv4RibEdmPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4RibEdmPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4RibEdmPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34754,14 +35693,17 @@ func (ipv4RibEdmPath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     ipv4RibEdmPath.EntityData.Children = types.NewOrderedMap()
     ipv4RibEdmPath.EntityData.Children.Append("remote-backup-addr", types.YChild{"RemoteBackupAddr", nil})
     for i := range ipv4RibEdmPath.RemoteBackupAddr {
+        types.SetYListKey(ipv4RibEdmPath.RemoteBackupAddr[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.RemoteBackupAddr[i]), types.YChild{"RemoteBackupAddr", ipv4RibEdmPath.RemoteBackupAddr[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("labelstk", types.YChild{"Labelstk", nil})
     for i := range ipv4RibEdmPath.Labelstk {
+        types.SetYListKey(ipv4RibEdmPath.Labelstk[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.Labelstk[i]), types.YChild{"Labelstk", ipv4RibEdmPath.Labelstk[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("next-next-hop", types.YChild{"NextNextHop", nil})
     for i := range ipv4RibEdmPath.NextNextHop {
+        types.SetYListKey(ipv4RibEdmPath.NextNextHop[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.NextNextHop[i]), types.YChild{"NextNextHop", ipv4RibEdmPath.NextNextHop[i]})
     }
     ipv4RibEdmPath.EntityData.Leafs = types.NewOrderedMap()
@@ -34823,6 +35765,7 @@ func (ipv4RibEdmPath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Local_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_RemoteBackupAddr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -34834,7 +35777,8 @@ func (remoteBackupAddr *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
     remoteBackupAddr.EntityData.YangName = "remote-backup-addr"
     remoteBackupAddr.EntityData.BundleName = "cisco_ios_xr"
     remoteBackupAddr.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr"
+    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr" + types.AddNoKeyToken(remoteBackupAddr)
+    remoteBackupAddr.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/local/non-as/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + remoteBackupAddr.EntityData.SegmentPath
     remoteBackupAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteBackupAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteBackupAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34853,6 +35797,7 @@ func (remoteBackupAddr *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Local_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_Labelstk struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -34863,7 +35808,8 @@ func (labelstk *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTabl
     labelstk.EntityData.YangName = "labelstk"
     labelstk.EntityData.BundleName = "cisco_ios_xr"
     labelstk.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    labelstk.EntityData.SegmentPath = "labelstk"
+    labelstk.EntityData.SegmentPath = "labelstk" + types.AddNoKeyToken(labelstk)
+    labelstk.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/local/non-as/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + labelstk.EntityData.SegmentPath
     labelstk.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labelstk.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelstk.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34882,6 +35828,7 @@ func (labelstk *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTabl
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Local_NonAs_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_NextNextHop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // type. The type is RibEdmNnh.
     Type interface{}
@@ -34902,7 +35849,8 @@ func (nextNextHop *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteT
     nextNextHop.EntityData.YangName = "next-next-hop"
     nextNextHop.EntityData.BundleName = "cisco_ios_xr"
     nextNextHop.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    nextNextHop.EntityData.SegmentPath = "next-next-hop"
+    nextNextHop.EntityData.SegmentPath = "next-next-hop" + types.AddNoKeyToken(nextNextHop)
+    nextNextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/local/non-as/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + nextNextHop.EntityData.SegmentPath
     nextNextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextNextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextNextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34972,6 +35920,7 @@ func (information *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteT
     information.EntityData.BundleName = "cisco_ios_xr"
     information.EntityData.ParentYangName = "non-as"
     information.EntityData.SegmentPath = "information"
+    information.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/local/non-as/" + information.EntityData.SegmentPath
     information.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     information.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     information.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35012,6 +35961,7 @@ func (bgp *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName
     bgp.EntityData.BundleName = "cisco_ios_xr"
     bgp.EntityData.ParentYangName = "protocol"
     bgp.EntityData.SegmentPath = "bgp"
+    bgp.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/" + bgp.EntityData.SegmentPath
     bgp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bgp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bgp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35033,6 +35983,7 @@ func (bgp *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Bgp_As struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Autonomous system. The type is string with
     // pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -35051,6 +36002,7 @@ func (as *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_
     as.EntityData.BundleName = "cisco_ios_xr"
     as.EntityData.ParentYangName = "bgp"
     as.EntityData.SegmentPath = "as" + types.AddKeyToken(as.As, "as")
+    as.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/bgp/" + as.EntityData.SegmentPath
     as.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     as.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     as.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35083,6 +36035,7 @@ func (protocolRoutes *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     protocolRoutes.EntityData.BundleName = "cisco_ios_xr"
     protocolRoutes.EntityData.ParentYangName = "as"
     protocolRoutes.EntityData.SegmentPath = "protocol-routes"
+    protocolRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/bgp/as/" + protocolRoutes.EntityData.SegmentPath
     protocolRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocolRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35105,12 +36058,14 @@ func (protocolRoutes *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Bgp_As_ProtocolRoutes_ProtocolRoute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
-    // Network Address. The type is string with pattern:
+    // This attribute is a key. Network Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Prefix Length. The type is interface{} with range: 0..32.
+    // This attribute is a key. Prefix Length. The type is interface{} with range:
+    // 0..32.
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
@@ -35228,7 +36183,8 @@ func (protocolRoute *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
     protocolRoute.EntityData.YangName = "protocol-route"
     protocolRoute.EntityData.BundleName = "cisco_ios_xr"
     protocolRoute.EntityData.ParentYangName = "protocol-routes"
-    protocolRoute.EntityData.SegmentPath = "protocol-route"
+    protocolRoute.EntityData.SegmentPath = "protocol-route" + types.AddKeyToken(protocolRoute.Address, "address") + types.AddKeyToken(protocolRoute.PrefixLength, "prefix-length")
+    protocolRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/bgp/as/protocol-routes/" + protocolRoute.EntityData.SegmentPath
     protocolRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocolRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35271,7 +36227,7 @@ func (protocolRoute *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
     protocolRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", protocolRoute.TblVersion})
     protocolRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", protocolRoute.RouteModifyTime})
 
-    protocolRoute.EntityData.YListKeys = []string {}
+    protocolRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
     return &(protocolRoute.EntityData)
 }
@@ -35293,6 +36249,7 @@ func (routePath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTab
     routePath.EntityData.BundleName = "cisco_ios_xr"
     routePath.EntityData.ParentYangName = "protocol-route"
     routePath.EntityData.SegmentPath = "route-path"
+    routePath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/bgp/as/protocol-routes/protocol-route/" + routePath.EntityData.SegmentPath
     routePath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routePath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routePath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35300,6 +36257,7 @@ func (routePath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTab
     routePath.EntityData.Children = types.NewOrderedMap()
     routePath.EntityData.Children.Append("ipv4-rib-edm-path", types.YChild{"Ipv4RibEdmPath", nil})
     for i := range routePath.Ipv4RibEdmPath {
+        types.SetYListKey(routePath.Ipv4RibEdmPath[i], i)
         routePath.EntityData.Children.Append(types.GetSegmentPath(routePath.Ipv4RibEdmPath[i]), types.YChild{"Ipv4RibEdmPath", routePath.Ipv4RibEdmPath[i]})
     }
     routePath.EntityData.Leafs = types.NewOrderedMap()
@@ -35314,6 +36272,7 @@ func (routePath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTab
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Bgp_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Nexthop. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -35493,7 +36452,8 @@ func (ipv4RibEdmPath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     ipv4RibEdmPath.EntityData.YangName = "ipv4-rib-edm-path"
     ipv4RibEdmPath.EntityData.BundleName = "cisco_ios_xr"
     ipv4RibEdmPath.EntityData.ParentYangName = "route-path"
-    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path"
+    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path" + types.AddNoKeyToken(ipv4RibEdmPath)
+    ipv4RibEdmPath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/bgp/as/protocol-routes/protocol-route/route-path/" + ipv4RibEdmPath.EntityData.SegmentPath
     ipv4RibEdmPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4RibEdmPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4RibEdmPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35501,14 +36461,17 @@ func (ipv4RibEdmPath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     ipv4RibEdmPath.EntityData.Children = types.NewOrderedMap()
     ipv4RibEdmPath.EntityData.Children.Append("remote-backup-addr", types.YChild{"RemoteBackupAddr", nil})
     for i := range ipv4RibEdmPath.RemoteBackupAddr {
+        types.SetYListKey(ipv4RibEdmPath.RemoteBackupAddr[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.RemoteBackupAddr[i]), types.YChild{"RemoteBackupAddr", ipv4RibEdmPath.RemoteBackupAddr[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("labelstk", types.YChild{"Labelstk", nil})
     for i := range ipv4RibEdmPath.Labelstk {
+        types.SetYListKey(ipv4RibEdmPath.Labelstk[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.Labelstk[i]), types.YChild{"Labelstk", ipv4RibEdmPath.Labelstk[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("next-next-hop", types.YChild{"NextNextHop", nil})
     for i := range ipv4RibEdmPath.NextNextHop {
+        types.SetYListKey(ipv4RibEdmPath.NextNextHop[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.NextNextHop[i]), types.YChild{"NextNextHop", ipv4RibEdmPath.NextNextHop[i]})
     }
     ipv4RibEdmPath.EntityData.Leafs = types.NewOrderedMap()
@@ -35570,6 +36533,7 @@ func (ipv4RibEdmPath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Bgp_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_RemoteBackupAddr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -35581,7 +36545,8 @@ func (remoteBackupAddr *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
     remoteBackupAddr.EntityData.YangName = "remote-backup-addr"
     remoteBackupAddr.EntityData.BundleName = "cisco_ios_xr"
     remoteBackupAddr.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr"
+    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr" + types.AddNoKeyToken(remoteBackupAddr)
+    remoteBackupAddr.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/bgp/as/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + remoteBackupAddr.EntityData.SegmentPath
     remoteBackupAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteBackupAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteBackupAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35600,6 +36565,7 @@ func (remoteBackupAddr *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Bgp_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_Labelstk struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -35610,7 +36576,8 @@ func (labelstk *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTabl
     labelstk.EntityData.YangName = "labelstk"
     labelstk.EntityData.BundleName = "cisco_ios_xr"
     labelstk.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    labelstk.EntityData.SegmentPath = "labelstk"
+    labelstk.EntityData.SegmentPath = "labelstk" + types.AddNoKeyToken(labelstk)
+    labelstk.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/bgp/as/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + labelstk.EntityData.SegmentPath
     labelstk.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labelstk.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelstk.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35629,6 +36596,7 @@ func (labelstk *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTabl
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Bgp_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_NextNextHop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // type. The type is RibEdmNnh.
     Type interface{}
@@ -35649,7 +36617,8 @@ func (nextNextHop *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteT
     nextNextHop.EntityData.YangName = "next-next-hop"
     nextNextHop.EntityData.BundleName = "cisco_ios_xr"
     nextNextHop.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    nextNextHop.EntityData.SegmentPath = "next-next-hop"
+    nextNextHop.EntityData.SegmentPath = "next-next-hop" + types.AddNoKeyToken(nextNextHop)
+    nextNextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/bgp/as/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + nextNextHop.EntityData.SegmentPath
     nextNextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextNextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextNextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35719,6 +36688,7 @@ func (information *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteT
     information.EntityData.BundleName = "cisco_ios_xr"
     information.EntityData.ParentYangName = "as"
     information.EntityData.SegmentPath = "information"
+    information.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/bgp/as/" + information.EntityData.SegmentPath
     information.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     information.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     information.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35759,6 +36729,7 @@ func (isis *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableNam
     isis.EntityData.BundleName = "cisco_ios_xr"
     isis.EntityData.ParentYangName = "protocol"
     isis.EntityData.SegmentPath = "isis"
+    isis.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/" + isis.EntityData.SegmentPath
     isis.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     isis.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     isis.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35780,6 +36751,7 @@ func (isis *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableNam
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Isis_As struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Autonomous system. The type is string with
     // pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -35798,6 +36770,7 @@ func (as *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_
     as.EntityData.BundleName = "cisco_ios_xr"
     as.EntityData.ParentYangName = "isis"
     as.EntityData.SegmentPath = "as" + types.AddKeyToken(as.As, "as")
+    as.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/isis/" + as.EntityData.SegmentPath
     as.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     as.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     as.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35830,6 +36803,7 @@ func (protocolRoutes *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     protocolRoutes.EntityData.BundleName = "cisco_ios_xr"
     protocolRoutes.EntityData.ParentYangName = "as"
     protocolRoutes.EntityData.SegmentPath = "protocol-routes"
+    protocolRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/isis/as/" + protocolRoutes.EntityData.SegmentPath
     protocolRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocolRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35852,12 +36826,14 @@ func (protocolRoutes *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Isis_As_ProtocolRoutes_ProtocolRoute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
-    // Network Address. The type is string with pattern:
+    // This attribute is a key. Network Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Prefix Length. The type is interface{} with range: 0..32.
+    // This attribute is a key. Prefix Length. The type is interface{} with range:
+    // 0..32.
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
@@ -35975,7 +36951,8 @@ func (protocolRoute *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
     protocolRoute.EntityData.YangName = "protocol-route"
     protocolRoute.EntityData.BundleName = "cisco_ios_xr"
     protocolRoute.EntityData.ParentYangName = "protocol-routes"
-    protocolRoute.EntityData.SegmentPath = "protocol-route"
+    protocolRoute.EntityData.SegmentPath = "protocol-route" + types.AddKeyToken(protocolRoute.Address, "address") + types.AddKeyToken(protocolRoute.PrefixLength, "prefix-length")
+    protocolRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/isis/as/protocol-routes/" + protocolRoute.EntityData.SegmentPath
     protocolRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocolRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36018,7 +36995,7 @@ func (protocolRoute *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRout
     protocolRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", protocolRoute.TblVersion})
     protocolRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", protocolRoute.RouteModifyTime})
 
-    protocolRoute.EntityData.YListKeys = []string {}
+    protocolRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
     return &(protocolRoute.EntityData)
 }
@@ -36040,6 +37017,7 @@ func (routePath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTab
     routePath.EntityData.BundleName = "cisco_ios_xr"
     routePath.EntityData.ParentYangName = "protocol-route"
     routePath.EntityData.SegmentPath = "route-path"
+    routePath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/isis/as/protocol-routes/protocol-route/" + routePath.EntityData.SegmentPath
     routePath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routePath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routePath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36047,6 +37025,7 @@ func (routePath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTab
     routePath.EntityData.Children = types.NewOrderedMap()
     routePath.EntityData.Children.Append("ipv4-rib-edm-path", types.YChild{"Ipv4RibEdmPath", nil})
     for i := range routePath.Ipv4RibEdmPath {
+        types.SetYListKey(routePath.Ipv4RibEdmPath[i], i)
         routePath.EntityData.Children.Append(types.GetSegmentPath(routePath.Ipv4RibEdmPath[i]), types.YChild{"Ipv4RibEdmPath", routePath.Ipv4RibEdmPath[i]})
     }
     routePath.EntityData.Leafs = types.NewOrderedMap()
@@ -36061,6 +37040,7 @@ func (routePath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTab
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Isis_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Nexthop. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -36240,7 +37220,8 @@ func (ipv4RibEdmPath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     ipv4RibEdmPath.EntityData.YangName = "ipv4-rib-edm-path"
     ipv4RibEdmPath.EntityData.BundleName = "cisco_ios_xr"
     ipv4RibEdmPath.EntityData.ParentYangName = "route-path"
-    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path"
+    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path" + types.AddNoKeyToken(ipv4RibEdmPath)
+    ipv4RibEdmPath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/isis/as/protocol-routes/protocol-route/route-path/" + ipv4RibEdmPath.EntityData.SegmentPath
     ipv4RibEdmPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4RibEdmPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4RibEdmPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36248,14 +37229,17 @@ func (ipv4RibEdmPath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     ipv4RibEdmPath.EntityData.Children = types.NewOrderedMap()
     ipv4RibEdmPath.EntityData.Children.Append("remote-backup-addr", types.YChild{"RemoteBackupAddr", nil})
     for i := range ipv4RibEdmPath.RemoteBackupAddr {
+        types.SetYListKey(ipv4RibEdmPath.RemoteBackupAddr[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.RemoteBackupAddr[i]), types.YChild{"RemoteBackupAddr", ipv4RibEdmPath.RemoteBackupAddr[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("labelstk", types.YChild{"Labelstk", nil})
     for i := range ipv4RibEdmPath.Labelstk {
+        types.SetYListKey(ipv4RibEdmPath.Labelstk[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.Labelstk[i]), types.YChild{"Labelstk", ipv4RibEdmPath.Labelstk[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("next-next-hop", types.YChild{"NextNextHop", nil})
     for i := range ipv4RibEdmPath.NextNextHop {
+        types.SetYListKey(ipv4RibEdmPath.NextNextHop[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.NextNextHop[i]), types.YChild{"NextNextHop", ipv4RibEdmPath.NextNextHop[i]})
     }
     ipv4RibEdmPath.EntityData.Leafs = types.NewOrderedMap()
@@ -36317,6 +37301,7 @@ func (ipv4RibEdmPath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Isis_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_RemoteBackupAddr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -36328,7 +37313,8 @@ func (remoteBackupAddr *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
     remoteBackupAddr.EntityData.YangName = "remote-backup-addr"
     remoteBackupAddr.EntityData.BundleName = "cisco_ios_xr"
     remoteBackupAddr.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr"
+    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr" + types.AddNoKeyToken(remoteBackupAddr)
+    remoteBackupAddr.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/isis/as/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + remoteBackupAddr.EntityData.SegmentPath
     remoteBackupAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteBackupAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteBackupAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36347,6 +37333,7 @@ func (remoteBackupAddr *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Isis_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_Labelstk struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -36357,7 +37344,8 @@ func (labelstk *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTabl
     labelstk.EntityData.YangName = "labelstk"
     labelstk.EntityData.BundleName = "cisco_ios_xr"
     labelstk.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    labelstk.EntityData.SegmentPath = "labelstk"
+    labelstk.EntityData.SegmentPath = "labelstk" + types.AddNoKeyToken(labelstk)
+    labelstk.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/isis/as/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + labelstk.EntityData.SegmentPath
     labelstk.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labelstk.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelstk.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36376,6 +37364,7 @@ func (labelstk *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTabl
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Protocol_Isis_As_ProtocolRoutes_ProtocolRoute_RoutePath_Ipv4RibEdmPath_NextNextHop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // type. The type is RibEdmNnh.
     Type interface{}
@@ -36396,7 +37385,8 @@ func (nextNextHop *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteT
     nextNextHop.EntityData.YangName = "next-next-hop"
     nextNextHop.EntityData.BundleName = "cisco_ios_xr"
     nextNextHop.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    nextNextHop.EntityData.SegmentPath = "next-next-hop"
+    nextNextHop.EntityData.SegmentPath = "next-next-hop" + types.AddNoKeyToken(nextNextHop)
+    nextNextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/isis/as/protocol-routes/protocol-route/route-path/ipv4-rib-edm-path/" + nextNextHop.EntityData.SegmentPath
     nextNextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextNextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextNextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36466,6 +37456,7 @@ func (information *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteT
     information.EntityData.BundleName = "cisco_ios_xr"
     information.EntityData.ParentYangName = "as"
     information.EntityData.SegmentPath = "information"
+    information.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/isis/as/" + information.EntityData.SegmentPath
     information.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     information.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     information.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36506,6 +37497,7 @@ func (qRoutes *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTable
     qRoutes.EntityData.BundleName = "cisco_ios_xr"
     qRoutes.EntityData.ParentYangName = "ip-rib-route-table-name"
     qRoutes.EntityData.SegmentPath = "q-routes"
+    qRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/" + qRoutes.EntityData.SegmentPath
     qRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     qRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     qRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36528,12 +37520,14 @@ func (qRoutes *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTable
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_QRoutes_QRoute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
-    // Network Address. The type is string with pattern:
+    // This attribute is a key. Network Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Prefix Length. The type is interface{} with range: 0..32.
+    // This attribute is a key. Prefix Length. The type is interface{} with range:
+    // 0..32.
     PrefixLength interface{}
 
     // Route prefix. The type is string with pattern:
@@ -36651,7 +37645,8 @@ func (qRoute *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     qRoute.EntityData.YangName = "q-route"
     qRoute.EntityData.BundleName = "cisco_ios_xr"
     qRoute.EntityData.ParentYangName = "q-routes"
-    qRoute.EntityData.SegmentPath = "q-route"
+    qRoute.EntityData.SegmentPath = "q-route" + types.AddKeyToken(qRoute.Address, "address") + types.AddKeyToken(qRoute.PrefixLength, "prefix-length")
+    qRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/q-routes/" + qRoute.EntityData.SegmentPath
     qRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     qRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     qRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36694,7 +37689,7 @@ func (qRoute *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     qRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", qRoute.TblVersion})
     qRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", qRoute.RouteModifyTime})
 
-    qRoute.EntityData.YListKeys = []string {}
+    qRoute.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
     return &(qRoute.EntityData)
 }
@@ -36716,6 +37711,7 @@ func (routePath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTab
     routePath.EntityData.BundleName = "cisco_ios_xr"
     routePath.EntityData.ParentYangName = "q-route"
     routePath.EntityData.SegmentPath = "route-path"
+    routePath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/q-routes/q-route/" + routePath.EntityData.SegmentPath
     routePath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routePath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routePath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36723,6 +37719,7 @@ func (routePath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTab
     routePath.EntityData.Children = types.NewOrderedMap()
     routePath.EntityData.Children.Append("ipv4-rib-edm-path", types.YChild{"Ipv4RibEdmPath", nil})
     for i := range routePath.Ipv4RibEdmPath {
+        types.SetYListKey(routePath.Ipv4RibEdmPath[i], i)
         routePath.EntityData.Children.Append(types.GetSegmentPath(routePath.Ipv4RibEdmPath[i]), types.YChild{"Ipv4RibEdmPath", routePath.Ipv4RibEdmPath[i]})
     }
     routePath.EntityData.Leafs = types.NewOrderedMap()
@@ -36737,6 +37734,7 @@ func (routePath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTab
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_QRoutes_QRoute_RoutePath_Ipv4RibEdmPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Nexthop. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -36916,7 +37914,8 @@ func (ipv4RibEdmPath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     ipv4RibEdmPath.EntityData.YangName = "ipv4-rib-edm-path"
     ipv4RibEdmPath.EntityData.BundleName = "cisco_ios_xr"
     ipv4RibEdmPath.EntityData.ParentYangName = "route-path"
-    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path"
+    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path" + types.AddNoKeyToken(ipv4RibEdmPath)
+    ipv4RibEdmPath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/q-routes/q-route/route-path/" + ipv4RibEdmPath.EntityData.SegmentPath
     ipv4RibEdmPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4RibEdmPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4RibEdmPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36924,14 +37923,17 @@ func (ipv4RibEdmPath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     ipv4RibEdmPath.EntityData.Children = types.NewOrderedMap()
     ipv4RibEdmPath.EntityData.Children.Append("remote-backup-addr", types.YChild{"RemoteBackupAddr", nil})
     for i := range ipv4RibEdmPath.RemoteBackupAddr {
+        types.SetYListKey(ipv4RibEdmPath.RemoteBackupAddr[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.RemoteBackupAddr[i]), types.YChild{"RemoteBackupAddr", ipv4RibEdmPath.RemoteBackupAddr[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("labelstk", types.YChild{"Labelstk", nil})
     for i := range ipv4RibEdmPath.Labelstk {
+        types.SetYListKey(ipv4RibEdmPath.Labelstk[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.Labelstk[i]), types.YChild{"Labelstk", ipv4RibEdmPath.Labelstk[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("next-next-hop", types.YChild{"NextNextHop", nil})
     for i := range ipv4RibEdmPath.NextNextHop {
+        types.SetYListKey(ipv4RibEdmPath.NextNextHop[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.NextNextHop[i]), types.YChild{"NextNextHop", ipv4RibEdmPath.NextNextHop[i]})
     }
     ipv4RibEdmPath.EntityData.Leafs = types.NewOrderedMap()
@@ -36993,6 +37995,7 @@ func (ipv4RibEdmPath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_QRoutes_QRoute_RoutePath_Ipv4RibEdmPath_RemoteBackupAddr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -37004,7 +38007,8 @@ func (remoteBackupAddr *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
     remoteBackupAddr.EntityData.YangName = "remote-backup-addr"
     remoteBackupAddr.EntityData.BundleName = "cisco_ios_xr"
     remoteBackupAddr.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr"
+    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr" + types.AddNoKeyToken(remoteBackupAddr)
+    remoteBackupAddr.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/q-routes/q-route/route-path/ipv4-rib-edm-path/" + remoteBackupAddr.EntityData.SegmentPath
     remoteBackupAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteBackupAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteBackupAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37023,6 +38027,7 @@ func (remoteBackupAddr *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_QRoutes_QRoute_RoutePath_Ipv4RibEdmPath_Labelstk struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -37033,7 +38038,8 @@ func (labelstk *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTabl
     labelstk.EntityData.YangName = "labelstk"
     labelstk.EntityData.BundleName = "cisco_ios_xr"
     labelstk.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    labelstk.EntityData.SegmentPath = "labelstk"
+    labelstk.EntityData.SegmentPath = "labelstk" + types.AddNoKeyToken(labelstk)
+    labelstk.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/q-routes/q-route/route-path/ipv4-rib-edm-path/" + labelstk.EntityData.SegmentPath
     labelstk.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labelstk.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelstk.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37052,6 +38058,7 @@ func (labelstk *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTabl
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_QRoutes_QRoute_RoutePath_Ipv4RibEdmPath_NextNextHop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // type. The type is RibEdmNnh.
     Type interface{}
@@ -37072,7 +38079,8 @@ func (nextNextHop *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteT
     nextNextHop.EntityData.YangName = "next-next-hop"
     nextNextHop.EntityData.BundleName = "cisco_ios_xr"
     nextNextHop.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    nextNextHop.EntityData.SegmentPath = "next-next-hop"
+    nextNextHop.EntityData.SegmentPath = "next-next-hop" + types.AddNoKeyToken(nextNextHop)
+    nextNextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/q-routes/q-route/route-path/ipv4-rib-edm-path/" + nextNextHop.EntityData.SegmentPath
     nextNextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextNextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextNextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37107,6 +38115,7 @@ func (backupRoutes *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRoute
     backupRoutes.EntityData.BundleName = "cisco_ios_xr"
     backupRoutes.EntityData.ParentYangName = "ip-rib-route-table-name"
     backupRoutes.EntityData.SegmentPath = "backup-routes"
+    backupRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/" + backupRoutes.EntityData.SegmentPath
     backupRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     backupRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     backupRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37129,15 +38138,18 @@ func (backupRoutes *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRoute
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_BackupRoutes_BackupRoute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
-    // Network Address. The type is string with pattern:
+    // This attribute is a key. Network Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Prefix Length. The type is interface{} with range: 0..32.
+    // This attribute is a key. Prefix Length. The type is interface{} with range:
+    // 0..32.
     PrefixLength interface{}
 
-    // Proto ID. The type is interface{} with range: 0..4294967295.
+    // This attribute is a key. Proto ID. The type is interface{} with range:
+    // 0..4294967295.
     Protoid interface{}
 
     // Route prefix. The type is string with pattern:
@@ -37255,7 +38267,8 @@ func (backupRoute *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteT
     backupRoute.EntityData.YangName = "backup-route"
     backupRoute.EntityData.BundleName = "cisco_ios_xr"
     backupRoute.EntityData.ParentYangName = "backup-routes"
-    backupRoute.EntityData.SegmentPath = "backup-route"
+    backupRoute.EntityData.SegmentPath = "backup-route" + types.AddKeyToken(backupRoute.Address, "address") + types.AddKeyToken(backupRoute.PrefixLength, "prefix-length") + types.AddKeyToken(backupRoute.Protoid, "protoid")
+    backupRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/backup-routes/" + backupRoute.EntityData.SegmentPath
     backupRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     backupRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     backupRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37299,7 +38312,7 @@ func (backupRoute *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteT
     backupRoute.EntityData.Leafs.Append("tbl-version", types.YLeaf{"TblVersion", backupRoute.TblVersion})
     backupRoute.EntityData.Leafs.Append("route-modify-time", types.YLeaf{"RouteModifyTime", backupRoute.RouteModifyTime})
 
-    backupRoute.EntityData.YListKeys = []string {}
+    backupRoute.EntityData.YListKeys = []string {"Address", "PrefixLength", "Protoid"}
 
     return &(backupRoute.EntityData)
 }
@@ -37321,6 +38334,7 @@ func (routePath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTab
     routePath.EntityData.BundleName = "cisco_ios_xr"
     routePath.EntityData.ParentYangName = "backup-route"
     routePath.EntityData.SegmentPath = "route-path"
+    routePath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/backup-routes/backup-route/" + routePath.EntityData.SegmentPath
     routePath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routePath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routePath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37328,6 +38342,7 @@ func (routePath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTab
     routePath.EntityData.Children = types.NewOrderedMap()
     routePath.EntityData.Children.Append("ipv4-rib-edm-path", types.YChild{"Ipv4RibEdmPath", nil})
     for i := range routePath.Ipv4RibEdmPath {
+        types.SetYListKey(routePath.Ipv4RibEdmPath[i], i)
         routePath.EntityData.Children.Append(types.GetSegmentPath(routePath.Ipv4RibEdmPath[i]), types.YChild{"Ipv4RibEdmPath", routePath.Ipv4RibEdmPath[i]})
     }
     routePath.EntityData.Leafs = types.NewOrderedMap()
@@ -37342,6 +38357,7 @@ func (routePath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTab
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_BackupRoutes_BackupRoute_RoutePath_Ipv4RibEdmPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Nexthop. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -37521,7 +38537,8 @@ func (ipv4RibEdmPath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     ipv4RibEdmPath.EntityData.YangName = "ipv4-rib-edm-path"
     ipv4RibEdmPath.EntityData.BundleName = "cisco_ios_xr"
     ipv4RibEdmPath.EntityData.ParentYangName = "route-path"
-    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path"
+    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path" + types.AddNoKeyToken(ipv4RibEdmPath)
+    ipv4RibEdmPath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/backup-routes/backup-route/route-path/" + ipv4RibEdmPath.EntityData.SegmentPath
     ipv4RibEdmPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4RibEdmPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4RibEdmPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37529,14 +38546,17 @@ func (ipv4RibEdmPath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
     ipv4RibEdmPath.EntityData.Children = types.NewOrderedMap()
     ipv4RibEdmPath.EntityData.Children.Append("remote-backup-addr", types.YChild{"RemoteBackupAddr", nil})
     for i := range ipv4RibEdmPath.RemoteBackupAddr {
+        types.SetYListKey(ipv4RibEdmPath.RemoteBackupAddr[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.RemoteBackupAddr[i]), types.YChild{"RemoteBackupAddr", ipv4RibEdmPath.RemoteBackupAddr[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("labelstk", types.YChild{"Labelstk", nil})
     for i := range ipv4RibEdmPath.Labelstk {
+        types.SetYListKey(ipv4RibEdmPath.Labelstk[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.Labelstk[i]), types.YChild{"Labelstk", ipv4RibEdmPath.Labelstk[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("next-next-hop", types.YChild{"NextNextHop", nil})
     for i := range ipv4RibEdmPath.NextNextHop {
+        types.SetYListKey(ipv4RibEdmPath.NextNextHop[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.NextNextHop[i]), types.YChild{"NextNextHop", ipv4RibEdmPath.NextNextHop[i]})
     }
     ipv4RibEdmPath.EntityData.Leafs = types.NewOrderedMap()
@@ -37598,6 +38618,7 @@ func (ipv4RibEdmPath *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRou
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_BackupRoutes_BackupRoute_RoutePath_Ipv4RibEdmPath_RemoteBackupAddr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -37609,7 +38630,8 @@ func (remoteBackupAddr *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
     remoteBackupAddr.EntityData.YangName = "remote-backup-addr"
     remoteBackupAddr.EntityData.BundleName = "cisco_ios_xr"
     remoteBackupAddr.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr"
+    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr" + types.AddNoKeyToken(remoteBackupAddr)
+    remoteBackupAddr.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/backup-routes/backup-route/route-path/ipv4-rib-edm-path/" + remoteBackupAddr.EntityData.SegmentPath
     remoteBackupAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteBackupAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteBackupAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37628,6 +38650,7 @@ func (remoteBackupAddr *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_BackupRoutes_BackupRoute_RoutePath_Ipv4RibEdmPath_Labelstk struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -37638,7 +38661,8 @@ func (labelstk *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTabl
     labelstk.EntityData.YangName = "labelstk"
     labelstk.EntityData.BundleName = "cisco_ios_xr"
     labelstk.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    labelstk.EntityData.SegmentPath = "labelstk"
+    labelstk.EntityData.SegmentPath = "labelstk" + types.AddNoKeyToken(labelstk)
+    labelstk.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/backup-routes/backup-route/route-path/ipv4-rib-edm-path/" + labelstk.EntityData.SegmentPath
     labelstk.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labelstk.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelstk.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37657,6 +38681,7 @@ func (labelstk *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTabl
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_BackupRoutes_BackupRoute_RoutePath_Ipv4RibEdmPath_NextNextHop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // type. The type is RibEdmNnh.
     Type interface{}
@@ -37677,7 +38702,8 @@ func (nextNextHop *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteT
     nextNextHop.EntityData.YangName = "next-next-hop"
     nextNextHop.EntityData.BundleName = "cisco_ios_xr"
     nextNextHop.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    nextNextHop.EntityData.SegmentPath = "next-next-hop"
+    nextNextHop.EntityData.SegmentPath = "next-next-hop" + types.AddNoKeyToken(nextNextHop)
+    nextNextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/backup-routes/backup-route/route-path/ipv4-rib-edm-path/" + nextNextHop.EntityData.SegmentPath
     nextNextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextNextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextNextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37711,6 +38737,7 @@ func (adverts *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTable
     adverts.EntityData.BundleName = "cisco_ios_xr"
     adverts.EntityData.ParentYangName = "ip-rib-route-table-name"
     adverts.EntityData.SegmentPath = "adverts"
+    adverts.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/" + adverts.EntityData.SegmentPath
     adverts.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     adverts.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     adverts.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37733,12 +38760,14 @@ func (adverts *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTable
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Adverts_Advert struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
-    // Network Address. The type is string with pattern:
+    // This attribute is a key. Network Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Prefix Length. The type is interface{} with range: 0..32.
+    // This attribute is a key. Prefix Length. The type is interface{} with range:
+    // 0..32.
     PrefixLength interface{}
 
     // ipv4 rib edm advert. The type is slice of
@@ -37751,7 +38780,8 @@ func (advert *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     advert.EntityData.YangName = "advert"
     advert.EntityData.BundleName = "cisco_ios_xr"
     advert.EntityData.ParentYangName = "adverts"
-    advert.EntityData.SegmentPath = "advert"
+    advert.EntityData.SegmentPath = "advert" + types.AddKeyToken(advert.Address, "address") + types.AddKeyToken(advert.PrefixLength, "prefix-length")
+    advert.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/adverts/" + advert.EntityData.SegmentPath
     advert.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     advert.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advert.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37759,13 +38789,14 @@ func (advert *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
     advert.EntityData.Children = types.NewOrderedMap()
     advert.EntityData.Children.Append("ipv4-rib-edm-advert", types.YChild{"Ipv4RibEdmAdvert", nil})
     for i := range advert.Ipv4RibEdmAdvert {
+        types.SetYListKey(advert.Ipv4RibEdmAdvert[i], i)
         advert.EntityData.Children.Append(types.GetSegmentPath(advert.Ipv4RibEdmAdvert[i]), types.YChild{"Ipv4RibEdmAdvert", advert.Ipv4RibEdmAdvert[i]})
     }
     advert.EntityData.Leafs = types.NewOrderedMap()
     advert.EntityData.Leafs.Append("address", types.YLeaf{"Address", advert.Address})
     advert.EntityData.Leafs.Append("prefix-length", types.YLeaf{"PrefixLength", advert.PrefixLength})
 
-    advert.EntityData.YListKeys = []string {}
+    advert.EntityData.YListKeys = []string {"Address", "PrefixLength"}
 
     return &(advert.EntityData)
 }
@@ -37775,6 +38806,7 @@ func (advert *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableN
 type Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibRouteTableName_Adverts_Advert_Ipv4RibEdmAdvert struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Protocol advertising the route. The type is interface{} with range:
     // 0..4294967295.
@@ -37810,7 +38842,8 @@ func (ipv4RibEdmAdvert *Rib_Vrfs_Vrf_Afs_Af_Safs_Saf_IpRibRouteTableNames_IpRibR
     ipv4RibEdmAdvert.EntityData.YangName = "ipv4-rib-edm-advert"
     ipv4RibEdmAdvert.EntityData.BundleName = "cisco_ios_xr"
     ipv4RibEdmAdvert.EntityData.ParentYangName = "advert"
-    ipv4RibEdmAdvert.EntityData.SegmentPath = "ipv4-rib-edm-advert"
+    ipv4RibEdmAdvert.EntityData.SegmentPath = "ipv4-rib-edm-advert" + types.AddNoKeyToken(ipv4RibEdmAdvert)
+    ipv4RibEdmAdvert.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/adverts/advert/" + ipv4RibEdmAdvert.EntityData.SegmentPath
     ipv4RibEdmAdvert.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4RibEdmAdvert.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4RibEdmAdvert.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37847,6 +38880,7 @@ func (ribTableIds *Rib_RibTableIds) GetEntityData() *types.CommonEntityData {
     ribTableIds.EntityData.BundleName = "cisco_ios_xr"
     ribTableIds.EntityData.ParentYangName = "rib"
     ribTableIds.EntityData.SegmentPath = "rib-table-ids"
+    ribTableIds.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/" + ribTableIds.EntityData.SegmentPath
     ribTableIds.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ribTableIds.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ribTableIds.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37868,6 +38902,7 @@ func (ribTableIds *Rib_RibTableIds) GetEntityData() *types.CommonEntityData {
 type Rib_RibTableIds_RibTableId struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Table ID. The type is string with pattern:
     // [0-9a-fA-F]{1,8}.
@@ -37889,6 +38924,7 @@ func (ribTableId *Rib_RibTableIds_RibTableId) GetEntityData() *types.CommonEntit
     ribTableId.EntityData.BundleName = "cisco_ios_xr"
     ribTableId.EntityData.ParentYangName = "rib-table-ids"
     ribTableId.EntityData.SegmentPath = "rib-table-id" + types.AddKeyToken(ribTableId.Tableid, "tableid")
+    ribTableId.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/rib-table-ids/" + ribTableId.EntityData.SegmentPath
     ribTableId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ribTableId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ribTableId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37922,6 +38958,7 @@ func (summaryProtos *Rib_RibTableIds_RibTableId_SummaryProtos) GetEntityData() *
     summaryProtos.EntityData.BundleName = "cisco_ios_xr"
     summaryProtos.EntityData.ParentYangName = "rib-table-id"
     summaryProtos.EntityData.SegmentPath = "summary-protos"
+    summaryProtos.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/rib-table-ids/rib-table-id/" + summaryProtos.EntityData.SegmentPath
     summaryProtos.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     summaryProtos.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     summaryProtos.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37944,6 +38981,7 @@ func (summaryProtos *Rib_RibTableIds_RibTableId_SummaryProtos) GetEntityData() *
 type Rib_RibTableIds_RibTableId_SummaryProtos_SummaryProto struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Proto ID. The type is interface{} with range:
     // 0..4294967295.
@@ -38016,6 +39054,7 @@ func (summaryProto *Rib_RibTableIds_RibTableId_SummaryProtos_SummaryProto) GetEn
     summaryProto.EntityData.BundleName = "cisco_ios_xr"
     summaryProto.EntityData.ParentYangName = "summary-protos"
     summaryProto.EntityData.SegmentPath = "summary-proto" + types.AddKeyToken(summaryProto.Protoid, "protoid")
+    summaryProto.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/rib-table-ids/rib-table-id/summary-protos/" + summaryProto.EntityData.SegmentPath
     summaryProto.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     summaryProto.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     summaryProto.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38077,6 +39116,7 @@ func (protoRouteCount *Rib_RibTableIds_RibTableId_SummaryProtos_SummaryProto_Pro
     protoRouteCount.EntityData.BundleName = "cisco_ios_xr"
     protoRouteCount.EntityData.ParentYangName = "summary-proto"
     protoRouteCount.EntityData.SegmentPath = "proto-route-count"
+    protoRouteCount.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/rib-table-ids/rib-table-id/summary-protos/summary-proto/" + protoRouteCount.EntityData.SegmentPath
     protoRouteCount.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protoRouteCount.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protoRouteCount.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38121,6 +39161,7 @@ func (rtypeNone *Rib_RibTableIds_RibTableId_SummaryProtos_SummaryProto_RtypeNone
     rtypeNone.EntityData.BundleName = "cisco_ios_xr"
     rtypeNone.EntityData.ParentYangName = "summary-proto"
     rtypeNone.EntityData.SegmentPath = "rtype-none"
+    rtypeNone.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/rib-table-ids/rib-table-id/summary-protos/summary-proto/" + rtypeNone.EntityData.SegmentPath
     rtypeNone.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rtypeNone.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rtypeNone.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38165,6 +39206,7 @@ func (rtypeOther *Rib_RibTableIds_RibTableId_SummaryProtos_SummaryProto_RtypeOth
     rtypeOther.EntityData.BundleName = "cisco_ios_xr"
     rtypeOther.EntityData.ParentYangName = "summary-proto"
     rtypeOther.EntityData.SegmentPath = "rtype-other"
+    rtypeOther.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/rib-table-ids/rib-table-id/summary-protos/summary-proto/" + rtypeOther.EntityData.SegmentPath
     rtypeOther.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rtypeOther.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rtypeOther.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38209,6 +39251,7 @@ func (rtypeOspfIntra *Rib_RibTableIds_RibTableId_SummaryProtos_SummaryProto_Rtyp
     rtypeOspfIntra.EntityData.BundleName = "cisco_ios_xr"
     rtypeOspfIntra.EntityData.ParentYangName = "summary-proto"
     rtypeOspfIntra.EntityData.SegmentPath = "rtype-ospf-intra"
+    rtypeOspfIntra.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/rib-table-ids/rib-table-id/summary-protos/summary-proto/" + rtypeOspfIntra.EntityData.SegmentPath
     rtypeOspfIntra.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rtypeOspfIntra.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rtypeOspfIntra.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38253,6 +39296,7 @@ func (rtypeOspfInter *Rib_RibTableIds_RibTableId_SummaryProtos_SummaryProto_Rtyp
     rtypeOspfInter.EntityData.BundleName = "cisco_ios_xr"
     rtypeOspfInter.EntityData.ParentYangName = "summary-proto"
     rtypeOspfInter.EntityData.SegmentPath = "rtype-ospf-inter"
+    rtypeOspfInter.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/rib-table-ids/rib-table-id/summary-protos/summary-proto/" + rtypeOspfInter.EntityData.SegmentPath
     rtypeOspfInter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rtypeOspfInter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rtypeOspfInter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38297,6 +39341,7 @@ func (rtypeOspfExtern1 *Rib_RibTableIds_RibTableId_SummaryProtos_SummaryProto_Rt
     rtypeOspfExtern1.EntityData.BundleName = "cisco_ios_xr"
     rtypeOspfExtern1.EntityData.ParentYangName = "summary-proto"
     rtypeOspfExtern1.EntityData.SegmentPath = "rtype-ospf-extern1"
+    rtypeOspfExtern1.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/rib-table-ids/rib-table-id/summary-protos/summary-proto/" + rtypeOspfExtern1.EntityData.SegmentPath
     rtypeOspfExtern1.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rtypeOspfExtern1.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rtypeOspfExtern1.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38341,6 +39386,7 @@ func (rtypeOspfExtern2 *Rib_RibTableIds_RibTableId_SummaryProtos_SummaryProto_Rt
     rtypeOspfExtern2.EntityData.BundleName = "cisco_ios_xr"
     rtypeOspfExtern2.EntityData.ParentYangName = "summary-proto"
     rtypeOspfExtern2.EntityData.SegmentPath = "rtype-ospf-extern2"
+    rtypeOspfExtern2.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/rib-table-ids/rib-table-id/summary-protos/summary-proto/" + rtypeOspfExtern2.EntityData.SegmentPath
     rtypeOspfExtern2.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rtypeOspfExtern2.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rtypeOspfExtern2.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38385,6 +39431,7 @@ func (rtypeIsisSum *Rib_RibTableIds_RibTableId_SummaryProtos_SummaryProto_RtypeI
     rtypeIsisSum.EntityData.BundleName = "cisco_ios_xr"
     rtypeIsisSum.EntityData.ParentYangName = "summary-proto"
     rtypeIsisSum.EntityData.SegmentPath = "rtype-isis-sum"
+    rtypeIsisSum.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/rib-table-ids/rib-table-id/summary-protos/summary-proto/" + rtypeIsisSum.EntityData.SegmentPath
     rtypeIsisSum.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rtypeIsisSum.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rtypeIsisSum.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38429,6 +39476,7 @@ func (rtypeIsisL1 *Rib_RibTableIds_RibTableId_SummaryProtos_SummaryProto_RtypeIs
     rtypeIsisL1.EntityData.BundleName = "cisco_ios_xr"
     rtypeIsisL1.EntityData.ParentYangName = "summary-proto"
     rtypeIsisL1.EntityData.SegmentPath = "rtype-isis-l1"
+    rtypeIsisL1.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/rib-table-ids/rib-table-id/summary-protos/summary-proto/" + rtypeIsisL1.EntityData.SegmentPath
     rtypeIsisL1.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rtypeIsisL1.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rtypeIsisL1.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38473,6 +39521,7 @@ func (rtypeIsisL2 *Rib_RibTableIds_RibTableId_SummaryProtos_SummaryProto_RtypeIs
     rtypeIsisL2.EntityData.BundleName = "cisco_ios_xr"
     rtypeIsisL2.EntityData.ParentYangName = "summary-proto"
     rtypeIsisL2.EntityData.SegmentPath = "rtype-isis-l2"
+    rtypeIsisL2.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/rib-table-ids/rib-table-id/summary-protos/summary-proto/" + rtypeIsisL2.EntityData.SegmentPath
     rtypeIsisL2.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rtypeIsisL2.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rtypeIsisL2.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38517,6 +39566,7 @@ func (rtypeIsisL1Ia *Rib_RibTableIds_RibTableId_SummaryProtos_SummaryProto_Rtype
     rtypeIsisL1Ia.EntityData.BundleName = "cisco_ios_xr"
     rtypeIsisL1Ia.EntityData.ParentYangName = "summary-proto"
     rtypeIsisL1Ia.EntityData.SegmentPath = "rtype-isis-l1-ia"
+    rtypeIsisL1Ia.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/rib-table-ids/rib-table-id/summary-protos/summary-proto/" + rtypeIsisL1Ia.EntityData.SegmentPath
     rtypeIsisL1Ia.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rtypeIsisL1Ia.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rtypeIsisL1Ia.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38561,6 +39611,7 @@ func (rtypeBgpInt *Rib_RibTableIds_RibTableId_SummaryProtos_SummaryProto_RtypeBg
     rtypeBgpInt.EntityData.BundleName = "cisco_ios_xr"
     rtypeBgpInt.EntityData.ParentYangName = "summary-proto"
     rtypeBgpInt.EntityData.SegmentPath = "rtype-bgp-int"
+    rtypeBgpInt.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/rib-table-ids/rib-table-id/summary-protos/summary-proto/" + rtypeBgpInt.EntityData.SegmentPath
     rtypeBgpInt.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rtypeBgpInt.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rtypeBgpInt.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38605,6 +39656,7 @@ func (rtypeBgpExt *Rib_RibTableIds_RibTableId_SummaryProtos_SummaryProto_RtypeBg
     rtypeBgpExt.EntityData.BundleName = "cisco_ios_xr"
     rtypeBgpExt.EntityData.ParentYangName = "summary-proto"
     rtypeBgpExt.EntityData.SegmentPath = "rtype-bgp-ext"
+    rtypeBgpExt.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/rib-table-ids/rib-table-id/summary-protos/summary-proto/" + rtypeBgpExt.EntityData.SegmentPath
     rtypeBgpExt.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rtypeBgpExt.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rtypeBgpExt.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38649,6 +39701,7 @@ func (rtypeBgpLoc *Rib_RibTableIds_RibTableId_SummaryProtos_SummaryProto_RtypeBg
     rtypeBgpLoc.EntityData.BundleName = "cisco_ios_xr"
     rtypeBgpLoc.EntityData.ParentYangName = "summary-proto"
     rtypeBgpLoc.EntityData.SegmentPath = "rtype-bgp-loc"
+    rtypeBgpLoc.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/rib-table-ids/rib-table-id/summary-protos/summary-proto/" + rtypeBgpLoc.EntityData.SegmentPath
     rtypeBgpLoc.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rtypeBgpLoc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rtypeBgpLoc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38693,6 +39746,7 @@ func (rtypeOspfNssa1 *Rib_RibTableIds_RibTableId_SummaryProtos_SummaryProto_Rtyp
     rtypeOspfNssa1.EntityData.BundleName = "cisco_ios_xr"
     rtypeOspfNssa1.EntityData.ParentYangName = "summary-proto"
     rtypeOspfNssa1.EntityData.SegmentPath = "rtype-ospf-nssa1"
+    rtypeOspfNssa1.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/rib-table-ids/rib-table-id/summary-protos/summary-proto/" + rtypeOspfNssa1.EntityData.SegmentPath
     rtypeOspfNssa1.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rtypeOspfNssa1.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rtypeOspfNssa1.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38737,6 +39791,7 @@ func (rtypeOspfNssa2 *Rib_RibTableIds_RibTableId_SummaryProtos_SummaryProto_Rtyp
     rtypeOspfNssa2.EntityData.BundleName = "cisco_ios_xr"
     rtypeOspfNssa2.EntityData.ParentYangName = "summary-proto"
     rtypeOspfNssa2.EntityData.SegmentPath = "rtype-ospf-nssa2"
+    rtypeOspfNssa2.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/rib-table-ids/rib-table-id/summary-protos/summary-proto/" + rtypeOspfNssa2.EntityData.SegmentPath
     rtypeOspfNssa2.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rtypeOspfNssa2.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rtypeOspfNssa2.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38781,6 +39836,7 @@ func (rtypeIgrp2Int *Rib_RibTableIds_RibTableId_SummaryProtos_SummaryProto_Rtype
     rtypeIgrp2Int.EntityData.BundleName = "cisco_ios_xr"
     rtypeIgrp2Int.EntityData.ParentYangName = "summary-proto"
     rtypeIgrp2Int.EntityData.SegmentPath = "rtype-igrp2-int"
+    rtypeIgrp2Int.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/rib-table-ids/rib-table-id/summary-protos/summary-proto/" + rtypeIgrp2Int.EntityData.SegmentPath
     rtypeIgrp2Int.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rtypeIgrp2Int.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rtypeIgrp2Int.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38825,6 +39881,7 @@ func (rtypeIgrp2Ext *Rib_RibTableIds_RibTableId_SummaryProtos_SummaryProto_Rtype
     rtypeIgrp2Ext.EntityData.BundleName = "cisco_ios_xr"
     rtypeIgrp2Ext.EntityData.ParentYangName = "summary-proto"
     rtypeIgrp2Ext.EntityData.SegmentPath = "rtype-igrp2-ext"
+    rtypeIgrp2Ext.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/rib-table-ids/rib-table-id/summary-protos/summary-proto/" + rtypeIgrp2Ext.EntityData.SegmentPath
     rtypeIgrp2Ext.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rtypeIgrp2Ext.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rtypeIgrp2Ext.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38858,6 +39915,7 @@ func (ribTableItfHndls *Rib_RibTableIds_RibTableId_RibTableItfHndls) GetEntityDa
     ribTableItfHndls.EntityData.BundleName = "cisco_ios_xr"
     ribTableItfHndls.EntityData.ParentYangName = "rib-table-id"
     ribTableItfHndls.EntityData.SegmentPath = "rib-table-itf-hndls"
+    ribTableItfHndls.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/rib-table-ids/rib-table-id/" + ribTableItfHndls.EntityData.SegmentPath
     ribTableItfHndls.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ribTableItfHndls.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ribTableItfHndls.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38879,6 +39937,7 @@ func (ribTableItfHndls *Rib_RibTableIds_RibTableId_RibTableItfHndls) GetEntityDa
 type Rib_RibTableIds_RibTableId_RibTableItfHndls_RibTableItfHndl struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Itf Handle. The type is interface{} with range:
     // 0..4294967295.
@@ -38895,6 +39954,7 @@ func (ribTableItfHndl *Rib_RibTableIds_RibTableId_RibTableItfHndls_RibTableItfHn
     ribTableItfHndl.EntityData.BundleName = "cisco_ios_xr"
     ribTableItfHndl.EntityData.ParentYangName = "rib-table-itf-hndls"
     ribTableItfHndl.EntityData.SegmentPath = "rib-table-itf-hndl" + types.AddKeyToken(ribTableItfHndl.Handle, "handle")
+    ribTableItfHndl.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/rib-table-ids/rib-table-id/rib-table-itf-hndls/" + ribTableItfHndl.EntityData.SegmentPath
     ribTableItfHndl.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ribTableItfHndl.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ribTableItfHndl.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38918,6 +39978,7 @@ func (ribTableItfHndl *Rib_RibTableIds_RibTableId_RibTableItfHndls_RibTableItfHn
 type Rib_RibTableIds_RibTableId_RibTableItfHndls_RibTableItfHndl_ItfRoute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Network Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -39039,6 +40100,7 @@ func (itfRoute *Rib_RibTableIds_RibTableId_RibTableItfHndls_RibTableItfHndl_ItfR
     itfRoute.EntityData.BundleName = "cisco_ios_xr"
     itfRoute.EntityData.ParentYangName = "rib-table-itf-hndl"
     itfRoute.EntityData.SegmentPath = "itf-route" + types.AddKeyToken(itfRoute.Address, "address")
+    itfRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/rib-table-ids/rib-table-id/rib-table-itf-hndls/rib-table-itf-hndl/" + itfRoute.EntityData.SegmentPath
     itfRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     itfRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     itfRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -39102,6 +40164,7 @@ func (routePath *Rib_RibTableIds_RibTableId_RibTableItfHndls_RibTableItfHndl_Itf
     routePath.EntityData.BundleName = "cisco_ios_xr"
     routePath.EntityData.ParentYangName = "itf-route"
     routePath.EntityData.SegmentPath = "route-path"
+    routePath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/rib-table-ids/rib-table-id/rib-table-itf-hndls/rib-table-itf-hndl/itf-route/" + routePath.EntityData.SegmentPath
     routePath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routePath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routePath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -39109,6 +40172,7 @@ func (routePath *Rib_RibTableIds_RibTableId_RibTableItfHndls_RibTableItfHndl_Itf
     routePath.EntityData.Children = types.NewOrderedMap()
     routePath.EntityData.Children.Append("ipv4-rib-edm-path", types.YChild{"Ipv4RibEdmPath", nil})
     for i := range routePath.Ipv4RibEdmPath {
+        types.SetYListKey(routePath.Ipv4RibEdmPath[i], i)
         routePath.EntityData.Children.Append(types.GetSegmentPath(routePath.Ipv4RibEdmPath[i]), types.YChild{"Ipv4RibEdmPath", routePath.Ipv4RibEdmPath[i]})
     }
     routePath.EntityData.Leafs = types.NewOrderedMap()
@@ -39123,6 +40187,7 @@ func (routePath *Rib_RibTableIds_RibTableId_RibTableItfHndls_RibTableItfHndl_Itf
 type Rib_RibTableIds_RibTableId_RibTableItfHndls_RibTableItfHndl_ItfRoute_RoutePath_Ipv4RibEdmPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Nexthop. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -39302,7 +40367,8 @@ func (ipv4RibEdmPath *Rib_RibTableIds_RibTableId_RibTableItfHndls_RibTableItfHnd
     ipv4RibEdmPath.EntityData.YangName = "ipv4-rib-edm-path"
     ipv4RibEdmPath.EntityData.BundleName = "cisco_ios_xr"
     ipv4RibEdmPath.EntityData.ParentYangName = "route-path"
-    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path"
+    ipv4RibEdmPath.EntityData.SegmentPath = "ipv4-rib-edm-path" + types.AddNoKeyToken(ipv4RibEdmPath)
+    ipv4RibEdmPath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/rib-table-ids/rib-table-id/rib-table-itf-hndls/rib-table-itf-hndl/itf-route/route-path/" + ipv4RibEdmPath.EntityData.SegmentPath
     ipv4RibEdmPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4RibEdmPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4RibEdmPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -39310,14 +40376,17 @@ func (ipv4RibEdmPath *Rib_RibTableIds_RibTableId_RibTableItfHndls_RibTableItfHnd
     ipv4RibEdmPath.EntityData.Children = types.NewOrderedMap()
     ipv4RibEdmPath.EntityData.Children.Append("remote-backup-addr", types.YChild{"RemoteBackupAddr", nil})
     for i := range ipv4RibEdmPath.RemoteBackupAddr {
+        types.SetYListKey(ipv4RibEdmPath.RemoteBackupAddr[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.RemoteBackupAddr[i]), types.YChild{"RemoteBackupAddr", ipv4RibEdmPath.RemoteBackupAddr[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("labelstk", types.YChild{"Labelstk", nil})
     for i := range ipv4RibEdmPath.Labelstk {
+        types.SetYListKey(ipv4RibEdmPath.Labelstk[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.Labelstk[i]), types.YChild{"Labelstk", ipv4RibEdmPath.Labelstk[i]})
     }
     ipv4RibEdmPath.EntityData.Children.Append("next-next-hop", types.YChild{"NextNextHop", nil})
     for i := range ipv4RibEdmPath.NextNextHop {
+        types.SetYListKey(ipv4RibEdmPath.NextNextHop[i], i)
         ipv4RibEdmPath.EntityData.Children.Append(types.GetSegmentPath(ipv4RibEdmPath.NextNextHop[i]), types.YChild{"NextNextHop", ipv4RibEdmPath.NextNextHop[i]})
     }
     ipv4RibEdmPath.EntityData.Leafs = types.NewOrderedMap()
@@ -39379,6 +40448,7 @@ func (ipv4RibEdmPath *Rib_RibTableIds_RibTableId_RibTableItfHndls_RibTableItfHnd
 type Rib_RibTableIds_RibTableId_RibTableItfHndls_RibTableItfHndl_ItfRoute_RoutePath_Ipv4RibEdmPath_RemoteBackupAddr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -39390,7 +40460,8 @@ func (remoteBackupAddr *Rib_RibTableIds_RibTableId_RibTableItfHndls_RibTableItfH
     remoteBackupAddr.EntityData.YangName = "remote-backup-addr"
     remoteBackupAddr.EntityData.BundleName = "cisco_ios_xr"
     remoteBackupAddr.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr"
+    remoteBackupAddr.EntityData.SegmentPath = "remote-backup-addr" + types.AddNoKeyToken(remoteBackupAddr)
+    remoteBackupAddr.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/rib-table-ids/rib-table-id/rib-table-itf-hndls/rib-table-itf-hndl/itf-route/route-path/ipv4-rib-edm-path/" + remoteBackupAddr.EntityData.SegmentPath
     remoteBackupAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteBackupAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteBackupAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -39409,6 +40480,7 @@ func (remoteBackupAddr *Rib_RibTableIds_RibTableId_RibTableItfHndls_RibTableItfH
 type Rib_RibTableIds_RibTableId_RibTableItfHndls_RibTableItfHndl_ItfRoute_RoutePath_Ipv4RibEdmPath_Labelstk struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -39419,7 +40491,8 @@ func (labelstk *Rib_RibTableIds_RibTableId_RibTableItfHndls_RibTableItfHndl_ItfR
     labelstk.EntityData.YangName = "labelstk"
     labelstk.EntityData.BundleName = "cisco_ios_xr"
     labelstk.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    labelstk.EntityData.SegmentPath = "labelstk"
+    labelstk.EntityData.SegmentPath = "labelstk" + types.AddNoKeyToken(labelstk)
+    labelstk.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/rib-table-ids/rib-table-id/rib-table-itf-hndls/rib-table-itf-hndl/itf-route/route-path/ipv4-rib-edm-path/" + labelstk.EntityData.SegmentPath
     labelstk.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labelstk.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelstk.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -39438,6 +40511,7 @@ func (labelstk *Rib_RibTableIds_RibTableId_RibTableItfHndls_RibTableItfHndl_ItfR
 type Rib_RibTableIds_RibTableId_RibTableItfHndls_RibTableItfHndl_ItfRoute_RoutePath_Ipv4RibEdmPath_NextNextHop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // type. The type is RibEdmNnh.
     Type interface{}
@@ -39458,7 +40532,8 @@ func (nextNextHop *Rib_RibTableIds_RibTableId_RibTableItfHndls_RibTableItfHndl_I
     nextNextHop.EntityData.YangName = "next-next-hop"
     nextNextHop.EntityData.BundleName = "cisco_ios_xr"
     nextNextHop.EntityData.ParentYangName = "ipv4-rib-edm-path"
-    nextNextHop.EntityData.SegmentPath = "next-next-hop"
+    nextNextHop.EntityData.SegmentPath = "next-next-hop" + types.AddNoKeyToken(nextNextHop)
+    nextNextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/rib-table-ids/rib-table-id/rib-table-itf-hndls/rib-table-itf-hndl/itf-route/route-path/ipv4-rib-edm-path/" + nextNextHop.EntityData.SegmentPath
     nextNextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextNextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextNextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -39534,6 +40609,7 @@ func (information *Rib_RibTableIds_RibTableId_Information) GetEntityData() *type
     information.EntityData.BundleName = "cisco_ios_xr"
     information.EntityData.ParentYangName = "rib-table-id"
     information.EntityData.SegmentPath = "information"
+    information.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/rib-table-ids/rib-table-id/" + information.EntityData.SegmentPath
     information.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     information.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     information.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

@@ -169,6 +169,7 @@ func (oSPFMIB *OSPFMIB) GetEntityData() *types.CommonEntityData {
     oSPFMIB.EntityData.BundleName = "cisco_ios_xe"
     oSPFMIB.EntityData.ParentYangName = "OSPF-MIB"
     oSPFMIB.EntityData.SegmentPath = "OSPF-MIB:OSPF-MIB"
+    oSPFMIB.EntityData.AbsolutePath = oSPFMIB.EntityData.SegmentPath
     oSPFMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     oSPFMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     oSPFMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -389,6 +390,7 @@ func (ospfGeneralGroup *OSPFMIB_OspfGeneralGroup) GetEntityData() *types.CommonE
     ospfGeneralGroup.EntityData.BundleName = "cisco_ios_xe"
     ospfGeneralGroup.EntityData.ParentYangName = "OSPF-MIB"
     ospfGeneralGroup.EntityData.SegmentPath = "ospfGeneralGroup"
+    ospfGeneralGroup.EntityData.AbsolutePath = "OSPF-MIB:OSPF-MIB/" + ospfGeneralGroup.EntityData.SegmentPath
     ospfGeneralGroup.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ospfGeneralGroup.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ospfGeneralGroup.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -507,6 +509,7 @@ func (ospfAreaTable *OSPFMIB_OspfAreaTable) GetEntityData() *types.CommonEntityD
     ospfAreaTable.EntityData.BundleName = "cisco_ios_xe"
     ospfAreaTable.EntityData.ParentYangName = "OSPF-MIB"
     ospfAreaTable.EntityData.SegmentPath = "ospfAreaTable"
+    ospfAreaTable.EntityData.AbsolutePath = "OSPF-MIB:OSPF-MIB/" + ospfAreaTable.EntityData.SegmentPath
     ospfAreaTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ospfAreaTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ospfAreaTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -536,6 +539,7 @@ func (ospfAreaTable *OSPFMIB_OspfAreaTable) GetEntityData() *types.CommonEntityD
 type OSPFMIB_OspfAreaTable_OspfAreaEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. A 32-bit integer uniquely identifying an area.
     // Area ID 0.0.0.0 is used for the OSPF backbone. The type is string with
@@ -661,6 +665,7 @@ func (ospfAreaEntry *OSPFMIB_OspfAreaTable_OspfAreaEntry) GetEntityData() *types
     ospfAreaEntry.EntityData.BundleName = "cisco_ios_xe"
     ospfAreaEntry.EntityData.ParentYangName = "ospfAreaTable"
     ospfAreaEntry.EntityData.SegmentPath = "ospfAreaEntry" + types.AddKeyToken(ospfAreaEntry.OspfAreaId, "ospfAreaId")
+    ospfAreaEntry.EntityData.AbsolutePath = "OSPF-MIB:OSPF-MIB/ospfAreaTable/" + ospfAreaEntry.EntityData.SegmentPath
     ospfAreaEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ospfAreaEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ospfAreaEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -773,6 +778,7 @@ func (ospfStubAreaTable *OSPFMIB_OspfStubAreaTable) GetEntityData() *types.Commo
     ospfStubAreaTable.EntityData.BundleName = "cisco_ios_xe"
     ospfStubAreaTable.EntityData.ParentYangName = "OSPF-MIB"
     ospfStubAreaTable.EntityData.SegmentPath = "ospfStubAreaTable"
+    ospfStubAreaTable.EntityData.AbsolutePath = "OSPF-MIB:OSPF-MIB/" + ospfStubAreaTable.EntityData.SegmentPath
     ospfStubAreaTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ospfStubAreaTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ospfStubAreaTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -800,6 +806,7 @@ func (ospfStubAreaTable *OSPFMIB_OspfStubAreaTable) GetEntityData() *types.Commo
 type OSPFMIB_OspfStubAreaTable_OspfStubAreaEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The 32-bit identifier for the stub area.  On
     // creation, this can be derived from the instance. The type is string with
@@ -834,6 +841,7 @@ func (ospfStubAreaEntry *OSPFMIB_OspfStubAreaTable_OspfStubAreaEntry) GetEntityD
     ospfStubAreaEntry.EntityData.BundleName = "cisco_ios_xe"
     ospfStubAreaEntry.EntityData.ParentYangName = "ospfStubAreaTable"
     ospfStubAreaEntry.EntityData.SegmentPath = "ospfStubAreaEntry" + types.AddKeyToken(ospfStubAreaEntry.OspfStubAreaId, "ospfStubAreaId") + types.AddKeyToken(ospfStubAreaEntry.OspfStubTOS, "ospfStubTOS")
+    ospfStubAreaEntry.EntityData.AbsolutePath = "OSPF-MIB:OSPF-MIB/ospfStubAreaTable/" + ospfStubAreaEntry.EntityData.SegmentPath
     ospfStubAreaEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ospfStubAreaEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ospfStubAreaEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -881,6 +889,7 @@ func (ospfLsdbTable *OSPFMIB_OspfLsdbTable) GetEntityData() *types.CommonEntityD
     ospfLsdbTable.EntityData.BundleName = "cisco_ios_xe"
     ospfLsdbTable.EntityData.ParentYangName = "OSPF-MIB"
     ospfLsdbTable.EntityData.SegmentPath = "ospfLsdbTable"
+    ospfLsdbTable.EntityData.AbsolutePath = "OSPF-MIB:OSPF-MIB/" + ospfLsdbTable.EntityData.SegmentPath
     ospfLsdbTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ospfLsdbTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ospfLsdbTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -902,6 +911,7 @@ func (ospfLsdbTable *OSPFMIB_OspfLsdbTable) GetEntityData() *types.CommonEntityD
 type OSPFMIB_OspfLsdbTable_OspfLsdbEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The 32-bit identifier of the area from which the
     // LSA was received. The type is string with pattern:
@@ -960,6 +970,7 @@ func (ospfLsdbEntry *OSPFMIB_OspfLsdbTable_OspfLsdbEntry) GetEntityData() *types
     ospfLsdbEntry.EntityData.BundleName = "cisco_ios_xe"
     ospfLsdbEntry.EntityData.ParentYangName = "ospfLsdbTable"
     ospfLsdbEntry.EntityData.SegmentPath = "ospfLsdbEntry" + types.AddKeyToken(ospfLsdbEntry.OspfLsdbAreaId, "ospfLsdbAreaId") + types.AddKeyToken(ospfLsdbEntry.OspfLsdbType, "ospfLsdbType") + types.AddKeyToken(ospfLsdbEntry.OspfLsdbLsid, "ospfLsdbLsid") + types.AddKeyToken(ospfLsdbEntry.OspfLsdbRouterId, "ospfLsdbRouterId")
+    ospfLsdbEntry.EntityData.AbsolutePath = "OSPF-MIB:OSPF-MIB/ospfLsdbTable/" + ospfLsdbEntry.EntityData.SegmentPath
     ospfLsdbEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ospfLsdbEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ospfLsdbEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1031,6 +1042,7 @@ func (ospfAreaRangeTable *OSPFMIB_OspfAreaRangeTable) GetEntityData() *types.Com
     ospfAreaRangeTable.EntityData.BundleName = "cisco_ios_xe"
     ospfAreaRangeTable.EntityData.ParentYangName = "OSPF-MIB"
     ospfAreaRangeTable.EntityData.SegmentPath = "ospfAreaRangeTable"
+    ospfAreaRangeTable.EntityData.AbsolutePath = "OSPF-MIB:OSPF-MIB/" + ospfAreaRangeTable.EntityData.SegmentPath
     ospfAreaRangeTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ospfAreaRangeTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ospfAreaRangeTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1056,6 +1068,7 @@ func (ospfAreaRangeTable *OSPFMIB_OspfAreaRangeTable) GetEntityData() *types.Com
 type OSPFMIB_OspfAreaRangeTable_OspfAreaRangeEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The area that the address range is to be found
     // within. The type is string with pattern:
@@ -1090,6 +1103,7 @@ func (ospfAreaRangeEntry *OSPFMIB_OspfAreaRangeTable_OspfAreaRangeEntry) GetEnti
     ospfAreaRangeEntry.EntityData.BundleName = "cisco_ios_xe"
     ospfAreaRangeEntry.EntityData.ParentYangName = "ospfAreaRangeTable"
     ospfAreaRangeEntry.EntityData.SegmentPath = "ospfAreaRangeEntry" + types.AddKeyToken(ospfAreaRangeEntry.OspfAreaRangeAreaId, "ospfAreaRangeAreaId") + types.AddKeyToken(ospfAreaRangeEntry.OspfAreaRangeNet, "ospfAreaRangeNet")
+    ospfAreaRangeEntry.EntityData.AbsolutePath = "OSPF-MIB:OSPF-MIB/ospfAreaRangeTable/" + ospfAreaRangeEntry.EntityData.SegmentPath
     ospfAreaRangeEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ospfAreaRangeEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ospfAreaRangeEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1139,6 +1153,7 @@ func (ospfHostTable *OSPFMIB_OspfHostTable) GetEntityData() *types.CommonEntityD
     ospfHostTable.EntityData.BundleName = "cisco_ios_xe"
     ospfHostTable.EntityData.ParentYangName = "OSPF-MIB"
     ospfHostTable.EntityData.SegmentPath = "ospfHostTable"
+    ospfHostTable.EntityData.AbsolutePath = "OSPF-MIB:OSPF-MIB/" + ospfHostTable.EntityData.SegmentPath
     ospfHostTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ospfHostTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ospfHostTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1165,6 +1180,7 @@ func (ospfHostTable *OSPFMIB_OspfHostTable) GetEntityData() *types.CommonEntityD
 type OSPFMIB_OspfHostTable_OspfHostEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The IP address of the host. The type is string
     // with pattern:
@@ -1201,6 +1217,7 @@ func (ospfHostEntry *OSPFMIB_OspfHostTable_OspfHostEntry) GetEntityData() *types
     ospfHostEntry.EntityData.BundleName = "cisco_ios_xe"
     ospfHostEntry.EntityData.ParentYangName = "ospfHostTable"
     ospfHostEntry.EntityData.SegmentPath = "ospfHostEntry" + types.AddKeyToken(ospfHostEntry.OspfHostIpAddress, "ospfHostIpAddress") + types.AddKeyToken(ospfHostEntry.OspfHostTOS, "ospfHostTOS")
+    ospfHostEntry.EntityData.AbsolutePath = "OSPF-MIB:OSPF-MIB/ospfHostTable/" + ospfHostEntry.EntityData.SegmentPath
     ospfHostEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ospfHostEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ospfHostEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1240,6 +1257,7 @@ func (ospfIfTable *OSPFMIB_OspfIfTable) GetEntityData() *types.CommonEntityData 
     ospfIfTable.EntityData.BundleName = "cisco_ios_xe"
     ospfIfTable.EntityData.ParentYangName = "OSPF-MIB"
     ospfIfTable.EntityData.SegmentPath = "ospfIfTable"
+    ospfIfTable.EntityData.AbsolutePath = "OSPF-MIB:OSPF-MIB/" + ospfIfTable.EntityData.SegmentPath
     ospfIfTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ospfIfTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ospfIfTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1266,6 +1284,7 @@ func (ospfIfTable *OSPFMIB_OspfIfTable) GetEntityData() *types.CommonEntityData 
 type OSPFMIB_OspfIfTable_OspfIfEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The IP address of this OSPF interface. The type is
     // string with pattern:
@@ -1434,6 +1453,7 @@ func (ospfIfEntry *OSPFMIB_OspfIfTable_OspfIfEntry) GetEntityData() *types.Commo
     ospfIfEntry.EntityData.BundleName = "cisco_ios_xe"
     ospfIfEntry.EntityData.ParentYangName = "ospfIfTable"
     ospfIfEntry.EntityData.SegmentPath = "ospfIfEntry" + types.AddKeyToken(ospfIfEntry.OspfIfIpAddress, "ospfIfIpAddress") + types.AddKeyToken(ospfIfEntry.OspfAddressLessIf, "ospfAddressLessIf")
+    ospfIfEntry.EntityData.AbsolutePath = "OSPF-MIB:OSPF-MIB/ospfIfTable/" + ospfIfEntry.EntityData.SegmentPath
     ospfIfEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ospfIfEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ospfIfEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1568,6 +1588,7 @@ func (ospfIfMetricTable *OSPFMIB_OspfIfMetricTable) GetEntityData() *types.Commo
     ospfIfMetricTable.EntityData.BundleName = "cisco_ios_xe"
     ospfIfMetricTable.EntityData.ParentYangName = "OSPF-MIB"
     ospfIfMetricTable.EntityData.SegmentPath = "ospfIfMetricTable"
+    ospfIfMetricTable.EntityData.AbsolutePath = "OSPF-MIB:OSPF-MIB/" + ospfIfMetricTable.EntityData.SegmentPath
     ospfIfMetricTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ospfIfMetricTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ospfIfMetricTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1594,6 +1615,7 @@ func (ospfIfMetricTable *OSPFMIB_OspfIfMetricTable) GetEntityData() *types.Commo
 type OSPFMIB_OspfIfMetricTable_OspfIfMetricEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The IP address of this OSPF interface.  On row
     // creation, this can be derived from the instance. The type is string with
@@ -1631,6 +1653,7 @@ func (ospfIfMetricEntry *OSPFMIB_OspfIfMetricTable_OspfIfMetricEntry) GetEntityD
     ospfIfMetricEntry.EntityData.BundleName = "cisco_ios_xe"
     ospfIfMetricEntry.EntityData.ParentYangName = "ospfIfMetricTable"
     ospfIfMetricEntry.EntityData.SegmentPath = "ospfIfMetricEntry" + types.AddKeyToken(ospfIfMetricEntry.OspfIfMetricIpAddress, "ospfIfMetricIpAddress") + types.AddKeyToken(ospfIfMetricEntry.OspfIfMetricAddressLessIf, "ospfIfMetricAddressLessIf") + types.AddKeyToken(ospfIfMetricEntry.OspfIfMetricTOS, "ospfIfMetricTOS")
+    ospfIfMetricEntry.EntityData.AbsolutePath = "OSPF-MIB:OSPF-MIB/ospfIfMetricTable/" + ospfIfMetricEntry.EntityData.SegmentPath
     ospfIfMetricEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ospfIfMetricEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ospfIfMetricEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1668,6 +1691,7 @@ func (ospfVirtIfTable *OSPFMIB_OspfVirtIfTable) GetEntityData() *types.CommonEnt
     ospfVirtIfTable.EntityData.BundleName = "cisco_ios_xe"
     ospfVirtIfTable.EntityData.ParentYangName = "OSPF-MIB"
     ospfVirtIfTable.EntityData.SegmentPath = "ospfVirtIfTable"
+    ospfVirtIfTable.EntityData.AbsolutePath = "OSPF-MIB:OSPF-MIB/" + ospfVirtIfTable.EntityData.SegmentPath
     ospfVirtIfTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ospfVirtIfTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ospfVirtIfTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1693,6 +1717,7 @@ func (ospfVirtIfTable *OSPFMIB_OspfVirtIfTable) GetEntityData() *types.CommonEnt
 type OSPFMIB_OspfVirtIfTable_OspfVirtIfEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The transit area that the virtual link traverses. 
     // By definition, this is not 0.0.0.0. The type is string with pattern:
@@ -1796,6 +1821,7 @@ func (ospfVirtIfEntry *OSPFMIB_OspfVirtIfTable_OspfVirtIfEntry) GetEntityData() 
     ospfVirtIfEntry.EntityData.BundleName = "cisco_ios_xe"
     ospfVirtIfEntry.EntityData.ParentYangName = "ospfVirtIfTable"
     ospfVirtIfEntry.EntityData.SegmentPath = "ospfVirtIfEntry" + types.AddKeyToken(ospfVirtIfEntry.OspfVirtIfAreaId, "ospfVirtIfAreaId") + types.AddKeyToken(ospfVirtIfEntry.OspfVirtIfNeighbor, "ospfVirtIfNeighbor")
+    ospfVirtIfEntry.EntityData.AbsolutePath = "OSPF-MIB:OSPF-MIB/ospfVirtIfTable/" + ospfVirtIfEntry.EntityData.SegmentPath
     ospfVirtIfEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ospfVirtIfEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ospfVirtIfEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1852,6 +1878,7 @@ func (ospfNbrTable *OSPFMIB_OspfNbrTable) GetEntityData() *types.CommonEntityDat
     ospfNbrTable.EntityData.BundleName = "cisco_ios_xe"
     ospfNbrTable.EntityData.ParentYangName = "OSPF-MIB"
     ospfNbrTable.EntityData.SegmentPath = "ospfNbrTable"
+    ospfNbrTable.EntityData.AbsolutePath = "OSPF-MIB:OSPF-MIB/" + ospfNbrTable.EntityData.SegmentPath
     ospfNbrTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ospfNbrTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ospfNbrTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1878,6 +1905,7 @@ func (ospfNbrTable *OSPFMIB_OspfNbrTable) GetEntityData() *types.CommonEntityDat
 type OSPFMIB_OspfNbrTable_OspfNbrEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The IP address this neighbor is using in its IP
     // source address.  Note that, on addressless links, this will not be 0.0.0.0
@@ -1965,6 +1993,7 @@ func (ospfNbrEntry *OSPFMIB_OspfNbrTable_OspfNbrEntry) GetEntityData() *types.Co
     ospfNbrEntry.EntityData.BundleName = "cisco_ios_xe"
     ospfNbrEntry.EntityData.ParentYangName = "ospfNbrTable"
     ospfNbrEntry.EntityData.SegmentPath = "ospfNbrEntry" + types.AddKeyToken(ospfNbrEntry.OspfNbrIpAddr, "ospfNbrIpAddr") + types.AddKeyToken(ospfNbrEntry.OspfNbrAddressLessIndex, "ospfNbrAddressLessIndex")
+    ospfNbrEntry.EntityData.AbsolutePath = "OSPF-MIB:OSPF-MIB/ospfNbrTable/" + ospfNbrEntry.EntityData.SegmentPath
     ospfNbrEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ospfNbrEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ospfNbrEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2064,6 +2093,7 @@ func (ospfVirtNbrTable *OSPFMIB_OspfVirtNbrTable) GetEntityData() *types.CommonE
     ospfVirtNbrTable.EntityData.BundleName = "cisco_ios_xe"
     ospfVirtNbrTable.EntityData.ParentYangName = "OSPF-MIB"
     ospfVirtNbrTable.EntityData.SegmentPath = "ospfVirtNbrTable"
+    ospfVirtNbrTable.EntityData.AbsolutePath = "OSPF-MIB:OSPF-MIB/" + ospfVirtNbrTable.EntityData.SegmentPath
     ospfVirtNbrTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ospfVirtNbrTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ospfVirtNbrTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2085,6 +2115,7 @@ func (ospfVirtNbrTable *OSPFMIB_OspfVirtNbrTable) GetEntityData() *types.CommonE
 type OSPFMIB_OspfVirtNbrTable_OspfVirtNbrEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The Transit Area Identifier. The type is string
     // with pattern:
@@ -2149,6 +2180,7 @@ func (ospfVirtNbrEntry *OSPFMIB_OspfVirtNbrTable_OspfVirtNbrEntry) GetEntityData
     ospfVirtNbrEntry.EntityData.BundleName = "cisco_ios_xe"
     ospfVirtNbrEntry.EntityData.ParentYangName = "ospfVirtNbrTable"
     ospfVirtNbrEntry.EntityData.SegmentPath = "ospfVirtNbrEntry" + types.AddKeyToken(ospfVirtNbrEntry.OspfVirtNbrArea, "ospfVirtNbrArea") + types.AddKeyToken(ospfVirtNbrEntry.OspfVirtNbrRtrId, "ospfVirtNbrRtrId")
+    ospfVirtNbrEntry.EntityData.AbsolutePath = "OSPF-MIB:OSPF-MIB/ospfVirtNbrTable/" + ospfVirtNbrEntry.EntityData.SegmentPath
     ospfVirtNbrEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ospfVirtNbrEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ospfVirtNbrEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2244,6 +2276,7 @@ func (ospfExtLsdbTable *OSPFMIB_OspfExtLsdbTable) GetEntityData() *types.CommonE
     ospfExtLsdbTable.EntityData.BundleName = "cisco_ios_xe"
     ospfExtLsdbTable.EntityData.ParentYangName = "OSPF-MIB"
     ospfExtLsdbTable.EntityData.SegmentPath = "ospfExtLsdbTable"
+    ospfExtLsdbTable.EntityData.AbsolutePath = "OSPF-MIB:OSPF-MIB/" + ospfExtLsdbTable.EntityData.SegmentPath
     ospfExtLsdbTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ospfExtLsdbTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ospfExtLsdbTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2265,6 +2298,7 @@ func (ospfExtLsdbTable *OSPFMIB_OspfExtLsdbTable) GetEntityData() *types.CommonE
 type OSPFMIB_OspfExtLsdbTable_OspfExtLsdbEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type of the link state advertisement. Each
     // link state type has a separate advertisement format. The type is
@@ -2305,7 +2339,7 @@ type OSPFMIB_OspfExtLsdbTable_OspfExtLsdbEntry struct {
     OspfExtLsdbChecksum interface{}
 
     // The entire link state advertisement, including its header. The type is
-    // string with length: 36.
+    // string with length: 36..36.
     OspfExtLsdbAdvertisement interface{}
 }
 
@@ -2315,6 +2349,7 @@ func (ospfExtLsdbEntry *OSPFMIB_OspfExtLsdbTable_OspfExtLsdbEntry) GetEntityData
     ospfExtLsdbEntry.EntityData.BundleName = "cisco_ios_xe"
     ospfExtLsdbEntry.EntityData.ParentYangName = "ospfExtLsdbTable"
     ospfExtLsdbEntry.EntityData.SegmentPath = "ospfExtLsdbEntry" + types.AddKeyToken(ospfExtLsdbEntry.OspfExtLsdbType, "ospfExtLsdbType") + types.AddKeyToken(ospfExtLsdbEntry.OspfExtLsdbLsid, "ospfExtLsdbLsid") + types.AddKeyToken(ospfExtLsdbEntry.OspfExtLsdbRouterId, "ospfExtLsdbRouterId")
+    ospfExtLsdbEntry.EntityData.AbsolutePath = "OSPF-MIB:OSPF-MIB/ospfExtLsdbTable/" + ospfExtLsdbEntry.EntityData.SegmentPath
     ospfExtLsdbEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ospfExtLsdbEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ospfExtLsdbEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2375,6 +2410,7 @@ func (ospfAreaAggregateTable *OSPFMIB_OspfAreaAggregateTable) GetEntityData() *t
     ospfAreaAggregateTable.EntityData.BundleName = "cisco_ios_xe"
     ospfAreaAggregateTable.EntityData.ParentYangName = "OSPF-MIB"
     ospfAreaAggregateTable.EntityData.SegmentPath = "ospfAreaAggregateTable"
+    ospfAreaAggregateTable.EntityData.AbsolutePath = "OSPF-MIB:OSPF-MIB/" + ospfAreaAggregateTable.EntityData.SegmentPath
     ospfAreaAggregateTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ospfAreaAggregateTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ospfAreaAggregateTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2400,6 +2436,7 @@ func (ospfAreaAggregateTable *OSPFMIB_OspfAreaAggregateTable) GetEntityData() *t
 type OSPFMIB_OspfAreaAggregateTable_OspfAreaAggregateEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The area within which the address aggregate is to
     // be found. The type is string with pattern:
@@ -2443,6 +2480,7 @@ func (ospfAreaAggregateEntry *OSPFMIB_OspfAreaAggregateTable_OspfAreaAggregateEn
     ospfAreaAggregateEntry.EntityData.BundleName = "cisco_ios_xe"
     ospfAreaAggregateEntry.EntityData.ParentYangName = "ospfAreaAggregateTable"
     ospfAreaAggregateEntry.EntityData.SegmentPath = "ospfAreaAggregateEntry" + types.AddKeyToken(ospfAreaAggregateEntry.OspfAreaAggregateAreaID, "ospfAreaAggregateAreaID") + types.AddKeyToken(ospfAreaAggregateEntry.OspfAreaAggregateLsdbType, "ospfAreaAggregateLsdbType") + types.AddKeyToken(ospfAreaAggregateEntry.OspfAreaAggregateNet, "ospfAreaAggregateNet") + types.AddKeyToken(ospfAreaAggregateEntry.OspfAreaAggregateMask, "ospfAreaAggregateMask")
+    ospfAreaAggregateEntry.EntityData.AbsolutePath = "OSPF-MIB:OSPF-MIB/ospfAreaAggregateTable/" + ospfAreaAggregateEntry.EntityData.SegmentPath
     ospfAreaAggregateEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ospfAreaAggregateEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ospfAreaAggregateEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2505,6 +2543,7 @@ func (ospfLocalLsdbTable *OSPFMIB_OspfLocalLsdbTable) GetEntityData() *types.Com
     ospfLocalLsdbTable.EntityData.BundleName = "cisco_ios_xe"
     ospfLocalLsdbTable.EntityData.ParentYangName = "OSPF-MIB"
     ospfLocalLsdbTable.EntityData.SegmentPath = "ospfLocalLsdbTable"
+    ospfLocalLsdbTable.EntityData.AbsolutePath = "OSPF-MIB:OSPF-MIB/" + ospfLocalLsdbTable.EntityData.SegmentPath
     ospfLocalLsdbTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ospfLocalLsdbTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ospfLocalLsdbTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2526,6 +2565,7 @@ func (ospfLocalLsdbTable *OSPFMIB_OspfLocalLsdbTable) GetEntityData() *types.Com
 type OSPFMIB_OspfLocalLsdbTable_OspfLocalLsdbEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The IP address of the interface from which the LSA
     // was received if the interface is numbered. The type is string with pattern:
@@ -2587,6 +2627,7 @@ func (ospfLocalLsdbEntry *OSPFMIB_OspfLocalLsdbTable_OspfLocalLsdbEntry) GetEnti
     ospfLocalLsdbEntry.EntityData.BundleName = "cisco_ios_xe"
     ospfLocalLsdbEntry.EntityData.ParentYangName = "ospfLocalLsdbTable"
     ospfLocalLsdbEntry.EntityData.SegmentPath = "ospfLocalLsdbEntry" + types.AddKeyToken(ospfLocalLsdbEntry.OspfLocalLsdbIpAddress, "ospfLocalLsdbIpAddress") + types.AddKeyToken(ospfLocalLsdbEntry.OspfLocalLsdbAddressLessIf, "ospfLocalLsdbAddressLessIf") + types.AddKeyToken(ospfLocalLsdbEntry.OspfLocalLsdbType, "ospfLocalLsdbType") + types.AddKeyToken(ospfLocalLsdbEntry.OspfLocalLsdbLsid, "ospfLocalLsdbLsid") + types.AddKeyToken(ospfLocalLsdbEntry.OspfLocalLsdbRouterId, "ospfLocalLsdbRouterId")
+    ospfLocalLsdbEntry.EntityData.AbsolutePath = "OSPF-MIB:OSPF-MIB/ospfLocalLsdbTable/" + ospfLocalLsdbEntry.EntityData.SegmentPath
     ospfLocalLsdbEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ospfLocalLsdbEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ospfLocalLsdbEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2640,6 +2681,7 @@ func (ospfVirtLocalLsdbTable *OSPFMIB_OspfVirtLocalLsdbTable) GetEntityData() *t
     ospfVirtLocalLsdbTable.EntityData.BundleName = "cisco_ios_xe"
     ospfVirtLocalLsdbTable.EntityData.ParentYangName = "OSPF-MIB"
     ospfVirtLocalLsdbTable.EntityData.SegmentPath = "ospfVirtLocalLsdbTable"
+    ospfVirtLocalLsdbTable.EntityData.AbsolutePath = "OSPF-MIB:OSPF-MIB/" + ospfVirtLocalLsdbTable.EntityData.SegmentPath
     ospfVirtLocalLsdbTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ospfVirtLocalLsdbTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ospfVirtLocalLsdbTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2661,6 +2703,7 @@ func (ospfVirtLocalLsdbTable *OSPFMIB_OspfVirtLocalLsdbTable) GetEntityData() *t
 type OSPFMIB_OspfVirtLocalLsdbTable_OspfVirtLocalLsdbEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The transit area that the virtual link traverses. 
     // By definition, this is not 0.0.0.0. The type is string with pattern:
@@ -2721,6 +2764,7 @@ func (ospfVirtLocalLsdbEntry *OSPFMIB_OspfVirtLocalLsdbTable_OspfVirtLocalLsdbEn
     ospfVirtLocalLsdbEntry.EntityData.BundleName = "cisco_ios_xe"
     ospfVirtLocalLsdbEntry.EntityData.ParentYangName = "ospfVirtLocalLsdbTable"
     ospfVirtLocalLsdbEntry.EntityData.SegmentPath = "ospfVirtLocalLsdbEntry" + types.AddKeyToken(ospfVirtLocalLsdbEntry.OspfVirtLocalLsdbTransitArea, "ospfVirtLocalLsdbTransitArea") + types.AddKeyToken(ospfVirtLocalLsdbEntry.OspfVirtLocalLsdbNeighbor, "ospfVirtLocalLsdbNeighbor") + types.AddKeyToken(ospfVirtLocalLsdbEntry.OspfVirtLocalLsdbType, "ospfVirtLocalLsdbType") + types.AddKeyToken(ospfVirtLocalLsdbEntry.OspfVirtLocalLsdbLsid, "ospfVirtLocalLsdbLsid") + types.AddKeyToken(ospfVirtLocalLsdbEntry.OspfVirtLocalLsdbRouterId, "ospfVirtLocalLsdbRouterId")
+    ospfVirtLocalLsdbEntry.EntityData.AbsolutePath = "OSPF-MIB:OSPF-MIB/ospfVirtLocalLsdbTable/" + ospfVirtLocalLsdbEntry.EntityData.SegmentPath
     ospfVirtLocalLsdbEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ospfVirtLocalLsdbEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ospfVirtLocalLsdbEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2775,6 +2819,7 @@ func (ospfAsLsdbTable *OSPFMIB_OspfAsLsdbTable) GetEntityData() *types.CommonEnt
     ospfAsLsdbTable.EntityData.BundleName = "cisco_ios_xe"
     ospfAsLsdbTable.EntityData.ParentYangName = "OSPF-MIB"
     ospfAsLsdbTable.EntityData.SegmentPath = "ospfAsLsdbTable"
+    ospfAsLsdbTable.EntityData.AbsolutePath = "OSPF-MIB:OSPF-MIB/" + ospfAsLsdbTable.EntityData.SegmentPath
     ospfAsLsdbTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ospfAsLsdbTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ospfAsLsdbTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2796,6 +2841,7 @@ func (ospfAsLsdbTable *OSPFMIB_OspfAsLsdbTable) GetEntityData() *types.CommonEnt
 type OSPFMIB_OspfAsLsdbTable_OspfAsLsdbEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type of the link state advertisement. Each
     // link state type has a separate advertisement format. The type is
@@ -2846,6 +2892,7 @@ func (ospfAsLsdbEntry *OSPFMIB_OspfAsLsdbTable_OspfAsLsdbEntry) GetEntityData() 
     ospfAsLsdbEntry.EntityData.BundleName = "cisco_ios_xe"
     ospfAsLsdbEntry.EntityData.ParentYangName = "ospfAsLsdbTable"
     ospfAsLsdbEntry.EntityData.SegmentPath = "ospfAsLsdbEntry" + types.AddKeyToken(ospfAsLsdbEntry.OspfAsLsdbType, "ospfAsLsdbType") + types.AddKeyToken(ospfAsLsdbEntry.OspfAsLsdbLsid, "ospfAsLsdbLsid") + types.AddKeyToken(ospfAsLsdbEntry.OspfAsLsdbRouterId, "ospfAsLsdbRouterId")
+    ospfAsLsdbEntry.EntityData.AbsolutePath = "OSPF-MIB:OSPF-MIB/ospfAsLsdbTable/" + ospfAsLsdbEntry.EntityData.SegmentPath
     ospfAsLsdbEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ospfAsLsdbEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ospfAsLsdbEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2892,6 +2939,7 @@ func (ospfAreaLsaCountTable *OSPFMIB_OspfAreaLsaCountTable) GetEntityData() *typ
     ospfAreaLsaCountTable.EntityData.BundleName = "cisco_ios_xe"
     ospfAreaLsaCountTable.EntityData.ParentYangName = "OSPF-MIB"
     ospfAreaLsaCountTable.EntityData.SegmentPath = "ospfAreaLsaCountTable"
+    ospfAreaLsaCountTable.EntityData.AbsolutePath = "OSPF-MIB:OSPF-MIB/" + ospfAreaLsaCountTable.EntityData.SegmentPath
     ospfAreaLsaCountTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ospfAreaLsaCountTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ospfAreaLsaCountTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2915,6 +2963,7 @@ func (ospfAreaLsaCountTable *OSPFMIB_OspfAreaLsaCountTable) GetEntityData() *typ
 type OSPFMIB_OspfAreaLsaCountTable_OspfAreaLsaCountEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. This entry Area ID. The type is string with
     // pattern:
@@ -2936,6 +2985,7 @@ func (ospfAreaLsaCountEntry *OSPFMIB_OspfAreaLsaCountTable_OspfAreaLsaCountEntry
     ospfAreaLsaCountEntry.EntityData.BundleName = "cisco_ios_xe"
     ospfAreaLsaCountEntry.EntityData.ParentYangName = "ospfAreaLsaCountTable"
     ospfAreaLsaCountEntry.EntityData.SegmentPath = "ospfAreaLsaCountEntry" + types.AddKeyToken(ospfAreaLsaCountEntry.OspfAreaLsaCountAreaId, "ospfAreaLsaCountAreaId") + types.AddKeyToken(ospfAreaLsaCountEntry.OspfAreaLsaCountLsaType, "ospfAreaLsaCountLsaType")
+    ospfAreaLsaCountEntry.EntityData.AbsolutePath = "OSPF-MIB:OSPF-MIB/ospfAreaLsaCountTable/" + ospfAreaLsaCountEntry.EntityData.SegmentPath
     ospfAreaLsaCountEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ospfAreaLsaCountEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ospfAreaLsaCountEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

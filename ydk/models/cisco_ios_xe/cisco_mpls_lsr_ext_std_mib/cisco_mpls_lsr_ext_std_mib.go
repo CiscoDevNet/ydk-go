@@ -38,6 +38,7 @@ func (cISCOMPLSLSREXTSTDMIB *CISCOMPLSLSREXTSTDMIB) GetEntityData() *types.Commo
     cISCOMPLSLSREXTSTDMIB.EntityData.BundleName = "cisco_ios_xe"
     cISCOMPLSLSREXTSTDMIB.EntityData.ParentYangName = "CISCO-MPLS-LSR-EXT-STD-MIB"
     cISCOMPLSLSREXTSTDMIB.EntityData.SegmentPath = "CISCO-MPLS-LSR-EXT-STD-MIB:CISCO-MPLS-LSR-EXT-STD-MIB"
+    cISCOMPLSLSREXTSTDMIB.EntityData.AbsolutePath = cISCOMPLSLSREXTSTDMIB.EntityData.SegmentPath
     cISCOMPLSLSREXTSTDMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cISCOMPLSLSREXTSTDMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOMPLSLSREXTSTDMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -73,6 +74,7 @@ func (cmplsXCExtTable *CISCOMPLSLSREXTSTDMIB_CmplsXCExtTable) GetEntityData() *t
     cmplsXCExtTable.EntityData.BundleName = "cisco_ios_xe"
     cmplsXCExtTable.EntityData.ParentYangName = "CISCO-MPLS-LSR-EXT-STD-MIB"
     cmplsXCExtTable.EntityData.SegmentPath = "cmplsXCExtTable"
+    cmplsXCExtTable.EntityData.AbsolutePath = "CISCO-MPLS-LSR-EXT-STD-MIB:CISCO-MPLS-LSR-EXT-STD-MIB/" + cmplsXCExtTable.EntityData.SegmentPath
     cmplsXCExtTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cmplsXCExtTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cmplsXCExtTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -99,6 +101,7 @@ func (cmplsXCExtTable *CISCOMPLSLSREXTSTDMIB_CmplsXCExtTable) GetEntityData() *t
 type CISCOMPLSLSREXTSTDMIB_CmplsXCExtTable_CmplsXCExtEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with length: 1..24. Refers to
     // mpls_lsr_std_mib.MPLSLSRSTDMIB_MplsXCTable_MplsXCEntry_MplsXCIndex
@@ -131,6 +134,7 @@ func (cmplsXCExtEntry *CISCOMPLSLSREXTSTDMIB_CmplsXCExtTable_CmplsXCExtEntry) Ge
     cmplsXCExtEntry.EntityData.BundleName = "cisco_ios_xe"
     cmplsXCExtEntry.EntityData.ParentYangName = "cmplsXCExtTable"
     cmplsXCExtEntry.EntityData.SegmentPath = "cmplsXCExtEntry" + types.AddKeyToken(cmplsXCExtEntry.MplsXCIndex, "mplsXCIndex") + types.AddKeyToken(cmplsXCExtEntry.MplsXCInSegmentIndex, "mplsXCInSegmentIndex") + types.AddKeyToken(cmplsXCExtEntry.MplsXCOutSegmentIndex, "mplsXCOutSegmentIndex")
+    cmplsXCExtEntry.EntityData.AbsolutePath = "CISCO-MPLS-LSR-EXT-STD-MIB:CISCO-MPLS-LSR-EXT-STD-MIB/cmplsXCExtTable/" + cmplsXCExtEntry.EntityData.SegmentPath
     cmplsXCExtEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cmplsXCExtEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cmplsXCExtEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

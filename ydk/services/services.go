@@ -19,8 +19,8 @@
 package services
 
 // #cgo CXXFLAGS: -g -std=c++11
-// #cgo darwin LDFLAGS:  -fprofile-arcs -ftest-coverage -lydk -lxml2 -lxslt -lpcre -lssh -lssh_threads -lcurl -lpython -lc++
-// #cgo linux LDFLAGS:  -fprofile-arcs -ftest-coverage --coverage -lydk -lxml2 -lxslt -lpcre -lssh -lssh_threads -lcurl -lstdc++ -lpython2.7 -ldl
+// #cgo darwin LDFLAGS: -lydk -lxml2 -lxslt -lpcre -lssh -lssh_threads -lcurl -lc++
+// #cgo linux LDFLAGS:  -fprofile-arcs -ftest-coverage --coverage -lydk -lxml2 -lxslt -lpcre -lssh -lssh_threads -lcurl -lstdc++ -ldl
 // #include <ydk/ydk.h>
 // #include <stdlib.h>
 import "C"
@@ -35,6 +35,7 @@ import (
 	"github.com/CiscoDevNet/ydk-go/ydk/path"
 	"github.com/CiscoDevNet/ydk-go/ydk/types"
 	"github.com/CiscoDevNet/ydk-go/ydk/types/datastore"
+	"github.com/CiscoDevNet/ydk-go/ydk/types/yfilter"
 	encodingFmt "github.com/CiscoDevNet/ydk-go/ydk/types/encoding_format"
 )
 
@@ -357,9 +358,12 @@ func (ns *NetconfService) GetConfig(
 
 	// filter
 	data["filter"] = filter
+	types.SetNontopEntityFilter(filter, yfilter.Read)
 
 	readDataNode := path.ExecuteRPC(
 		provider, "ietf-netconf:get-config", data, false)
+
+	types.SetNontopEntityFilter(filter, yfilter.NotSet)
 	return path.ReadDatanode(filter, readDataNode)
 }
 
@@ -370,8 +374,11 @@ func (ns *NetconfService) Get(
 
 	data := map[string]interface{} {}
 	data["filter"] = filter
+	types.SetNontopEntityFilter(filter, yfilter.Read)
 
 	readDataNode := path.ExecuteRPC(provider, "ietf-netconf:get", data, false)
+
+	types.SetNontopEntityFilter(filter, yfilter.NotSet)
 	return path.ReadDatanode(filter, readDataNode)
 }
 
@@ -488,7 +495,7 @@ func getEntityLookupKey(
 	switch encoding {
 
 	case encodingFmt.XML:
-		ydk.YLogDebug("Using XML encoding...")
+		ydk.YLogDebug(fmt.Sprintf("services.getEntityLookupKey: Using XML encoding for payload:\n%s", payload))
 
 		type XMLObj struct {
 			XMLName xml.Name
@@ -504,7 +511,7 @@ func getEntityLookupKey(
 		nmsp = fmt.Sprintf("%v", xmlObj.XMLName)
 
 	case encodingFmt.JSON:
-		ydk.YLogDebug("Using JSON encoding...")
+		ydk.YLogDebug(fmt.Sprintf("services.getEntityLookupKey: Using JSON encoding for payload:\n%s", payload))
 
 		var jsonObj interface{}
 		err := json.Unmarshal([]byte(payload), &jsonObj)
@@ -526,6 +533,6 @@ func getEntityLookupKey(
 	default:
 		panic("Encoding not supported!")
 	}
-
+	ydk.YLogDebug(fmt.Sprintf("services.getEntityLookupKey: Got namespace: '%s'", nmsp))
 	return nmsp
 }

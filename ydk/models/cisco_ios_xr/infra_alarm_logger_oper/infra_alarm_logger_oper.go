@@ -89,6 +89,7 @@ func (alarmLogger *AlarmLogger) GetEntityData() *types.CommonEntityData {
     alarmLogger.EntityData.BundleName = "cisco_ios_xr"
     alarmLogger.EntityData.ParentYangName = "Cisco-IOS-XR-infra-alarm-logger-oper"
     alarmLogger.EntityData.SegmentPath = "Cisco-IOS-XR-infra-alarm-logger-oper:alarm-logger"
+    alarmLogger.EntityData.AbsolutePath = alarmLogger.EntityData.SegmentPath
     alarmLogger.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     alarmLogger.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     alarmLogger.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -137,6 +138,7 @@ func (bufferStatus *AlarmLogger_BufferStatus) GetEntityData() *types.CommonEntit
     bufferStatus.EntityData.BundleName = "cisco_ios_xr"
     bufferStatus.EntityData.ParentYangName = "alarm-logger"
     bufferStatus.EntityData.SegmentPath = "buffer-status"
+    bufferStatus.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-alarm-logger-oper:alarm-logger/" + bufferStatus.EntityData.SegmentPath
     bufferStatus.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bufferStatus.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bufferStatus.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -171,6 +173,7 @@ func (alarms *AlarmLogger_Alarms) GetEntityData() *types.CommonEntityData {
     alarms.EntityData.BundleName = "cisco_ios_xr"
     alarms.EntityData.ParentYangName = "alarm-logger"
     alarms.EntityData.SegmentPath = "alarms"
+    alarms.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-alarm-logger-oper:alarm-logger/" + alarms.EntityData.SegmentPath
     alarms.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     alarms.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     alarms.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -192,6 +195,7 @@ func (alarms *AlarmLogger_Alarms) GetEntityData() *types.CommonEntityData {
 type AlarmLogger_Alarms_Alarm struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Event ID. The type is interface{} with range:
     // 0..4294967295.
@@ -238,6 +242,7 @@ func (alarm *AlarmLogger_Alarms_Alarm) GetEntityData() *types.CommonEntityData {
     alarm.EntityData.BundleName = "cisco_ios_xr"
     alarm.EntityData.ParentYangName = "alarms"
     alarm.EntityData.SegmentPath = "alarm" + types.AddKeyToken(alarm.EventId, "event-id")
+    alarm.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-alarm-logger-oper:alarm-logger/alarms/" + alarm.EntityData.SegmentPath
     alarm.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     alarm.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     alarm.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

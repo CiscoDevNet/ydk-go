@@ -399,6 +399,7 @@ func (platform *Platform) GetEntityData() *types.CommonEntityData {
     platform.EntityData.BundleName = "cisco_ios_xr"
     platform.EntityData.ParentYangName = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper"
     platform.EntityData.SegmentPath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform"
+    platform.EntityData.AbsolutePath = platform.EntityData.SegmentPath
     platform.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     platform.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     platform.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -428,6 +429,7 @@ func (racks *Platform_Racks) GetEntityData() *types.CommonEntityData {
     racks.EntityData.BundleName = "cisco_ios_xr"
     racks.EntityData.ParentYangName = "platform"
     racks.EntityData.SegmentPath = "racks"
+    racks.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform/" + racks.EntityData.SegmentPath
     racks.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     racks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     racks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -449,6 +451,7 @@ func (racks *Platform_Racks) GetEntityData() *types.CommonEntityData {
 type Platform_Racks_Rack struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Rack name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -464,6 +467,7 @@ func (rack *Platform_Racks_Rack) GetEntityData() *types.CommonEntityData {
     rack.EntityData.BundleName = "cisco_ios_xr"
     rack.EntityData.ParentYangName = "racks"
     rack.EntityData.SegmentPath = "rack" + types.AddKeyToken(rack.RackName, "rack-name")
+    rack.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform/racks/" + rack.EntityData.SegmentPath
     rack.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rack.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rack.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -494,6 +498,7 @@ func (slots *Platform_Racks_Rack_Slots) GetEntityData() *types.CommonEntityData 
     slots.EntityData.BundleName = "cisco_ios_xr"
     slots.EntityData.ParentYangName = "rack"
     slots.EntityData.SegmentPath = "slots"
+    slots.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform/racks/rack/" + slots.EntityData.SegmentPath
     slots.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     slots.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     slots.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -515,6 +520,7 @@ func (slots *Platform_Racks_Rack_Slots) GetEntityData() *types.CommonEntityData 
 type Platform_Racks_Rack_Slots_Slot struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Slot name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -536,6 +542,7 @@ func (slot *Platform_Racks_Rack_Slots_Slot) GetEntityData() *types.CommonEntityD
     slot.EntityData.BundleName = "cisco_ios_xr"
     slot.EntityData.ParentYangName = "slots"
     slot.EntityData.SegmentPath = "slot" + types.AddKeyToken(slot.SlotName, "slot-name")
+    slot.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform/racks/rack/slots/" + slot.EntityData.SegmentPath
     slot.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     slot.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     slot.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -569,6 +576,7 @@ func (instances *Platform_Racks_Rack_Slots_Slot_Instances) GetEntityData() *type
     instances.EntityData.BundleName = "cisco_ios_xr"
     instances.EntityData.ParentYangName = "slot"
     instances.EntityData.SegmentPath = "instances"
+    instances.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform/racks/rack/slots/slot/" + instances.EntityData.SegmentPath
     instances.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     instances.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     instances.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -590,6 +598,7 @@ func (instances *Platform_Racks_Rack_Slots_Slot_Instances) GetEntityData() *type
 type Platform_Racks_Rack_Slots_Slot_Instances_Instance struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Instance name. The type is string.
     InstanceName interface{}
@@ -604,6 +613,7 @@ func (instance *Platform_Racks_Rack_Slots_Slot_Instances_Instance) GetEntityData
     instance.EntityData.BundleName = "cisco_ios_xr"
     instance.EntityData.ParentYangName = "instances"
     instance.EntityData.SegmentPath = "instance" + types.AddKeyToken(instance.InstanceName, "instance-name")
+    instance.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform/racks/rack/slots/slot/instances/" + instance.EntityData.SegmentPath
     instance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     instance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     instance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -655,6 +665,7 @@ func (state *Platform_Racks_Rack_Slots_Slot_Instances_Instance_State) GetEntityD
     state.EntityData.BundleName = "cisco_ios_xr"
     state.EntityData.ParentYangName = "instance"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform/racks/rack/slots/slot/instances/instance/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     state.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -703,6 +714,7 @@ func (vm *Platform_Racks_Rack_Slots_Slot_Vm) GetEntityData() *types.CommonEntity
     vm.EntityData.BundleName = "cisco_ios_xr"
     vm.EntityData.ParentYangName = "slot"
     vm.EntityData.SegmentPath = "vm"
+    vm.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform/racks/rack/slots/slot/" + vm.EntityData.SegmentPath
     vm.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vm.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vm.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -757,6 +769,7 @@ func (state *Platform_Racks_Rack_Slots_Slot_State) GetEntityData() *types.Common
     state.EntityData.BundleName = "cisco_ios_xr"
     state.EntityData.ParentYangName = "slot"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform/racks/rack/slots/slot/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     state.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -793,6 +806,7 @@ func (platformInventory *PlatformInventory) GetEntityData() *types.CommonEntityD
     platformInventory.EntityData.BundleName = "cisco_ios_xr"
     platformInventory.EntityData.ParentYangName = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper"
     platformInventory.EntityData.SegmentPath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory"
+    platformInventory.EntityData.AbsolutePath = platformInventory.EntityData.SegmentPath
     platformInventory.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     platformInventory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     platformInventory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -822,6 +836,7 @@ func (racks *PlatformInventory_Racks) GetEntityData() *types.CommonEntityData {
     racks.EntityData.BundleName = "cisco_ios_xr"
     racks.EntityData.ParentYangName = "platform-inventory"
     racks.EntityData.SegmentPath = "racks"
+    racks.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/" + racks.EntityData.SegmentPath
     racks.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     racks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     racks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -843,6 +858,7 @@ func (racks *PlatformInventory_Racks) GetEntityData() *types.CommonEntityData {
 type PlatformInventory_Racks_Rack struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Rack name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -861,6 +877,7 @@ func (rack *PlatformInventory_Racks_Rack) GetEntityData() *types.CommonEntityDat
     rack.EntityData.BundleName = "cisco_ios_xr"
     rack.EntityData.ParentYangName = "racks"
     rack.EntityData.SegmentPath = "rack" + types.AddKeyToken(rack.Name, "name")
+    rack.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/" + rack.EntityData.SegmentPath
     rack.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rack.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rack.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -892,6 +909,7 @@ func (slots *PlatformInventory_Racks_Rack_Slots) GetEntityData() *types.CommonEn
     slots.EntityData.BundleName = "cisco_ios_xr"
     slots.EntityData.ParentYangName = "rack"
     slots.EntityData.SegmentPath = "slots"
+    slots.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/" + slots.EntityData.SegmentPath
     slots.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     slots.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     slots.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -913,6 +931,7 @@ func (slots *PlatformInventory_Racks_Rack_Slots) GetEntityData() *types.CommonEn
 type PlatformInventory_Racks_Rack_Slots_Slot struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Slot name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -931,6 +950,7 @@ func (slot *PlatformInventory_Racks_Rack_Slots_Slot) GetEntityData() *types.Comm
     slot.EntityData.BundleName = "cisco_ios_xr"
     slot.EntityData.ParentYangName = "slots"
     slot.EntityData.SegmentPath = "slot" + types.AddKeyToken(slot.Name, "name")
+    slot.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/" + slot.EntityData.SegmentPath
     slot.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     slot.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     slot.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -963,6 +983,7 @@ func (cards *PlatformInventory_Racks_Rack_Slots_Slot_Cards) GetEntityData() *typ
     cards.EntityData.BundleName = "cisco_ios_xr"
     cards.EntityData.ParentYangName = "slot"
     cards.EntityData.SegmentPath = "cards"
+    cards.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/" + cards.EntityData.SegmentPath
     cards.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cards.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cards.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -984,6 +1005,7 @@ func (cards *PlatformInventory_Racks_Rack_Slots_Slot_Cards) GetEntityData() *typ
 type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Card name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -1017,6 +1039,7 @@ func (card *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card) GetEntityData() 
     card.EntityData.BundleName = "cisco_ios_xr"
     card.EntityData.ParentYangName = "cards"
     card.EntityData.SegmentPath = "card" + types.AddKeyToken(card.Name, "name")
+    card.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/" + card.EntityData.SegmentPath
     card.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     card.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     card.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1062,6 +1085,7 @@ func (hardwareInformation *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Ha
     hardwareInformation.EntityData.BundleName = "cisco_ios_xr"
     hardwareInformation.EntityData.ParentYangName = "card"
     hardwareInformation.EntityData.SegmentPath = "hardware-information"
+    hardwareInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/" + hardwareInformation.EntityData.SegmentPath
     hardwareInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hardwareInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hardwareInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1100,6 +1124,7 @@ func (processorInformation *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_H
     processorInformation.EntityData.BundleName = "cisco_ios_xr"
     processorInformation.EntityData.ParentYangName = "hardware-information"
     processorInformation.EntityData.SegmentPath = "processor-information"
+    processorInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/hardware-information/" + processorInformation.EntityData.SegmentPath
     processorInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     processorInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     processorInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1145,6 +1170,7 @@ func (motherboardInformation *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card
     motherboardInformation.EntityData.BundleName = "cisco_ios_xr"
     motherboardInformation.EntityData.ParentYangName = "hardware-information"
     motherboardInformation.EntityData.SegmentPath = "motherboard-information"
+    motherboardInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/hardware-information/" + motherboardInformation.EntityData.SegmentPath
     motherboardInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     motherboardInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     motherboardInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1193,6 +1219,7 @@ func (rom *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_HardwareInformatio
     rom.EntityData.BundleName = "cisco_ios_xr"
     rom.EntityData.ParentYangName = "motherboard-information"
     rom.EntityData.SegmentPath = "rom"
+    rom.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/hardware-information/motherboard-information/" + rom.EntityData.SegmentPath
     rom.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rom.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rom.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1256,6 +1283,7 @@ func (bootflash *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_HardwareInfo
     bootflash.EntityData.BundleName = "cisco_ios_xr"
     bootflash.EntityData.ParentYangName = "motherboard-information"
     bootflash.EntityData.SegmentPath = "bootflash"
+    bootflash.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/hardware-information/motherboard-information/" + bootflash.EntityData.SegmentPath
     bootflash.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bootflash.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bootflash.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1300,6 +1328,7 @@ func (processor *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_HardwareInfo
     processor.EntityData.BundleName = "cisco_ios_xr"
     processor.EntityData.ParentYangName = "motherboard-information"
     processor.EntityData.SegmentPath = "processor"
+    processor.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/hardware-information/motherboard-information/" + processor.EntityData.SegmentPath
     processor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     processor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     processor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1360,6 +1389,7 @@ func (bootflashInformation *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_H
     bootflashInformation.EntityData.BundleName = "cisco_ios_xr"
     bootflashInformation.EntityData.ParentYangName = "hardware-information"
     bootflashInformation.EntityData.SegmentPath = "bootflash-information"
+    bootflashInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/hardware-information/" + bootflashInformation.EntityData.SegmentPath
     bootflashInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bootflashInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bootflashInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1410,6 +1440,7 @@ func (diskInformation *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Hardwa
     diskInformation.EntityData.BundleName = "cisco_ios_xr"
     diskInformation.EntityData.ParentYangName = "hardware-information"
     diskInformation.EntityData.SegmentPath = "disk-information"
+    diskInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/hardware-information/" + diskInformation.EntityData.SegmentPath
     diskInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     diskInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     diskInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1417,6 +1448,7 @@ func (diskInformation *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Hardwa
     diskInformation.EntityData.Children = types.NewOrderedMap()
     diskInformation.EntityData.Children.Append("disks", types.YChild{"Disks", nil})
     for i := range diskInformation.Disks {
+        types.SetYListKey(diskInformation.Disks[i], i)
         diskInformation.EntityData.Children.Append(types.GetSegmentPath(diskInformation.Disks[i]), types.YChild{"Disks", diskInformation.Disks[i]})
     }
     diskInformation.EntityData.Leafs = types.NewOrderedMap()
@@ -1434,6 +1466,7 @@ func (diskInformation *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Hardwa
 type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_HardwareInformation_DiskInformation_Disks struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Disk name. The type is string with length: 0..255.
     DiskName interface{}
@@ -1452,7 +1485,8 @@ func (disks *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_HardwareInformat
     disks.EntityData.YangName = "disks"
     disks.EntityData.BundleName = "cisco_ios_xr"
     disks.EntityData.ParentYangName = "disk-information"
-    disks.EntityData.SegmentPath = "disks"
+    disks.EntityData.SegmentPath = "disks" + types.AddNoKeyToken(disks)
+    disks.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/hardware-information/disk-information/" + disks.EntityData.SegmentPath
     disks.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     disks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     disks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1485,6 +1519,7 @@ func (subSlots *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots) Get
     subSlots.EntityData.BundleName = "cisco_ios_xr"
     subSlots.EntityData.ParentYangName = "card"
     subSlots.EntityData.SegmentPath = "sub-slots"
+    subSlots.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/" + subSlots.EntityData.SegmentPath
     subSlots.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     subSlots.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     subSlots.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1506,6 +1541,7 @@ func (subSlots *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots) Get
 type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Subslot name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -1524,6 +1560,7 @@ func (subSlot *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSl
     subSlot.EntityData.BundleName = "cisco_ios_xr"
     subSlot.EntityData.ParentYangName = "sub-slots"
     subSlot.EntityData.SegmentPath = "sub-slot" + types.AddKeyToken(subSlot.Name, "name")
+    subSlot.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/sub-slots/" + subSlot.EntityData.SegmentPath
     subSlot.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     subSlot.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     subSlot.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1561,6 +1598,7 @@ func (module *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlo
     module.EntityData.BundleName = "cisco_ios_xr"
     module.EntityData.ParentYangName = "sub-slot"
     module.EntityData.SegmentPath = "module"
+    module.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/sub-slots/sub-slot/" + module.EntityData.SegmentPath
     module.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     module.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     module.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1593,6 +1631,7 @@ func (portSlots *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_Sub
     portSlots.EntityData.BundleName = "cisco_ios_xr"
     portSlots.EntityData.ParentYangName = "module"
     portSlots.EntityData.SegmentPath = "port-slots"
+    portSlots.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/sub-slots/sub-slot/module/" + portSlots.EntityData.SegmentPath
     portSlots.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     portSlots.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     portSlots.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1614,6 +1653,7 @@ func (portSlots *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_Sub
 type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Port slot name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -1635,6 +1675,7 @@ func (portSlot *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubS
     portSlot.EntityData.BundleName = "cisco_ios_xr"
     portSlot.EntityData.ParentYangName = "port-slots"
     portSlot.EntityData.SegmentPath = "port-slot" + types.AddKeyToken(portSlot.Name, "name")
+    portSlot.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/sub-slots/sub-slot/module/port-slots/" + portSlot.EntityData.SegmentPath
     portSlot.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     portSlot.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     portSlot.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1668,6 +1709,7 @@ func (portses *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSl
     portses.EntityData.BundleName = "cisco_ios_xr"
     portses.EntityData.ParentYangName = "port-slot"
     portses.EntityData.SegmentPath = "portses"
+    portses.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/sub-slots/sub-slot/module/port-slots/port-slot/" + portses.EntityData.SegmentPath
     portses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     portses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     portses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1689,6 +1731,7 @@ func (portses *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSl
 type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Portses_Ports struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Port name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -1710,6 +1753,7 @@ func (ports *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot
     ports.EntityData.BundleName = "cisco_ios_xr"
     ports.EntityData.ParentYangName = "portses"
     ports.EntityData.SegmentPath = "ports" + types.AddKeyToken(ports.Name, "name")
+    ports.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/sub-slots/sub-slot/module/port-slots/port-slot/portses/" + ports.EntityData.SegmentPath
     ports.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ports.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ports.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1743,6 +1787,7 @@ func (hwComponents *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_
     hwComponents.EntityData.BundleName = "cisco_ios_xr"
     hwComponents.EntityData.ParentYangName = "ports"
     hwComponents.EntityData.SegmentPath = "hw-components"
+    hwComponents.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/sub-slots/sub-slot/module/port-slots/port-slot/portses/ports/" + hwComponents.EntityData.SegmentPath
     hwComponents.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hwComponents.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hwComponents.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1764,6 +1809,7 @@ func (hwComponents *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_
 type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Portses_Ports_HwComponents_HwComponent struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. HW component name. The type is string with
     // pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -1782,6 +1828,7 @@ func (hwComponent *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_S
     hwComponent.EntityData.BundleName = "cisco_ios_xr"
     hwComponent.EntityData.ParentYangName = "hw-components"
     hwComponent.EntityData.SegmentPath = "hw-component" + types.AddKeyToken(hwComponent.Name, "name")
+    hwComponent.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/sub-slots/sub-slot/module/port-slots/port-slot/portses/ports/hw-components/" + hwComponent.EntityData.SegmentPath
     hwComponent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hwComponent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hwComponent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1814,6 +1861,7 @@ func (sensors *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSl
     sensors.EntityData.BundleName = "cisco_ios_xr"
     sensors.EntityData.ParentYangName = "hw-component"
     sensors.EntityData.SegmentPath = "sensors"
+    sensors.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/sub-slots/sub-slot/module/port-slots/port-slot/portses/ports/hw-components/hw-component/" + sensors.EntityData.SegmentPath
     sensors.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sensors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sensors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1835,6 +1883,7 @@ func (sensors *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSl
 type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Portses_Ports_HwComponents_HwComponent_Sensors_Sensor struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Sensor name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -1850,6 +1899,7 @@ func (sensor *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlo
     sensor.EntityData.BundleName = "cisco_ios_xr"
     sensor.EntityData.ParentYangName = "sensors"
     sensor.EntityData.SegmentPath = "sensor" + types.AddKeyToken(sensor.Name, "name")
+    sensor.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/sub-slots/sub-slot/module/port-slots/port-slot/portses/ports/hw-components/hw-component/sensors/" + sensor.EntityData.SegmentPath
     sensor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sensor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sensor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1883,6 +1933,7 @@ func (attributes *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_Su
     attributes.EntityData.BundleName = "cisco_ios_xr"
     attributes.EntityData.ParentYangName = "sensor"
     attributes.EntityData.SegmentPath = "attributes"
+    attributes.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/sub-slots/sub-slot/module/port-slots/port-slot/portses/ports/hw-components/hw-component/sensors/sensor/" + attributes.EntityData.SegmentPath
     attributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     attributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1906,8 +1957,8 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_
     // name string for the entity. The type is string with length: 0..255.
     Name interface{}
 
-    // describes in user-readable terms                 what the entity in
-    // question does. The type is string with length: 0..255.
+    // describes in user-readable terms what the entity in question does. The type
+    // is string with length: 0..255.
     Description interface{}
 
     // model name. The type is string with length: 0..255.
@@ -1938,6 +1989,7 @@ func (basicInfo *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_Sub
     basicInfo.EntityData.BundleName = "cisco_ios_xr"
     basicInfo.EntityData.ParentYangName = "attributes"
     basicInfo.EntityData.SegmentPath = "basic-info"
+    basicInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/sub-slots/sub-slot/module/port-slots/port-slot/portses/ports/hw-components/hw-component/sensors/sensor/attributes/" + basicInfo.EntityData.SegmentPath
     basicInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     basicInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     basicInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1993,6 +2045,7 @@ func (fruInfo *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSl
     fruInfo.EntityData.BundleName = "cisco_ios_xr"
     fruInfo.EntityData.ParentYangName = "attributes"
     fruInfo.EntityData.SegmentPath = "fru-info"
+    fruInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/sub-slots/sub-slot/module/port-slots/port-slot/portses/ports/hw-components/hw-component/sensors/sensor/attributes/" + fruInfo.EntityData.SegmentPath
     fruInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fruInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fruInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2033,6 +2086,7 @@ func (lastOperationalStateChange *PlatformInventory_Racks_Rack_Slots_Slot_Cards_
     lastOperationalStateChange.EntityData.BundleName = "cisco_ios_xr"
     lastOperationalStateChange.EntityData.ParentYangName = "fru-info"
     lastOperationalStateChange.EntityData.SegmentPath = "last-operational-state-change"
+    lastOperationalStateChange.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/sub-slots/sub-slot/module/port-slots/port-slot/portses/ports/hw-components/hw-component/sensors/sensor/attributes/fru-info/" + lastOperationalStateChange.EntityData.SegmentPath
     lastOperationalStateChange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastOperationalStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastOperationalStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2068,6 +2122,7 @@ func (moduleUpTime *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_
     moduleUpTime.EntityData.BundleName = "cisco_ios_xr"
     moduleUpTime.EntityData.ParentYangName = "fru-info"
     moduleUpTime.EntityData.SegmentPath = "module-up-time"
+    moduleUpTime.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/sub-slots/sub-slot/module/port-slots/port-slot/portses/ports/hw-components/hw-component/sensors/sensor/attributes/fru-info/" + moduleUpTime.EntityData.SegmentPath
     moduleUpTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     moduleUpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     moduleUpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2101,6 +2156,7 @@ func (attributes *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_Su
     attributes.EntityData.BundleName = "cisco_ios_xr"
     attributes.EntityData.ParentYangName = "hw-component"
     attributes.EntityData.SegmentPath = "attributes"
+    attributes.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/sub-slots/sub-slot/module/port-slots/port-slot/portses/ports/hw-components/hw-component/" + attributes.EntityData.SegmentPath
     attributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     attributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2124,8 +2180,8 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_
     // name string for the entity. The type is string with length: 0..255.
     Name interface{}
 
-    // describes in user-readable terms                 what the entity in
-    // question does. The type is string with length: 0..255.
+    // describes in user-readable terms what the entity in question does. The type
+    // is string with length: 0..255.
     Description interface{}
 
     // model name. The type is string with length: 0..255.
@@ -2156,6 +2212,7 @@ func (basicInfo *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_Sub
     basicInfo.EntityData.BundleName = "cisco_ios_xr"
     basicInfo.EntityData.ParentYangName = "attributes"
     basicInfo.EntityData.SegmentPath = "basic-info"
+    basicInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/sub-slots/sub-slot/module/port-slots/port-slot/portses/ports/hw-components/hw-component/attributes/" + basicInfo.EntityData.SegmentPath
     basicInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     basicInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     basicInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2211,6 +2268,7 @@ func (fruInfo *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSl
     fruInfo.EntityData.BundleName = "cisco_ios_xr"
     fruInfo.EntityData.ParentYangName = "attributes"
     fruInfo.EntityData.SegmentPath = "fru-info"
+    fruInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/sub-slots/sub-slot/module/port-slots/port-slot/portses/ports/hw-components/hw-component/attributes/" + fruInfo.EntityData.SegmentPath
     fruInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fruInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fruInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2251,6 +2309,7 @@ func (lastOperationalStateChange *PlatformInventory_Racks_Rack_Slots_Slot_Cards_
     lastOperationalStateChange.EntityData.BundleName = "cisco_ios_xr"
     lastOperationalStateChange.EntityData.ParentYangName = "fru-info"
     lastOperationalStateChange.EntityData.SegmentPath = "last-operational-state-change"
+    lastOperationalStateChange.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/sub-slots/sub-slot/module/port-slots/port-slot/portses/ports/hw-components/hw-component/attributes/fru-info/" + lastOperationalStateChange.EntityData.SegmentPath
     lastOperationalStateChange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastOperationalStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastOperationalStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2286,6 +2345,7 @@ func (moduleUpTime *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_
     moduleUpTime.EntityData.BundleName = "cisco_ios_xr"
     moduleUpTime.EntityData.ParentYangName = "fru-info"
     moduleUpTime.EntityData.SegmentPath = "module-up-time"
+    moduleUpTime.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/sub-slots/sub-slot/module/port-slots/port-slot/portses/ports/hw-components/hw-component/attributes/fru-info/" + moduleUpTime.EntityData.SegmentPath
     moduleUpTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     moduleUpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     moduleUpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2317,6 +2377,7 @@ func (sensors *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSl
     sensors.EntityData.BundleName = "cisco_ios_xr"
     sensors.EntityData.ParentYangName = "ports"
     sensors.EntityData.SegmentPath = "sensors"
+    sensors.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/sub-slots/sub-slot/module/port-slots/port-slot/portses/ports/" + sensors.EntityData.SegmentPath
     sensors.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sensors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sensors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2338,6 +2399,7 @@ func (sensors *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSl
 type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Portses_Ports_Sensors_Sensor struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Sensor name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -2353,6 +2415,7 @@ func (sensor *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlo
     sensor.EntityData.BundleName = "cisco_ios_xr"
     sensor.EntityData.ParentYangName = "sensors"
     sensor.EntityData.SegmentPath = "sensor" + types.AddKeyToken(sensor.Name, "name")
+    sensor.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/sub-slots/sub-slot/module/port-slots/port-slot/portses/ports/sensors/" + sensor.EntityData.SegmentPath
     sensor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sensor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sensor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2386,6 +2449,7 @@ func (attributes *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_Su
     attributes.EntityData.BundleName = "cisco_ios_xr"
     attributes.EntityData.ParentYangName = "sensor"
     attributes.EntityData.SegmentPath = "attributes"
+    attributes.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/sub-slots/sub-slot/module/port-slots/port-slot/portses/ports/sensors/sensor/" + attributes.EntityData.SegmentPath
     attributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     attributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2409,8 +2473,8 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_
     // name string for the entity. The type is string with length: 0..255.
     Name interface{}
 
-    // describes in user-readable terms                 what the entity in
-    // question does. The type is string with length: 0..255.
+    // describes in user-readable terms what the entity in question does. The type
+    // is string with length: 0..255.
     Description interface{}
 
     // model name. The type is string with length: 0..255.
@@ -2441,6 +2505,7 @@ func (basicInfo *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_Sub
     basicInfo.EntityData.BundleName = "cisco_ios_xr"
     basicInfo.EntityData.ParentYangName = "attributes"
     basicInfo.EntityData.SegmentPath = "basic-info"
+    basicInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/sub-slots/sub-slot/module/port-slots/port-slot/portses/ports/sensors/sensor/attributes/" + basicInfo.EntityData.SegmentPath
     basicInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     basicInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     basicInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2496,6 +2561,7 @@ func (fruInfo *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSl
     fruInfo.EntityData.BundleName = "cisco_ios_xr"
     fruInfo.EntityData.ParentYangName = "attributes"
     fruInfo.EntityData.SegmentPath = "fru-info"
+    fruInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/sub-slots/sub-slot/module/port-slots/port-slot/portses/ports/sensors/sensor/attributes/" + fruInfo.EntityData.SegmentPath
     fruInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fruInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fruInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2536,6 +2602,7 @@ func (lastOperationalStateChange *PlatformInventory_Racks_Rack_Slots_Slot_Cards_
     lastOperationalStateChange.EntityData.BundleName = "cisco_ios_xr"
     lastOperationalStateChange.EntityData.ParentYangName = "fru-info"
     lastOperationalStateChange.EntityData.SegmentPath = "last-operational-state-change"
+    lastOperationalStateChange.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/sub-slots/sub-slot/module/port-slots/port-slot/portses/ports/sensors/sensor/attributes/fru-info/" + lastOperationalStateChange.EntityData.SegmentPath
     lastOperationalStateChange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastOperationalStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastOperationalStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2571,6 +2638,7 @@ func (moduleUpTime *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_
     moduleUpTime.EntityData.BundleName = "cisco_ios_xr"
     moduleUpTime.EntityData.ParentYangName = "fru-info"
     moduleUpTime.EntityData.SegmentPath = "module-up-time"
+    moduleUpTime.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/sub-slots/sub-slot/module/port-slots/port-slot/portses/ports/sensors/sensor/attributes/fru-info/" + moduleUpTime.EntityData.SegmentPath
     moduleUpTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     moduleUpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     moduleUpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2604,6 +2672,7 @@ func (attributes *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_Su
     attributes.EntityData.BundleName = "cisco_ios_xr"
     attributes.EntityData.ParentYangName = "ports"
     attributes.EntityData.SegmentPath = "attributes"
+    attributes.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/sub-slots/sub-slot/module/port-slots/port-slot/portses/ports/" + attributes.EntityData.SegmentPath
     attributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     attributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2627,8 +2696,8 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_
     // name string for the entity. The type is string with length: 0..255.
     Name interface{}
 
-    // describes in user-readable terms                 what the entity in
-    // question does. The type is string with length: 0..255.
+    // describes in user-readable terms what the entity in question does. The type
+    // is string with length: 0..255.
     Description interface{}
 
     // model name. The type is string with length: 0..255.
@@ -2659,6 +2728,7 @@ func (basicInfo *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_Sub
     basicInfo.EntityData.BundleName = "cisco_ios_xr"
     basicInfo.EntityData.ParentYangName = "attributes"
     basicInfo.EntityData.SegmentPath = "basic-info"
+    basicInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/sub-slots/sub-slot/module/port-slots/port-slot/portses/ports/attributes/" + basicInfo.EntityData.SegmentPath
     basicInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     basicInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     basicInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2714,6 +2784,7 @@ func (fruInfo *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSl
     fruInfo.EntityData.BundleName = "cisco_ios_xr"
     fruInfo.EntityData.ParentYangName = "attributes"
     fruInfo.EntityData.SegmentPath = "fru-info"
+    fruInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/sub-slots/sub-slot/module/port-slots/port-slot/portses/ports/attributes/" + fruInfo.EntityData.SegmentPath
     fruInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fruInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fruInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2754,6 +2825,7 @@ func (lastOperationalStateChange *PlatformInventory_Racks_Rack_Slots_Slot_Cards_
     lastOperationalStateChange.EntityData.BundleName = "cisco_ios_xr"
     lastOperationalStateChange.EntityData.ParentYangName = "fru-info"
     lastOperationalStateChange.EntityData.SegmentPath = "last-operational-state-change"
+    lastOperationalStateChange.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/sub-slots/sub-slot/module/port-slots/port-slot/portses/ports/attributes/fru-info/" + lastOperationalStateChange.EntityData.SegmentPath
     lastOperationalStateChange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastOperationalStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastOperationalStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2789,6 +2861,7 @@ func (moduleUpTime *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_
     moduleUpTime.EntityData.BundleName = "cisco_ios_xr"
     moduleUpTime.EntityData.ParentYangName = "fru-info"
     moduleUpTime.EntityData.SegmentPath = "module-up-time"
+    moduleUpTime.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/sub-slots/sub-slot/module/port-slots/port-slot/portses/ports/attributes/fru-info/" + moduleUpTime.EntityData.SegmentPath
     moduleUpTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     moduleUpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     moduleUpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2820,6 +2893,7 @@ func (sensors *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSl
     sensors.EntityData.BundleName = "cisco_ios_xr"
     sensors.EntityData.ParentYangName = "port-slot"
     sensors.EntityData.SegmentPath = "sensors"
+    sensors.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/sub-slots/sub-slot/module/port-slots/port-slot/" + sensors.EntityData.SegmentPath
     sensors.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sensors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sensors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2841,6 +2915,7 @@ func (sensors *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSl
 type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Sensors_Sensor struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Sensor name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -2856,6 +2931,7 @@ func (sensor *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlo
     sensor.EntityData.BundleName = "cisco_ios_xr"
     sensor.EntityData.ParentYangName = "sensors"
     sensor.EntityData.SegmentPath = "sensor" + types.AddKeyToken(sensor.Name, "name")
+    sensor.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/sub-slots/sub-slot/module/port-slots/port-slot/sensors/" + sensor.EntityData.SegmentPath
     sensor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sensor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sensor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2889,6 +2965,7 @@ func (attributes *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_Su
     attributes.EntityData.BundleName = "cisco_ios_xr"
     attributes.EntityData.ParentYangName = "sensor"
     attributes.EntityData.SegmentPath = "attributes"
+    attributes.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/sub-slots/sub-slot/module/port-slots/port-slot/sensors/sensor/" + attributes.EntityData.SegmentPath
     attributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     attributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2912,8 +2989,8 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_
     // name string for the entity. The type is string with length: 0..255.
     Name interface{}
 
-    // describes in user-readable terms                 what the entity in
-    // question does. The type is string with length: 0..255.
+    // describes in user-readable terms what the entity in question does. The type
+    // is string with length: 0..255.
     Description interface{}
 
     // model name. The type is string with length: 0..255.
@@ -2944,6 +3021,7 @@ func (basicInfo *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_Sub
     basicInfo.EntityData.BundleName = "cisco_ios_xr"
     basicInfo.EntityData.ParentYangName = "attributes"
     basicInfo.EntityData.SegmentPath = "basic-info"
+    basicInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/sub-slots/sub-slot/module/port-slots/port-slot/sensors/sensor/attributes/" + basicInfo.EntityData.SegmentPath
     basicInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     basicInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     basicInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2999,6 +3077,7 @@ func (fruInfo *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSl
     fruInfo.EntityData.BundleName = "cisco_ios_xr"
     fruInfo.EntityData.ParentYangName = "attributes"
     fruInfo.EntityData.SegmentPath = "fru-info"
+    fruInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/sub-slots/sub-slot/module/port-slots/port-slot/sensors/sensor/attributes/" + fruInfo.EntityData.SegmentPath
     fruInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fruInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fruInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3039,6 +3118,7 @@ func (lastOperationalStateChange *PlatformInventory_Racks_Rack_Slots_Slot_Cards_
     lastOperationalStateChange.EntityData.BundleName = "cisco_ios_xr"
     lastOperationalStateChange.EntityData.ParentYangName = "fru-info"
     lastOperationalStateChange.EntityData.SegmentPath = "last-operational-state-change"
+    lastOperationalStateChange.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/sub-slots/sub-slot/module/port-slots/port-slot/sensors/sensor/attributes/fru-info/" + lastOperationalStateChange.EntityData.SegmentPath
     lastOperationalStateChange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastOperationalStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastOperationalStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3074,6 +3154,7 @@ func (moduleUpTime *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_
     moduleUpTime.EntityData.BundleName = "cisco_ios_xr"
     moduleUpTime.EntityData.ParentYangName = "fru-info"
     moduleUpTime.EntityData.SegmentPath = "module-up-time"
+    moduleUpTime.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/sub-slots/sub-slot/module/port-slots/port-slot/sensors/sensor/attributes/fru-info/" + moduleUpTime.EntityData.SegmentPath
     moduleUpTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     moduleUpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     moduleUpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3107,6 +3188,7 @@ func (attributes *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_Su
     attributes.EntityData.BundleName = "cisco_ios_xr"
     attributes.EntityData.ParentYangName = "port-slot"
     attributes.EntityData.SegmentPath = "attributes"
+    attributes.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/sub-slots/sub-slot/module/port-slots/port-slot/" + attributes.EntityData.SegmentPath
     attributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     attributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3130,8 +3212,8 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_
     // name string for the entity. The type is string with length: 0..255.
     Name interface{}
 
-    // describes in user-readable terms                 what the entity in
-    // question does. The type is string with length: 0..255.
+    // describes in user-readable terms what the entity in question does. The type
+    // is string with length: 0..255.
     Description interface{}
 
     // model name. The type is string with length: 0..255.
@@ -3162,6 +3244,7 @@ func (basicInfo *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_Sub
     basicInfo.EntityData.BundleName = "cisco_ios_xr"
     basicInfo.EntityData.ParentYangName = "attributes"
     basicInfo.EntityData.SegmentPath = "basic-info"
+    basicInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/sub-slots/sub-slot/module/port-slots/port-slot/attributes/" + basicInfo.EntityData.SegmentPath
     basicInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     basicInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     basicInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3217,6 +3300,7 @@ func (fruInfo *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSl
     fruInfo.EntityData.BundleName = "cisco_ios_xr"
     fruInfo.EntityData.ParentYangName = "attributes"
     fruInfo.EntityData.SegmentPath = "fru-info"
+    fruInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/sub-slots/sub-slot/module/port-slots/port-slot/attributes/" + fruInfo.EntityData.SegmentPath
     fruInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fruInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fruInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3257,6 +3341,7 @@ func (lastOperationalStateChange *PlatformInventory_Racks_Rack_Slots_Slot_Cards_
     lastOperationalStateChange.EntityData.BundleName = "cisco_ios_xr"
     lastOperationalStateChange.EntityData.ParentYangName = "fru-info"
     lastOperationalStateChange.EntityData.SegmentPath = "last-operational-state-change"
+    lastOperationalStateChange.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/sub-slots/sub-slot/module/port-slots/port-slot/attributes/fru-info/" + lastOperationalStateChange.EntityData.SegmentPath
     lastOperationalStateChange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastOperationalStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastOperationalStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3292,6 +3377,7 @@ func (moduleUpTime *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_
     moduleUpTime.EntityData.BundleName = "cisco_ios_xr"
     moduleUpTime.EntityData.ParentYangName = "fru-info"
     moduleUpTime.EntityData.SegmentPath = "module-up-time"
+    moduleUpTime.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/sub-slots/sub-slot/module/port-slots/port-slot/attributes/fru-info/" + moduleUpTime.EntityData.SegmentPath
     moduleUpTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     moduleUpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     moduleUpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3323,6 +3409,7 @@ func (sensors *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSl
     sensors.EntityData.BundleName = "cisco_ios_xr"
     sensors.EntityData.ParentYangName = "module"
     sensors.EntityData.SegmentPath = "sensors"
+    sensors.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/sub-slots/sub-slot/module/" + sensors.EntityData.SegmentPath
     sensors.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sensors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sensors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3344,6 +3431,7 @@ func (sensors *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSl
 type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Sensor name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -3359,6 +3447,7 @@ func (sensor *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlo
     sensor.EntityData.BundleName = "cisco_ios_xr"
     sensor.EntityData.ParentYangName = "sensors"
     sensor.EntityData.SegmentPath = "sensor" + types.AddKeyToken(sensor.Name, "name")
+    sensor.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/sub-slots/sub-slot/module/sensors/" + sensor.EntityData.SegmentPath
     sensor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sensor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sensor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3392,6 +3481,7 @@ func (attributes *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_Su
     attributes.EntityData.BundleName = "cisco_ios_xr"
     attributes.EntityData.ParentYangName = "sensor"
     attributes.EntityData.SegmentPath = "attributes"
+    attributes.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/sub-slots/sub-slot/module/sensors/sensor/" + attributes.EntityData.SegmentPath
     attributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     attributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3415,8 +3505,8 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_
     // name string for the entity. The type is string with length: 0..255.
     Name interface{}
 
-    // describes in user-readable terms                 what the entity in
-    // question does. The type is string with length: 0..255.
+    // describes in user-readable terms what the entity in question does. The type
+    // is string with length: 0..255.
     Description interface{}
 
     // model name. The type is string with length: 0..255.
@@ -3447,6 +3537,7 @@ func (basicInfo *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_Sub
     basicInfo.EntityData.BundleName = "cisco_ios_xr"
     basicInfo.EntityData.ParentYangName = "attributes"
     basicInfo.EntityData.SegmentPath = "basic-info"
+    basicInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/sub-slots/sub-slot/module/sensors/sensor/attributes/" + basicInfo.EntityData.SegmentPath
     basicInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     basicInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     basicInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3502,6 +3593,7 @@ func (fruInfo *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSl
     fruInfo.EntityData.BundleName = "cisco_ios_xr"
     fruInfo.EntityData.ParentYangName = "attributes"
     fruInfo.EntityData.SegmentPath = "fru-info"
+    fruInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/sub-slots/sub-slot/module/sensors/sensor/attributes/" + fruInfo.EntityData.SegmentPath
     fruInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fruInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fruInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3542,6 +3634,7 @@ func (lastOperationalStateChange *PlatformInventory_Racks_Rack_Slots_Slot_Cards_
     lastOperationalStateChange.EntityData.BundleName = "cisco_ios_xr"
     lastOperationalStateChange.EntityData.ParentYangName = "fru-info"
     lastOperationalStateChange.EntityData.SegmentPath = "last-operational-state-change"
+    lastOperationalStateChange.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/sub-slots/sub-slot/module/sensors/sensor/attributes/fru-info/" + lastOperationalStateChange.EntityData.SegmentPath
     lastOperationalStateChange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastOperationalStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastOperationalStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3577,6 +3670,7 @@ func (moduleUpTime *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_
     moduleUpTime.EntityData.BundleName = "cisco_ios_xr"
     moduleUpTime.EntityData.ParentYangName = "fru-info"
     moduleUpTime.EntityData.SegmentPath = "module-up-time"
+    moduleUpTime.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/sub-slots/sub-slot/module/sensors/sensor/attributes/fru-info/" + moduleUpTime.EntityData.SegmentPath
     moduleUpTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     moduleUpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     moduleUpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3610,6 +3704,7 @@ func (attributes *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_Su
     attributes.EntityData.BundleName = "cisco_ios_xr"
     attributes.EntityData.ParentYangName = "module"
     attributes.EntityData.SegmentPath = "attributes"
+    attributes.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/sub-slots/sub-slot/module/" + attributes.EntityData.SegmentPath
     attributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     attributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3633,8 +3728,8 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_
     // name string for the entity. The type is string with length: 0..255.
     Name interface{}
 
-    // describes in user-readable terms                 what the entity in
-    // question does. The type is string with length: 0..255.
+    // describes in user-readable terms what the entity in question does. The type
+    // is string with length: 0..255.
     Description interface{}
 
     // model name. The type is string with length: 0..255.
@@ -3665,6 +3760,7 @@ func (basicInfo *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_Sub
     basicInfo.EntityData.BundleName = "cisco_ios_xr"
     basicInfo.EntityData.ParentYangName = "attributes"
     basicInfo.EntityData.SegmentPath = "basic-info"
+    basicInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/sub-slots/sub-slot/module/attributes/" + basicInfo.EntityData.SegmentPath
     basicInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     basicInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     basicInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3720,6 +3816,7 @@ func (fruInfo *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSl
     fruInfo.EntityData.BundleName = "cisco_ios_xr"
     fruInfo.EntityData.ParentYangName = "attributes"
     fruInfo.EntityData.SegmentPath = "fru-info"
+    fruInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/sub-slots/sub-slot/module/attributes/" + fruInfo.EntityData.SegmentPath
     fruInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fruInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fruInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3760,6 +3857,7 @@ func (lastOperationalStateChange *PlatformInventory_Racks_Rack_Slots_Slot_Cards_
     lastOperationalStateChange.EntityData.BundleName = "cisco_ios_xr"
     lastOperationalStateChange.EntityData.ParentYangName = "fru-info"
     lastOperationalStateChange.EntityData.SegmentPath = "last-operational-state-change"
+    lastOperationalStateChange.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/sub-slots/sub-slot/module/attributes/fru-info/" + lastOperationalStateChange.EntityData.SegmentPath
     lastOperationalStateChange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastOperationalStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastOperationalStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3795,6 +3893,7 @@ func (moduleUpTime *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_
     moduleUpTime.EntityData.BundleName = "cisco_ios_xr"
     moduleUpTime.EntityData.ParentYangName = "fru-info"
     moduleUpTime.EntityData.SegmentPath = "module-up-time"
+    moduleUpTime.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/sub-slots/sub-slot/module/attributes/fru-info/" + moduleUpTime.EntityData.SegmentPath
     moduleUpTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     moduleUpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     moduleUpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3828,6 +3927,7 @@ func (attributes *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_Su
     attributes.EntityData.BundleName = "cisco_ios_xr"
     attributes.EntityData.ParentYangName = "sub-slot"
     attributes.EntityData.SegmentPath = "attributes"
+    attributes.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/sub-slots/sub-slot/" + attributes.EntityData.SegmentPath
     attributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     attributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3851,8 +3951,8 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Attribu
     // name string for the entity. The type is string with length: 0..255.
     Name interface{}
 
-    // describes in user-readable terms                 what the entity in
-    // question does. The type is string with length: 0..255.
+    // describes in user-readable terms what the entity in question does. The type
+    // is string with length: 0..255.
     Description interface{}
 
     // model name. The type is string with length: 0..255.
@@ -3883,6 +3983,7 @@ func (basicInfo *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_Sub
     basicInfo.EntityData.BundleName = "cisco_ios_xr"
     basicInfo.EntityData.ParentYangName = "attributes"
     basicInfo.EntityData.SegmentPath = "basic-info"
+    basicInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/sub-slots/sub-slot/attributes/" + basicInfo.EntityData.SegmentPath
     basicInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     basicInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     basicInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3938,6 +4039,7 @@ func (fruInfo *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSl
     fruInfo.EntityData.BundleName = "cisco_ios_xr"
     fruInfo.EntityData.ParentYangName = "attributes"
     fruInfo.EntityData.SegmentPath = "fru-info"
+    fruInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/sub-slots/sub-slot/attributes/" + fruInfo.EntityData.SegmentPath
     fruInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fruInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fruInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3978,6 +4080,7 @@ func (lastOperationalStateChange *PlatformInventory_Racks_Rack_Slots_Slot_Cards_
     lastOperationalStateChange.EntityData.BundleName = "cisco_ios_xr"
     lastOperationalStateChange.EntityData.ParentYangName = "fru-info"
     lastOperationalStateChange.EntityData.SegmentPath = "last-operational-state-change"
+    lastOperationalStateChange.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/sub-slots/sub-slot/attributes/fru-info/" + lastOperationalStateChange.EntityData.SegmentPath
     lastOperationalStateChange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastOperationalStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastOperationalStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4013,6 +4116,7 @@ func (moduleUpTime *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_
     moduleUpTime.EntityData.BundleName = "cisco_ios_xr"
     moduleUpTime.EntityData.ParentYangName = "fru-info"
     moduleUpTime.EntityData.SegmentPath = "module-up-time"
+    moduleUpTime.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/sub-slots/sub-slot/attributes/fru-info/" + moduleUpTime.EntityData.SegmentPath
     moduleUpTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     moduleUpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     moduleUpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4044,6 +4148,7 @@ func (portses *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses) GetEn
     portses.EntityData.BundleName = "cisco_ios_xr"
     portses.EntityData.ParentYangName = "card"
     portses.EntityData.SegmentPath = "portses"
+    portses.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/" + portses.EntityData.SegmentPath
     portses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     portses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     portses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4065,6 +4170,7 @@ func (portses *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses) GetEn
 type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Port name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -4086,6 +4192,7 @@ func (ports *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports) G
     ports.EntityData.BundleName = "cisco_ios_xr"
     ports.EntityData.ParentYangName = "portses"
     ports.EntityData.SegmentPath = "ports" + types.AddKeyToken(ports.Name, "name")
+    ports.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/portses/" + ports.EntityData.SegmentPath
     ports.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ports.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ports.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4119,6 +4226,7 @@ func (hwComponents *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_P
     hwComponents.EntityData.BundleName = "cisco_ios_xr"
     hwComponents.EntityData.ParentYangName = "ports"
     hwComponents.EntityData.SegmentPath = "hw-components"
+    hwComponents.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/portses/ports/" + hwComponents.EntityData.SegmentPath
     hwComponents.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hwComponents.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hwComponents.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4140,6 +4248,7 @@ func (hwComponents *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_P
 type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_HwComponents_HwComponent struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. HW component name. The type is string with
     // pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -4158,6 +4267,7 @@ func (hwComponent *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Po
     hwComponent.EntityData.BundleName = "cisco_ios_xr"
     hwComponent.EntityData.ParentYangName = "hw-components"
     hwComponent.EntityData.SegmentPath = "hw-component" + types.AddKeyToken(hwComponent.Name, "name")
+    hwComponent.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/portses/ports/hw-components/" + hwComponent.EntityData.SegmentPath
     hwComponent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hwComponent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hwComponent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4190,6 +4300,7 @@ func (sensors *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_
     sensors.EntityData.BundleName = "cisco_ios_xr"
     sensors.EntityData.ParentYangName = "hw-component"
     sensors.EntityData.SegmentPath = "sensors"
+    sensors.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/portses/ports/hw-components/hw-component/" + sensors.EntityData.SegmentPath
     sensors.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sensors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sensors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4211,6 +4322,7 @@ func (sensors *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_
 type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_HwComponents_HwComponent_Sensors_Sensor struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Sensor name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -4226,6 +4338,7 @@ func (sensor *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_H
     sensor.EntityData.BundleName = "cisco_ios_xr"
     sensor.EntityData.ParentYangName = "sensors"
     sensor.EntityData.SegmentPath = "sensor" + types.AddKeyToken(sensor.Name, "name")
+    sensor.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/portses/ports/hw-components/hw-component/sensors/" + sensor.EntityData.SegmentPath
     sensor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sensor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sensor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4259,6 +4372,7 @@ func (attributes *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Por
     attributes.EntityData.BundleName = "cisco_ios_xr"
     attributes.EntityData.ParentYangName = "sensor"
     attributes.EntityData.SegmentPath = "attributes"
+    attributes.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/portses/ports/hw-components/hw-component/sensors/sensor/" + attributes.EntityData.SegmentPath
     attributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     attributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4282,8 +4396,8 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_HwComponen
     // name string for the entity. The type is string with length: 0..255.
     Name interface{}
 
-    // describes in user-readable terms                 what the entity in
-    // question does. The type is string with length: 0..255.
+    // describes in user-readable terms what the entity in question does. The type
+    // is string with length: 0..255.
     Description interface{}
 
     // model name. The type is string with length: 0..255.
@@ -4314,6 +4428,7 @@ func (basicInfo *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Port
     basicInfo.EntityData.BundleName = "cisco_ios_xr"
     basicInfo.EntityData.ParentYangName = "attributes"
     basicInfo.EntityData.SegmentPath = "basic-info"
+    basicInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/portses/ports/hw-components/hw-component/sensors/sensor/attributes/" + basicInfo.EntityData.SegmentPath
     basicInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     basicInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     basicInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4369,6 +4484,7 @@ func (fruInfo *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_
     fruInfo.EntityData.BundleName = "cisco_ios_xr"
     fruInfo.EntityData.ParentYangName = "attributes"
     fruInfo.EntityData.SegmentPath = "fru-info"
+    fruInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/portses/ports/hw-components/hw-component/sensors/sensor/attributes/" + fruInfo.EntityData.SegmentPath
     fruInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fruInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fruInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4409,6 +4525,7 @@ func (lastOperationalStateChange *PlatformInventory_Racks_Rack_Slots_Slot_Cards_
     lastOperationalStateChange.EntityData.BundleName = "cisco_ios_xr"
     lastOperationalStateChange.EntityData.ParentYangName = "fru-info"
     lastOperationalStateChange.EntityData.SegmentPath = "last-operational-state-change"
+    lastOperationalStateChange.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/portses/ports/hw-components/hw-component/sensors/sensor/attributes/fru-info/" + lastOperationalStateChange.EntityData.SegmentPath
     lastOperationalStateChange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastOperationalStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastOperationalStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4444,6 +4561,7 @@ func (moduleUpTime *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_P
     moduleUpTime.EntityData.BundleName = "cisco_ios_xr"
     moduleUpTime.EntityData.ParentYangName = "fru-info"
     moduleUpTime.EntityData.SegmentPath = "module-up-time"
+    moduleUpTime.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/portses/ports/hw-components/hw-component/sensors/sensor/attributes/fru-info/" + moduleUpTime.EntityData.SegmentPath
     moduleUpTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     moduleUpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     moduleUpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4477,6 +4595,7 @@ func (attributes *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Por
     attributes.EntityData.BundleName = "cisco_ios_xr"
     attributes.EntityData.ParentYangName = "hw-component"
     attributes.EntityData.SegmentPath = "attributes"
+    attributes.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/portses/ports/hw-components/hw-component/" + attributes.EntityData.SegmentPath
     attributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     attributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4500,8 +4619,8 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_HwComponen
     // name string for the entity. The type is string with length: 0..255.
     Name interface{}
 
-    // describes in user-readable terms                 what the entity in
-    // question does. The type is string with length: 0..255.
+    // describes in user-readable terms what the entity in question does. The type
+    // is string with length: 0..255.
     Description interface{}
 
     // model name. The type is string with length: 0..255.
@@ -4532,6 +4651,7 @@ func (basicInfo *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Port
     basicInfo.EntityData.BundleName = "cisco_ios_xr"
     basicInfo.EntityData.ParentYangName = "attributes"
     basicInfo.EntityData.SegmentPath = "basic-info"
+    basicInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/portses/ports/hw-components/hw-component/attributes/" + basicInfo.EntityData.SegmentPath
     basicInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     basicInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     basicInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4587,6 +4707,7 @@ func (fruInfo *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_
     fruInfo.EntityData.BundleName = "cisco_ios_xr"
     fruInfo.EntityData.ParentYangName = "attributes"
     fruInfo.EntityData.SegmentPath = "fru-info"
+    fruInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/portses/ports/hw-components/hw-component/attributes/" + fruInfo.EntityData.SegmentPath
     fruInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fruInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fruInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4627,6 +4748,7 @@ func (lastOperationalStateChange *PlatformInventory_Racks_Rack_Slots_Slot_Cards_
     lastOperationalStateChange.EntityData.BundleName = "cisco_ios_xr"
     lastOperationalStateChange.EntityData.ParentYangName = "fru-info"
     lastOperationalStateChange.EntityData.SegmentPath = "last-operational-state-change"
+    lastOperationalStateChange.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/portses/ports/hw-components/hw-component/attributes/fru-info/" + lastOperationalStateChange.EntityData.SegmentPath
     lastOperationalStateChange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastOperationalStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastOperationalStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4662,6 +4784,7 @@ func (moduleUpTime *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_P
     moduleUpTime.EntityData.BundleName = "cisco_ios_xr"
     moduleUpTime.EntityData.ParentYangName = "fru-info"
     moduleUpTime.EntityData.SegmentPath = "module-up-time"
+    moduleUpTime.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/portses/ports/hw-components/hw-component/attributes/fru-info/" + moduleUpTime.EntityData.SegmentPath
     moduleUpTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     moduleUpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     moduleUpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4693,6 +4816,7 @@ func (sensors *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_
     sensors.EntityData.BundleName = "cisco_ios_xr"
     sensors.EntityData.ParentYangName = "ports"
     sensors.EntityData.SegmentPath = "sensors"
+    sensors.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/portses/ports/" + sensors.EntityData.SegmentPath
     sensors.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sensors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sensors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4714,6 +4838,7 @@ func (sensors *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_
 type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_Sensors_Sensor struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Sensor name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -4729,6 +4854,7 @@ func (sensor *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_S
     sensor.EntityData.BundleName = "cisco_ios_xr"
     sensor.EntityData.ParentYangName = "sensors"
     sensor.EntityData.SegmentPath = "sensor" + types.AddKeyToken(sensor.Name, "name")
+    sensor.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/portses/ports/sensors/" + sensor.EntityData.SegmentPath
     sensor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sensor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sensor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4762,6 +4888,7 @@ func (attributes *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Por
     attributes.EntityData.BundleName = "cisco_ios_xr"
     attributes.EntityData.ParentYangName = "sensor"
     attributes.EntityData.SegmentPath = "attributes"
+    attributes.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/portses/ports/sensors/sensor/" + attributes.EntityData.SegmentPath
     attributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     attributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4785,8 +4912,8 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_Sensors_Se
     // name string for the entity. The type is string with length: 0..255.
     Name interface{}
 
-    // describes in user-readable terms                 what the entity in
-    // question does. The type is string with length: 0..255.
+    // describes in user-readable terms what the entity in question does. The type
+    // is string with length: 0..255.
     Description interface{}
 
     // model name. The type is string with length: 0..255.
@@ -4817,6 +4944,7 @@ func (basicInfo *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Port
     basicInfo.EntityData.BundleName = "cisco_ios_xr"
     basicInfo.EntityData.ParentYangName = "attributes"
     basicInfo.EntityData.SegmentPath = "basic-info"
+    basicInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/portses/ports/sensors/sensor/attributes/" + basicInfo.EntityData.SegmentPath
     basicInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     basicInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     basicInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4872,6 +5000,7 @@ func (fruInfo *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_
     fruInfo.EntityData.BundleName = "cisco_ios_xr"
     fruInfo.EntityData.ParentYangName = "attributes"
     fruInfo.EntityData.SegmentPath = "fru-info"
+    fruInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/portses/ports/sensors/sensor/attributes/" + fruInfo.EntityData.SegmentPath
     fruInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fruInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fruInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4912,6 +5041,7 @@ func (lastOperationalStateChange *PlatformInventory_Racks_Rack_Slots_Slot_Cards_
     lastOperationalStateChange.EntityData.BundleName = "cisco_ios_xr"
     lastOperationalStateChange.EntityData.ParentYangName = "fru-info"
     lastOperationalStateChange.EntityData.SegmentPath = "last-operational-state-change"
+    lastOperationalStateChange.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/portses/ports/sensors/sensor/attributes/fru-info/" + lastOperationalStateChange.EntityData.SegmentPath
     lastOperationalStateChange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastOperationalStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastOperationalStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4947,6 +5077,7 @@ func (moduleUpTime *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_P
     moduleUpTime.EntityData.BundleName = "cisco_ios_xr"
     moduleUpTime.EntityData.ParentYangName = "fru-info"
     moduleUpTime.EntityData.SegmentPath = "module-up-time"
+    moduleUpTime.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/portses/ports/sensors/sensor/attributes/fru-info/" + moduleUpTime.EntityData.SegmentPath
     moduleUpTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     moduleUpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     moduleUpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4980,6 +5111,7 @@ func (attributes *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Por
     attributes.EntityData.BundleName = "cisco_ios_xr"
     attributes.EntityData.ParentYangName = "ports"
     attributes.EntityData.SegmentPath = "attributes"
+    attributes.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/portses/ports/" + attributes.EntityData.SegmentPath
     attributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     attributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5003,8 +5135,8 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_Attributes
     // name string for the entity. The type is string with length: 0..255.
     Name interface{}
 
-    // describes in user-readable terms                 what the entity in
-    // question does. The type is string with length: 0..255.
+    // describes in user-readable terms what the entity in question does. The type
+    // is string with length: 0..255.
     Description interface{}
 
     // model name. The type is string with length: 0..255.
@@ -5035,6 +5167,7 @@ func (basicInfo *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Port
     basicInfo.EntityData.BundleName = "cisco_ios_xr"
     basicInfo.EntityData.ParentYangName = "attributes"
     basicInfo.EntityData.SegmentPath = "basic-info"
+    basicInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/portses/ports/attributes/" + basicInfo.EntityData.SegmentPath
     basicInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     basicInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     basicInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5090,6 +5223,7 @@ func (fruInfo *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_Ports_
     fruInfo.EntityData.BundleName = "cisco_ios_xr"
     fruInfo.EntityData.ParentYangName = "attributes"
     fruInfo.EntityData.SegmentPath = "fru-info"
+    fruInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/portses/ports/attributes/" + fruInfo.EntityData.SegmentPath
     fruInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fruInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fruInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5130,6 +5264,7 @@ func (lastOperationalStateChange *PlatformInventory_Racks_Rack_Slots_Slot_Cards_
     lastOperationalStateChange.EntityData.BundleName = "cisco_ios_xr"
     lastOperationalStateChange.EntityData.ParentYangName = "fru-info"
     lastOperationalStateChange.EntityData.SegmentPath = "last-operational-state-change"
+    lastOperationalStateChange.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/portses/ports/attributes/fru-info/" + lastOperationalStateChange.EntityData.SegmentPath
     lastOperationalStateChange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastOperationalStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastOperationalStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5165,6 +5300,7 @@ func (moduleUpTime *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Portses_P
     moduleUpTime.EntityData.BundleName = "cisco_ios_xr"
     moduleUpTime.EntityData.ParentYangName = "fru-info"
     moduleUpTime.EntityData.SegmentPath = "module-up-time"
+    moduleUpTime.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/portses/ports/attributes/fru-info/" + moduleUpTime.EntityData.SegmentPath
     moduleUpTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     moduleUpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     moduleUpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5196,6 +5332,7 @@ func (portSlots *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots) G
     portSlots.EntityData.BundleName = "cisco_ios_xr"
     portSlots.EntityData.ParentYangName = "card"
     portSlots.EntityData.SegmentPath = "port-slots"
+    portSlots.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/" + portSlots.EntityData.SegmentPath
     portSlots.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     portSlots.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     portSlots.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5217,6 +5354,7 @@ func (portSlots *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots) G
 type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Port slot name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -5238,6 +5376,7 @@ func (portSlot *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_Por
     portSlot.EntityData.BundleName = "cisco_ios_xr"
     portSlot.EntityData.ParentYangName = "port-slots"
     portSlot.EntityData.SegmentPath = "port-slot" + types.AddKeyToken(portSlot.Name, "name")
+    portSlot.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/port-slots/" + portSlot.EntityData.SegmentPath
     portSlot.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     portSlot.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     portSlot.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5271,6 +5410,7 @@ func (portses *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_Port
     portses.EntityData.BundleName = "cisco_ios_xr"
     portses.EntityData.ParentYangName = "port-slot"
     portses.EntityData.SegmentPath = "portses"
+    portses.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/port-slots/port-slot/" + portses.EntityData.SegmentPath
     portses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     portses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     portses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5292,6 +5432,7 @@ func (portses *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_Port
 type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Portses_Ports struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Port name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -5313,6 +5454,7 @@ func (ports *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSl
     ports.EntityData.BundleName = "cisco_ios_xr"
     ports.EntityData.ParentYangName = "portses"
     ports.EntityData.SegmentPath = "ports" + types.AddKeyToken(ports.Name, "name")
+    ports.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/port-slots/port-slot/portses/" + ports.EntityData.SegmentPath
     ports.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ports.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ports.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5346,6 +5488,7 @@ func (hwComponents *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots
     hwComponents.EntityData.BundleName = "cisco_ios_xr"
     hwComponents.EntityData.ParentYangName = "ports"
     hwComponents.EntityData.SegmentPath = "hw-components"
+    hwComponents.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/port-slots/port-slot/portses/ports/" + hwComponents.EntityData.SegmentPath
     hwComponents.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hwComponents.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hwComponents.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5367,6 +5510,7 @@ func (hwComponents *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots
 type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Portses_Ports_HwComponents_HwComponent struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. HW component name. The type is string with
     // pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -5385,6 +5529,7 @@ func (hwComponent *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_
     hwComponent.EntityData.BundleName = "cisco_ios_xr"
     hwComponent.EntityData.ParentYangName = "hw-components"
     hwComponent.EntityData.SegmentPath = "hw-component" + types.AddKeyToken(hwComponent.Name, "name")
+    hwComponent.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/port-slots/port-slot/portses/ports/hw-components/" + hwComponent.EntityData.SegmentPath
     hwComponent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hwComponent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hwComponent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5417,6 +5562,7 @@ func (sensors *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_Port
     sensors.EntityData.BundleName = "cisco_ios_xr"
     sensors.EntityData.ParentYangName = "hw-component"
     sensors.EntityData.SegmentPath = "sensors"
+    sensors.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/port-slots/port-slot/portses/ports/hw-components/hw-component/" + sensors.EntityData.SegmentPath
     sensors.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sensors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sensors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5438,6 +5584,7 @@ func (sensors *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_Port
 type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Portses_Ports_HwComponents_HwComponent_Sensors_Sensor struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Sensor name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -5453,6 +5600,7 @@ func (sensor *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortS
     sensor.EntityData.BundleName = "cisco_ios_xr"
     sensor.EntityData.ParentYangName = "sensors"
     sensor.EntityData.SegmentPath = "sensor" + types.AddKeyToken(sensor.Name, "name")
+    sensor.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/port-slots/port-slot/portses/ports/hw-components/hw-component/sensors/" + sensor.EntityData.SegmentPath
     sensor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sensor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sensor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5486,6 +5634,7 @@ func (attributes *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_P
     attributes.EntityData.BundleName = "cisco_ios_xr"
     attributes.EntityData.ParentYangName = "sensor"
     attributes.EntityData.SegmentPath = "attributes"
+    attributes.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/port-slots/port-slot/portses/ports/hw-components/hw-component/sensors/sensor/" + attributes.EntityData.SegmentPath
     attributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     attributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5509,8 +5658,8 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Ports
     // name string for the entity. The type is string with length: 0..255.
     Name interface{}
 
-    // describes in user-readable terms                 what the entity in
-    // question does. The type is string with length: 0..255.
+    // describes in user-readable terms what the entity in question does. The type
+    // is string with length: 0..255.
     Description interface{}
 
     // model name. The type is string with length: 0..255.
@@ -5541,6 +5690,7 @@ func (basicInfo *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_Po
     basicInfo.EntityData.BundleName = "cisco_ios_xr"
     basicInfo.EntityData.ParentYangName = "attributes"
     basicInfo.EntityData.SegmentPath = "basic-info"
+    basicInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/port-slots/port-slot/portses/ports/hw-components/hw-component/sensors/sensor/attributes/" + basicInfo.EntityData.SegmentPath
     basicInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     basicInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     basicInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5596,6 +5746,7 @@ func (fruInfo *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_Port
     fruInfo.EntityData.BundleName = "cisco_ios_xr"
     fruInfo.EntityData.ParentYangName = "attributes"
     fruInfo.EntityData.SegmentPath = "fru-info"
+    fruInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/port-slots/port-slot/portses/ports/hw-components/hw-component/sensors/sensor/attributes/" + fruInfo.EntityData.SegmentPath
     fruInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fruInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fruInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5636,6 +5787,7 @@ func (lastOperationalStateChange *PlatformInventory_Racks_Rack_Slots_Slot_Cards_
     lastOperationalStateChange.EntityData.BundleName = "cisco_ios_xr"
     lastOperationalStateChange.EntityData.ParentYangName = "fru-info"
     lastOperationalStateChange.EntityData.SegmentPath = "last-operational-state-change"
+    lastOperationalStateChange.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/port-slots/port-slot/portses/ports/hw-components/hw-component/sensors/sensor/attributes/fru-info/" + lastOperationalStateChange.EntityData.SegmentPath
     lastOperationalStateChange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastOperationalStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastOperationalStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5671,6 +5823,7 @@ func (moduleUpTime *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots
     moduleUpTime.EntityData.BundleName = "cisco_ios_xr"
     moduleUpTime.EntityData.ParentYangName = "fru-info"
     moduleUpTime.EntityData.SegmentPath = "module-up-time"
+    moduleUpTime.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/port-slots/port-slot/portses/ports/hw-components/hw-component/sensors/sensor/attributes/fru-info/" + moduleUpTime.EntityData.SegmentPath
     moduleUpTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     moduleUpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     moduleUpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5704,6 +5857,7 @@ func (attributes *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_P
     attributes.EntityData.BundleName = "cisco_ios_xr"
     attributes.EntityData.ParentYangName = "hw-component"
     attributes.EntityData.SegmentPath = "attributes"
+    attributes.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/port-slots/port-slot/portses/ports/hw-components/hw-component/" + attributes.EntityData.SegmentPath
     attributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     attributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5727,8 +5881,8 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Ports
     // name string for the entity. The type is string with length: 0..255.
     Name interface{}
 
-    // describes in user-readable terms                 what the entity in
-    // question does. The type is string with length: 0..255.
+    // describes in user-readable terms what the entity in question does. The type
+    // is string with length: 0..255.
     Description interface{}
 
     // model name. The type is string with length: 0..255.
@@ -5759,6 +5913,7 @@ func (basicInfo *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_Po
     basicInfo.EntityData.BundleName = "cisco_ios_xr"
     basicInfo.EntityData.ParentYangName = "attributes"
     basicInfo.EntityData.SegmentPath = "basic-info"
+    basicInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/port-slots/port-slot/portses/ports/hw-components/hw-component/attributes/" + basicInfo.EntityData.SegmentPath
     basicInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     basicInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     basicInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5814,6 +5969,7 @@ func (fruInfo *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_Port
     fruInfo.EntityData.BundleName = "cisco_ios_xr"
     fruInfo.EntityData.ParentYangName = "attributes"
     fruInfo.EntityData.SegmentPath = "fru-info"
+    fruInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/port-slots/port-slot/portses/ports/hw-components/hw-component/attributes/" + fruInfo.EntityData.SegmentPath
     fruInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fruInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fruInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5854,6 +6010,7 @@ func (lastOperationalStateChange *PlatformInventory_Racks_Rack_Slots_Slot_Cards_
     lastOperationalStateChange.EntityData.BundleName = "cisco_ios_xr"
     lastOperationalStateChange.EntityData.ParentYangName = "fru-info"
     lastOperationalStateChange.EntityData.SegmentPath = "last-operational-state-change"
+    lastOperationalStateChange.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/port-slots/port-slot/portses/ports/hw-components/hw-component/attributes/fru-info/" + lastOperationalStateChange.EntityData.SegmentPath
     lastOperationalStateChange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastOperationalStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastOperationalStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5889,6 +6046,7 @@ func (moduleUpTime *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots
     moduleUpTime.EntityData.BundleName = "cisco_ios_xr"
     moduleUpTime.EntityData.ParentYangName = "fru-info"
     moduleUpTime.EntityData.SegmentPath = "module-up-time"
+    moduleUpTime.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/port-slots/port-slot/portses/ports/hw-components/hw-component/attributes/fru-info/" + moduleUpTime.EntityData.SegmentPath
     moduleUpTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     moduleUpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     moduleUpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5920,6 +6078,7 @@ func (sensors *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_Port
     sensors.EntityData.BundleName = "cisco_ios_xr"
     sensors.EntityData.ParentYangName = "ports"
     sensors.EntityData.SegmentPath = "sensors"
+    sensors.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/port-slots/port-slot/portses/ports/" + sensors.EntityData.SegmentPath
     sensors.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sensors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sensors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5941,6 +6100,7 @@ func (sensors *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_Port
 type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Portses_Ports_Sensors_Sensor struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Sensor name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -5956,6 +6116,7 @@ func (sensor *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortS
     sensor.EntityData.BundleName = "cisco_ios_xr"
     sensor.EntityData.ParentYangName = "sensors"
     sensor.EntityData.SegmentPath = "sensor" + types.AddKeyToken(sensor.Name, "name")
+    sensor.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/port-slots/port-slot/portses/ports/sensors/" + sensor.EntityData.SegmentPath
     sensor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sensor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sensor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5989,6 +6150,7 @@ func (attributes *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_P
     attributes.EntityData.BundleName = "cisco_ios_xr"
     attributes.EntityData.ParentYangName = "sensor"
     attributes.EntityData.SegmentPath = "attributes"
+    attributes.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/port-slots/port-slot/portses/ports/sensors/sensor/" + attributes.EntityData.SegmentPath
     attributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     attributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6012,8 +6174,8 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Ports
     // name string for the entity. The type is string with length: 0..255.
     Name interface{}
 
-    // describes in user-readable terms                 what the entity in
-    // question does. The type is string with length: 0..255.
+    // describes in user-readable terms what the entity in question does. The type
+    // is string with length: 0..255.
     Description interface{}
 
     // model name. The type is string with length: 0..255.
@@ -6044,6 +6206,7 @@ func (basicInfo *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_Po
     basicInfo.EntityData.BundleName = "cisco_ios_xr"
     basicInfo.EntityData.ParentYangName = "attributes"
     basicInfo.EntityData.SegmentPath = "basic-info"
+    basicInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/port-slots/port-slot/portses/ports/sensors/sensor/attributes/" + basicInfo.EntityData.SegmentPath
     basicInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     basicInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     basicInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6099,6 +6262,7 @@ func (fruInfo *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_Port
     fruInfo.EntityData.BundleName = "cisco_ios_xr"
     fruInfo.EntityData.ParentYangName = "attributes"
     fruInfo.EntityData.SegmentPath = "fru-info"
+    fruInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/port-slots/port-slot/portses/ports/sensors/sensor/attributes/" + fruInfo.EntityData.SegmentPath
     fruInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fruInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fruInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6139,6 +6303,7 @@ func (lastOperationalStateChange *PlatformInventory_Racks_Rack_Slots_Slot_Cards_
     lastOperationalStateChange.EntityData.BundleName = "cisco_ios_xr"
     lastOperationalStateChange.EntityData.ParentYangName = "fru-info"
     lastOperationalStateChange.EntityData.SegmentPath = "last-operational-state-change"
+    lastOperationalStateChange.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/port-slots/port-slot/portses/ports/sensors/sensor/attributes/fru-info/" + lastOperationalStateChange.EntityData.SegmentPath
     lastOperationalStateChange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastOperationalStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastOperationalStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6174,6 +6339,7 @@ func (moduleUpTime *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots
     moduleUpTime.EntityData.BundleName = "cisco_ios_xr"
     moduleUpTime.EntityData.ParentYangName = "fru-info"
     moduleUpTime.EntityData.SegmentPath = "module-up-time"
+    moduleUpTime.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/port-slots/port-slot/portses/ports/sensors/sensor/attributes/fru-info/" + moduleUpTime.EntityData.SegmentPath
     moduleUpTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     moduleUpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     moduleUpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6207,6 +6373,7 @@ func (attributes *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_P
     attributes.EntityData.BundleName = "cisco_ios_xr"
     attributes.EntityData.ParentYangName = "ports"
     attributes.EntityData.SegmentPath = "attributes"
+    attributes.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/port-slots/port-slot/portses/ports/" + attributes.EntityData.SegmentPath
     attributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     attributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6230,8 +6397,8 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Ports
     // name string for the entity. The type is string with length: 0..255.
     Name interface{}
 
-    // describes in user-readable terms                 what the entity in
-    // question does. The type is string with length: 0..255.
+    // describes in user-readable terms what the entity in question does. The type
+    // is string with length: 0..255.
     Description interface{}
 
     // model name. The type is string with length: 0..255.
@@ -6262,6 +6429,7 @@ func (basicInfo *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_Po
     basicInfo.EntityData.BundleName = "cisco_ios_xr"
     basicInfo.EntityData.ParentYangName = "attributes"
     basicInfo.EntityData.SegmentPath = "basic-info"
+    basicInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/port-slots/port-slot/portses/ports/attributes/" + basicInfo.EntityData.SegmentPath
     basicInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     basicInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     basicInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6317,6 +6485,7 @@ func (fruInfo *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_Port
     fruInfo.EntityData.BundleName = "cisco_ios_xr"
     fruInfo.EntityData.ParentYangName = "attributes"
     fruInfo.EntityData.SegmentPath = "fru-info"
+    fruInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/port-slots/port-slot/portses/ports/attributes/" + fruInfo.EntityData.SegmentPath
     fruInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fruInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fruInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6357,6 +6526,7 @@ func (lastOperationalStateChange *PlatformInventory_Racks_Rack_Slots_Slot_Cards_
     lastOperationalStateChange.EntityData.BundleName = "cisco_ios_xr"
     lastOperationalStateChange.EntityData.ParentYangName = "fru-info"
     lastOperationalStateChange.EntityData.SegmentPath = "last-operational-state-change"
+    lastOperationalStateChange.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/port-slots/port-slot/portses/ports/attributes/fru-info/" + lastOperationalStateChange.EntityData.SegmentPath
     lastOperationalStateChange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastOperationalStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastOperationalStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6392,6 +6562,7 @@ func (moduleUpTime *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots
     moduleUpTime.EntityData.BundleName = "cisco_ios_xr"
     moduleUpTime.EntityData.ParentYangName = "fru-info"
     moduleUpTime.EntityData.SegmentPath = "module-up-time"
+    moduleUpTime.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/port-slots/port-slot/portses/ports/attributes/fru-info/" + moduleUpTime.EntityData.SegmentPath
     moduleUpTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     moduleUpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     moduleUpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6423,6 +6594,7 @@ func (sensors *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_Port
     sensors.EntityData.BundleName = "cisco_ios_xr"
     sensors.EntityData.ParentYangName = "port-slot"
     sensors.EntityData.SegmentPath = "sensors"
+    sensors.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/port-slots/port-slot/" + sensors.EntityData.SegmentPath
     sensors.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sensors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sensors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6444,6 +6616,7 @@ func (sensors *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_Port
 type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Sensors_Sensor struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Sensor name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -6459,6 +6632,7 @@ func (sensor *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortS
     sensor.EntityData.BundleName = "cisco_ios_xr"
     sensor.EntityData.ParentYangName = "sensors"
     sensor.EntityData.SegmentPath = "sensor" + types.AddKeyToken(sensor.Name, "name")
+    sensor.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/port-slots/port-slot/sensors/" + sensor.EntityData.SegmentPath
     sensor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sensor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sensor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6492,6 +6666,7 @@ func (attributes *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_P
     attributes.EntityData.BundleName = "cisco_ios_xr"
     attributes.EntityData.ParentYangName = "sensor"
     attributes.EntityData.SegmentPath = "attributes"
+    attributes.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/port-slots/port-slot/sensors/sensor/" + attributes.EntityData.SegmentPath
     attributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     attributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6515,8 +6690,8 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Senso
     // name string for the entity. The type is string with length: 0..255.
     Name interface{}
 
-    // describes in user-readable terms                 what the entity in
-    // question does. The type is string with length: 0..255.
+    // describes in user-readable terms what the entity in question does. The type
+    // is string with length: 0..255.
     Description interface{}
 
     // model name. The type is string with length: 0..255.
@@ -6547,6 +6722,7 @@ func (basicInfo *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_Po
     basicInfo.EntityData.BundleName = "cisco_ios_xr"
     basicInfo.EntityData.ParentYangName = "attributes"
     basicInfo.EntityData.SegmentPath = "basic-info"
+    basicInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/port-slots/port-slot/sensors/sensor/attributes/" + basicInfo.EntityData.SegmentPath
     basicInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     basicInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     basicInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6602,6 +6778,7 @@ func (fruInfo *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_Port
     fruInfo.EntityData.BundleName = "cisco_ios_xr"
     fruInfo.EntityData.ParentYangName = "attributes"
     fruInfo.EntityData.SegmentPath = "fru-info"
+    fruInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/port-slots/port-slot/sensors/sensor/attributes/" + fruInfo.EntityData.SegmentPath
     fruInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fruInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fruInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6642,6 +6819,7 @@ func (lastOperationalStateChange *PlatformInventory_Racks_Rack_Slots_Slot_Cards_
     lastOperationalStateChange.EntityData.BundleName = "cisco_ios_xr"
     lastOperationalStateChange.EntityData.ParentYangName = "fru-info"
     lastOperationalStateChange.EntityData.SegmentPath = "last-operational-state-change"
+    lastOperationalStateChange.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/port-slots/port-slot/sensors/sensor/attributes/fru-info/" + lastOperationalStateChange.EntityData.SegmentPath
     lastOperationalStateChange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastOperationalStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastOperationalStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6677,6 +6855,7 @@ func (moduleUpTime *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots
     moduleUpTime.EntityData.BundleName = "cisco_ios_xr"
     moduleUpTime.EntityData.ParentYangName = "fru-info"
     moduleUpTime.EntityData.SegmentPath = "module-up-time"
+    moduleUpTime.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/port-slots/port-slot/sensors/sensor/attributes/fru-info/" + moduleUpTime.EntityData.SegmentPath
     moduleUpTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     moduleUpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     moduleUpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6710,6 +6889,7 @@ func (attributes *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_P
     attributes.EntityData.BundleName = "cisco_ios_xr"
     attributes.EntityData.ParentYangName = "port-slot"
     attributes.EntityData.SegmentPath = "attributes"
+    attributes.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/port-slots/port-slot/" + attributes.EntityData.SegmentPath
     attributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     attributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6733,8 +6913,8 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Attri
     // name string for the entity. The type is string with length: 0..255.
     Name interface{}
 
-    // describes in user-readable terms                 what the entity in
-    // question does. The type is string with length: 0..255.
+    // describes in user-readable terms what the entity in question does. The type
+    // is string with length: 0..255.
     Description interface{}
 
     // model name. The type is string with length: 0..255.
@@ -6765,6 +6945,7 @@ func (basicInfo *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_Po
     basicInfo.EntityData.BundleName = "cisco_ios_xr"
     basicInfo.EntityData.ParentYangName = "attributes"
     basicInfo.EntityData.SegmentPath = "basic-info"
+    basicInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/port-slots/port-slot/attributes/" + basicInfo.EntityData.SegmentPath
     basicInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     basicInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     basicInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6820,6 +7001,7 @@ func (fruInfo *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_Port
     fruInfo.EntityData.BundleName = "cisco_ios_xr"
     fruInfo.EntityData.ParentYangName = "attributes"
     fruInfo.EntityData.SegmentPath = "fru-info"
+    fruInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/port-slots/port-slot/attributes/" + fruInfo.EntityData.SegmentPath
     fruInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fruInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fruInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6860,6 +7042,7 @@ func (lastOperationalStateChange *PlatformInventory_Racks_Rack_Slots_Slot_Cards_
     lastOperationalStateChange.EntityData.BundleName = "cisco_ios_xr"
     lastOperationalStateChange.EntityData.ParentYangName = "fru-info"
     lastOperationalStateChange.EntityData.SegmentPath = "last-operational-state-change"
+    lastOperationalStateChange.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/port-slots/port-slot/attributes/fru-info/" + lastOperationalStateChange.EntityData.SegmentPath
     lastOperationalStateChange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastOperationalStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastOperationalStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6895,6 +7078,7 @@ func (moduleUpTime *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots
     moduleUpTime.EntityData.BundleName = "cisco_ios_xr"
     moduleUpTime.EntityData.ParentYangName = "fru-info"
     moduleUpTime.EntityData.SegmentPath = "module-up-time"
+    moduleUpTime.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/port-slots/port-slot/attributes/fru-info/" + moduleUpTime.EntityData.SegmentPath
     moduleUpTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     moduleUpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     moduleUpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6926,6 +7110,7 @@ func (hwComponents *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_HwCompone
     hwComponents.EntityData.BundleName = "cisco_ios_xr"
     hwComponents.EntityData.ParentYangName = "card"
     hwComponents.EntityData.SegmentPath = "hw-components"
+    hwComponents.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/" + hwComponents.EntityData.SegmentPath
     hwComponents.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hwComponents.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hwComponents.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6947,6 +7132,7 @@ func (hwComponents *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_HwCompone
 type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. HW component name. The type is string with
     // pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -6965,6 +7151,7 @@ func (hwComponent *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponen
     hwComponent.EntityData.BundleName = "cisco_ios_xr"
     hwComponent.EntityData.ParentYangName = "hw-components"
     hwComponent.EntityData.SegmentPath = "hw-component" + types.AddKeyToken(hwComponent.Name, "name")
+    hwComponent.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/hw-components/" + hwComponent.EntityData.SegmentPath
     hwComponent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hwComponent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hwComponent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6997,6 +7184,7 @@ func (sensors *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_H
     sensors.EntityData.BundleName = "cisco_ios_xr"
     sensors.EntityData.ParentYangName = "hw-component"
     sensors.EntityData.SegmentPath = "sensors"
+    sensors.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/hw-components/hw-component/" + sensors.EntityData.SegmentPath
     sensors.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sensors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sensors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7018,6 +7206,7 @@ func (sensors *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_H
 type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Sensor name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -7033,6 +7222,7 @@ func (sensor *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_Hw
     sensor.EntityData.BundleName = "cisco_ios_xr"
     sensor.EntityData.ParentYangName = "sensors"
     sensor.EntityData.SegmentPath = "sensor" + types.AddKeyToken(sensor.Name, "name")
+    sensor.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/hw-components/hw-component/sensors/" + sensor.EntityData.SegmentPath
     sensor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sensor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sensor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7066,6 +7256,7 @@ func (attributes *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponent
     attributes.EntityData.BundleName = "cisco_ios_xr"
     attributes.EntityData.ParentYangName = "sensor"
     attributes.EntityData.SegmentPath = "attributes"
+    attributes.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/hw-components/hw-component/sensors/sensor/" + attributes.EntityData.SegmentPath
     attributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     attributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7089,8 +7280,8 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent
     // name string for the entity. The type is string with length: 0..255.
     Name interface{}
 
-    // describes in user-readable terms                 what the entity in
-    // question does. The type is string with length: 0..255.
+    // describes in user-readable terms what the entity in question does. The type
+    // is string with length: 0..255.
     Description interface{}
 
     // model name. The type is string with length: 0..255.
@@ -7121,6 +7312,7 @@ func (basicInfo *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents
     basicInfo.EntityData.BundleName = "cisco_ios_xr"
     basicInfo.EntityData.ParentYangName = "attributes"
     basicInfo.EntityData.SegmentPath = "basic-info"
+    basicInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/hw-components/hw-component/sensors/sensor/attributes/" + basicInfo.EntityData.SegmentPath
     basicInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     basicInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     basicInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7176,6 +7368,7 @@ func (fruInfo *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_H
     fruInfo.EntityData.BundleName = "cisco_ios_xr"
     fruInfo.EntityData.ParentYangName = "attributes"
     fruInfo.EntityData.SegmentPath = "fru-info"
+    fruInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/hw-components/hw-component/sensors/sensor/attributes/" + fruInfo.EntityData.SegmentPath
     fruInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fruInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fruInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7216,6 +7409,7 @@ func (lastOperationalStateChange *PlatformInventory_Racks_Rack_Slots_Slot_Cards_
     lastOperationalStateChange.EntityData.BundleName = "cisco_ios_xr"
     lastOperationalStateChange.EntityData.ParentYangName = "fru-info"
     lastOperationalStateChange.EntityData.SegmentPath = "last-operational-state-change"
+    lastOperationalStateChange.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/hw-components/hw-component/sensors/sensor/attributes/fru-info/" + lastOperationalStateChange.EntityData.SegmentPath
     lastOperationalStateChange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastOperationalStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastOperationalStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7251,6 +7445,7 @@ func (moduleUpTime *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_HwCompone
     moduleUpTime.EntityData.BundleName = "cisco_ios_xr"
     moduleUpTime.EntityData.ParentYangName = "fru-info"
     moduleUpTime.EntityData.SegmentPath = "module-up-time"
+    moduleUpTime.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/hw-components/hw-component/sensors/sensor/attributes/fru-info/" + moduleUpTime.EntityData.SegmentPath
     moduleUpTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     moduleUpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     moduleUpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7284,6 +7479,7 @@ func (attributes *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponent
     attributes.EntityData.BundleName = "cisco_ios_xr"
     attributes.EntityData.ParentYangName = "hw-component"
     attributes.EntityData.SegmentPath = "attributes"
+    attributes.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/hw-components/hw-component/" + attributes.EntityData.SegmentPath
     attributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     attributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7307,8 +7503,8 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent
     // name string for the entity. The type is string with length: 0..255.
     Name interface{}
 
-    // describes in user-readable terms                 what the entity in
-    // question does. The type is string with length: 0..255.
+    // describes in user-readable terms what the entity in question does. The type
+    // is string with length: 0..255.
     Description interface{}
 
     // model name. The type is string with length: 0..255.
@@ -7339,6 +7535,7 @@ func (basicInfo *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents
     basicInfo.EntityData.BundleName = "cisco_ios_xr"
     basicInfo.EntityData.ParentYangName = "attributes"
     basicInfo.EntityData.SegmentPath = "basic-info"
+    basicInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/hw-components/hw-component/attributes/" + basicInfo.EntityData.SegmentPath
     basicInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     basicInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     basicInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7394,6 +7591,7 @@ func (fruInfo *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_H
     fruInfo.EntityData.BundleName = "cisco_ios_xr"
     fruInfo.EntityData.ParentYangName = "attributes"
     fruInfo.EntityData.SegmentPath = "fru-info"
+    fruInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/hw-components/hw-component/attributes/" + fruInfo.EntityData.SegmentPath
     fruInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fruInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fruInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7434,6 +7632,7 @@ func (lastOperationalStateChange *PlatformInventory_Racks_Rack_Slots_Slot_Cards_
     lastOperationalStateChange.EntityData.BundleName = "cisco_ios_xr"
     lastOperationalStateChange.EntityData.ParentYangName = "fru-info"
     lastOperationalStateChange.EntityData.SegmentPath = "last-operational-state-change"
+    lastOperationalStateChange.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/hw-components/hw-component/attributes/fru-info/" + lastOperationalStateChange.EntityData.SegmentPath
     lastOperationalStateChange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastOperationalStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastOperationalStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7469,6 +7668,7 @@ func (moduleUpTime *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_HwCompone
     moduleUpTime.EntityData.BundleName = "cisco_ios_xr"
     moduleUpTime.EntityData.ParentYangName = "fru-info"
     moduleUpTime.EntityData.SegmentPath = "module-up-time"
+    moduleUpTime.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/hw-components/hw-component/attributes/fru-info/" + moduleUpTime.EntityData.SegmentPath
     moduleUpTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     moduleUpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     moduleUpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7500,6 +7700,7 @@ func (sensors *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors) GetEn
     sensors.EntityData.BundleName = "cisco_ios_xr"
     sensors.EntityData.ParentYangName = "card"
     sensors.EntityData.SegmentPath = "sensors"
+    sensors.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/" + sensors.EntityData.SegmentPath
     sensors.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sensors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sensors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7521,6 +7722,7 @@ func (sensors *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors) GetEn
 type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Sensor name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -7536,6 +7738,7 @@ func (sensor *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor)
     sensor.EntityData.BundleName = "cisco_ios_xr"
     sensor.EntityData.ParentYangName = "sensors"
     sensor.EntityData.SegmentPath = "sensor" + types.AddKeyToken(sensor.Name, "name")
+    sensor.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/sensors/" + sensor.EntityData.SegmentPath
     sensor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sensor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sensor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7569,6 +7772,7 @@ func (attributes *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sen
     attributes.EntityData.BundleName = "cisco_ios_xr"
     attributes.EntityData.ParentYangName = "sensor"
     attributes.EntityData.SegmentPath = "attributes"
+    attributes.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/sensors/sensor/" + attributes.EntityData.SegmentPath
     attributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     attributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7592,8 +7796,8 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_Attribute
     // name string for the entity. The type is string with length: 0..255.
     Name interface{}
 
-    // describes in user-readable terms                 what the entity in
-    // question does. The type is string with length: 0..255.
+    // describes in user-readable terms what the entity in question does. The type
+    // is string with length: 0..255.
     Description interface{}
 
     // model name. The type is string with length: 0..255.
@@ -7624,6 +7828,7 @@ func (basicInfo *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sens
     basicInfo.EntityData.BundleName = "cisco_ios_xr"
     basicInfo.EntityData.ParentYangName = "attributes"
     basicInfo.EntityData.SegmentPath = "basic-info"
+    basicInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/sensors/sensor/attributes/" + basicInfo.EntityData.SegmentPath
     basicInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     basicInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     basicInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7679,6 +7884,7 @@ func (fruInfo *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor
     fruInfo.EntityData.BundleName = "cisco_ios_xr"
     fruInfo.EntityData.ParentYangName = "attributes"
     fruInfo.EntityData.SegmentPath = "fru-info"
+    fruInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/sensors/sensor/attributes/" + fruInfo.EntityData.SegmentPath
     fruInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fruInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fruInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7719,6 +7925,7 @@ func (lastOperationalStateChange *PlatformInventory_Racks_Rack_Slots_Slot_Cards_
     lastOperationalStateChange.EntityData.BundleName = "cisco_ios_xr"
     lastOperationalStateChange.EntityData.ParentYangName = "fru-info"
     lastOperationalStateChange.EntityData.SegmentPath = "last-operational-state-change"
+    lastOperationalStateChange.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/sensors/sensor/attributes/fru-info/" + lastOperationalStateChange.EntityData.SegmentPath
     lastOperationalStateChange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastOperationalStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastOperationalStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7754,6 +7961,7 @@ func (moduleUpTime *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_S
     moduleUpTime.EntityData.BundleName = "cisco_ios_xr"
     moduleUpTime.EntityData.ParentYangName = "fru-info"
     moduleUpTime.EntityData.SegmentPath = "module-up-time"
+    moduleUpTime.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/sensors/sensor/attributes/fru-info/" + moduleUpTime.EntityData.SegmentPath
     moduleUpTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     moduleUpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     moduleUpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7787,6 +7995,7 @@ func (attributes *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Attributes)
     attributes.EntityData.BundleName = "cisco_ios_xr"
     attributes.EntityData.ParentYangName = "card"
     attributes.EntityData.SegmentPath = "attributes"
+    attributes.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/" + attributes.EntityData.SegmentPath
     attributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     attributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7810,8 +8019,8 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Attributes_BasicInfo str
     // name string for the entity. The type is string with length: 0..255.
     Name interface{}
 
-    // describes in user-readable terms                 what the entity in
-    // question does. The type is string with length: 0..255.
+    // describes in user-readable terms what the entity in question does. The type
+    // is string with length: 0..255.
     Description interface{}
 
     // model name. The type is string with length: 0..255.
@@ -7842,6 +8051,7 @@ func (basicInfo *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Attributes_B
     basicInfo.EntityData.BundleName = "cisco_ios_xr"
     basicInfo.EntityData.ParentYangName = "attributes"
     basicInfo.EntityData.SegmentPath = "basic-info"
+    basicInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/attributes/" + basicInfo.EntityData.SegmentPath
     basicInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     basicInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     basicInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7897,6 +8107,7 @@ func (fruInfo *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Attributes_Fru
     fruInfo.EntityData.BundleName = "cisco_ios_xr"
     fruInfo.EntityData.ParentYangName = "attributes"
     fruInfo.EntityData.SegmentPath = "fru-info"
+    fruInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/attributes/" + fruInfo.EntityData.SegmentPath
     fruInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fruInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fruInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7937,6 +8148,7 @@ func (lastOperationalStateChange *PlatformInventory_Racks_Rack_Slots_Slot_Cards_
     lastOperationalStateChange.EntityData.BundleName = "cisco_ios_xr"
     lastOperationalStateChange.EntityData.ParentYangName = "fru-info"
     lastOperationalStateChange.EntityData.SegmentPath = "last-operational-state-change"
+    lastOperationalStateChange.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/attributes/fru-info/" + lastOperationalStateChange.EntityData.SegmentPath
     lastOperationalStateChange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastOperationalStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastOperationalStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7972,6 +8184,7 @@ func (moduleUpTime *PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Attribute
     moduleUpTime.EntityData.BundleName = "cisco_ios_xr"
     moduleUpTime.EntityData.ParentYangName = "fru-info"
     moduleUpTime.EntityData.SegmentPath = "module-up-time"
+    moduleUpTime.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/cards/card/attributes/fru-info/" + moduleUpTime.EntityData.SegmentPath
     moduleUpTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     moduleUpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     moduleUpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8005,6 +8218,7 @@ func (attributes *PlatformInventory_Racks_Rack_Slots_Slot_Attributes) GetEntityD
     attributes.EntityData.BundleName = "cisco_ios_xr"
     attributes.EntityData.ParentYangName = "slot"
     attributes.EntityData.SegmentPath = "attributes"
+    attributes.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/" + attributes.EntityData.SegmentPath
     attributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     attributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8028,8 +8242,8 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Attributes_BasicInfo struct {
     // name string for the entity. The type is string with length: 0..255.
     Name interface{}
 
-    // describes in user-readable terms                 what the entity in
-    // question does. The type is string with length: 0..255.
+    // describes in user-readable terms what the entity in question does. The type
+    // is string with length: 0..255.
     Description interface{}
 
     // model name. The type is string with length: 0..255.
@@ -8060,6 +8274,7 @@ func (basicInfo *PlatformInventory_Racks_Rack_Slots_Slot_Attributes_BasicInfo) G
     basicInfo.EntityData.BundleName = "cisco_ios_xr"
     basicInfo.EntityData.ParentYangName = "attributes"
     basicInfo.EntityData.SegmentPath = "basic-info"
+    basicInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/attributes/" + basicInfo.EntityData.SegmentPath
     basicInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     basicInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     basicInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8115,6 +8330,7 @@ func (fruInfo *PlatformInventory_Racks_Rack_Slots_Slot_Attributes_FruInfo) GetEn
     fruInfo.EntityData.BundleName = "cisco_ios_xr"
     fruInfo.EntityData.ParentYangName = "attributes"
     fruInfo.EntityData.SegmentPath = "fru-info"
+    fruInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/attributes/" + fruInfo.EntityData.SegmentPath
     fruInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fruInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fruInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8155,6 +8371,7 @@ func (lastOperationalStateChange *PlatformInventory_Racks_Rack_Slots_Slot_Attrib
     lastOperationalStateChange.EntityData.BundleName = "cisco_ios_xr"
     lastOperationalStateChange.EntityData.ParentYangName = "fru-info"
     lastOperationalStateChange.EntityData.SegmentPath = "last-operational-state-change"
+    lastOperationalStateChange.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/attributes/fru-info/" + lastOperationalStateChange.EntityData.SegmentPath
     lastOperationalStateChange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastOperationalStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastOperationalStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8190,6 +8407,7 @@ func (moduleUpTime *PlatformInventory_Racks_Rack_Slots_Slot_Attributes_FruInfo_M
     moduleUpTime.EntityData.BundleName = "cisco_ios_xr"
     moduleUpTime.EntityData.ParentYangName = "fru-info"
     moduleUpTime.EntityData.SegmentPath = "module-up-time"
+    moduleUpTime.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/slots/slot/attributes/fru-info/" + moduleUpTime.EntityData.SegmentPath
     moduleUpTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     moduleUpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     moduleUpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8223,6 +8441,7 @@ func (attributes *PlatformInventory_Racks_Rack_Attributes) GetEntityData() *type
     attributes.EntityData.BundleName = "cisco_ios_xr"
     attributes.EntityData.ParentYangName = "rack"
     attributes.EntityData.SegmentPath = "attributes"
+    attributes.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/" + attributes.EntityData.SegmentPath
     attributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     attributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8246,8 +8465,8 @@ type PlatformInventory_Racks_Rack_Attributes_BasicInfo struct {
     // name string for the entity. The type is string with length: 0..255.
     Name interface{}
 
-    // describes in user-readable terms                 what the entity in
-    // question does. The type is string with length: 0..255.
+    // describes in user-readable terms what the entity in question does. The type
+    // is string with length: 0..255.
     Description interface{}
 
     // model name. The type is string with length: 0..255.
@@ -8278,6 +8497,7 @@ func (basicInfo *PlatformInventory_Racks_Rack_Attributes_BasicInfo) GetEntityDat
     basicInfo.EntityData.BundleName = "cisco_ios_xr"
     basicInfo.EntityData.ParentYangName = "attributes"
     basicInfo.EntityData.SegmentPath = "basic-info"
+    basicInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/attributes/" + basicInfo.EntityData.SegmentPath
     basicInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     basicInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     basicInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8333,6 +8553,7 @@ func (fruInfo *PlatformInventory_Racks_Rack_Attributes_FruInfo) GetEntityData() 
     fruInfo.EntityData.BundleName = "cisco_ios_xr"
     fruInfo.EntityData.ParentYangName = "attributes"
     fruInfo.EntityData.SegmentPath = "fru-info"
+    fruInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/attributes/" + fruInfo.EntityData.SegmentPath
     fruInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fruInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fruInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8373,6 +8594,7 @@ func (lastOperationalStateChange *PlatformInventory_Racks_Rack_Attributes_FruInf
     lastOperationalStateChange.EntityData.BundleName = "cisco_ios_xr"
     lastOperationalStateChange.EntityData.ParentYangName = "fru-info"
     lastOperationalStateChange.EntityData.SegmentPath = "last-operational-state-change"
+    lastOperationalStateChange.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/attributes/fru-info/" + lastOperationalStateChange.EntityData.SegmentPath
     lastOperationalStateChange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastOperationalStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastOperationalStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8408,6 +8630,7 @@ func (moduleUpTime *PlatformInventory_Racks_Rack_Attributes_FruInfo_ModuleUpTime
     moduleUpTime.EntityData.BundleName = "cisco_ios_xr"
     moduleUpTime.EntityData.ParentYangName = "fru-info"
     moduleUpTime.EntityData.SegmentPath = "module-up-time"
+    moduleUpTime.EntityData.AbsolutePath = "Cisco-IOS-XR-plat-chas-invmgr-ng-oper:platform-inventory/racks/rack/attributes/fru-info/" + moduleUpTime.EntityData.SegmentPath
     moduleUpTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     moduleUpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     moduleUpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

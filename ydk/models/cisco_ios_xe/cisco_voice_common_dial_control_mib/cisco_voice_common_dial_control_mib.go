@@ -258,6 +258,7 @@ func (cISCOVOICECOMMONDIALCONTROLMIB *CISCOVOICECOMMONDIALCONTROLMIB) GetEntityD
     cISCOVOICECOMMONDIALCONTROLMIB.EntityData.BundleName = "cisco_ios_xe"
     cISCOVOICECOMMONDIALCONTROLMIB.EntityData.ParentYangName = "CISCO-VOICE-COMMON-DIAL-CONTROL-MIB"
     cISCOVOICECOMMONDIALCONTROLMIB.EntityData.SegmentPath = "CISCO-VOICE-COMMON-DIAL-CONTROL-MIB:CISCO-VOICE-COMMON-DIAL-CONTROL-MIB"
+    cISCOVOICECOMMONDIALCONTROLMIB.EntityData.AbsolutePath = cISCOVOICECOMMONDIALCONTROLMIB.EntityData.SegmentPath
     cISCOVOICECOMMONDIALCONTROLMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cISCOVOICECOMMONDIALCONTROLMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOVOICECOMMONDIALCONTROLMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -298,6 +299,7 @@ func (cvCommonDcCallActiveTable *CISCOVOICECOMMONDIALCONTROLMIB_CvCommonDcCallAc
     cvCommonDcCallActiveTable.EntityData.BundleName = "cisco_ios_xe"
     cvCommonDcCallActiveTable.EntityData.ParentYangName = "CISCO-VOICE-COMMON-DIAL-CONTROL-MIB"
     cvCommonDcCallActiveTable.EntityData.SegmentPath = "cvCommonDcCallActiveTable"
+    cvCommonDcCallActiveTable.EntityData.AbsolutePath = "CISCO-VOICE-COMMON-DIAL-CONTROL-MIB:CISCO-VOICE-COMMON-DIAL-CONTROL-MIB/" + cvCommonDcCallActiveTable.EntityData.SegmentPath
     cvCommonDcCallActiveTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cvCommonDcCallActiveTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cvCommonDcCallActiveTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -328,6 +330,7 @@ func (cvCommonDcCallActiveTable *CISCOVOICECOMMONDIALCONTROLMIB_CvCommonDcCallAc
 type CISCOVOICECOMMONDIALCONTROLMIB_CvCommonDcCallActiveTable_CvCommonDcCallActiveEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 0..4294967295.
     // Refers to
@@ -378,6 +381,7 @@ func (cvCommonDcCallActiveEntry *CISCOVOICECOMMONDIALCONTROLMIB_CvCommonDcCallAc
     cvCommonDcCallActiveEntry.EntityData.BundleName = "cisco_ios_xe"
     cvCommonDcCallActiveEntry.EntityData.ParentYangName = "cvCommonDcCallActiveTable"
     cvCommonDcCallActiveEntry.EntityData.SegmentPath = "cvCommonDcCallActiveEntry" + types.AddKeyToken(cvCommonDcCallActiveEntry.CallActiveSetupTime, "callActiveSetupTime") + types.AddKeyToken(cvCommonDcCallActiveEntry.CallActiveIndex, "callActiveIndex")
+    cvCommonDcCallActiveEntry.EntityData.AbsolutePath = "CISCO-VOICE-COMMON-DIAL-CONTROL-MIB:CISCO-VOICE-COMMON-DIAL-CONTROL-MIB/cvCommonDcCallActiveTable/" + cvCommonDcCallActiveEntry.EntityData.SegmentPath
     cvCommonDcCallActiveEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cvCommonDcCallActiveEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cvCommonDcCallActiveEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -425,6 +429,7 @@ func (cvCommonDcCallHistoryTable *CISCOVOICECOMMONDIALCONTROLMIB_CvCommonDcCallH
     cvCommonDcCallHistoryTable.EntityData.BundleName = "cisco_ios_xe"
     cvCommonDcCallHistoryTable.EntityData.ParentYangName = "CISCO-VOICE-COMMON-DIAL-CONTROL-MIB"
     cvCommonDcCallHistoryTable.EntityData.SegmentPath = "cvCommonDcCallHistoryTable"
+    cvCommonDcCallHistoryTable.EntityData.AbsolutePath = "CISCO-VOICE-COMMON-DIAL-CONTROL-MIB:CISCO-VOICE-COMMON-DIAL-CONTROL-MIB/" + cvCommonDcCallHistoryTable.EntityData.SegmentPath
     cvCommonDcCallHistoryTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cvCommonDcCallHistoryTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cvCommonDcCallHistoryTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -455,6 +460,7 @@ func (cvCommonDcCallHistoryTable *CISCOVOICECOMMONDIALCONTROLMIB_CvCommonDcCallH
 type CISCOVOICECOMMONDIALCONTROLMIB_CvCommonDcCallHistoryTable_CvCommonDcCallHistoryEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..4294967295.
     // Refers to
@@ -500,6 +506,7 @@ func (cvCommonDcCallHistoryEntry *CISCOVOICECOMMONDIALCONTROLMIB_CvCommonDcCallH
     cvCommonDcCallHistoryEntry.EntityData.BundleName = "cisco_ios_xe"
     cvCommonDcCallHistoryEntry.EntityData.ParentYangName = "cvCommonDcCallHistoryTable"
     cvCommonDcCallHistoryEntry.EntityData.SegmentPath = "cvCommonDcCallHistoryEntry" + types.AddKeyToken(cvCommonDcCallHistoryEntry.CCallHistoryIndex, "cCallHistoryIndex")
+    cvCommonDcCallHistoryEntry.EntityData.AbsolutePath = "CISCO-VOICE-COMMON-DIAL-CONTROL-MIB:CISCO-VOICE-COMMON-DIAL-CONTROL-MIB/cvCommonDcCallHistoryTable/" + cvCommonDcCallHistoryEntry.EntityData.SegmentPath
     cvCommonDcCallHistoryEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cvCommonDcCallHistoryEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cvCommonDcCallHistoryEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

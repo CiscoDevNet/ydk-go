@@ -280,6 +280,7 @@ func (arpGmp *ArpGmp) GetEntityData() *types.CommonEntityData {
     arpGmp.EntityData.BundleName = "cisco_ios_xr"
     arpGmp.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-arp-oper"
     arpGmp.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-arp-oper:arp-gmp"
+    arpGmp.EntityData.AbsolutePath = arpGmp.EntityData.SegmentPath
     arpGmp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     arpGmp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     arpGmp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -311,6 +312,7 @@ func (vrfInfos *ArpGmp_VrfInfos) GetEntityData() *types.CommonEntityData {
     vrfInfos.EntityData.BundleName = "cisco_ios_xr"
     vrfInfos.EntityData.ParentYangName = "arp-gmp"
     vrfInfos.EntityData.SegmentPath = "vrf-infos"
+    vrfInfos.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-arp-oper:arp-gmp/" + vrfInfos.EntityData.SegmentPath
     vrfInfos.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfInfos.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfInfos.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -332,6 +334,7 @@ func (vrfInfos *ArpGmp_VrfInfos) GetEntityData() *types.CommonEntityData {
 type ArpGmp_VrfInfos_VrfInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. VRF name for the default VRF use 'default'. The
     // type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -360,6 +363,7 @@ func (vrfInfo *ArpGmp_VrfInfos_VrfInfo) GetEntityData() *types.CommonEntityData 
     vrfInfo.EntityData.BundleName = "cisco_ios_xr"
     vrfInfo.EntityData.ParentYangName = "vrf-infos"
     vrfInfo.EntityData.SegmentPath = "vrf-info" + types.AddKeyToken(vrfInfo.VrfName, "vrf-name")
+    vrfInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-arp-oper:arp-gmp/vrf-infos/" + vrfInfo.EntityData.SegmentPath
     vrfInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -394,6 +398,7 @@ func (vrfs *ArpGmp_Vrfs) GetEntityData() *types.CommonEntityData {
     vrfs.EntityData.BundleName = "cisco_ios_xr"
     vrfs.EntityData.ParentYangName = "arp-gmp"
     vrfs.EntityData.SegmentPath = "vrfs"
+    vrfs.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-arp-oper:arp-gmp/" + vrfs.EntityData.SegmentPath
     vrfs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -415,6 +420,7 @@ func (vrfs *ArpGmp_Vrfs) GetEntityData() *types.CommonEntityData {
 type ArpGmp_Vrfs_Vrf struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. VRF name for the default VRF use 'default'. The
     // type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -436,6 +442,7 @@ func (vrf *ArpGmp_Vrfs_Vrf) GetEntityData() *types.CommonEntityData {
     vrf.EntityData.BundleName = "cisco_ios_xr"
     vrf.EntityData.ParentYangName = "vrfs"
     vrf.EntityData.SegmentPath = "vrf" + types.AddKeyToken(vrf.VrfName, "vrf-name")
+    vrf.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-arp-oper:arp-gmp/vrfs/" + vrf.EntityData.SegmentPath
     vrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -470,6 +477,7 @@ func (configuredIpAddresses *ArpGmp_Vrfs_Vrf_ConfiguredIpAddresses) GetEntityDat
     configuredIpAddresses.EntityData.BundleName = "cisco_ios_xr"
     configuredIpAddresses.EntityData.ParentYangName = "vrf"
     configuredIpAddresses.EntityData.SegmentPath = "configured-ip-addresses"
+    configuredIpAddresses.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-arp-oper:arp-gmp/vrfs/vrf/" + configuredIpAddresses.EntityData.SegmentPath
     configuredIpAddresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configuredIpAddresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configuredIpAddresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -491,6 +499,7 @@ func (configuredIpAddresses *ArpGmp_Vrfs_Vrf_ConfiguredIpAddresses) GetEntityDat
 type ArpGmp_Vrfs_Vrf_ConfiguredIpAddresses_ConfiguredIpAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Configured ARP-GMP IP. The type is string with
     // pattern:
@@ -518,6 +527,7 @@ func (configuredIpAddress *ArpGmp_Vrfs_Vrf_ConfiguredIpAddresses_ConfiguredIpAdd
     configuredIpAddress.EntityData.BundleName = "cisco_ios_xr"
     configuredIpAddress.EntityData.ParentYangName = "configured-ip-addresses"
     configuredIpAddress.EntityData.SegmentPath = "configured-ip-address" + types.AddKeyToken(configuredIpAddress.Address, "address")
+    configuredIpAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-arp-oper:arp-gmp/vrfs/vrf/configured-ip-addresses/" + configuredIpAddress.EntityData.SegmentPath
     configuredIpAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configuredIpAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configuredIpAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -552,6 +562,7 @@ func (routes *ArpGmp_Vrfs_Vrf_Routes) GetEntityData() *types.CommonEntityData {
     routes.EntityData.BundleName = "cisco_ios_xr"
     routes.EntityData.ParentYangName = "vrf"
     routes.EntityData.SegmentPath = "routes"
+    routes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-arp-oper:arp-gmp/vrfs/vrf/" + routes.EntityData.SegmentPath
     routes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -559,6 +570,7 @@ func (routes *ArpGmp_Vrfs_Vrf_Routes) GetEntityData() *types.CommonEntityData {
     routes.EntityData.Children = types.NewOrderedMap()
     routes.EntityData.Children.Append("route", types.YChild{"Route", nil})
     for i := range routes.Route {
+        types.SetYListKey(routes.Route[i], i)
         routes.EntityData.Children.Append(types.GetSegmentPath(routes.Route[i]), types.YChild{"Route", routes.Route[i]})
     }
     routes.EntityData.Leafs = types.NewOrderedMap()
@@ -573,6 +585,7 @@ func (routes *ArpGmp_Vrfs_Vrf_Routes) GetEntityData() *types.CommonEntityData {
 type ArpGmp_Vrfs_Vrf_Routes_Route struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // IP address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -602,7 +615,8 @@ func (route *ArpGmp_Vrfs_Vrf_Routes_Route) GetEntityData() *types.CommonEntityDa
     route.EntityData.YangName = "route"
     route.EntityData.BundleName = "cisco_ios_xr"
     route.EntityData.ParentYangName = "routes"
-    route.EntityData.SegmentPath = "route"
+    route.EntityData.SegmentPath = "route" + types.AddNoKeyToken(route)
+    route.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-arp-oper:arp-gmp/vrfs/vrf/routes/" + route.EntityData.SegmentPath
     route.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     route.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     route.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -639,6 +653,7 @@ func (interfaceConfiguredIps *ArpGmp_Vrfs_Vrf_InterfaceConfiguredIps) GetEntityD
     interfaceConfiguredIps.EntityData.BundleName = "cisco_ios_xr"
     interfaceConfiguredIps.EntityData.ParentYangName = "vrf"
     interfaceConfiguredIps.EntityData.SegmentPath = "interface-configured-ips"
+    interfaceConfiguredIps.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-arp-oper:arp-gmp/vrfs/vrf/" + interfaceConfiguredIps.EntityData.SegmentPath
     interfaceConfiguredIps.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceConfiguredIps.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceConfiguredIps.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -646,6 +661,7 @@ func (interfaceConfiguredIps *ArpGmp_Vrfs_Vrf_InterfaceConfiguredIps) GetEntityD
     interfaceConfiguredIps.EntityData.Children = types.NewOrderedMap()
     interfaceConfiguredIps.EntityData.Children.Append("interface-configured-ip", types.YChild{"InterfaceConfiguredIp", nil})
     for i := range interfaceConfiguredIps.InterfaceConfiguredIp {
+        types.SetYListKey(interfaceConfiguredIps.InterfaceConfiguredIp[i], i)
         interfaceConfiguredIps.EntityData.Children.Append(types.GetSegmentPath(interfaceConfiguredIps.InterfaceConfiguredIp[i]), types.YChild{"InterfaceConfiguredIp", interfaceConfiguredIps.InterfaceConfiguredIp[i]})
     }
     interfaceConfiguredIps.EntityData.Leafs = types.NewOrderedMap()
@@ -661,6 +677,7 @@ func (interfaceConfiguredIps *ArpGmp_Vrfs_Vrf_InterfaceConfiguredIps) GetEntityD
 type ArpGmp_Vrfs_Vrf_InterfaceConfiguredIps_InterfaceConfiguredIp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
@@ -684,7 +701,8 @@ func (interfaceConfiguredIp *ArpGmp_Vrfs_Vrf_InterfaceConfiguredIps_InterfaceCon
     interfaceConfiguredIp.EntityData.YangName = "interface-configured-ip"
     interfaceConfiguredIp.EntityData.BundleName = "cisco_ios_xr"
     interfaceConfiguredIp.EntityData.ParentYangName = "interface-configured-ips"
-    interfaceConfiguredIp.EntityData.SegmentPath = "interface-configured-ip"
+    interfaceConfiguredIp.EntityData.SegmentPath = "interface-configured-ip" + types.AddNoKeyToken(interfaceConfiguredIp)
+    interfaceConfiguredIp.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-arp-oper:arp-gmp/vrfs/vrf/interface-configured-ips/" + interfaceConfiguredIp.EntityData.SegmentPath
     interfaceConfiguredIp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceConfiguredIp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceConfiguredIp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -729,6 +747,7 @@ func (associatedConfigurationEntry *ArpGmp_Vrfs_Vrf_InterfaceConfiguredIps_Inter
     associatedConfigurationEntry.EntityData.BundleName = "cisco_ios_xr"
     associatedConfigurationEntry.EntityData.ParentYangName = "interface-configured-ip"
     associatedConfigurationEntry.EntityData.SegmentPath = "associated-configuration-entry"
+    associatedConfigurationEntry.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-arp-oper:arp-gmp/vrfs/vrf/interface-configured-ips/interface-configured-ip/" + associatedConfigurationEntry.EntityData.SegmentPath
     associatedConfigurationEntry.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     associatedConfigurationEntry.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     associatedConfigurationEntry.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -761,6 +780,7 @@ func (arp *Arp) GetEntityData() *types.CommonEntityData {
     arp.EntityData.BundleName = "cisco_ios_xr"
     arp.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-arp-oper"
     arp.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-arp-oper:arp"
+    arp.EntityData.AbsolutePath = arp.EntityData.SegmentPath
     arp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     arp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     arp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -790,6 +810,7 @@ func (nodes *Arp_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.BundleName = "cisco_ios_xr"
     nodes.EntityData.ParentYangName = "arp"
     nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-arp-oper:arp/" + nodes.EntityData.SegmentPath
     nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -811,6 +832,7 @@ func (nodes *Arp_Nodes) GetEntityData() *types.CommonEntityData {
 type Arp_Nodes_Node struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Node name. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -841,6 +863,7 @@ func (node *Arp_Nodes_Node) GetEntityData() *types.CommonEntityData {
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
     node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeName, "node-name")
+    node.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-arp-oper:arp/nodes/" + node.EntityData.SegmentPath
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -878,6 +901,7 @@ func (resolutionHistoryDynamic *Arp_Nodes_Node_ResolutionHistoryDynamic) GetEnti
     resolutionHistoryDynamic.EntityData.BundleName = "cisco_ios_xr"
     resolutionHistoryDynamic.EntityData.ParentYangName = "node"
     resolutionHistoryDynamic.EntityData.SegmentPath = "resolution-history-dynamic"
+    resolutionHistoryDynamic.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-arp-oper:arp/nodes/node/" + resolutionHistoryDynamic.EntityData.SegmentPath
     resolutionHistoryDynamic.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     resolutionHistoryDynamic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     resolutionHistoryDynamic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -885,6 +909,7 @@ func (resolutionHistoryDynamic *Arp_Nodes_Node_ResolutionHistoryDynamic) GetEnti
     resolutionHistoryDynamic.EntityData.Children = types.NewOrderedMap()
     resolutionHistoryDynamic.EntityData.Children.Append("arp-entry", types.YChild{"ArpEntry", nil})
     for i := range resolutionHistoryDynamic.ArpEntry {
+        types.SetYListKey(resolutionHistoryDynamic.ArpEntry[i], i)
         resolutionHistoryDynamic.EntityData.Children.Append(types.GetSegmentPath(resolutionHistoryDynamic.ArpEntry[i]), types.YChild{"ArpEntry", resolutionHistoryDynamic.ArpEntry[i]})
     }
     resolutionHistoryDynamic.EntityData.Leafs = types.NewOrderedMap()
@@ -899,6 +924,7 @@ func (resolutionHistoryDynamic *Arp_Nodes_Node_ResolutionHistoryDynamic) GetEnti
 type Arp_Nodes_Node_ResolutionHistoryDynamic_ArpEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Timestamp for entry in nanoseconds since Epoch, i.e. since 00:00:00 UTC,
     // January 1, 1970. The type is interface{} with range:
@@ -937,7 +963,8 @@ func (arpEntry *Arp_Nodes_Node_ResolutionHistoryDynamic_ArpEntry) GetEntityData(
     arpEntry.EntityData.YangName = "arp-entry"
     arpEntry.EntityData.BundleName = "cisco_ios_xr"
     arpEntry.EntityData.ParentYangName = "resolution-history-dynamic"
-    arpEntry.EntityData.SegmentPath = "arp-entry"
+    arpEntry.EntityData.SegmentPath = "arp-entry" + types.AddNoKeyToken(arpEntry)
+    arpEntry.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-arp-oper:arp/nodes/node/resolution-history-dynamic/" + arpEntry.EntityData.SegmentPath
     arpEntry.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     arpEntry.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     arpEntry.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -975,6 +1002,7 @@ func (trafficVrfs *Arp_Nodes_Node_TrafficVrfs) GetEntityData() *types.CommonEnti
     trafficVrfs.EntityData.BundleName = "cisco_ios_xr"
     trafficVrfs.EntityData.ParentYangName = "node"
     trafficVrfs.EntityData.SegmentPath = "traffic-vrfs"
+    trafficVrfs.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-arp-oper:arp/nodes/node/" + trafficVrfs.EntityData.SegmentPath
     trafficVrfs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trafficVrfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trafficVrfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -996,6 +1024,7 @@ func (trafficVrfs *Arp_Nodes_Node_TrafficVrfs) GetEntityData() *types.CommonEnti
 type Arp_Nodes_Node_TrafficVrfs_TrafficVrf struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. VRF name. The type is string.
     VrfName interface{}
@@ -1121,6 +1150,7 @@ func (trafficVrf *Arp_Nodes_Node_TrafficVrfs_TrafficVrf) GetEntityData() *types.
     trafficVrf.EntityData.BundleName = "cisco_ios_xr"
     trafficVrf.EntityData.ParentYangName = "traffic-vrfs"
     trafficVrf.EntityData.SegmentPath = "traffic-vrf" + types.AddKeyToken(trafficVrf.VrfName, "vrf-name")
+    trafficVrf.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-arp-oper:arp/nodes/node/traffic-vrfs/" + trafficVrf.EntityData.SegmentPath
     trafficVrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trafficVrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trafficVrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1290,6 +1320,7 @@ func (trafficNode *Arp_Nodes_Node_TrafficNode) GetEntityData() *types.CommonEnti
     trafficNode.EntityData.BundleName = "cisco_ios_xr"
     trafficNode.EntityData.ParentYangName = "node"
     trafficNode.EntityData.SegmentPath = "traffic-node"
+    trafficNode.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-arp-oper:arp/nodes/node/" + trafficNode.EntityData.SegmentPath
     trafficNode.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trafficNode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trafficNode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1349,6 +1380,7 @@ func (resolutionHistoryClient *Arp_Nodes_Node_ResolutionHistoryClient) GetEntity
     resolutionHistoryClient.EntityData.BundleName = "cisco_ios_xr"
     resolutionHistoryClient.EntityData.ParentYangName = "node"
     resolutionHistoryClient.EntityData.SegmentPath = "resolution-history-client"
+    resolutionHistoryClient.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-arp-oper:arp/nodes/node/" + resolutionHistoryClient.EntityData.SegmentPath
     resolutionHistoryClient.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     resolutionHistoryClient.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     resolutionHistoryClient.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1356,6 +1388,7 @@ func (resolutionHistoryClient *Arp_Nodes_Node_ResolutionHistoryClient) GetEntity
     resolutionHistoryClient.EntityData.Children = types.NewOrderedMap()
     resolutionHistoryClient.EntityData.Children.Append("arp-entry", types.YChild{"ArpEntry", nil})
     for i := range resolutionHistoryClient.ArpEntry {
+        types.SetYListKey(resolutionHistoryClient.ArpEntry[i], i)
         resolutionHistoryClient.EntityData.Children.Append(types.GetSegmentPath(resolutionHistoryClient.ArpEntry[i]), types.YChild{"ArpEntry", resolutionHistoryClient.ArpEntry[i]})
     }
     resolutionHistoryClient.EntityData.Leafs = types.NewOrderedMap()
@@ -1370,6 +1403,7 @@ func (resolutionHistoryClient *Arp_Nodes_Node_ResolutionHistoryClient) GetEntity
 type Arp_Nodes_Node_ResolutionHistoryClient_ArpEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Timestamp for entry in nanoseconds since Epoch, i.e. since 00:00:00 UTC,
     // January 1, 1970. The type is interface{} with range:
@@ -1408,7 +1442,8 @@ func (arpEntry *Arp_Nodes_Node_ResolutionHistoryClient_ArpEntry) GetEntityData()
     arpEntry.EntityData.YangName = "arp-entry"
     arpEntry.EntityData.BundleName = "cisco_ios_xr"
     arpEntry.EntityData.ParentYangName = "resolution-history-client"
-    arpEntry.EntityData.SegmentPath = "arp-entry"
+    arpEntry.EntityData.SegmentPath = "arp-entry" + types.AddNoKeyToken(arpEntry)
+    arpEntry.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-arp-oper:arp/nodes/node/resolution-history-client/" + arpEntry.EntityData.SegmentPath
     arpEntry.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     arpEntry.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     arpEntry.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1445,6 +1480,7 @@ func (entries *Arp_Nodes_Node_Entries) GetEntityData() *types.CommonEntityData {
     entries.EntityData.BundleName = "cisco_ios_xr"
     entries.EntityData.ParentYangName = "node"
     entries.EntityData.SegmentPath = "entries"
+    entries.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-arp-oper:arp/nodes/node/" + entries.EntityData.SegmentPath
     entries.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     entries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     entries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1466,6 +1502,7 @@ func (entries *Arp_Nodes_Node_Entries) GetEntityData() *types.CommonEntityData {
 type Arp_Nodes_Node_Entries_Entry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IP Address of ARP entry. The type is string with
     // pattern:
@@ -1506,6 +1543,7 @@ func (entry *Arp_Nodes_Node_Entries_Entry) GetEntityData() *types.CommonEntityDa
     entry.EntityData.BundleName = "cisco_ios_xr"
     entry.EntityData.ParentYangName = "entries"
     entry.EntityData.SegmentPath = "entry" + types.AddKeyToken(entry.Address, "address") + types.AddKeyToken(entry.InterfaceName, "interface-name")
+    entry.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-arp-oper:arp/nodes/node/entries/" + entry.EntityData.SegmentPath
     entry.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     entry.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     entry.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1544,6 +1582,7 @@ func (trafficInterfaces *Arp_Nodes_Node_TrafficInterfaces) GetEntityData() *type
     trafficInterfaces.EntityData.BundleName = "cisco_ios_xr"
     trafficInterfaces.EntityData.ParentYangName = "node"
     trafficInterfaces.EntityData.SegmentPath = "traffic-interfaces"
+    trafficInterfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-arp-oper:arp/nodes/node/" + trafficInterfaces.EntityData.SegmentPath
     trafficInterfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trafficInterfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trafficInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1565,6 +1604,7 @@ func (trafficInterfaces *Arp_Nodes_Node_TrafficInterfaces) GetEntityData() *type
 type Arp_Nodes_Node_TrafficInterfaces_TrafficInterface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -1691,6 +1731,7 @@ func (trafficInterface *Arp_Nodes_Node_TrafficInterfaces_TrafficInterface) GetEn
     trafficInterface.EntityData.BundleName = "cisco_ios_xr"
     trafficInterface.EntityData.ParentYangName = "traffic-interfaces"
     trafficInterface.EntityData.SegmentPath = "traffic-interface" + types.AddKeyToken(trafficInterface.InterfaceName, "interface-name")
+    trafficInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-arp-oper:arp/nodes/node/traffic-interfaces/" + trafficInterface.EntityData.SegmentPath
     trafficInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trafficInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trafficInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

@@ -1,7 +1,7 @@
 // This module contains a collection of YANG definitions
 // for Cisco IOS-XR ping action package configuration.
 // 
-// Copyright (c) 2016 by Cisco Systems, Inc.
+// Copyright (c) 2016, 2018 by Cisco Systems, Inc.
 // All rights reserved.
 package ping_act
 
@@ -39,6 +39,7 @@ func (ping *Ping) GetEntityData() *types.CommonEntityData {
     ping.EntityData.BundleName = "cisco_ios_xr"
     ping.EntityData.ParentYangName = "Cisco-IOS-XR-ping-act"
     ping.EntityData.SegmentPath = "Cisco-IOS-XR-ping-act:ping"
+    ping.EntityData.AbsolutePath = ping.EntityData.SegmentPath
     ping.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ping.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ping.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -74,6 +75,7 @@ func (input *Ping_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "ping"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ping-act:ping/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -93,9 +95,11 @@ func (input *Ping_Input) GetEntityData() *types.CommonEntityData {
 }
 
 // Ping_Input_Destination
+// This type is a presence type.
 type Ping_Input_Destination struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Ping destination address or hostname. The type is string. This attribute is
     // mandatory.
@@ -155,6 +159,7 @@ func (destination *Ping_Input_Destination) GetEntityData() *types.CommonEntityDa
     destination.EntityData.BundleName = "cisco_ios_xr"
     destination.EntityData.ParentYangName = "input"
     destination.EntityData.SegmentPath = "destination"
+    destination.EntityData.AbsolutePath = "Cisco-IOS-XR-ping-act:ping/input/" + destination.EntityData.SegmentPath
     destination.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     destination.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     destination.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -186,6 +191,7 @@ func (destination *Ping_Input_Destination) GetEntityData() *types.CommonEntityDa
 type Ping_Input_Ipv4 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Ping destination address or hostname. The type is
     // string. This attribute is mandatory.
@@ -238,6 +244,7 @@ func (ipv4 *Ping_Input_Ipv4) GetEntityData() *types.CommonEntityData {
     ipv4.EntityData.BundleName = "cisco_ios_xr"
     ipv4.EntityData.ParentYangName = "input"
     ipv4.EntityData.SegmentPath = "ipv4" + types.AddKeyToken(ipv4.Destination, "destination")
+    ipv4.EntityData.AbsolutePath = "Cisco-IOS-XR-ping-act:ping/input/" + ipv4.EntityData.SegmentPath
     ipv4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -264,9 +271,11 @@ func (ipv4 *Ping_Input_Ipv4) GetEntityData() *types.CommonEntityData {
 }
 
 // Ping_Input_Ipv6
+// This type is a presence type.
 type Ping_Input_Ipv6 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Ping destination address or hostname. The type is string. This attribute is
     // mandatory.
@@ -317,6 +326,7 @@ func (ipv6 *Ping_Input_Ipv6) GetEntityData() *types.CommonEntityData {
     ipv6.EntityData.BundleName = "cisco_ios_xr"
     ipv6.EntityData.ParentYangName = "input"
     ipv6.EntityData.SegmentPath = "ipv6"
+    ipv6.EntityData.AbsolutePath = "Cisco-IOS-XR-ping-act:ping/input/" + ipv6.EntityData.SegmentPath
     ipv6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -356,6 +366,7 @@ func (output *Ping_Output) GetEntityData() *types.CommonEntityData {
     output.EntityData.BundleName = "cisco_ios_xr"
     output.EntityData.ParentYangName = "ping"
     output.EntityData.SegmentPath = "output"
+    output.EntityData.AbsolutePath = "Cisco-IOS-XR-ping-act:ping/" + output.EntityData.SegmentPath
     output.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     output.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     output.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -387,6 +398,7 @@ func (pingResponse *Ping_Output_PingResponse) GetEntityData() *types.CommonEntit
     pingResponse.EntityData.BundleName = "cisco_ios_xr"
     pingResponse.EntityData.ParentYangName = "output"
     pingResponse.EntityData.SegmentPath = "ping-response"
+    pingResponse.EntityData.AbsolutePath = "Cisco-IOS-XR-ping-act:ping/output/" + pingResponse.EntityData.SegmentPath
     pingResponse.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pingResponse.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pingResponse.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -408,6 +420,7 @@ func (pingResponse *Ping_Output_PingResponse) GetEntityData() *types.CommonEntit
 type Ping_Output_PingResponse_Ipv4 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Ping destination address or hostname. The type is
     // string. This attribute is mandatory.
@@ -483,6 +496,7 @@ func (ipv4 *Ping_Output_PingResponse_Ipv4) GetEntityData() *types.CommonEntityDa
     ipv4.EntityData.BundleName = "cisco_ios_xr"
     ipv4.EntityData.ParentYangName = "ping-response"
     ipv4.EntityData.SegmentPath = "ipv4" + types.AddKeyToken(ipv4.Destination, "destination")
+    ipv4.EntityData.AbsolutePath = "Cisco-IOS-XR-ping-act:ping/output/ping-response/" + ipv4.EntityData.SegmentPath
     ipv4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -528,6 +542,7 @@ func (replies *Ping_Output_PingResponse_Ipv4_Replies) GetEntityData() *types.Com
     replies.EntityData.BundleName = "cisco_ios_xr"
     replies.EntityData.ParentYangName = "ipv4"
     replies.EntityData.SegmentPath = "replies"
+    replies.EntityData.AbsolutePath = "Cisco-IOS-XR-ping-act:ping/output/ping-response/ipv4/" + replies.EntityData.SegmentPath
     replies.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     replies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     replies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -548,6 +563,7 @@ func (replies *Ping_Output_PingResponse_Ipv4_Replies) GetEntityData() *types.Com
 type Ping_Output_PingResponse_Ipv4_Replies_Reply struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Index of the reply list. The type is interface{}
     // with range: 1..2147483647.
@@ -566,6 +582,7 @@ func (reply *Ping_Output_PingResponse_Ipv4_Replies_Reply) GetEntityData() *types
     reply.EntityData.BundleName = "cisco_ios_xr"
     reply.EntityData.ParentYangName = "replies"
     reply.EntityData.SegmentPath = "reply" + types.AddKeyToken(reply.ReplyIndex, "reply-index")
+    reply.EntityData.AbsolutePath = "Cisco-IOS-XR-ping-act:ping/output/ping-response/ipv4/replies/" + reply.EntityData.SegmentPath
     reply.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     reply.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     reply.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -597,6 +614,7 @@ func (broadcastReplyAddresses *Ping_Output_PingResponse_Ipv4_Replies_Reply_Broad
     broadcastReplyAddresses.EntityData.BundleName = "cisco_ios_xr"
     broadcastReplyAddresses.EntityData.ParentYangName = "reply"
     broadcastReplyAddresses.EntityData.SegmentPath = "broadcast-reply-addresses"
+    broadcastReplyAddresses.EntityData.AbsolutePath = "Cisco-IOS-XR-ping-act:ping/output/ping-response/ipv4/replies/reply/" + broadcastReplyAddresses.EntityData.SegmentPath
     broadcastReplyAddresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     broadcastReplyAddresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     broadcastReplyAddresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -617,6 +635,7 @@ func (broadcastReplyAddresses *Ping_Output_PingResponse_Ipv4_Replies_Reply_Broad
 type Ping_Output_PingResponse_Ipv4_Replies_Reply_BroadcastReplyAddresses_BroadcastReplyAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Broadcast reply address. The type is string.
     ReplyAddress interface{}
@@ -631,6 +650,7 @@ func (broadcastReplyAddress *Ping_Output_PingResponse_Ipv4_Replies_Reply_Broadca
     broadcastReplyAddress.EntityData.BundleName = "cisco_ios_xr"
     broadcastReplyAddress.EntityData.ParentYangName = "broadcast-reply-addresses"
     broadcastReplyAddress.EntityData.SegmentPath = "broadcast-reply-address" + types.AddKeyToken(broadcastReplyAddress.ReplyAddress, "reply-address")
+    broadcastReplyAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ping-act:ping/output/ping-response/ipv4/replies/reply/broadcast-reply-addresses/" + broadcastReplyAddress.EntityData.SegmentPath
     broadcastReplyAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     broadcastReplyAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     broadcastReplyAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -646,9 +666,11 @@ func (broadcastReplyAddress *Ping_Output_PingResponse_Ipv4_Replies_Reply_Broadca
 }
 
 // Ping_Output_PingResponse_Ipv6
+// This type is a presence type.
 type Ping_Output_PingResponse_Ipv6 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Ping destination address or hostname. The type is string. This attribute is
     // mandatory.
@@ -721,6 +743,7 @@ func (ipv6 *Ping_Output_PingResponse_Ipv6) GetEntityData() *types.CommonEntityDa
     ipv6.EntityData.BundleName = "cisco_ios_xr"
     ipv6.EntityData.ParentYangName = "ping-response"
     ipv6.EntityData.SegmentPath = "ipv6"
+    ipv6.EntityData.AbsolutePath = "Cisco-IOS-XR-ping-act:ping/output/ping-response/" + ipv6.EntityData.SegmentPath
     ipv6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -765,6 +788,7 @@ func (replies *Ping_Output_PingResponse_Ipv6_Replies) GetEntityData() *types.Com
     replies.EntityData.BundleName = "cisco_ios_xr"
     replies.EntityData.ParentYangName = "ipv6"
     replies.EntityData.SegmentPath = "replies"
+    replies.EntityData.AbsolutePath = "Cisco-IOS-XR-ping-act:ping/output/ping-response/ipv6/" + replies.EntityData.SegmentPath
     replies.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     replies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     replies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -785,6 +809,7 @@ func (replies *Ping_Output_PingResponse_Ipv6_Replies) GetEntityData() *types.Com
 type Ping_Output_PingResponse_Ipv6_Replies_Reply struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Index of the reply list. The type is interface{}
     // with range: 1..2147483647.
@@ -800,6 +825,7 @@ func (reply *Ping_Output_PingResponse_Ipv6_Replies_Reply) GetEntityData() *types
     reply.EntityData.BundleName = "cisco_ios_xr"
     reply.EntityData.ParentYangName = "replies"
     reply.EntityData.SegmentPath = "reply" + types.AddKeyToken(reply.ReplyIndex, "reply-index")
+    reply.EntityData.AbsolutePath = "Cisco-IOS-XR-ping-act:ping/output/ping-response/ipv6/replies/" + reply.EntityData.SegmentPath
     reply.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     reply.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     reply.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

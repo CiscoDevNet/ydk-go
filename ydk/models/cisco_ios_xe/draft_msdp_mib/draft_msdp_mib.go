@@ -43,6 +43,7 @@ func (dRAFTMSDPMIB *DRAFTMSDPMIB) GetEntityData() *types.CommonEntityData {
     dRAFTMSDPMIB.EntityData.BundleName = "cisco_ios_xe"
     dRAFTMSDPMIB.EntityData.ParentYangName = "DRAFT-MSDP-MIB"
     dRAFTMSDPMIB.EntityData.SegmentPath = "DRAFT-MSDP-MIB:DRAFT-MSDP-MIB"
+    dRAFTMSDPMIB.EntityData.AbsolutePath = dRAFTMSDPMIB.EntityData.SegmentPath
     dRAFTMSDPMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dRAFTMSDPMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dRAFTMSDPMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -88,6 +89,7 @@ func (msdp *DRAFTMSDPMIB_Msdp) GetEntityData() *types.CommonEntityData {
     msdp.EntityData.BundleName = "cisco_ios_xe"
     msdp.EntityData.ParentYangName = "DRAFT-MSDP-MIB"
     msdp.EntityData.SegmentPath = "msdp"
+    msdp.EntityData.AbsolutePath = "DRAFT-MSDP-MIB:DRAFT-MSDP-MIB/" + msdp.EntityData.SegmentPath
     msdp.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     msdp.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     msdp.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -125,6 +127,7 @@ func (msdpRequestsTable *DRAFTMSDPMIB_MsdpRequestsTable) GetEntityData() *types.
     msdpRequestsTable.EntityData.BundleName = "cisco_ios_xe"
     msdpRequestsTable.EntityData.ParentYangName = "DRAFT-MSDP-MIB"
     msdpRequestsTable.EntityData.SegmentPath = "msdpRequestsTable"
+    msdpRequestsTable.EntityData.AbsolutePath = "DRAFT-MSDP-MIB:DRAFT-MSDP-MIB/" + msdpRequestsTable.EntityData.SegmentPath
     msdpRequestsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     msdpRequestsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     msdpRequestsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -148,6 +151,7 @@ func (msdpRequestsTable *DRAFTMSDPMIB_MsdpRequestsTable) GetEntityData() *types.
 type DRAFTMSDPMIB_MsdpRequestsTable_MsdpRequestsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The group address that, when combined with the
     // mask in this entry, represents the group range for which this peer will
@@ -178,6 +182,7 @@ func (msdpRequestsEntry *DRAFTMSDPMIB_MsdpRequestsTable_MsdpRequestsEntry) GetEn
     msdpRequestsEntry.EntityData.BundleName = "cisco_ios_xe"
     msdpRequestsEntry.EntityData.ParentYangName = "msdpRequestsTable"
     msdpRequestsEntry.EntityData.SegmentPath = "msdpRequestsEntry" + types.AddKeyToken(msdpRequestsEntry.MsdpRequestsGroupAddress, "msdpRequestsGroupAddress") + types.AddKeyToken(msdpRequestsEntry.MsdpRequestsGroupMask, "msdpRequestsGroupMask")
+    msdpRequestsEntry.EntityData.AbsolutePath = "DRAFT-MSDP-MIB:DRAFT-MSDP-MIB/msdpRequestsTable/" + msdpRequestsEntry.EntityData.SegmentPath
     msdpRequestsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     msdpRequestsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     msdpRequestsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -212,6 +217,7 @@ func (msdpPeerTable *DRAFTMSDPMIB_MsdpPeerTable) GetEntityData() *types.CommonEn
     msdpPeerTable.EntityData.BundleName = "cisco_ios_xe"
     msdpPeerTable.EntityData.ParentYangName = "DRAFT-MSDP-MIB"
     msdpPeerTable.EntityData.SegmentPath = "msdpPeerTable"
+    msdpPeerTable.EntityData.AbsolutePath = "DRAFT-MSDP-MIB:DRAFT-MSDP-MIB/" + msdpPeerTable.EntityData.SegmentPath
     msdpPeerTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     msdpPeerTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     msdpPeerTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -233,6 +239,7 @@ func (msdpPeerTable *DRAFTMSDPMIB_MsdpPeerTable) GetEntityData() *types.CommonEn
 type DRAFTMSDPMIB_MsdpPeerTable_MsdpPeerEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The address of the remote MSDP peer. The type is
     // string with pattern:
@@ -328,7 +335,7 @@ type DRAFTMSDPMIB_MsdpPeerTable_MsdpPeerEntry struct {
     MsdpPeerConnectRetryInterval interface{}
 
     // Time interval in seconds for the Hold Timer configured for this MSDP
-    // speaker with this peer. The type is interface{} with range: 0..None |
+    // speaker with this peer. The type is interface{} with range: 0..0 |
     // 3..65535. Units are seconds.
     MsdpPeerHoldTimeConfigured interface{}
 
@@ -393,7 +400,7 @@ type DRAFTMSDPMIB_MsdpPeerTable_MsdpPeerEntry struct {
     // The last error code and subcode seen by this peer on this connection.  If
     // no error has occurred, this field is zero.  Otherwise, the first byte of
     // this two byte OCTET STRING contains the error code, and the second byte
-    // contains the subcode. The type is string with length: 2.
+    // contains the subcode. The type is string with length: 2..2.
     MsdpPeerLastError interface{}
 }
 
@@ -403,6 +410,7 @@ func (msdpPeerEntry *DRAFTMSDPMIB_MsdpPeerTable_MsdpPeerEntry) GetEntityData() *
     msdpPeerEntry.EntityData.BundleName = "cisco_ios_xe"
     msdpPeerEntry.EntityData.ParentYangName = "msdpPeerTable"
     msdpPeerEntry.EntityData.SegmentPath = "msdpPeerEntry" + types.AddKeyToken(msdpPeerEntry.MsdpPeerRemoteAddress, "msdpPeerRemoteAddress")
+    msdpPeerEntry.EntityData.AbsolutePath = "DRAFT-MSDP-MIB:DRAFT-MSDP-MIB/msdpPeerTable/" + msdpPeerEntry.EntityData.SegmentPath
     msdpPeerEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     msdpPeerEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     msdpPeerEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -508,6 +516,7 @@ func (msdpSACacheTable *DRAFTMSDPMIB_MsdpSACacheTable) GetEntityData() *types.Co
     msdpSACacheTable.EntityData.BundleName = "cisco_ios_xe"
     msdpSACacheTable.EntityData.ParentYangName = "DRAFT-MSDP-MIB"
     msdpSACacheTable.EntityData.SegmentPath = "msdpSACacheTable"
+    msdpSACacheTable.EntityData.AbsolutePath = "DRAFT-MSDP-MIB:DRAFT-MSDP-MIB/" + msdpSACacheTable.EntityData.SegmentPath
     msdpSACacheTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     msdpSACacheTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     msdpSACacheTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -530,6 +539,7 @@ func (msdpSACacheTable *DRAFTMSDPMIB_MsdpSACacheTable) GetEntityData() *types.Co
 type DRAFTMSDPMIB_MsdpSACacheTable_MsdpSACacheEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The group address of the SA Cache entry. The type
     // is string with pattern:
@@ -592,6 +602,7 @@ func (msdpSACacheEntry *DRAFTMSDPMIB_MsdpSACacheTable_MsdpSACacheEntry) GetEntit
     msdpSACacheEntry.EntityData.BundleName = "cisco_ios_xe"
     msdpSACacheEntry.EntityData.ParentYangName = "msdpSACacheTable"
     msdpSACacheEntry.EntityData.SegmentPath = "msdpSACacheEntry" + types.AddKeyToken(msdpSACacheEntry.MsdpSACacheGroupAddr, "msdpSACacheGroupAddr") + types.AddKeyToken(msdpSACacheEntry.MsdpSACacheSourceAddr, "msdpSACacheSourceAddr") + types.AddKeyToken(msdpSACacheEntry.MsdpSACacheOriginRP, "msdpSACacheOriginRP")
+    msdpSACacheEntry.EntityData.AbsolutePath = "DRAFT-MSDP-MIB:DRAFT-MSDP-MIB/msdpSACacheTable/" + msdpSACacheEntry.EntityData.SegmentPath
     msdpSACacheEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     msdpSACacheEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     msdpSACacheEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

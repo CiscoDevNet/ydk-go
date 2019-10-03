@@ -128,6 +128,7 @@ func (dOCSQOSMIB *DOCSQOSMIB) GetEntityData() *types.CommonEntityData {
     dOCSQOSMIB.EntityData.BundleName = "cisco_ios_xe"
     dOCSQOSMIB.EntityData.ParentYangName = "DOCS-QOS-MIB"
     dOCSQOSMIB.EntityData.SegmentPath = "DOCS-QOS-MIB:DOCS-QOS-MIB"
+    dOCSQOSMIB.EntityData.AbsolutePath = dOCSQOSMIB.EntityData.SegmentPath
     dOCSQOSMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dOCSQOSMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dOCSQOSMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -189,6 +190,7 @@ func (docsQosPktClassTable *DOCSQOSMIB_DocsQosPktClassTable) GetEntityData() *ty
     docsQosPktClassTable.EntityData.BundleName = "cisco_ios_xe"
     docsQosPktClassTable.EntityData.ParentYangName = "DOCS-QOS-MIB"
     docsQosPktClassTable.EntityData.SegmentPath = "docsQosPktClassTable"
+    docsQosPktClassTable.EntityData.AbsolutePath = "DOCS-QOS-MIB:DOCS-QOS-MIB/" + docsQosPktClassTable.EntityData.SegmentPath
     docsQosPktClassTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsQosPktClassTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsQosPktClassTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -212,6 +214,7 @@ func (docsQosPktClassTable *DOCSQOSMIB_DocsQosPktClassTable) GetEntityData() *ty
 type DOCSQOSMIB_DocsQosPktClassTable_DocsQosPktClassEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -241,18 +244,18 @@ type DOCSQOSMIB_DocsQosPktClassTable_DocsQosPktClassEntry struct {
 
     // The low value of a range of TOS byte values. If the referenced parameter is
     // not present in a classifier, this object reports the value of 0. The type
-    // is string with length: 1.
+    // is string with length: 1..1.
     DocsQosPktClassIpTosLow interface{}
 
     // The 8-bit high value of a range of TOS byte values.  If the referenced
     // parameter is not present in a classifier, this object reports the value of
-    // 0. The type is string with length: 1.
+    // 0. The type is string with length: 1..1.
     DocsQosPktClassIpTosHigh interface{}
 
     // The mask value is bitwise ANDed with TOS byte  in an IP packet and this
     // value is used check  range checking of TosLow and TosHigh.  If the
     // referenced parameter is not present in a classifier, this object reports
-    // the value of 0. The type is string with length: 1.
+    // the value of 0. The type is string with length: 1..1.
     DocsQosPktClassIpTosMask interface{}
 
     // This object indicates the value of the IP Protocol field required for IP
@@ -503,6 +506,7 @@ func (docsQosPktClassEntry *DOCSQOSMIB_DocsQosPktClassTable_DocsQosPktClassEntry
     docsQosPktClassEntry.EntityData.BundleName = "cisco_ios_xe"
     docsQosPktClassEntry.EntityData.ParentYangName = "docsQosPktClassTable"
     docsQosPktClassEntry.EntityData.SegmentPath = "docsQosPktClassEntry" + types.AddKeyToken(docsQosPktClassEntry.IfIndex, "ifIndex") + types.AddKeyToken(docsQosPktClassEntry.DocsQosServiceFlowId, "docsQosServiceFlowId") + types.AddKeyToken(docsQosPktClassEntry.DocsQosPktClassId, "docsQosPktClassId")
+    docsQosPktClassEntry.EntityData.AbsolutePath = "DOCS-QOS-MIB:DOCS-QOS-MIB/docsQosPktClassTable/" + docsQosPktClassEntry.EntityData.SegmentPath
     docsQosPktClassEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsQosPktClassEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsQosPktClassEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -626,6 +630,7 @@ func (docsQosParamSetTable *DOCSQOSMIB_DocsQosParamSetTable) GetEntityData() *ty
     docsQosParamSetTable.EntityData.BundleName = "cisco_ios_xe"
     docsQosParamSetTable.EntityData.ParentYangName = "DOCS-QOS-MIB"
     docsQosParamSetTable.EntityData.SegmentPath = "docsQosParamSetTable"
+    docsQosParamSetTable.EntityData.AbsolutePath = "DOCS-QOS-MIB:DOCS-QOS-MIB/" + docsQosParamSetTable.EntityData.SegmentPath
     docsQosParamSetTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsQosParamSetTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsQosParamSetTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -647,6 +652,7 @@ func (docsQosParamSetTable *DOCSQOSMIB_DocsQosParamSetTable) GetEntityData() *ty
 type DOCSQOSMIB_DocsQosParamSetTable_DocsQosParamSetEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -842,12 +848,12 @@ type DOCSQOSMIB_DocsQosParamSetTable_DocsQosParamSetEntry struct {
     // System (CMTS), Cable Modems must report the value as signaled in the
     // referenced parameter.  This combination is reported if the referenced
     // parameter is not present in a QOS Parameter Set. The type is string with
-    // length: 1.
+    // length: 1..1.
     DocsQosParamSetTosAndMask interface{}
 
     // Specifies the OR mask for IP TOS byte. See the description of
     // docsQosParamSetTosAndMask for further details. The type is string with
-    // length: 1.
+    // length: 1..1.
     DocsQosParamSetTosOrMask interface{}
 
     // Specifies the maximum latency between the reception of a packet by the CMTS
@@ -877,7 +883,7 @@ type DOCSQOSMIB_DocsQosParamSetTable_DocsQosParamSetEntry struct {
     // that service flow must drop      packet that do not fit in the Unsolicited 
     // Grant size   If the referenced parameter is not present in  a QOS Parameter
     // Set, the value of this object is reported as '00000000'H. The type is
-    // string with length: 4.
+    // string with length: 4..4.
     DocsQosParamSetRequestPolicyOct interface{}
 
     // This object indicates the set of QOS Parameter Set parameters actually
@@ -904,6 +910,7 @@ func (docsQosParamSetEntry *DOCSQOSMIB_DocsQosParamSetTable_DocsQosParamSetEntry
     docsQosParamSetEntry.EntityData.BundleName = "cisco_ios_xe"
     docsQosParamSetEntry.EntityData.ParentYangName = "docsQosParamSetTable"
     docsQosParamSetEntry.EntityData.SegmentPath = "docsQosParamSetEntry" + types.AddKeyToken(docsQosParamSetEntry.IfIndex, "ifIndex") + types.AddKeyToken(docsQosParamSetEntry.DocsQosServiceFlowId, "docsQosServiceFlowId") + types.AddKeyToken(docsQosParamSetEntry.DocsQosParamSetType, "docsQosParamSetType")
+    docsQosParamSetEntry.EntityData.AbsolutePath = "DOCS-QOS-MIB:DOCS-QOS-MIB/docsQosParamSetTable/" + docsQosParamSetEntry.EntityData.SegmentPath
     docsQosParamSetEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsQosParamSetEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsQosParamSetEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -970,6 +977,7 @@ func (docsQosServiceFlowTable *DOCSQOSMIB_DocsQosServiceFlowTable) GetEntityData
     docsQosServiceFlowTable.EntityData.BundleName = "cisco_ios_xe"
     docsQosServiceFlowTable.EntityData.ParentYangName = "DOCS-QOS-MIB"
     docsQosServiceFlowTable.EntityData.SegmentPath = "docsQosServiceFlowTable"
+    docsQosServiceFlowTable.EntityData.AbsolutePath = "DOCS-QOS-MIB:DOCS-QOS-MIB/" + docsQosServiceFlowTable.EntityData.SegmentPath
     docsQosServiceFlowTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsQosServiceFlowTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsQosServiceFlowTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -994,6 +1002,7 @@ func (docsQosServiceFlowTable *DOCSQOSMIB_DocsQosServiceFlowTable) GetEntityData
 type DOCSQOSMIB_DocsQosServiceFlowTable_DocsQosServiceFlowEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -1037,13 +1046,13 @@ type DOCSQOSMIB_DocsQosServiceFlowTable_DocsQosServiceFlowEntry struct {
     // This object is obsolete. The type is SchedulingType.
     DocsQosServiceFlowSchedulingType interface{}
 
-    // This object is obsolete. The type is string with length: 4.
+    // This object is obsolete. The type is string with length: 4..4.
     DocsQosServiceFlowRequestPolicy interface{}
 
-    // This object is obsolete. The type is string with length: 1.
+    // This object is obsolete. The type is string with length: 1..1.
     DocsQosServiceFlowTosAndMask interface{}
 
-    // This object is obsolete. The type is string with length: 1.
+    // This object is obsolete. The type is string with length: 1..1.
     DocsQosServiceFlowTosOrMask interface{}
 }
 
@@ -1053,6 +1062,7 @@ func (docsQosServiceFlowEntry *DOCSQOSMIB_DocsQosServiceFlowTable_DocsQosService
     docsQosServiceFlowEntry.EntityData.BundleName = "cisco_ios_xe"
     docsQosServiceFlowEntry.EntityData.ParentYangName = "docsQosServiceFlowTable"
     docsQosServiceFlowEntry.EntityData.SegmentPath = "docsQosServiceFlowEntry" + types.AddKeyToken(docsQosServiceFlowEntry.IfIndex, "ifIndex") + types.AddKeyToken(docsQosServiceFlowEntry.DocsQosServiceFlowId, "docsQosServiceFlowId")
+    docsQosServiceFlowEntry.EntityData.AbsolutePath = "DOCS-QOS-MIB:DOCS-QOS-MIB/docsQosServiceFlowTable/" + docsQosServiceFlowEntry.EntityData.SegmentPath
     docsQosServiceFlowEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsQosServiceFlowEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsQosServiceFlowEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1099,6 +1109,7 @@ func (docsQosServiceFlowStatsTable *DOCSQOSMIB_DocsQosServiceFlowStatsTable) Get
     docsQosServiceFlowStatsTable.EntityData.BundleName = "cisco_ios_xe"
     docsQosServiceFlowStatsTable.EntityData.ParentYangName = "DOCS-QOS-MIB"
     docsQosServiceFlowStatsTable.EntityData.SegmentPath = "docsQosServiceFlowStatsTable"
+    docsQosServiceFlowStatsTable.EntityData.AbsolutePath = "DOCS-QOS-MIB:DOCS-QOS-MIB/" + docsQosServiceFlowStatsTable.EntityData.SegmentPath
     docsQosServiceFlowStatsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsQosServiceFlowStatsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsQosServiceFlowStatsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1123,6 +1134,7 @@ func (docsQosServiceFlowStatsTable *DOCSQOSMIB_DocsQosServiceFlowStatsTable) Get
 type DOCSQOSMIB_DocsQosServiceFlowStatsTable_DocsQosServiceFlowStatsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -1177,6 +1189,7 @@ func (docsQosServiceFlowStatsEntry *DOCSQOSMIB_DocsQosServiceFlowStatsTable_Docs
     docsQosServiceFlowStatsEntry.EntityData.BundleName = "cisco_ios_xe"
     docsQosServiceFlowStatsEntry.EntityData.ParentYangName = "docsQosServiceFlowStatsTable"
     docsQosServiceFlowStatsEntry.EntityData.SegmentPath = "docsQosServiceFlowStatsEntry" + types.AddKeyToken(docsQosServiceFlowStatsEntry.IfIndex, "ifIndex") + types.AddKeyToken(docsQosServiceFlowStatsEntry.DocsQosServiceFlowId, "docsQosServiceFlowId")
+    docsQosServiceFlowStatsEntry.EntityData.AbsolutePath = "DOCS-QOS-MIB:DOCS-QOS-MIB/docsQosServiceFlowStatsTable/" + docsQosServiceFlowStatsEntry.EntityData.SegmentPath
     docsQosServiceFlowStatsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsQosServiceFlowStatsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsQosServiceFlowStatsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1219,6 +1232,7 @@ func (docsQosUpstreamStatsTable *DOCSQOSMIB_DocsQosUpstreamStatsTable) GetEntity
     docsQosUpstreamStatsTable.EntityData.BundleName = "cisco_ios_xe"
     docsQosUpstreamStatsTable.EntityData.ParentYangName = "DOCS-QOS-MIB"
     docsQosUpstreamStatsTable.EntityData.SegmentPath = "docsQosUpstreamStatsTable"
+    docsQosUpstreamStatsTable.EntityData.AbsolutePath = "DOCS-QOS-MIB:DOCS-QOS-MIB/" + docsQosUpstreamStatsTable.EntityData.SegmentPath
     docsQosUpstreamStatsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsQosUpstreamStatsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsQosUpstreamStatsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1243,6 +1257,7 @@ func (docsQosUpstreamStatsTable *DOCSQOSMIB_DocsQosUpstreamStatsTable) GetEntity
 type DOCSQOSMIB_DocsQosUpstreamStatsTable_DocsQosUpstreamStatsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -1272,6 +1287,7 @@ func (docsQosUpstreamStatsEntry *DOCSQOSMIB_DocsQosUpstreamStatsTable_DocsQosUps
     docsQosUpstreamStatsEntry.EntityData.BundleName = "cisco_ios_xe"
     docsQosUpstreamStatsEntry.EntityData.ParentYangName = "docsQosUpstreamStatsTable"
     docsQosUpstreamStatsEntry.EntityData.SegmentPath = "docsQosUpstreamStatsEntry" + types.AddKeyToken(docsQosUpstreamStatsEntry.IfIndex, "ifIndex") + types.AddKeyToken(docsQosUpstreamStatsEntry.DocsQosSID, "docsQosSID")
+    docsQosUpstreamStatsEntry.EntityData.AbsolutePath = "DOCS-QOS-MIB:DOCS-QOS-MIB/docsQosUpstreamStatsTable/" + docsQosUpstreamStatsEntry.EntityData.SegmentPath
     docsQosUpstreamStatsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsQosUpstreamStatsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsQosUpstreamStatsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1315,6 +1331,7 @@ func (docsQosDynamicServiceStatsTable *DOCSQOSMIB_DocsQosDynamicServiceStatsTabl
     docsQosDynamicServiceStatsTable.EntityData.BundleName = "cisco_ios_xe"
     docsQosDynamicServiceStatsTable.EntityData.ParentYangName = "DOCS-QOS-MIB"
     docsQosDynamicServiceStatsTable.EntityData.SegmentPath = "docsQosDynamicServiceStatsTable"
+    docsQosDynamicServiceStatsTable.EntityData.AbsolutePath = "DOCS-QOS-MIB:DOCS-QOS-MIB/" + docsQosDynamicServiceStatsTable.EntityData.SegmentPath
     docsQosDynamicServiceStatsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsQosDynamicServiceStatsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsQosDynamicServiceStatsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1348,6 +1365,7 @@ func (docsQosDynamicServiceStatsTable *DOCSQOSMIB_DocsQosDynamicServiceStatsTabl
 type DOCSQOSMIB_DocsQosDynamicServiceStatsTable_DocsQosDynamicServiceStatsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -1459,6 +1477,7 @@ func (docsQosDynamicServiceStatsEntry *DOCSQOSMIB_DocsQosDynamicServiceStatsTabl
     docsQosDynamicServiceStatsEntry.EntityData.BundleName = "cisco_ios_xe"
     docsQosDynamicServiceStatsEntry.EntityData.ParentYangName = "docsQosDynamicServiceStatsTable"
     docsQosDynamicServiceStatsEntry.EntityData.SegmentPath = "docsQosDynamicServiceStatsEntry" + types.AddKeyToken(docsQosDynamicServiceStatsEntry.IfIndex, "ifIndex") + types.AddKeyToken(docsQosDynamicServiceStatsEntry.DocsQosIfDirection, "docsQosIfDirection")
+    docsQosDynamicServiceStatsEntry.EntityData.AbsolutePath = "DOCS-QOS-MIB:DOCS-QOS-MIB/docsQosDynamicServiceStatsTable/" + docsQosDynamicServiceStatsEntry.EntityData.SegmentPath
     docsQosDynamicServiceStatsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsQosDynamicServiceStatsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsQosDynamicServiceStatsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1512,6 +1531,7 @@ func (docsQosServiceFlowLogTable *DOCSQOSMIB_DocsQosServiceFlowLogTable) GetEnti
     docsQosServiceFlowLogTable.EntityData.BundleName = "cisco_ios_xe"
     docsQosServiceFlowLogTable.EntityData.ParentYangName = "DOCS-QOS-MIB"
     docsQosServiceFlowLogTable.EntityData.SegmentPath = "docsQosServiceFlowLogTable"
+    docsQosServiceFlowLogTable.EntityData.AbsolutePath = "DOCS-QOS-MIB:DOCS-QOS-MIB/" + docsQosServiceFlowLogTable.EntityData.SegmentPath
     docsQosServiceFlowLogTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsQosServiceFlowLogTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsQosServiceFlowLogTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1534,6 +1554,7 @@ func (docsQosServiceFlowLogTable *DOCSQOSMIB_DocsQosServiceFlowLogTable) GetEnti
 type DOCSQOSMIB_DocsQosServiceFlowLogTable_DocsQosServiceFlowLogEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Unique index for a logged service flow. The type
     // is interface{} with range: 0..4294967295.
@@ -1603,6 +1624,7 @@ func (docsQosServiceFlowLogEntry *DOCSQOSMIB_DocsQosServiceFlowLogTable_DocsQosS
     docsQosServiceFlowLogEntry.EntityData.BundleName = "cisco_ios_xe"
     docsQosServiceFlowLogEntry.EntityData.ParentYangName = "docsQosServiceFlowLogTable"
     docsQosServiceFlowLogEntry.EntityData.SegmentPath = "docsQosServiceFlowLogEntry" + types.AddKeyToken(docsQosServiceFlowLogEntry.DocsQosServiceFlowLogIndex, "docsQosServiceFlowLogIndex")
+    docsQosServiceFlowLogEntry.EntityData.AbsolutePath = "DOCS-QOS-MIB:DOCS-QOS-MIB/docsQosServiceFlowLogTable/" + docsQosServiceFlowLogEntry.EntityData.SegmentPath
     docsQosServiceFlowLogEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsQosServiceFlowLogEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsQosServiceFlowLogEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1666,6 +1688,7 @@ func (docsQosServiceClassTable *DOCSQOSMIB_DocsQosServiceClassTable) GetEntityDa
     docsQosServiceClassTable.EntityData.BundleName = "cisco_ios_xe"
     docsQosServiceClassTable.EntityData.ParentYangName = "DOCS-QOS-MIB"
     docsQosServiceClassTable.EntityData.SegmentPath = "docsQosServiceClassTable"
+    docsQosServiceClassTable.EntityData.AbsolutePath = "DOCS-QOS-MIB:DOCS-QOS-MIB/" + docsQosServiceClassTable.EntityData.SegmentPath
     docsQosServiceClassTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsQosServiceClassTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsQosServiceClassTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1702,6 +1725,7 @@ func (docsQosServiceClassTable *DOCSQOSMIB_DocsQosServiceClassTable) GetEntityDa
 type DOCSQOSMIB_DocsQosServiceClassTable_DocsQosServiceClassEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Service Class Name. DOCSIS specifies that the
     // maximum size is 15 printable ASCII characters with  a terminating zero. The
@@ -1779,13 +1803,15 @@ type DOCSQOSMIB_DocsQosServiceClassTable_DocsQosServiceClassEntry struct {
     DocsQosServiceClassSchedulingType interface{}
 
     // Template for docsQosParamSetRequestPolicyOct. The type is string with
-    // length: 4.
+    // length: 4..4.
     DocsQosServiceClassRequestPolicy interface{}
 
-    // Template for docsQosParamSetTosAndMask. The type is string with length: 1.
+    // Template for docsQosParamSetTosAndMask. The type is string with length:
+    // 1..1.
     DocsQosServiceClassTosAndMask interface{}
 
-    // Template for docsQosParamSetTosOrMask. The type is string with length: 1.
+    // Template for docsQosParamSetTosOrMask. The type is string with length:
+    // 1..1.
     DocsQosServiceClassTosOrMask interface{}
 
     // Specifies whether the service class template applies to upstream or
@@ -1799,6 +1825,7 @@ func (docsQosServiceClassEntry *DOCSQOSMIB_DocsQosServiceClassTable_DocsQosServi
     docsQosServiceClassEntry.EntityData.BundleName = "cisco_ios_xe"
     docsQosServiceClassEntry.EntityData.ParentYangName = "docsQosServiceClassTable"
     docsQosServiceClassEntry.EntityData.SegmentPath = "docsQosServiceClassEntry" + types.AddKeyToken(docsQosServiceClassEntry.DocsQosServiceClassName, "docsQosServiceClassName")
+    docsQosServiceClassEntry.EntityData.AbsolutePath = "DOCS-QOS-MIB:DOCS-QOS-MIB/docsQosServiceClassTable/" + docsQosServiceClassEntry.EntityData.SegmentPath
     docsQosServiceClassEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsQosServiceClassEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsQosServiceClassEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1862,6 +1889,7 @@ func (docsQosServiceClassPolicyTable *DOCSQOSMIB_DocsQosServiceClassPolicyTable)
     docsQosServiceClassPolicyTable.EntityData.BundleName = "cisco_ios_xe"
     docsQosServiceClassPolicyTable.EntityData.ParentYangName = "DOCS-QOS-MIB"
     docsQosServiceClassPolicyTable.EntityData.SegmentPath = "docsQosServiceClassPolicyTable"
+    docsQosServiceClassPolicyTable.EntityData.AbsolutePath = "DOCS-QOS-MIB:DOCS-QOS-MIB/" + docsQosServiceClassPolicyTable.EntityData.SegmentPath
     docsQosServiceClassPolicyTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsQosServiceClassPolicyTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsQosServiceClassPolicyTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1883,6 +1911,7 @@ func (docsQosServiceClassPolicyTable *DOCSQOSMIB_DocsQosServiceClassPolicyTable)
 type DOCSQOSMIB_DocsQosServiceClassPolicyTable_DocsQosServiceClassPolicyEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Index value to uniquely identify an entry in this
     // table. The type is interface{} with range: 1..2147483647.
@@ -1908,6 +1937,7 @@ func (docsQosServiceClassPolicyEntry *DOCSQOSMIB_DocsQosServiceClassPolicyTable_
     docsQosServiceClassPolicyEntry.EntityData.BundleName = "cisco_ios_xe"
     docsQosServiceClassPolicyEntry.EntityData.ParentYangName = "docsQosServiceClassPolicyTable"
     docsQosServiceClassPolicyEntry.EntityData.SegmentPath = "docsQosServiceClassPolicyEntry" + types.AddKeyToken(docsQosServiceClassPolicyEntry.DocsQosServiceClassPolicyIndex, "docsQosServiceClassPolicyIndex")
+    docsQosServiceClassPolicyEntry.EntityData.AbsolutePath = "DOCS-QOS-MIB:DOCS-QOS-MIB/docsQosServiceClassPolicyTable/" + docsQosServiceClassPolicyEntry.EntityData.SegmentPath
     docsQosServiceClassPolicyEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsQosServiceClassPolicyEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsQosServiceClassPolicyEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1945,6 +1975,7 @@ func (docsQosPHSTable *DOCSQOSMIB_DocsQosPHSTable) GetEntityData() *types.Common
     docsQosPHSTable.EntityData.BundleName = "cisco_ios_xe"
     docsQosPHSTable.EntityData.ParentYangName = "DOCS-QOS-MIB"
     docsQosPHSTable.EntityData.SegmentPath = "docsQosPHSTable"
+    docsQosPHSTable.EntityData.AbsolutePath = "DOCS-QOS-MIB:DOCS-QOS-MIB/" + docsQosPHSTable.EntityData.SegmentPath
     docsQosPHSTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsQosPHSTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsQosPHSTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1971,6 +2002,7 @@ func (docsQosPHSTable *DOCSQOSMIB_DocsQosPHSTable) GetEntityData() *types.Common
 type DOCSQOSMIB_DocsQosPHSTable_DocsQosPHSEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -2031,6 +2063,7 @@ func (docsQosPHSEntry *DOCSQOSMIB_DocsQosPHSTable_DocsQosPHSEntry) GetEntityData
     docsQosPHSEntry.EntityData.BundleName = "cisco_ios_xe"
     docsQosPHSEntry.EntityData.ParentYangName = "docsQosPHSTable"
     docsQosPHSEntry.EntityData.SegmentPath = "docsQosPHSEntry" + types.AddKeyToken(docsQosPHSEntry.IfIndex, "ifIndex") + types.AddKeyToken(docsQosPHSEntry.DocsQosServiceFlowId, "docsQosServiceFlowId") + types.AddKeyToken(docsQosPHSEntry.DocsQosPktClassId, "docsQosPktClassId")
+    docsQosPHSEntry.EntityData.AbsolutePath = "DOCS-QOS-MIB:DOCS-QOS-MIB/docsQosPHSTable/" + docsQosPHSEntry.EntityData.SegmentPath
     docsQosPHSEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsQosPHSEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsQosPHSEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2073,6 +2106,7 @@ func (docsQosCmtsMacToSrvFlowTable *DOCSQOSMIB_DocsQosCmtsMacToSrvFlowTable) Get
     docsQosCmtsMacToSrvFlowTable.EntityData.BundleName = "cisco_ios_xe"
     docsQosCmtsMacToSrvFlowTable.EntityData.ParentYangName = "DOCS-QOS-MIB"
     docsQosCmtsMacToSrvFlowTable.EntityData.SegmentPath = "docsQosCmtsMacToSrvFlowTable"
+    docsQosCmtsMacToSrvFlowTable.EntityData.AbsolutePath = "DOCS-QOS-MIB:DOCS-QOS-MIB/" + docsQosCmtsMacToSrvFlowTable.EntityData.SegmentPath
     docsQosCmtsMacToSrvFlowTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsQosCmtsMacToSrvFlowTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsQosCmtsMacToSrvFlowTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2095,6 +2129,7 @@ func (docsQosCmtsMacToSrvFlowTable *DOCSQOSMIB_DocsQosCmtsMacToSrvFlowTable) Get
 type DOCSQOSMIB_DocsQosCmtsMacToSrvFlowTable_DocsQosCmtsMacToSrvFlowEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The MAC address for the referenced CM. The type is
     // string with pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
@@ -2116,6 +2151,7 @@ func (docsQosCmtsMacToSrvFlowEntry *DOCSQOSMIB_DocsQosCmtsMacToSrvFlowTable_Docs
     docsQosCmtsMacToSrvFlowEntry.EntityData.BundleName = "cisco_ios_xe"
     docsQosCmtsMacToSrvFlowEntry.EntityData.ParentYangName = "docsQosCmtsMacToSrvFlowTable"
     docsQosCmtsMacToSrvFlowEntry.EntityData.SegmentPath = "docsQosCmtsMacToSrvFlowEntry" + types.AddKeyToken(docsQosCmtsMacToSrvFlowEntry.DocsQosCmtsCmMac, "docsQosCmtsCmMac") + types.AddKeyToken(docsQosCmtsMacToSrvFlowEntry.DocsQosCmtsServiceFlowId, "docsQosCmtsServiceFlowId")
+    docsQosCmtsMacToSrvFlowEntry.EntityData.AbsolutePath = "DOCS-QOS-MIB:DOCS-QOS-MIB/docsQosCmtsMacToSrvFlowTable/" + docsQosCmtsMacToSrvFlowEntry.EntityData.SegmentPath
     docsQosCmtsMacToSrvFlowEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsQosCmtsMacToSrvFlowEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsQosCmtsMacToSrvFlowEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

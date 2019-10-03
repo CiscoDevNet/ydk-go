@@ -128,6 +128,7 @@ func (cISCOENTITYQFPMIB *CISCOENTITYQFPMIB) GetEntityData() *types.CommonEntityD
     cISCOENTITYQFPMIB.EntityData.BundleName = "cisco_ios_xe"
     cISCOENTITYQFPMIB.EntityData.ParentYangName = "CISCO-ENTITY-QFP-MIB"
     cISCOENTITYQFPMIB.EntityData.SegmentPath = "CISCO-ENTITY-QFP-MIB:CISCO-ENTITY-QFP-MIB"
+    cISCOENTITYQFPMIB.EntityData.AbsolutePath = cISCOENTITYQFPMIB.EntityData.SegmentPath
     cISCOENTITYQFPMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cISCOENTITYQFPMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOENTITYQFPMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -190,6 +191,7 @@ func (ciscoEntityQfp *CISCOENTITYQFPMIB_CiscoEntityQfp) GetEntityData() *types.C
     ciscoEntityQfp.EntityData.BundleName = "cisco_ios_xe"
     ciscoEntityQfp.EntityData.ParentYangName = "CISCO-ENTITY-QFP-MIB"
     ciscoEntityQfp.EntityData.SegmentPath = "ciscoEntityQfp"
+    ciscoEntityQfp.EntityData.AbsolutePath = "CISCO-ENTITY-QFP-MIB:CISCO-ENTITY-QFP-MIB/" + ciscoEntityQfp.EntityData.SegmentPath
     ciscoEntityQfp.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ciscoEntityQfp.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ciscoEntityQfp.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -267,6 +269,7 @@ func (ciscoEntityQfpNotif *CISCOENTITYQFPMIB_CiscoEntityQfpNotif) GetEntityData(
     ciscoEntityQfpNotif.EntityData.BundleName = "cisco_ios_xe"
     ciscoEntityQfpNotif.EntityData.ParentYangName = "CISCO-ENTITY-QFP-MIB"
     ciscoEntityQfpNotif.EntityData.SegmentPath = "ciscoEntityQfpNotif"
+    ciscoEntityQfpNotif.EntityData.AbsolutePath = "CISCO-ENTITY-QFP-MIB:CISCO-ENTITY-QFP-MIB/" + ciscoEntityQfpNotif.EntityData.SegmentPath
     ciscoEntityQfpNotif.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ciscoEntityQfpNotif.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ciscoEntityQfpNotif.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -308,6 +311,7 @@ func (ceqfpSystemTable *CISCOENTITYQFPMIB_CeqfpSystemTable) GetEntityData() *typ
     ceqfpSystemTable.EntityData.BundleName = "cisco_ios_xe"
     ceqfpSystemTable.EntityData.ParentYangName = "CISCO-ENTITY-QFP-MIB"
     ceqfpSystemTable.EntityData.SegmentPath = "ceqfpSystemTable"
+    ceqfpSystemTable.EntityData.AbsolutePath = "CISCO-ENTITY-QFP-MIB:CISCO-ENTITY-QFP-MIB/" + ceqfpSystemTable.EntityData.SegmentPath
     ceqfpSystemTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ceqfpSystemTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ceqfpSystemTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -331,6 +335,7 @@ func (ceqfpSystemTable *CISCOENTITYQFPMIB_CeqfpSystemTable) GetEntityData() *typ
 type CISCOENTITYQFPMIB_CeqfpSystemTable_CeqfpSystemEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -372,6 +377,7 @@ func (ceqfpSystemEntry *CISCOENTITYQFPMIB_CeqfpSystemTable_CeqfpSystemEntry) Get
     ceqfpSystemEntry.EntityData.BundleName = "cisco_ios_xe"
     ceqfpSystemEntry.EntityData.ParentYangName = "ceqfpSystemTable"
     ceqfpSystemEntry.EntityData.SegmentPath = "ceqfpSystemEntry" + types.AddKeyToken(ceqfpSystemEntry.EntPhysicalIndex, "entPhysicalIndex")
+    ceqfpSystemEntry.EntityData.AbsolutePath = "CISCO-ENTITY-QFP-MIB:CISCO-ENTITY-QFP-MIB/ceqfpSystemTable/" + ceqfpSystemEntry.EntityData.SegmentPath
     ceqfpSystemEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ceqfpSystemEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ceqfpSystemEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -458,6 +464,7 @@ func (ceqfpUtilizationTable *CISCOENTITYQFPMIB_CeqfpUtilizationTable) GetEntityD
     ceqfpUtilizationTable.EntityData.BundleName = "cisco_ios_xe"
     ceqfpUtilizationTable.EntityData.ParentYangName = "CISCO-ENTITY-QFP-MIB"
     ceqfpUtilizationTable.EntityData.SegmentPath = "ceqfpUtilizationTable"
+    ceqfpUtilizationTable.EntityData.AbsolutePath = "CISCO-ENTITY-QFP-MIB:CISCO-ENTITY-QFP-MIB/" + ceqfpUtilizationTable.EntityData.SegmentPath
     ceqfpUtilizationTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ceqfpUtilizationTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ceqfpUtilizationTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -488,6 +495,7 @@ func (ceqfpUtilizationTable *CISCOENTITYQFPMIB_CeqfpUtilizationTable) GetEntityD
 type CISCOENTITYQFPMIB_CeqfpUtilizationTable_CeqfpUtilizationEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -575,6 +583,7 @@ func (ceqfpUtilizationEntry *CISCOENTITYQFPMIB_CeqfpUtilizationTable_CeqfpUtiliz
     ceqfpUtilizationEntry.EntityData.BundleName = "cisco_ios_xe"
     ceqfpUtilizationEntry.EntityData.ParentYangName = "ceqfpUtilizationTable"
     ceqfpUtilizationEntry.EntityData.SegmentPath = "ceqfpUtilizationEntry" + types.AddKeyToken(ceqfpUtilizationEntry.EntPhysicalIndex, "entPhysicalIndex") + types.AddKeyToken(ceqfpUtilizationEntry.CeqfpUtilTimeInterval, "ceqfpUtilTimeInterval")
+    ceqfpUtilizationEntry.EntityData.AbsolutePath = "CISCO-ENTITY-QFP-MIB:CISCO-ENTITY-QFP-MIB/ceqfpUtilizationTable/" + ceqfpUtilizationEntry.EntityData.SegmentPath
     ceqfpUtilizationEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ceqfpUtilizationEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ceqfpUtilizationEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -635,6 +644,7 @@ func (ceqfpMemoryResourceTable *CISCOENTITYQFPMIB_CeqfpMemoryResourceTable) GetE
     ceqfpMemoryResourceTable.EntityData.BundleName = "cisco_ios_xe"
     ceqfpMemoryResourceTable.EntityData.ParentYangName = "CISCO-ENTITY-QFP-MIB"
     ceqfpMemoryResourceTable.EntityData.SegmentPath = "ceqfpMemoryResourceTable"
+    ceqfpMemoryResourceTable.EntityData.AbsolutePath = "CISCO-ENTITY-QFP-MIB:CISCO-ENTITY-QFP-MIB/" + ceqfpMemoryResourceTable.EntityData.SegmentPath
     ceqfpMemoryResourceTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ceqfpMemoryResourceTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ceqfpMemoryResourceTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -659,6 +669,7 @@ func (ceqfpMemoryResourceTable *CISCOENTITYQFPMIB_CeqfpMemoryResourceTable) GetE
 type CISCOENTITYQFPMIB_CeqfpMemoryResourceTable_CeqfpMemoryResourceEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -760,6 +771,7 @@ func (ceqfpMemoryResourceEntry *CISCOENTITYQFPMIB_CeqfpMemoryResourceTable_Ceqfp
     ceqfpMemoryResourceEntry.EntityData.BundleName = "cisco_ios_xe"
     ceqfpMemoryResourceEntry.EntityData.ParentYangName = "ceqfpMemoryResourceTable"
     ceqfpMemoryResourceEntry.EntityData.SegmentPath = "ceqfpMemoryResourceEntry" + types.AddKeyToken(ceqfpMemoryResourceEntry.EntPhysicalIndex, "entPhysicalIndex") + types.AddKeyToken(ceqfpMemoryResourceEntry.CeqfpMemoryResType, "ceqfpMemoryResType")
+    ceqfpMemoryResourceEntry.EntityData.AbsolutePath = "CISCO-ENTITY-QFP-MIB:CISCO-ENTITY-QFP-MIB/ceqfpMemoryResourceTable/" + ceqfpMemoryResourceEntry.EntityData.SegmentPath
     ceqfpMemoryResourceEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ceqfpMemoryResourceEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ceqfpMemoryResourceEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -817,6 +829,7 @@ func (ceqfpThroughputTable *CISCOENTITYQFPMIB_CeqfpThroughputTable) GetEntityDat
     ceqfpThroughputTable.EntityData.BundleName = "cisco_ios_xe"
     ceqfpThroughputTable.EntityData.ParentYangName = "CISCO-ENTITY-QFP-MIB"
     ceqfpThroughputTable.EntityData.SegmentPath = "ceqfpThroughputTable"
+    ceqfpThroughputTable.EntityData.AbsolutePath = "CISCO-ENTITY-QFP-MIB:CISCO-ENTITY-QFP-MIB/" + ceqfpThroughputTable.EntityData.SegmentPath
     ceqfpThroughputTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ceqfpThroughputTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ceqfpThroughputTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -840,6 +853,7 @@ func (ceqfpThroughputTable *CISCOENTITYQFPMIB_CeqfpThroughputTable) GetEntityDat
 type CISCOENTITYQFPMIB_CeqfpThroughputTable_CeqfpThroughputEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -880,6 +894,7 @@ func (ceqfpThroughputEntry *CISCOENTITYQFPMIB_CeqfpThroughputTable_CeqfpThroughp
     ceqfpThroughputEntry.EntityData.BundleName = "cisco_ios_xe"
     ceqfpThroughputEntry.EntityData.ParentYangName = "ceqfpThroughputTable"
     ceqfpThroughputEntry.EntityData.SegmentPath = "ceqfpThroughputEntry" + types.AddKeyToken(ceqfpThroughputEntry.EntPhysicalIndex, "entPhysicalIndex")
+    ceqfpThroughputEntry.EntityData.AbsolutePath = "CISCO-ENTITY-QFP-MIB:CISCO-ENTITY-QFP-MIB/ceqfpThroughputTable/" + ceqfpThroughputEntry.EntityData.SegmentPath
     ceqfpThroughputEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ceqfpThroughputEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ceqfpThroughputEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

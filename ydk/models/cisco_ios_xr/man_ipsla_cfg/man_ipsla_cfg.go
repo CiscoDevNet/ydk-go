@@ -289,6 +289,7 @@ func (ipsla *Ipsla) GetEntityData() *types.CommonEntityData {
     ipsla.EntityData.BundleName = "cisco_ios_xr"
     ipsla.EntityData.ParentYangName = "Cisco-IOS-XR-man-ipsla-cfg"
     ipsla.EntityData.SegmentPath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla"
+    ipsla.EntityData.AbsolutePath = ipsla.EntityData.SegmentPath
     ipsla.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipsla.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipsla.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -330,6 +331,7 @@ func (common *Ipsla_Common) GetEntityData() *types.CommonEntityData {
     common.EntityData.BundleName = "cisco_ios_xr"
     common.EntityData.ParentYangName = "ipsla"
     common.EntityData.SegmentPath = "common"
+    common.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/" + common.EntityData.SegmentPath
     common.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     common.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     common.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -361,6 +363,7 @@ func (hardwareTimestamp *Ipsla_Common_HardwareTimestamp) GetEntityData() *types.
     hardwareTimestamp.EntityData.BundleName = "cisco_ios_xr"
     hardwareTimestamp.EntityData.ParentYangName = "common"
     hardwareTimestamp.EntityData.SegmentPath = "hardware-timestamp"
+    hardwareTimestamp.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/common/" + hardwareTimestamp.EntityData.SegmentPath
     hardwareTimestamp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hardwareTimestamp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hardwareTimestamp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -391,6 +394,7 @@ func (authentication *Ipsla_Common_Authentication) GetEntityData() *types.Common
     authentication.EntityData.BundleName = "cisco_ios_xr"
     authentication.EntityData.ParentYangName = "common"
     authentication.EntityData.SegmentPath = "authentication"
+    authentication.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/common/" + authentication.EntityData.SegmentPath
     authentication.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     authentication.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     authentication.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -426,6 +430,7 @@ func (mplsLspMonitor *Ipsla_MplsLspMonitor) GetEntityData() *types.CommonEntityD
     mplsLspMonitor.EntityData.BundleName = "cisco_ios_xr"
     mplsLspMonitor.EntityData.ParentYangName = "ipsla"
     mplsLspMonitor.EntityData.SegmentPath = "mpls-lsp-monitor"
+    mplsLspMonitor.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/" + mplsLspMonitor.EntityData.SegmentPath
     mplsLspMonitor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mplsLspMonitor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mplsLspMonitor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -458,6 +463,7 @@ func (reactions *Ipsla_MplsLspMonitor_Reactions) GetEntityData() *types.CommonEn
     reactions.EntityData.BundleName = "cisco_ios_xr"
     reactions.EntityData.ParentYangName = "mpls-lsp-monitor"
     reactions.EntityData.SegmentPath = "reactions"
+    reactions.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/mpls-lsp-monitor/" + reactions.EntityData.SegmentPath
     reactions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     reactions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     reactions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -479,6 +485,7 @@ func (reactions *Ipsla_MplsLspMonitor_Reactions) GetEntityData() *types.CommonEn
 type Ipsla_MplsLspMonitor_Reactions_Reaction struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Monitor identifier. The type is interface{} with
     // range: 1..2048.
@@ -494,6 +501,7 @@ func (reaction *Ipsla_MplsLspMonitor_Reactions_Reaction) GetEntityData() *types.
     reaction.EntityData.BundleName = "cisco_ios_xr"
     reaction.EntityData.ParentYangName = "reactions"
     reaction.EntityData.SegmentPath = "reaction" + types.AddKeyToken(reaction.MonitorId, "monitor-id")
+    reaction.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/mpls-lsp-monitor/reactions/" + reaction.EntityData.SegmentPath
     reaction.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     reaction.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     reaction.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -533,6 +541,7 @@ func (condition *Ipsla_MplsLspMonitor_Reactions_Reaction_Condition) GetEntityDat
     condition.EntityData.BundleName = "cisco_ios_xr"
     condition.EntityData.ParentYangName = "reaction"
     condition.EntityData.SegmentPath = "condition"
+    condition.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/mpls-lsp-monitor/reactions/reaction/" + condition.EntityData.SegmentPath
     condition.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     condition.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     condition.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -569,6 +578,7 @@ func (lpdTreeTrace *Ipsla_MplsLspMonitor_Reactions_Reaction_Condition_LpdTreeTra
     lpdTreeTrace.EntityData.BundleName = "cisco_ios_xr"
     lpdTreeTrace.EntityData.ParentYangName = "condition"
     lpdTreeTrace.EntityData.SegmentPath = "lpd-tree-trace"
+    lpdTreeTrace.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/mpls-lsp-monitor/reactions/reaction/condition/" + lpdTreeTrace.EntityData.SegmentPath
     lpdTreeTrace.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lpdTreeTrace.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lpdTreeTrace.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -600,6 +610,7 @@ func (actionType *Ipsla_MplsLspMonitor_Reactions_Reaction_Condition_LpdTreeTrace
     actionType.EntityData.BundleName = "cisco_ios_xr"
     actionType.EntityData.ParentYangName = "lpd-tree-trace"
     actionType.EntityData.SegmentPath = "action-type"
+    actionType.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/mpls-lsp-monitor/reactions/reaction/condition/lpd-tree-trace/" + actionType.EntityData.SegmentPath
     actionType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     actionType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     actionType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -635,6 +646,7 @@ func (timeout *Ipsla_MplsLspMonitor_Reactions_Reaction_Condition_Timeout) GetEnt
     timeout.EntityData.BundleName = "cisco_ios_xr"
     timeout.EntityData.ParentYangName = "condition"
     timeout.EntityData.SegmentPath = "timeout"
+    timeout.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/mpls-lsp-monitor/reactions/reaction/condition/" + timeout.EntityData.SegmentPath
     timeout.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     timeout.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     timeout.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -667,6 +679,7 @@ func (actionType *Ipsla_MplsLspMonitor_Reactions_Reaction_Condition_Timeout_Acti
     actionType.EntityData.BundleName = "cisco_ios_xr"
     actionType.EntityData.ParentYangName = "timeout"
     actionType.EntityData.SegmentPath = "action-type"
+    actionType.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/mpls-lsp-monitor/reactions/reaction/condition/timeout/" + actionType.EntityData.SegmentPath
     actionType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     actionType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     actionType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -704,6 +717,7 @@ func (thresholdType *Ipsla_MplsLspMonitor_Reactions_Reaction_Condition_Timeout_T
     thresholdType.EntityData.BundleName = "cisco_ios_xr"
     thresholdType.EntityData.ParentYangName = "timeout"
     thresholdType.EntityData.SegmentPath = "threshold-type"
+    thresholdType.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/mpls-lsp-monitor/reactions/reaction/condition/timeout/" + thresholdType.EntityData.SegmentPath
     thresholdType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     thresholdType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     thresholdType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -739,6 +753,7 @@ func (lpdGroup *Ipsla_MplsLspMonitor_Reactions_Reaction_Condition_LpdGroup) GetE
     lpdGroup.EntityData.BundleName = "cisco_ios_xr"
     lpdGroup.EntityData.ParentYangName = "condition"
     lpdGroup.EntityData.SegmentPath = "lpd-group"
+    lpdGroup.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/mpls-lsp-monitor/reactions/reaction/condition/" + lpdGroup.EntityData.SegmentPath
     lpdGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lpdGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lpdGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -770,6 +785,7 @@ func (actionType *Ipsla_MplsLspMonitor_Reactions_Reaction_Condition_LpdGroup_Act
     actionType.EntityData.BundleName = "cisco_ios_xr"
     actionType.EntityData.ParentYangName = "lpd-group"
     actionType.EntityData.SegmentPath = "action-type"
+    actionType.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/mpls-lsp-monitor/reactions/reaction/condition/lpd-group/" + actionType.EntityData.SegmentPath
     actionType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     actionType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     actionType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -806,6 +822,7 @@ func (connectionLoss *Ipsla_MplsLspMonitor_Reactions_Reaction_Condition_Connecti
     connectionLoss.EntityData.BundleName = "cisco_ios_xr"
     connectionLoss.EntityData.ParentYangName = "condition"
     connectionLoss.EntityData.SegmentPath = "connection-loss"
+    connectionLoss.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/mpls-lsp-monitor/reactions/reaction/condition/" + connectionLoss.EntityData.SegmentPath
     connectionLoss.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     connectionLoss.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     connectionLoss.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -838,6 +855,7 @@ func (actionType *Ipsla_MplsLspMonitor_Reactions_Reaction_Condition_ConnectionLo
     actionType.EntityData.BundleName = "cisco_ios_xr"
     actionType.EntityData.ParentYangName = "connection-loss"
     actionType.EntityData.SegmentPath = "action-type"
+    actionType.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/mpls-lsp-monitor/reactions/reaction/condition/connection-loss/" + actionType.EntityData.SegmentPath
     actionType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     actionType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     actionType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -875,6 +893,7 @@ func (thresholdType *Ipsla_MplsLspMonitor_Reactions_Reaction_Condition_Connectio
     thresholdType.EntityData.BundleName = "cisco_ios_xr"
     thresholdType.EntityData.ParentYangName = "connection-loss"
     thresholdType.EntityData.SegmentPath = "threshold-type"
+    thresholdType.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/mpls-lsp-monitor/reactions/reaction/condition/connection-loss/" + thresholdType.EntityData.SegmentPath
     thresholdType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     thresholdType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     thresholdType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -907,6 +926,7 @@ func (schedules *Ipsla_MplsLspMonitor_Schedules) GetEntityData() *types.CommonEn
     schedules.EntityData.BundleName = "cisco_ios_xr"
     schedules.EntityData.ParentYangName = "mpls-lsp-monitor"
     schedules.EntityData.SegmentPath = "schedules"
+    schedules.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/mpls-lsp-monitor/" + schedules.EntityData.SegmentPath
     schedules.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     schedules.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     schedules.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -928,6 +948,7 @@ func (schedules *Ipsla_MplsLspMonitor_Schedules) GetEntityData() *types.CommonEn
 type Ipsla_MplsLspMonitor_Schedules_Schedule struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Monitor indentifier. The type is interface{} with
     // range: 1..2048.
@@ -951,6 +972,7 @@ func (schedule *Ipsla_MplsLspMonitor_Schedules_Schedule) GetEntityData() *types.
     schedule.EntityData.BundleName = "cisco_ios_xr"
     schedule.EntityData.ParentYangName = "schedules"
     schedule.EntityData.SegmentPath = "schedule" + types.AddKeyToken(schedule.MonitorId, "monitor-id")
+    schedule.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/mpls-lsp-monitor/schedules/" + schedule.EntityData.SegmentPath
     schedule.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     schedule.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     schedule.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1007,6 +1029,7 @@ func (startTime *Ipsla_MplsLspMonitor_Schedules_Schedule_StartTime) GetEntityDat
     startTime.EntityData.BundleName = "cisco_ios_xr"
     startTime.EntityData.ParentYangName = "schedule"
     startTime.EntityData.SegmentPath = "start-time"
+    startTime.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/mpls-lsp-monitor/schedules/schedule/" + startTime.EntityData.SegmentPath
     startTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     startTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     startTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1043,6 +1066,7 @@ func (definitions *Ipsla_MplsLspMonitor_Definitions) GetEntityData() *types.Comm
     definitions.EntityData.BundleName = "cisco_ios_xr"
     definitions.EntityData.ParentYangName = "mpls-lsp-monitor"
     definitions.EntityData.SegmentPath = "definitions"
+    definitions.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/mpls-lsp-monitor/" + definitions.EntityData.SegmentPath
     definitions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     definitions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     definitions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1064,6 +1088,7 @@ func (definitions *Ipsla_MplsLspMonitor_Definitions) GetEntityData() *types.Comm
 type Ipsla_MplsLspMonitor_Definitions_Definition struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Monitor identifier. The type is interface{} with
     // range: 1..2048.
@@ -1079,6 +1104,7 @@ func (definition *Ipsla_MplsLspMonitor_Definitions_Definition) GetEntityData() *
     definition.EntityData.BundleName = "cisco_ios_xr"
     definition.EntityData.ParentYangName = "definitions"
     definition.EntityData.SegmentPath = "definition" + types.AddKeyToken(definition.MonitorId, "monitor-id")
+    definition.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/mpls-lsp-monitor/definitions/" + definition.EntityData.SegmentPath
     definition.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     definition.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     definition.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1112,6 +1138,7 @@ func (operationType *Ipsla_MplsLspMonitor_Definitions_Definition_OperationType) 
     operationType.EntityData.BundleName = "cisco_ios_xr"
     operationType.EntityData.ParentYangName = "definition"
     operationType.EntityData.SegmentPath = "operation-type"
+    operationType.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/mpls-lsp-monitor/definitions/definition/" + operationType.EntityData.SegmentPath
     operationType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     operationType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     operationType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1191,6 +1218,7 @@ func (mplsLspTrace *Ipsla_MplsLspMonitor_Definitions_Definition_OperationType_Mp
     mplsLspTrace.EntityData.BundleName = "cisco_ios_xr"
     mplsLspTrace.EntityData.ParentYangName = "operation-type"
     mplsLspTrace.EntityData.SegmentPath = "mpls-lsp-trace"
+    mplsLspTrace.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/mpls-lsp-monitor/definitions/definition/operation-type/" + mplsLspTrace.EntityData.SegmentPath
     mplsLspTrace.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mplsLspTrace.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mplsLspTrace.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1238,6 +1266,7 @@ func (reply *Ipsla_MplsLspMonitor_Definitions_Definition_OperationType_MplsLspTr
     reply.EntityData.BundleName = "cisco_ios_xr"
     reply.EntityData.ParentYangName = "mpls-lsp-trace"
     reply.EntityData.SegmentPath = "reply"
+    reply.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/mpls-lsp-monitor/definitions/definition/operation-type/mpls-lsp-trace/" + reply.EntityData.SegmentPath
     reply.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     reply.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     reply.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1269,6 +1298,7 @@ func (statistics *Ipsla_MplsLspMonitor_Definitions_Definition_OperationType_Mpls
     statistics.EntityData.BundleName = "cisco_ios_xr"
     statistics.EntityData.ParentYangName = "mpls-lsp-trace"
     statistics.EntityData.SegmentPath = "statistics"
+    statistics.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/mpls-lsp-monitor/definitions/definition/operation-type/mpls-lsp-trace/" + statistics.EntityData.SegmentPath
     statistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1303,6 +1333,7 @@ func (scan *Ipsla_MplsLspMonitor_Definitions_Definition_OperationType_MplsLspTra
     scan.EntityData.BundleName = "cisco_ios_xr"
     scan.EntityData.ParentYangName = "mpls-lsp-trace"
     scan.EntityData.SegmentPath = "scan"
+    scan.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/mpls-lsp-monitor/definitions/definition/operation-type/mpls-lsp-trace/" + scan.EntityData.SegmentPath
     scan.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     scan.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     scan.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1388,6 +1419,7 @@ func (mplsLspPing *Ipsla_MplsLspMonitor_Definitions_Definition_OperationType_Mpl
     mplsLspPing.EntityData.BundleName = "cisco_ios_xr"
     mplsLspPing.EntityData.ParentYangName = "operation-type"
     mplsLspPing.EntityData.SegmentPath = "mpls-lsp-ping"
+    mplsLspPing.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/mpls-lsp-monitor/definitions/definition/operation-type/" + mplsLspPing.EntityData.SegmentPath
     mplsLspPing.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mplsLspPing.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mplsLspPing.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1434,6 +1466,7 @@ func (dataSize *Ipsla_MplsLspMonitor_Definitions_Definition_OperationType_MplsLs
     dataSize.EntityData.BundleName = "cisco_ios_xr"
     dataSize.EntityData.ParentYangName = "mpls-lsp-ping"
     dataSize.EntityData.SegmentPath = "data-size"
+    dataSize.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/mpls-lsp-monitor/definitions/definition/operation-type/mpls-lsp-ping/" + dataSize.EntityData.SegmentPath
     dataSize.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dataSize.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dataSize.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1476,6 +1509,7 @@ func (pathDiscover *Ipsla_MplsLspMonitor_Definitions_Definition_OperationType_Mp
     pathDiscover.EntityData.BundleName = "cisco_ios_xr"
     pathDiscover.EntityData.ParentYangName = "mpls-lsp-ping"
     pathDiscover.EntityData.SegmentPath = "path-discover"
+    pathDiscover.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/mpls-lsp-monitor/definitions/definition/operation-type/mpls-lsp-ping/" + pathDiscover.EntityData.SegmentPath
     pathDiscover.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pathDiscover.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pathDiscover.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1514,6 +1548,7 @@ func (session *Ipsla_MplsLspMonitor_Definitions_Definition_OperationType_MplsLsp
     session.EntityData.BundleName = "cisco_ios_xr"
     session.EntityData.ParentYangName = "path-discover"
     session.EntityData.SegmentPath = "session"
+    session.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/mpls-lsp-monitor/definitions/definition/operation-type/mpls-lsp-ping/path-discover/" + session.EntityData.SegmentPath
     session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1548,6 +1583,7 @@ func (path *Ipsla_MplsLspMonitor_Definitions_Definition_OperationType_MplsLspPin
     path.EntityData.BundleName = "cisco_ios_xr"
     path.EntityData.ParentYangName = "path-discover"
     path.EntityData.SegmentPath = "path"
+    path.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/mpls-lsp-monitor/definitions/definition/operation-type/mpls-lsp-ping/path-discover/" + path.EntityData.SegmentPath
     path.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     path.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     path.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1586,6 +1622,7 @@ func (secondaryFrequency *Ipsla_MplsLspMonitor_Definitions_Definition_OperationT
     secondaryFrequency.EntityData.BundleName = "cisco_ios_xr"
     secondaryFrequency.EntityData.ParentYangName = "path"
     secondaryFrequency.EntityData.SegmentPath = "secondary-frequency"
+    secondaryFrequency.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/mpls-lsp-monitor/definitions/definition/operation-type/mpls-lsp-ping/path-discover/path/" + secondaryFrequency.EntityData.SegmentPath
     secondaryFrequency.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     secondaryFrequency.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     secondaryFrequency.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1635,6 +1672,7 @@ func (echo *Ipsla_MplsLspMonitor_Definitions_Definition_OperationType_MplsLspPin
     echo.EntityData.BundleName = "cisco_ios_xr"
     echo.EntityData.ParentYangName = "path-discover"
     echo.EntityData.SegmentPath = "echo"
+    echo.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/mpls-lsp-monitor/definitions/definition/operation-type/mpls-lsp-ping/path-discover/" + echo.EntityData.SegmentPath
     echo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     echo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     echo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1669,6 +1707,7 @@ func (multipath *Ipsla_MplsLspMonitor_Definitions_Definition_OperationType_MplsL
     multipath.EntityData.BundleName = "cisco_ios_xr"
     multipath.EntityData.ParentYangName = "echo"
     multipath.EntityData.SegmentPath = "multipath"
+    multipath.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/mpls-lsp-monitor/definitions/definition/operation-type/mpls-lsp-ping/path-discover/echo/" + multipath.EntityData.SegmentPath
     multipath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     multipath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     multipath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1703,6 +1742,7 @@ func (reply *Ipsla_MplsLspMonitor_Definitions_Definition_OperationType_MplsLspPi
     reply.EntityData.BundleName = "cisco_ios_xr"
     reply.EntityData.ParentYangName = "mpls-lsp-ping"
     reply.EntityData.SegmentPath = "reply"
+    reply.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/mpls-lsp-monitor/definitions/definition/operation-type/mpls-lsp-ping/" + reply.EntityData.SegmentPath
     reply.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     reply.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     reply.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1734,6 +1774,7 @@ func (statistics *Ipsla_MplsLspMonitor_Definitions_Definition_OperationType_Mpls
     statistics.EntityData.BundleName = "cisco_ios_xr"
     statistics.EntityData.ParentYangName = "mpls-lsp-ping"
     statistics.EntityData.SegmentPath = "statistics"
+    statistics.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/mpls-lsp-monitor/definitions/definition/operation-type/mpls-lsp-ping/" + statistics.EntityData.SegmentPath
     statistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1768,6 +1809,7 @@ func (scan *Ipsla_MplsLspMonitor_Definitions_Definition_OperationType_MplsLspPin
     scan.EntityData.BundleName = "cisco_ios_xr"
     scan.EntityData.ParentYangName = "mpls-lsp-ping"
     scan.EntityData.SegmentPath = "scan"
+    scan.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/mpls-lsp-monitor/definitions/definition/operation-type/mpls-lsp-ping/" + scan.EntityData.SegmentPath
     scan.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     scan.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     scan.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1807,6 +1849,7 @@ func (operation *Ipsla_Operation) GetEntityData() *types.CommonEntityData {
     operation.EntityData.BundleName = "cisco_ios_xr"
     operation.EntityData.ParentYangName = "ipsla"
     operation.EntityData.SegmentPath = "operation"
+    operation.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/" + operation.EntityData.SegmentPath
     operation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     operation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     operation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1840,6 +1883,7 @@ func (schedules *Ipsla_Operation_Schedules) GetEntityData() *types.CommonEntityD
     schedules.EntityData.BundleName = "cisco_ios_xr"
     schedules.EntityData.ParentYangName = "operation"
     schedules.EntityData.SegmentPath = "schedules"
+    schedules.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/operation/" + schedules.EntityData.SegmentPath
     schedules.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     schedules.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     schedules.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1861,6 +1905,7 @@ func (schedules *Ipsla_Operation_Schedules) GetEntityData() *types.CommonEntityD
 type Ipsla_Operation_Schedules_Schedule struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Operation number. The type is interface{} with
     // range: 1..2048.
@@ -1888,6 +1933,7 @@ func (schedule *Ipsla_Operation_Schedules_Schedule) GetEntityData() *types.Commo
     schedule.EntityData.BundleName = "cisco_ios_xr"
     schedule.EntityData.ParentYangName = "schedules"
     schedule.EntityData.SegmentPath = "schedule" + types.AddKeyToken(schedule.OperationId, "operation-id")
+    schedule.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/operation/schedules/" + schedule.EntityData.SegmentPath
     schedule.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     schedule.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     schedule.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1945,6 +1991,7 @@ func (startTime *Ipsla_Operation_Schedules_Schedule_StartTime) GetEntityData() *
     startTime.EntityData.BundleName = "cisco_ios_xr"
     startTime.EntityData.ParentYangName = "schedule"
     startTime.EntityData.SegmentPath = "start-time"
+    startTime.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/operation/schedules/schedule/" + startTime.EntityData.SegmentPath
     startTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     startTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     startTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1981,6 +2028,7 @@ func (reactions *Ipsla_Operation_Reactions) GetEntityData() *types.CommonEntityD
     reactions.EntityData.BundleName = "cisco_ios_xr"
     reactions.EntityData.ParentYangName = "operation"
     reactions.EntityData.SegmentPath = "reactions"
+    reactions.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/operation/" + reactions.EntityData.SegmentPath
     reactions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     reactions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     reactions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2002,6 +2050,7 @@ func (reactions *Ipsla_Operation_Reactions) GetEntityData() *types.CommonEntityD
 type Ipsla_Operation_Reactions_Reaction struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Operation number. The type is interface{} with
     // range: 1..2048.
@@ -2017,6 +2066,7 @@ func (reaction *Ipsla_Operation_Reactions_Reaction) GetEntityData() *types.Commo
     reaction.EntityData.BundleName = "cisco_ios_xr"
     reaction.EntityData.ParentYangName = "reactions"
     reaction.EntityData.SegmentPath = "reaction" + types.AddKeyToken(reaction.OperationId, "operation-id")
+    reaction.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/operation/reactions/" + reaction.EntityData.SegmentPath
     reaction.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     reaction.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     reaction.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2071,6 +2121,7 @@ func (condition *Ipsla_Operation_Reactions_Reaction_Condition) GetEntityData() *
     condition.EntityData.BundleName = "cisco_ios_xr"
     condition.EntityData.ParentYangName = "reaction"
     condition.EntityData.SegmentPath = "condition"
+    condition.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/operation/reactions/reaction/" + condition.EntityData.SegmentPath
     condition.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     condition.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     condition.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2119,6 +2170,7 @@ func (jitterAverageDs *Ipsla_Operation_Reactions_Reaction_Condition_JitterAverag
     jitterAverageDs.EntityData.BundleName = "cisco_ios_xr"
     jitterAverageDs.EntityData.ParentYangName = "condition"
     jitterAverageDs.EntityData.SegmentPath = "jitter-average-ds"
+    jitterAverageDs.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/operation/reactions/reaction/condition/" + jitterAverageDs.EntityData.SegmentPath
     jitterAverageDs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     jitterAverageDs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     jitterAverageDs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2159,6 +2211,7 @@ func (thresholdLimits *Ipsla_Operation_Reactions_Reaction_Condition_JitterAverag
     thresholdLimits.EntityData.BundleName = "cisco_ios_xr"
     thresholdLimits.EntityData.ParentYangName = "jitter-average-ds"
     thresholdLimits.EntityData.SegmentPath = "threshold-limits"
+    thresholdLimits.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/operation/reactions/reaction/condition/jitter-average-ds/" + thresholdLimits.EntityData.SegmentPath
     thresholdLimits.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     thresholdLimits.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     thresholdLimits.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2194,6 +2247,7 @@ func (actionType *Ipsla_Operation_Reactions_Reaction_Condition_JitterAverageDs_A
     actionType.EntityData.BundleName = "cisco_ios_xr"
     actionType.EntityData.ParentYangName = "jitter-average-ds"
     actionType.EntityData.SegmentPath = "action-type"
+    actionType.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/operation/reactions/reaction/condition/jitter-average-ds/" + actionType.EntityData.SegmentPath
     actionType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     actionType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     actionType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2233,6 +2287,7 @@ func (thresholdType *Ipsla_Operation_Reactions_Reaction_Condition_JitterAverageD
     thresholdType.EntityData.BundleName = "cisco_ios_xr"
     thresholdType.EntityData.ParentYangName = "jitter-average-ds"
     thresholdType.EntityData.SegmentPath = "threshold-type"
+    thresholdType.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/operation/reactions/reaction/condition/jitter-average-ds/" + thresholdType.EntityData.SegmentPath
     thresholdType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     thresholdType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     thresholdType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2271,6 +2326,7 @@ func (timeout *Ipsla_Operation_Reactions_Reaction_Condition_Timeout) GetEntityDa
     timeout.EntityData.BundleName = "cisco_ios_xr"
     timeout.EntityData.ParentYangName = "condition"
     timeout.EntityData.SegmentPath = "timeout"
+    timeout.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/operation/reactions/reaction/condition/" + timeout.EntityData.SegmentPath
     timeout.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     timeout.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     timeout.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2307,6 +2363,7 @@ func (actionType *Ipsla_Operation_Reactions_Reaction_Condition_Timeout_ActionTyp
     actionType.EntityData.BundleName = "cisco_ios_xr"
     actionType.EntityData.ParentYangName = "timeout"
     actionType.EntityData.SegmentPath = "action-type"
+    actionType.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/operation/reactions/reaction/condition/timeout/" + actionType.EntityData.SegmentPath
     actionType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     actionType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     actionType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2346,6 +2403,7 @@ func (thresholdType *Ipsla_Operation_Reactions_Reaction_Condition_Timeout_Thresh
     thresholdType.EntityData.BundleName = "cisco_ios_xr"
     thresholdType.EntityData.ParentYangName = "timeout"
     thresholdType.EntityData.SegmentPath = "threshold-type"
+    thresholdType.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/operation/reactions/reaction/condition/timeout/" + thresholdType.EntityData.SegmentPath
     thresholdType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     thresholdType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     thresholdType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2388,6 +2446,7 @@ func (jitterAverage *Ipsla_Operation_Reactions_Reaction_Condition_JitterAverage)
     jitterAverage.EntityData.BundleName = "cisco_ios_xr"
     jitterAverage.EntityData.ParentYangName = "condition"
     jitterAverage.EntityData.SegmentPath = "jitter-average"
+    jitterAverage.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/operation/reactions/reaction/condition/" + jitterAverage.EntityData.SegmentPath
     jitterAverage.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     jitterAverage.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     jitterAverage.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2428,6 +2487,7 @@ func (thresholdLimits *Ipsla_Operation_Reactions_Reaction_Condition_JitterAverag
     thresholdLimits.EntityData.BundleName = "cisco_ios_xr"
     thresholdLimits.EntityData.ParentYangName = "jitter-average"
     thresholdLimits.EntityData.SegmentPath = "threshold-limits"
+    thresholdLimits.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/operation/reactions/reaction/condition/jitter-average/" + thresholdLimits.EntityData.SegmentPath
     thresholdLimits.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     thresholdLimits.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     thresholdLimits.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2463,6 +2523,7 @@ func (actionType *Ipsla_Operation_Reactions_Reaction_Condition_JitterAverage_Act
     actionType.EntityData.BundleName = "cisco_ios_xr"
     actionType.EntityData.ParentYangName = "jitter-average"
     actionType.EntityData.SegmentPath = "action-type"
+    actionType.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/operation/reactions/reaction/condition/jitter-average/" + actionType.EntityData.SegmentPath
     actionType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     actionType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     actionType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2502,6 +2563,7 @@ func (thresholdType *Ipsla_Operation_Reactions_Reaction_Condition_JitterAverage_
     thresholdType.EntityData.BundleName = "cisco_ios_xr"
     thresholdType.EntityData.ParentYangName = "jitter-average"
     thresholdType.EntityData.SegmentPath = "threshold-type"
+    thresholdType.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/operation/reactions/reaction/condition/jitter-average/" + thresholdType.EntityData.SegmentPath
     thresholdType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     thresholdType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     thresholdType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2540,6 +2602,7 @@ func (verifyError *Ipsla_Operation_Reactions_Reaction_Condition_VerifyError) Get
     verifyError.EntityData.BundleName = "cisco_ios_xr"
     verifyError.EntityData.ParentYangName = "condition"
     verifyError.EntityData.SegmentPath = "verify-error"
+    verifyError.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/operation/reactions/reaction/condition/" + verifyError.EntityData.SegmentPath
     verifyError.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     verifyError.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     verifyError.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2576,6 +2639,7 @@ func (actionType *Ipsla_Operation_Reactions_Reaction_Condition_VerifyError_Actio
     actionType.EntityData.BundleName = "cisco_ios_xr"
     actionType.EntityData.ParentYangName = "verify-error"
     actionType.EntityData.SegmentPath = "action-type"
+    actionType.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/operation/reactions/reaction/condition/verify-error/" + actionType.EntityData.SegmentPath
     actionType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     actionType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     actionType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2615,6 +2679,7 @@ func (thresholdType *Ipsla_Operation_Reactions_Reaction_Condition_VerifyError_Th
     thresholdType.EntityData.BundleName = "cisco_ios_xr"
     thresholdType.EntityData.ParentYangName = "verify-error"
     thresholdType.EntityData.SegmentPath = "threshold-type"
+    thresholdType.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/operation/reactions/reaction/condition/verify-error/" + thresholdType.EntityData.SegmentPath
     thresholdType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     thresholdType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     thresholdType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2656,6 +2721,7 @@ func (rtt *Ipsla_Operation_Reactions_Reaction_Condition_Rtt) GetEntityData() *ty
     rtt.EntityData.BundleName = "cisco_ios_xr"
     rtt.EntityData.ParentYangName = "condition"
     rtt.EntityData.SegmentPath = "rtt"
+    rtt.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/operation/reactions/reaction/condition/" + rtt.EntityData.SegmentPath
     rtt.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rtt.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rtt.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2696,6 +2762,7 @@ func (thresholdLimits *Ipsla_Operation_Reactions_Reaction_Condition_Rtt_Threshol
     thresholdLimits.EntityData.BundleName = "cisco_ios_xr"
     thresholdLimits.EntityData.ParentYangName = "rtt"
     thresholdLimits.EntityData.SegmentPath = "threshold-limits"
+    thresholdLimits.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/operation/reactions/reaction/condition/rtt/" + thresholdLimits.EntityData.SegmentPath
     thresholdLimits.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     thresholdLimits.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     thresholdLimits.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2731,6 +2798,7 @@ func (actionType *Ipsla_Operation_Reactions_Reaction_Condition_Rtt_ActionType) G
     actionType.EntityData.BundleName = "cisco_ios_xr"
     actionType.EntityData.ParentYangName = "rtt"
     actionType.EntityData.SegmentPath = "action-type"
+    actionType.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/operation/reactions/reaction/condition/rtt/" + actionType.EntityData.SegmentPath
     actionType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     actionType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     actionType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2770,6 +2838,7 @@ func (thresholdType *Ipsla_Operation_Reactions_Reaction_Condition_Rtt_ThresholdT
     thresholdType.EntityData.BundleName = "cisco_ios_xr"
     thresholdType.EntityData.ParentYangName = "rtt"
     thresholdType.EntityData.SegmentPath = "threshold-type"
+    thresholdType.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/operation/reactions/reaction/condition/rtt/" + thresholdType.EntityData.SegmentPath
     thresholdType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     thresholdType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     thresholdType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2812,6 +2881,7 @@ func (packetLossSd *Ipsla_Operation_Reactions_Reaction_Condition_PacketLossSd) G
     packetLossSd.EntityData.BundleName = "cisco_ios_xr"
     packetLossSd.EntityData.ParentYangName = "condition"
     packetLossSd.EntityData.SegmentPath = "packet-loss-sd"
+    packetLossSd.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/operation/reactions/reaction/condition/" + packetLossSd.EntityData.SegmentPath
     packetLossSd.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     packetLossSd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     packetLossSd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2852,6 +2922,7 @@ func (thresholdLimits *Ipsla_Operation_Reactions_Reaction_Condition_PacketLossSd
     thresholdLimits.EntityData.BundleName = "cisco_ios_xr"
     thresholdLimits.EntityData.ParentYangName = "packet-loss-sd"
     thresholdLimits.EntityData.SegmentPath = "threshold-limits"
+    thresholdLimits.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/operation/reactions/reaction/condition/packet-loss-sd/" + thresholdLimits.EntityData.SegmentPath
     thresholdLimits.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     thresholdLimits.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     thresholdLimits.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2887,6 +2958,7 @@ func (actionType *Ipsla_Operation_Reactions_Reaction_Condition_PacketLossSd_Acti
     actionType.EntityData.BundleName = "cisco_ios_xr"
     actionType.EntityData.ParentYangName = "packet-loss-sd"
     actionType.EntityData.SegmentPath = "action-type"
+    actionType.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/operation/reactions/reaction/condition/packet-loss-sd/" + actionType.EntityData.SegmentPath
     actionType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     actionType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     actionType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2926,6 +2998,7 @@ func (thresholdType *Ipsla_Operation_Reactions_Reaction_Condition_PacketLossSd_T
     thresholdType.EntityData.BundleName = "cisco_ios_xr"
     thresholdType.EntityData.ParentYangName = "packet-loss-sd"
     thresholdType.EntityData.SegmentPath = "threshold-type"
+    thresholdType.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/operation/reactions/reaction/condition/packet-loss-sd/" + thresholdType.EntityData.SegmentPath
     thresholdType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     thresholdType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     thresholdType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2968,6 +3041,7 @@ func (jitterAverageSd *Ipsla_Operation_Reactions_Reaction_Condition_JitterAverag
     jitterAverageSd.EntityData.BundleName = "cisco_ios_xr"
     jitterAverageSd.EntityData.ParentYangName = "condition"
     jitterAverageSd.EntityData.SegmentPath = "jitter-average-sd"
+    jitterAverageSd.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/operation/reactions/reaction/condition/" + jitterAverageSd.EntityData.SegmentPath
     jitterAverageSd.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     jitterAverageSd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     jitterAverageSd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3008,6 +3082,7 @@ func (thresholdLimits *Ipsla_Operation_Reactions_Reaction_Condition_JitterAverag
     thresholdLimits.EntityData.BundleName = "cisco_ios_xr"
     thresholdLimits.EntityData.ParentYangName = "jitter-average-sd"
     thresholdLimits.EntityData.SegmentPath = "threshold-limits"
+    thresholdLimits.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/operation/reactions/reaction/condition/jitter-average-sd/" + thresholdLimits.EntityData.SegmentPath
     thresholdLimits.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     thresholdLimits.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     thresholdLimits.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3043,6 +3118,7 @@ func (actionType *Ipsla_Operation_Reactions_Reaction_Condition_JitterAverageSd_A
     actionType.EntityData.BundleName = "cisco_ios_xr"
     actionType.EntityData.ParentYangName = "jitter-average-sd"
     actionType.EntityData.SegmentPath = "action-type"
+    actionType.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/operation/reactions/reaction/condition/jitter-average-sd/" + actionType.EntityData.SegmentPath
     actionType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     actionType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     actionType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3082,6 +3158,7 @@ func (thresholdType *Ipsla_Operation_Reactions_Reaction_Condition_JitterAverageS
     thresholdType.EntityData.BundleName = "cisco_ios_xr"
     thresholdType.EntityData.ParentYangName = "jitter-average-sd"
     thresholdType.EntityData.SegmentPath = "threshold-type"
+    thresholdType.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/operation/reactions/reaction/condition/jitter-average-sd/" + thresholdType.EntityData.SegmentPath
     thresholdType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     thresholdType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     thresholdType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3121,6 +3198,7 @@ func (connectionLoss *Ipsla_Operation_Reactions_Reaction_Condition_ConnectionLos
     connectionLoss.EntityData.BundleName = "cisco_ios_xr"
     connectionLoss.EntityData.ParentYangName = "condition"
     connectionLoss.EntityData.SegmentPath = "connection-loss"
+    connectionLoss.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/operation/reactions/reaction/condition/" + connectionLoss.EntityData.SegmentPath
     connectionLoss.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     connectionLoss.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     connectionLoss.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3157,6 +3235,7 @@ func (actionType *Ipsla_Operation_Reactions_Reaction_Condition_ConnectionLoss_Ac
     actionType.EntityData.BundleName = "cisco_ios_xr"
     actionType.EntityData.ParentYangName = "connection-loss"
     actionType.EntityData.SegmentPath = "action-type"
+    actionType.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/operation/reactions/reaction/condition/connection-loss/" + actionType.EntityData.SegmentPath
     actionType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     actionType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     actionType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3196,6 +3275,7 @@ func (thresholdType *Ipsla_Operation_Reactions_Reaction_Condition_ConnectionLoss
     thresholdType.EntityData.BundleName = "cisco_ios_xr"
     thresholdType.EntityData.ParentYangName = "connection-loss"
     thresholdType.EntityData.SegmentPath = "threshold-type"
+    thresholdType.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/operation/reactions/reaction/condition/connection-loss/" + thresholdType.EntityData.SegmentPath
     thresholdType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     thresholdType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     thresholdType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3238,6 +3318,7 @@ func (packetLossDs *Ipsla_Operation_Reactions_Reaction_Condition_PacketLossDs) G
     packetLossDs.EntityData.BundleName = "cisco_ios_xr"
     packetLossDs.EntityData.ParentYangName = "condition"
     packetLossDs.EntityData.SegmentPath = "packet-loss-ds"
+    packetLossDs.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/operation/reactions/reaction/condition/" + packetLossDs.EntityData.SegmentPath
     packetLossDs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     packetLossDs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     packetLossDs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3278,6 +3359,7 @@ func (thresholdLimits *Ipsla_Operation_Reactions_Reaction_Condition_PacketLossDs
     thresholdLimits.EntityData.BundleName = "cisco_ios_xr"
     thresholdLimits.EntityData.ParentYangName = "packet-loss-ds"
     thresholdLimits.EntityData.SegmentPath = "threshold-limits"
+    thresholdLimits.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/operation/reactions/reaction/condition/packet-loss-ds/" + thresholdLimits.EntityData.SegmentPath
     thresholdLimits.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     thresholdLimits.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     thresholdLimits.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3313,6 +3395,7 @@ func (actionType *Ipsla_Operation_Reactions_Reaction_Condition_PacketLossDs_Acti
     actionType.EntityData.BundleName = "cisco_ios_xr"
     actionType.EntityData.ParentYangName = "packet-loss-ds"
     actionType.EntityData.SegmentPath = "action-type"
+    actionType.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/operation/reactions/reaction/condition/packet-loss-ds/" + actionType.EntityData.SegmentPath
     actionType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     actionType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     actionType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3352,6 +3435,7 @@ func (thresholdType *Ipsla_Operation_Reactions_Reaction_Condition_PacketLossDs_T
     thresholdType.EntityData.BundleName = "cisco_ios_xr"
     thresholdType.EntityData.ParentYangName = "packet-loss-ds"
     thresholdType.EntityData.SegmentPath = "threshold-type"
+    thresholdType.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/operation/reactions/reaction/condition/packet-loss-ds/" + thresholdType.EntityData.SegmentPath
     thresholdType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     thresholdType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     thresholdType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3384,6 +3468,7 @@ func (reactionTriggers *Ipsla_Operation_ReactionTriggers) GetEntityData() *types
     reactionTriggers.EntityData.BundleName = "cisco_ios_xr"
     reactionTriggers.EntityData.ParentYangName = "operation"
     reactionTriggers.EntityData.SegmentPath = "reaction-triggers"
+    reactionTriggers.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/operation/" + reactionTriggers.EntityData.SegmentPath
     reactionTriggers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     reactionTriggers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     reactionTriggers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3405,6 +3490,7 @@ func (reactionTriggers *Ipsla_Operation_ReactionTriggers) GetEntityData() *types
 type Ipsla_Operation_ReactionTriggers_ReactionTrigger struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Operation number of the operation generating a
     // trigger. The type is interface{} with range: 1..2048.
@@ -3421,6 +3507,7 @@ func (reactionTrigger *Ipsla_Operation_ReactionTriggers_ReactionTrigger) GetEnti
     reactionTrigger.EntityData.BundleName = "cisco_ios_xr"
     reactionTrigger.EntityData.ParentYangName = "reaction-triggers"
     reactionTrigger.EntityData.SegmentPath = "reaction-trigger" + types.AddKeyToken(reactionTrigger.OperationId, "operation-id")
+    reactionTrigger.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/operation/reaction-triggers/" + reactionTrigger.EntityData.SegmentPath
     reactionTrigger.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     reactionTrigger.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     reactionTrigger.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3452,6 +3539,7 @@ func (definitions *Ipsla_Operation_Definitions) GetEntityData() *types.CommonEnt
     definitions.EntityData.BundleName = "cisco_ios_xr"
     definitions.EntityData.ParentYangName = "operation"
     definitions.EntityData.SegmentPath = "definitions"
+    definitions.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/operation/" + definitions.EntityData.SegmentPath
     definitions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     definitions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     definitions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3473,6 +3561,7 @@ func (definitions *Ipsla_Operation_Definitions) GetEntityData() *types.CommonEnt
 type Ipsla_Operation_Definitions_Definition struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Operation number. The type is interface{} with
     // range: 1..2048.
@@ -3488,6 +3577,7 @@ func (definition *Ipsla_Operation_Definitions_Definition) GetEntityData() *types
     definition.EntityData.BundleName = "cisco_ios_xr"
     definition.EntityData.ParentYangName = "definitions"
     definition.EntityData.SegmentPath = "definition" + types.AddKeyToken(definition.OperationId, "operation-id")
+    definition.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/operation/definitions/" + definition.EntityData.SegmentPath
     definition.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     definition.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     definition.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3536,6 +3626,7 @@ func (operationType *Ipsla_Operation_Definitions_Definition_OperationType) GetEn
     operationType.EntityData.BundleName = "cisco_ios_xr"
     operationType.EntityData.ParentYangName = "definition"
     operationType.EntityData.SegmentPath = "operation-type"
+    operationType.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/operation/definitions/definition/" + operationType.EntityData.SegmentPath
     operationType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     operationType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     operationType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3614,6 +3705,7 @@ func (icmpEcho *Ipsla_Operation_Definitions_Definition_OperationType_IcmpEcho) G
     icmpEcho.EntityData.BundleName = "cisco_ios_xr"
     icmpEcho.EntityData.ParentYangName = "operation-type"
     icmpEcho.EntityData.SegmentPath = "icmp-echo"
+    icmpEcho.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/operation/definitions/definition/operation-type/" + icmpEcho.EntityData.SegmentPath
     icmpEcho.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     icmpEcho.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     icmpEcho.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3658,6 +3750,7 @@ func (dataSize *Ipsla_Operation_Definitions_Definition_OperationType_IcmpEcho_Da
     dataSize.EntityData.BundleName = "cisco_ios_xr"
     dataSize.EntityData.ParentYangName = "icmp-echo"
     dataSize.EntityData.SegmentPath = "data-size"
+    dataSize.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/operation/definitions/definition/operation-type/icmp-echo/" + dataSize.EntityData.SegmentPath
     dataSize.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dataSize.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dataSize.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3696,6 +3789,7 @@ func (statistics *Ipsla_Operation_Definitions_Definition_OperationType_IcmpEcho_
     statistics.EntityData.BundleName = "cisco_ios_xr"
     statistics.EntityData.ParentYangName = "icmp-echo"
     statistics.EntityData.SegmentPath = "statistics"
+    statistics.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/operation/definitions/definition/operation-type/icmp-echo/" + statistics.EntityData.SegmentPath
     statistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3737,6 +3831,7 @@ func (history *Ipsla_Operation_Definitions_Definition_OperationType_IcmpEcho_His
     history.EntityData.BundleName = "cisco_ios_xr"
     history.EntityData.ParentYangName = "icmp-echo"
     history.EntityData.SegmentPath = "history"
+    history.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/operation/definitions/definition/operation-type/icmp-echo/" + history.EntityData.SegmentPath
     history.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     history.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     history.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3769,6 +3864,7 @@ func (enhancedStats *Ipsla_Operation_Definitions_Definition_OperationType_IcmpEc
     enhancedStats.EntityData.BundleName = "cisco_ios_xr"
     enhancedStats.EntityData.ParentYangName = "icmp-echo"
     enhancedStats.EntityData.SegmentPath = "enhanced-stats"
+    enhancedStats.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/operation/definitions/definition/operation-type/icmp-echo/" + enhancedStats.EntityData.SegmentPath
     enhancedStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     enhancedStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     enhancedStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3790,6 +3886,7 @@ func (enhancedStats *Ipsla_Operation_Definitions_Definition_OperationType_IcmpEc
 type Ipsla_Operation_Definitions_Definition_OperationType_IcmpEcho_EnhancedStats_EnhancedStat struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interval in seconds. The type is interface{} with
     // range: 1..3600. Units are second.
@@ -3806,6 +3903,7 @@ func (enhancedStat *Ipsla_Operation_Definitions_Definition_OperationType_IcmpEch
     enhancedStat.EntityData.BundleName = "cisco_ios_xr"
     enhancedStat.EntityData.ParentYangName = "enhanced-stats"
     enhancedStat.EntityData.SegmentPath = "enhanced-stat" + types.AddKeyToken(enhancedStat.Interval, "interval")
+    enhancedStat.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/operation/definitions/definition/operation-type/icmp-echo/enhanced-stats/" + enhancedStat.EntityData.SegmentPath
     enhancedStat.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     enhancedStat.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     enhancedStat.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3893,6 +3991,7 @@ func (mplsLspPing *Ipsla_Operation_Definitions_Definition_OperationType_MplsLspP
     mplsLspPing.EntityData.BundleName = "cisco_ios_xr"
     mplsLspPing.EntityData.ParentYangName = "operation-type"
     mplsLspPing.EntityData.SegmentPath = "mpls-lsp-ping"
+    mplsLspPing.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/operation/definitions/definition/operation-type/" + mplsLspPing.EntityData.SegmentPath
     mplsLspPing.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mplsLspPing.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mplsLspPing.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3940,6 +4039,7 @@ func (dataSize *Ipsla_Operation_Definitions_Definition_OperationType_MplsLspPing
     dataSize.EntityData.BundleName = "cisco_ios_xr"
     dataSize.EntityData.ParentYangName = "mpls-lsp-ping"
     dataSize.EntityData.SegmentPath = "data-size"
+    dataSize.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/operation/definitions/definition/operation-type/mpls-lsp-ping/" + dataSize.EntityData.SegmentPath
     dataSize.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dataSize.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dataSize.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3975,6 +4075,7 @@ func (reply *Ipsla_Operation_Definitions_Definition_OperationType_MplsLspPing_Re
     reply.EntityData.BundleName = "cisco_ios_xr"
     reply.EntityData.ParentYangName = "mpls-lsp-ping"
     reply.EntityData.SegmentPath = "reply"
+    reply.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/operation/definitions/definition/operation-type/mpls-lsp-ping/" + reply.EntityData.SegmentPath
     reply.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     reply.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     reply.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4011,6 +4112,7 @@ func (target *Ipsla_Operation_Definitions_Definition_OperationType_MplsLspPing_T
     target.EntityData.BundleName = "cisco_ios_xr"
     target.EntityData.ParentYangName = "mpls-lsp-ping"
     target.EntityData.SegmentPath = "target"
+    target.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/operation/definitions/definition/operation-type/mpls-lsp-ping/" + target.EntityData.SegmentPath
     target.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     target.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     target.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4042,6 +4144,7 @@ func (trafficEngineering *Ipsla_Operation_Definitions_Definition_OperationType_M
     trafficEngineering.EntityData.BundleName = "cisco_ios_xr"
     trafficEngineering.EntityData.ParentYangName = "target"
     trafficEngineering.EntityData.SegmentPath = "traffic-engineering"
+    trafficEngineering.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/operation/definitions/definition/operation-type/mpls-lsp-ping/target/" + trafficEngineering.EntityData.SegmentPath
     trafficEngineering.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trafficEngineering.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trafficEngineering.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4071,6 +4174,7 @@ func (ipv4 *Ipsla_Operation_Definitions_Definition_OperationType_MplsLspPing_Tar
     ipv4.EntityData.BundleName = "cisco_ios_xr"
     ipv4.EntityData.ParentYangName = "target"
     ipv4.EntityData.SegmentPath = "ipv4"
+    ipv4.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/operation/definitions/definition/operation-type/mpls-lsp-ping/target/" + ipv4.EntityData.SegmentPath
     ipv4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4109,6 +4213,7 @@ func (fecAddress *Ipsla_Operation_Definitions_Definition_OperationType_MplsLspPi
     fecAddress.EntityData.BundleName = "cisco_ios_xr"
     fecAddress.EntityData.ParentYangName = "ipv4"
     fecAddress.EntityData.SegmentPath = "fec-address"
+    fecAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/operation/definitions/definition/operation-type/mpls-lsp-ping/target/ipv4/" + fecAddress.EntityData.SegmentPath
     fecAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fecAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fecAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4139,6 +4244,7 @@ func (pseudowire *Ipsla_Operation_Definitions_Definition_OperationType_MplsLspPi
     pseudowire.EntityData.BundleName = "cisco_ios_xr"
     pseudowire.EntityData.ParentYangName = "target"
     pseudowire.EntityData.SegmentPath = "pseudowire"
+    pseudowire.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/operation/definitions/definition/operation-type/mpls-lsp-ping/target/" + pseudowire.EntityData.SegmentPath
     pseudowire.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pseudowire.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pseudowire.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4176,6 +4282,7 @@ func (targetAddress *Ipsla_Operation_Definitions_Definition_OperationType_MplsLs
     targetAddress.EntityData.BundleName = "cisco_ios_xr"
     targetAddress.EntityData.ParentYangName = "pseudowire"
     targetAddress.EntityData.SegmentPath = "target-address"
+    targetAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/operation/definitions/definition/operation-type/mpls-lsp-ping/target/pseudowire/" + targetAddress.EntityData.SegmentPath
     targetAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     targetAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     targetAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4215,6 +4322,7 @@ func (statistics *Ipsla_Operation_Definitions_Definition_OperationType_MplsLspPi
     statistics.EntityData.BundleName = "cisco_ios_xr"
     statistics.EntityData.ParentYangName = "mpls-lsp-ping"
     statistics.EntityData.SegmentPath = "statistics"
+    statistics.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/operation/definitions/definition/operation-type/mpls-lsp-ping/" + statistics.EntityData.SegmentPath
     statistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4256,6 +4364,7 @@ func (history *Ipsla_Operation_Definitions_Definition_OperationType_MplsLspPing_
     history.EntityData.BundleName = "cisco_ios_xr"
     history.EntityData.ParentYangName = "mpls-lsp-ping"
     history.EntityData.SegmentPath = "history"
+    history.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/operation/definitions/definition/operation-type/mpls-lsp-ping/" + history.EntityData.SegmentPath
     history.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     history.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     history.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4288,6 +4397,7 @@ func (enhancedStats *Ipsla_Operation_Definitions_Definition_OperationType_MplsLs
     enhancedStats.EntityData.BundleName = "cisco_ios_xr"
     enhancedStats.EntityData.ParentYangName = "mpls-lsp-ping"
     enhancedStats.EntityData.SegmentPath = "enhanced-stats"
+    enhancedStats.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/operation/definitions/definition/operation-type/mpls-lsp-ping/" + enhancedStats.EntityData.SegmentPath
     enhancedStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     enhancedStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     enhancedStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4309,6 +4419,7 @@ func (enhancedStats *Ipsla_Operation_Definitions_Definition_OperationType_MplsLs
 type Ipsla_Operation_Definitions_Definition_OperationType_MplsLspPing_EnhancedStats_EnhancedStat struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interval in seconds. The type is interface{} with
     // range: 1..3600. Units are second.
@@ -4325,6 +4436,7 @@ func (enhancedStat *Ipsla_Operation_Definitions_Definition_OperationType_MplsLsp
     enhancedStat.EntityData.BundleName = "cisco_ios_xr"
     enhancedStat.EntityData.ParentYangName = "enhanced-stats"
     enhancedStat.EntityData.SegmentPath = "enhanced-stat" + types.AddKeyToken(enhancedStat.Interval, "interval")
+    enhancedStat.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/operation/definitions/definition/operation-type/mpls-lsp-ping/enhanced-stats/" + enhancedStat.EntityData.SegmentPath
     enhancedStat.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     enhancedStat.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     enhancedStat.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4404,6 +4516,7 @@ func (udpEcho *Ipsla_Operation_Definitions_Definition_OperationType_UdpEcho) Get
     udpEcho.EntityData.BundleName = "cisco_ios_xr"
     udpEcho.EntityData.ParentYangName = "operation-type"
     udpEcho.EntityData.SegmentPath = "udp-echo"
+    udpEcho.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/operation/definitions/definition/operation-type/" + udpEcho.EntityData.SegmentPath
     udpEcho.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     udpEcho.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     udpEcho.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4450,6 +4563,7 @@ func (dataSize *Ipsla_Operation_Definitions_Definition_OperationType_UdpEcho_Dat
     dataSize.EntityData.BundleName = "cisco_ios_xr"
     dataSize.EntityData.ParentYangName = "udp-echo"
     dataSize.EntityData.SegmentPath = "data-size"
+    dataSize.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/operation/definitions/definition/operation-type/udp-echo/" + dataSize.EntityData.SegmentPath
     dataSize.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dataSize.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dataSize.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4488,6 +4602,7 @@ func (statistics *Ipsla_Operation_Definitions_Definition_OperationType_UdpEcho_S
     statistics.EntityData.BundleName = "cisco_ios_xr"
     statistics.EntityData.ParentYangName = "udp-echo"
     statistics.EntityData.SegmentPath = "statistics"
+    statistics.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/operation/definitions/definition/operation-type/udp-echo/" + statistics.EntityData.SegmentPath
     statistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4529,6 +4644,7 @@ func (history *Ipsla_Operation_Definitions_Definition_OperationType_UdpEcho_Hist
     history.EntityData.BundleName = "cisco_ios_xr"
     history.EntityData.ParentYangName = "udp-echo"
     history.EntityData.SegmentPath = "history"
+    history.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/operation/definitions/definition/operation-type/udp-echo/" + history.EntityData.SegmentPath
     history.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     history.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     history.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4561,6 +4677,7 @@ func (enhancedStats *Ipsla_Operation_Definitions_Definition_OperationType_UdpEch
     enhancedStats.EntityData.BundleName = "cisco_ios_xr"
     enhancedStats.EntityData.ParentYangName = "udp-echo"
     enhancedStats.EntityData.SegmentPath = "enhanced-stats"
+    enhancedStats.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/operation/definitions/definition/operation-type/udp-echo/" + enhancedStats.EntityData.SegmentPath
     enhancedStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     enhancedStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     enhancedStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4582,6 +4699,7 @@ func (enhancedStats *Ipsla_Operation_Definitions_Definition_OperationType_UdpEch
 type Ipsla_Operation_Definitions_Definition_OperationType_UdpEcho_EnhancedStats_EnhancedStat struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interval in seconds. The type is interface{} with
     // range: 1..3600. Units are second.
@@ -4598,6 +4716,7 @@ func (enhancedStat *Ipsla_Operation_Definitions_Definition_OperationType_UdpEcho
     enhancedStat.EntityData.BundleName = "cisco_ios_xr"
     enhancedStat.EntityData.ParentYangName = "enhanced-stats"
     enhancedStat.EntityData.SegmentPath = "enhanced-stat" + types.AddKeyToken(enhancedStat.Interval, "interval")
+    enhancedStat.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/operation/definitions/definition/operation-type/udp-echo/enhanced-stats/" + enhancedStat.EntityData.SegmentPath
     enhancedStat.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     enhancedStat.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     enhancedStat.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4679,6 +4798,7 @@ func (mplsLspTrace *Ipsla_Operation_Definitions_Definition_OperationType_MplsLsp
     mplsLspTrace.EntityData.BundleName = "cisco_ios_xr"
     mplsLspTrace.EntityData.ParentYangName = "operation-type"
     mplsLspTrace.EntityData.SegmentPath = "mpls-lsp-trace"
+    mplsLspTrace.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/operation/definitions/definition/operation-type/" + mplsLspTrace.EntityData.SegmentPath
     mplsLspTrace.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mplsLspTrace.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mplsLspTrace.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4725,6 +4845,7 @@ func (target *Ipsla_Operation_Definitions_Definition_OperationType_MplsLspTrace_
     target.EntityData.BundleName = "cisco_ios_xr"
     target.EntityData.ParentYangName = "mpls-lsp-trace"
     target.EntityData.SegmentPath = "target"
+    target.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/operation/definitions/definition/operation-type/mpls-lsp-trace/" + target.EntityData.SegmentPath
     target.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     target.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     target.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4755,6 +4876,7 @@ func (trafficEngineering *Ipsla_Operation_Definitions_Definition_OperationType_M
     trafficEngineering.EntityData.BundleName = "cisco_ios_xr"
     trafficEngineering.EntityData.ParentYangName = "target"
     trafficEngineering.EntityData.SegmentPath = "traffic-engineering"
+    trafficEngineering.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/operation/definitions/definition/operation-type/mpls-lsp-trace/target/" + trafficEngineering.EntityData.SegmentPath
     trafficEngineering.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trafficEngineering.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trafficEngineering.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4784,6 +4906,7 @@ func (ipv4 *Ipsla_Operation_Definitions_Definition_OperationType_MplsLspTrace_Ta
     ipv4.EntityData.BundleName = "cisco_ios_xr"
     ipv4.EntityData.ParentYangName = "target"
     ipv4.EntityData.SegmentPath = "ipv4"
+    ipv4.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/operation/definitions/definition/operation-type/mpls-lsp-trace/target/" + ipv4.EntityData.SegmentPath
     ipv4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4822,6 +4945,7 @@ func (fecAddress *Ipsla_Operation_Definitions_Definition_OperationType_MplsLspTr
     fecAddress.EntityData.BundleName = "cisco_ios_xr"
     fecAddress.EntityData.ParentYangName = "ipv4"
     fecAddress.EntityData.SegmentPath = "fec-address"
+    fecAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/operation/definitions/definition/operation-type/mpls-lsp-trace/target/ipv4/" + fecAddress.EntityData.SegmentPath
     fecAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fecAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fecAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4858,6 +4982,7 @@ func (reply *Ipsla_Operation_Definitions_Definition_OperationType_MplsLspTrace_R
     reply.EntityData.BundleName = "cisco_ios_xr"
     reply.EntityData.ParentYangName = "mpls-lsp-trace"
     reply.EntityData.SegmentPath = "reply"
+    reply.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/operation/definitions/definition/operation-type/mpls-lsp-trace/" + reply.EntityData.SegmentPath
     reply.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     reply.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     reply.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4897,6 +5022,7 @@ func (statistics *Ipsla_Operation_Definitions_Definition_OperationType_MplsLspTr
     statistics.EntityData.BundleName = "cisco_ios_xr"
     statistics.EntityData.ParentYangName = "mpls-lsp-trace"
     statistics.EntityData.SegmentPath = "statistics"
+    statistics.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/operation/definitions/definition/operation-type/mpls-lsp-trace/" + statistics.EntityData.SegmentPath
     statistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4938,6 +5064,7 @@ func (history *Ipsla_Operation_Definitions_Definition_OperationType_MplsLspTrace
     history.EntityData.BundleName = "cisco_ios_xr"
     history.EntityData.ParentYangName = "mpls-lsp-trace"
     history.EntityData.SegmentPath = "history"
+    history.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/operation/definitions/definition/operation-type/mpls-lsp-trace/" + history.EntityData.SegmentPath
     history.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     history.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     history.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5018,6 +5145,7 @@ func (udpJitter *Ipsla_Operation_Definitions_Definition_OperationType_UdpJitter)
     udpJitter.EntityData.BundleName = "cisco_ios_xr"
     udpJitter.EntityData.ParentYangName = "operation-type"
     udpJitter.EntityData.SegmentPath = "udp-jitter"
+    udpJitter.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/operation/definitions/definition/operation-type/" + udpJitter.EntityData.SegmentPath
     udpJitter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     udpJitter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     udpJitter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5064,6 +5192,7 @@ func (dataSize *Ipsla_Operation_Definitions_Definition_OperationType_UdpJitter_D
     dataSize.EntityData.BundleName = "cisco_ios_xr"
     dataSize.EntityData.ParentYangName = "udp-jitter"
     dataSize.EntityData.SegmentPath = "data-size"
+    dataSize.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/operation/definitions/definition/operation-type/udp-jitter/" + dataSize.EntityData.SegmentPath
     dataSize.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dataSize.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dataSize.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5099,6 +5228,7 @@ func (packet *Ipsla_Operation_Definitions_Definition_OperationType_UdpJitter_Pac
     packet.EntityData.BundleName = "cisco_ios_xr"
     packet.EntityData.ParentYangName = "udp-jitter"
     packet.EntityData.SegmentPath = "packet"
+    packet.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/operation/definitions/definition/operation-type/udp-jitter/" + packet.EntityData.SegmentPath
     packet.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     packet.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     packet.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5138,6 +5268,7 @@ func (statistics *Ipsla_Operation_Definitions_Definition_OperationType_UdpJitter
     statistics.EntityData.BundleName = "cisco_ios_xr"
     statistics.EntityData.ParentYangName = "udp-jitter"
     statistics.EntityData.SegmentPath = "statistics"
+    statistics.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/operation/definitions/definition/operation-type/udp-jitter/" + statistics.EntityData.SegmentPath
     statistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5170,6 +5301,7 @@ func (enhancedStats *Ipsla_Operation_Definitions_Definition_OperationType_UdpJit
     enhancedStats.EntityData.BundleName = "cisco_ios_xr"
     enhancedStats.EntityData.ParentYangName = "udp-jitter"
     enhancedStats.EntityData.SegmentPath = "enhanced-stats"
+    enhancedStats.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/operation/definitions/definition/operation-type/udp-jitter/" + enhancedStats.EntityData.SegmentPath
     enhancedStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     enhancedStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     enhancedStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5191,6 +5323,7 @@ func (enhancedStats *Ipsla_Operation_Definitions_Definition_OperationType_UdpJit
 type Ipsla_Operation_Definitions_Definition_OperationType_UdpJitter_EnhancedStats_EnhancedStat struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interval in seconds. The type is interface{} with
     // range: 1..3600. Units are second.
@@ -5207,6 +5340,7 @@ func (enhancedStat *Ipsla_Operation_Definitions_Definition_OperationType_UdpJitt
     enhancedStat.EntityData.BundleName = "cisco_ios_xr"
     enhancedStat.EntityData.ParentYangName = "enhanced-stats"
     enhancedStat.EntityData.SegmentPath = "enhanced-stat" + types.AddKeyToken(enhancedStat.Interval, "interval")
+    enhancedStat.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/operation/definitions/definition/operation-type/udp-jitter/enhanced-stats/" + enhancedStat.EntityData.SegmentPath
     enhancedStat.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     enhancedStat.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     enhancedStat.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5274,6 +5408,7 @@ func (icmpPathEcho *Ipsla_Operation_Definitions_Definition_OperationType_IcmpPat
     icmpPathEcho.EntityData.BundleName = "cisco_ios_xr"
     icmpPathEcho.EntityData.ParentYangName = "operation-type"
     icmpPathEcho.EntityData.SegmentPath = "icmp-path-echo"
+    icmpPathEcho.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/operation/definitions/definition/operation-type/" + icmpPathEcho.EntityData.SegmentPath
     icmpPathEcho.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     icmpPathEcho.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     icmpPathEcho.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5328,6 +5463,7 @@ func (history *Ipsla_Operation_Definitions_Definition_OperationType_IcmpPathEcho
     history.EntityData.BundleName = "cisco_ios_xr"
     history.EntityData.ParentYangName = "icmp-path-echo"
     history.EntityData.SegmentPath = "history"
+    history.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/operation/definitions/definition/operation-type/icmp-path-echo/" + history.EntityData.SegmentPath
     history.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     history.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     history.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5362,6 +5498,7 @@ func (dataSize *Ipsla_Operation_Definitions_Definition_OperationType_IcmpPathEch
     dataSize.EntityData.BundleName = "cisco_ios_xr"
     dataSize.EntityData.ParentYangName = "icmp-path-echo"
     dataSize.EntityData.SegmentPath = "data-size"
+    dataSize.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/operation/definitions/definition/operation-type/icmp-path-echo/" + dataSize.EntityData.SegmentPath
     dataSize.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dataSize.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dataSize.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5409,6 +5546,7 @@ func (statistics *Ipsla_Operation_Definitions_Definition_OperationType_IcmpPathE
     statistics.EntityData.BundleName = "cisco_ios_xr"
     statistics.EntityData.ParentYangName = "icmp-path-echo"
     statistics.EntityData.SegmentPath = "statistics"
+    statistics.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/operation/definitions/definition/operation-type/icmp-path-echo/" + statistics.EntityData.SegmentPath
     statistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5475,6 +5613,7 @@ func (lsrPath *Ipsla_Operation_Definitions_Definition_OperationType_IcmpPathEcho
     lsrPath.EntityData.BundleName = "cisco_ios_xr"
     lsrPath.EntityData.ParentYangName = "icmp-path-echo"
     lsrPath.EntityData.SegmentPath = "lsr-path"
+    lsrPath.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/operation/definitions/definition/operation-type/icmp-path-echo/" + lsrPath.EntityData.SegmentPath
     lsrPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsrPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsrPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5545,6 +5684,7 @@ func (icmpPathJitter *Ipsla_Operation_Definitions_Definition_OperationType_IcmpP
     icmpPathJitter.EntityData.BundleName = "cisco_ios_xr"
     icmpPathJitter.EntityData.ParentYangName = "operation-type"
     icmpPathJitter.EntityData.SegmentPath = "icmp-path-jitter"
+    icmpPathJitter.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/operation/definitions/definition/operation-type/" + icmpPathJitter.EntityData.SegmentPath
     icmpPathJitter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     icmpPathJitter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     icmpPathJitter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5586,6 +5726,7 @@ func (dataSize *Ipsla_Operation_Definitions_Definition_OperationType_IcmpPathJit
     dataSize.EntityData.BundleName = "cisco_ios_xr"
     dataSize.EntityData.ParentYangName = "icmp-path-jitter"
     dataSize.EntityData.SegmentPath = "data-size"
+    dataSize.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/operation/definitions/definition/operation-type/icmp-path-jitter/" + dataSize.EntityData.SegmentPath
     dataSize.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dataSize.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dataSize.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5621,6 +5762,7 @@ func (packet *Ipsla_Operation_Definitions_Definition_OperationType_IcmpPathJitte
     packet.EntityData.BundleName = "cisco_ios_xr"
     packet.EntityData.ParentYangName = "icmp-path-jitter"
     packet.EntityData.SegmentPath = "packet"
+    packet.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/operation/definitions/definition/operation-type/icmp-path-jitter/" + packet.EntityData.SegmentPath
     packet.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     packet.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     packet.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5684,6 +5826,7 @@ func (lsrPath *Ipsla_Operation_Definitions_Definition_OperationType_IcmpPathJitt
     lsrPath.EntityData.BundleName = "cisco_ios_xr"
     lsrPath.EntityData.ParentYangName = "icmp-path-jitter"
     lsrPath.EntityData.SegmentPath = "lsr-path"
+    lsrPath.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/operation/definitions/definition/operation-type/icmp-path-jitter/" + lsrPath.EntityData.SegmentPath
     lsrPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsrPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsrPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5715,6 +5858,9 @@ type Ipsla_Responder struct {
 
     // Configure IPSLA Responder port type.
     Type Ipsla_Responder_Type
+
+    // Enter twamp-light session details.
+    TwampLight Ipsla_Responder_TwampLight
 }
 
 func (responder *Ipsla_Responder) GetEntityData() *types.CommonEntityData {
@@ -5723,6 +5869,7 @@ func (responder *Ipsla_Responder) GetEntityData() *types.CommonEntityData {
     responder.EntityData.BundleName = "cisco_ios_xr"
     responder.EntityData.ParentYangName = "ipsla"
     responder.EntityData.SegmentPath = "responder"
+    responder.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/" + responder.EntityData.SegmentPath
     responder.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     responder.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     responder.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5730,6 +5877,7 @@ func (responder *Ipsla_Responder) GetEntityData() *types.CommonEntityData {
     responder.EntityData.Children = types.NewOrderedMap()
     responder.EntityData.Children.Append("twamp", types.YChild{"Twamp", &responder.Twamp})
     responder.EntityData.Children.Append("type", types.YChild{"Type", &responder.Type})
+    responder.EntityData.Children.Append("twamp-light", types.YChild{"TwampLight", &responder.TwampLight})
     responder.EntityData.Leafs = types.NewOrderedMap()
 
     responder.EntityData.YListKeys = []string {}
@@ -5754,6 +5902,7 @@ func (twamp *Ipsla_Responder_Twamp) GetEntityData() *types.CommonEntityData {
     twamp.EntityData.BundleName = "cisco_ios_xr"
     twamp.EntityData.ParentYangName = "responder"
     twamp.EntityData.SegmentPath = "twamp"
+    twamp.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/responder/" + twamp.EntityData.SegmentPath
     twamp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     twamp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     twamp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5783,6 +5932,7 @@ func (self *Ipsla_Responder_Type) GetEntityData() *types.CommonEntityData {
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "responder"
     self.EntityData.SegmentPath = "type"
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/responder/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5812,6 +5962,7 @@ func (udp *Ipsla_Responder_Type_Udp) GetEntityData() *types.CommonEntityData {
     udp.EntityData.BundleName = "cisco_ios_xr"
     udp.EntityData.ParentYangName = "type"
     udp.EntityData.SegmentPath = "udp"
+    udp.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/responder/type/" + udp.EntityData.SegmentPath
     udp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     udp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     udp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5842,6 +5993,7 @@ func (addresses *Ipsla_Responder_Type_Udp_Addresses) GetEntityData() *types.Comm
     addresses.EntityData.BundleName = "cisco_ios_xr"
     addresses.EntityData.ParentYangName = "udp"
     addresses.EntityData.SegmentPath = "addresses"
+    addresses.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/responder/type/udp/" + addresses.EntityData.SegmentPath
     addresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     addresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     addresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5863,6 +6015,7 @@ func (addresses *Ipsla_Responder_Type_Udp_Addresses) GetEntityData() *types.Comm
 type Ipsla_Responder_Type_Udp_Addresses_Address struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IP address of the Responder. The type is string
     // with pattern:
@@ -5879,6 +6032,7 @@ func (address *Ipsla_Responder_Type_Udp_Addresses_Address) GetEntityData() *type
     address.EntityData.BundleName = "cisco_ios_xr"
     address.EntityData.ParentYangName = "addresses"
     address.EntityData.SegmentPath = "address" + types.AddKeyToken(address.LocalAddress, "local-address")
+    address.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/responder/type/udp/addresses/" + address.EntityData.SegmentPath
     address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5910,6 +6064,7 @@ func (ports *Ipsla_Responder_Type_Udp_Addresses_Address_Ports) GetEntityData() *
     ports.EntityData.BundleName = "cisco_ios_xr"
     ports.EntityData.ParentYangName = "address"
     ports.EntityData.SegmentPath = "ports"
+    ports.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/responder/type/udp/addresses/address/" + ports.EntityData.SegmentPath
     ports.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ports.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ports.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5932,6 +6087,7 @@ func (ports *Ipsla_Responder_Type_Udp_Addresses_Address_Ports) GetEntityData() *
 type Ipsla_Responder_Type_Udp_Addresses_Address_Ports_Port struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Port number to be enabled. The type is interface{}
     // with range: 0..65535.
@@ -5944,6 +6100,7 @@ func (port *Ipsla_Responder_Type_Udp_Addresses_Address_Ports_Port) GetEntityData
     port.EntityData.BundleName = "cisco_ios_xr"
     port.EntityData.ParentYangName = "ports"
     port.EntityData.SegmentPath = "port" + types.AddKeyToken(port.Port, "port")
+    port.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/responder/type/udp/addresses/address/ports/" + port.EntityData.SegmentPath
     port.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     port.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     port.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5955,6 +6112,1313 @@ func (port *Ipsla_Responder_Type_Udp_Addresses_Address_Ports_Port) GetEntityData
     port.EntityData.YListKeys = []string {"Port"}
 
     return &(port.EntityData)
+}
+
+// Ipsla_Responder_TwampLight
+// Enter twamp-light session details
+type Ipsla_Responder_TwampLight struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Create twamp-light session.
+    SessionIds Ipsla_Responder_TwampLight_SessionIds
+}
+
+func (twampLight *Ipsla_Responder_TwampLight) GetEntityData() *types.CommonEntityData {
+    twampLight.EntityData.YFilter = twampLight.YFilter
+    twampLight.EntityData.YangName = "twamp-light"
+    twampLight.EntityData.BundleName = "cisco_ios_xr"
+    twampLight.EntityData.ParentYangName = "responder"
+    twampLight.EntityData.SegmentPath = "twamp-light"
+    twampLight.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/responder/" + twampLight.EntityData.SegmentPath
+    twampLight.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    twampLight.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    twampLight.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    twampLight.EntityData.Children = types.NewOrderedMap()
+    twampLight.EntityData.Children.Append("session-ids", types.YChild{"SessionIds", &twampLight.SessionIds})
+    twampLight.EntityData.Leafs = types.NewOrderedMap()
+
+    twampLight.EntityData.YListKeys = []string {}
+
+    return &(twampLight.EntityData)
+}
+
+// Ipsla_Responder_TwampLight_SessionIds
+// Create twamp-light session
+type Ipsla_Responder_TwampLight_SessionIds struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Configure session ID. The type is slice of
+    // Ipsla_Responder_TwampLight_SessionIds_SessionId.
+    SessionId []*Ipsla_Responder_TwampLight_SessionIds_SessionId
+}
+
+func (sessionIds *Ipsla_Responder_TwampLight_SessionIds) GetEntityData() *types.CommonEntityData {
+    sessionIds.EntityData.YFilter = sessionIds.YFilter
+    sessionIds.EntityData.YangName = "session-ids"
+    sessionIds.EntityData.BundleName = "cisco_ios_xr"
+    sessionIds.EntityData.ParentYangName = "twamp-light"
+    sessionIds.EntityData.SegmentPath = "session-ids"
+    sessionIds.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/responder/twamp-light/" + sessionIds.EntityData.SegmentPath
+    sessionIds.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    sessionIds.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    sessionIds.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    sessionIds.EntityData.Children = types.NewOrderedMap()
+    sessionIds.EntityData.Children.Append("session-id", types.YChild{"SessionId", nil})
+    for i := range sessionIds.SessionId {
+        sessionIds.EntityData.Children.Append(types.GetSegmentPath(sessionIds.SessionId[i]), types.YChild{"SessionId", sessionIds.SessionId[i]})
+    }
+    sessionIds.EntityData.Leafs = types.NewOrderedMap()
+
+    sessionIds.EntityData.YListKeys = []string {}
+
+    return &(sessionIds.EntityData)
+}
+
+// Ipsla_Responder_TwampLight_SessionIds_SessionId
+// Configure session ID
+type Ipsla_Responder_TwampLight_SessionIds_SessionId struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. SessionID. The type is interface{} with range:
+    // 1..5.
+    SessionId interface{}
+
+    // Configure session timeout. The type is interface{} with range: 60..86400.
+    // Units are second.
+    TwampLightTimeout interface{}
+
+    // Configure local ip address.
+    LocalIp Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp
+}
+
+func (sessionId *Ipsla_Responder_TwampLight_SessionIds_SessionId) GetEntityData() *types.CommonEntityData {
+    sessionId.EntityData.YFilter = sessionId.YFilter
+    sessionId.EntityData.YangName = "session-id"
+    sessionId.EntityData.BundleName = "cisco_ios_xr"
+    sessionId.EntityData.ParentYangName = "session-ids"
+    sessionId.EntityData.SegmentPath = "session-id" + types.AddKeyToken(sessionId.SessionId, "session-id")
+    sessionId.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/responder/twamp-light/session-ids/" + sessionId.EntityData.SegmentPath
+    sessionId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    sessionId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    sessionId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    sessionId.EntityData.Children = types.NewOrderedMap()
+    sessionId.EntityData.Children.Append("local-ip", types.YChild{"LocalIp", &sessionId.LocalIp})
+    sessionId.EntityData.Leafs = types.NewOrderedMap()
+    sessionId.EntityData.Leafs.Append("session-id", types.YLeaf{"SessionId", sessionId.SessionId})
+    sessionId.EntityData.Leafs.Append("twamp-light-timeout", types.YLeaf{"TwampLightTimeout", sessionId.TwampLightTimeout})
+
+    sessionId.EntityData.YListKeys = []string {"SessionId"}
+
+    return &(sessionId.EntityData)
+}
+
+// Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp
+// Configure local ip address
+type Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Configure IPV6 address.
+    LocalIpv6Addresses Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses
+
+    // Configure IPV4 address.
+    LocalIpv4Addresses Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses
+}
+
+func (localIp *Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp) GetEntityData() *types.CommonEntityData {
+    localIp.EntityData.YFilter = localIp.YFilter
+    localIp.EntityData.YangName = "local-ip"
+    localIp.EntityData.BundleName = "cisco_ios_xr"
+    localIp.EntityData.ParentYangName = "session-id"
+    localIp.EntityData.SegmentPath = "local-ip"
+    localIp.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/responder/twamp-light/session-ids/session-id/" + localIp.EntityData.SegmentPath
+    localIp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    localIp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    localIp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    localIp.EntityData.Children = types.NewOrderedMap()
+    localIp.EntityData.Children.Append("local-ipv6-addresses", types.YChild{"LocalIpv6Addresses", &localIp.LocalIpv6Addresses})
+    localIp.EntityData.Children.Append("local-ipv4-addresses", types.YChild{"LocalIpv4Addresses", &localIp.LocalIpv4Addresses})
+    localIp.EntityData.Leafs = types.NewOrderedMap()
+
+    localIp.EntityData.YListKeys = []string {}
+
+    return &(localIp.EntityData)
+}
+
+// Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses
+// Configure IPV6 address
+type Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Enter value of local ip address. The type is slice of
+    // Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address.
+    LocalIpv6Address []*Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address
+}
+
+func (localIpv6Addresses *Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses) GetEntityData() *types.CommonEntityData {
+    localIpv6Addresses.EntityData.YFilter = localIpv6Addresses.YFilter
+    localIpv6Addresses.EntityData.YangName = "local-ipv6-addresses"
+    localIpv6Addresses.EntityData.BundleName = "cisco_ios_xr"
+    localIpv6Addresses.EntityData.ParentYangName = "local-ip"
+    localIpv6Addresses.EntityData.SegmentPath = "local-ipv6-addresses"
+    localIpv6Addresses.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/responder/twamp-light/session-ids/session-id/local-ip/" + localIpv6Addresses.EntityData.SegmentPath
+    localIpv6Addresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    localIpv6Addresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    localIpv6Addresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    localIpv6Addresses.EntityData.Children = types.NewOrderedMap()
+    localIpv6Addresses.EntityData.Children.Append("local-ipv6-address", types.YChild{"LocalIpv6Address", nil})
+    for i := range localIpv6Addresses.LocalIpv6Address {
+        localIpv6Addresses.EntityData.Children.Append(types.GetSegmentPath(localIpv6Addresses.LocalIpv6Address[i]), types.YChild{"LocalIpv6Address", localIpv6Addresses.LocalIpv6Address[i]})
+    }
+    localIpv6Addresses.EntityData.Leafs = types.NewOrderedMap()
+
+    localIpv6Addresses.EntityData.YListKeys = []string {}
+
+    return &(localIpv6Addresses.EntityData)
+}
+
+// Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address
+// Enter value of local ip address
+type Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. Local IPv6 address. The type is string with
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    Localv6Address interface{}
+
+    // Configuration of local port.
+    LocalPortNumbers Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers
+}
+
+func (localIpv6Address *Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address) GetEntityData() *types.CommonEntityData {
+    localIpv6Address.EntityData.YFilter = localIpv6Address.YFilter
+    localIpv6Address.EntityData.YangName = "local-ipv6-address"
+    localIpv6Address.EntityData.BundleName = "cisco_ios_xr"
+    localIpv6Address.EntityData.ParentYangName = "local-ipv6-addresses"
+    localIpv6Address.EntityData.SegmentPath = "local-ipv6-address" + types.AddKeyToken(localIpv6Address.Localv6Address, "localv6-address")
+    localIpv6Address.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/responder/twamp-light/session-ids/session-id/local-ip/local-ipv6-addresses/" + localIpv6Address.EntityData.SegmentPath
+    localIpv6Address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    localIpv6Address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    localIpv6Address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    localIpv6Address.EntityData.Children = types.NewOrderedMap()
+    localIpv6Address.EntityData.Children.Append("local-port-numbers", types.YChild{"LocalPortNumbers", &localIpv6Address.LocalPortNumbers})
+    localIpv6Address.EntityData.Leafs = types.NewOrderedMap()
+    localIpv6Address.EntityData.Leafs.Append("localv6-address", types.YLeaf{"Localv6Address", localIpv6Address.Localv6Address})
+
+    localIpv6Address.EntityData.YListKeys = []string {"Localv6Address"}
+
+    return &(localIpv6Address.EntityData)
+}
+
+// Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers
+// Configuration of local port
+type Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Enter value of local port. The type is slice of
+    // Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber.
+    LocalPortNumber []*Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber
+}
+
+func (localPortNumbers *Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers) GetEntityData() *types.CommonEntityData {
+    localPortNumbers.EntityData.YFilter = localPortNumbers.YFilter
+    localPortNumbers.EntityData.YangName = "local-port-numbers"
+    localPortNumbers.EntityData.BundleName = "cisco_ios_xr"
+    localPortNumbers.EntityData.ParentYangName = "local-ipv6-address"
+    localPortNumbers.EntityData.SegmentPath = "local-port-numbers"
+    localPortNumbers.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/responder/twamp-light/session-ids/session-id/local-ip/local-ipv6-addresses/local-ipv6-address/" + localPortNumbers.EntityData.SegmentPath
+    localPortNumbers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    localPortNumbers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    localPortNumbers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    localPortNumbers.EntityData.Children = types.NewOrderedMap()
+    localPortNumbers.EntityData.Children.Append("local-port-number", types.YChild{"LocalPortNumber", nil})
+    for i := range localPortNumbers.LocalPortNumber {
+        localPortNumbers.EntityData.Children.Append(types.GetSegmentPath(localPortNumbers.LocalPortNumber[i]), types.YChild{"LocalPortNumber", localPortNumbers.LocalPortNumber[i]})
+    }
+    localPortNumbers.EntityData.Leafs = types.NewOrderedMap()
+
+    localPortNumbers.EntityData.YListKeys = []string {}
+
+    return &(localPortNumbers.EntityData)
+}
+
+// Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber
+// Enter value of local port
+type Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. Local port. The type is interface{} with range:
+    // 0..65535.
+    LocalPort interface{}
+
+    // Configure remote ip address.
+    RemoteIp Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp
+}
+
+func (localPortNumber *Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber) GetEntityData() *types.CommonEntityData {
+    localPortNumber.EntityData.YFilter = localPortNumber.YFilter
+    localPortNumber.EntityData.YangName = "local-port-number"
+    localPortNumber.EntityData.BundleName = "cisco_ios_xr"
+    localPortNumber.EntityData.ParentYangName = "local-port-numbers"
+    localPortNumber.EntityData.SegmentPath = "local-port-number" + types.AddKeyToken(localPortNumber.LocalPort, "local-port")
+    localPortNumber.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/responder/twamp-light/session-ids/session-id/local-ip/local-ipv6-addresses/local-ipv6-address/local-port-numbers/" + localPortNumber.EntityData.SegmentPath
+    localPortNumber.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    localPortNumber.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    localPortNumber.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    localPortNumber.EntityData.Children = types.NewOrderedMap()
+    localPortNumber.EntityData.Children.Append("remote-ip", types.YChild{"RemoteIp", &localPortNumber.RemoteIp})
+    localPortNumber.EntityData.Leafs = types.NewOrderedMap()
+    localPortNumber.EntityData.Leafs.Append("local-port", types.YLeaf{"LocalPort", localPortNumber.LocalPort})
+
+    localPortNumber.EntityData.YListKeys = []string {"LocalPort"}
+
+    return &(localPortNumber.EntityData)
+}
+
+// Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp
+// Configure remote ip address
+type Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Configure IPV4 address.
+    RemoteIpv4Addresses Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses
+
+    // Configure IPV6 address.
+    RemoteIpv6Addresses Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses
+}
+
+func (remoteIp *Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp) GetEntityData() *types.CommonEntityData {
+    remoteIp.EntityData.YFilter = remoteIp.YFilter
+    remoteIp.EntityData.YangName = "remote-ip"
+    remoteIp.EntityData.BundleName = "cisco_ios_xr"
+    remoteIp.EntityData.ParentYangName = "local-port-number"
+    remoteIp.EntityData.SegmentPath = "remote-ip"
+    remoteIp.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/responder/twamp-light/session-ids/session-id/local-ip/local-ipv6-addresses/local-ipv6-address/local-port-numbers/local-port-number/" + remoteIp.EntityData.SegmentPath
+    remoteIp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    remoteIp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    remoteIp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    remoteIp.EntityData.Children = types.NewOrderedMap()
+    remoteIp.EntityData.Children.Append("remote-ipv4-addresses", types.YChild{"RemoteIpv4Addresses", &remoteIp.RemoteIpv4Addresses})
+    remoteIp.EntityData.Children.Append("remote-ipv6-addresses", types.YChild{"RemoteIpv6Addresses", &remoteIp.RemoteIpv6Addresses})
+    remoteIp.EntityData.Leafs = types.NewOrderedMap()
+
+    remoteIp.EntityData.YListKeys = []string {}
+
+    return &(remoteIp.EntityData)
+}
+
+// Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses
+// Configure IPV4 address
+type Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Enter value of remote ipv4 address. The type is slice of
+    // Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses_RemoteIpv4Address.
+    RemoteIpv4Address []*Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses_RemoteIpv4Address
+}
+
+func (remoteIpv4Addresses *Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses) GetEntityData() *types.CommonEntityData {
+    remoteIpv4Addresses.EntityData.YFilter = remoteIpv4Addresses.YFilter
+    remoteIpv4Addresses.EntityData.YangName = "remote-ipv4-addresses"
+    remoteIpv4Addresses.EntityData.BundleName = "cisco_ios_xr"
+    remoteIpv4Addresses.EntityData.ParentYangName = "remote-ip"
+    remoteIpv4Addresses.EntityData.SegmentPath = "remote-ipv4-addresses"
+    remoteIpv4Addresses.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/responder/twamp-light/session-ids/session-id/local-ip/local-ipv6-addresses/local-ipv6-address/local-port-numbers/local-port-number/remote-ip/" + remoteIpv4Addresses.EntityData.SegmentPath
+    remoteIpv4Addresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    remoteIpv4Addresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    remoteIpv4Addresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    remoteIpv4Addresses.EntityData.Children = types.NewOrderedMap()
+    remoteIpv4Addresses.EntityData.Children.Append("remote-ipv4-address", types.YChild{"RemoteIpv4Address", nil})
+    for i := range remoteIpv4Addresses.RemoteIpv4Address {
+        remoteIpv4Addresses.EntityData.Children.Append(types.GetSegmentPath(remoteIpv4Addresses.RemoteIpv4Address[i]), types.YChild{"RemoteIpv4Address", remoteIpv4Addresses.RemoteIpv4Address[i]})
+    }
+    remoteIpv4Addresses.EntityData.Leafs = types.NewOrderedMap()
+
+    remoteIpv4Addresses.EntityData.YListKeys = []string {}
+
+    return &(remoteIpv4Addresses.EntityData)
+}
+
+// Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses_RemoteIpv4Address
+// Enter value of remote ipv4 address
+type Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses_RemoteIpv4Address struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. Remote IPv4 address. The type is string with
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    Remotev4Address interface{}
+
+    // Configuration of remote port.
+    RemotePortNumbers Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses_RemoteIpv4Address_RemotePortNumbers
+}
+
+func (remoteIpv4Address *Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses_RemoteIpv4Address) GetEntityData() *types.CommonEntityData {
+    remoteIpv4Address.EntityData.YFilter = remoteIpv4Address.YFilter
+    remoteIpv4Address.EntityData.YangName = "remote-ipv4-address"
+    remoteIpv4Address.EntityData.BundleName = "cisco_ios_xr"
+    remoteIpv4Address.EntityData.ParentYangName = "remote-ipv4-addresses"
+    remoteIpv4Address.EntityData.SegmentPath = "remote-ipv4-address" + types.AddKeyToken(remoteIpv4Address.Remotev4Address, "remotev4-address")
+    remoteIpv4Address.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/responder/twamp-light/session-ids/session-id/local-ip/local-ipv6-addresses/local-ipv6-address/local-port-numbers/local-port-number/remote-ip/remote-ipv4-addresses/" + remoteIpv4Address.EntityData.SegmentPath
+    remoteIpv4Address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    remoteIpv4Address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    remoteIpv4Address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    remoteIpv4Address.EntityData.Children = types.NewOrderedMap()
+    remoteIpv4Address.EntityData.Children.Append("remote-port-numbers", types.YChild{"RemotePortNumbers", &remoteIpv4Address.RemotePortNumbers})
+    remoteIpv4Address.EntityData.Leafs = types.NewOrderedMap()
+    remoteIpv4Address.EntityData.Leafs.Append("remotev4-address", types.YLeaf{"Remotev4Address", remoteIpv4Address.Remotev4Address})
+
+    remoteIpv4Address.EntityData.YListKeys = []string {"Remotev4Address"}
+
+    return &(remoteIpv4Address.EntityData)
+}
+
+// Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses_RemoteIpv4Address_RemotePortNumbers
+// Configuration of remote port
+type Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses_RemoteIpv4Address_RemotePortNumbers struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Enter value of remote port. The type is slice of
+    // Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses_RemoteIpv4Address_RemotePortNumbers_RemotePortNumber.
+    RemotePortNumber []*Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses_RemoteIpv4Address_RemotePortNumbers_RemotePortNumber
+}
+
+func (remotePortNumbers *Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses_RemoteIpv4Address_RemotePortNumbers) GetEntityData() *types.CommonEntityData {
+    remotePortNumbers.EntityData.YFilter = remotePortNumbers.YFilter
+    remotePortNumbers.EntityData.YangName = "remote-port-numbers"
+    remotePortNumbers.EntityData.BundleName = "cisco_ios_xr"
+    remotePortNumbers.EntityData.ParentYangName = "remote-ipv4-address"
+    remotePortNumbers.EntityData.SegmentPath = "remote-port-numbers"
+    remotePortNumbers.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/responder/twamp-light/session-ids/session-id/local-ip/local-ipv6-addresses/local-ipv6-address/local-port-numbers/local-port-number/remote-ip/remote-ipv4-addresses/remote-ipv4-address/" + remotePortNumbers.EntityData.SegmentPath
+    remotePortNumbers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    remotePortNumbers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    remotePortNumbers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    remotePortNumbers.EntityData.Children = types.NewOrderedMap()
+    remotePortNumbers.EntityData.Children.Append("remote-port-number", types.YChild{"RemotePortNumber", nil})
+    for i := range remotePortNumbers.RemotePortNumber {
+        remotePortNumbers.EntityData.Children.Append(types.GetSegmentPath(remotePortNumbers.RemotePortNumber[i]), types.YChild{"RemotePortNumber", remotePortNumbers.RemotePortNumber[i]})
+    }
+    remotePortNumbers.EntityData.Leafs = types.NewOrderedMap()
+
+    remotePortNumbers.EntityData.YListKeys = []string {}
+
+    return &(remotePortNumbers.EntityData)
+}
+
+// Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses_RemoteIpv4Address_RemotePortNumbers_RemotePortNumber
+// Enter value of remote port
+type Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses_RemoteIpv4Address_RemotePortNumbers_RemotePortNumber struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. Remote port. The type is interface{} with range:
+    // 0..65535.
+    RemotePort interface{}
+
+    // Configuration of vrf.
+    VrfNames Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses_RemoteIpv4Address_RemotePortNumbers_RemotePortNumber_VrfNames
+}
+
+func (remotePortNumber *Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses_RemoteIpv4Address_RemotePortNumbers_RemotePortNumber) GetEntityData() *types.CommonEntityData {
+    remotePortNumber.EntityData.YFilter = remotePortNumber.YFilter
+    remotePortNumber.EntityData.YangName = "remote-port-number"
+    remotePortNumber.EntityData.BundleName = "cisco_ios_xr"
+    remotePortNumber.EntityData.ParentYangName = "remote-port-numbers"
+    remotePortNumber.EntityData.SegmentPath = "remote-port-number" + types.AddKeyToken(remotePortNumber.RemotePort, "remote-port")
+    remotePortNumber.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/responder/twamp-light/session-ids/session-id/local-ip/local-ipv6-addresses/local-ipv6-address/local-port-numbers/local-port-number/remote-ip/remote-ipv4-addresses/remote-ipv4-address/remote-port-numbers/" + remotePortNumber.EntityData.SegmentPath
+    remotePortNumber.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    remotePortNumber.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    remotePortNumber.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    remotePortNumber.EntityData.Children = types.NewOrderedMap()
+    remotePortNumber.EntityData.Children.Append("vrf-names", types.YChild{"VrfNames", &remotePortNumber.VrfNames})
+    remotePortNumber.EntityData.Leafs = types.NewOrderedMap()
+    remotePortNumber.EntityData.Leafs.Append("remote-port", types.YLeaf{"RemotePort", remotePortNumber.RemotePort})
+
+    remotePortNumber.EntityData.YListKeys = []string {"RemotePort"}
+
+    return &(remotePortNumber.EntityData)
+}
+
+// Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses_RemoteIpv4Address_RemotePortNumbers_RemotePortNumber_VrfNames
+// Configuration of vrf
+type Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses_RemoteIpv4Address_RemotePortNumbers_RemotePortNumber_VrfNames struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Configure vrf name value. The type is slice of
+    // Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses_RemoteIpv4Address_RemotePortNumbers_RemotePortNumber_VrfNames_VrfName.
+    VrfName []*Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses_RemoteIpv4Address_RemotePortNumbers_RemotePortNumber_VrfNames_VrfName
+}
+
+func (vrfNames *Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses_RemoteIpv4Address_RemotePortNumbers_RemotePortNumber_VrfNames) GetEntityData() *types.CommonEntityData {
+    vrfNames.EntityData.YFilter = vrfNames.YFilter
+    vrfNames.EntityData.YangName = "vrf-names"
+    vrfNames.EntityData.BundleName = "cisco_ios_xr"
+    vrfNames.EntityData.ParentYangName = "remote-port-number"
+    vrfNames.EntityData.SegmentPath = "vrf-names"
+    vrfNames.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/responder/twamp-light/session-ids/session-id/local-ip/local-ipv6-addresses/local-ipv6-address/local-port-numbers/local-port-number/remote-ip/remote-ipv4-addresses/remote-ipv4-address/remote-port-numbers/remote-port-number/" + vrfNames.EntityData.SegmentPath
+    vrfNames.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    vrfNames.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    vrfNames.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    vrfNames.EntityData.Children = types.NewOrderedMap()
+    vrfNames.EntityData.Children.Append("vrf-name", types.YChild{"VrfName", nil})
+    for i := range vrfNames.VrfName {
+        vrfNames.EntityData.Children.Append(types.GetSegmentPath(vrfNames.VrfName[i]), types.YChild{"VrfName", vrfNames.VrfName[i]})
+    }
+    vrfNames.EntityData.Leafs = types.NewOrderedMap()
+
+    vrfNames.EntityData.YListKeys = []string {}
+
+    return &(vrfNames.EntityData)
+}
+
+// Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses_RemoteIpv4Address_RemotePortNumbers_RemotePortNumber_VrfNames_VrfName
+// Configure vrf name value
+type Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses_RemoteIpv4Address_RemotePortNumbers_RemotePortNumber_VrfNames_VrfName struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. VRF Name. The type is string with length: 1..32.
+    VrfName interface{}
+}
+
+func (vrfName *Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses_RemoteIpv4Address_RemotePortNumbers_RemotePortNumber_VrfNames_VrfName) GetEntityData() *types.CommonEntityData {
+    vrfName.EntityData.YFilter = vrfName.YFilter
+    vrfName.EntityData.YangName = "vrf-name"
+    vrfName.EntityData.BundleName = "cisco_ios_xr"
+    vrfName.EntityData.ParentYangName = "vrf-names"
+    vrfName.EntityData.SegmentPath = "vrf-name" + types.AddKeyToken(vrfName.VrfName, "vrf-name")
+    vrfName.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/responder/twamp-light/session-ids/session-id/local-ip/local-ipv6-addresses/local-ipv6-address/local-port-numbers/local-port-number/remote-ip/remote-ipv4-addresses/remote-ipv4-address/remote-port-numbers/remote-port-number/vrf-names/" + vrfName.EntityData.SegmentPath
+    vrfName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    vrfName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    vrfName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    vrfName.EntityData.Children = types.NewOrderedMap()
+    vrfName.EntityData.Leafs = types.NewOrderedMap()
+    vrfName.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", vrfName.VrfName})
+
+    vrfName.EntityData.YListKeys = []string {"VrfName"}
+
+    return &(vrfName.EntityData)
+}
+
+// Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses
+// Configure IPV6 address
+type Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Enter value of remote ipv6 address. The type is slice of
+    // Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses_RemoteIpv6Address.
+    RemoteIpv6Address []*Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses_RemoteIpv6Address
+}
+
+func (remoteIpv6Addresses *Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses) GetEntityData() *types.CommonEntityData {
+    remoteIpv6Addresses.EntityData.YFilter = remoteIpv6Addresses.YFilter
+    remoteIpv6Addresses.EntityData.YangName = "remote-ipv6-addresses"
+    remoteIpv6Addresses.EntityData.BundleName = "cisco_ios_xr"
+    remoteIpv6Addresses.EntityData.ParentYangName = "remote-ip"
+    remoteIpv6Addresses.EntityData.SegmentPath = "remote-ipv6-addresses"
+    remoteIpv6Addresses.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/responder/twamp-light/session-ids/session-id/local-ip/local-ipv6-addresses/local-ipv6-address/local-port-numbers/local-port-number/remote-ip/" + remoteIpv6Addresses.EntityData.SegmentPath
+    remoteIpv6Addresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    remoteIpv6Addresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    remoteIpv6Addresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    remoteIpv6Addresses.EntityData.Children = types.NewOrderedMap()
+    remoteIpv6Addresses.EntityData.Children.Append("remote-ipv6-address", types.YChild{"RemoteIpv6Address", nil})
+    for i := range remoteIpv6Addresses.RemoteIpv6Address {
+        remoteIpv6Addresses.EntityData.Children.Append(types.GetSegmentPath(remoteIpv6Addresses.RemoteIpv6Address[i]), types.YChild{"RemoteIpv6Address", remoteIpv6Addresses.RemoteIpv6Address[i]})
+    }
+    remoteIpv6Addresses.EntityData.Leafs = types.NewOrderedMap()
+
+    remoteIpv6Addresses.EntityData.YListKeys = []string {}
+
+    return &(remoteIpv6Addresses.EntityData)
+}
+
+// Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses_RemoteIpv6Address
+// Enter value of remote ipv6 address
+type Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses_RemoteIpv6Address struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. Remote IPv6 address. The type is string with
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    Remotev6Address interface{}
+
+    // Configuration of remote port.
+    RemotePortNumbers Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses_RemoteIpv6Address_RemotePortNumbers
+}
+
+func (remoteIpv6Address *Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses_RemoteIpv6Address) GetEntityData() *types.CommonEntityData {
+    remoteIpv6Address.EntityData.YFilter = remoteIpv6Address.YFilter
+    remoteIpv6Address.EntityData.YangName = "remote-ipv6-address"
+    remoteIpv6Address.EntityData.BundleName = "cisco_ios_xr"
+    remoteIpv6Address.EntityData.ParentYangName = "remote-ipv6-addresses"
+    remoteIpv6Address.EntityData.SegmentPath = "remote-ipv6-address" + types.AddKeyToken(remoteIpv6Address.Remotev6Address, "remotev6-address")
+    remoteIpv6Address.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/responder/twamp-light/session-ids/session-id/local-ip/local-ipv6-addresses/local-ipv6-address/local-port-numbers/local-port-number/remote-ip/remote-ipv6-addresses/" + remoteIpv6Address.EntityData.SegmentPath
+    remoteIpv6Address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    remoteIpv6Address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    remoteIpv6Address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    remoteIpv6Address.EntityData.Children = types.NewOrderedMap()
+    remoteIpv6Address.EntityData.Children.Append("remote-port-numbers", types.YChild{"RemotePortNumbers", &remoteIpv6Address.RemotePortNumbers})
+    remoteIpv6Address.EntityData.Leafs = types.NewOrderedMap()
+    remoteIpv6Address.EntityData.Leafs.Append("remotev6-address", types.YLeaf{"Remotev6Address", remoteIpv6Address.Remotev6Address})
+
+    remoteIpv6Address.EntityData.YListKeys = []string {"Remotev6Address"}
+
+    return &(remoteIpv6Address.EntityData)
+}
+
+// Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses_RemoteIpv6Address_RemotePortNumbers
+// Configuration of remote port
+type Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses_RemoteIpv6Address_RemotePortNumbers struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Enter value of remote port. The type is slice of
+    // Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses_RemoteIpv6Address_RemotePortNumbers_RemotePortNumber.
+    RemotePortNumber []*Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses_RemoteIpv6Address_RemotePortNumbers_RemotePortNumber
+}
+
+func (remotePortNumbers *Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses_RemoteIpv6Address_RemotePortNumbers) GetEntityData() *types.CommonEntityData {
+    remotePortNumbers.EntityData.YFilter = remotePortNumbers.YFilter
+    remotePortNumbers.EntityData.YangName = "remote-port-numbers"
+    remotePortNumbers.EntityData.BundleName = "cisco_ios_xr"
+    remotePortNumbers.EntityData.ParentYangName = "remote-ipv6-address"
+    remotePortNumbers.EntityData.SegmentPath = "remote-port-numbers"
+    remotePortNumbers.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/responder/twamp-light/session-ids/session-id/local-ip/local-ipv6-addresses/local-ipv6-address/local-port-numbers/local-port-number/remote-ip/remote-ipv6-addresses/remote-ipv6-address/" + remotePortNumbers.EntityData.SegmentPath
+    remotePortNumbers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    remotePortNumbers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    remotePortNumbers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    remotePortNumbers.EntityData.Children = types.NewOrderedMap()
+    remotePortNumbers.EntityData.Children.Append("remote-port-number", types.YChild{"RemotePortNumber", nil})
+    for i := range remotePortNumbers.RemotePortNumber {
+        remotePortNumbers.EntityData.Children.Append(types.GetSegmentPath(remotePortNumbers.RemotePortNumber[i]), types.YChild{"RemotePortNumber", remotePortNumbers.RemotePortNumber[i]})
+    }
+    remotePortNumbers.EntityData.Leafs = types.NewOrderedMap()
+
+    remotePortNumbers.EntityData.YListKeys = []string {}
+
+    return &(remotePortNumbers.EntityData)
+}
+
+// Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses_RemoteIpv6Address_RemotePortNumbers_RemotePortNumber
+// Enter value of remote port
+type Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses_RemoteIpv6Address_RemotePortNumbers_RemotePortNumber struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. Remote port. The type is interface{} with range:
+    // 0..65535.
+    RemotePort interface{}
+
+    // Configuration of vrf.
+    VrfNames Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses_RemoteIpv6Address_RemotePortNumbers_RemotePortNumber_VrfNames
+}
+
+func (remotePortNumber *Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses_RemoteIpv6Address_RemotePortNumbers_RemotePortNumber) GetEntityData() *types.CommonEntityData {
+    remotePortNumber.EntityData.YFilter = remotePortNumber.YFilter
+    remotePortNumber.EntityData.YangName = "remote-port-number"
+    remotePortNumber.EntityData.BundleName = "cisco_ios_xr"
+    remotePortNumber.EntityData.ParentYangName = "remote-port-numbers"
+    remotePortNumber.EntityData.SegmentPath = "remote-port-number" + types.AddKeyToken(remotePortNumber.RemotePort, "remote-port")
+    remotePortNumber.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/responder/twamp-light/session-ids/session-id/local-ip/local-ipv6-addresses/local-ipv6-address/local-port-numbers/local-port-number/remote-ip/remote-ipv6-addresses/remote-ipv6-address/remote-port-numbers/" + remotePortNumber.EntityData.SegmentPath
+    remotePortNumber.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    remotePortNumber.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    remotePortNumber.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    remotePortNumber.EntityData.Children = types.NewOrderedMap()
+    remotePortNumber.EntityData.Children.Append("vrf-names", types.YChild{"VrfNames", &remotePortNumber.VrfNames})
+    remotePortNumber.EntityData.Leafs = types.NewOrderedMap()
+    remotePortNumber.EntityData.Leafs.Append("remote-port", types.YLeaf{"RemotePort", remotePortNumber.RemotePort})
+
+    remotePortNumber.EntityData.YListKeys = []string {"RemotePort"}
+
+    return &(remotePortNumber.EntityData)
+}
+
+// Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses_RemoteIpv6Address_RemotePortNumbers_RemotePortNumber_VrfNames
+// Configuration of vrf
+type Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses_RemoteIpv6Address_RemotePortNumbers_RemotePortNumber_VrfNames struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Configure vrf name value. The type is slice of
+    // Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses_RemoteIpv6Address_RemotePortNumbers_RemotePortNumber_VrfNames_VrfName.
+    VrfName []*Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses_RemoteIpv6Address_RemotePortNumbers_RemotePortNumber_VrfNames_VrfName
+}
+
+func (vrfNames *Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses_RemoteIpv6Address_RemotePortNumbers_RemotePortNumber_VrfNames) GetEntityData() *types.CommonEntityData {
+    vrfNames.EntityData.YFilter = vrfNames.YFilter
+    vrfNames.EntityData.YangName = "vrf-names"
+    vrfNames.EntityData.BundleName = "cisco_ios_xr"
+    vrfNames.EntityData.ParentYangName = "remote-port-number"
+    vrfNames.EntityData.SegmentPath = "vrf-names"
+    vrfNames.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/responder/twamp-light/session-ids/session-id/local-ip/local-ipv6-addresses/local-ipv6-address/local-port-numbers/local-port-number/remote-ip/remote-ipv6-addresses/remote-ipv6-address/remote-port-numbers/remote-port-number/" + vrfNames.EntityData.SegmentPath
+    vrfNames.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    vrfNames.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    vrfNames.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    vrfNames.EntityData.Children = types.NewOrderedMap()
+    vrfNames.EntityData.Children.Append("vrf-name", types.YChild{"VrfName", nil})
+    for i := range vrfNames.VrfName {
+        vrfNames.EntityData.Children.Append(types.GetSegmentPath(vrfNames.VrfName[i]), types.YChild{"VrfName", vrfNames.VrfName[i]})
+    }
+    vrfNames.EntityData.Leafs = types.NewOrderedMap()
+
+    vrfNames.EntityData.YListKeys = []string {}
+
+    return &(vrfNames.EntityData)
+}
+
+// Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses_RemoteIpv6Address_RemotePortNumbers_RemotePortNumber_VrfNames_VrfName
+// Configure vrf name value
+type Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses_RemoteIpv6Address_RemotePortNumbers_RemotePortNumber_VrfNames_VrfName struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. VRF Name. The type is string with length: 1..32.
+    VrfName interface{}
+}
+
+func (vrfName *Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_LocalIpv6Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses_RemoteIpv6Address_RemotePortNumbers_RemotePortNumber_VrfNames_VrfName) GetEntityData() *types.CommonEntityData {
+    vrfName.EntityData.YFilter = vrfName.YFilter
+    vrfName.EntityData.YangName = "vrf-name"
+    vrfName.EntityData.BundleName = "cisco_ios_xr"
+    vrfName.EntityData.ParentYangName = "vrf-names"
+    vrfName.EntityData.SegmentPath = "vrf-name" + types.AddKeyToken(vrfName.VrfName, "vrf-name")
+    vrfName.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/responder/twamp-light/session-ids/session-id/local-ip/local-ipv6-addresses/local-ipv6-address/local-port-numbers/local-port-number/remote-ip/remote-ipv6-addresses/remote-ipv6-address/remote-port-numbers/remote-port-number/vrf-names/" + vrfName.EntityData.SegmentPath
+    vrfName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    vrfName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    vrfName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    vrfName.EntityData.Children = types.NewOrderedMap()
+    vrfName.EntityData.Leafs = types.NewOrderedMap()
+    vrfName.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", vrfName.VrfName})
+
+    vrfName.EntityData.YListKeys = []string {"VrfName"}
+
+    return &(vrfName.EntityData)
+}
+
+// Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses
+// Configure IPV4 address
+type Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Enter value of local ipv4 address. The type is slice of
+    // Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address.
+    LocalIpv4Address []*Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address
+}
+
+func (localIpv4Addresses *Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses) GetEntityData() *types.CommonEntityData {
+    localIpv4Addresses.EntityData.YFilter = localIpv4Addresses.YFilter
+    localIpv4Addresses.EntityData.YangName = "local-ipv4-addresses"
+    localIpv4Addresses.EntityData.BundleName = "cisco_ios_xr"
+    localIpv4Addresses.EntityData.ParentYangName = "local-ip"
+    localIpv4Addresses.EntityData.SegmentPath = "local-ipv4-addresses"
+    localIpv4Addresses.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/responder/twamp-light/session-ids/session-id/local-ip/" + localIpv4Addresses.EntityData.SegmentPath
+    localIpv4Addresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    localIpv4Addresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    localIpv4Addresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    localIpv4Addresses.EntityData.Children = types.NewOrderedMap()
+    localIpv4Addresses.EntityData.Children.Append("local-ipv4-address", types.YChild{"LocalIpv4Address", nil})
+    for i := range localIpv4Addresses.LocalIpv4Address {
+        localIpv4Addresses.EntityData.Children.Append(types.GetSegmentPath(localIpv4Addresses.LocalIpv4Address[i]), types.YChild{"LocalIpv4Address", localIpv4Addresses.LocalIpv4Address[i]})
+    }
+    localIpv4Addresses.EntityData.Leafs = types.NewOrderedMap()
+
+    localIpv4Addresses.EntityData.YListKeys = []string {}
+
+    return &(localIpv4Addresses.EntityData)
+}
+
+// Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address
+// Enter value of local ipv4 address
+type Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. Local IPv4 address. The type is string with
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    Localv4Address interface{}
+
+    // Configuration of local port.
+    LocalPortNumbers Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers
+}
+
+func (localIpv4Address *Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address) GetEntityData() *types.CommonEntityData {
+    localIpv4Address.EntityData.YFilter = localIpv4Address.YFilter
+    localIpv4Address.EntityData.YangName = "local-ipv4-address"
+    localIpv4Address.EntityData.BundleName = "cisco_ios_xr"
+    localIpv4Address.EntityData.ParentYangName = "local-ipv4-addresses"
+    localIpv4Address.EntityData.SegmentPath = "local-ipv4-address" + types.AddKeyToken(localIpv4Address.Localv4Address, "localv4-address")
+    localIpv4Address.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/responder/twamp-light/session-ids/session-id/local-ip/local-ipv4-addresses/" + localIpv4Address.EntityData.SegmentPath
+    localIpv4Address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    localIpv4Address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    localIpv4Address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    localIpv4Address.EntityData.Children = types.NewOrderedMap()
+    localIpv4Address.EntityData.Children.Append("local-port-numbers", types.YChild{"LocalPortNumbers", &localIpv4Address.LocalPortNumbers})
+    localIpv4Address.EntityData.Leafs = types.NewOrderedMap()
+    localIpv4Address.EntityData.Leafs.Append("localv4-address", types.YLeaf{"Localv4Address", localIpv4Address.Localv4Address})
+
+    localIpv4Address.EntityData.YListKeys = []string {"Localv4Address"}
+
+    return &(localIpv4Address.EntityData)
+}
+
+// Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers
+// Configuration of local port
+type Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Enter value of local port. The type is slice of
+    // Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber.
+    LocalPortNumber []*Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber
+}
+
+func (localPortNumbers *Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers) GetEntityData() *types.CommonEntityData {
+    localPortNumbers.EntityData.YFilter = localPortNumbers.YFilter
+    localPortNumbers.EntityData.YangName = "local-port-numbers"
+    localPortNumbers.EntityData.BundleName = "cisco_ios_xr"
+    localPortNumbers.EntityData.ParentYangName = "local-ipv4-address"
+    localPortNumbers.EntityData.SegmentPath = "local-port-numbers"
+    localPortNumbers.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/responder/twamp-light/session-ids/session-id/local-ip/local-ipv4-addresses/local-ipv4-address/" + localPortNumbers.EntityData.SegmentPath
+    localPortNumbers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    localPortNumbers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    localPortNumbers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    localPortNumbers.EntityData.Children = types.NewOrderedMap()
+    localPortNumbers.EntityData.Children.Append("local-port-number", types.YChild{"LocalPortNumber", nil})
+    for i := range localPortNumbers.LocalPortNumber {
+        localPortNumbers.EntityData.Children.Append(types.GetSegmentPath(localPortNumbers.LocalPortNumber[i]), types.YChild{"LocalPortNumber", localPortNumbers.LocalPortNumber[i]})
+    }
+    localPortNumbers.EntityData.Leafs = types.NewOrderedMap()
+
+    localPortNumbers.EntityData.YListKeys = []string {}
+
+    return &(localPortNumbers.EntityData)
+}
+
+// Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber
+// Enter value of local port
+type Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. Local port. The type is interface{} with range:
+    // 0..65535.
+    LocalPort interface{}
+
+    // Configure remote ip address.
+    RemoteIp Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp
+}
+
+func (localPortNumber *Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber) GetEntityData() *types.CommonEntityData {
+    localPortNumber.EntityData.YFilter = localPortNumber.YFilter
+    localPortNumber.EntityData.YangName = "local-port-number"
+    localPortNumber.EntityData.BundleName = "cisco_ios_xr"
+    localPortNumber.EntityData.ParentYangName = "local-port-numbers"
+    localPortNumber.EntityData.SegmentPath = "local-port-number" + types.AddKeyToken(localPortNumber.LocalPort, "local-port")
+    localPortNumber.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/responder/twamp-light/session-ids/session-id/local-ip/local-ipv4-addresses/local-ipv4-address/local-port-numbers/" + localPortNumber.EntityData.SegmentPath
+    localPortNumber.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    localPortNumber.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    localPortNumber.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    localPortNumber.EntityData.Children = types.NewOrderedMap()
+    localPortNumber.EntityData.Children.Append("remote-ip", types.YChild{"RemoteIp", &localPortNumber.RemoteIp})
+    localPortNumber.EntityData.Leafs = types.NewOrderedMap()
+    localPortNumber.EntityData.Leafs.Append("local-port", types.YLeaf{"LocalPort", localPortNumber.LocalPort})
+
+    localPortNumber.EntityData.YListKeys = []string {"LocalPort"}
+
+    return &(localPortNumber.EntityData)
+}
+
+// Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp
+// Configure remote ip address
+type Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Configure IPV4 address.
+    RemoteIpv4Addresses Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses
+
+    // Configure IPV6 address.
+    RemoteIpv6Addresses Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses
+}
+
+func (remoteIp *Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp) GetEntityData() *types.CommonEntityData {
+    remoteIp.EntityData.YFilter = remoteIp.YFilter
+    remoteIp.EntityData.YangName = "remote-ip"
+    remoteIp.EntityData.BundleName = "cisco_ios_xr"
+    remoteIp.EntityData.ParentYangName = "local-port-number"
+    remoteIp.EntityData.SegmentPath = "remote-ip"
+    remoteIp.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/responder/twamp-light/session-ids/session-id/local-ip/local-ipv4-addresses/local-ipv4-address/local-port-numbers/local-port-number/" + remoteIp.EntityData.SegmentPath
+    remoteIp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    remoteIp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    remoteIp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    remoteIp.EntityData.Children = types.NewOrderedMap()
+    remoteIp.EntityData.Children.Append("remote-ipv4-addresses", types.YChild{"RemoteIpv4Addresses", &remoteIp.RemoteIpv4Addresses})
+    remoteIp.EntityData.Children.Append("remote-ipv6-addresses", types.YChild{"RemoteIpv6Addresses", &remoteIp.RemoteIpv6Addresses})
+    remoteIp.EntityData.Leafs = types.NewOrderedMap()
+
+    remoteIp.EntityData.YListKeys = []string {}
+
+    return &(remoteIp.EntityData)
+}
+
+// Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses
+// Configure IPV4 address
+type Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Enter value of remote ipv4 address. The type is slice of
+    // Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses_RemoteIpv4Address.
+    RemoteIpv4Address []*Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses_RemoteIpv4Address
+}
+
+func (remoteIpv4Addresses *Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses) GetEntityData() *types.CommonEntityData {
+    remoteIpv4Addresses.EntityData.YFilter = remoteIpv4Addresses.YFilter
+    remoteIpv4Addresses.EntityData.YangName = "remote-ipv4-addresses"
+    remoteIpv4Addresses.EntityData.BundleName = "cisco_ios_xr"
+    remoteIpv4Addresses.EntityData.ParentYangName = "remote-ip"
+    remoteIpv4Addresses.EntityData.SegmentPath = "remote-ipv4-addresses"
+    remoteIpv4Addresses.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/responder/twamp-light/session-ids/session-id/local-ip/local-ipv4-addresses/local-ipv4-address/local-port-numbers/local-port-number/remote-ip/" + remoteIpv4Addresses.EntityData.SegmentPath
+    remoteIpv4Addresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    remoteIpv4Addresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    remoteIpv4Addresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    remoteIpv4Addresses.EntityData.Children = types.NewOrderedMap()
+    remoteIpv4Addresses.EntityData.Children.Append("remote-ipv4-address", types.YChild{"RemoteIpv4Address", nil})
+    for i := range remoteIpv4Addresses.RemoteIpv4Address {
+        remoteIpv4Addresses.EntityData.Children.Append(types.GetSegmentPath(remoteIpv4Addresses.RemoteIpv4Address[i]), types.YChild{"RemoteIpv4Address", remoteIpv4Addresses.RemoteIpv4Address[i]})
+    }
+    remoteIpv4Addresses.EntityData.Leafs = types.NewOrderedMap()
+
+    remoteIpv4Addresses.EntityData.YListKeys = []string {}
+
+    return &(remoteIpv4Addresses.EntityData)
+}
+
+// Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses_RemoteIpv4Address
+// Enter value of remote ipv4 address
+type Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses_RemoteIpv4Address struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. Remote IPv4 address. The type is string with
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    Remotev4Address interface{}
+
+    // Configuration of remote port.
+    RemotePortNumbers Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses_RemoteIpv4Address_RemotePortNumbers
+}
+
+func (remoteIpv4Address *Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses_RemoteIpv4Address) GetEntityData() *types.CommonEntityData {
+    remoteIpv4Address.EntityData.YFilter = remoteIpv4Address.YFilter
+    remoteIpv4Address.EntityData.YangName = "remote-ipv4-address"
+    remoteIpv4Address.EntityData.BundleName = "cisco_ios_xr"
+    remoteIpv4Address.EntityData.ParentYangName = "remote-ipv4-addresses"
+    remoteIpv4Address.EntityData.SegmentPath = "remote-ipv4-address" + types.AddKeyToken(remoteIpv4Address.Remotev4Address, "remotev4-address")
+    remoteIpv4Address.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/responder/twamp-light/session-ids/session-id/local-ip/local-ipv4-addresses/local-ipv4-address/local-port-numbers/local-port-number/remote-ip/remote-ipv4-addresses/" + remoteIpv4Address.EntityData.SegmentPath
+    remoteIpv4Address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    remoteIpv4Address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    remoteIpv4Address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    remoteIpv4Address.EntityData.Children = types.NewOrderedMap()
+    remoteIpv4Address.EntityData.Children.Append("remote-port-numbers", types.YChild{"RemotePortNumbers", &remoteIpv4Address.RemotePortNumbers})
+    remoteIpv4Address.EntityData.Leafs = types.NewOrderedMap()
+    remoteIpv4Address.EntityData.Leafs.Append("remotev4-address", types.YLeaf{"Remotev4Address", remoteIpv4Address.Remotev4Address})
+
+    remoteIpv4Address.EntityData.YListKeys = []string {"Remotev4Address"}
+
+    return &(remoteIpv4Address.EntityData)
+}
+
+// Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses_RemoteIpv4Address_RemotePortNumbers
+// Configuration of remote port
+type Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses_RemoteIpv4Address_RemotePortNumbers struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Enter value of remote port. The type is slice of
+    // Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses_RemoteIpv4Address_RemotePortNumbers_RemotePortNumber.
+    RemotePortNumber []*Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses_RemoteIpv4Address_RemotePortNumbers_RemotePortNumber
+}
+
+func (remotePortNumbers *Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses_RemoteIpv4Address_RemotePortNumbers) GetEntityData() *types.CommonEntityData {
+    remotePortNumbers.EntityData.YFilter = remotePortNumbers.YFilter
+    remotePortNumbers.EntityData.YangName = "remote-port-numbers"
+    remotePortNumbers.EntityData.BundleName = "cisco_ios_xr"
+    remotePortNumbers.EntityData.ParentYangName = "remote-ipv4-address"
+    remotePortNumbers.EntityData.SegmentPath = "remote-port-numbers"
+    remotePortNumbers.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/responder/twamp-light/session-ids/session-id/local-ip/local-ipv4-addresses/local-ipv4-address/local-port-numbers/local-port-number/remote-ip/remote-ipv4-addresses/remote-ipv4-address/" + remotePortNumbers.EntityData.SegmentPath
+    remotePortNumbers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    remotePortNumbers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    remotePortNumbers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    remotePortNumbers.EntityData.Children = types.NewOrderedMap()
+    remotePortNumbers.EntityData.Children.Append("remote-port-number", types.YChild{"RemotePortNumber", nil})
+    for i := range remotePortNumbers.RemotePortNumber {
+        remotePortNumbers.EntityData.Children.Append(types.GetSegmentPath(remotePortNumbers.RemotePortNumber[i]), types.YChild{"RemotePortNumber", remotePortNumbers.RemotePortNumber[i]})
+    }
+    remotePortNumbers.EntityData.Leafs = types.NewOrderedMap()
+
+    remotePortNumbers.EntityData.YListKeys = []string {}
+
+    return &(remotePortNumbers.EntityData)
+}
+
+// Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses_RemoteIpv4Address_RemotePortNumbers_RemotePortNumber
+// Enter value of remote port
+type Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses_RemoteIpv4Address_RemotePortNumbers_RemotePortNumber struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. Remote port. The type is interface{} with range:
+    // 0..65535.
+    RemotePort interface{}
+
+    // Configuration of vrf.
+    VrfNames Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses_RemoteIpv4Address_RemotePortNumbers_RemotePortNumber_VrfNames
+}
+
+func (remotePortNumber *Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses_RemoteIpv4Address_RemotePortNumbers_RemotePortNumber) GetEntityData() *types.CommonEntityData {
+    remotePortNumber.EntityData.YFilter = remotePortNumber.YFilter
+    remotePortNumber.EntityData.YangName = "remote-port-number"
+    remotePortNumber.EntityData.BundleName = "cisco_ios_xr"
+    remotePortNumber.EntityData.ParentYangName = "remote-port-numbers"
+    remotePortNumber.EntityData.SegmentPath = "remote-port-number" + types.AddKeyToken(remotePortNumber.RemotePort, "remote-port")
+    remotePortNumber.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/responder/twamp-light/session-ids/session-id/local-ip/local-ipv4-addresses/local-ipv4-address/local-port-numbers/local-port-number/remote-ip/remote-ipv4-addresses/remote-ipv4-address/remote-port-numbers/" + remotePortNumber.EntityData.SegmentPath
+    remotePortNumber.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    remotePortNumber.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    remotePortNumber.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    remotePortNumber.EntityData.Children = types.NewOrderedMap()
+    remotePortNumber.EntityData.Children.Append("vrf-names", types.YChild{"VrfNames", &remotePortNumber.VrfNames})
+    remotePortNumber.EntityData.Leafs = types.NewOrderedMap()
+    remotePortNumber.EntityData.Leafs.Append("remote-port", types.YLeaf{"RemotePort", remotePortNumber.RemotePort})
+
+    remotePortNumber.EntityData.YListKeys = []string {"RemotePort"}
+
+    return &(remotePortNumber.EntityData)
+}
+
+// Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses_RemoteIpv4Address_RemotePortNumbers_RemotePortNumber_VrfNames
+// Configuration of vrf
+type Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses_RemoteIpv4Address_RemotePortNumbers_RemotePortNumber_VrfNames struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Configure vrf name value. The type is slice of
+    // Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses_RemoteIpv4Address_RemotePortNumbers_RemotePortNumber_VrfNames_VrfName.
+    VrfName []*Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses_RemoteIpv4Address_RemotePortNumbers_RemotePortNumber_VrfNames_VrfName
+}
+
+func (vrfNames *Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses_RemoteIpv4Address_RemotePortNumbers_RemotePortNumber_VrfNames) GetEntityData() *types.CommonEntityData {
+    vrfNames.EntityData.YFilter = vrfNames.YFilter
+    vrfNames.EntityData.YangName = "vrf-names"
+    vrfNames.EntityData.BundleName = "cisco_ios_xr"
+    vrfNames.EntityData.ParentYangName = "remote-port-number"
+    vrfNames.EntityData.SegmentPath = "vrf-names"
+    vrfNames.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/responder/twamp-light/session-ids/session-id/local-ip/local-ipv4-addresses/local-ipv4-address/local-port-numbers/local-port-number/remote-ip/remote-ipv4-addresses/remote-ipv4-address/remote-port-numbers/remote-port-number/" + vrfNames.EntityData.SegmentPath
+    vrfNames.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    vrfNames.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    vrfNames.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    vrfNames.EntityData.Children = types.NewOrderedMap()
+    vrfNames.EntityData.Children.Append("vrf-name", types.YChild{"VrfName", nil})
+    for i := range vrfNames.VrfName {
+        vrfNames.EntityData.Children.Append(types.GetSegmentPath(vrfNames.VrfName[i]), types.YChild{"VrfName", vrfNames.VrfName[i]})
+    }
+    vrfNames.EntityData.Leafs = types.NewOrderedMap()
+
+    vrfNames.EntityData.YListKeys = []string {}
+
+    return &(vrfNames.EntityData)
+}
+
+// Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses_RemoteIpv4Address_RemotePortNumbers_RemotePortNumber_VrfNames_VrfName
+// Configure vrf name value
+type Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses_RemoteIpv4Address_RemotePortNumbers_RemotePortNumber_VrfNames_VrfName struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. VRF Name. The type is string with length: 1..32.
+    VrfName interface{}
+}
+
+func (vrfName *Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv4Addresses_RemoteIpv4Address_RemotePortNumbers_RemotePortNumber_VrfNames_VrfName) GetEntityData() *types.CommonEntityData {
+    vrfName.EntityData.YFilter = vrfName.YFilter
+    vrfName.EntityData.YangName = "vrf-name"
+    vrfName.EntityData.BundleName = "cisco_ios_xr"
+    vrfName.EntityData.ParentYangName = "vrf-names"
+    vrfName.EntityData.SegmentPath = "vrf-name" + types.AddKeyToken(vrfName.VrfName, "vrf-name")
+    vrfName.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/responder/twamp-light/session-ids/session-id/local-ip/local-ipv4-addresses/local-ipv4-address/local-port-numbers/local-port-number/remote-ip/remote-ipv4-addresses/remote-ipv4-address/remote-port-numbers/remote-port-number/vrf-names/" + vrfName.EntityData.SegmentPath
+    vrfName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    vrfName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    vrfName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    vrfName.EntityData.Children = types.NewOrderedMap()
+    vrfName.EntityData.Leafs = types.NewOrderedMap()
+    vrfName.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", vrfName.VrfName})
+
+    vrfName.EntityData.YListKeys = []string {"VrfName"}
+
+    return &(vrfName.EntityData)
+}
+
+// Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses
+// Configure IPV6 address
+type Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Enter value of remote ipv6 address. The type is slice of
+    // Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses_RemoteIpv6Address.
+    RemoteIpv6Address []*Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses_RemoteIpv6Address
+}
+
+func (remoteIpv6Addresses *Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses) GetEntityData() *types.CommonEntityData {
+    remoteIpv6Addresses.EntityData.YFilter = remoteIpv6Addresses.YFilter
+    remoteIpv6Addresses.EntityData.YangName = "remote-ipv6-addresses"
+    remoteIpv6Addresses.EntityData.BundleName = "cisco_ios_xr"
+    remoteIpv6Addresses.EntityData.ParentYangName = "remote-ip"
+    remoteIpv6Addresses.EntityData.SegmentPath = "remote-ipv6-addresses"
+    remoteIpv6Addresses.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/responder/twamp-light/session-ids/session-id/local-ip/local-ipv4-addresses/local-ipv4-address/local-port-numbers/local-port-number/remote-ip/" + remoteIpv6Addresses.EntityData.SegmentPath
+    remoteIpv6Addresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    remoteIpv6Addresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    remoteIpv6Addresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    remoteIpv6Addresses.EntityData.Children = types.NewOrderedMap()
+    remoteIpv6Addresses.EntityData.Children.Append("remote-ipv6-address", types.YChild{"RemoteIpv6Address", nil})
+    for i := range remoteIpv6Addresses.RemoteIpv6Address {
+        remoteIpv6Addresses.EntityData.Children.Append(types.GetSegmentPath(remoteIpv6Addresses.RemoteIpv6Address[i]), types.YChild{"RemoteIpv6Address", remoteIpv6Addresses.RemoteIpv6Address[i]})
+    }
+    remoteIpv6Addresses.EntityData.Leafs = types.NewOrderedMap()
+
+    remoteIpv6Addresses.EntityData.YListKeys = []string {}
+
+    return &(remoteIpv6Addresses.EntityData)
+}
+
+// Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses_RemoteIpv6Address
+// Enter value of remote ipv6 address
+type Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses_RemoteIpv6Address struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. Remote IPv6 address. The type is string with
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    Remotev6Address interface{}
+
+    // Configuration of remote port.
+    RemotePortNumbers Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses_RemoteIpv6Address_RemotePortNumbers
+}
+
+func (remoteIpv6Address *Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses_RemoteIpv6Address) GetEntityData() *types.CommonEntityData {
+    remoteIpv6Address.EntityData.YFilter = remoteIpv6Address.YFilter
+    remoteIpv6Address.EntityData.YangName = "remote-ipv6-address"
+    remoteIpv6Address.EntityData.BundleName = "cisco_ios_xr"
+    remoteIpv6Address.EntityData.ParentYangName = "remote-ipv6-addresses"
+    remoteIpv6Address.EntityData.SegmentPath = "remote-ipv6-address" + types.AddKeyToken(remoteIpv6Address.Remotev6Address, "remotev6-address")
+    remoteIpv6Address.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/responder/twamp-light/session-ids/session-id/local-ip/local-ipv4-addresses/local-ipv4-address/local-port-numbers/local-port-number/remote-ip/remote-ipv6-addresses/" + remoteIpv6Address.EntityData.SegmentPath
+    remoteIpv6Address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    remoteIpv6Address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    remoteIpv6Address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    remoteIpv6Address.EntityData.Children = types.NewOrderedMap()
+    remoteIpv6Address.EntityData.Children.Append("remote-port-numbers", types.YChild{"RemotePortNumbers", &remoteIpv6Address.RemotePortNumbers})
+    remoteIpv6Address.EntityData.Leafs = types.NewOrderedMap()
+    remoteIpv6Address.EntityData.Leafs.Append("remotev6-address", types.YLeaf{"Remotev6Address", remoteIpv6Address.Remotev6Address})
+
+    remoteIpv6Address.EntityData.YListKeys = []string {"Remotev6Address"}
+
+    return &(remoteIpv6Address.EntityData)
+}
+
+// Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses_RemoteIpv6Address_RemotePortNumbers
+// Configuration of remote port
+type Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses_RemoteIpv6Address_RemotePortNumbers struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Enter value of remote port. The type is slice of
+    // Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses_RemoteIpv6Address_RemotePortNumbers_RemotePortNumber.
+    RemotePortNumber []*Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses_RemoteIpv6Address_RemotePortNumbers_RemotePortNumber
+}
+
+func (remotePortNumbers *Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses_RemoteIpv6Address_RemotePortNumbers) GetEntityData() *types.CommonEntityData {
+    remotePortNumbers.EntityData.YFilter = remotePortNumbers.YFilter
+    remotePortNumbers.EntityData.YangName = "remote-port-numbers"
+    remotePortNumbers.EntityData.BundleName = "cisco_ios_xr"
+    remotePortNumbers.EntityData.ParentYangName = "remote-ipv6-address"
+    remotePortNumbers.EntityData.SegmentPath = "remote-port-numbers"
+    remotePortNumbers.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/responder/twamp-light/session-ids/session-id/local-ip/local-ipv4-addresses/local-ipv4-address/local-port-numbers/local-port-number/remote-ip/remote-ipv6-addresses/remote-ipv6-address/" + remotePortNumbers.EntityData.SegmentPath
+    remotePortNumbers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    remotePortNumbers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    remotePortNumbers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    remotePortNumbers.EntityData.Children = types.NewOrderedMap()
+    remotePortNumbers.EntityData.Children.Append("remote-port-number", types.YChild{"RemotePortNumber", nil})
+    for i := range remotePortNumbers.RemotePortNumber {
+        remotePortNumbers.EntityData.Children.Append(types.GetSegmentPath(remotePortNumbers.RemotePortNumber[i]), types.YChild{"RemotePortNumber", remotePortNumbers.RemotePortNumber[i]})
+    }
+    remotePortNumbers.EntityData.Leafs = types.NewOrderedMap()
+
+    remotePortNumbers.EntityData.YListKeys = []string {}
+
+    return &(remotePortNumbers.EntityData)
+}
+
+// Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses_RemoteIpv6Address_RemotePortNumbers_RemotePortNumber
+// Enter value of remote port
+type Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses_RemoteIpv6Address_RemotePortNumbers_RemotePortNumber struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. Remote port. The type is interface{} with range:
+    // 0..65535.
+    RemotePort interface{}
+
+    // Configuration of vrf.
+    VrfNames Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses_RemoteIpv6Address_RemotePortNumbers_RemotePortNumber_VrfNames
+}
+
+func (remotePortNumber *Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses_RemoteIpv6Address_RemotePortNumbers_RemotePortNumber) GetEntityData() *types.CommonEntityData {
+    remotePortNumber.EntityData.YFilter = remotePortNumber.YFilter
+    remotePortNumber.EntityData.YangName = "remote-port-number"
+    remotePortNumber.EntityData.BundleName = "cisco_ios_xr"
+    remotePortNumber.EntityData.ParentYangName = "remote-port-numbers"
+    remotePortNumber.EntityData.SegmentPath = "remote-port-number" + types.AddKeyToken(remotePortNumber.RemotePort, "remote-port")
+    remotePortNumber.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/responder/twamp-light/session-ids/session-id/local-ip/local-ipv4-addresses/local-ipv4-address/local-port-numbers/local-port-number/remote-ip/remote-ipv6-addresses/remote-ipv6-address/remote-port-numbers/" + remotePortNumber.EntityData.SegmentPath
+    remotePortNumber.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    remotePortNumber.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    remotePortNumber.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    remotePortNumber.EntityData.Children = types.NewOrderedMap()
+    remotePortNumber.EntityData.Children.Append("vrf-names", types.YChild{"VrfNames", &remotePortNumber.VrfNames})
+    remotePortNumber.EntityData.Leafs = types.NewOrderedMap()
+    remotePortNumber.EntityData.Leafs.Append("remote-port", types.YLeaf{"RemotePort", remotePortNumber.RemotePort})
+
+    remotePortNumber.EntityData.YListKeys = []string {"RemotePort"}
+
+    return &(remotePortNumber.EntityData)
+}
+
+// Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses_RemoteIpv6Address_RemotePortNumbers_RemotePortNumber_VrfNames
+// Configuration of vrf
+type Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses_RemoteIpv6Address_RemotePortNumbers_RemotePortNumber_VrfNames struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Configure vrf name value. The type is slice of
+    // Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses_RemoteIpv6Address_RemotePortNumbers_RemotePortNumber_VrfNames_VrfName.
+    VrfName []*Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses_RemoteIpv6Address_RemotePortNumbers_RemotePortNumber_VrfNames_VrfName
+}
+
+func (vrfNames *Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses_RemoteIpv6Address_RemotePortNumbers_RemotePortNumber_VrfNames) GetEntityData() *types.CommonEntityData {
+    vrfNames.EntityData.YFilter = vrfNames.YFilter
+    vrfNames.EntityData.YangName = "vrf-names"
+    vrfNames.EntityData.BundleName = "cisco_ios_xr"
+    vrfNames.EntityData.ParentYangName = "remote-port-number"
+    vrfNames.EntityData.SegmentPath = "vrf-names"
+    vrfNames.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/responder/twamp-light/session-ids/session-id/local-ip/local-ipv4-addresses/local-ipv4-address/local-port-numbers/local-port-number/remote-ip/remote-ipv6-addresses/remote-ipv6-address/remote-port-numbers/remote-port-number/" + vrfNames.EntityData.SegmentPath
+    vrfNames.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    vrfNames.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    vrfNames.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    vrfNames.EntityData.Children = types.NewOrderedMap()
+    vrfNames.EntityData.Children.Append("vrf-name", types.YChild{"VrfName", nil})
+    for i := range vrfNames.VrfName {
+        vrfNames.EntityData.Children.Append(types.GetSegmentPath(vrfNames.VrfName[i]), types.YChild{"VrfName", vrfNames.VrfName[i]})
+    }
+    vrfNames.EntityData.Leafs = types.NewOrderedMap()
+
+    vrfNames.EntityData.YListKeys = []string {}
+
+    return &(vrfNames.EntityData)
+}
+
+// Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses_RemoteIpv6Address_RemotePortNumbers_RemotePortNumber_VrfNames_VrfName
+// Configure vrf name value
+type Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses_RemoteIpv6Address_RemotePortNumbers_RemotePortNumber_VrfNames_VrfName struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. VRF Name. The type is string with length: 1..32.
+    VrfName interface{}
+}
+
+func (vrfName *Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_LocalIpv4Address_LocalPortNumbers_LocalPortNumber_RemoteIp_RemoteIpv6Addresses_RemoteIpv6Address_RemotePortNumbers_RemotePortNumber_VrfNames_VrfName) GetEntityData() *types.CommonEntityData {
+    vrfName.EntityData.YFilter = vrfName.YFilter
+    vrfName.EntityData.YangName = "vrf-name"
+    vrfName.EntityData.BundleName = "cisco_ios_xr"
+    vrfName.EntityData.ParentYangName = "vrf-names"
+    vrfName.EntityData.SegmentPath = "vrf-name" + types.AddKeyToken(vrfName.VrfName, "vrf-name")
+    vrfName.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/responder/twamp-light/session-ids/session-id/local-ip/local-ipv4-addresses/local-ipv4-address/local-port-numbers/local-port-number/remote-ip/remote-ipv6-addresses/remote-ipv6-address/remote-port-numbers/remote-port-number/vrf-names/" + vrfName.EntityData.SegmentPath
+    vrfName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    vrfName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    vrfName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    vrfName.EntityData.Children = types.NewOrderedMap()
+    vrfName.EntityData.Leafs = types.NewOrderedMap()
+    vrfName.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", vrfName.VrfName})
+
+    vrfName.EntityData.YListKeys = []string {"VrfName"}
+
+    return &(vrfName.EntityData)
 }
 
 // Ipsla_MplsDiscovery
@@ -5973,6 +7437,7 @@ func (mplsDiscovery *Ipsla_MplsDiscovery) GetEntityData() *types.CommonEntityDat
     mplsDiscovery.EntityData.BundleName = "cisco_ios_xr"
     mplsDiscovery.EntityData.ParentYangName = "ipsla"
     mplsDiscovery.EntityData.SegmentPath = "mpls-discovery"
+    mplsDiscovery.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/" + mplsDiscovery.EntityData.SegmentPath
     mplsDiscovery.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mplsDiscovery.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mplsDiscovery.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6003,6 +7468,7 @@ func (vpn *Ipsla_MplsDiscovery_Vpn) GetEntityData() *types.CommonEntityData {
     vpn.EntityData.BundleName = "cisco_ios_xr"
     vpn.EntityData.ParentYangName = "mpls-discovery"
     vpn.EntityData.SegmentPath = "vpn"
+    vpn.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/mpls-discovery/" + vpn.EntityData.SegmentPath
     vpn.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vpn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vpn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6038,6 +7504,7 @@ func (serverTwamp *Ipsla_ServerTwamp) GetEntityData() *types.CommonEntityData {
     serverTwamp.EntityData.BundleName = "cisco_ios_xr"
     serverTwamp.EntityData.ParentYangName = "ipsla"
     serverTwamp.EntityData.SegmentPath = "server-twamp"
+    serverTwamp.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-cfg:ipsla/" + serverTwamp.EntityData.SegmentPath
     serverTwamp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     serverTwamp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     serverTwamp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

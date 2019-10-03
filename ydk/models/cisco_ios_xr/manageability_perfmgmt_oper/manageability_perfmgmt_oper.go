@@ -43,6 +43,7 @@ func (perfMgmt *PerfMgmt) GetEntityData() *types.CommonEntityData {
     perfMgmt.EntityData.BundleName = "cisco_ios_xr"
     perfMgmt.EntityData.ParentYangName = "Cisco-IOS-XR-manageability-perfmgmt-oper"
     perfMgmt.EntityData.SegmentPath = "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt"
+    perfMgmt.EntityData.AbsolutePath = perfMgmt.EntityData.SegmentPath
     perfMgmt.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     perfMgmt.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     perfMgmt.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -85,6 +86,7 @@ func (periodic *PerfMgmt_Periodic) GetEntityData() *types.CommonEntityData {
     periodic.EntityData.BundleName = "cisco_ios_xr"
     periodic.EntityData.ParentYangName = "perf-mgmt"
     periodic.EntityData.SegmentPath = "periodic"
+    periodic.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/" + periodic.EntityData.SegmentPath
     periodic.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     periodic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     periodic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -121,6 +123,7 @@ func (ospf *PerfMgmt_Periodic_Ospf) GetEntityData() *types.CommonEntityData {
     ospf.EntityData.BundleName = "cisco_ios_xr"
     ospf.EntityData.ParentYangName = "periodic"
     ospf.EntityData.SegmentPath = "ospf"
+    ospf.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/periodic/" + ospf.EntityData.SegmentPath
     ospf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ospf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ospf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -153,6 +156,7 @@ func (ospfv2ProtocolInstances *PerfMgmt_Periodic_Ospf_Ospfv2ProtocolInstances) G
     ospfv2ProtocolInstances.EntityData.BundleName = "cisco_ios_xr"
     ospfv2ProtocolInstances.EntityData.ParentYangName = "ospf"
     ospfv2ProtocolInstances.EntityData.SegmentPath = "ospfv2-protocol-instances"
+    ospfv2ProtocolInstances.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/periodic/ospf/" + ospfv2ProtocolInstances.EntityData.SegmentPath
     ospfv2ProtocolInstances.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ospfv2ProtocolInstances.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ospfv2ProtocolInstances.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -175,6 +179,7 @@ func (ospfv2ProtocolInstances *PerfMgmt_Periodic_Ospf_Ospfv2ProtocolInstances) G
 type PerfMgmt_Periodic_Ospf_Ospfv2ProtocolInstances_Ospfv2ProtocolInstance struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. OSPF Instance Name. The type is string with
     // pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -190,6 +195,7 @@ func (ospfv2ProtocolInstance *PerfMgmt_Periodic_Ospf_Ospfv2ProtocolInstances_Osp
     ospfv2ProtocolInstance.EntityData.BundleName = "cisco_ios_xr"
     ospfv2ProtocolInstance.EntityData.ParentYangName = "ospfv2-protocol-instances"
     ospfv2ProtocolInstance.EntityData.SegmentPath = "ospfv2-protocol-instance" + types.AddKeyToken(ospfv2ProtocolInstance.InstanceName, "instance-name")
+    ospfv2ProtocolInstance.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/periodic/ospf/ospfv2-protocol-instances/" + ospfv2ProtocolInstance.EntityData.SegmentPath
     ospfv2ProtocolInstance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ospfv2ProtocolInstance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ospfv2ProtocolInstance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -221,6 +227,7 @@ func (samples *PerfMgmt_Periodic_Ospf_Ospfv2ProtocolInstances_Ospfv2ProtocolInst
     samples.EntityData.BundleName = "cisco_ios_xr"
     samples.EntityData.ParentYangName = "ospfv2-protocol-instance"
     samples.EntityData.SegmentPath = "samples"
+    samples.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/periodic/ospf/ospfv2-protocol-instances/ospfv2-protocol-instance/" + samples.EntityData.SegmentPath
     samples.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     samples.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     samples.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -242,6 +249,7 @@ func (samples *PerfMgmt_Periodic_Ospf_Ospfv2ProtocolInstances_Ospfv2ProtocolInst
 type PerfMgmt_Periodic_Ospf_Ospfv2ProtocolInstances_Ospfv2ProtocolInstance_Samples_Sample struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Sample ID. The type is interface{} with range:
     // 0..4294967295.
@@ -342,6 +350,7 @@ func (sample *PerfMgmt_Periodic_Ospf_Ospfv2ProtocolInstances_Ospfv2ProtocolInsta
     sample.EntityData.BundleName = "cisco_ios_xr"
     sample.EntityData.ParentYangName = "samples"
     sample.EntityData.SegmentPath = "sample" + types.AddKeyToken(sample.SampleId, "sample-id")
+    sample.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/periodic/ospf/ospfv2-protocol-instances/ospfv2-protocol-instance/samples/" + sample.EntityData.SegmentPath
     sample.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sample.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sample.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -395,6 +404,7 @@ func (ospfv3ProtocolInstances *PerfMgmt_Periodic_Ospf_Ospfv3ProtocolInstances) G
     ospfv3ProtocolInstances.EntityData.BundleName = "cisco_ios_xr"
     ospfv3ProtocolInstances.EntityData.ParentYangName = "ospf"
     ospfv3ProtocolInstances.EntityData.SegmentPath = "ospfv3-protocol-instances"
+    ospfv3ProtocolInstances.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/periodic/ospf/" + ospfv3ProtocolInstances.EntityData.SegmentPath
     ospfv3ProtocolInstances.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ospfv3ProtocolInstances.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ospfv3ProtocolInstances.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -417,6 +427,7 @@ func (ospfv3ProtocolInstances *PerfMgmt_Periodic_Ospf_Ospfv3ProtocolInstances) G
 type PerfMgmt_Periodic_Ospf_Ospfv3ProtocolInstances_Ospfv3ProtocolInstance struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. OSPF Instance Name. The type is string with
     // pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -432,6 +443,7 @@ func (ospfv3ProtocolInstance *PerfMgmt_Periodic_Ospf_Ospfv3ProtocolInstances_Osp
     ospfv3ProtocolInstance.EntityData.BundleName = "cisco_ios_xr"
     ospfv3ProtocolInstance.EntityData.ParentYangName = "ospfv3-protocol-instances"
     ospfv3ProtocolInstance.EntityData.SegmentPath = "ospfv3-protocol-instance" + types.AddKeyToken(ospfv3ProtocolInstance.InstanceName, "instance-name")
+    ospfv3ProtocolInstance.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/periodic/ospf/ospfv3-protocol-instances/" + ospfv3ProtocolInstance.EntityData.SegmentPath
     ospfv3ProtocolInstance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ospfv3ProtocolInstance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ospfv3ProtocolInstance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -463,6 +475,7 @@ func (samples *PerfMgmt_Periodic_Ospf_Ospfv3ProtocolInstances_Ospfv3ProtocolInst
     samples.EntityData.BundleName = "cisco_ios_xr"
     samples.EntityData.ParentYangName = "ospfv3-protocol-instance"
     samples.EntityData.SegmentPath = "samples"
+    samples.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/periodic/ospf/ospfv3-protocol-instances/ospfv3-protocol-instance/" + samples.EntityData.SegmentPath
     samples.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     samples.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     samples.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -484,6 +497,7 @@ func (samples *PerfMgmt_Periodic_Ospf_Ospfv3ProtocolInstances_Ospfv3ProtocolInst
 type PerfMgmt_Periodic_Ospf_Ospfv3ProtocolInstances_Ospfv3ProtocolInstance_Samples_Sample struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Sample ID. The type is interface{} with range:
     // 0..4294967295.
@@ -580,6 +594,7 @@ func (sample *PerfMgmt_Periodic_Ospf_Ospfv3ProtocolInstances_Ospfv3ProtocolInsta
     sample.EntityData.BundleName = "cisco_ios_xr"
     sample.EntityData.ParentYangName = "samples"
     sample.EntityData.SegmentPath = "sample" + types.AddKeyToken(sample.SampleId, "sample-id")
+    sample.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/periodic/ospf/ospfv3-protocol-instances/ospfv3-protocol-instance/samples/" + sample.EntityData.SegmentPath
     sample.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sample.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sample.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -630,6 +645,7 @@ func (mpls *PerfMgmt_Periodic_Mpls) GetEntityData() *types.CommonEntityData {
     mpls.EntityData.BundleName = "cisco_ios_xr"
     mpls.EntityData.ParentYangName = "periodic"
     mpls.EntityData.SegmentPath = "mpls"
+    mpls.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/periodic/" + mpls.EntityData.SegmentPath
     mpls.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mpls.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mpls.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -661,6 +677,7 @@ func (ldpNeighbors *PerfMgmt_Periodic_Mpls_LdpNeighbors) GetEntityData() *types.
     ldpNeighbors.EntityData.BundleName = "cisco_ios_xr"
     ldpNeighbors.EntityData.ParentYangName = "mpls"
     ldpNeighbors.EntityData.SegmentPath = "ldp-neighbors"
+    ldpNeighbors.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/periodic/mpls/" + ldpNeighbors.EntityData.SegmentPath
     ldpNeighbors.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ldpNeighbors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ldpNeighbors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -682,6 +699,7 @@ func (ldpNeighbors *PerfMgmt_Periodic_Mpls_LdpNeighbors) GetEntityData() *types.
 type PerfMgmt_Periodic_Mpls_LdpNeighbors_LdpNeighbor struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Neighbor Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -697,6 +715,7 @@ func (ldpNeighbor *PerfMgmt_Periodic_Mpls_LdpNeighbors_LdpNeighbor) GetEntityDat
     ldpNeighbor.EntityData.BundleName = "cisco_ios_xr"
     ldpNeighbor.EntityData.ParentYangName = "ldp-neighbors"
     ldpNeighbor.EntityData.SegmentPath = "ldp-neighbor" + types.AddKeyToken(ldpNeighbor.Nbr, "nbr")
+    ldpNeighbor.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/periodic/mpls/ldp-neighbors/" + ldpNeighbor.EntityData.SegmentPath
     ldpNeighbor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ldpNeighbor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ldpNeighbor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -728,6 +747,7 @@ func (samples *PerfMgmt_Periodic_Mpls_LdpNeighbors_LdpNeighbor_Samples) GetEntit
     samples.EntityData.BundleName = "cisco_ios_xr"
     samples.EntityData.ParentYangName = "ldp-neighbor"
     samples.EntityData.SegmentPath = "samples"
+    samples.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/periodic/mpls/ldp-neighbors/ldp-neighbor/" + samples.EntityData.SegmentPath
     samples.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     samples.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     samples.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -749,6 +769,7 @@ func (samples *PerfMgmt_Periodic_Mpls_LdpNeighbors_LdpNeighbor_Samples) GetEntit
 type PerfMgmt_Periodic_Mpls_LdpNeighbors_LdpNeighbor_Samples_Sample struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Sample ID. The type is interface{} with range:
     // 0..4294967295.
@@ -825,6 +846,7 @@ func (sample *PerfMgmt_Periodic_Mpls_LdpNeighbors_LdpNeighbor_Samples_Sample) Ge
     sample.EntityData.BundleName = "cisco_ios_xr"
     sample.EntityData.ParentYangName = "samples"
     sample.EntityData.SegmentPath = "sample" + types.AddKeyToken(sample.SampleId, "sample-id")
+    sample.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/periodic/mpls/ldp-neighbors/ldp-neighbor/samples/" + sample.EntityData.SegmentPath
     sample.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sample.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sample.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -873,6 +895,7 @@ func (nodes *PerfMgmt_Periodic_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.BundleName = "cisco_ios_xr"
     nodes.EntityData.ParentYangName = "periodic"
     nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/periodic/" + nodes.EntityData.SegmentPath
     nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -894,6 +917,7 @@ func (nodes *PerfMgmt_Periodic_Nodes) GetEntityData() *types.CommonEntityData {
 type PerfMgmt_Periodic_Nodes_Node struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Node ID. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -915,6 +939,7 @@ func (node *PerfMgmt_Periodic_Nodes_Node) GetEntityData() *types.CommonEntityDat
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
     node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeId, "node-id")
+    node.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/periodic/nodes/" + node.EntityData.SegmentPath
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -948,6 +973,7 @@ func (sampleXr *PerfMgmt_Periodic_Nodes_Node_SampleXr) GetEntityData() *types.Co
     sampleXr.EntityData.BundleName = "cisco_ios_xr"
     sampleXr.EntityData.ParentYangName = "node"
     sampleXr.EntityData.SegmentPath = "sample-xr"
+    sampleXr.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/periodic/nodes/node/" + sampleXr.EntityData.SegmentPath
     sampleXr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sampleXr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sampleXr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -969,6 +995,7 @@ func (sampleXr *PerfMgmt_Periodic_Nodes_Node_SampleXr) GetEntityData() *types.Co
 type PerfMgmt_Periodic_Nodes_Node_SampleXr_Sample struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Sample ID. The type is interface{} with range:
     // 0..4294967295.
@@ -993,6 +1020,7 @@ func (sample *PerfMgmt_Periodic_Nodes_Node_SampleXr_Sample) GetEntityData() *typ
     sample.EntityData.BundleName = "cisco_ios_xr"
     sample.EntityData.ParentYangName = "sample-xr"
     sample.EntityData.SegmentPath = "sample" + types.AddKeyToken(sample.SampleId, "sample-id")
+    sample.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/periodic/nodes/node/sample-xr/" + sample.EntityData.SegmentPath
     sample.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sample.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sample.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1026,6 +1054,7 @@ func (processes *PerfMgmt_Periodic_Nodes_Node_Processes) GetEntityData() *types.
     processes.EntityData.BundleName = "cisco_ios_xr"
     processes.EntityData.ParentYangName = "node"
     processes.EntityData.SegmentPath = "processes"
+    processes.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/periodic/nodes/node/" + processes.EntityData.SegmentPath
     processes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     processes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     processes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1047,6 +1076,7 @@ func (processes *PerfMgmt_Periodic_Nodes_Node_Processes) GetEntityData() *types.
 type PerfMgmt_Periodic_Nodes_Node_Processes_Process struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Process ID. The type is interface{} with range:
     // 0..4294967295.
@@ -1062,6 +1092,7 @@ func (process *PerfMgmt_Periodic_Nodes_Node_Processes_Process) GetEntityData() *
     process.EntityData.BundleName = "cisco_ios_xr"
     process.EntityData.ParentYangName = "processes"
     process.EntityData.SegmentPath = "process" + types.AddKeyToken(process.ProcessId, "process-id")
+    process.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/periodic/nodes/node/processes/" + process.EntityData.SegmentPath
     process.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     process.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     process.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1093,6 +1124,7 @@ func (samples *PerfMgmt_Periodic_Nodes_Node_Processes_Process_Samples) GetEntity
     samples.EntityData.BundleName = "cisco_ios_xr"
     samples.EntityData.ParentYangName = "process"
     samples.EntityData.SegmentPath = "samples"
+    samples.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/periodic/nodes/node/processes/process/" + samples.EntityData.SegmentPath
     samples.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     samples.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     samples.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1114,6 +1146,7 @@ func (samples *PerfMgmt_Periodic_Nodes_Node_Processes_Process_Samples) GetEntity
 type PerfMgmt_Periodic_Nodes_Node_Processes_Process_Samples_Sample struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Sample ID. The type is interface{} with range:
     // 0..4294967295.
@@ -1141,6 +1174,7 @@ func (sample *PerfMgmt_Periodic_Nodes_Node_Processes_Process_Samples_Sample) Get
     sample.EntityData.BundleName = "cisco_ios_xr"
     sample.EntityData.ParentYangName = "samples"
     sample.EntityData.SegmentPath = "sample" + types.AddKeyToken(sample.SampleId, "sample-id")
+    sample.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/periodic/nodes/node/processes/process/samples/" + sample.EntityData.SegmentPath
     sample.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sample.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sample.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1175,6 +1209,7 @@ func (samples *PerfMgmt_Periodic_Nodes_Node_Samples) GetEntityData() *types.Comm
     samples.EntityData.BundleName = "cisco_ios_xr"
     samples.EntityData.ParentYangName = "node"
     samples.EntityData.SegmentPath = "samples"
+    samples.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/periodic/nodes/node/" + samples.EntityData.SegmentPath
     samples.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     samples.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     samples.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1196,6 +1231,7 @@ func (samples *PerfMgmt_Periodic_Nodes_Node_Samples) GetEntityData() *types.Comm
 type PerfMgmt_Periodic_Nodes_Node_Samples_Sample struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Sample ID. The type is interface{} with range:
     // 0..4294967295.
@@ -1220,6 +1256,7 @@ func (sample *PerfMgmt_Periodic_Nodes_Node_Samples_Sample) GetEntityData() *type
     sample.EntityData.BundleName = "cisco_ios_xr"
     sample.EntityData.ParentYangName = "samples"
     sample.EntityData.SegmentPath = "sample" + types.AddKeyToken(sample.SampleId, "sample-id")
+    sample.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/periodic/nodes/node/samples/" + sample.EntityData.SegmentPath
     sample.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sample.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sample.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1252,6 +1289,7 @@ func (bgp *PerfMgmt_Periodic_Bgp) GetEntityData() *types.CommonEntityData {
     bgp.EntityData.BundleName = "cisco_ios_xr"
     bgp.EntityData.ParentYangName = "periodic"
     bgp.EntityData.SegmentPath = "bgp"
+    bgp.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/periodic/" + bgp.EntityData.SegmentPath
     bgp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bgp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bgp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1282,6 +1320,7 @@ func (bgpNeighbors *PerfMgmt_Periodic_Bgp_BgpNeighbors) GetEntityData() *types.C
     bgpNeighbors.EntityData.BundleName = "cisco_ios_xr"
     bgpNeighbors.EntityData.ParentYangName = "bgp"
     bgpNeighbors.EntityData.SegmentPath = "bgp-neighbors"
+    bgpNeighbors.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/periodic/bgp/" + bgpNeighbors.EntityData.SegmentPath
     bgpNeighbors.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bgpNeighbors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bgpNeighbors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1303,6 +1342,7 @@ func (bgpNeighbors *PerfMgmt_Periodic_Bgp_BgpNeighbors) GetEntityData() *types.C
 type PerfMgmt_Periodic_Bgp_BgpNeighbors_BgpNeighbor struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. BGP Neighbor Identifier. The type is string with
     // pattern:
@@ -1319,6 +1359,7 @@ func (bgpNeighbor *PerfMgmt_Periodic_Bgp_BgpNeighbors_BgpNeighbor) GetEntityData
     bgpNeighbor.EntityData.BundleName = "cisco_ios_xr"
     bgpNeighbor.EntityData.ParentYangName = "bgp-neighbors"
     bgpNeighbor.EntityData.SegmentPath = "bgp-neighbor" + types.AddKeyToken(bgpNeighbor.IpAddress, "ip-address")
+    bgpNeighbor.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/periodic/bgp/bgp-neighbors/" + bgpNeighbor.EntityData.SegmentPath
     bgpNeighbor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bgpNeighbor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bgpNeighbor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1350,6 +1391,7 @@ func (samples *PerfMgmt_Periodic_Bgp_BgpNeighbors_BgpNeighbor_Samples) GetEntity
     samples.EntityData.BundleName = "cisco_ios_xr"
     samples.EntityData.ParentYangName = "bgp-neighbor"
     samples.EntityData.SegmentPath = "samples"
+    samples.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/periodic/bgp/bgp-neighbors/bgp-neighbor/" + samples.EntityData.SegmentPath
     samples.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     samples.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     samples.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1371,6 +1413,7 @@ func (samples *PerfMgmt_Periodic_Bgp_BgpNeighbors_BgpNeighbor_Samples) GetEntity
 type PerfMgmt_Periodic_Bgp_BgpNeighbors_BgpNeighbor_Samples_Sample struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Sample ID. The type is interface{} with range:
     // 0..4294967295.
@@ -1418,6 +1461,7 @@ func (sample *PerfMgmt_Periodic_Bgp_BgpNeighbors_BgpNeighbor_Samples_Sample) Get
     sample.EntityData.BundleName = "cisco_ios_xr"
     sample.EntityData.ParentYangName = "samples"
     sample.EntityData.SegmentPath = "sample" + types.AddKeyToken(sample.SampleId, "sample-id")
+    sample.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/periodic/bgp/bgp-neighbors/bgp-neighbor/samples/" + sample.EntityData.SegmentPath
     sample.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sample.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sample.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1462,6 +1506,7 @@ func (self *PerfMgmt_Periodic_Interface) GetEntityData() *types.CommonEntityData
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "periodic"
     self.EntityData.SegmentPath = "interface"
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/periodic/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1495,6 +1540,7 @@ func (genericCounterInterfaces *PerfMgmt_Periodic_Interface_GenericCounterInterf
     genericCounterInterfaces.EntityData.BundleName = "cisco_ios_xr"
     genericCounterInterfaces.EntityData.ParentYangName = "interface"
     genericCounterInterfaces.EntityData.SegmentPath = "generic-counter-interfaces"
+    genericCounterInterfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/periodic/interface/" + genericCounterInterfaces.EntityData.SegmentPath
     genericCounterInterfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     genericCounterInterfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     genericCounterInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1516,6 +1562,7 @@ func (genericCounterInterfaces *PerfMgmt_Periodic_Interface_GenericCounterInterf
 type PerfMgmt_Periodic_Interface_GenericCounterInterfaces_GenericCounterInterface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface Name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -1531,6 +1578,7 @@ func (genericCounterInterface *PerfMgmt_Periodic_Interface_GenericCounterInterfa
     genericCounterInterface.EntityData.BundleName = "cisco_ios_xr"
     genericCounterInterface.EntityData.ParentYangName = "generic-counter-interfaces"
     genericCounterInterface.EntityData.SegmentPath = "generic-counter-interface" + types.AddKeyToken(genericCounterInterface.InterfaceName, "interface-name")
+    genericCounterInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/periodic/interface/generic-counter-interfaces/" + genericCounterInterface.EntityData.SegmentPath
     genericCounterInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     genericCounterInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     genericCounterInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1562,6 +1610,7 @@ func (samples *PerfMgmt_Periodic_Interface_GenericCounterInterfaces_GenericCount
     samples.EntityData.BundleName = "cisco_ios_xr"
     samples.EntityData.ParentYangName = "generic-counter-interface"
     samples.EntityData.SegmentPath = "samples"
+    samples.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/periodic/interface/generic-counter-interfaces/generic-counter-interface/" + samples.EntityData.SegmentPath
     samples.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     samples.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     samples.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1583,6 +1632,7 @@ func (samples *PerfMgmt_Periodic_Interface_GenericCounterInterfaces_GenericCount
 type PerfMgmt_Periodic_Interface_GenericCounterInterfaces_GenericCounterInterface_Samples_Sample struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Sample ID. The type is interface{} with range:
     // 0..4294967295.
@@ -1674,6 +1724,7 @@ func (sample *PerfMgmt_Periodic_Interface_GenericCounterInterfaces_GenericCounte
     sample.EntityData.BundleName = "cisco_ios_xr"
     sample.EntityData.ParentYangName = "samples"
     sample.EntityData.SegmentPath = "sample" + types.AddKeyToken(sample.SampleId, "sample-id")
+    sample.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/periodic/interface/generic-counter-interfaces/generic-counter-interface/samples/" + sample.EntityData.SegmentPath
     sample.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sample.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sample.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1726,6 +1777,7 @@ func (basicCounterInterfaces *PerfMgmt_Periodic_Interface_BasicCounterInterfaces
     basicCounterInterfaces.EntityData.BundleName = "cisco_ios_xr"
     basicCounterInterfaces.EntityData.ParentYangName = "interface"
     basicCounterInterfaces.EntityData.SegmentPath = "basic-counter-interfaces"
+    basicCounterInterfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/periodic/interface/" + basicCounterInterfaces.EntityData.SegmentPath
     basicCounterInterfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     basicCounterInterfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     basicCounterInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1747,6 +1799,7 @@ func (basicCounterInterfaces *PerfMgmt_Periodic_Interface_BasicCounterInterfaces
 type PerfMgmt_Periodic_Interface_BasicCounterInterfaces_BasicCounterInterface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface Name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -1762,6 +1815,7 @@ func (basicCounterInterface *PerfMgmt_Periodic_Interface_BasicCounterInterfaces_
     basicCounterInterface.EntityData.BundleName = "cisco_ios_xr"
     basicCounterInterface.EntityData.ParentYangName = "basic-counter-interfaces"
     basicCounterInterface.EntityData.SegmentPath = "basic-counter-interface" + types.AddKeyToken(basicCounterInterface.InterfaceName, "interface-name")
+    basicCounterInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/periodic/interface/basic-counter-interfaces/" + basicCounterInterface.EntityData.SegmentPath
     basicCounterInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     basicCounterInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     basicCounterInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1793,6 +1847,7 @@ func (samples *PerfMgmt_Periodic_Interface_BasicCounterInterfaces_BasicCounterIn
     samples.EntityData.BundleName = "cisco_ios_xr"
     samples.EntityData.ParentYangName = "basic-counter-interface"
     samples.EntityData.SegmentPath = "samples"
+    samples.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/periodic/interface/basic-counter-interfaces/basic-counter-interface/" + samples.EntityData.SegmentPath
     samples.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     samples.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     samples.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1814,6 +1869,7 @@ func (samples *PerfMgmt_Periodic_Interface_BasicCounterInterfaces_BasicCounterIn
 type PerfMgmt_Periodic_Interface_BasicCounterInterfaces_BasicCounterInterface_Samples_Sample struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Sample ID. The type is interface{} with range:
     // 0..4294967295.
@@ -1869,6 +1925,7 @@ func (sample *PerfMgmt_Periodic_Interface_BasicCounterInterfaces_BasicCounterInt
     sample.EntityData.BundleName = "cisco_ios_xr"
     sample.EntityData.ParentYangName = "samples"
     sample.EntityData.SegmentPath = "sample" + types.AddKeyToken(sample.SampleId, "sample-id")
+    sample.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/periodic/interface/basic-counter-interfaces/basic-counter-interface/samples/" + sample.EntityData.SegmentPath
     sample.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sample.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sample.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1910,6 +1967,7 @@ func (dataRateInterfaces *PerfMgmt_Periodic_Interface_DataRateInterfaces) GetEnt
     dataRateInterfaces.EntityData.BundleName = "cisco_ios_xr"
     dataRateInterfaces.EntityData.ParentYangName = "interface"
     dataRateInterfaces.EntityData.SegmentPath = "data-rate-interfaces"
+    dataRateInterfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/periodic/interface/" + dataRateInterfaces.EntityData.SegmentPath
     dataRateInterfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dataRateInterfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dataRateInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1931,6 +1989,7 @@ func (dataRateInterfaces *PerfMgmt_Periodic_Interface_DataRateInterfaces) GetEnt
 type PerfMgmt_Periodic_Interface_DataRateInterfaces_DataRateInterface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface Name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -1946,6 +2005,7 @@ func (dataRateInterface *PerfMgmt_Periodic_Interface_DataRateInterfaces_DataRate
     dataRateInterface.EntityData.BundleName = "cisco_ios_xr"
     dataRateInterface.EntityData.ParentYangName = "data-rate-interfaces"
     dataRateInterface.EntityData.SegmentPath = "data-rate-interface" + types.AddKeyToken(dataRateInterface.InterfaceName, "interface-name")
+    dataRateInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/periodic/interface/data-rate-interfaces/" + dataRateInterface.EntityData.SegmentPath
     dataRateInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dataRateInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dataRateInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1977,6 +2037,7 @@ func (samples *PerfMgmt_Periodic_Interface_DataRateInterfaces_DataRateInterface_
     samples.EntityData.BundleName = "cisco_ios_xr"
     samples.EntityData.ParentYangName = "data-rate-interface"
     samples.EntityData.SegmentPath = "samples"
+    samples.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/periodic/interface/data-rate-interfaces/data-rate-interface/" + samples.EntityData.SegmentPath
     samples.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     samples.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     samples.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1998,6 +2059,7 @@ func (samples *PerfMgmt_Periodic_Interface_DataRateInterfaces_DataRateInterface_
 type PerfMgmt_Periodic_Interface_DataRateInterfaces_DataRateInterface_Samples_Sample struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Sample ID. The type is interface{} with range:
     // 0..4294967295.
@@ -2046,6 +2108,7 @@ func (sample *PerfMgmt_Periodic_Interface_DataRateInterfaces_DataRateInterface_S
     sample.EntityData.BundleName = "cisco_ios_xr"
     sample.EntityData.ParentYangName = "samples"
     sample.EntityData.SegmentPath = "sample" + types.AddKeyToken(sample.SampleId, "sample-id")
+    sample.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/periodic/interface/data-rate-interfaces/data-rate-interface/samples/" + sample.EntityData.SegmentPath
     sample.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sample.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sample.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2097,6 +2160,7 @@ func (monitor *PerfMgmt_Monitor) GetEntityData() *types.CommonEntityData {
     monitor.EntityData.BundleName = "cisco_ios_xr"
     monitor.EntityData.ParentYangName = "perf-mgmt"
     monitor.EntityData.SegmentPath = "monitor"
+    monitor.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/" + monitor.EntityData.SegmentPath
     monitor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     monitor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     monitor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2133,6 +2197,7 @@ func (ospf *PerfMgmt_Monitor_Ospf) GetEntityData() *types.CommonEntityData {
     ospf.EntityData.BundleName = "cisco_ios_xr"
     ospf.EntityData.ParentYangName = "monitor"
     ospf.EntityData.SegmentPath = "ospf"
+    ospf.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/monitor/" + ospf.EntityData.SegmentPath
     ospf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ospf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ospf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2165,6 +2230,7 @@ func (ospfv2ProtocolInstances *PerfMgmt_Monitor_Ospf_Ospfv2ProtocolInstances) Ge
     ospfv2ProtocolInstances.EntityData.BundleName = "cisco_ios_xr"
     ospfv2ProtocolInstances.EntityData.ParentYangName = "ospf"
     ospfv2ProtocolInstances.EntityData.SegmentPath = "ospfv2-protocol-instances"
+    ospfv2ProtocolInstances.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/monitor/ospf/" + ospfv2ProtocolInstances.EntityData.SegmentPath
     ospfv2ProtocolInstances.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ospfv2ProtocolInstances.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ospfv2ProtocolInstances.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2187,6 +2253,7 @@ func (ospfv2ProtocolInstances *PerfMgmt_Monitor_Ospf_Ospfv2ProtocolInstances) Ge
 type PerfMgmt_Monitor_Ospf_Ospfv2ProtocolInstances_Ospfv2ProtocolInstance struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. OSPF Instance Name. The type is string with
     // pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -2202,6 +2269,7 @@ func (ospfv2ProtocolInstance *PerfMgmt_Monitor_Ospf_Ospfv2ProtocolInstances_Ospf
     ospfv2ProtocolInstance.EntityData.BundleName = "cisco_ios_xr"
     ospfv2ProtocolInstance.EntityData.ParentYangName = "ospfv2-protocol-instances"
     ospfv2ProtocolInstance.EntityData.SegmentPath = "ospfv2-protocol-instance" + types.AddKeyToken(ospfv2ProtocolInstance.InstanceName, "instance-name")
+    ospfv2ProtocolInstance.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/monitor/ospf/ospfv2-protocol-instances/" + ospfv2ProtocolInstance.EntityData.SegmentPath
     ospfv2ProtocolInstance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ospfv2ProtocolInstance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ospfv2ProtocolInstance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2233,6 +2301,7 @@ func (samples *PerfMgmt_Monitor_Ospf_Ospfv2ProtocolInstances_Ospfv2ProtocolInsta
     samples.EntityData.BundleName = "cisco_ios_xr"
     samples.EntityData.ParentYangName = "ospfv2-protocol-instance"
     samples.EntityData.SegmentPath = "samples"
+    samples.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/monitor/ospf/ospfv2-protocol-instances/ospfv2-protocol-instance/" + samples.EntityData.SegmentPath
     samples.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     samples.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     samples.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2254,6 +2323,7 @@ func (samples *PerfMgmt_Monitor_Ospf_Ospfv2ProtocolInstances_Ospfv2ProtocolInsta
 type PerfMgmt_Monitor_Ospf_Ospfv2ProtocolInstances_Ospfv2ProtocolInstance_Samples_Sample struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Sample ID. The type is interface{} with range:
     // 0..4294967295.
@@ -2354,6 +2424,7 @@ func (sample *PerfMgmt_Monitor_Ospf_Ospfv2ProtocolInstances_Ospfv2ProtocolInstan
     sample.EntityData.BundleName = "cisco_ios_xr"
     sample.EntityData.ParentYangName = "samples"
     sample.EntityData.SegmentPath = "sample" + types.AddKeyToken(sample.SampleId, "sample-id")
+    sample.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/monitor/ospf/ospfv2-protocol-instances/ospfv2-protocol-instance/samples/" + sample.EntityData.SegmentPath
     sample.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sample.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sample.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2407,6 +2478,7 @@ func (ospfv3ProtocolInstances *PerfMgmt_Monitor_Ospf_Ospfv3ProtocolInstances) Ge
     ospfv3ProtocolInstances.EntityData.BundleName = "cisco_ios_xr"
     ospfv3ProtocolInstances.EntityData.ParentYangName = "ospf"
     ospfv3ProtocolInstances.EntityData.SegmentPath = "ospfv3-protocol-instances"
+    ospfv3ProtocolInstances.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/monitor/ospf/" + ospfv3ProtocolInstances.EntityData.SegmentPath
     ospfv3ProtocolInstances.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ospfv3ProtocolInstances.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ospfv3ProtocolInstances.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2429,6 +2501,7 @@ func (ospfv3ProtocolInstances *PerfMgmt_Monitor_Ospf_Ospfv3ProtocolInstances) Ge
 type PerfMgmt_Monitor_Ospf_Ospfv3ProtocolInstances_Ospfv3ProtocolInstance struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. OSPF Instance Name. The type is string with
     // pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -2444,6 +2517,7 @@ func (ospfv3ProtocolInstance *PerfMgmt_Monitor_Ospf_Ospfv3ProtocolInstances_Ospf
     ospfv3ProtocolInstance.EntityData.BundleName = "cisco_ios_xr"
     ospfv3ProtocolInstance.EntityData.ParentYangName = "ospfv3-protocol-instances"
     ospfv3ProtocolInstance.EntityData.SegmentPath = "ospfv3-protocol-instance" + types.AddKeyToken(ospfv3ProtocolInstance.InstanceName, "instance-name")
+    ospfv3ProtocolInstance.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/monitor/ospf/ospfv3-protocol-instances/" + ospfv3ProtocolInstance.EntityData.SegmentPath
     ospfv3ProtocolInstance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ospfv3ProtocolInstance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ospfv3ProtocolInstance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2475,6 +2549,7 @@ func (samples *PerfMgmt_Monitor_Ospf_Ospfv3ProtocolInstances_Ospfv3ProtocolInsta
     samples.EntityData.BundleName = "cisco_ios_xr"
     samples.EntityData.ParentYangName = "ospfv3-protocol-instance"
     samples.EntityData.SegmentPath = "samples"
+    samples.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/monitor/ospf/ospfv3-protocol-instances/ospfv3-protocol-instance/" + samples.EntityData.SegmentPath
     samples.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     samples.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     samples.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2496,6 +2571,7 @@ func (samples *PerfMgmt_Monitor_Ospf_Ospfv3ProtocolInstances_Ospfv3ProtocolInsta
 type PerfMgmt_Monitor_Ospf_Ospfv3ProtocolInstances_Ospfv3ProtocolInstance_Samples_Sample struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Sample ID. The type is interface{} with range:
     // 0..4294967295.
@@ -2592,6 +2668,7 @@ func (sample *PerfMgmt_Monitor_Ospf_Ospfv3ProtocolInstances_Ospfv3ProtocolInstan
     sample.EntityData.BundleName = "cisco_ios_xr"
     sample.EntityData.ParentYangName = "samples"
     sample.EntityData.SegmentPath = "sample" + types.AddKeyToken(sample.SampleId, "sample-id")
+    sample.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/monitor/ospf/ospfv3-protocol-instances/ospfv3-protocol-instance/samples/" + sample.EntityData.SegmentPath
     sample.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sample.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sample.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2642,6 +2719,7 @@ func (mpls *PerfMgmt_Monitor_Mpls) GetEntityData() *types.CommonEntityData {
     mpls.EntityData.BundleName = "cisco_ios_xr"
     mpls.EntityData.ParentYangName = "monitor"
     mpls.EntityData.SegmentPath = "mpls"
+    mpls.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/monitor/" + mpls.EntityData.SegmentPath
     mpls.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mpls.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mpls.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2673,6 +2751,7 @@ func (ldpNeighbors *PerfMgmt_Monitor_Mpls_LdpNeighbors) GetEntityData() *types.C
     ldpNeighbors.EntityData.BundleName = "cisco_ios_xr"
     ldpNeighbors.EntityData.ParentYangName = "mpls"
     ldpNeighbors.EntityData.SegmentPath = "ldp-neighbors"
+    ldpNeighbors.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/monitor/mpls/" + ldpNeighbors.EntityData.SegmentPath
     ldpNeighbors.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ldpNeighbors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ldpNeighbors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2694,6 +2773,7 @@ func (ldpNeighbors *PerfMgmt_Monitor_Mpls_LdpNeighbors) GetEntityData() *types.C
 type PerfMgmt_Monitor_Mpls_LdpNeighbors_LdpNeighbor struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Neighbor Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -2709,6 +2789,7 @@ func (ldpNeighbor *PerfMgmt_Monitor_Mpls_LdpNeighbors_LdpNeighbor) GetEntityData
     ldpNeighbor.EntityData.BundleName = "cisco_ios_xr"
     ldpNeighbor.EntityData.ParentYangName = "ldp-neighbors"
     ldpNeighbor.EntityData.SegmentPath = "ldp-neighbor" + types.AddKeyToken(ldpNeighbor.Nbr, "nbr")
+    ldpNeighbor.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/monitor/mpls/ldp-neighbors/" + ldpNeighbor.EntityData.SegmentPath
     ldpNeighbor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ldpNeighbor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ldpNeighbor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2740,6 +2821,7 @@ func (samples *PerfMgmt_Monitor_Mpls_LdpNeighbors_LdpNeighbor_Samples) GetEntity
     samples.EntityData.BundleName = "cisco_ios_xr"
     samples.EntityData.ParentYangName = "ldp-neighbor"
     samples.EntityData.SegmentPath = "samples"
+    samples.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/monitor/mpls/ldp-neighbors/ldp-neighbor/" + samples.EntityData.SegmentPath
     samples.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     samples.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     samples.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2761,6 +2843,7 @@ func (samples *PerfMgmt_Monitor_Mpls_LdpNeighbors_LdpNeighbor_Samples) GetEntity
 type PerfMgmt_Monitor_Mpls_LdpNeighbors_LdpNeighbor_Samples_Sample struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Sample ID. The type is interface{} with range:
     // 0..4294967295.
@@ -2837,6 +2920,7 @@ func (sample *PerfMgmt_Monitor_Mpls_LdpNeighbors_LdpNeighbor_Samples_Sample) Get
     sample.EntityData.BundleName = "cisco_ios_xr"
     sample.EntityData.ParentYangName = "samples"
     sample.EntityData.SegmentPath = "sample" + types.AddKeyToken(sample.SampleId, "sample-id")
+    sample.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/monitor/mpls/ldp-neighbors/ldp-neighbor/samples/" + sample.EntityData.SegmentPath
     sample.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sample.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sample.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2885,6 +2969,7 @@ func (nodes *PerfMgmt_Monitor_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.BundleName = "cisco_ios_xr"
     nodes.EntityData.ParentYangName = "monitor"
     nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/monitor/" + nodes.EntityData.SegmentPath
     nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2906,6 +2991,7 @@ func (nodes *PerfMgmt_Monitor_Nodes) GetEntityData() *types.CommonEntityData {
 type PerfMgmt_Monitor_Nodes_Node struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Node ID. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -2927,6 +3013,7 @@ func (node *PerfMgmt_Monitor_Nodes_Node) GetEntityData() *types.CommonEntityData
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
     node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeId, "node-id")
+    node.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/monitor/nodes/" + node.EntityData.SegmentPath
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2960,6 +3047,7 @@ func (sampleXr *PerfMgmt_Monitor_Nodes_Node_SampleXr) GetEntityData() *types.Com
     sampleXr.EntityData.BundleName = "cisco_ios_xr"
     sampleXr.EntityData.ParentYangName = "node"
     sampleXr.EntityData.SegmentPath = "sample-xr"
+    sampleXr.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/monitor/nodes/node/" + sampleXr.EntityData.SegmentPath
     sampleXr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sampleXr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sampleXr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2981,6 +3069,7 @@ func (sampleXr *PerfMgmt_Monitor_Nodes_Node_SampleXr) GetEntityData() *types.Com
 type PerfMgmt_Monitor_Nodes_Node_SampleXr_Sample struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Sample ID. The type is interface{} with range:
     // 0..4294967295.
@@ -3005,6 +3094,7 @@ func (sample *PerfMgmt_Monitor_Nodes_Node_SampleXr_Sample) GetEntityData() *type
     sample.EntityData.BundleName = "cisco_ios_xr"
     sample.EntityData.ParentYangName = "sample-xr"
     sample.EntityData.SegmentPath = "sample" + types.AddKeyToken(sample.SampleId, "sample-id")
+    sample.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/monitor/nodes/node/sample-xr/" + sample.EntityData.SegmentPath
     sample.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sample.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sample.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3038,6 +3128,7 @@ func (processes *PerfMgmt_Monitor_Nodes_Node_Processes) GetEntityData() *types.C
     processes.EntityData.BundleName = "cisco_ios_xr"
     processes.EntityData.ParentYangName = "node"
     processes.EntityData.SegmentPath = "processes"
+    processes.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/monitor/nodes/node/" + processes.EntityData.SegmentPath
     processes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     processes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     processes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3059,6 +3150,7 @@ func (processes *PerfMgmt_Monitor_Nodes_Node_Processes) GetEntityData() *types.C
 type PerfMgmt_Monitor_Nodes_Node_Processes_Process struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Process ID. The type is interface{} with range:
     // 0..4294967295.
@@ -3074,6 +3166,7 @@ func (process *PerfMgmt_Monitor_Nodes_Node_Processes_Process) GetEntityData() *t
     process.EntityData.BundleName = "cisco_ios_xr"
     process.EntityData.ParentYangName = "processes"
     process.EntityData.SegmentPath = "process" + types.AddKeyToken(process.ProcessId, "process-id")
+    process.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/monitor/nodes/node/processes/" + process.EntityData.SegmentPath
     process.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     process.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     process.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3105,6 +3198,7 @@ func (samples *PerfMgmt_Monitor_Nodes_Node_Processes_Process_Samples) GetEntityD
     samples.EntityData.BundleName = "cisco_ios_xr"
     samples.EntityData.ParentYangName = "process"
     samples.EntityData.SegmentPath = "samples"
+    samples.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/monitor/nodes/node/processes/process/" + samples.EntityData.SegmentPath
     samples.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     samples.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     samples.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3126,6 +3220,7 @@ func (samples *PerfMgmt_Monitor_Nodes_Node_Processes_Process_Samples) GetEntityD
 type PerfMgmt_Monitor_Nodes_Node_Processes_Process_Samples_Sample struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Sample ID. The type is interface{} with range:
     // 0..4294967295.
@@ -3153,6 +3248,7 @@ func (sample *PerfMgmt_Monitor_Nodes_Node_Processes_Process_Samples_Sample) GetE
     sample.EntityData.BundleName = "cisco_ios_xr"
     sample.EntityData.ParentYangName = "samples"
     sample.EntityData.SegmentPath = "sample" + types.AddKeyToken(sample.SampleId, "sample-id")
+    sample.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/monitor/nodes/node/processes/process/samples/" + sample.EntityData.SegmentPath
     sample.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sample.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sample.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3187,6 +3283,7 @@ func (samples *PerfMgmt_Monitor_Nodes_Node_Samples) GetEntityData() *types.Commo
     samples.EntityData.BundleName = "cisco_ios_xr"
     samples.EntityData.ParentYangName = "node"
     samples.EntityData.SegmentPath = "samples"
+    samples.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/monitor/nodes/node/" + samples.EntityData.SegmentPath
     samples.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     samples.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     samples.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3208,6 +3305,7 @@ func (samples *PerfMgmt_Monitor_Nodes_Node_Samples) GetEntityData() *types.Commo
 type PerfMgmt_Monitor_Nodes_Node_Samples_Sample struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Sample ID. The type is interface{} with range:
     // 0..4294967295.
@@ -3232,6 +3330,7 @@ func (sample *PerfMgmt_Monitor_Nodes_Node_Samples_Sample) GetEntityData() *types
     sample.EntityData.BundleName = "cisco_ios_xr"
     sample.EntityData.ParentYangName = "samples"
     sample.EntityData.SegmentPath = "sample" + types.AddKeyToken(sample.SampleId, "sample-id")
+    sample.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/monitor/nodes/node/samples/" + sample.EntityData.SegmentPath
     sample.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sample.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sample.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3264,6 +3363,7 @@ func (bgp *PerfMgmt_Monitor_Bgp) GetEntityData() *types.CommonEntityData {
     bgp.EntityData.BundleName = "cisco_ios_xr"
     bgp.EntityData.ParentYangName = "monitor"
     bgp.EntityData.SegmentPath = "bgp"
+    bgp.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/monitor/" + bgp.EntityData.SegmentPath
     bgp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bgp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bgp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3294,6 +3394,7 @@ func (bgpNeighbors *PerfMgmt_Monitor_Bgp_BgpNeighbors) GetEntityData() *types.Co
     bgpNeighbors.EntityData.BundleName = "cisco_ios_xr"
     bgpNeighbors.EntityData.ParentYangName = "bgp"
     bgpNeighbors.EntityData.SegmentPath = "bgp-neighbors"
+    bgpNeighbors.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/monitor/bgp/" + bgpNeighbors.EntityData.SegmentPath
     bgpNeighbors.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bgpNeighbors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bgpNeighbors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3315,6 +3416,7 @@ func (bgpNeighbors *PerfMgmt_Monitor_Bgp_BgpNeighbors) GetEntityData() *types.Co
 type PerfMgmt_Monitor_Bgp_BgpNeighbors_BgpNeighbor struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. BGP Neighbor Identifier. The type is string with
     // pattern:
@@ -3331,6 +3433,7 @@ func (bgpNeighbor *PerfMgmt_Monitor_Bgp_BgpNeighbors_BgpNeighbor) GetEntityData(
     bgpNeighbor.EntityData.BundleName = "cisco_ios_xr"
     bgpNeighbor.EntityData.ParentYangName = "bgp-neighbors"
     bgpNeighbor.EntityData.SegmentPath = "bgp-neighbor" + types.AddKeyToken(bgpNeighbor.IpAddress, "ip-address")
+    bgpNeighbor.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/monitor/bgp/bgp-neighbors/" + bgpNeighbor.EntityData.SegmentPath
     bgpNeighbor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bgpNeighbor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bgpNeighbor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3362,6 +3465,7 @@ func (samples *PerfMgmt_Monitor_Bgp_BgpNeighbors_BgpNeighbor_Samples) GetEntityD
     samples.EntityData.BundleName = "cisco_ios_xr"
     samples.EntityData.ParentYangName = "bgp-neighbor"
     samples.EntityData.SegmentPath = "samples"
+    samples.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/monitor/bgp/bgp-neighbors/bgp-neighbor/" + samples.EntityData.SegmentPath
     samples.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     samples.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     samples.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3383,6 +3487,7 @@ func (samples *PerfMgmt_Monitor_Bgp_BgpNeighbors_BgpNeighbor_Samples) GetEntityD
 type PerfMgmt_Monitor_Bgp_BgpNeighbors_BgpNeighbor_Samples_Sample struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Sample ID. The type is interface{} with range:
     // 0..4294967295.
@@ -3430,6 +3535,7 @@ func (sample *PerfMgmt_Monitor_Bgp_BgpNeighbors_BgpNeighbor_Samples_Sample) GetE
     sample.EntityData.BundleName = "cisco_ios_xr"
     sample.EntityData.ParentYangName = "samples"
     sample.EntityData.SegmentPath = "sample" + types.AddKeyToken(sample.SampleId, "sample-id")
+    sample.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/monitor/bgp/bgp-neighbors/bgp-neighbor/samples/" + sample.EntityData.SegmentPath
     sample.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sample.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sample.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3474,6 +3580,7 @@ func (self *PerfMgmt_Monitor_Interface) GetEntityData() *types.CommonEntityData 
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "monitor"
     self.EntityData.SegmentPath = "interface"
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/monitor/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3507,6 +3614,7 @@ func (genericCounterInterfaces *PerfMgmt_Monitor_Interface_GenericCounterInterfa
     genericCounterInterfaces.EntityData.BundleName = "cisco_ios_xr"
     genericCounterInterfaces.EntityData.ParentYangName = "interface"
     genericCounterInterfaces.EntityData.SegmentPath = "generic-counter-interfaces"
+    genericCounterInterfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/monitor/interface/" + genericCounterInterfaces.EntityData.SegmentPath
     genericCounterInterfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     genericCounterInterfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     genericCounterInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3528,6 +3636,7 @@ func (genericCounterInterfaces *PerfMgmt_Monitor_Interface_GenericCounterInterfa
 type PerfMgmt_Monitor_Interface_GenericCounterInterfaces_GenericCounterInterface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface Name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -3543,6 +3652,7 @@ func (genericCounterInterface *PerfMgmt_Monitor_Interface_GenericCounterInterfac
     genericCounterInterface.EntityData.BundleName = "cisco_ios_xr"
     genericCounterInterface.EntityData.ParentYangName = "generic-counter-interfaces"
     genericCounterInterface.EntityData.SegmentPath = "generic-counter-interface" + types.AddKeyToken(genericCounterInterface.InterfaceName, "interface-name")
+    genericCounterInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/monitor/interface/generic-counter-interfaces/" + genericCounterInterface.EntityData.SegmentPath
     genericCounterInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     genericCounterInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     genericCounterInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3574,6 +3684,7 @@ func (samples *PerfMgmt_Monitor_Interface_GenericCounterInterfaces_GenericCounte
     samples.EntityData.BundleName = "cisco_ios_xr"
     samples.EntityData.ParentYangName = "generic-counter-interface"
     samples.EntityData.SegmentPath = "samples"
+    samples.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/monitor/interface/generic-counter-interfaces/generic-counter-interface/" + samples.EntityData.SegmentPath
     samples.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     samples.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     samples.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3595,6 +3706,7 @@ func (samples *PerfMgmt_Monitor_Interface_GenericCounterInterfaces_GenericCounte
 type PerfMgmt_Monitor_Interface_GenericCounterInterfaces_GenericCounterInterface_Samples_Sample struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Sample ID. The type is interface{} with range:
     // 0..4294967295.
@@ -3686,6 +3798,7 @@ func (sample *PerfMgmt_Monitor_Interface_GenericCounterInterfaces_GenericCounter
     sample.EntityData.BundleName = "cisco_ios_xr"
     sample.EntityData.ParentYangName = "samples"
     sample.EntityData.SegmentPath = "sample" + types.AddKeyToken(sample.SampleId, "sample-id")
+    sample.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/monitor/interface/generic-counter-interfaces/generic-counter-interface/samples/" + sample.EntityData.SegmentPath
     sample.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sample.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sample.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3738,6 +3851,7 @@ func (basicCounterInterfaces *PerfMgmt_Monitor_Interface_BasicCounterInterfaces)
     basicCounterInterfaces.EntityData.BundleName = "cisco_ios_xr"
     basicCounterInterfaces.EntityData.ParentYangName = "interface"
     basicCounterInterfaces.EntityData.SegmentPath = "basic-counter-interfaces"
+    basicCounterInterfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/monitor/interface/" + basicCounterInterfaces.EntityData.SegmentPath
     basicCounterInterfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     basicCounterInterfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     basicCounterInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3759,6 +3873,7 @@ func (basicCounterInterfaces *PerfMgmt_Monitor_Interface_BasicCounterInterfaces)
 type PerfMgmt_Monitor_Interface_BasicCounterInterfaces_BasicCounterInterface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface Name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -3774,6 +3889,7 @@ func (basicCounterInterface *PerfMgmt_Monitor_Interface_BasicCounterInterfaces_B
     basicCounterInterface.EntityData.BundleName = "cisco_ios_xr"
     basicCounterInterface.EntityData.ParentYangName = "basic-counter-interfaces"
     basicCounterInterface.EntityData.SegmentPath = "basic-counter-interface" + types.AddKeyToken(basicCounterInterface.InterfaceName, "interface-name")
+    basicCounterInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/monitor/interface/basic-counter-interfaces/" + basicCounterInterface.EntityData.SegmentPath
     basicCounterInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     basicCounterInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     basicCounterInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3805,6 +3921,7 @@ func (samples *PerfMgmt_Monitor_Interface_BasicCounterInterfaces_BasicCounterInt
     samples.EntityData.BundleName = "cisco_ios_xr"
     samples.EntityData.ParentYangName = "basic-counter-interface"
     samples.EntityData.SegmentPath = "samples"
+    samples.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/monitor/interface/basic-counter-interfaces/basic-counter-interface/" + samples.EntityData.SegmentPath
     samples.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     samples.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     samples.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3826,6 +3943,7 @@ func (samples *PerfMgmt_Monitor_Interface_BasicCounterInterfaces_BasicCounterInt
 type PerfMgmt_Monitor_Interface_BasicCounterInterfaces_BasicCounterInterface_Samples_Sample struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Sample ID. The type is interface{} with range:
     // 0..4294967295.
@@ -3881,6 +3999,7 @@ func (sample *PerfMgmt_Monitor_Interface_BasicCounterInterfaces_BasicCounterInte
     sample.EntityData.BundleName = "cisco_ios_xr"
     sample.EntityData.ParentYangName = "samples"
     sample.EntityData.SegmentPath = "sample" + types.AddKeyToken(sample.SampleId, "sample-id")
+    sample.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/monitor/interface/basic-counter-interfaces/basic-counter-interface/samples/" + sample.EntityData.SegmentPath
     sample.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sample.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sample.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3922,6 +4041,7 @@ func (dataRateInterfaces *PerfMgmt_Monitor_Interface_DataRateInterfaces) GetEnti
     dataRateInterfaces.EntityData.BundleName = "cisco_ios_xr"
     dataRateInterfaces.EntityData.ParentYangName = "interface"
     dataRateInterfaces.EntityData.SegmentPath = "data-rate-interfaces"
+    dataRateInterfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/monitor/interface/" + dataRateInterfaces.EntityData.SegmentPath
     dataRateInterfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dataRateInterfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dataRateInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3943,6 +4063,7 @@ func (dataRateInterfaces *PerfMgmt_Monitor_Interface_DataRateInterfaces) GetEnti
 type PerfMgmt_Monitor_Interface_DataRateInterfaces_DataRateInterface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface Name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -3958,6 +4079,7 @@ func (dataRateInterface *PerfMgmt_Monitor_Interface_DataRateInterfaces_DataRateI
     dataRateInterface.EntityData.BundleName = "cisco_ios_xr"
     dataRateInterface.EntityData.ParentYangName = "data-rate-interfaces"
     dataRateInterface.EntityData.SegmentPath = "data-rate-interface" + types.AddKeyToken(dataRateInterface.InterfaceName, "interface-name")
+    dataRateInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/monitor/interface/data-rate-interfaces/" + dataRateInterface.EntityData.SegmentPath
     dataRateInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dataRateInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dataRateInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3989,6 +4111,7 @@ func (samples *PerfMgmt_Monitor_Interface_DataRateInterfaces_DataRateInterface_S
     samples.EntityData.BundleName = "cisco_ios_xr"
     samples.EntityData.ParentYangName = "data-rate-interface"
     samples.EntityData.SegmentPath = "samples"
+    samples.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/monitor/interface/data-rate-interfaces/data-rate-interface/" + samples.EntityData.SegmentPath
     samples.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     samples.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     samples.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4010,6 +4133,7 @@ func (samples *PerfMgmt_Monitor_Interface_DataRateInterfaces_DataRateInterface_S
 type PerfMgmt_Monitor_Interface_DataRateInterfaces_DataRateInterface_Samples_Sample struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Sample ID. The type is interface{} with range:
     // 0..4294967295.
@@ -4058,6 +4182,7 @@ func (sample *PerfMgmt_Monitor_Interface_DataRateInterfaces_DataRateInterface_Sa
     sample.EntityData.BundleName = "cisco_ios_xr"
     sample.EntityData.ParentYangName = "samples"
     sample.EntityData.SegmentPath = "sample" + types.AddKeyToken(sample.SampleId, "sample-id")
+    sample.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/monitor/interface/data-rate-interfaces/data-rate-interface/samples/" + sample.EntityData.SegmentPath
     sample.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sample.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sample.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

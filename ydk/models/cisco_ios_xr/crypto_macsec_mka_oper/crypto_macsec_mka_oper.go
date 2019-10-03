@@ -88,6 +88,7 @@ func (macsec *Macsec) GetEntityData() *types.CommonEntityData {
     macsec.EntityData.BundleName = "cisco_ios_xr"
     macsec.EntityData.ParentYangName = "Cisco-IOS-XR-crypto-macsec-mka-oper"
     macsec.EntityData.SegmentPath = "Cisco-IOS-XR-crypto-macsec-mka-oper:macsec"
+    macsec.EntityData.AbsolutePath = macsec.EntityData.SegmentPath
     macsec.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     macsec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     macsec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -117,6 +118,7 @@ func (mka *Macsec_Mka) GetEntityData() *types.CommonEntityData {
     mka.EntityData.BundleName = "cisco_ios_xr"
     mka.EntityData.ParentYangName = "macsec"
     mka.EntityData.SegmentPath = "mka"
+    mka.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-macsec-mka-oper:macsec/" + mka.EntityData.SegmentPath
     mka.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mka.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mka.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -147,6 +149,7 @@ func (interfaces *Macsec_Mka_Interfaces) GetEntityData() *types.CommonEntityData
     interfaces.EntityData.BundleName = "cisco_ios_xr"
     interfaces.EntityData.ParentYangName = "mka"
     interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-macsec-mka-oper:macsec/mka/" + interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -168,6 +171,7 @@ func (interfaces *Macsec_Mka_Interfaces) GetEntityData() *types.CommonEntityData
 type Macsec_Mka_Interfaces_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface Name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -186,6 +190,7 @@ func (self *Macsec_Mka_Interfaces_Interface) GetEntityData() *types.CommonEntity
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.Name, "name")
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-macsec-mka-oper:macsec/mka/interfaces/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -224,6 +229,7 @@ func (session *Macsec_Mka_Interfaces_Interface_Session) GetEntityData() *types.C
     session.EntityData.BundleName = "cisco_ios_xr"
     session.EntityData.ParentYangName = "interface"
     session.EntityData.SegmentPath = "session"
+    session.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-macsec-mka-oper:macsec/mka/interfaces/interface/" + session.EntityData.SegmentPath
     session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -233,6 +239,7 @@ func (session *Macsec_Mka_Interfaces_Interface_Session) GetEntityData() *types.C
     session.EntityData.Children.Append("vp", types.YChild{"Vp", &session.Vp})
     session.EntityData.Children.Append("ca", types.YChild{"Ca", nil})
     for i := range session.Ca {
+        types.SetYListKey(session.Ca[i], i)
         session.EntityData.Children.Append(types.GetSegmentPath(session.Ca[i]), types.YChild{"Ca", session.Ca[i]})
     }
     session.EntityData.Leafs = types.NewOrderedMap()
@@ -306,6 +313,7 @@ func (sessionSummary *Macsec_Mka_Interfaces_Interface_Session_SessionSummary) Ge
     sessionSummary.EntityData.BundleName = "cisco_ios_xr"
     sessionSummary.EntityData.ParentYangName = "session"
     sessionSummary.EntityData.SegmentPath = "session-summary"
+    sessionSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-macsec-mka-oper:macsec/mka/interfaces/interface/session/" + sessionSummary.EntityData.SegmentPath
     sessionSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sessionSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -360,6 +368,7 @@ func (outerTag *Macsec_Mka_Interfaces_Interface_Session_SessionSummary_OuterTag)
     outerTag.EntityData.BundleName = "cisco_ios_xr"
     outerTag.EntityData.ParentYangName = "session-summary"
     outerTag.EntityData.SegmentPath = "outer-tag"
+    outerTag.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-macsec-mka-oper:macsec/mka/interfaces/interface/session/session-summary/" + outerTag.EntityData.SegmentPath
     outerTag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     outerTag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outerTag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -401,6 +410,7 @@ func (innerTag *Macsec_Mka_Interfaces_Interface_Session_SessionSummary_InnerTag)
     innerTag.EntityData.BundleName = "cisco_ios_xr"
     innerTag.EntityData.ParentYangName = "session-summary"
     innerTag.EntityData.SegmentPath = "inner-tag"
+    innerTag.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-macsec-mka-oper:macsec/mka/interfaces/interface/session/session-summary/" + innerTag.EntityData.SegmentPath
     innerTag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     innerTag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     innerTag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -485,6 +495,7 @@ func (vp *Macsec_Mka_Interfaces_Interface_Session_Vp) GetEntityData() *types.Com
     vp.EntityData.BundleName = "cisco_ios_xr"
     vp.EntityData.ParentYangName = "session"
     vp.EntityData.SegmentPath = "vp"
+    vp.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-macsec-mka-oper:macsec/mka/interfaces/interface/session/" + vp.EntityData.SegmentPath
     vp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -492,6 +503,7 @@ func (vp *Macsec_Mka_Interfaces_Interface_Session_Vp) GetEntityData() *types.Com
     vp.EntityData.Children = types.NewOrderedMap()
     vp.EntityData.Children.Append("fallback-keepalive", types.YChild{"FallbackKeepalive", nil})
     for i := range vp.FallbackKeepalive {
+        types.SetYListKey(vp.FallbackKeepalive[i], i)
         vp.EntityData.Children.Append(types.GetSegmentPath(vp.FallbackKeepalive[i]), types.YChild{"FallbackKeepalive", vp.FallbackKeepalive[i]})
     }
     vp.EntityData.Leafs = types.NewOrderedMap()
@@ -523,6 +535,7 @@ func (vp *Macsec_Mka_Interfaces_Interface_Session_Vp) GetEntityData() *types.Com
 type Macsec_Mka_Interfaces_Interface_Session_Vp_FallbackKeepalive struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // CKN. The type is string with length: 0..65.
     Ckn interface{}
@@ -542,7 +555,8 @@ func (fallbackKeepalive *Macsec_Mka_Interfaces_Interface_Session_Vp_FallbackKeep
     fallbackKeepalive.EntityData.YangName = "fallback-keepalive"
     fallbackKeepalive.EntityData.BundleName = "cisco_ios_xr"
     fallbackKeepalive.EntityData.ParentYangName = "vp"
-    fallbackKeepalive.EntityData.SegmentPath = "fallback-keepalive"
+    fallbackKeepalive.EntityData.SegmentPath = "fallback-keepalive" + types.AddNoKeyToken(fallbackKeepalive)
+    fallbackKeepalive.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-macsec-mka-oper:macsec/mka/interfaces/interface/session/vp/" + fallbackKeepalive.EntityData.SegmentPath
     fallbackKeepalive.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fallbackKeepalive.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fallbackKeepalive.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -582,6 +596,7 @@ func (peersStatus *Macsec_Mka_Interfaces_Interface_Session_Vp_FallbackKeepalive_
     peersStatus.EntityData.BundleName = "cisco_ios_xr"
     peersStatus.EntityData.ParentYangName = "fallback-keepalive"
     peersStatus.EntityData.SegmentPath = "peers-status"
+    peersStatus.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-macsec-mka-oper:macsec/mka/interfaces/interface/session/vp/fallback-keepalive/" + peersStatus.EntityData.SegmentPath
     peersStatus.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peersStatus.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peersStatus.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -589,6 +604,7 @@ func (peersStatus *Macsec_Mka_Interfaces_Interface_Session_Vp_FallbackKeepalive_
     peersStatus.EntityData.Children = types.NewOrderedMap()
     peersStatus.EntityData.Children.Append("peer", types.YChild{"Peer", nil})
     for i := range peersStatus.Peer {
+        types.SetYListKey(peersStatus.Peer[i], i)
         peersStatus.EntityData.Children.Append(types.GetSegmentPath(peersStatus.Peer[i]), types.YChild{"Peer", peersStatus.Peer[i]})
     }
     peersStatus.EntityData.Leafs = types.NewOrderedMap()
@@ -605,6 +621,7 @@ func (peersStatus *Macsec_Mka_Interfaces_Interface_Session_Vp_FallbackKeepalive_
 type Macsec_Mka_Interfaces_Interface_Session_Vp_FallbackKeepalive_PeersStatus_Peer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Rx SCI. The type is string with length: 0..17.
     Sci interface{}
@@ -618,7 +635,8 @@ func (peer *Macsec_Mka_Interfaces_Interface_Session_Vp_FallbackKeepalive_PeersSt
     peer.EntityData.YangName = "peer"
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers-status"
-    peer.EntityData.SegmentPath = "peer"
+    peer.EntityData.SegmentPath = "peer" + types.AddNoKeyToken(peer)
+    peer.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-macsec-mka-oper:macsec/mka/interfaces/interface/session/vp/fallback-keepalive/peers-status/" + peer.EntityData.SegmentPath
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -655,6 +673,7 @@ func (peerData *Macsec_Mka_Interfaces_Interface_Session_Vp_FallbackKeepalive_Pee
     peerData.EntityData.BundleName = "cisco_ios_xr"
     peerData.EntityData.ParentYangName = "peer"
     peerData.EntityData.SegmentPath = "peer-data"
+    peerData.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-macsec-mka-oper:macsec/mka/interfaces/interface/session/vp/fallback-keepalive/peers-status/peer/" + peerData.EntityData.SegmentPath
     peerData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -675,6 +694,7 @@ func (peerData *Macsec_Mka_Interfaces_Interface_Session_Vp_FallbackKeepalive_Pee
 type Macsec_Mka_Interfaces_Interface_Session_Ca struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Is Key Server. The type is bool.
     IsKeyServer interface{}
@@ -738,7 +758,8 @@ func (ca *Macsec_Mka_Interfaces_Interface_Session_Ca) GetEntityData() *types.Com
     ca.EntityData.YangName = "ca"
     ca.EntityData.BundleName = "cisco_ios_xr"
     ca.EntityData.ParentYangName = "session"
-    ca.EntityData.SegmentPath = "ca"
+    ca.EntityData.SegmentPath = "ca" + types.AddNoKeyToken(ca)
+    ca.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-macsec-mka-oper:macsec/mka/interfaces/interface/session/" + ca.EntityData.SegmentPath
     ca.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ca.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ca.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -747,14 +768,17 @@ func (ca *Macsec_Mka_Interfaces_Interface_Session_Ca) GetEntityData() *types.Com
     ca.EntityData.Children.Append("peers-status", types.YChild{"PeersStatus", &ca.PeersStatus})
     ca.EntityData.Children.Append("live-peer", types.YChild{"LivePeer", nil})
     for i := range ca.LivePeer {
+        types.SetYListKey(ca.LivePeer[i], i)
         ca.EntityData.Children.Append(types.GetSegmentPath(ca.LivePeer[i]), types.YChild{"LivePeer", ca.LivePeer[i]})
     }
     ca.EntityData.Children.Append("potential-peer", types.YChild{"PotentialPeer", nil})
     for i := range ca.PotentialPeer {
+        types.SetYListKey(ca.PotentialPeer[i], i)
         ca.EntityData.Children.Append(types.GetSegmentPath(ca.PotentialPeer[i]), types.YChild{"PotentialPeer", ca.PotentialPeer[i]})
     }
     ca.EntityData.Children.Append("dormant-peer", types.YChild{"DormantPeer", nil})
     for i := range ca.DormantPeer {
+        types.SetYListKey(ca.DormantPeer[i], i)
         ca.EntityData.Children.Append(types.GetSegmentPath(ca.DormantPeer[i]), types.YChild{"DormantPeer", ca.DormantPeer[i]})
     }
     ca.EntityData.Leafs = types.NewOrderedMap()
@@ -800,6 +824,7 @@ func (peersStatus *Macsec_Mka_Interfaces_Interface_Session_Ca_PeersStatus) GetEn
     peersStatus.EntityData.BundleName = "cisco_ios_xr"
     peersStatus.EntityData.ParentYangName = "ca"
     peersStatus.EntityData.SegmentPath = "peers-status"
+    peersStatus.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-macsec-mka-oper:macsec/mka/interfaces/interface/session/ca/" + peersStatus.EntityData.SegmentPath
     peersStatus.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peersStatus.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peersStatus.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -807,6 +832,7 @@ func (peersStatus *Macsec_Mka_Interfaces_Interface_Session_Ca_PeersStatus) GetEn
     peersStatus.EntityData.Children = types.NewOrderedMap()
     peersStatus.EntityData.Children.Append("peer", types.YChild{"Peer", nil})
     for i := range peersStatus.Peer {
+        types.SetYListKey(peersStatus.Peer[i], i)
         peersStatus.EntityData.Children.Append(types.GetSegmentPath(peersStatus.Peer[i]), types.YChild{"Peer", peersStatus.Peer[i]})
     }
     peersStatus.EntityData.Leafs = types.NewOrderedMap()
@@ -823,6 +849,7 @@ func (peersStatus *Macsec_Mka_Interfaces_Interface_Session_Ca_PeersStatus) GetEn
 type Macsec_Mka_Interfaces_Interface_Session_Ca_PeersStatus_Peer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Rx SCI. The type is string with length: 0..17.
     Sci interface{}
@@ -836,7 +863,8 @@ func (peer *Macsec_Mka_Interfaces_Interface_Session_Ca_PeersStatus_Peer) GetEnti
     peer.EntityData.YangName = "peer"
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers-status"
-    peer.EntityData.SegmentPath = "peer"
+    peer.EntityData.SegmentPath = "peer" + types.AddNoKeyToken(peer)
+    peer.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-macsec-mka-oper:macsec/mka/interfaces/interface/session/ca/peers-status/" + peer.EntityData.SegmentPath
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -873,6 +901,7 @@ func (peerData *Macsec_Mka_Interfaces_Interface_Session_Ca_PeersStatus_Peer_Peer
     peerData.EntityData.BundleName = "cisco_ios_xr"
     peerData.EntityData.ParentYangName = "peer"
     peerData.EntityData.SegmentPath = "peer-data"
+    peerData.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-macsec-mka-oper:macsec/mka/interfaces/interface/session/ca/peers-status/peer/" + peerData.EntityData.SegmentPath
     peerData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -893,6 +922,7 @@ func (peerData *Macsec_Mka_Interfaces_Interface_Session_Ca_PeersStatus_Peer_Peer
 type Macsec_Mka_Interfaces_Interface_Session_Ca_LivePeer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Member ID. The type is string.
     Mi interface{}
@@ -915,7 +945,8 @@ func (livePeer *Macsec_Mka_Interfaces_Interface_Session_Ca_LivePeer) GetEntityDa
     livePeer.EntityData.YangName = "live-peer"
     livePeer.EntityData.BundleName = "cisco_ios_xr"
     livePeer.EntityData.ParentYangName = "ca"
-    livePeer.EntityData.SegmentPath = "live-peer"
+    livePeer.EntityData.SegmentPath = "live-peer" + types.AddNoKeyToken(livePeer)
+    livePeer.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-macsec-mka-oper:macsec/mka/interfaces/interface/session/ca/" + livePeer.EntityData.SegmentPath
     livePeer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     livePeer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     livePeer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -938,6 +969,7 @@ func (livePeer *Macsec_Mka_Interfaces_Interface_Session_Ca_LivePeer) GetEntityDa
 type Macsec_Mka_Interfaces_Interface_Session_Ca_PotentialPeer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Member ID. The type is string.
     Mi interface{}
@@ -960,7 +992,8 @@ func (potentialPeer *Macsec_Mka_Interfaces_Interface_Session_Ca_PotentialPeer) G
     potentialPeer.EntityData.YangName = "potential-peer"
     potentialPeer.EntityData.BundleName = "cisco_ios_xr"
     potentialPeer.EntityData.ParentYangName = "ca"
-    potentialPeer.EntityData.SegmentPath = "potential-peer"
+    potentialPeer.EntityData.SegmentPath = "potential-peer" + types.AddNoKeyToken(potentialPeer)
+    potentialPeer.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-macsec-mka-oper:macsec/mka/interfaces/interface/session/ca/" + potentialPeer.EntityData.SegmentPath
     potentialPeer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     potentialPeer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     potentialPeer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -983,6 +1016,7 @@ func (potentialPeer *Macsec_Mka_Interfaces_Interface_Session_Ca_PotentialPeer) G
 type Macsec_Mka_Interfaces_Interface_Session_Ca_DormantPeer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Member ID. The type is string.
     Mi interface{}
@@ -1005,7 +1039,8 @@ func (dormantPeer *Macsec_Mka_Interfaces_Interface_Session_Ca_DormantPeer) GetEn
     dormantPeer.EntityData.YangName = "dormant-peer"
     dormantPeer.EntityData.BundleName = "cisco_ios_xr"
     dormantPeer.EntityData.ParentYangName = "ca"
-    dormantPeer.EntityData.SegmentPath = "dormant-peer"
+    dormantPeer.EntityData.SegmentPath = "dormant-peer" + types.AddNoKeyToken(dormantPeer)
+    dormantPeer.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-macsec-mka-oper:macsec/mka/interfaces/interface/session/ca/" + dormantPeer.EntityData.SegmentPath
     dormantPeer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dormantPeer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dormantPeer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1039,6 +1074,7 @@ func (info *Macsec_Mka_Interfaces_Interface_Info) GetEntityData() *types.CommonE
     info.EntityData.BundleName = "cisco_ios_xr"
     info.EntityData.ParentYangName = "interface"
     info.EntityData.SegmentPath = "info"
+    info.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-macsec-mka-oper:macsec/mka/interfaces/interface/" + info.EntityData.SegmentPath
     info.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     info.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     info.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1095,6 +1131,7 @@ func (interfaceSummary *Macsec_Mka_Interfaces_Interface_Info_InterfaceSummary) G
     interfaceSummary.EntityData.BundleName = "cisco_ios_xr"
     interfaceSummary.EntityData.ParentYangName = "info"
     interfaceSummary.EntityData.SegmentPath = "interface-summary"
+    interfaceSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-macsec-mka-oper:macsec/mka/interfaces/interface/info/" + interfaceSummary.EntityData.SegmentPath
     interfaceSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

@@ -126,6 +126,7 @@ func (routingState *RoutingState) GetEntityData() *types.CommonEntityData {
     routingState.EntityData.BundleName = "ietf"
     routingState.EntityData.ParentYangName = "ietf-routing"
     routingState.EntityData.SegmentPath = "ietf-routing:routing-state"
+    routingState.EntityData.AbsolutePath = routingState.EntityData.SegmentPath
     routingState.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     routingState.EntityData.NamespaceTable = ietf.GetNamespaces()
     routingState.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -158,6 +159,7 @@ func (routingState *RoutingState) GetEntityData() *types.CommonEntityData {
 type RoutingState_RoutingInstance struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The name of the routing instance.  For
     // system-controlled instances the name is persistent, i.e., it SHOULD NOT
@@ -189,6 +191,7 @@ func (routingInstance *RoutingState_RoutingInstance) GetEntityData() *types.Comm
     routingInstance.EntityData.BundleName = "ietf"
     routingInstance.EntityData.ParentYangName = "routing-state"
     routingInstance.EntityData.SegmentPath = "routing-instance" + types.AddKeyToken(routingInstance.Name, "name")
+    routingInstance.EntityData.AbsolutePath = "ietf-routing:routing-state/" + routingInstance.EntityData.SegmentPath
     routingInstance.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     routingInstance.EntityData.NamespaceTable = ietf.GetNamespaces()
     routingInstance.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -226,6 +229,7 @@ func (interfaces *RoutingState_RoutingInstance_Interfaces) GetEntityData() *type
     interfaces.EntityData.BundleName = "ietf"
     interfaces.EntityData.ParentYangName = "routing-instance"
     interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/" + interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     interfaces.EntityData.NamespaceTable = ietf.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -258,6 +262,7 @@ func (routingProtocols *RoutingState_RoutingInstance_RoutingProtocols) GetEntity
     routingProtocols.EntityData.BundleName = "ietf"
     routingProtocols.EntityData.ParentYangName = "routing-instance"
     routingProtocols.EntityData.SegmentPath = "routing-protocols"
+    routingProtocols.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/" + routingProtocols.EntityData.SegmentPath
     routingProtocols.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     routingProtocols.EntityData.NamespaceTable = ietf.GetNamespaces()
     routingProtocols.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -283,6 +288,7 @@ func (routingProtocols *RoutingState_RoutingInstance_RoutingProtocols) GetEntity
 type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Type of the routing protocol. The type is one of
     // the following: Ospfv3Ospfv2OspfDirectStatic.
@@ -303,6 +309,7 @@ func (routingProtocol *RoutingState_RoutingInstance_RoutingProtocols_RoutingProt
     routingProtocol.EntityData.BundleName = "ietf"
     routingProtocol.EntityData.ParentYangName = "routing-protocols"
     routingProtocol.EntityData.SegmentPath = "routing-protocol" + types.AddKeyToken(routingProtocol.Type, "type") + types.AddKeyToken(routingProtocol.Name, "name")
+    routingProtocol.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/" + routingProtocol.EntityData.SegmentPath
     routingProtocol.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     routingProtocol.EntityData.NamespaceTable = ietf.GetNamespaces()
     routingProtocol.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -338,6 +345,7 @@ func (ospf *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf) 
     ospf.EntityData.BundleName = "ietf"
     ospf.EntityData.ParentYangName = "routing-protocol"
     ospf.EntityData.SegmentPath = "ietf-ospf:ospf"
+    ospf.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/" + ospf.EntityData.SegmentPath
     ospf.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     ospf.EntityData.NamespaceTable = ietf.GetNamespaces()
     ospf.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -360,6 +368,7 @@ func (ospf *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf) 
 type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Address-family of the instance. The type is one of
     // the following: Ipv4Ipv4UnicastIpv6Ipv6Unicast.
@@ -389,6 +398,7 @@ func (instance *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Os
     instance.EntityData.BundleName = "ietf"
     instance.EntityData.ParentYangName = "ospf"
     instance.EntityData.SegmentPath = "instance" + types.AddKeyToken(instance.Af, "af")
+    instance.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/" + instance.EntityData.SegmentPath
     instance.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     instance.EntityData.NamespaceTable = ietf.GetNamespaces()
     instance.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -420,6 +430,7 @@ func (instance *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Os
 type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Area ID. The type is one of the following types:
     // int with range: 0..4294967295, or string with pattern:
@@ -441,6 +452,7 @@ func (area *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_I
     area.EntityData.BundleName = "ietf"
     area.EntityData.ParentYangName = "instance"
     area.EntityData.SegmentPath = "area" + types.AddKeyToken(area.AreaId, "area-id")
+    area.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/" + area.EntityData.SegmentPath
     area.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     area.EntityData.NamespaceTable = ietf.GetNamespaces()
     area.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -467,6 +479,7 @@ func (area *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_I
 type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_Interfaces struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface. The type is string.
     Interface interface{}
@@ -572,6 +585,7 @@ func (interfaces *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_
     interfaces.EntityData.BundleName = "ietf"
     interfaces.EntityData.ParentYangName = "area"
     interfaces.EntityData.SegmentPath = "interfaces" + types.AddKeyToken(interfaces.Interface, "interface")
+    interfaces.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/area/" + interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     interfaces.EntityData.NamespaceTable = ietf.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -643,6 +657,7 @@ func (multiArea *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_O
     multiArea.EntityData.BundleName = "ietf"
     multiArea.EntityData.ParentYangName = "interfaces"
     multiArea.EntityData.SegmentPath = "multi-area"
+    multiArea.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/area/interfaces/" + multiArea.EntityData.SegmentPath
     multiArea.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     multiArea.EntityData.NamespaceTable = ietf.GetNamespaces()
     multiArea.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -674,6 +689,7 @@ func (staticNeighbors *RoutingState_RoutingInstance_RoutingProtocols_RoutingProt
     staticNeighbors.EntityData.BundleName = "ietf"
     staticNeighbors.EntityData.ParentYangName = "interfaces"
     staticNeighbors.EntityData.SegmentPath = "static-neighbors"
+    staticNeighbors.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/area/interfaces/" + staticNeighbors.EntityData.SegmentPath
     staticNeighbors.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     staticNeighbors.EntityData.NamespaceTable = ietf.GetNamespaces()
     staticNeighbors.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -695,6 +711,7 @@ func (staticNeighbors *RoutingState_RoutingInstance_RoutingProtocols_RoutingProt
 type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_Interfaces_StaticNeighbors_Neighbor struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Neighbor IP address. The type is one of the
     // following types: string with pattern:
@@ -721,6 +738,7 @@ func (neighbor *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Os
     neighbor.EntityData.BundleName = "ietf"
     neighbor.EntityData.ParentYangName = "static-neighbors"
     neighbor.EntityData.SegmentPath = "neighbor" + types.AddKeyToken(neighbor.Address, "address")
+    neighbor.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/area/interfaces/static-neighbors/" + neighbor.EntityData.SegmentPath
     neighbor.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     neighbor.EntityData.NamespaceTable = ietf.GetNamespaces()
     neighbor.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -753,6 +771,7 @@ func (fastReroute *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol
     fastReroute.EntityData.BundleName = "ietf"
     fastReroute.EntityData.ParentYangName = "interfaces"
     fastReroute.EntityData.SegmentPath = "fast-reroute"
+    fastReroute.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/area/interfaces/" + fastReroute.EntityData.SegmentPath
     fastReroute.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     fastReroute.EntityData.NamespaceTable = ietf.GetNamespaces()
     fastReroute.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -789,6 +808,7 @@ func (lfa *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_In
     lfa.EntityData.BundleName = "ietf"
     lfa.EntityData.ParentYangName = "fast-reroute"
     lfa.EntityData.SegmentPath = "lfa"
+    lfa.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/area/interfaces/fast-reroute/" + lfa.EntityData.SegmentPath
     lfa.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     lfa.EntityData.NamespaceTable = ietf.GetNamespaces()
     lfa.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -820,6 +840,7 @@ func (remoteLfa *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_O
     remoteLfa.EntityData.BundleName = "ietf"
     remoteLfa.EntityData.ParentYangName = "lfa"
     remoteLfa.EntityData.SegmentPath = "remote-lfa"
+    remoteLfa.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/area/interfaces/fast-reroute/lfa/" + remoteLfa.EntityData.SegmentPath
     remoteLfa.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     remoteLfa.EntityData.NamespaceTable = ietf.GetNamespaces()
     remoteLfa.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -853,6 +874,7 @@ func (ttlSecurity *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol
     ttlSecurity.EntityData.BundleName = "ietf"
     ttlSecurity.EntityData.ParentYangName = "interfaces"
     ttlSecurity.EntityData.SegmentPath = "ttl-security"
+    ttlSecurity.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/area/interfaces/" + ttlSecurity.EntityData.SegmentPath
     ttlSecurity.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     ttlSecurity.EntityData.NamespaceTable = ietf.GetNamespaces()
     ttlSecurity.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -892,6 +914,7 @@ func (authentication *RoutingState_RoutingInstance_RoutingProtocols_RoutingProto
     authentication.EntityData.BundleName = "ietf"
     authentication.EntityData.ParentYangName = "interfaces"
     authentication.EntityData.SegmentPath = "authentication"
+    authentication.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/area/interfaces/" + authentication.EntityData.SegmentPath
     authentication.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     authentication.EntityData.NamespaceTable = ietf.GetNamespaces()
     authentication.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -945,6 +968,7 @@ func (cryptoAlgorithm *RoutingState_RoutingInstance_RoutingProtocols_RoutingProt
     cryptoAlgorithm.EntityData.BundleName = "ietf"
     cryptoAlgorithm.EntityData.ParentYangName = "authentication"
     cryptoAlgorithm.EntityData.SegmentPath = "crypto-algorithm"
+    cryptoAlgorithm.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/area/interfaces/authentication/" + cryptoAlgorithm.EntityData.SegmentPath
     cryptoAlgorithm.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     cryptoAlgorithm.EntityData.NamespaceTable = ietf.GetNamespaces()
     cryptoAlgorithm.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -970,6 +994,7 @@ func (cryptoAlgorithm *RoutingState_RoutingInstance_RoutingProtocols_RoutingProt
 type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_Interfaces_Neighbor struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Neighbor ID. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -1000,6 +1025,7 @@ func (neighbor *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Os
     neighbor.EntityData.BundleName = "ietf"
     neighbor.EntityData.ParentYangName = "interfaces"
     neighbor.EntityData.SegmentPath = "neighbor" + types.AddKeyToken(neighbor.NeighborId, "neighbor-id")
+    neighbor.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/area/interfaces/" + neighbor.EntityData.SegmentPath
     neighbor.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     neighbor.EntityData.NamespaceTable = ietf.GetNamespaces()
     neighbor.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -1022,6 +1048,7 @@ func (neighbor *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Os
 type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_Interfaces_LinkScopeLsas struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. OSPF link scope LSA type. The type is interface{}
     // with range: 0..255.
@@ -1038,6 +1065,7 @@ func (linkScopeLsas *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtoc
     linkScopeLsas.EntityData.BundleName = "ietf"
     linkScopeLsas.EntityData.ParentYangName = "interfaces"
     linkScopeLsas.EntityData.SegmentPath = "link-scope-lsas" + types.AddKeyToken(linkScopeLsas.LsaType, "lsa-type")
+    linkScopeLsas.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/area/interfaces/" + linkScopeLsas.EntityData.SegmentPath
     linkScopeLsas.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     linkScopeLsas.EntityData.NamespaceTable = ietf.GetNamespaces()
     linkScopeLsas.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -1060,6 +1088,7 @@ func (linkScopeLsas *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtoc
 type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_Interfaces_LinkScopeLsas_LinkScopeLsa struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. LSA ID. The type is one of the following types:
     // string with pattern:
@@ -1092,6 +1121,7 @@ func (linkScopeLsa *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtoco
     linkScopeLsa.EntityData.BundleName = "ietf"
     linkScopeLsa.EntityData.ParentYangName = "link-scope-lsas"
     linkScopeLsa.EntityData.SegmentPath = "link-scope-lsa" + types.AddKeyToken(linkScopeLsa.LsaId, "lsa-id") + types.AddKeyToken(linkScopeLsa.AdvRouter, "adv-router")
+    linkScopeLsa.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/area/interfaces/link-scope-lsas/" + linkScopeLsa.EntityData.SegmentPath
     linkScopeLsa.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     linkScopeLsa.EntityData.NamespaceTable = ietf.GetNamespaces()
     linkScopeLsa.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -1129,6 +1159,7 @@ func (ospfv2 *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf
     ospfv2.EntityData.BundleName = "ietf"
     ospfv2.EntityData.ParentYangName = "link-scope-lsa"
     ospfv2.EntityData.SegmentPath = "ospfv2"
+    ospfv2.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/area/interfaces/link-scope-lsas/link-scope-lsa/" + ospfv2.EntityData.SegmentPath
     ospfv2.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     ospfv2.EntityData.NamespaceTable = ietf.GetNamespaces()
     ospfv2.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -1195,6 +1226,7 @@ func (header *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf
     header.EntityData.BundleName = "ietf"
     header.EntityData.ParentYangName = "ospfv2"
     header.EntityData.SegmentPath = "header"
+    header.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/area/interfaces/link-scope-lsas/link-scope-lsa/ospfv2/" + header.EntityData.SegmentPath
     header.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     header.EntityData.NamespaceTable = ietf.GetNamespaces()
     header.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -1245,6 +1277,7 @@ func (body *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_I
     body.EntityData.BundleName = "ietf"
     body.EntityData.ParentYangName = "ospfv2"
     body.EntityData.SegmentPath = "body"
+    body.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/area/interfaces/link-scope-lsas/link-scope-lsa/ospfv2/" + body.EntityData.SegmentPath
     body.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     body.EntityData.NamespaceTable = ietf.GetNamespaces()
     body.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -1285,6 +1318,7 @@ func (router *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf
     router.EntityData.BundleName = "ietf"
     router.EntityData.ParentYangName = "body"
     router.EntityData.SegmentPath = "router"
+    router.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/area/interfaces/link-scope-lsas/link-scope-lsa/ospfv2/body/" + router.EntityData.SegmentPath
     router.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     router.EntityData.NamespaceTable = ietf.GetNamespaces()
     router.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -1308,6 +1342,7 @@ func (router *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf
 type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_Interfaces_LinkScopeLsas_LinkScopeLsa_Ospfv2_Body_Router_Link struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Link ID. The type is one of the following types:
     // string with pattern:
@@ -1336,6 +1371,7 @@ func (link *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_I
     link.EntityData.BundleName = "ietf"
     link.EntityData.ParentYangName = "router"
     link.EntityData.SegmentPath = "link" + types.AddKeyToken(link.LinkId, "link-id") + types.AddKeyToken(link.LinkData, "link-data")
+    link.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/area/interfaces/link-scope-lsas/link-scope-lsa/ospfv2/body/router/" + link.EntityData.SegmentPath
     link.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     link.EntityData.NamespaceTable = ietf.GetNamespaces()
     link.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -1360,6 +1396,7 @@ func (link *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_I
 type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_Interfaces_LinkScopeLsas_LinkScopeLsa_Ospfv2_Body_Router_Link_Topology struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The MT-ID for topology enabled on the link. The
     // type is interface{} with range: 0..255.
@@ -1375,6 +1412,7 @@ func (topology *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Os
     topology.EntityData.BundleName = "ietf"
     topology.EntityData.ParentYangName = "link"
     topology.EntityData.SegmentPath = "topology" + types.AddKeyToken(topology.MtId, "mt-id")
+    topology.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/area/interfaces/link-scope-lsas/link-scope-lsa/ospfv2/body/router/link/" + topology.EntityData.SegmentPath
     topology.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     topology.EntityData.NamespaceTable = ietf.GetNamespaces()
     topology.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -1411,6 +1449,7 @@ func (network *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Osp
     network.EntityData.BundleName = "ietf"
     network.EntityData.ParentYangName = "body"
     network.EntityData.SegmentPath = "network"
+    network.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/area/interfaces/link-scope-lsas/link-scope-lsa/ospfv2/body/" + network.EntityData.SegmentPath
     network.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     network.EntityData.NamespaceTable = ietf.GetNamespaces()
     network.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -1446,6 +1485,7 @@ func (summary *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Osp
     summary.EntityData.BundleName = "ietf"
     summary.EntityData.ParentYangName = "body"
     summary.EntityData.SegmentPath = "summary"
+    summary.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/area/interfaces/link-scope-lsas/link-scope-lsa/ospfv2/body/" + summary.EntityData.SegmentPath
     summary.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     summary.EntityData.NamespaceTable = ietf.GetNamespaces()
     summary.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -1468,6 +1508,7 @@ func (summary *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Osp
 type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_Interfaces_LinkScopeLsas_LinkScopeLsa_Ospfv2_Body_Summary_Topology struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The MT-ID for topology enabled on the link. The
     // type is interface{} with range: 0..255.
@@ -1483,6 +1524,7 @@ func (topology *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Os
     topology.EntityData.BundleName = "ietf"
     topology.EntityData.ParentYangName = "summary"
     topology.EntityData.SegmentPath = "topology" + types.AddKeyToken(topology.MtId, "mt-id")
+    topology.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/area/interfaces/link-scope-lsas/link-scope-lsa/ospfv2/body/summary/" + topology.EntityData.SegmentPath
     topology.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     topology.EntityData.NamespaceTable = ietf.GetNamespaces()
     topology.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -1518,6 +1560,7 @@ func (external *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Os
     external.EntityData.BundleName = "ietf"
     external.EntityData.ParentYangName = "body"
     external.EntityData.SegmentPath = "external"
+    external.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/area/interfaces/link-scope-lsas/link-scope-lsa/ospfv2/body/" + external.EntityData.SegmentPath
     external.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     external.EntityData.NamespaceTable = ietf.GetNamespaces()
     external.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -1540,6 +1583,7 @@ func (external *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Os
 type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_Interfaces_LinkScopeLsas_LinkScopeLsa_Ospfv2_Body_External_Topology struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The MT-ID for topology enabled on the link. The
     // type is interface{} with range: 0..255.
@@ -1565,6 +1609,7 @@ func (topology *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Os
     topology.EntityData.BundleName = "ietf"
     topology.EntityData.ParentYangName = "external"
     topology.EntityData.SegmentPath = "topology" + types.AddKeyToken(topology.MtId, "mt-id")
+    topology.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/area/interfaces/link-scope-lsas/link-scope-lsa/ospfv2/body/external/" + topology.EntityData.SegmentPath
     topology.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     topology.EntityData.NamespaceTable = ietf.GetNamespaces()
     topology.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -1605,6 +1650,7 @@ func (opaque *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf
     opaque.EntityData.BundleName = "ietf"
     opaque.EntityData.ParentYangName = "body"
     opaque.EntityData.SegmentPath = "opaque"
+    opaque.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/area/interfaces/link-scope-lsas/link-scope-lsa/ospfv2/body/" + opaque.EntityData.SegmentPath
     opaque.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     opaque.EntityData.NamespaceTable = ietf.GetNamespaces()
     opaque.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -1628,6 +1674,7 @@ func (opaque *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf
 type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_Interfaces_LinkScopeLsas_LinkScopeLsa_Ospfv2_Body_Opaque_UnknownTlv struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. TLV type. The type is interface{} with range:
     // 0..65535.
@@ -1647,6 +1694,7 @@ func (unknownTlv *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_
     unknownTlv.EntityData.BundleName = "ietf"
     unknownTlv.EntityData.ParentYangName = "opaque"
     unknownTlv.EntityData.SegmentPath = "unknown-tlv" + types.AddKeyToken(unknownTlv.Type, "type")
+    unknownTlv.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/area/interfaces/link-scope-lsas/link-scope-lsa/ospfv2/body/opaque/" + unknownTlv.EntityData.SegmentPath
     unknownTlv.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     unknownTlv.EntityData.NamespaceTable = ietf.GetNamespaces()
     unknownTlv.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -1679,6 +1727,7 @@ func (routerAddressTlv *RoutingState_RoutingInstance_RoutingProtocols_RoutingPro
     routerAddressTlv.EntityData.BundleName = "ietf"
     routerAddressTlv.EntityData.ParentYangName = "opaque"
     routerAddressTlv.EntityData.SegmentPath = "router-address-tlv"
+    routerAddressTlv.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/area/interfaces/link-scope-lsas/link-scope-lsa/ospfv2/body/opaque/" + routerAddressTlv.EntityData.SegmentPath
     routerAddressTlv.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     routerAddressTlv.EntityData.NamespaceTable = ietf.GetNamespaces()
     routerAddressTlv.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -1749,6 +1798,7 @@ func (linkTlv *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Osp
     linkTlv.EntityData.BundleName = "ietf"
     linkTlv.EntityData.ParentYangName = "opaque"
     linkTlv.EntityData.SegmentPath = "link-tlv"
+    linkTlv.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/area/interfaces/link-scope-lsas/link-scope-lsa/ospfv2/body/opaque/" + linkTlv.EntityData.SegmentPath
     linkTlv.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     linkTlv.EntityData.NamespaceTable = ietf.GetNamespaces()
     linkTlv.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -1779,6 +1829,7 @@ func (linkTlv *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Osp
 type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_Interfaces_LinkScopeLsas_LinkScopeLsa_Ospfv2_Body_Opaque_LinkTlv_UnknownSubtlv struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. TLV type. The type is interface{} with range:
     // 0..65535.
@@ -1798,6 +1849,7 @@ func (unknownSubtlv *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtoc
     unknownSubtlv.EntityData.BundleName = "ietf"
     unknownSubtlv.EntityData.ParentYangName = "link-tlv"
     unknownSubtlv.EntityData.SegmentPath = "unknown-subtlv" + types.AddKeyToken(unknownSubtlv.Type, "type")
+    unknownSubtlv.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/area/interfaces/link-scope-lsas/link-scope-lsa/ospfv2/body/opaque/link-tlv/" + unknownSubtlv.EntityData.SegmentPath
     unknownSubtlv.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     unknownSubtlv.EntityData.NamespaceTable = ietf.GetNamespaces()
     unknownSubtlv.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -1832,6 +1884,7 @@ func (ospfv3 *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf
     ospfv3.EntityData.BundleName = "ietf"
     ospfv3.EntityData.ParentYangName = "link-scope-lsa"
     ospfv3.EntityData.SegmentPath = "ospfv3"
+    ospfv3.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/area/interfaces/link-scope-lsas/link-scope-lsa/" + ospfv3.EntityData.SegmentPath
     ospfv3.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     ospfv3.EntityData.NamespaceTable = ietf.GetNamespaces()
     ospfv3.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -1890,6 +1943,7 @@ func (header *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf
     header.EntityData.BundleName = "ietf"
     header.EntityData.ParentYangName = "ospfv3"
     header.EntityData.SegmentPath = "header"
+    header.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/area/interfaces/link-scope-lsas/link-scope-lsa/ospfv3/" + header.EntityData.SegmentPath
     header.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     header.EntityData.NamespaceTable = ietf.GetNamespaces()
     header.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -1947,6 +2001,7 @@ func (body *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_I
     body.EntityData.BundleName = "ietf"
     body.EntityData.ParentYangName = "ospfv3"
     body.EntityData.SegmentPath = "body"
+    body.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/area/interfaces/link-scope-lsas/link-scope-lsa/ospfv3/" + body.EntityData.SegmentPath
     body.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     body.EntityData.NamespaceTable = ietf.GetNamespaces()
     body.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -1991,6 +2046,7 @@ func (router *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf
     router.EntityData.BundleName = "ietf"
     router.EntityData.ParentYangName = "body"
     router.EntityData.SegmentPath = "router"
+    router.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/area/interfaces/link-scope-lsas/link-scope-lsa/ospfv3/body/" + router.EntityData.SegmentPath
     router.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     router.EntityData.NamespaceTable = ietf.GetNamespaces()
     router.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -2014,6 +2070,7 @@ func (router *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf
 type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_Interfaces_LinkScopeLsas_LinkScopeLsa_Ospfv3_Body_Router_Link struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface ID. The type is interface{} with range:
     // 0..4294967295.
@@ -2041,6 +2098,7 @@ func (link *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_I
     link.EntityData.BundleName = "ietf"
     link.EntityData.ParentYangName = "router"
     link.EntityData.SegmentPath = "link" + types.AddKeyToken(link.InterfaceId, "interface-id") + types.AddKeyToken(link.NeighborInterfaceId, "neighbor-interface-id") + types.AddKeyToken(link.NeighborRouterId, "neighbor-router-id")
+    link.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/area/interfaces/link-scope-lsas/link-scope-lsa/ospfv3/body/router/" + link.EntityData.SegmentPath
     link.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     link.EntityData.NamespaceTable = ietf.GetNamespaces()
     link.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -2080,6 +2138,7 @@ func (network *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Osp
     network.EntityData.BundleName = "ietf"
     network.EntityData.ParentYangName = "body"
     network.EntityData.SegmentPath = "network"
+    network.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/area/interfaces/link-scope-lsas/link-scope-lsa/ospfv3/body/" + network.EntityData.SegmentPath
     network.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     network.EntityData.NamespaceTable = ietf.GetNamespaces()
     network.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -2116,6 +2175,7 @@ func (interAreaPrefix *RoutingState_RoutingInstance_RoutingProtocols_RoutingProt
     interAreaPrefix.EntityData.BundleName = "ietf"
     interAreaPrefix.EntityData.ParentYangName = "body"
     interAreaPrefix.EntityData.SegmentPath = "inter-area-prefix"
+    interAreaPrefix.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/area/interfaces/link-scope-lsas/link-scope-lsa/ospfv3/body/" + interAreaPrefix.EntityData.SegmentPath
     interAreaPrefix.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     interAreaPrefix.EntityData.NamespaceTable = ietf.GetNamespaces()
     interAreaPrefix.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -2156,6 +2216,7 @@ func (interAreaRouter *RoutingState_RoutingInstance_RoutingProtocols_RoutingProt
     interAreaRouter.EntityData.BundleName = "ietf"
     interAreaRouter.EntityData.ParentYangName = "body"
     interAreaRouter.EntityData.SegmentPath = "inter-area-router"
+    interAreaRouter.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/area/interfaces/link-scope-lsas/link-scope-lsa/ospfv3/body/" + interAreaRouter.EntityData.SegmentPath
     interAreaRouter.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     interAreaRouter.EntityData.NamespaceTable = ietf.GetNamespaces()
     interAreaRouter.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -2210,6 +2271,7 @@ func (asExternal *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_
     asExternal.EntityData.BundleName = "ietf"
     asExternal.EntityData.ParentYangName = "body"
     asExternal.EntityData.SegmentPath = "as-external"
+    asExternal.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/area/interfaces/link-scope-lsas/link-scope-lsa/ospfv3/body/" + asExternal.EntityData.SegmentPath
     asExternal.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     asExternal.EntityData.NamespaceTable = ietf.GetNamespaces()
     asExternal.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -2269,6 +2331,7 @@ func (nssa *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_I
     nssa.EntityData.BundleName = "ietf"
     nssa.EntityData.ParentYangName = "body"
     nssa.EntityData.SegmentPath = "nssa"
+    nssa.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/area/interfaces/link-scope-lsas/link-scope-lsa/ospfv3/body/" + nssa.EntityData.SegmentPath
     nssa.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     nssa.EntityData.NamespaceTable = ietf.GetNamespaces()
     nssa.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -2324,6 +2387,7 @@ func (link *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_I
     link.EntityData.BundleName = "ietf"
     link.EntityData.ParentYangName = "body"
     link.EntityData.SegmentPath = "link"
+    link.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/area/interfaces/link-scope-lsas/link-scope-lsa/ospfv3/body/" + link.EntityData.SegmentPath
     link.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     link.EntityData.NamespaceTable = ietf.GetNamespaces()
     link.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -2349,6 +2413,7 @@ func (link *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_I
 type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_Interfaces_LinkScopeLsas_LinkScopeLsa_Ospfv3_Body_Link_PrefixList struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Prefix. The type is string.
     Prefix interface{}
@@ -2363,6 +2428,7 @@ func (prefixList *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_
     prefixList.EntityData.BundleName = "ietf"
     prefixList.EntityData.ParentYangName = "link"
     prefixList.EntityData.SegmentPath = "prefix-list" + types.AddKeyToken(prefixList.Prefix, "prefix")
+    prefixList.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/area/interfaces/link-scope-lsas/link-scope-lsa/ospfv3/body/link/" + prefixList.EntityData.SegmentPath
     prefixList.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     prefixList.EntityData.NamespaceTable = ietf.GetNamespaces()
     prefixList.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -2408,6 +2474,7 @@ func (intraAreaPrefix *RoutingState_RoutingInstance_RoutingProtocols_RoutingProt
     intraAreaPrefix.EntityData.BundleName = "ietf"
     intraAreaPrefix.EntityData.ParentYangName = "body"
     intraAreaPrefix.EntityData.SegmentPath = "intra-area-prefix"
+    intraAreaPrefix.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/area/interfaces/link-scope-lsas/link-scope-lsa/ospfv3/body/" + intraAreaPrefix.EntityData.SegmentPath
     intraAreaPrefix.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     intraAreaPrefix.EntityData.NamespaceTable = ietf.GetNamespaces()
     intraAreaPrefix.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -2433,6 +2500,7 @@ func (intraAreaPrefix *RoutingState_RoutingInstance_RoutingProtocols_RoutingProt
 type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_Interfaces_LinkScopeLsas_LinkScopeLsa_Ospfv3_Body_IntraAreaPrefix_PrefixList struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Prefix. The type is string.
     Prefix interface{}
@@ -2450,6 +2518,7 @@ func (prefixList *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_
     prefixList.EntityData.BundleName = "ietf"
     prefixList.EntityData.ParentYangName = "intra-area-prefix"
     prefixList.EntityData.SegmentPath = "prefix-list" + types.AddKeyToken(prefixList.Prefix, "prefix")
+    prefixList.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/area/interfaces/link-scope-lsas/link-scope-lsa/ospfv3/body/intra-area-prefix/" + prefixList.EntityData.SegmentPath
     prefixList.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     prefixList.EntityData.NamespaceTable = ietf.GetNamespaces()
     prefixList.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -2470,6 +2539,7 @@ func (prefixList *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_
 type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_Interfaces_Topology struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. One of the topology enabled on this interface. The
     // type is string. Refers to routing.Routing_RoutingInstance_Ribs_Rib_Name
@@ -2482,6 +2552,7 @@ func (topology *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Os
     topology.EntityData.BundleName = "ietf"
     topology.EntityData.ParentYangName = "interfaces"
     topology.EntityData.SegmentPath = "topology" + types.AddKeyToken(topology.Name, "name")
+    topology.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/area/interfaces/" + topology.EntityData.SegmentPath
     topology.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     topology.EntityData.NamespaceTable = ietf.GetNamespaces()
     topology.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -2518,6 +2589,7 @@ const (
 type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_AreaScopeLsas struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. OSPF area scope LSA type. The type is interface{}
     // with range: 0..255.
@@ -2534,6 +2606,7 @@ func (areaScopeLsas *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtoc
     areaScopeLsas.EntityData.BundleName = "ietf"
     areaScopeLsas.EntityData.ParentYangName = "area"
     areaScopeLsas.EntityData.SegmentPath = "area-scope-lsas" + types.AddKeyToken(areaScopeLsas.LsaType, "lsa-type")
+    areaScopeLsas.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/area/" + areaScopeLsas.EntityData.SegmentPath
     areaScopeLsas.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     areaScopeLsas.EntityData.NamespaceTable = ietf.GetNamespaces()
     areaScopeLsas.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -2556,6 +2629,7 @@ func (areaScopeLsas *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtoc
 type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_AreaScopeLsas_AreaScopeLsa struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. LSA ID. The type is one of the following types:
     // string with pattern:
@@ -2588,6 +2662,7 @@ func (areaScopeLsa *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtoco
     areaScopeLsa.EntityData.BundleName = "ietf"
     areaScopeLsa.EntityData.ParentYangName = "area-scope-lsas"
     areaScopeLsa.EntityData.SegmentPath = "area-scope-lsa" + types.AddKeyToken(areaScopeLsa.LsaId, "lsa-id") + types.AddKeyToken(areaScopeLsa.AdvRouter, "adv-router")
+    areaScopeLsa.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/area/area-scope-lsas/" + areaScopeLsa.EntityData.SegmentPath
     areaScopeLsa.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     areaScopeLsa.EntityData.NamespaceTable = ietf.GetNamespaces()
     areaScopeLsa.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -2625,6 +2700,7 @@ func (ospfv2 *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf
     ospfv2.EntityData.BundleName = "ietf"
     ospfv2.EntityData.ParentYangName = "area-scope-lsa"
     ospfv2.EntityData.SegmentPath = "ospfv2"
+    ospfv2.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/area/area-scope-lsas/area-scope-lsa/" + ospfv2.EntityData.SegmentPath
     ospfv2.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     ospfv2.EntityData.NamespaceTable = ietf.GetNamespaces()
     ospfv2.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -2691,6 +2767,7 @@ func (header *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf
     header.EntityData.BundleName = "ietf"
     header.EntityData.ParentYangName = "ospfv2"
     header.EntityData.SegmentPath = "header"
+    header.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/area/area-scope-lsas/area-scope-lsa/ospfv2/" + header.EntityData.SegmentPath
     header.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     header.EntityData.NamespaceTable = ietf.GetNamespaces()
     header.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -2741,6 +2818,7 @@ func (body *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_I
     body.EntityData.BundleName = "ietf"
     body.EntityData.ParentYangName = "ospfv2"
     body.EntityData.SegmentPath = "body"
+    body.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/area/area-scope-lsas/area-scope-lsa/ospfv2/" + body.EntityData.SegmentPath
     body.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     body.EntityData.NamespaceTable = ietf.GetNamespaces()
     body.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -2781,6 +2859,7 @@ func (router *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf
     router.EntityData.BundleName = "ietf"
     router.EntityData.ParentYangName = "body"
     router.EntityData.SegmentPath = "router"
+    router.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/area/area-scope-lsas/area-scope-lsa/ospfv2/body/" + router.EntityData.SegmentPath
     router.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     router.EntityData.NamespaceTable = ietf.GetNamespaces()
     router.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -2804,6 +2883,7 @@ func (router *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf
 type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_AreaScopeLsas_AreaScopeLsa_Ospfv2_Body_Router_Link struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Link ID. The type is one of the following types:
     // string with pattern:
@@ -2832,6 +2912,7 @@ func (link *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_I
     link.EntityData.BundleName = "ietf"
     link.EntityData.ParentYangName = "router"
     link.EntityData.SegmentPath = "link" + types.AddKeyToken(link.LinkId, "link-id") + types.AddKeyToken(link.LinkData, "link-data")
+    link.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/area/area-scope-lsas/area-scope-lsa/ospfv2/body/router/" + link.EntityData.SegmentPath
     link.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     link.EntityData.NamespaceTable = ietf.GetNamespaces()
     link.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -2856,6 +2937,7 @@ func (link *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_I
 type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_AreaScopeLsas_AreaScopeLsa_Ospfv2_Body_Router_Link_Topology struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The MT-ID for topology enabled on the link. The
     // type is interface{} with range: 0..255.
@@ -2871,6 +2953,7 @@ func (topology *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Os
     topology.EntityData.BundleName = "ietf"
     topology.EntityData.ParentYangName = "link"
     topology.EntityData.SegmentPath = "topology" + types.AddKeyToken(topology.MtId, "mt-id")
+    topology.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/area/area-scope-lsas/area-scope-lsa/ospfv2/body/router/link/" + topology.EntityData.SegmentPath
     topology.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     topology.EntityData.NamespaceTable = ietf.GetNamespaces()
     topology.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -2907,6 +2990,7 @@ func (network *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Osp
     network.EntityData.BundleName = "ietf"
     network.EntityData.ParentYangName = "body"
     network.EntityData.SegmentPath = "network"
+    network.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/area/area-scope-lsas/area-scope-lsa/ospfv2/body/" + network.EntityData.SegmentPath
     network.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     network.EntityData.NamespaceTable = ietf.GetNamespaces()
     network.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -2942,6 +3026,7 @@ func (summary *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Osp
     summary.EntityData.BundleName = "ietf"
     summary.EntityData.ParentYangName = "body"
     summary.EntityData.SegmentPath = "summary"
+    summary.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/area/area-scope-lsas/area-scope-lsa/ospfv2/body/" + summary.EntityData.SegmentPath
     summary.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     summary.EntityData.NamespaceTable = ietf.GetNamespaces()
     summary.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -2964,6 +3049,7 @@ func (summary *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Osp
 type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_AreaScopeLsas_AreaScopeLsa_Ospfv2_Body_Summary_Topology struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The MT-ID for topology enabled on the link. The
     // type is interface{} with range: 0..255.
@@ -2979,6 +3065,7 @@ func (topology *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Os
     topology.EntityData.BundleName = "ietf"
     topology.EntityData.ParentYangName = "summary"
     topology.EntityData.SegmentPath = "topology" + types.AddKeyToken(topology.MtId, "mt-id")
+    topology.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/area/area-scope-lsas/area-scope-lsa/ospfv2/body/summary/" + topology.EntityData.SegmentPath
     topology.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     topology.EntityData.NamespaceTable = ietf.GetNamespaces()
     topology.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -3014,6 +3101,7 @@ func (external *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Os
     external.EntityData.BundleName = "ietf"
     external.EntityData.ParentYangName = "body"
     external.EntityData.SegmentPath = "external"
+    external.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/area/area-scope-lsas/area-scope-lsa/ospfv2/body/" + external.EntityData.SegmentPath
     external.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     external.EntityData.NamespaceTable = ietf.GetNamespaces()
     external.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -3036,6 +3124,7 @@ func (external *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Os
 type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_AreaScopeLsas_AreaScopeLsa_Ospfv2_Body_External_Topology struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The MT-ID for topology enabled on the link. The
     // type is interface{} with range: 0..255.
@@ -3061,6 +3150,7 @@ func (topology *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Os
     topology.EntityData.BundleName = "ietf"
     topology.EntityData.ParentYangName = "external"
     topology.EntityData.SegmentPath = "topology" + types.AddKeyToken(topology.MtId, "mt-id")
+    topology.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/area/area-scope-lsas/area-scope-lsa/ospfv2/body/external/" + topology.EntityData.SegmentPath
     topology.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     topology.EntityData.NamespaceTable = ietf.GetNamespaces()
     topology.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -3101,6 +3191,7 @@ func (opaque *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf
     opaque.EntityData.BundleName = "ietf"
     opaque.EntityData.ParentYangName = "body"
     opaque.EntityData.SegmentPath = "opaque"
+    opaque.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/area/area-scope-lsas/area-scope-lsa/ospfv2/body/" + opaque.EntityData.SegmentPath
     opaque.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     opaque.EntityData.NamespaceTable = ietf.GetNamespaces()
     opaque.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -3124,6 +3215,7 @@ func (opaque *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf
 type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_AreaScopeLsas_AreaScopeLsa_Ospfv2_Body_Opaque_UnknownTlv struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. TLV type. The type is interface{} with range:
     // 0..65535.
@@ -3143,6 +3235,7 @@ func (unknownTlv *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_
     unknownTlv.EntityData.BundleName = "ietf"
     unknownTlv.EntityData.ParentYangName = "opaque"
     unknownTlv.EntityData.SegmentPath = "unknown-tlv" + types.AddKeyToken(unknownTlv.Type, "type")
+    unknownTlv.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/area/area-scope-lsas/area-scope-lsa/ospfv2/body/opaque/" + unknownTlv.EntityData.SegmentPath
     unknownTlv.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     unknownTlv.EntityData.NamespaceTable = ietf.GetNamespaces()
     unknownTlv.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -3175,6 +3268,7 @@ func (routerAddressTlv *RoutingState_RoutingInstance_RoutingProtocols_RoutingPro
     routerAddressTlv.EntityData.BundleName = "ietf"
     routerAddressTlv.EntityData.ParentYangName = "opaque"
     routerAddressTlv.EntityData.SegmentPath = "router-address-tlv"
+    routerAddressTlv.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/area/area-scope-lsas/area-scope-lsa/ospfv2/body/opaque/" + routerAddressTlv.EntityData.SegmentPath
     routerAddressTlv.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     routerAddressTlv.EntityData.NamespaceTable = ietf.GetNamespaces()
     routerAddressTlv.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -3245,6 +3339,7 @@ func (linkTlv *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Osp
     linkTlv.EntityData.BundleName = "ietf"
     linkTlv.EntityData.ParentYangName = "opaque"
     linkTlv.EntityData.SegmentPath = "link-tlv"
+    linkTlv.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/area/area-scope-lsas/area-scope-lsa/ospfv2/body/opaque/" + linkTlv.EntityData.SegmentPath
     linkTlv.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     linkTlv.EntityData.NamespaceTable = ietf.GetNamespaces()
     linkTlv.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -3275,6 +3370,7 @@ func (linkTlv *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Osp
 type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_AreaScopeLsas_AreaScopeLsa_Ospfv2_Body_Opaque_LinkTlv_UnknownSubtlv struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. TLV type. The type is interface{} with range:
     // 0..65535.
@@ -3294,6 +3390,7 @@ func (unknownSubtlv *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtoc
     unknownSubtlv.EntityData.BundleName = "ietf"
     unknownSubtlv.EntityData.ParentYangName = "link-tlv"
     unknownSubtlv.EntityData.SegmentPath = "unknown-subtlv" + types.AddKeyToken(unknownSubtlv.Type, "type")
+    unknownSubtlv.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/area/area-scope-lsas/area-scope-lsa/ospfv2/body/opaque/link-tlv/" + unknownSubtlv.EntityData.SegmentPath
     unknownSubtlv.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     unknownSubtlv.EntityData.NamespaceTable = ietf.GetNamespaces()
     unknownSubtlv.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -3328,6 +3425,7 @@ func (ospfv3 *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf
     ospfv3.EntityData.BundleName = "ietf"
     ospfv3.EntityData.ParentYangName = "area-scope-lsa"
     ospfv3.EntityData.SegmentPath = "ospfv3"
+    ospfv3.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/area/area-scope-lsas/area-scope-lsa/" + ospfv3.EntityData.SegmentPath
     ospfv3.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     ospfv3.EntityData.NamespaceTable = ietf.GetNamespaces()
     ospfv3.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -3386,6 +3484,7 @@ func (header *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf
     header.EntityData.BundleName = "ietf"
     header.EntityData.ParentYangName = "ospfv3"
     header.EntityData.SegmentPath = "header"
+    header.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/area/area-scope-lsas/area-scope-lsa/ospfv3/" + header.EntityData.SegmentPath
     header.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     header.EntityData.NamespaceTable = ietf.GetNamespaces()
     header.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -3443,6 +3542,7 @@ func (body *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_I
     body.EntityData.BundleName = "ietf"
     body.EntityData.ParentYangName = "ospfv3"
     body.EntityData.SegmentPath = "body"
+    body.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/area/area-scope-lsas/area-scope-lsa/ospfv3/" + body.EntityData.SegmentPath
     body.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     body.EntityData.NamespaceTable = ietf.GetNamespaces()
     body.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -3487,6 +3587,7 @@ func (router *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf
     router.EntityData.BundleName = "ietf"
     router.EntityData.ParentYangName = "body"
     router.EntityData.SegmentPath = "router"
+    router.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/area/area-scope-lsas/area-scope-lsa/ospfv3/body/" + router.EntityData.SegmentPath
     router.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     router.EntityData.NamespaceTable = ietf.GetNamespaces()
     router.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -3510,6 +3611,7 @@ func (router *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf
 type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_AreaScopeLsas_AreaScopeLsa_Ospfv3_Body_Router_Link struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface ID. The type is interface{} with range:
     // 0..4294967295.
@@ -3537,6 +3639,7 @@ func (link *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_I
     link.EntityData.BundleName = "ietf"
     link.EntityData.ParentYangName = "router"
     link.EntityData.SegmentPath = "link" + types.AddKeyToken(link.InterfaceId, "interface-id") + types.AddKeyToken(link.NeighborInterfaceId, "neighbor-interface-id") + types.AddKeyToken(link.NeighborRouterId, "neighbor-router-id")
+    link.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/area/area-scope-lsas/area-scope-lsa/ospfv3/body/router/" + link.EntityData.SegmentPath
     link.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     link.EntityData.NamespaceTable = ietf.GetNamespaces()
     link.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -3576,6 +3679,7 @@ func (network *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Osp
     network.EntityData.BundleName = "ietf"
     network.EntityData.ParentYangName = "body"
     network.EntityData.SegmentPath = "network"
+    network.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/area/area-scope-lsas/area-scope-lsa/ospfv3/body/" + network.EntityData.SegmentPath
     network.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     network.EntityData.NamespaceTable = ietf.GetNamespaces()
     network.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -3612,6 +3716,7 @@ func (interAreaPrefix *RoutingState_RoutingInstance_RoutingProtocols_RoutingProt
     interAreaPrefix.EntityData.BundleName = "ietf"
     interAreaPrefix.EntityData.ParentYangName = "body"
     interAreaPrefix.EntityData.SegmentPath = "inter-area-prefix"
+    interAreaPrefix.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/area/area-scope-lsas/area-scope-lsa/ospfv3/body/" + interAreaPrefix.EntityData.SegmentPath
     interAreaPrefix.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     interAreaPrefix.EntityData.NamespaceTable = ietf.GetNamespaces()
     interAreaPrefix.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -3652,6 +3757,7 @@ func (interAreaRouter *RoutingState_RoutingInstance_RoutingProtocols_RoutingProt
     interAreaRouter.EntityData.BundleName = "ietf"
     interAreaRouter.EntityData.ParentYangName = "body"
     interAreaRouter.EntityData.SegmentPath = "inter-area-router"
+    interAreaRouter.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/area/area-scope-lsas/area-scope-lsa/ospfv3/body/" + interAreaRouter.EntityData.SegmentPath
     interAreaRouter.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     interAreaRouter.EntityData.NamespaceTable = ietf.GetNamespaces()
     interAreaRouter.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -3706,6 +3812,7 @@ func (asExternal *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_
     asExternal.EntityData.BundleName = "ietf"
     asExternal.EntityData.ParentYangName = "body"
     asExternal.EntityData.SegmentPath = "as-external"
+    asExternal.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/area/area-scope-lsas/area-scope-lsa/ospfv3/body/" + asExternal.EntityData.SegmentPath
     asExternal.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     asExternal.EntityData.NamespaceTable = ietf.GetNamespaces()
     asExternal.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -3765,6 +3872,7 @@ func (nssa *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_I
     nssa.EntityData.BundleName = "ietf"
     nssa.EntityData.ParentYangName = "body"
     nssa.EntityData.SegmentPath = "nssa"
+    nssa.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/area/area-scope-lsas/area-scope-lsa/ospfv3/body/" + nssa.EntityData.SegmentPath
     nssa.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     nssa.EntityData.NamespaceTable = ietf.GetNamespaces()
     nssa.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -3820,6 +3928,7 @@ func (link *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_I
     link.EntityData.BundleName = "ietf"
     link.EntityData.ParentYangName = "body"
     link.EntityData.SegmentPath = "link"
+    link.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/area/area-scope-lsas/area-scope-lsa/ospfv3/body/" + link.EntityData.SegmentPath
     link.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     link.EntityData.NamespaceTable = ietf.GetNamespaces()
     link.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -3845,6 +3954,7 @@ func (link *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_I
 type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_AreaScopeLsas_AreaScopeLsa_Ospfv3_Body_Link_PrefixList struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Prefix. The type is string.
     Prefix interface{}
@@ -3859,6 +3969,7 @@ func (prefixList *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_
     prefixList.EntityData.BundleName = "ietf"
     prefixList.EntityData.ParentYangName = "link"
     prefixList.EntityData.SegmentPath = "prefix-list" + types.AddKeyToken(prefixList.Prefix, "prefix")
+    prefixList.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/area/area-scope-lsas/area-scope-lsa/ospfv3/body/link/" + prefixList.EntityData.SegmentPath
     prefixList.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     prefixList.EntityData.NamespaceTable = ietf.GetNamespaces()
     prefixList.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -3904,6 +4015,7 @@ func (intraAreaPrefix *RoutingState_RoutingInstance_RoutingProtocols_RoutingProt
     intraAreaPrefix.EntityData.BundleName = "ietf"
     intraAreaPrefix.EntityData.ParentYangName = "body"
     intraAreaPrefix.EntityData.SegmentPath = "intra-area-prefix"
+    intraAreaPrefix.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/area/area-scope-lsas/area-scope-lsa/ospfv3/body/" + intraAreaPrefix.EntityData.SegmentPath
     intraAreaPrefix.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     intraAreaPrefix.EntityData.NamespaceTable = ietf.GetNamespaces()
     intraAreaPrefix.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -3929,6 +4041,7 @@ func (intraAreaPrefix *RoutingState_RoutingInstance_RoutingProtocols_RoutingProt
 type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_AreaScopeLsas_AreaScopeLsa_Ospfv3_Body_IntraAreaPrefix_PrefixList struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Prefix. The type is string.
     Prefix interface{}
@@ -3946,6 +4059,7 @@ func (prefixList *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_
     prefixList.EntityData.BundleName = "ietf"
     prefixList.EntityData.ParentYangName = "intra-area-prefix"
     prefixList.EntityData.SegmentPath = "prefix-list" + types.AddKeyToken(prefixList.Prefix, "prefix")
+    prefixList.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/area/area-scope-lsas/area-scope-lsa/ospfv3/body/intra-area-prefix/" + prefixList.EntityData.SegmentPath
     prefixList.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     prefixList.EntityData.NamespaceTable = ietf.GetNamespaces()
     prefixList.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -3966,6 +4080,7 @@ func (prefixList *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_
 type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_AsScopeLsas struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. OSPF AS scope LSA type. The type is interface{}
     // with range: 0..255.
@@ -3982,6 +4097,7 @@ func (asScopeLsas *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol
     asScopeLsas.EntityData.BundleName = "ietf"
     asScopeLsas.EntityData.ParentYangName = "instance"
     asScopeLsas.EntityData.SegmentPath = "as-scope-lsas" + types.AddKeyToken(asScopeLsas.LsaType, "lsa-type")
+    asScopeLsas.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/" + asScopeLsas.EntityData.SegmentPath
     asScopeLsas.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     asScopeLsas.EntityData.NamespaceTable = ietf.GetNamespaces()
     asScopeLsas.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -4004,6 +4120,7 @@ func (asScopeLsas *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol
 type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_AsScopeLsas_AsScopeLsa struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. LSA ID. The type is one of the following types:
     // string with pattern:
@@ -4036,6 +4153,7 @@ func (asScopeLsa *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_
     asScopeLsa.EntityData.BundleName = "ietf"
     asScopeLsa.EntityData.ParentYangName = "as-scope-lsas"
     asScopeLsa.EntityData.SegmentPath = "as-scope-lsa" + types.AddKeyToken(asScopeLsa.LsaId, "lsa-id") + types.AddKeyToken(asScopeLsa.AdvRouter, "adv-router")
+    asScopeLsa.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/as-scope-lsas/" + asScopeLsa.EntityData.SegmentPath
     asScopeLsa.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     asScopeLsa.EntityData.NamespaceTable = ietf.GetNamespaces()
     asScopeLsa.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -4073,6 +4191,7 @@ func (ospfv2 *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf
     ospfv2.EntityData.BundleName = "ietf"
     ospfv2.EntityData.ParentYangName = "as-scope-lsa"
     ospfv2.EntityData.SegmentPath = "ospfv2"
+    ospfv2.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/as-scope-lsas/as-scope-lsa/" + ospfv2.EntityData.SegmentPath
     ospfv2.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     ospfv2.EntityData.NamespaceTable = ietf.GetNamespaces()
     ospfv2.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -4139,6 +4258,7 @@ func (header *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf
     header.EntityData.BundleName = "ietf"
     header.EntityData.ParentYangName = "ospfv2"
     header.EntityData.SegmentPath = "header"
+    header.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/as-scope-lsas/as-scope-lsa/ospfv2/" + header.EntityData.SegmentPath
     header.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     header.EntityData.NamespaceTable = ietf.GetNamespaces()
     header.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -4189,6 +4309,7 @@ func (body *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_I
     body.EntityData.BundleName = "ietf"
     body.EntityData.ParentYangName = "ospfv2"
     body.EntityData.SegmentPath = "body"
+    body.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/as-scope-lsas/as-scope-lsa/ospfv2/" + body.EntityData.SegmentPath
     body.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     body.EntityData.NamespaceTable = ietf.GetNamespaces()
     body.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -4229,6 +4350,7 @@ func (router *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf
     router.EntityData.BundleName = "ietf"
     router.EntityData.ParentYangName = "body"
     router.EntityData.SegmentPath = "router"
+    router.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/as-scope-lsas/as-scope-lsa/ospfv2/body/" + router.EntityData.SegmentPath
     router.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     router.EntityData.NamespaceTable = ietf.GetNamespaces()
     router.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -4252,6 +4374,7 @@ func (router *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf
 type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_AsScopeLsas_AsScopeLsa_Ospfv2_Body_Router_Link struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Link ID. The type is one of the following types:
     // string with pattern:
@@ -4280,6 +4403,7 @@ func (link *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_I
     link.EntityData.BundleName = "ietf"
     link.EntityData.ParentYangName = "router"
     link.EntityData.SegmentPath = "link" + types.AddKeyToken(link.LinkId, "link-id") + types.AddKeyToken(link.LinkData, "link-data")
+    link.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/as-scope-lsas/as-scope-lsa/ospfv2/body/router/" + link.EntityData.SegmentPath
     link.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     link.EntityData.NamespaceTable = ietf.GetNamespaces()
     link.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -4304,6 +4428,7 @@ func (link *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_I
 type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_AsScopeLsas_AsScopeLsa_Ospfv2_Body_Router_Link_Topology struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The MT-ID for topology enabled on the link. The
     // type is interface{} with range: 0..255.
@@ -4319,6 +4444,7 @@ func (topology *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Os
     topology.EntityData.BundleName = "ietf"
     topology.EntityData.ParentYangName = "link"
     topology.EntityData.SegmentPath = "topology" + types.AddKeyToken(topology.MtId, "mt-id")
+    topology.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/as-scope-lsas/as-scope-lsa/ospfv2/body/router/link/" + topology.EntityData.SegmentPath
     topology.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     topology.EntityData.NamespaceTable = ietf.GetNamespaces()
     topology.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -4355,6 +4481,7 @@ func (network *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Osp
     network.EntityData.BundleName = "ietf"
     network.EntityData.ParentYangName = "body"
     network.EntityData.SegmentPath = "network"
+    network.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/as-scope-lsas/as-scope-lsa/ospfv2/body/" + network.EntityData.SegmentPath
     network.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     network.EntityData.NamespaceTable = ietf.GetNamespaces()
     network.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -4390,6 +4517,7 @@ func (summary *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Osp
     summary.EntityData.BundleName = "ietf"
     summary.EntityData.ParentYangName = "body"
     summary.EntityData.SegmentPath = "summary"
+    summary.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/as-scope-lsas/as-scope-lsa/ospfv2/body/" + summary.EntityData.SegmentPath
     summary.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     summary.EntityData.NamespaceTable = ietf.GetNamespaces()
     summary.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -4412,6 +4540,7 @@ func (summary *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Osp
 type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_AsScopeLsas_AsScopeLsa_Ospfv2_Body_Summary_Topology struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The MT-ID for topology enabled on the link. The
     // type is interface{} with range: 0..255.
@@ -4427,6 +4556,7 @@ func (topology *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Os
     topology.EntityData.BundleName = "ietf"
     topology.EntityData.ParentYangName = "summary"
     topology.EntityData.SegmentPath = "topology" + types.AddKeyToken(topology.MtId, "mt-id")
+    topology.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/as-scope-lsas/as-scope-lsa/ospfv2/body/summary/" + topology.EntityData.SegmentPath
     topology.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     topology.EntityData.NamespaceTable = ietf.GetNamespaces()
     topology.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -4462,6 +4592,7 @@ func (external *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Os
     external.EntityData.BundleName = "ietf"
     external.EntityData.ParentYangName = "body"
     external.EntityData.SegmentPath = "external"
+    external.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/as-scope-lsas/as-scope-lsa/ospfv2/body/" + external.EntityData.SegmentPath
     external.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     external.EntityData.NamespaceTable = ietf.GetNamespaces()
     external.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -4484,6 +4615,7 @@ func (external *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Os
 type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_AsScopeLsas_AsScopeLsa_Ospfv2_Body_External_Topology struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The MT-ID for topology enabled on the link. The
     // type is interface{} with range: 0..255.
@@ -4509,6 +4641,7 @@ func (topology *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Os
     topology.EntityData.BundleName = "ietf"
     topology.EntityData.ParentYangName = "external"
     topology.EntityData.SegmentPath = "topology" + types.AddKeyToken(topology.MtId, "mt-id")
+    topology.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/as-scope-lsas/as-scope-lsa/ospfv2/body/external/" + topology.EntityData.SegmentPath
     topology.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     topology.EntityData.NamespaceTable = ietf.GetNamespaces()
     topology.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -4549,6 +4682,7 @@ func (opaque *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf
     opaque.EntityData.BundleName = "ietf"
     opaque.EntityData.ParentYangName = "body"
     opaque.EntityData.SegmentPath = "opaque"
+    opaque.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/as-scope-lsas/as-scope-lsa/ospfv2/body/" + opaque.EntityData.SegmentPath
     opaque.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     opaque.EntityData.NamespaceTable = ietf.GetNamespaces()
     opaque.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -4572,6 +4706,7 @@ func (opaque *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf
 type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_AsScopeLsas_AsScopeLsa_Ospfv2_Body_Opaque_UnknownTlv struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. TLV type. The type is interface{} with range:
     // 0..65535.
@@ -4591,6 +4726,7 @@ func (unknownTlv *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_
     unknownTlv.EntityData.BundleName = "ietf"
     unknownTlv.EntityData.ParentYangName = "opaque"
     unknownTlv.EntityData.SegmentPath = "unknown-tlv" + types.AddKeyToken(unknownTlv.Type, "type")
+    unknownTlv.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/as-scope-lsas/as-scope-lsa/ospfv2/body/opaque/" + unknownTlv.EntityData.SegmentPath
     unknownTlv.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     unknownTlv.EntityData.NamespaceTable = ietf.GetNamespaces()
     unknownTlv.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -4623,6 +4759,7 @@ func (routerAddressTlv *RoutingState_RoutingInstance_RoutingProtocols_RoutingPro
     routerAddressTlv.EntityData.BundleName = "ietf"
     routerAddressTlv.EntityData.ParentYangName = "opaque"
     routerAddressTlv.EntityData.SegmentPath = "router-address-tlv"
+    routerAddressTlv.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/as-scope-lsas/as-scope-lsa/ospfv2/body/opaque/" + routerAddressTlv.EntityData.SegmentPath
     routerAddressTlv.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     routerAddressTlv.EntityData.NamespaceTable = ietf.GetNamespaces()
     routerAddressTlv.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -4693,6 +4830,7 @@ func (linkTlv *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Osp
     linkTlv.EntityData.BundleName = "ietf"
     linkTlv.EntityData.ParentYangName = "opaque"
     linkTlv.EntityData.SegmentPath = "link-tlv"
+    linkTlv.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/as-scope-lsas/as-scope-lsa/ospfv2/body/opaque/" + linkTlv.EntityData.SegmentPath
     linkTlv.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     linkTlv.EntityData.NamespaceTable = ietf.GetNamespaces()
     linkTlv.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -4723,6 +4861,7 @@ func (linkTlv *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Osp
 type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_AsScopeLsas_AsScopeLsa_Ospfv2_Body_Opaque_LinkTlv_UnknownSubtlv struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. TLV type. The type is interface{} with range:
     // 0..65535.
@@ -4742,6 +4881,7 @@ func (unknownSubtlv *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtoc
     unknownSubtlv.EntityData.BundleName = "ietf"
     unknownSubtlv.EntityData.ParentYangName = "link-tlv"
     unknownSubtlv.EntityData.SegmentPath = "unknown-subtlv" + types.AddKeyToken(unknownSubtlv.Type, "type")
+    unknownSubtlv.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/as-scope-lsas/as-scope-lsa/ospfv2/body/opaque/link-tlv/" + unknownSubtlv.EntityData.SegmentPath
     unknownSubtlv.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     unknownSubtlv.EntityData.NamespaceTable = ietf.GetNamespaces()
     unknownSubtlv.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -4776,6 +4916,7 @@ func (ospfv3 *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf
     ospfv3.EntityData.BundleName = "ietf"
     ospfv3.EntityData.ParentYangName = "as-scope-lsa"
     ospfv3.EntityData.SegmentPath = "ospfv3"
+    ospfv3.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/as-scope-lsas/as-scope-lsa/" + ospfv3.EntityData.SegmentPath
     ospfv3.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     ospfv3.EntityData.NamespaceTable = ietf.GetNamespaces()
     ospfv3.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -4834,6 +4975,7 @@ func (header *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf
     header.EntityData.BundleName = "ietf"
     header.EntityData.ParentYangName = "ospfv3"
     header.EntityData.SegmentPath = "header"
+    header.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/as-scope-lsas/as-scope-lsa/ospfv3/" + header.EntityData.SegmentPath
     header.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     header.EntityData.NamespaceTable = ietf.GetNamespaces()
     header.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -4891,6 +5033,7 @@ func (body *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_I
     body.EntityData.BundleName = "ietf"
     body.EntityData.ParentYangName = "ospfv3"
     body.EntityData.SegmentPath = "body"
+    body.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/as-scope-lsas/as-scope-lsa/ospfv3/" + body.EntityData.SegmentPath
     body.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     body.EntityData.NamespaceTable = ietf.GetNamespaces()
     body.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -4935,6 +5078,7 @@ func (router *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf
     router.EntityData.BundleName = "ietf"
     router.EntityData.ParentYangName = "body"
     router.EntityData.SegmentPath = "router"
+    router.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/as-scope-lsas/as-scope-lsa/ospfv3/body/" + router.EntityData.SegmentPath
     router.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     router.EntityData.NamespaceTable = ietf.GetNamespaces()
     router.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -4958,6 +5102,7 @@ func (router *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf
 type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_AsScopeLsas_AsScopeLsa_Ospfv3_Body_Router_Link struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface ID. The type is interface{} with range:
     // 0..4294967295.
@@ -4985,6 +5130,7 @@ func (link *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_I
     link.EntityData.BundleName = "ietf"
     link.EntityData.ParentYangName = "router"
     link.EntityData.SegmentPath = "link" + types.AddKeyToken(link.InterfaceId, "interface-id") + types.AddKeyToken(link.NeighborInterfaceId, "neighbor-interface-id") + types.AddKeyToken(link.NeighborRouterId, "neighbor-router-id")
+    link.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/as-scope-lsas/as-scope-lsa/ospfv3/body/router/" + link.EntityData.SegmentPath
     link.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     link.EntityData.NamespaceTable = ietf.GetNamespaces()
     link.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -5024,6 +5170,7 @@ func (network *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Osp
     network.EntityData.BundleName = "ietf"
     network.EntityData.ParentYangName = "body"
     network.EntityData.SegmentPath = "network"
+    network.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/as-scope-lsas/as-scope-lsa/ospfv3/body/" + network.EntityData.SegmentPath
     network.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     network.EntityData.NamespaceTable = ietf.GetNamespaces()
     network.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -5060,6 +5207,7 @@ func (interAreaPrefix *RoutingState_RoutingInstance_RoutingProtocols_RoutingProt
     interAreaPrefix.EntityData.BundleName = "ietf"
     interAreaPrefix.EntityData.ParentYangName = "body"
     interAreaPrefix.EntityData.SegmentPath = "inter-area-prefix"
+    interAreaPrefix.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/as-scope-lsas/as-scope-lsa/ospfv3/body/" + interAreaPrefix.EntityData.SegmentPath
     interAreaPrefix.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     interAreaPrefix.EntityData.NamespaceTable = ietf.GetNamespaces()
     interAreaPrefix.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -5100,6 +5248,7 @@ func (interAreaRouter *RoutingState_RoutingInstance_RoutingProtocols_RoutingProt
     interAreaRouter.EntityData.BundleName = "ietf"
     interAreaRouter.EntityData.ParentYangName = "body"
     interAreaRouter.EntityData.SegmentPath = "inter-area-router"
+    interAreaRouter.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/as-scope-lsas/as-scope-lsa/ospfv3/body/" + interAreaRouter.EntityData.SegmentPath
     interAreaRouter.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     interAreaRouter.EntityData.NamespaceTable = ietf.GetNamespaces()
     interAreaRouter.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -5154,6 +5303,7 @@ func (asExternal *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_
     asExternal.EntityData.BundleName = "ietf"
     asExternal.EntityData.ParentYangName = "body"
     asExternal.EntityData.SegmentPath = "as-external"
+    asExternal.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/as-scope-lsas/as-scope-lsa/ospfv3/body/" + asExternal.EntityData.SegmentPath
     asExternal.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     asExternal.EntityData.NamespaceTable = ietf.GetNamespaces()
     asExternal.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -5213,6 +5363,7 @@ func (nssa *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_I
     nssa.EntityData.BundleName = "ietf"
     nssa.EntityData.ParentYangName = "body"
     nssa.EntityData.SegmentPath = "nssa"
+    nssa.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/as-scope-lsas/as-scope-lsa/ospfv3/body/" + nssa.EntityData.SegmentPath
     nssa.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     nssa.EntityData.NamespaceTable = ietf.GetNamespaces()
     nssa.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -5268,6 +5419,7 @@ func (link *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_I
     link.EntityData.BundleName = "ietf"
     link.EntityData.ParentYangName = "body"
     link.EntityData.SegmentPath = "link"
+    link.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/as-scope-lsas/as-scope-lsa/ospfv3/body/" + link.EntityData.SegmentPath
     link.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     link.EntityData.NamespaceTable = ietf.GetNamespaces()
     link.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -5293,6 +5445,7 @@ func (link *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_I
 type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_AsScopeLsas_AsScopeLsa_Ospfv3_Body_Link_PrefixList struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Prefix. The type is string.
     Prefix interface{}
@@ -5307,6 +5460,7 @@ func (prefixList *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_
     prefixList.EntityData.BundleName = "ietf"
     prefixList.EntityData.ParentYangName = "link"
     prefixList.EntityData.SegmentPath = "prefix-list" + types.AddKeyToken(prefixList.Prefix, "prefix")
+    prefixList.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/as-scope-lsas/as-scope-lsa/ospfv3/body/link/" + prefixList.EntityData.SegmentPath
     prefixList.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     prefixList.EntityData.NamespaceTable = ietf.GetNamespaces()
     prefixList.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -5352,6 +5506,7 @@ func (intraAreaPrefix *RoutingState_RoutingInstance_RoutingProtocols_RoutingProt
     intraAreaPrefix.EntityData.BundleName = "ietf"
     intraAreaPrefix.EntityData.ParentYangName = "body"
     intraAreaPrefix.EntityData.SegmentPath = "intra-area-prefix"
+    intraAreaPrefix.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/as-scope-lsas/as-scope-lsa/ospfv3/body/" + intraAreaPrefix.EntityData.SegmentPath
     intraAreaPrefix.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     intraAreaPrefix.EntityData.NamespaceTable = ietf.GetNamespaces()
     intraAreaPrefix.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -5377,6 +5532,7 @@ func (intraAreaPrefix *RoutingState_RoutingInstance_RoutingProtocols_RoutingProt
 type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_AsScopeLsas_AsScopeLsa_Ospfv3_Body_IntraAreaPrefix_PrefixList struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Prefix. The type is string.
     Prefix interface{}
@@ -5394,6 +5550,7 @@ func (prefixList *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_
     prefixList.EntityData.BundleName = "ietf"
     prefixList.EntityData.ParentYangName = "intra-area-prefix"
     prefixList.EntityData.SegmentPath = "prefix-list" + types.AddKeyToken(prefixList.Prefix, "prefix")
+    prefixList.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/as-scope-lsas/as-scope-lsa/ospfv3/body/intra-area-prefix/" + prefixList.EntityData.SegmentPath
     prefixList.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     prefixList.EntityData.NamespaceTable = ietf.GetNamespaces()
     prefixList.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -5414,6 +5571,7 @@ func (prefixList *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_
 type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Topology struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. RIB. The type is string. Refers to
     // routing.Routing_RoutingInstance_Ribs_Rib_Name
@@ -5430,6 +5588,7 @@ func (topology *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Os
     topology.EntityData.BundleName = "ietf"
     topology.EntityData.ParentYangName = "instance"
     topology.EntityData.SegmentPath = "topology" + types.AddKeyToken(topology.Name, "name")
+    topology.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/" + topology.EntityData.SegmentPath
     topology.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     topology.EntityData.NamespaceTable = ietf.GetNamespaces()
     topology.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -5452,6 +5611,7 @@ func (topology *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Os
 type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Topology_Area struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Area ID. The type is one of the following types:
     // int with range: 0..4294967295, or string with pattern:
@@ -5465,6 +5625,7 @@ func (area *RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_I
     area.EntityData.BundleName = "ietf"
     area.EntityData.ParentYangName = "topology"
     area.EntityData.SegmentPath = "area" + types.AddKeyToken(area.AreaId, "area-id")
+    area.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/topology/" + area.EntityData.SegmentPath
     area.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     area.EntityData.NamespaceTable = ietf.GetNamespaces()
     area.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -5498,6 +5659,7 @@ func (ribs *RoutingState_RoutingInstance_Ribs) GetEntityData() *types.CommonEnti
     ribs.EntityData.BundleName = "ietf"
     ribs.EntityData.ParentYangName = "routing-instance"
     ribs.EntityData.SegmentPath = "ribs"
+    ribs.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/" + ribs.EntityData.SegmentPath
     ribs.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     ribs.EntityData.NamespaceTable = ietf.GetNamespaces()
     ribs.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -5525,6 +5687,7 @@ func (ribs *RoutingState_RoutingInstance_Ribs) GetEntityData() *types.CommonEnti
 type RoutingState_RoutingInstance_Ribs_Rib struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The name of the RIB. The type is string.
     Name interface{}
@@ -5549,6 +5712,7 @@ func (rib *RoutingState_RoutingInstance_Ribs_Rib) GetEntityData() *types.CommonE
     rib.EntityData.BundleName = "ietf"
     rib.EntityData.ParentYangName = "ribs"
     rib.EntityData.SegmentPath = "rib" + types.AddKeyToken(rib.Name, "name")
+    rib.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/ribs/" + rib.EntityData.SegmentPath
     rib.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     rib.EntityData.NamespaceTable = ietf.GetNamespaces()
     rib.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -5583,6 +5747,7 @@ func (routes *RoutingState_RoutingInstance_Ribs_Rib_Routes) GetEntityData() *typ
     routes.EntityData.BundleName = "ietf"
     routes.EntityData.ParentYangName = "rib"
     routes.EntityData.SegmentPath = "routes"
+    routes.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/ribs/rib/" + routes.EntityData.SegmentPath
     routes.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     routes.EntityData.NamespaceTable = ietf.GetNamespaces()
     routes.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -5606,6 +5771,7 @@ func (routes *RoutingState_RoutingInstance_Ribs_Rib_Routes) GetEntityData() *typ
 type RoutingState_RoutingInstance_Ribs_Rib_Routes_Route struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Destination IP address with prefix. The type is
     // string.
@@ -5656,6 +5822,7 @@ func (route *RoutingState_RoutingInstance_Ribs_Rib_Routes_Route) GetEntityData()
     route.EntityData.BundleName = "ietf"
     route.EntityData.ParentYangName = "routes"
     route.EntityData.SegmentPath = "route" + types.AddKeyToken(route.DestinationPrefix, "destination-prefix")
+    route.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/ribs/rib/routes/" + route.EntityData.SegmentPath
     route.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     route.EntityData.NamespaceTable = ietf.GetNamespaces()
     route.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -5700,6 +5867,7 @@ func (nextHop *RoutingState_RoutingInstance_Ribs_Rib_Routes_Route_NextHop) GetEn
     nextHop.EntityData.BundleName = "ietf"
     nextHop.EntityData.ParentYangName = "route"
     nextHop.EntityData.SegmentPath = "next-hop"
+    nextHop.EntityData.AbsolutePath = "ietf-routing:routing-state/routing-instance/ribs/rib/routes/route/" + nextHop.EntityData.SegmentPath
     nextHop.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     nextHop.EntityData.NamespaceTable = ietf.GetNamespaces()
     nextHop.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -5776,6 +5944,7 @@ func (routing *Routing) GetEntityData() *types.CommonEntityData {
     routing.EntityData.BundleName = "ietf"
     routing.EntityData.ParentYangName = "ietf-routing"
     routing.EntityData.SegmentPath = "ietf-routing:routing"
+    routing.EntityData.AbsolutePath = routing.EntityData.SegmentPath
     routing.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     routing.EntityData.NamespaceTable = ietf.GetNamespaces()
     routing.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -5797,6 +5966,7 @@ func (routing *Routing) GetEntityData() *types.CommonEntityData {
 type Routing_RoutingInstance struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The name of the routing instance.  For
     // system-controlled entries, the value of this leaf must be the same as the
@@ -5839,6 +6009,7 @@ func (routingInstance *Routing_RoutingInstance) GetEntityData() *types.CommonEnt
     routingInstance.EntityData.BundleName = "ietf"
     routingInstance.EntityData.ParentYangName = "routing"
     routingInstance.EntityData.SegmentPath = "routing-instance" + types.AddKeyToken(routingInstance.Name, "name")
+    routingInstance.EntityData.AbsolutePath = "ietf-routing:routing/" + routingInstance.EntityData.SegmentPath
     routingInstance.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     routingInstance.EntityData.NamespaceTable = ietf.GetNamespaces()
     routingInstance.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -5877,6 +6048,7 @@ func (interfaces *Routing_RoutingInstance_Interfaces) GetEntityData() *types.Com
     interfaces.EntityData.BundleName = "ietf"
     interfaces.EntityData.ParentYangName = "routing-instance"
     interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.AbsolutePath = "ietf-routing:routing/routing-instance/" + interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     interfaces.EntityData.NamespaceTable = ietf.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -5907,6 +6079,7 @@ func (routingProtocols *Routing_RoutingInstance_RoutingProtocols) GetEntityData(
     routingProtocols.EntityData.BundleName = "ietf"
     routingProtocols.EntityData.ParentYangName = "routing-instance"
     routingProtocols.EntityData.SegmentPath = "routing-protocols"
+    routingProtocols.EntityData.AbsolutePath = "ietf-routing:routing/routing-instance/" + routingProtocols.EntityData.SegmentPath
     routingProtocols.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     routingProtocols.EntityData.NamespaceTable = ietf.GetNamespaces()
     routingProtocols.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -5929,6 +6102,7 @@ func (routingProtocols *Routing_RoutingInstance_RoutingProtocols) GetEntityData(
 type Routing_RoutingInstance_RoutingProtocols_RoutingProtocol struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Type of the routing protocol - an identity derived
     // from the 'routing-protocol' base identity. The type is one of the
@@ -5956,6 +6130,7 @@ func (routingProtocol *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol)
     routingProtocol.EntityData.BundleName = "ietf"
     routingProtocol.EntityData.ParentYangName = "routing-protocols"
     routingProtocol.EntityData.SegmentPath = "routing-protocol" + types.AddKeyToken(routingProtocol.Type, "type") + types.AddKeyToken(routingProtocol.Name, "name")
+    routingProtocol.EntityData.AbsolutePath = "ietf-routing:routing/routing-instance/routing-protocols/" + routingProtocol.EntityData.SegmentPath
     routingProtocol.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     routingProtocol.EntityData.NamespaceTable = ietf.GetNamespaces()
     routingProtocol.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -5997,6 +6172,7 @@ func (staticRoutes *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Sta
     staticRoutes.EntityData.BundleName = "ietf"
     staticRoutes.EntityData.ParentYangName = "routing-protocol"
     staticRoutes.EntityData.SegmentPath = "static-routes"
+    staticRoutes.EntityData.AbsolutePath = "ietf-routing:routing/routing-instance/routing-protocols/routing-protocol/" + staticRoutes.EntityData.SegmentPath
     staticRoutes.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     staticRoutes.EntityData.NamespaceTable = ietf.GetNamespaces()
     staticRoutes.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -6029,6 +6205,7 @@ func (ipv6 *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoute
     ipv6.EntityData.BundleName = "ietf"
     ipv6.EntityData.ParentYangName = "static-routes"
     ipv6.EntityData.SegmentPath = "ietf-ipv6-unicast-routing:ipv6"
+    ipv6.EntityData.AbsolutePath = "ietf-routing:routing/routing-instance/routing-protocols/routing-protocol/static-routes/" + ipv6.EntityData.SegmentPath
     ipv6.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     ipv6.EntityData.NamespaceTable = ietf.GetNamespaces()
     ipv6.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -6050,6 +6227,7 @@ func (ipv6 *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoute
 type Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv6_Route struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IPv6 destination prefix. The type is string with
     // pattern:
@@ -6070,6 +6248,7 @@ func (route *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRout
     route.EntityData.BundleName = "ietf"
     route.EntityData.ParentYangName = "ipv6"
     route.EntityData.SegmentPath = "route" + types.AddKeyToken(route.DestinationPrefix, "destination-prefix")
+    route.EntityData.AbsolutePath = "ietf-routing:routing/routing-instance/routing-protocols/routing-protocol/static-routes/ietf-ipv6-unicast-routing:ipv6/" + route.EntityData.SegmentPath
     route.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     route.EntityData.NamespaceTable = ietf.GetNamespaces()
     route.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -6108,6 +6287,7 @@ func (nextHop *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRo
     nextHop.EntityData.BundleName = "ietf"
     nextHop.EntityData.ParentYangName = "route"
     nextHop.EntityData.SegmentPath = "next-hop"
+    nextHop.EntityData.AbsolutePath = "ietf-routing:routing/routing-instance/routing-protocols/routing-protocol/static-routes/ietf-ipv6-unicast-routing:ipv6/route/" + nextHop.EntityData.SegmentPath
     nextHop.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     nextHop.EntityData.NamespaceTable = ietf.GetNamespaces()
     nextHop.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -6162,6 +6342,7 @@ func (ipv4 *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoute
     ipv4.EntityData.BundleName = "ietf"
     ipv4.EntityData.ParentYangName = "static-routes"
     ipv4.EntityData.SegmentPath = "ietf-ipv4-unicast-routing:ipv4"
+    ipv4.EntityData.AbsolutePath = "ietf-routing:routing/routing-instance/routing-protocols/routing-protocol/static-routes/" + ipv4.EntityData.SegmentPath
     ipv4.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     ipv4.EntityData.NamespaceTable = ietf.GetNamespaces()
     ipv4.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -6183,6 +6364,7 @@ func (ipv4 *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoute
 type Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv4_Route struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IPv4 destination prefix. The type is string with
     // pattern:
@@ -6203,6 +6385,7 @@ func (route *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRout
     route.EntityData.BundleName = "ietf"
     route.EntityData.ParentYangName = "ipv4"
     route.EntityData.SegmentPath = "route" + types.AddKeyToken(route.DestinationPrefix, "destination-prefix")
+    route.EntityData.AbsolutePath = "ietf-routing:routing/routing-instance/routing-protocols/routing-protocol/static-routes/ietf-ipv4-unicast-routing:ipv4/" + route.EntityData.SegmentPath
     route.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     route.EntityData.NamespaceTable = ietf.GetNamespaces()
     route.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -6241,6 +6424,7 @@ func (nextHop *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRo
     nextHop.EntityData.BundleName = "ietf"
     nextHop.EntityData.ParentYangName = "route"
     nextHop.EntityData.SegmentPath = "next-hop"
+    nextHop.EntityData.AbsolutePath = "ietf-routing:routing/routing-instance/routing-protocols/routing-protocol/static-routes/ietf-ipv4-unicast-routing:ipv4/route/" + nextHop.EntityData.SegmentPath
     nextHop.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     nextHop.EntityData.NamespaceTable = ietf.GetNamespaces()
     nextHop.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -6301,6 +6485,7 @@ func (ospf *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf) GetEn
     ospf.EntityData.BundleName = "ietf"
     ospf.EntityData.ParentYangName = "routing-protocol"
     ospf.EntityData.SegmentPath = "ietf-ospf:ospf"
+    ospf.EntityData.AbsolutePath = "ietf-routing:routing/routing-instance/routing-protocols/routing-protocol/" + ospf.EntityData.SegmentPath
     ospf.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     ospf.EntityData.NamespaceTable = ietf.GetNamespaces()
     ospf.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -6338,6 +6523,7 @@ func (allInstancesInherit *Routing_RoutingInstance_RoutingProtocols_RoutingProto
     allInstancesInherit.EntityData.BundleName = "ietf"
     allInstancesInherit.EntityData.ParentYangName = "ospf"
     allInstancesInherit.EntityData.SegmentPath = "all-instances-inherit"
+    allInstancesInherit.EntityData.AbsolutePath = "ietf-routing:routing/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/" + allInstancesInherit.EntityData.SegmentPath
     allInstancesInherit.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     allInstancesInherit.EntityData.NamespaceTable = ietf.GetNamespaces()
     allInstancesInherit.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -6366,6 +6552,7 @@ func (area *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_AllIns
     area.EntityData.BundleName = "ietf"
     area.EntityData.ParentYangName = "all-instances-inherit"
     area.EntityData.SegmentPath = "area"
+    area.EntityData.AbsolutePath = "ietf-routing:routing/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/all-instances-inherit/" + area.EntityData.SegmentPath
     area.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     area.EntityData.NamespaceTable = ietf.GetNamespaces()
     area.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -6392,6 +6579,7 @@ func (self *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_AllIns
     self.EntityData.BundleName = "ietf"
     self.EntityData.ParentYangName = "all-instances-inherit"
     self.EntityData.SegmentPath = "interface"
+    self.EntityData.AbsolutePath = "ietf-routing:routing/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/all-instances-inherit/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     self.EntityData.NamespaceTable = ietf.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -6409,6 +6597,7 @@ func (self *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_AllIns
 type Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Address-family of the instance. The type is one of
     // the following: Ipv4Ipv4UnicastIpv6Ipv6Unicast.
@@ -6467,6 +6656,7 @@ func (instance *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_In
     instance.EntityData.BundleName = "ietf"
     instance.EntityData.ParentYangName = "ospf"
     instance.EntityData.SegmentPath = "instance" + types.AddKeyToken(instance.Af, "af")
+    instance.EntityData.AbsolutePath = "ietf-routing:routing/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/" + instance.EntityData.SegmentPath
     instance.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     instance.EntityData.NamespaceTable = ietf.GetNamespaces()
     instance.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -6529,6 +6719,7 @@ func (adminDistance *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Os
     adminDistance.EntityData.BundleName = "ietf"
     adminDistance.EntityData.ParentYangName = "instance"
     adminDistance.EntityData.SegmentPath = "admin-distance"
+    adminDistance.EntityData.AbsolutePath = "ietf-routing:routing/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/" + adminDistance.EntityData.SegmentPath
     adminDistance.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     adminDistance.EntityData.NamespaceTable = ietf.GetNamespaces()
     adminDistance.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -6561,6 +6752,7 @@ func (nsr *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instanc
     nsr.EntityData.BundleName = "ietf"
     nsr.EntityData.ParentYangName = "instance"
     nsr.EntityData.SegmentPath = "nsr"
+    nsr.EntityData.AbsolutePath = "ietf-routing:routing/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/" + nsr.EntityData.SegmentPath
     nsr.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     nsr.EntityData.NamespaceTable = ietf.GetNamespaces()
     nsr.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -6601,6 +6793,7 @@ func (gracefulRestart *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_
     gracefulRestart.EntityData.BundleName = "ietf"
     gracefulRestart.EntityData.ParentYangName = "instance"
     gracefulRestart.EntityData.SegmentPath = "graceful-restart"
+    gracefulRestart.EntityData.AbsolutePath = "ietf-routing:routing/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/" + gracefulRestart.EntityData.SegmentPath
     gracefulRestart.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     gracefulRestart.EntityData.NamespaceTable = ietf.GetNamespaces()
     gracefulRestart.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -6637,6 +6830,7 @@ func (autoCost *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_In
     autoCost.EntityData.BundleName = "ietf"
     autoCost.EntityData.ParentYangName = "instance"
     autoCost.EntityData.SegmentPath = "auto-cost"
+    autoCost.EntityData.AbsolutePath = "ietf-routing:routing/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/" + autoCost.EntityData.SegmentPath
     autoCost.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     autoCost.EntityData.NamespaceTable = ietf.GetNamespaces()
     autoCost.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -6667,6 +6861,7 @@ func (spfControl *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_
     spfControl.EntityData.BundleName = "ietf"
     spfControl.EntityData.ParentYangName = "instance"
     spfControl.EntityData.SegmentPath = "spf-control"
+    spfControl.EntityData.AbsolutePath = "ietf-routing:routing/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/" + spfControl.EntityData.SegmentPath
     spfControl.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     spfControl.EntityData.NamespaceTable = ietf.GetNamespaces()
     spfControl.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -6697,6 +6892,7 @@ func (databaseControl *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_
     databaseControl.EntityData.BundleName = "ietf"
     databaseControl.EntityData.ParentYangName = "instance"
     databaseControl.EntityData.SegmentPath = "database-control"
+    databaseControl.EntityData.AbsolutePath = "ietf-routing:routing/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/" + databaseControl.EntityData.SegmentPath
     databaseControl.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     databaseControl.EntityData.NamespaceTable = ietf.GetNamespaces()
     databaseControl.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -6723,6 +6919,7 @@ func (reloadControl *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Os
     reloadControl.EntityData.BundleName = "ietf"
     reloadControl.EntityData.ParentYangName = "instance"
     reloadControl.EntityData.SegmentPath = "reload-control"
+    reloadControl.EntityData.AbsolutePath = "ietf-routing:routing/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/" + reloadControl.EntityData.SegmentPath
     reloadControl.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     reloadControl.EntityData.NamespaceTable = ietf.GetNamespaces()
     reloadControl.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -6754,6 +6951,7 @@ func (mpls *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instan
     mpls.EntityData.BundleName = "ietf"
     mpls.EntityData.ParentYangName = "instance"
     mpls.EntityData.SegmentPath = "mpls"
+    mpls.EntityData.AbsolutePath = "ietf-routing:routing/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/" + mpls.EntityData.SegmentPath
     mpls.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     mpls.EntityData.NamespaceTable = ietf.GetNamespaces()
     mpls.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -6789,6 +6987,7 @@ func (teRid *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Insta
     teRid.EntityData.BundleName = "ietf"
     teRid.EntityData.ParentYangName = "mpls"
     teRid.EntityData.SegmentPath = "te-rid"
+    teRid.EntityData.AbsolutePath = "ietf-routing:routing/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/mpls/" + teRid.EntityData.SegmentPath
     teRid.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     teRid.EntityData.NamespaceTable = ietf.GetNamespaces()
     teRid.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -6822,6 +7021,7 @@ func (ldp *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instanc
     ldp.EntityData.BundleName = "ietf"
     ldp.EntityData.ParentYangName = "mpls"
     ldp.EntityData.SegmentPath = "ldp"
+    ldp.EntityData.AbsolutePath = "ietf-routing:routing/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/mpls/" + ldp.EntityData.SegmentPath
     ldp.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     ldp.EntityData.NamespaceTable = ietf.GetNamespaces()
     ldp.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -6854,6 +7054,7 @@ func (fastReroute *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf
     fastReroute.EntityData.BundleName = "ietf"
     fastReroute.EntityData.ParentYangName = "instance"
     fastReroute.EntityData.SegmentPath = "fast-reroute"
+    fastReroute.EntityData.AbsolutePath = "ietf-routing:routing/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/" + fastReroute.EntityData.SegmentPath
     fastReroute.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     fastReroute.EntityData.NamespaceTable = ietf.GetNamespaces()
     fastReroute.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -6883,6 +7084,7 @@ func (lfa *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instanc
     lfa.EntityData.BundleName = "ietf"
     lfa.EntityData.ParentYangName = "fast-reroute"
     lfa.EntityData.SegmentPath = "lfa"
+    lfa.EntityData.AbsolutePath = "ietf-routing:routing/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/fast-reroute/" + lfa.EntityData.SegmentPath
     lfa.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     lfa.EntityData.NamespaceTable = ietf.GetNamespaces()
     lfa.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -6914,6 +7116,7 @@ func (allAreasInherit *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_
     allAreasInherit.EntityData.BundleName = "ietf"
     allAreasInherit.EntityData.ParentYangName = "instance"
     allAreasInherit.EntityData.SegmentPath = "all-areas-inherit"
+    allAreasInherit.EntityData.AbsolutePath = "ietf-routing:routing/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/" + allAreasInherit.EntityData.SegmentPath
     allAreasInherit.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     allAreasInherit.EntityData.NamespaceTable = ietf.GetNamespaces()
     allAreasInherit.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -6941,6 +7144,7 @@ func (area *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instan
     area.EntityData.BundleName = "ietf"
     area.EntityData.ParentYangName = "all-areas-inherit"
     area.EntityData.SegmentPath = "area"
+    area.EntityData.AbsolutePath = "ietf-routing:routing/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/all-areas-inherit/" + area.EntityData.SegmentPath
     area.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     area.EntityData.NamespaceTable = ietf.GetNamespaces()
     area.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -6967,6 +7171,7 @@ func (self *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instan
     self.EntityData.BundleName = "ietf"
     self.EntityData.ParentYangName = "all-areas-inherit"
     self.EntityData.SegmentPath = "interface"
+    self.EntityData.AbsolutePath = "ietf-routing:routing/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/all-areas-inherit/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     self.EntityData.NamespaceTable = ietf.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -6984,6 +7189,7 @@ func (self *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instan
 type Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Area ID. The type is one of the following types:
     // int with range: 0..4294967295, or string with pattern:
@@ -7029,6 +7235,7 @@ func (area *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instan
     area.EntityData.BundleName = "ietf"
     area.EntityData.ParentYangName = "instance"
     area.EntityData.SegmentPath = "area" + types.AddKeyToken(area.AreaId, "area-id")
+    area.EntityData.AbsolutePath = "ietf-routing:routing/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/" + area.EntityData.SegmentPath
     area.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     area.EntityData.NamespaceTable = ietf.GetNamespaces()
     area.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -7068,6 +7275,7 @@ func (area *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instan
 type Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_Range struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IPv4 or IPv6 prefix. The type is string.
     Prefix interface{}
@@ -7085,6 +7293,7 @@ func (self *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instan
     self.EntityData.BundleName = "ietf"
     self.EntityData.ParentYangName = "area"
     self.EntityData.SegmentPath = "range" + types.AddKeyToken(self.Prefix, "prefix")
+    self.EntityData.AbsolutePath = "ietf-routing:routing/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/area/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     self.EntityData.NamespaceTable = ietf.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -7116,6 +7325,7 @@ func (allInterfacesInherit *Routing_RoutingInstance_RoutingProtocols_RoutingProt
     allInterfacesInherit.EntityData.BundleName = "ietf"
     allInterfacesInherit.EntityData.ParentYangName = "area"
     allInterfacesInherit.EntityData.SegmentPath = "all-interfaces-inherit"
+    allInterfacesInherit.EntityData.AbsolutePath = "ietf-routing:routing/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/area/" + allInterfacesInherit.EntityData.SegmentPath
     allInterfacesInherit.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     allInterfacesInherit.EntityData.NamespaceTable = ietf.GetNamespaces()
     allInterfacesInherit.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -7143,6 +7353,7 @@ func (self *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instan
     self.EntityData.BundleName = "ietf"
     self.EntityData.ParentYangName = "all-interfaces-inherit"
     self.EntityData.SegmentPath = "interface"
+    self.EntityData.AbsolutePath = "ietf-routing:routing/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/area/all-interfaces-inherit/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     self.EntityData.NamespaceTable = ietf.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -7160,6 +7371,7 @@ func (self *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instan
 type Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_VirtualLink struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Virtual link router ID. The type is string with
     // pattern:
@@ -7214,6 +7426,7 @@ func (virtualLink *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf
     virtualLink.EntityData.BundleName = "ietf"
     virtualLink.EntityData.ParentYangName = "area"
     virtualLink.EntityData.SegmentPath = "virtual-link" + types.AddKeyToken(virtualLink.RouterId, "router-id")
+    virtualLink.EntityData.AbsolutePath = "ietf-routing:routing/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/area/" + virtualLink.EntityData.SegmentPath
     virtualLink.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     virtualLink.EntityData.NamespaceTable = ietf.GetNamespaces()
     virtualLink.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -7259,6 +7472,7 @@ func (ttlSecurity *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf
     ttlSecurity.EntityData.BundleName = "ietf"
     ttlSecurity.EntityData.ParentYangName = "virtual-link"
     ttlSecurity.EntityData.SegmentPath = "ttl-security"
+    ttlSecurity.EntityData.AbsolutePath = "ietf-routing:routing/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/area/virtual-link/" + ttlSecurity.EntityData.SegmentPath
     ttlSecurity.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     ttlSecurity.EntityData.NamespaceTable = ietf.GetNamespaces()
     ttlSecurity.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -7298,6 +7512,7 @@ func (authentication *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_O
     authentication.EntityData.BundleName = "ietf"
     authentication.EntityData.ParentYangName = "virtual-link"
     authentication.EntityData.SegmentPath = "authentication"
+    authentication.EntityData.AbsolutePath = "ietf-routing:routing/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/area/virtual-link/" + authentication.EntityData.SegmentPath
     authentication.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     authentication.EntityData.NamespaceTable = ietf.GetNamespaces()
     authentication.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -7351,6 +7566,7 @@ func (cryptoAlgorithm *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_
     cryptoAlgorithm.EntityData.BundleName = "ietf"
     cryptoAlgorithm.EntityData.ParentYangName = "authentication"
     cryptoAlgorithm.EntityData.SegmentPath = "crypto-algorithm"
+    cryptoAlgorithm.EntityData.AbsolutePath = "ietf-routing:routing/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/area/virtual-link/authentication/" + cryptoAlgorithm.EntityData.SegmentPath
     cryptoAlgorithm.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     cryptoAlgorithm.EntityData.NamespaceTable = ietf.GetNamespaces()
     cryptoAlgorithm.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -7376,6 +7592,7 @@ func (cryptoAlgorithm *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_
 type Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_ShamLink struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Address of the local end-point. The type is one of
     // the following types: string with pattern:
@@ -7439,6 +7656,7 @@ func (shamLink *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_In
     shamLink.EntityData.BundleName = "ietf"
     shamLink.EntityData.ParentYangName = "area"
     shamLink.EntityData.SegmentPath = "sham-link" + types.AddKeyToken(shamLink.LocalId, "local-id") + types.AddKeyToken(shamLink.RemoteId, "remote-id")
+    shamLink.EntityData.AbsolutePath = "ietf-routing:routing/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/area/" + shamLink.EntityData.SegmentPath
     shamLink.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     shamLink.EntityData.NamespaceTable = ietf.GetNamespaces()
     shamLink.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -7485,6 +7703,7 @@ func (ttlSecurity *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf
     ttlSecurity.EntityData.BundleName = "ietf"
     ttlSecurity.EntityData.ParentYangName = "sham-link"
     ttlSecurity.EntityData.SegmentPath = "ttl-security"
+    ttlSecurity.EntityData.AbsolutePath = "ietf-routing:routing/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/area/sham-link/" + ttlSecurity.EntityData.SegmentPath
     ttlSecurity.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     ttlSecurity.EntityData.NamespaceTable = ietf.GetNamespaces()
     ttlSecurity.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -7524,6 +7743,7 @@ func (authentication *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_O
     authentication.EntityData.BundleName = "ietf"
     authentication.EntityData.ParentYangName = "sham-link"
     authentication.EntityData.SegmentPath = "authentication"
+    authentication.EntityData.AbsolutePath = "ietf-routing:routing/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/area/sham-link/" + authentication.EntityData.SegmentPath
     authentication.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     authentication.EntityData.NamespaceTable = ietf.GetNamespaces()
     authentication.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -7577,6 +7797,7 @@ func (cryptoAlgorithm *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_
     cryptoAlgorithm.EntityData.BundleName = "ietf"
     cryptoAlgorithm.EntityData.ParentYangName = "authentication"
     cryptoAlgorithm.EntityData.SegmentPath = "crypto-algorithm"
+    cryptoAlgorithm.EntityData.AbsolutePath = "ietf-routing:routing/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/area/sham-link/authentication/" + cryptoAlgorithm.EntityData.SegmentPath
     cryptoAlgorithm.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     cryptoAlgorithm.EntityData.NamespaceTable = ietf.GetNamespaces()
     cryptoAlgorithm.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -7602,6 +7823,7 @@ func (cryptoAlgorithm *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_
 type Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface. The type is string. Refers to
     // interfaces.Interfaces_Interface_Name
@@ -7681,6 +7903,7 @@ func (self *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instan
     self.EntityData.BundleName = "ietf"
     self.EntityData.ParentYangName = "area"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.Interface, "interface")
+    self.EntityData.AbsolutePath = "ietf-routing:routing/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/area/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     self.EntityData.NamespaceTable = ietf.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -7739,6 +7962,7 @@ func (multiArea *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_I
     multiArea.EntityData.BundleName = "ietf"
     multiArea.EntityData.ParentYangName = "interface"
     multiArea.EntityData.SegmentPath = "multi-area"
+    multiArea.EntityData.AbsolutePath = "ietf-routing:routing/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/area/interface/" + multiArea.EntityData.SegmentPath
     multiArea.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     multiArea.EntityData.NamespaceTable = ietf.GetNamespaces()
     multiArea.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -7770,6 +7994,7 @@ func (staticNeighbors *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_
     staticNeighbors.EntityData.BundleName = "ietf"
     staticNeighbors.EntityData.ParentYangName = "interface"
     staticNeighbors.EntityData.SegmentPath = "static-neighbors"
+    staticNeighbors.EntityData.AbsolutePath = "ietf-routing:routing/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/area/interface/" + staticNeighbors.EntityData.SegmentPath
     staticNeighbors.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     staticNeighbors.EntityData.NamespaceTable = ietf.GetNamespaces()
     staticNeighbors.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -7791,6 +8016,7 @@ func (staticNeighbors *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_
 type Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_Interface_StaticNeighbors_Neighbor struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Neighbor IP address. The type is one of the
     // following types: string with pattern:
@@ -7817,6 +8043,7 @@ func (neighbor *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_In
     neighbor.EntityData.BundleName = "ietf"
     neighbor.EntityData.ParentYangName = "static-neighbors"
     neighbor.EntityData.SegmentPath = "neighbor" + types.AddKeyToken(neighbor.Address, "address")
+    neighbor.EntityData.AbsolutePath = "ietf-routing:routing/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/area/interface/static-neighbors/" + neighbor.EntityData.SegmentPath
     neighbor.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     neighbor.EntityData.NamespaceTable = ietf.GetNamespaces()
     neighbor.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -7849,6 +8076,7 @@ func (fastReroute *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf
     fastReroute.EntityData.BundleName = "ietf"
     fastReroute.EntityData.ParentYangName = "interface"
     fastReroute.EntityData.SegmentPath = "fast-reroute"
+    fastReroute.EntityData.AbsolutePath = "ietf-routing:routing/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/area/interface/" + fastReroute.EntityData.SegmentPath
     fastReroute.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     fastReroute.EntityData.NamespaceTable = ietf.GetNamespaces()
     fastReroute.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -7885,6 +8113,7 @@ func (lfa *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instanc
     lfa.EntityData.BundleName = "ietf"
     lfa.EntityData.ParentYangName = "fast-reroute"
     lfa.EntityData.SegmentPath = "lfa"
+    lfa.EntityData.AbsolutePath = "ietf-routing:routing/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/area/interface/fast-reroute/" + lfa.EntityData.SegmentPath
     lfa.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     lfa.EntityData.NamespaceTable = ietf.GetNamespaces()
     lfa.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -7916,6 +8145,7 @@ func (remoteLfa *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_I
     remoteLfa.EntityData.BundleName = "ietf"
     remoteLfa.EntityData.ParentYangName = "lfa"
     remoteLfa.EntityData.SegmentPath = "remote-lfa"
+    remoteLfa.EntityData.AbsolutePath = "ietf-routing:routing/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/area/interface/fast-reroute/lfa/" + remoteLfa.EntityData.SegmentPath
     remoteLfa.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     remoteLfa.EntityData.NamespaceTable = ietf.GetNamespaces()
     remoteLfa.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -7949,6 +8179,7 @@ func (ttlSecurity *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf
     ttlSecurity.EntityData.BundleName = "ietf"
     ttlSecurity.EntityData.ParentYangName = "interface"
     ttlSecurity.EntityData.SegmentPath = "ttl-security"
+    ttlSecurity.EntityData.AbsolutePath = "ietf-routing:routing/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/area/interface/" + ttlSecurity.EntityData.SegmentPath
     ttlSecurity.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     ttlSecurity.EntityData.NamespaceTable = ietf.GetNamespaces()
     ttlSecurity.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -7988,6 +8219,7 @@ func (authentication *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_O
     authentication.EntityData.BundleName = "ietf"
     authentication.EntityData.ParentYangName = "interface"
     authentication.EntityData.SegmentPath = "authentication"
+    authentication.EntityData.AbsolutePath = "ietf-routing:routing/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/area/interface/" + authentication.EntityData.SegmentPath
     authentication.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     authentication.EntityData.NamespaceTable = ietf.GetNamespaces()
     authentication.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -8041,6 +8273,7 @@ func (cryptoAlgorithm *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_
     cryptoAlgorithm.EntityData.BundleName = "ietf"
     cryptoAlgorithm.EntityData.ParentYangName = "authentication"
     cryptoAlgorithm.EntityData.SegmentPath = "crypto-algorithm"
+    cryptoAlgorithm.EntityData.AbsolutePath = "ietf-routing:routing/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/area/interface/authentication/" + cryptoAlgorithm.EntityData.SegmentPath
     cryptoAlgorithm.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     cryptoAlgorithm.EntityData.NamespaceTable = ietf.GetNamespaces()
     cryptoAlgorithm.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -8066,6 +8299,7 @@ func (cryptoAlgorithm *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_
 type Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area_Interface_Topology struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. One of the topology enabled on this interface. The
     // type is string. Refers to routing.Routing_RoutingInstance_Ribs_Rib_Name
@@ -8082,6 +8316,7 @@ func (topology *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_In
     topology.EntityData.BundleName = "ietf"
     topology.EntityData.ParentYangName = "interface"
     topology.EntityData.SegmentPath = "topology" + types.AddKeyToken(topology.Name, "name")
+    topology.EntityData.AbsolutePath = "ietf-routing:routing/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/area/interface/" + topology.EntityData.SegmentPath
     topology.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     topology.EntityData.NamespaceTable = ietf.GetNamespaces()
     topology.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -8119,6 +8354,7 @@ const (
 type Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Topology struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. RIB. The type is string. Refers to
     // routing.Routing_RoutingInstance_Ribs_Rib_Name
@@ -8135,6 +8371,7 @@ func (topology *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_In
     topology.EntityData.BundleName = "ietf"
     topology.EntityData.ParentYangName = "instance"
     topology.EntityData.SegmentPath = "topology" + types.AddKeyToken(topology.Name, "name")
+    topology.EntityData.AbsolutePath = "ietf-routing:routing/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/" + topology.EntityData.SegmentPath
     topology.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     topology.EntityData.NamespaceTable = ietf.GetNamespaces()
     topology.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -8157,6 +8394,7 @@ func (topology *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_In
 type Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Topology_Area struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Area ID. The type is one of the following types:
     // int with range: 0..4294967295, or string with pattern:
@@ -8187,6 +8425,7 @@ func (area *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instan
     area.EntityData.BundleName = "ietf"
     area.EntityData.ParentYangName = "topology"
     area.EntityData.SegmentPath = "area" + types.AddKeyToken(area.AreaId, "area-id")
+    area.EntityData.AbsolutePath = "ietf-routing:routing/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/topology/" + area.EntityData.SegmentPath
     area.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     area.EntityData.NamespaceTable = ietf.GetNamespaces()
     area.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -8213,6 +8452,7 @@ func (area *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instan
 type Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Topology_Area_Range struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IPv4 or IPv6 prefix. The type is string.
     Prefix interface{}
@@ -8230,6 +8470,7 @@ func (self *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instan
     self.EntityData.BundleName = "ietf"
     self.EntityData.ParentYangName = "area"
     self.EntityData.SegmentPath = "range" + types.AddKeyToken(self.Prefix, "prefix")
+    self.EntityData.AbsolutePath = "ietf-routing:routing/routing-instance/routing-protocols/routing-protocol/ietf-ospf:ospf/instance/topology/area/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     self.EntityData.NamespaceTable = ietf.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -8265,6 +8506,7 @@ func (ribs *Routing_RoutingInstance_Ribs) GetEntityData() *types.CommonEntityDat
     ribs.EntityData.BundleName = "ietf"
     ribs.EntityData.ParentYangName = "routing-instance"
     ribs.EntityData.SegmentPath = "ribs"
+    ribs.EntityData.AbsolutePath = "ietf-routing:routing/routing-instance/" + ribs.EntityData.SegmentPath
     ribs.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     ribs.EntityData.NamespaceTable = ietf.GetNamespaces()
     ribs.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -8292,6 +8534,7 @@ func (ribs *Routing_RoutingInstance_Ribs) GetEntityData() *types.CommonEntityDat
 type Routing_RoutingInstance_Ribs_Rib struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The name of the RIB.  For system-controlled
     // entries, the value of this leaf must be the same as the name of the
@@ -8313,6 +8556,7 @@ func (rib *Routing_RoutingInstance_Ribs_Rib) GetEntityData() *types.CommonEntity
     rib.EntityData.BundleName = "ietf"
     rib.EntityData.ParentYangName = "ribs"
     rib.EntityData.SegmentPath = "rib" + types.AddKeyToken(rib.Name, "name")
+    rib.EntityData.AbsolutePath = "ietf-routing:routing/routing-instance/ribs/" + rib.EntityData.SegmentPath
     rib.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     rib.EntityData.NamespaceTable = ietf.GetNamespaces()
     rib.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -8348,6 +8592,7 @@ func (fibRoute *FibRoute) GetEntityData() *types.CommonEntityData {
     fibRoute.EntityData.BundleName = "ietf"
     fibRoute.EntityData.ParentYangName = "ietf-routing"
     fibRoute.EntityData.SegmentPath = "ietf-routing:fib-route"
+    fibRoute.EntityData.AbsolutePath = fibRoute.EntityData.SegmentPath
     fibRoute.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     fibRoute.EntityData.NamespaceTable = ietf.GetNamespaces()
     fibRoute.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -8385,6 +8630,7 @@ func (input *FibRoute_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.BundleName = "ietf"
     input.EntityData.ParentYangName = "fib-route"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "ietf-routing:fib-route/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     input.EntityData.NamespaceTable = ietf.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -8427,6 +8673,7 @@ func (destinationAddress *FibRoute_Input_DestinationAddress) GetEntityData() *ty
     destinationAddress.EntityData.BundleName = "ietf"
     destinationAddress.EntityData.ParentYangName = "input"
     destinationAddress.EntityData.SegmentPath = "destination-address"
+    destinationAddress.EntityData.AbsolutePath = "ietf-routing:fib-route/input/" + destinationAddress.EntityData.SegmentPath
     destinationAddress.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     destinationAddress.EntityData.NamespaceTable = ietf.GetNamespaces()
     destinationAddress.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -8461,6 +8708,7 @@ func (output *FibRoute_Output) GetEntityData() *types.CommonEntityData {
     output.EntityData.BundleName = "ietf"
     output.EntityData.ParentYangName = "fib-route"
     output.EntityData.SegmentPath = "output"
+    output.EntityData.AbsolutePath = "ietf-routing:fib-route/" + output.EntityData.SegmentPath
     output.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     output.EntityData.NamespaceTable = ietf.GetNamespaces()
     output.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -8526,6 +8774,7 @@ func (route *FibRoute_Output_Route) GetEntityData() *types.CommonEntityData {
     route.EntityData.BundleName = "ietf"
     route.EntityData.ParentYangName = "output"
     route.EntityData.SegmentPath = "route"
+    route.EntityData.AbsolutePath = "ietf-routing:fib-route/output/" + route.EntityData.SegmentPath
     route.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     route.EntityData.NamespaceTable = ietf.GetNamespaces()
     route.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -8555,7 +8804,7 @@ type FibRoute_Output_Route_NextHop struct {
     OutgoingInterface interface{}
 
     // IP address. The type is string.
-    IetfRoutingNextHopAddress interface{}
+    NextHopAddress interface{}
 
     // IPv6 address of the next-hop. The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
@@ -8575,6 +8824,7 @@ func (nextHop *FibRoute_Output_Route_NextHop) GetEntityData() *types.CommonEntit
     nextHop.EntityData.BundleName = "ietf"
     nextHop.EntityData.ParentYangName = "route"
     nextHop.EntityData.SegmentPath = "next-hop"
+    nextHop.EntityData.AbsolutePath = "ietf-routing:fib-route/output/route/" + nextHop.EntityData.SegmentPath
     nextHop.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     nextHop.EntityData.NamespaceTable = ietf.GetNamespaces()
     nextHop.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -8582,7 +8832,7 @@ func (nextHop *FibRoute_Output_Route_NextHop) GetEntityData() *types.CommonEntit
     nextHop.EntityData.Children = types.NewOrderedMap()
     nextHop.EntityData.Leafs = types.NewOrderedMap()
     nextHop.EntityData.Leafs.Append("outgoing-interface", types.YLeaf{"OutgoingInterface", nextHop.OutgoingInterface})
-    nextHop.EntityData.Leafs.Append("next-hop-address", types.YLeaf{"IetfRoutingNextHopAddress", nextHop.IetfRoutingNextHopAddress})
+    nextHop.EntityData.Leafs.Append("next-hop-address", types.YLeaf{"NextHopAddress", nextHop.NextHopAddress})
     nextHop.EntityData.Leafs.Append("next-hop-address", types.YLeaf{"IetfIpv6UnicastRoutingNextHopAddress", nextHop.IetfIpv6UnicastRoutingNextHopAddress})
     nextHop.EntityData.Leafs.Append("next-hop-address", types.YLeaf{"IetfIpv4UnicastRoutingNextHopAddress", nextHop.IetfIpv4UnicastRoutingNextHopAddress})
     nextHop.EntityData.Leafs.Append("special-next-hop", types.YLeaf{"SpecialNextHop", nextHop.SpecialNextHop})

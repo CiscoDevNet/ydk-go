@@ -43,6 +43,7 @@ func (ipv6Telnet *Ipv6Telnet) GetEntityData() *types.CommonEntityData {
     ipv6Telnet.EntityData.BundleName = "cisco_ios_xr"
     ipv6Telnet.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-telnet-cfg"
     ipv6Telnet.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-telnet-cfg:ipv6-telnet"
+    ipv6Telnet.EntityData.AbsolutePath = ipv6Telnet.EntityData.SegmentPath
     ipv6Telnet.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6Telnet.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6Telnet.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -73,6 +74,7 @@ func (client *Ipv6Telnet_Client) GetEntityData() *types.CommonEntityData {
     client.EntityData.BundleName = "cisco_ios_xr"
     client.EntityData.ParentYangName = "ipv6-telnet"
     client.EntityData.SegmentPath = "client"
+    client.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-telnet-cfg:ipv6-telnet/" + client.EntityData.SegmentPath
     client.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     client.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     client.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -102,6 +104,7 @@ func (ipv4Telnet *Ipv4Telnet) GetEntityData() *types.CommonEntityData {
     ipv4Telnet.EntityData.BundleName = "cisco_ios_xr"
     ipv4Telnet.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-telnet-cfg"
     ipv4Telnet.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-telnet-cfg:ipv4-telnet"
+    ipv4Telnet.EntityData.AbsolutePath = ipv4Telnet.EntityData.SegmentPath
     ipv4Telnet.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4Telnet.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4Telnet.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -132,6 +135,7 @@ func (client *Ipv4Telnet_Client) GetEntityData() *types.CommonEntityData {
     client.EntityData.BundleName = "cisco_ios_xr"
     client.EntityData.ParentYangName = "ipv4-telnet"
     client.EntityData.SegmentPath = "client"
+    client.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-telnet-cfg:ipv4-telnet/" + client.EntityData.SegmentPath
     client.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     client.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     client.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

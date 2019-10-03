@@ -63,6 +63,7 @@ func (banners *Banners) GetEntityData() *types.CommonEntityData {
     banners.EntityData.BundleName = "cisco_ios_xr"
     banners.EntityData.ParentYangName = "Cisco-IOS-XR-infra-infra-cfg"
     banners.EntityData.SegmentPath = "Cisco-IOS-XR-infra-infra-cfg:banners"
+    banners.EntityData.AbsolutePath = banners.EntityData.SegmentPath
     banners.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     banners.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     banners.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -84,6 +85,7 @@ func (banners *Banners) GetEntityData() *types.CommonEntityData {
 type Banners_Banner struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Banner Type. The type is Banner.
     BannerName interface{}
@@ -98,6 +100,7 @@ func (banner *Banners_Banner) GetEntityData() *types.CommonEntityData {
     banner.EntityData.BundleName = "cisco_ios_xr"
     banner.EntityData.ParentYangName = "banners"
     banner.EntityData.SegmentPath = "banner" + types.AddKeyToken(banner.BannerName, "banner-name")
+    banner.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-infra-cfg:banners/" + banner.EntityData.SegmentPath
     banner.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     banner.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     banner.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

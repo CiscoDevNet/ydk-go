@@ -43,6 +43,7 @@ func (mediaSvr *MediaSvr) GetEntityData() *types.CommonEntityData {
     mediaSvr.EntityData.BundleName = "cisco_ios_xr"
     mediaSvr.EntityData.ParentYangName = "Cisco-IOS-XR-mediasvr-linux-oper"
     mediaSvr.EntityData.SegmentPath = "Cisco-IOS-XR-mediasvr-linux-oper:media-svr"
+    mediaSvr.EntityData.AbsolutePath = mediaSvr.EntityData.SegmentPath
     mediaSvr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mediaSvr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mediaSvr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -73,6 +74,7 @@ func (all *MediaSvr_All) GetEntityData() *types.CommonEntityData {
     all.EntityData.BundleName = "cisco_ios_xr"
     all.EntityData.ParentYangName = "media-svr"
     all.EntityData.SegmentPath = "all"
+    all.EntityData.AbsolutePath = "Cisco-IOS-XR-mediasvr-linux-oper:media-svr/" + all.EntityData.SegmentPath
     all.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     all.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     all.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -103,6 +105,7 @@ func (locationDescriptions *MediaSvr_LocationDescriptions) GetEntityData() *type
     locationDescriptions.EntityData.BundleName = "cisco_ios_xr"
     locationDescriptions.EntityData.ParentYangName = "media-svr"
     locationDescriptions.EntityData.SegmentPath = "location-descriptions"
+    locationDescriptions.EntityData.AbsolutePath = "Cisco-IOS-XR-mediasvr-linux-oper:media-svr/" + locationDescriptions.EntityData.SegmentPath
     locationDescriptions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     locationDescriptions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     locationDescriptions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -124,6 +127,7 @@ func (locationDescriptions *MediaSvr_LocationDescriptions) GetEntityData() *type
 type MediaSvr_LocationDescriptions_LocationDescription struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Node location. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -139,6 +143,7 @@ func (locationDescription *MediaSvr_LocationDescriptions_LocationDescription) Ge
     locationDescription.EntityData.BundleName = "cisco_ios_xr"
     locationDescription.EntityData.ParentYangName = "location-descriptions"
     locationDescription.EntityData.SegmentPath = "location-description" + types.AddKeyToken(locationDescription.Node, "node")
+    locationDescription.EntityData.AbsolutePath = "Cisco-IOS-XR-mediasvr-linux-oper:media-svr/location-descriptions/" + locationDescription.EntityData.SegmentPath
     locationDescription.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     locationDescription.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     locationDescription.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

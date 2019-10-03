@@ -139,6 +139,7 @@ func (cISCOSONETMIB *CISCOSONETMIB) GetEntityData() *types.CommonEntityData {
     cISCOSONETMIB.EntityData.BundleName = "cisco_ios_xe"
     cISCOSONETMIB.EntityData.ParentYangName = "CISCO-SONET-MIB"
     cISCOSONETMIB.EntityData.SegmentPath = "CISCO-SONET-MIB:CISCO-SONET-MIB"
+    cISCOSONETMIB.EntityData.AbsolutePath = cISCOSONETMIB.EntityData.SegmentPath
     cISCOSONETMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cISCOSONETMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOSONETMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -188,6 +189,7 @@ func (csApsConfig *CISCOSONETMIB_CsApsConfig) GetEntityData() *types.CommonEntit
     csApsConfig.EntityData.BundleName = "cisco_ios_xe"
     csApsConfig.EntityData.ParentYangName = "CISCO-SONET-MIB"
     csApsConfig.EntityData.SegmentPath = "csApsConfig"
+    csApsConfig.EntityData.AbsolutePath = "CISCO-SONET-MIB:CISCO-SONET-MIB/" + csApsConfig.EntityData.SegmentPath
     csApsConfig.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     csApsConfig.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     csApsConfig.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -221,6 +223,7 @@ func (csNotifications *CISCOSONETMIB_CsNotifications) GetEntityData() *types.Com
     csNotifications.EntityData.BundleName = "cisco_ios_xe"
     csNotifications.EntityData.ParentYangName = "CISCO-SONET-MIB"
     csNotifications.EntityData.SegmentPath = "csNotifications"
+    csNotifications.EntityData.AbsolutePath = "CISCO-SONET-MIB:CISCO-SONET-MIB/" + csNotifications.EntityData.SegmentPath
     csNotifications.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     csNotifications.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     csNotifications.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -256,6 +259,7 @@ func (csConfigTable *CISCOSONETMIB_CsConfigTable) GetEntityData() *types.CommonE
     csConfigTable.EntityData.BundleName = "cisco_ios_xe"
     csConfigTable.EntityData.ParentYangName = "CISCO-SONET-MIB"
     csConfigTable.EntityData.SegmentPath = "csConfigTable"
+    csConfigTable.EntityData.AbsolutePath = "CISCO-SONET-MIB:CISCO-SONET-MIB/" + csConfigTable.EntityData.SegmentPath
     csConfigTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     csConfigTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     csConfigTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -282,6 +286,7 @@ func (csConfigTable *CISCOSONETMIB_CsConfigTable) GetEntityData() *types.CommonE
 type CISCOSONETMIB_CsConfigTable_CsConfigEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -378,6 +383,7 @@ func (csConfigEntry *CISCOSONETMIB_CsConfigTable_CsConfigEntry) GetEntityData() 
     csConfigEntry.EntityData.BundleName = "cisco_ios_xe"
     csConfigEntry.EntityData.ParentYangName = "csConfigTable"
     csConfigEntry.EntityData.SegmentPath = "csConfigEntry" + types.AddKeyToken(csConfigEntry.IfIndex, "ifIndex")
+    csConfigEntry.EntityData.AbsolutePath = "CISCO-SONET-MIB:CISCO-SONET-MIB/csConfigTable/" + csConfigEntry.EntityData.SegmentPath
     csConfigEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     csConfigEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     csConfigEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -554,6 +560,7 @@ func (csApsConfigTable *CISCOSONETMIB_CsApsConfigTable) GetEntityData() *types.C
     csApsConfigTable.EntityData.BundleName = "cisco_ios_xe"
     csApsConfigTable.EntityData.ParentYangName = "CISCO-SONET-MIB"
     csApsConfigTable.EntityData.SegmentPath = "csApsConfigTable"
+    csApsConfigTable.EntityData.AbsolutePath = "CISCO-SONET-MIB:CISCO-SONET-MIB/" + csApsConfigTable.EntityData.SegmentPath
     csApsConfigTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     csApsConfigTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     csApsConfigTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -587,6 +594,7 @@ func (csApsConfigTable *CISCOSONETMIB_CsApsConfigTable) GetEntityData() *types.C
 type CISCOSONETMIB_CsApsConfigTable_CsApsConfigEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. When a pair of APS lines is configured, one line
     // has to be the working line, which is the primary line, and the other has to
@@ -721,6 +729,7 @@ func (csApsConfigEntry *CISCOSONETMIB_CsApsConfigTable_CsApsConfigEntry) GetEnti
     csApsConfigEntry.EntityData.BundleName = "cisco_ios_xe"
     csApsConfigEntry.EntityData.ParentYangName = "csApsConfigTable"
     csApsConfigEntry.EntityData.SegmentPath = "csApsConfigEntry" + types.AddKeyToken(csApsConfigEntry.CsApsWorkingIndex, "csApsWorkingIndex")
+    csApsConfigEntry.EntityData.AbsolutePath = "CISCO-SONET-MIB:CISCO-SONET-MIB/csApsConfigTable/" + csApsConfigEntry.EntityData.SegmentPath
     csApsConfigEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     csApsConfigEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     csApsConfigEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -869,6 +878,7 @@ func (cssTotalTable *CISCOSONETMIB_CssTotalTable) GetEntityData() *types.CommonE
     cssTotalTable.EntityData.BundleName = "cisco_ios_xe"
     cssTotalTable.EntityData.ParentYangName = "CISCO-SONET-MIB"
     cssTotalTable.EntityData.SegmentPath = "cssTotalTable"
+    cssTotalTable.EntityData.AbsolutePath = "CISCO-SONET-MIB:CISCO-SONET-MIB/" + cssTotalTable.EntityData.SegmentPath
     cssTotalTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cssTotalTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cssTotalTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -891,6 +901,7 @@ func (cssTotalTable *CISCOSONETMIB_CssTotalTable) GetEntityData() *types.CommonE
 type CISCOSONETMIB_CssTotalTable_CssTotalEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -923,6 +934,7 @@ func (cssTotalEntry *CISCOSONETMIB_CssTotalTable_CssTotalEntry) GetEntityData() 
     cssTotalEntry.EntityData.BundleName = "cisco_ios_xe"
     cssTotalEntry.EntityData.ParentYangName = "cssTotalTable"
     cssTotalEntry.EntityData.SegmentPath = "cssTotalEntry" + types.AddKeyToken(cssTotalEntry.IfIndex, "ifIndex")
+    cssTotalEntry.EntityData.AbsolutePath = "CISCO-SONET-MIB:CISCO-SONET-MIB/cssTotalTable/" + cssTotalEntry.EntityData.SegmentPath
     cssTotalEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cssTotalEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cssTotalEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -960,6 +972,7 @@ func (cssTraceTable *CISCOSONETMIB_CssTraceTable) GetEntityData() *types.CommonE
     cssTraceTable.EntityData.BundleName = "cisco_ios_xe"
     cssTraceTable.EntityData.ParentYangName = "CISCO-SONET-MIB"
     cssTraceTable.EntityData.SegmentPath = "cssTraceTable"
+    cssTraceTable.EntityData.AbsolutePath = "CISCO-SONET-MIB:CISCO-SONET-MIB/" + cssTraceTable.EntityData.SegmentPath
     cssTraceTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cssTraceTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cssTraceTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -983,6 +996,7 @@ func (cssTraceTable *CISCOSONETMIB_CssTraceTable) GetEntityData() *types.CommonE
 type CISCOSONETMIB_CssTraceTable_CssTraceEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -993,13 +1007,14 @@ type CISCOSONETMIB_CssTraceTable_CssTraceEntry struct {
     // transmited so that a trace receiving terminal can  verify its continued
     // connection to the intended  transmitter. The default value is a zero-length
     // string. Unless this object is set to a non-zero length string,  tracing
-    // will not be performed. The type is string with length: 0 | 16 | 64.
+    // will not be performed. The type is string with length: 0..0 | 16..16 |
+    // 64..64.
     CssTraceToTransmit interface{}
 
     // Sonet Section Trace To Expect. The receiving terminal  verifies if the
     // incoming string matches this string.  The value of 'cssTraceFailure'
     // indicates whether a  trace mismatch occurred. The default value is a 
-    // zero-length string. The type is string with length: 0 | 16 | 64.
+    // zero-length string. The type is string with length: 0..0 | 16..16 | 64..64.
     CssTraceToExpect interface{}
 
     // The value of this object is set to 'true' when Sonet  Section received
@@ -1007,7 +1022,8 @@ type CISCOSONETMIB_CssTraceTable_CssTraceEntry struct {
     CssTraceFailure interface{}
 
     // This object is used to view the Sonet Section Trace that  is received by
-    // the receiving terminal. The type is string with length: 0 | 16 | 64.
+    // the receiving terminal. The type is string with length: 0..0 | 16..16 |
+    // 64..64.
     CssTraceReceived interface{}
 }
 
@@ -1017,6 +1033,7 @@ func (cssTraceEntry *CISCOSONETMIB_CssTraceTable_CssTraceEntry) GetEntityData() 
     cssTraceEntry.EntityData.BundleName = "cisco_ios_xe"
     cssTraceEntry.EntityData.ParentYangName = "cssTraceTable"
     cssTraceEntry.EntityData.SegmentPath = "cssTraceEntry" + types.AddKeyToken(cssTraceEntry.IfIndex, "ifIndex")
+    cssTraceEntry.EntityData.AbsolutePath = "CISCO-SONET-MIB:CISCO-SONET-MIB/cssTraceTable/" + cssTraceEntry.EntityData.SegmentPath
     cssTraceEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cssTraceEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cssTraceEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1057,6 +1074,7 @@ func (cslTotalTable *CISCOSONETMIB_CslTotalTable) GetEntityData() *types.CommonE
     cslTotalTable.EntityData.BundleName = "cisco_ios_xe"
     cslTotalTable.EntityData.ParentYangName = "CISCO-SONET-MIB"
     cslTotalTable.EntityData.SegmentPath = "cslTotalTable"
+    cslTotalTable.EntityData.AbsolutePath = "CISCO-SONET-MIB:CISCO-SONET-MIB/" + cslTotalTable.EntityData.SegmentPath
     cslTotalTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cslTotalTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cslTotalTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1079,6 +1097,7 @@ func (cslTotalTable *CISCOSONETMIB_CslTotalTable) GetEntityData() *types.CommonE
 type CISCOSONETMIB_CslTotalTable_CslTotalEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -1111,6 +1130,7 @@ func (cslTotalEntry *CISCOSONETMIB_CslTotalTable_CslTotalEntry) GetEntityData() 
     cslTotalEntry.EntityData.BundleName = "cisco_ios_xe"
     cslTotalEntry.EntityData.ParentYangName = "cslTotalTable"
     cslTotalEntry.EntityData.SegmentPath = "cslTotalEntry" + types.AddKeyToken(cslTotalEntry.IfIndex, "ifIndex")
+    cslTotalEntry.EntityData.AbsolutePath = "CISCO-SONET-MIB:CISCO-SONET-MIB/cslTotalTable/" + cslTotalEntry.EntityData.SegmentPath
     cslTotalEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cslTotalEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cslTotalEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1151,6 +1171,7 @@ func (cslFarEndTotalTable *CISCOSONETMIB_CslFarEndTotalTable) GetEntityData() *t
     cslFarEndTotalTable.EntityData.BundleName = "cisco_ios_xe"
     cslFarEndTotalTable.EntityData.ParentYangName = "CISCO-SONET-MIB"
     cslFarEndTotalTable.EntityData.SegmentPath = "cslFarEndTotalTable"
+    cslFarEndTotalTable.EntityData.AbsolutePath = "CISCO-SONET-MIB:CISCO-SONET-MIB/" + cslFarEndTotalTable.EntityData.SegmentPath
     cslFarEndTotalTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cslFarEndTotalTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cslFarEndTotalTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1173,6 +1194,7 @@ func (cslFarEndTotalTable *CISCOSONETMIB_CslFarEndTotalTable) GetEntityData() *t
 type CISCOSONETMIB_CslFarEndTotalTable_CslFarEndTotalEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -1205,6 +1227,7 @@ func (cslFarEndTotalEntry *CISCOSONETMIB_CslFarEndTotalTable_CslFarEndTotalEntry
     cslFarEndTotalEntry.EntityData.BundleName = "cisco_ios_xe"
     cslFarEndTotalEntry.EntityData.ParentYangName = "cslFarEndTotalTable"
     cslFarEndTotalEntry.EntityData.SegmentPath = "cslFarEndTotalEntry" + types.AddKeyToken(cslFarEndTotalEntry.IfIndex, "ifIndex")
+    cslFarEndTotalEntry.EntityData.AbsolutePath = "CISCO-SONET-MIB:CISCO-SONET-MIB/cslFarEndTotalTable/" + cslFarEndTotalEntry.EntityData.SegmentPath
     cslFarEndTotalEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cslFarEndTotalEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cslFarEndTotalEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1245,6 +1268,7 @@ func (cspTotalTable *CISCOSONETMIB_CspTotalTable) GetEntityData() *types.CommonE
     cspTotalTable.EntityData.BundleName = "cisco_ios_xe"
     cspTotalTable.EntityData.ParentYangName = "CISCO-SONET-MIB"
     cspTotalTable.EntityData.SegmentPath = "cspTotalTable"
+    cspTotalTable.EntityData.AbsolutePath = "CISCO-SONET-MIB:CISCO-SONET-MIB/" + cspTotalTable.EntityData.SegmentPath
     cspTotalTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cspTotalTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cspTotalTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1267,6 +1291,7 @@ func (cspTotalTable *CISCOSONETMIB_CspTotalTable) GetEntityData() *types.CommonE
 type CISCOSONETMIB_CspTotalTable_CspTotalEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -1299,6 +1324,7 @@ func (cspTotalEntry *CISCOSONETMIB_CspTotalTable_CspTotalEntry) GetEntityData() 
     cspTotalEntry.EntityData.BundleName = "cisco_ios_xe"
     cspTotalEntry.EntityData.ParentYangName = "cspTotalTable"
     cspTotalEntry.EntityData.SegmentPath = "cspTotalEntry" + types.AddKeyToken(cspTotalEntry.IfIndex, "ifIndex")
+    cspTotalEntry.EntityData.AbsolutePath = "CISCO-SONET-MIB:CISCO-SONET-MIB/cspTotalTable/" + cspTotalEntry.EntityData.SegmentPath
     cspTotalEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cspTotalEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cspTotalEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1340,6 +1366,7 @@ func (cspFarEndTotalTable *CISCOSONETMIB_CspFarEndTotalTable) GetEntityData() *t
     cspFarEndTotalTable.EntityData.BundleName = "cisco_ios_xe"
     cspFarEndTotalTable.EntityData.ParentYangName = "CISCO-SONET-MIB"
     cspFarEndTotalTable.EntityData.SegmentPath = "cspFarEndTotalTable"
+    cspFarEndTotalTable.EntityData.AbsolutePath = "CISCO-SONET-MIB:CISCO-SONET-MIB/" + cspFarEndTotalTable.EntityData.SegmentPath
     cspFarEndTotalTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cspFarEndTotalTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cspFarEndTotalTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1362,6 +1389,7 @@ func (cspFarEndTotalTable *CISCOSONETMIB_CspFarEndTotalTable) GetEntityData() *t
 type CISCOSONETMIB_CspFarEndTotalTable_CspFarEndTotalEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -1394,6 +1422,7 @@ func (cspFarEndTotalEntry *CISCOSONETMIB_CspFarEndTotalTable_CspFarEndTotalEntry
     cspFarEndTotalEntry.EntityData.BundleName = "cisco_ios_xe"
     cspFarEndTotalEntry.EntityData.ParentYangName = "cspFarEndTotalTable"
     cspFarEndTotalEntry.EntityData.SegmentPath = "cspFarEndTotalEntry" + types.AddKeyToken(cspFarEndTotalEntry.IfIndex, "ifIndex")
+    cspFarEndTotalEntry.EntityData.AbsolutePath = "CISCO-SONET-MIB:CISCO-SONET-MIB/cspFarEndTotalTable/" + cspFarEndTotalEntry.EntityData.SegmentPath
     cspFarEndTotalEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cspFarEndTotalEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cspFarEndTotalEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1431,6 +1460,7 @@ func (cspTraceTable *CISCOSONETMIB_CspTraceTable) GetEntityData() *types.CommonE
     cspTraceTable.EntityData.BundleName = "cisco_ios_xe"
     cspTraceTable.EntityData.ParentYangName = "CISCO-SONET-MIB"
     cspTraceTable.EntityData.SegmentPath = "cspTraceTable"
+    cspTraceTable.EntityData.AbsolutePath = "CISCO-SONET-MIB:CISCO-SONET-MIB/" + cspTraceTable.EntityData.SegmentPath
     cspTraceTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cspTraceTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cspTraceTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1455,6 +1485,7 @@ func (cspTraceTable *CISCOSONETMIB_CspTraceTable) GetEntityData() *types.CommonE
 type CISCOSONETMIB_CspTraceTable_CspTraceEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -1465,13 +1496,13 @@ type CISCOSONETMIB_CspTraceTable_CspTraceEntry struct {
     // terminal can verify its  continued connection to the intended transmitter.
     // The  default value is a zero-length string. Unless this object  is set to a
     // non-zero length string, tracing will not be  performed. The type is string
-    // with length: 0 | 16 | 64.
+    // with length: 0..0 | 16..16 | 64..64.
     CspTraceToTransmit interface{}
 
     // Sonet Path Trace To Expect.  The receiving terminal verifies if the
     // incoming string matches this string. The value of  'cspTraceFailure'
     // indicates whether a trace mismatch  occured. The default value is a
-    // zero-length string. The type is string with length: 0 | 16 | 64.
+    // zero-length string. The type is string with length: 0..0 | 16..16 | 64..64.
     CspTraceToExpect interface{}
 
     // The value of this object is set to 'true' when Sonet Path  received trace
@@ -1479,7 +1510,7 @@ type CISCOSONETMIB_CspTraceTable_CspTraceEntry struct {
     CspTraceFailure interface{}
 
     // This object is used to view the Sonet Path Trace that is received by the
-    // receiving terminal. The type is string with length: 0 | 16 | 64.
+    // receiving terminal. The type is string with length: 0..0 | 16..16 | 64..64.
     CspTraceReceived interface{}
 }
 
@@ -1489,6 +1520,7 @@ func (cspTraceEntry *CISCOSONETMIB_CspTraceTable_CspTraceEntry) GetEntityData() 
     cspTraceEntry.EntityData.BundleName = "cisco_ios_xe"
     cspTraceEntry.EntityData.ParentYangName = "cspTraceTable"
     cspTraceEntry.EntityData.SegmentPath = "cspTraceEntry" + types.AddKeyToken(cspTraceEntry.IfIndex, "ifIndex")
+    cspTraceEntry.EntityData.AbsolutePath = "CISCO-SONET-MIB:CISCO-SONET-MIB/cspTraceTable/" + cspTraceEntry.EntityData.SegmentPath
     cspTraceEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cspTraceEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cspTraceEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1528,6 +1560,7 @@ func (csStatsTable *CISCOSONETMIB_CsStatsTable) GetEntityData() *types.CommonEnt
     csStatsTable.EntityData.BundleName = "cisco_ios_xe"
     csStatsTable.EntityData.ParentYangName = "CISCO-SONET-MIB"
     csStatsTable.EntityData.SegmentPath = "csStatsTable"
+    csStatsTable.EntityData.AbsolutePath = "CISCO-SONET-MIB:CISCO-SONET-MIB/" + csStatsTable.EntityData.SegmentPath
     csStatsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     csStatsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     csStatsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1553,6 +1586,7 @@ func (csStatsTable *CISCOSONETMIB_CsStatsTable) GetEntityData() *types.CommonEnt
 type CISCOSONETMIB_CsStatsTable_CsStatsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -1601,6 +1635,7 @@ func (csStatsEntry *CISCOSONETMIB_CsStatsTable_CsStatsEntry) GetEntityData() *ty
     csStatsEntry.EntityData.BundleName = "cisco_ios_xe"
     csStatsEntry.EntityData.ParentYangName = "csStatsTable"
     csStatsEntry.EntityData.SegmentPath = "csStatsEntry" + types.AddKeyToken(csStatsEntry.IfIndex, "ifIndex")
+    csStatsEntry.EntityData.AbsolutePath = "CISCO-SONET-MIB:CISCO-SONET-MIB/csStatsTable/" + csStatsEntry.EntityData.SegmentPath
     csStatsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     csStatsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     csStatsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1658,6 +1693,7 @@ func (csAu4Tug3ConfigTable *CISCOSONETMIB_CsAu4Tug3ConfigTable) GetEntityData() 
     csAu4Tug3ConfigTable.EntityData.BundleName = "cisco_ios_xe"
     csAu4Tug3ConfigTable.EntityData.ParentYangName = "CISCO-SONET-MIB"
     csAu4Tug3ConfigTable.EntityData.SegmentPath = "csAu4Tug3ConfigTable"
+    csAu4Tug3ConfigTable.EntityData.AbsolutePath = "CISCO-SONET-MIB:CISCO-SONET-MIB/" + csAu4Tug3ConfigTable.EntityData.SegmentPath
     csAu4Tug3ConfigTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     csAu4Tug3ConfigTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     csAu4Tug3ConfigTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1683,6 +1719,7 @@ func (csAu4Tug3ConfigTable *CISCOSONETMIB_CsAu4Tug3ConfigTable) GetEntityData() 
 type CISCOSONETMIB_CsAu4Tug3ConfigTable_CsAu4Tug3ConfigEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -1718,6 +1755,7 @@ func (csAu4Tug3ConfigEntry *CISCOSONETMIB_CsAu4Tug3ConfigTable_CsAu4Tug3ConfigEn
     csAu4Tug3ConfigEntry.EntityData.BundleName = "cisco_ios_xe"
     csAu4Tug3ConfigEntry.EntityData.ParentYangName = "csAu4Tug3ConfigTable"
     csAu4Tug3ConfigEntry.EntityData.SegmentPath = "csAu4Tug3ConfigEntry" + types.AddKeyToken(csAu4Tug3ConfigEntry.IfIndex, "ifIndex") + types.AddKeyToken(csAu4Tug3ConfigEntry.CsAu4Tug3, "csAu4Tug3")
+    csAu4Tug3ConfigEntry.EntityData.AbsolutePath = "CISCO-SONET-MIB:CISCO-SONET-MIB/csAu4Tug3ConfigTable/" + csAu4Tug3ConfigEntry.EntityData.SegmentPath
     csAu4Tug3ConfigEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     csAu4Tug3ConfigEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     csAu4Tug3ConfigEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

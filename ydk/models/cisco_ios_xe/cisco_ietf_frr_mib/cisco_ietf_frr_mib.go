@@ -58,6 +58,7 @@ func (cISCOIETFFRRMIB *CISCOIETFFRRMIB) GetEntityData() *types.CommonEntityData 
     cISCOIETFFRRMIB.EntityData.BundleName = "cisco_ios_xe"
     cISCOIETFFRRMIB.EntityData.ParentYangName = "CISCO-IETF-FRR-MIB"
     cISCOIETFFRRMIB.EntityData.SegmentPath = "CISCO-IETF-FRR-MIB:CISCO-IETF-FRR-MIB"
+    cISCOIETFFRRMIB.EntityData.AbsolutePath = cISCOIETFFRRMIB.EntityData.SegmentPath
     cISCOIETFFRRMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cISCOIETFFRRMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOIETFFRRMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -181,6 +182,7 @@ func (cmplsFrrScalars *CISCOIETFFRRMIB_CmplsFrrScalars) GetEntityData() *types.C
     cmplsFrrScalars.EntityData.BundleName = "cisco_ios_xe"
     cmplsFrrScalars.EntityData.ParentYangName = "CISCO-IETF-FRR-MIB"
     cmplsFrrScalars.EntityData.SegmentPath = "cmplsFrrScalars"
+    cmplsFrrScalars.EntityData.AbsolutePath = "CISCO-IETF-FRR-MIB:CISCO-IETF-FRR-MIB/" + cmplsFrrScalars.EntityData.SegmentPath
     cmplsFrrScalars.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cmplsFrrScalars.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cmplsFrrScalars.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -238,6 +240,7 @@ func (cmplsFrrConstTable *CISCOIETFFRRMIB_CmplsFrrConstTable) GetEntityData() *t
     cmplsFrrConstTable.EntityData.BundleName = "cisco_ios_xe"
     cmplsFrrConstTable.EntityData.ParentYangName = "CISCO-IETF-FRR-MIB"
     cmplsFrrConstTable.EntityData.SegmentPath = "cmplsFrrConstTable"
+    cmplsFrrConstTable.EntityData.AbsolutePath = "CISCO-IETF-FRR-MIB:CISCO-IETF-FRR-MIB/" + cmplsFrrConstTable.EntityData.SegmentPath
     cmplsFrrConstTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cmplsFrrConstTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cmplsFrrConstTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -265,6 +268,7 @@ func (cmplsFrrConstTable *CISCOIETFFRRMIB_CmplsFrrConstTable) GetEntityData() *t
 type CISCOIETFFRRMIB_CmplsFrrConstTable_CmplsFrrConstEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Uniquely identifies an interface for which fast
     // reroute is configured. Tabular entries indexed with a 0 value apply to all
@@ -332,6 +336,7 @@ func (cmplsFrrConstEntry *CISCOIETFFRRMIB_CmplsFrrConstTable_CmplsFrrConstEntry)
     cmplsFrrConstEntry.EntityData.BundleName = "cisco_ios_xe"
     cmplsFrrConstEntry.EntityData.ParentYangName = "cmplsFrrConstTable"
     cmplsFrrConstEntry.EntityData.SegmentPath = "cmplsFrrConstEntry" + types.AddKeyToken(cmplsFrrConstEntry.CmplsFrrConstIfIndex, "cmplsFrrConstIfIndex") + types.AddKeyToken(cmplsFrrConstEntry.CmplsFrrConstTunnelIndex, "cmplsFrrConstTunnelIndex") + types.AddKeyToken(cmplsFrrConstEntry.CmplsFrrConstTunnelInstance, "cmplsFrrConstTunnelInstance")
+    cmplsFrrConstEntry.EntityData.AbsolutePath = "CISCO-IETF-FRR-MIB:CISCO-IETF-FRR-MIB/cmplsFrrConstTable/" + cmplsFrrConstEntry.EntityData.SegmentPath
     cmplsFrrConstEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cmplsFrrConstEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cmplsFrrConstEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -379,6 +384,7 @@ func (cmplsFrrLogTable *CISCOIETFFRRMIB_CmplsFrrLogTable) GetEntityData() *types
     cmplsFrrLogTable.EntityData.BundleName = "cisco_ios_xe"
     cmplsFrrLogTable.EntityData.ParentYangName = "CISCO-IETF-FRR-MIB"
     cmplsFrrLogTable.EntityData.SegmentPath = "cmplsFrrLogTable"
+    cmplsFrrLogTable.EntityData.AbsolutePath = "CISCO-IETF-FRR-MIB:CISCO-IETF-FRR-MIB/" + cmplsFrrLogTable.EntityData.SegmentPath
     cmplsFrrLogTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cmplsFrrLogTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cmplsFrrLogTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -403,6 +409,7 @@ func (cmplsFrrLogTable *CISCOIETFFRRMIB_CmplsFrrLogTable) GetEntityData() *types
 type CISCOIETFFRRMIB_CmplsFrrLogTable_CmplsFrrLogEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Uniquely identifies a fast reroute event entry.
     // The type is interface{} with range: 0..4294967295.
@@ -426,7 +433,7 @@ type CISCOIETFFRRMIB_CmplsFrrLogTable_CmplsFrrLogEntry struct {
     CmplsFrrLogEventDuration interface{}
 
     // This object contains an implementation-specific explanation of the event.
-    // The type is string with length: 128.
+    // The type is string with length: 128..128.
     CmplsFrrLogEventReasonString interface{}
 }
 
@@ -436,6 +443,7 @@ func (cmplsFrrLogEntry *CISCOIETFFRRMIB_CmplsFrrLogTable_CmplsFrrLogEntry) GetEn
     cmplsFrrLogEntry.EntityData.BundleName = "cisco_ios_xe"
     cmplsFrrLogEntry.EntityData.ParentYangName = "cmplsFrrLogTable"
     cmplsFrrLogEntry.EntityData.SegmentPath = "cmplsFrrLogEntry" + types.AddKeyToken(cmplsFrrLogEntry.CmplsFrrLogIndex, "cmplsFrrLogIndex")
+    cmplsFrrLogEntry.EntityData.AbsolutePath = "CISCO-IETF-FRR-MIB:CISCO-IETF-FRR-MIB/cmplsFrrLogTable/" + cmplsFrrLogEntry.EntityData.SegmentPath
     cmplsFrrLogEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cmplsFrrLogEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cmplsFrrLogEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -501,6 +509,7 @@ func (cmplsFrrFacRouteDBTable *CISCOIETFFRRMIB_CmplsFrrFacRouteDBTable) GetEntit
     cmplsFrrFacRouteDBTable.EntityData.BundleName = "cisco_ios_xe"
     cmplsFrrFacRouteDBTable.EntityData.ParentYangName = "CISCO-IETF-FRR-MIB"
     cmplsFrrFacRouteDBTable.EntityData.SegmentPath = "cmplsFrrFacRouteDBTable"
+    cmplsFrrFacRouteDBTable.EntityData.AbsolutePath = "CISCO-IETF-FRR-MIB:CISCO-IETF-FRR-MIB/" + cmplsFrrFacRouteDBTable.EntityData.SegmentPath
     cmplsFrrFacRouteDBTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cmplsFrrFacRouteDBTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cmplsFrrFacRouteDBTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -528,6 +537,7 @@ func (cmplsFrrFacRouteDBTable *CISCOIETFFRRMIB_CmplsFrrFacRouteDBTable) GetEntit
 type CISCOIETFFRRMIB_CmplsFrrFacRouteDBTable_CmplsFrrFacRouteDBEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Uniquely identifies the interface configured for
     // FRR protection. The type is interface{} with range: 1..2147483647.
@@ -548,11 +558,11 @@ type CISCOIETFFRRMIB_CmplsFrrFacRouteDBTable_CmplsFrrFacRouteDBEntry struct {
     CmplsFrrFacRouteProtectedTunInstance interface{}
 
     // This attribute is a key. Uniquely identifies an mplsTunnelEntry that is
-    // being protected by FRR. The type is string with length: 4.
+    // being protected by FRR. The type is string with length: 4..4.
     CmplsFrrFacRouteProtectedTunIngressLSRId interface{}
 
     // This attribute is a key. Uniquely identifies an mplsTunnelEntry that is
-    // being protected by FRR. The type is string with length: 4.
+    // being protected by FRR. The type is string with length: 4..4.
     CmplsFrrFacRouteProtectedTunEgressLSRId interface{}
 
     // Specifies the state of the protected tunnel.  active  This tunnel's label
@@ -583,6 +593,7 @@ func (cmplsFrrFacRouteDBEntry *CISCOIETFFRRMIB_CmplsFrrFacRouteDBTable_CmplsFrrF
     cmplsFrrFacRouteDBEntry.EntityData.BundleName = "cisco_ios_xe"
     cmplsFrrFacRouteDBEntry.EntityData.ParentYangName = "cmplsFrrFacRouteDBTable"
     cmplsFrrFacRouteDBEntry.EntityData.SegmentPath = "cmplsFrrFacRouteDBEntry" + types.AddKeyToken(cmplsFrrFacRouteDBEntry.CmplsFrrFacRouteProtectedIfIndex, "cmplsFrrFacRouteProtectedIfIndex") + types.AddKeyToken(cmplsFrrFacRouteDBEntry.CmplsFrrFacRouteProtectingTunIndex, "cmplsFrrFacRouteProtectingTunIndex") + types.AddKeyToken(cmplsFrrFacRouteDBEntry.CmplsFrrFacRouteProtectedTunIndex, "cmplsFrrFacRouteProtectedTunIndex") + types.AddKeyToken(cmplsFrrFacRouteDBEntry.CmplsFrrFacRouteProtectedTunInstance, "cmplsFrrFacRouteProtectedTunInstance") + types.AddKeyToken(cmplsFrrFacRouteDBEntry.CmplsFrrFacRouteProtectedTunIngressLSRId, "cmplsFrrFacRouteProtectedTunIngressLSRId") + types.AddKeyToken(cmplsFrrFacRouteDBEntry.CmplsFrrFacRouteProtectedTunEgressLSRId, "cmplsFrrFacRouteProtectedTunEgressLSRId")
+    cmplsFrrFacRouteDBEntry.EntityData.AbsolutePath = "CISCO-IETF-FRR-MIB:CISCO-IETF-FRR-MIB/cmplsFrrFacRouteDBTable/" + cmplsFrrFacRouteDBEntry.EntityData.SegmentPath
     cmplsFrrFacRouteDBEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cmplsFrrFacRouteDBEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cmplsFrrFacRouteDBEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

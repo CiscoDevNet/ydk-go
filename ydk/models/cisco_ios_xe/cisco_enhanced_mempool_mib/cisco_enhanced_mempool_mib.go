@@ -97,6 +97,7 @@ func (cISCOENHANCEDMEMPOOLMIB *CISCOENHANCEDMEMPOOLMIB) GetEntityData() *types.C
     cISCOENHANCEDMEMPOOLMIB.EntityData.BundleName = "cisco_ios_xe"
     cISCOENHANCEDMEMPOOLMIB.EntityData.ParentYangName = "CISCO-ENHANCED-MEMPOOL-MIB"
     cISCOENHANCEDMEMPOOLMIB.EntityData.SegmentPath = "CISCO-ENHANCED-MEMPOOL-MIB:CISCO-ENHANCED-MEMPOOL-MIB"
+    cISCOENHANCEDMEMPOOLMIB.EntityData.AbsolutePath = cISCOENHANCEDMEMPOOLMIB.EntityData.SegmentPath
     cISCOENHANCEDMEMPOOLMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cISCOENHANCEDMEMPOOLMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOENHANCEDMEMPOOLMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -131,6 +132,7 @@ func (cempNotificationConfig *CISCOENHANCEDMEMPOOLMIB_CempNotificationConfig) Ge
     cempNotificationConfig.EntityData.BundleName = "cisco_ios_xe"
     cempNotificationConfig.EntityData.ParentYangName = "CISCO-ENHANCED-MEMPOOL-MIB"
     cempNotificationConfig.EntityData.SegmentPath = "cempNotificationConfig"
+    cempNotificationConfig.EntityData.AbsolutePath = "CISCO-ENHANCED-MEMPOOL-MIB:CISCO-ENHANCED-MEMPOOL-MIB/" + cempNotificationConfig.EntityData.SegmentPath
     cempNotificationConfig.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cempNotificationConfig.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cempNotificationConfig.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -162,6 +164,7 @@ func (cempMemPoolTable *CISCOENHANCEDMEMPOOLMIB_CempMemPoolTable) GetEntityData(
     cempMemPoolTable.EntityData.BundleName = "cisco_ios_xe"
     cempMemPoolTable.EntityData.ParentYangName = "CISCO-ENHANCED-MEMPOOL-MIB"
     cempMemPoolTable.EntityData.SegmentPath = "cempMemPoolTable"
+    cempMemPoolTable.EntityData.AbsolutePath = "CISCO-ENHANCED-MEMPOOL-MIB:CISCO-ENHANCED-MEMPOOL-MIB/" + cempMemPoolTable.EntityData.SegmentPath
     cempMemPoolTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cempMemPoolTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cempMemPoolTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -183,6 +186,7 @@ func (cempMemPoolTable *CISCOENHANCEDMEMPOOLMIB_CempMemPoolTable) GetEntityData(
 type CISCOENHANCEDMEMPOOLMIB_CempMemPoolTable_CempMemPoolEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -362,6 +366,7 @@ func (cempMemPoolEntry *CISCOENHANCEDMEMPOOLMIB_CempMemPoolTable_CempMemPoolEntr
     cempMemPoolEntry.EntityData.BundleName = "cisco_ios_xe"
     cempMemPoolEntry.EntityData.ParentYangName = "cempMemPoolTable"
     cempMemPoolEntry.EntityData.SegmentPath = "cempMemPoolEntry" + types.AddKeyToken(cempMemPoolEntry.EntPhysicalIndex, "entPhysicalIndex") + types.AddKeyToken(cempMemPoolEntry.CempMemPoolIndex, "cempMemPoolIndex")
+    cempMemPoolEntry.EntityData.AbsolutePath = "CISCO-ENHANCED-MEMPOOL-MIB:CISCO-ENHANCED-MEMPOOL-MIB/cempMemPoolTable/" + cempMemPoolEntry.EntityData.SegmentPath
     cempMemPoolEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cempMemPoolEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cempMemPoolEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -446,6 +451,7 @@ func (cempMemBufferPoolTable *CISCOENHANCEDMEMPOOLMIB_CempMemBufferPoolTable) Ge
     cempMemBufferPoolTable.EntityData.BundleName = "cisco_ios_xe"
     cempMemBufferPoolTable.EntityData.ParentYangName = "CISCO-ENHANCED-MEMPOOL-MIB"
     cempMemBufferPoolTable.EntityData.SegmentPath = "cempMemBufferPoolTable"
+    cempMemBufferPoolTable.EntityData.AbsolutePath = "CISCO-ENHANCED-MEMPOOL-MIB:CISCO-ENHANCED-MEMPOOL-MIB/" + cempMemBufferPoolTable.EntityData.SegmentPath
     cempMemBufferPoolTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cempMemBufferPoolTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cempMemBufferPoolTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -470,6 +476,7 @@ func (cempMemBufferPoolTable *CISCOENHANCEDMEMPOOLMIB_CempMemBufferPoolTable) Ge
 type CISCOENHANCEDMEMPOOLMIB_CempMemBufferPoolTable_CempMemBufferPoolEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -602,6 +609,7 @@ func (cempMemBufferPoolEntry *CISCOENHANCEDMEMPOOLMIB_CempMemBufferPoolTable_Cem
     cempMemBufferPoolEntry.EntityData.BundleName = "cisco_ios_xe"
     cempMemBufferPoolEntry.EntityData.ParentYangName = "cempMemBufferPoolTable"
     cempMemBufferPoolEntry.EntityData.SegmentPath = "cempMemBufferPoolEntry" + types.AddKeyToken(cempMemBufferPoolEntry.EntPhysicalIndex, "entPhysicalIndex") + types.AddKeyToken(cempMemBufferPoolEntry.CempMemBufferPoolIndex, "cempMemBufferPoolIndex")
+    cempMemBufferPoolEntry.EntityData.AbsolutePath = "CISCO-ENHANCED-MEMPOOL-MIB:CISCO-ENHANCED-MEMPOOL-MIB/cempMemBufferPoolTable/" + cempMemBufferPoolEntry.EntityData.SegmentPath
     cempMemBufferPoolEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cempMemBufferPoolEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cempMemBufferPoolEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -669,6 +677,7 @@ func (cempMemBufferCachePoolTable *CISCOENHANCEDMEMPOOLMIB_CempMemBufferCachePoo
     cempMemBufferCachePoolTable.EntityData.BundleName = "cisco_ios_xe"
     cempMemBufferCachePoolTable.EntityData.ParentYangName = "CISCO-ENHANCED-MEMPOOL-MIB"
     cempMemBufferCachePoolTable.EntityData.SegmentPath = "cempMemBufferCachePoolTable"
+    cempMemBufferCachePoolTable.EntityData.AbsolutePath = "CISCO-ENHANCED-MEMPOOL-MIB:CISCO-ENHANCED-MEMPOOL-MIB/" + cempMemBufferCachePoolTable.EntityData.SegmentPath
     cempMemBufferCachePoolTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cempMemBufferCachePoolTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cempMemBufferCachePoolTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -696,6 +705,7 @@ func (cempMemBufferCachePoolTable *CISCOENHANCEDMEMPOOLMIB_CempMemBufferCachePoo
 type CISCOENHANCEDMEMPOOLMIB_CempMemBufferCachePoolTable_CempMemBufferCachePoolEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -748,6 +758,7 @@ func (cempMemBufferCachePoolEntry *CISCOENHANCEDMEMPOOLMIB_CempMemBufferCachePoo
     cempMemBufferCachePoolEntry.EntityData.BundleName = "cisco_ios_xe"
     cempMemBufferCachePoolEntry.EntityData.ParentYangName = "cempMemBufferCachePoolTable"
     cempMemBufferCachePoolEntry.EntityData.SegmentPath = "cempMemBufferCachePoolEntry" + types.AddKeyToken(cempMemBufferCachePoolEntry.EntPhysicalIndex, "entPhysicalIndex") + types.AddKeyToken(cempMemBufferCachePoolEntry.CempMemBufferPoolIndex, "cempMemBufferPoolIndex")
+    cempMemBufferCachePoolEntry.EntityData.AbsolutePath = "CISCO-ENHANCED-MEMPOOL-MIB:CISCO-ENHANCED-MEMPOOL-MIB/cempMemBufferCachePoolTable/" + cempMemBufferCachePoolEntry.EntityData.SegmentPath
     cempMemBufferCachePoolEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cempMemBufferCachePoolEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cempMemBufferCachePoolEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

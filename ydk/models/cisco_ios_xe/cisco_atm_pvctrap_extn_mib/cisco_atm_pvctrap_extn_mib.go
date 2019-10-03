@@ -125,6 +125,7 @@ func (cISCOATMPVCTRAPEXTNMIB *CISCOATMPVCTRAPEXTNMIB) GetEntityData() *types.Com
     cISCOATMPVCTRAPEXTNMIB.EntityData.BundleName = "cisco_ios_xe"
     cISCOATMPVCTRAPEXTNMIB.EntityData.ParentYangName = "CISCO-ATM-PVCTRAP-EXTN-MIB"
     cISCOATMPVCTRAPEXTNMIB.EntityData.SegmentPath = "CISCO-ATM-PVCTRAP-EXTN-MIB:CISCO-ATM-PVCTRAP-EXTN-MIB"
+    cISCOATMPVCTRAPEXTNMIB.EntityData.AbsolutePath = cISCOATMPVCTRAPEXTNMIB.EntityData.SegmentPath
     cISCOATMPVCTRAPEXTNMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cISCOATMPVCTRAPEXTNMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOATMPVCTRAPEXTNMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -172,6 +173,7 @@ func (catmCurStatChangePVclTable *CISCOATMPVCTRAPEXTNMIB_CatmCurStatChangePVclTa
     catmCurStatChangePVclTable.EntityData.BundleName = "cisco_ios_xe"
     catmCurStatChangePVclTable.EntityData.ParentYangName = "CISCO-ATM-PVCTRAP-EXTN-MIB"
     catmCurStatChangePVclTable.EntityData.SegmentPath = "catmCurStatChangePVclTable"
+    catmCurStatChangePVclTable.EntityData.AbsolutePath = "CISCO-ATM-PVCTRAP-EXTN-MIB:CISCO-ATM-PVCTRAP-EXTN-MIB/" + catmCurStatChangePVclTable.EntityData.SegmentPath
     catmCurStatChangePVclTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     catmCurStatChangePVclTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     catmCurStatChangePVclTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -196,6 +198,7 @@ func (catmCurStatChangePVclTable *CISCOATMPVCTRAPEXTNMIB_CatmCurStatChangePVclTa
 type CISCOATMPVCTRAPEXTNMIB_CatmCurStatChangePVclTable_CatmCurStatChangePVclEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -289,6 +292,7 @@ func (catmCurStatChangePVclEntry *CISCOATMPVCTRAPEXTNMIB_CatmCurStatChangePVclTa
     catmCurStatChangePVclEntry.EntityData.BundleName = "cisco_ios_xe"
     catmCurStatChangePVclEntry.EntityData.ParentYangName = "catmCurStatChangePVclTable"
     catmCurStatChangePVclEntry.EntityData.SegmentPath = "catmCurStatChangePVclEntry" + types.AddKeyToken(catmCurStatChangePVclEntry.IfIndex, "ifIndex") + types.AddKeyToken(catmCurStatChangePVclEntry.AtmVclVpi, "atmVclVpi") + types.AddKeyToken(catmCurStatChangePVclEntry.AtmVclVci, "atmVclVci")
+    catmCurStatChangePVclEntry.EntityData.AbsolutePath = "CISCO-ATM-PVCTRAP-EXTN-MIB:CISCO-ATM-PVCTRAP-EXTN-MIB/catmCurStatChangePVclTable/" + catmCurStatChangePVclEntry.EntityData.SegmentPath
     catmCurStatChangePVclEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     catmCurStatChangePVclEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     catmCurStatChangePVclEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -343,6 +347,7 @@ func (catmStatusChangePVclRangeTable *CISCOATMPVCTRAPEXTNMIB_CatmStatusChangePVc
     catmStatusChangePVclRangeTable.EntityData.BundleName = "cisco_ios_xe"
     catmStatusChangePVclRangeTable.EntityData.ParentYangName = "CISCO-ATM-PVCTRAP-EXTN-MIB"
     catmStatusChangePVclRangeTable.EntityData.SegmentPath = "catmStatusChangePVclRangeTable"
+    catmStatusChangePVclRangeTable.EntityData.AbsolutePath = "CISCO-ATM-PVCTRAP-EXTN-MIB:CISCO-ATM-PVCTRAP-EXTN-MIB/" + catmStatusChangePVclRangeTable.EntityData.SegmentPath
     catmStatusChangePVclRangeTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     catmStatusChangePVclRangeTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     catmStatusChangePVclRangeTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -368,6 +373,7 @@ func (catmStatusChangePVclRangeTable *CISCOATMPVCTRAPEXTNMIB_CatmStatusChangePVc
 type CISCOATMPVCTRAPEXTNMIB_CatmStatusChangePVclRangeTable_CatmStatusChangePVclRangeEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -409,6 +415,7 @@ func (catmStatusChangePVclRangeEntry *CISCOATMPVCTRAPEXTNMIB_CatmStatusChangePVc
     catmStatusChangePVclRangeEntry.EntityData.BundleName = "cisco_ios_xe"
     catmStatusChangePVclRangeEntry.EntityData.ParentYangName = "catmStatusChangePVclRangeTable"
     catmStatusChangePVclRangeEntry.EntityData.SegmentPath = "catmStatusChangePVclRangeEntry" + types.AddKeyToken(catmStatusChangePVclRangeEntry.IfIndex, "ifIndex") + types.AddKeyToken(catmStatusChangePVclRangeEntry.AtmVclVpi, "atmVclVpi") + types.AddKeyToken(catmStatusChangePVclRangeEntry.CatmStatusChangePVclRangeIndex, "catmStatusChangePVclRangeIndex")
+    catmStatusChangePVclRangeEntry.EntityData.AbsolutePath = "CISCO-ATM-PVCTRAP-EXTN-MIB:CISCO-ATM-PVCTRAP-EXTN-MIB/catmStatusChangePVclRangeTable/" + catmStatusChangePVclRangeEntry.EntityData.SegmentPath
     catmStatusChangePVclRangeEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     catmStatusChangePVclRangeEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     catmStatusChangePVclRangeEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -453,6 +460,7 @@ func (catmSegCCStatusChPVclRangeTable *CISCOATMPVCTRAPEXTNMIB_CatmSegCCStatusChP
     catmSegCCStatusChPVclRangeTable.EntityData.BundleName = "cisco_ios_xe"
     catmSegCCStatusChPVclRangeTable.EntityData.ParentYangName = "CISCO-ATM-PVCTRAP-EXTN-MIB"
     catmSegCCStatusChPVclRangeTable.EntityData.SegmentPath = "catmSegCCStatusChPVclRangeTable"
+    catmSegCCStatusChPVclRangeTable.EntityData.AbsolutePath = "CISCO-ATM-PVCTRAP-EXTN-MIB:CISCO-ATM-PVCTRAP-EXTN-MIB/" + catmSegCCStatusChPVclRangeTable.EntityData.SegmentPath
     catmSegCCStatusChPVclRangeTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     catmSegCCStatusChPVclRangeTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     catmSegCCStatusChPVclRangeTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -478,6 +486,7 @@ func (catmSegCCStatusChPVclRangeTable *CISCOATMPVCTRAPEXTNMIB_CatmSegCCStatusChP
 type CISCOATMPVCTRAPEXTNMIB_CatmSegCCStatusChPVclRangeTable_CatmSegCCStatusChPVclRangeEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -518,6 +527,7 @@ func (catmSegCCStatusChPVclRangeEntry *CISCOATMPVCTRAPEXTNMIB_CatmSegCCStatusChP
     catmSegCCStatusChPVclRangeEntry.EntityData.BundleName = "cisco_ios_xe"
     catmSegCCStatusChPVclRangeEntry.EntityData.ParentYangName = "catmSegCCStatusChPVclRangeTable"
     catmSegCCStatusChPVclRangeEntry.EntityData.SegmentPath = "catmSegCCStatusChPVclRangeEntry" + types.AddKeyToken(catmSegCCStatusChPVclRangeEntry.IfIndex, "ifIndex") + types.AddKeyToken(catmSegCCStatusChPVclRangeEntry.AtmVclVpi, "atmVclVpi") + types.AddKeyToken(catmSegCCStatusChPVclRangeEntry.CatmStatusChangePVclRangeIndex, "catmStatusChangePVclRangeIndex")
+    catmSegCCStatusChPVclRangeEntry.EntityData.AbsolutePath = "CISCO-ATM-PVCTRAP-EXTN-MIB:CISCO-ATM-PVCTRAP-EXTN-MIB/catmSegCCStatusChPVclRangeTable/" + catmSegCCStatusChPVclRangeEntry.EntityData.SegmentPath
     catmSegCCStatusChPVclRangeEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     catmSegCCStatusChPVclRangeEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     catmSegCCStatusChPVclRangeEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -562,6 +572,7 @@ func (catmEndCCStatusChPVclRangeTable *CISCOATMPVCTRAPEXTNMIB_CatmEndCCStatusChP
     catmEndCCStatusChPVclRangeTable.EntityData.BundleName = "cisco_ios_xe"
     catmEndCCStatusChPVclRangeTable.EntityData.ParentYangName = "CISCO-ATM-PVCTRAP-EXTN-MIB"
     catmEndCCStatusChPVclRangeTable.EntityData.SegmentPath = "catmEndCCStatusChPVclRangeTable"
+    catmEndCCStatusChPVclRangeTable.EntityData.AbsolutePath = "CISCO-ATM-PVCTRAP-EXTN-MIB:CISCO-ATM-PVCTRAP-EXTN-MIB/" + catmEndCCStatusChPVclRangeTable.EntityData.SegmentPath
     catmEndCCStatusChPVclRangeTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     catmEndCCStatusChPVclRangeTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     catmEndCCStatusChPVclRangeTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -587,6 +598,7 @@ func (catmEndCCStatusChPVclRangeTable *CISCOATMPVCTRAPEXTNMIB_CatmEndCCStatusChP
 type CISCOATMPVCTRAPEXTNMIB_CatmEndCCStatusChPVclRangeTable_CatmEndCCStatusChPVclRangeEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -627,6 +639,7 @@ func (catmEndCCStatusChPVclRangeEntry *CISCOATMPVCTRAPEXTNMIB_CatmEndCCStatusChP
     catmEndCCStatusChPVclRangeEntry.EntityData.BundleName = "cisco_ios_xe"
     catmEndCCStatusChPVclRangeEntry.EntityData.ParentYangName = "catmEndCCStatusChPVclRangeTable"
     catmEndCCStatusChPVclRangeEntry.EntityData.SegmentPath = "catmEndCCStatusChPVclRangeEntry" + types.AddKeyToken(catmEndCCStatusChPVclRangeEntry.IfIndex, "ifIndex") + types.AddKeyToken(catmEndCCStatusChPVclRangeEntry.AtmVclVpi, "atmVclVpi") + types.AddKeyToken(catmEndCCStatusChPVclRangeEntry.CatmStatusChangePVclRangeIndex, "catmStatusChangePVclRangeIndex")
+    catmEndCCStatusChPVclRangeEntry.EntityData.AbsolutePath = "CISCO-ATM-PVCTRAP-EXTN-MIB:CISCO-ATM-PVCTRAP-EXTN-MIB/catmEndCCStatusChPVclRangeTable/" + catmEndCCStatusChPVclRangeEntry.EntityData.SegmentPath
     catmEndCCStatusChPVclRangeEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     catmEndCCStatusChPVclRangeEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     catmEndCCStatusChPVclRangeEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -671,6 +684,7 @@ func (catmAISRDIStatusChPVclRangeTable *CISCOATMPVCTRAPEXTNMIB_CatmAISRDIStatusC
     catmAISRDIStatusChPVclRangeTable.EntityData.BundleName = "cisco_ios_xe"
     catmAISRDIStatusChPVclRangeTable.EntityData.ParentYangName = "CISCO-ATM-PVCTRAP-EXTN-MIB"
     catmAISRDIStatusChPVclRangeTable.EntityData.SegmentPath = "catmAISRDIStatusChPVclRangeTable"
+    catmAISRDIStatusChPVclRangeTable.EntityData.AbsolutePath = "CISCO-ATM-PVCTRAP-EXTN-MIB:CISCO-ATM-PVCTRAP-EXTN-MIB/" + catmAISRDIStatusChPVclRangeTable.EntityData.SegmentPath
     catmAISRDIStatusChPVclRangeTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     catmAISRDIStatusChPVclRangeTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     catmAISRDIStatusChPVclRangeTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -696,6 +710,7 @@ func (catmAISRDIStatusChPVclRangeTable *CISCOATMPVCTRAPEXTNMIB_CatmAISRDIStatusC
 type CISCOATMPVCTRAPEXTNMIB_CatmAISRDIStatusChPVclRangeTable_CatmAISRDIStatusChPVclRangeEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -736,6 +751,7 @@ func (catmAISRDIStatusChPVclRangeEntry *CISCOATMPVCTRAPEXTNMIB_CatmAISRDIStatusC
     catmAISRDIStatusChPVclRangeEntry.EntityData.BundleName = "cisco_ios_xe"
     catmAISRDIStatusChPVclRangeEntry.EntityData.ParentYangName = "catmAISRDIStatusChPVclRangeTable"
     catmAISRDIStatusChPVclRangeEntry.EntityData.SegmentPath = "catmAISRDIStatusChPVclRangeEntry" + types.AddKeyToken(catmAISRDIStatusChPVclRangeEntry.IfIndex, "ifIndex") + types.AddKeyToken(catmAISRDIStatusChPVclRangeEntry.AtmVclVpi, "atmVclVpi") + types.AddKeyToken(catmAISRDIStatusChPVclRangeEntry.CatmStatusChangePVclRangeIndex, "catmStatusChangePVclRangeIndex")
+    catmAISRDIStatusChPVclRangeEntry.EntityData.AbsolutePath = "CISCO-ATM-PVCTRAP-EXTN-MIB:CISCO-ATM-PVCTRAP-EXTN-MIB/catmAISRDIStatusChPVclRangeTable/" + catmAISRDIStatusChPVclRangeEntry.EntityData.SegmentPath
     catmAISRDIStatusChPVclRangeEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     catmAISRDIStatusChPVclRangeEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     catmAISRDIStatusChPVclRangeEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -779,6 +795,7 @@ func (catmDownPVclRangeTable *CISCOATMPVCTRAPEXTNMIB_CatmDownPVclRangeTable) Get
     catmDownPVclRangeTable.EntityData.BundleName = "cisco_ios_xe"
     catmDownPVclRangeTable.EntityData.ParentYangName = "CISCO-ATM-PVCTRAP-EXTN-MIB"
     catmDownPVclRangeTable.EntityData.SegmentPath = "catmDownPVclRangeTable"
+    catmDownPVclRangeTable.EntityData.AbsolutePath = "CISCO-ATM-PVCTRAP-EXTN-MIB:CISCO-ATM-PVCTRAP-EXTN-MIB/" + catmDownPVclRangeTable.EntityData.SegmentPath
     catmDownPVclRangeTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     catmDownPVclRangeTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     catmDownPVclRangeTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -804,6 +821,7 @@ func (catmDownPVclRangeTable *CISCOATMPVCTRAPEXTNMIB_CatmDownPVclRangeTable) Get
 type CISCOATMPVCTRAPEXTNMIB_CatmDownPVclRangeTable_CatmDownPVclRangeEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -857,6 +875,7 @@ func (catmDownPVclRangeEntry *CISCOATMPVCTRAPEXTNMIB_CatmDownPVclRangeTable_Catm
     catmDownPVclRangeEntry.EntityData.BundleName = "cisco_ios_xe"
     catmDownPVclRangeEntry.EntityData.ParentYangName = "catmDownPVclRangeTable"
     catmDownPVclRangeEntry.EntityData.SegmentPath = "catmDownPVclRangeEntry" + types.AddKeyToken(catmDownPVclRangeEntry.IfIndex, "ifIndex") + types.AddKeyToken(catmDownPVclRangeEntry.AtmVclVpi, "atmVclVpi") + types.AddKeyToken(catmDownPVclRangeEntry.CatmStatusChangePVclRangeIndex, "catmStatusChangePVclRangeIndex")
+    catmDownPVclRangeEntry.EntityData.AbsolutePath = "CISCO-ATM-PVCTRAP-EXTN-MIB:CISCO-ATM-PVCTRAP-EXTN-MIB/catmDownPVclRangeTable/" + catmDownPVclRangeEntry.EntityData.SegmentPath
     catmDownPVclRangeEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     catmDownPVclRangeEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     catmDownPVclRangeEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -902,6 +921,7 @@ func (catmCurStatusUpPVclTable *CISCOATMPVCTRAPEXTNMIB_CatmCurStatusUpPVclTable)
     catmCurStatusUpPVclTable.EntityData.BundleName = "cisco_ios_xe"
     catmCurStatusUpPVclTable.EntityData.ParentYangName = "CISCO-ATM-PVCTRAP-EXTN-MIB"
     catmCurStatusUpPVclTable.EntityData.SegmentPath = "catmCurStatusUpPVclTable"
+    catmCurStatusUpPVclTable.EntityData.AbsolutePath = "CISCO-ATM-PVCTRAP-EXTN-MIB:CISCO-ATM-PVCTRAP-EXTN-MIB/" + catmCurStatusUpPVclTable.EntityData.SegmentPath
     catmCurStatusUpPVclTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     catmCurStatusUpPVclTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     catmCurStatusUpPVclTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -927,6 +947,7 @@ func (catmCurStatusUpPVclTable *CISCOATMPVCTRAPEXTNMIB_CatmCurStatusUpPVclTable)
 type CISCOATMPVCTRAPEXTNMIB_CatmCurStatusUpPVclTable_CatmCurStatusUpPVclEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -1020,6 +1041,7 @@ func (catmCurStatusUpPVclEntry *CISCOATMPVCTRAPEXTNMIB_CatmCurStatusUpPVclTable_
     catmCurStatusUpPVclEntry.EntityData.BundleName = "cisco_ios_xe"
     catmCurStatusUpPVclEntry.EntityData.ParentYangName = "catmCurStatusUpPVclTable"
     catmCurStatusUpPVclEntry.EntityData.SegmentPath = "catmCurStatusUpPVclEntry" + types.AddKeyToken(catmCurStatusUpPVclEntry.IfIndex, "ifIndex") + types.AddKeyToken(catmCurStatusUpPVclEntry.AtmVclVpi, "atmVclVpi") + types.AddKeyToken(catmCurStatusUpPVclEntry.AtmVclVci, "atmVclVci")
+    catmCurStatusUpPVclEntry.EntityData.AbsolutePath = "CISCO-ATM-PVCTRAP-EXTN-MIB:CISCO-ATM-PVCTRAP-EXTN-MIB/catmCurStatusUpPVclTable/" + catmCurStatusUpPVclEntry.EntityData.SegmentPath
     catmCurStatusUpPVclEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     catmCurStatusUpPVclEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     catmCurStatusUpPVclEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1074,6 +1096,7 @@ func (catmStatusUpPVclRangeTable *CISCOATMPVCTRAPEXTNMIB_CatmStatusUpPVclRangeTa
     catmStatusUpPVclRangeTable.EntityData.BundleName = "cisco_ios_xe"
     catmStatusUpPVclRangeTable.EntityData.ParentYangName = "CISCO-ATM-PVCTRAP-EXTN-MIB"
     catmStatusUpPVclRangeTable.EntityData.SegmentPath = "catmStatusUpPVclRangeTable"
+    catmStatusUpPVclRangeTable.EntityData.AbsolutePath = "CISCO-ATM-PVCTRAP-EXTN-MIB:CISCO-ATM-PVCTRAP-EXTN-MIB/" + catmStatusUpPVclRangeTable.EntityData.SegmentPath
     catmStatusUpPVclRangeTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     catmStatusUpPVclRangeTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     catmStatusUpPVclRangeTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1099,6 +1122,7 @@ func (catmStatusUpPVclRangeTable *CISCOATMPVCTRAPEXTNMIB_CatmStatusUpPVclRangeTa
 type CISCOATMPVCTRAPEXTNMIB_CatmStatusUpPVclRangeTable_CatmStatusUpPVclRangeEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -1139,6 +1163,7 @@ func (catmStatusUpPVclRangeEntry *CISCOATMPVCTRAPEXTNMIB_CatmStatusUpPVclRangeTa
     catmStatusUpPVclRangeEntry.EntityData.BundleName = "cisco_ios_xe"
     catmStatusUpPVclRangeEntry.EntityData.ParentYangName = "catmStatusUpPVclRangeTable"
     catmStatusUpPVclRangeEntry.EntityData.SegmentPath = "catmStatusUpPVclRangeEntry" + types.AddKeyToken(catmStatusUpPVclRangeEntry.IfIndex, "ifIndex") + types.AddKeyToken(catmStatusUpPVclRangeEntry.AtmVclVpi, "atmVclVpi") + types.AddKeyToken(catmStatusUpPVclRangeEntry.CatmStatusChangePVclRangeIndex, "catmStatusChangePVclRangeIndex")
+    catmStatusUpPVclRangeEntry.EntityData.AbsolutePath = "CISCO-ATM-PVCTRAP-EXTN-MIB:CISCO-ATM-PVCTRAP-EXTN-MIB/catmStatusUpPVclRangeTable/" + catmStatusUpPVclRangeEntry.EntityData.SegmentPath
     catmStatusUpPVclRangeEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     catmStatusUpPVclRangeEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     catmStatusUpPVclRangeEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1182,6 +1207,7 @@ func (catmSegCCStatusUpPVclRangeTable *CISCOATMPVCTRAPEXTNMIB_CatmSegCCStatusUpP
     catmSegCCStatusUpPVclRangeTable.EntityData.BundleName = "cisco_ios_xe"
     catmSegCCStatusUpPVclRangeTable.EntityData.ParentYangName = "CISCO-ATM-PVCTRAP-EXTN-MIB"
     catmSegCCStatusUpPVclRangeTable.EntityData.SegmentPath = "catmSegCCStatusUpPVclRangeTable"
+    catmSegCCStatusUpPVclRangeTable.EntityData.AbsolutePath = "CISCO-ATM-PVCTRAP-EXTN-MIB:CISCO-ATM-PVCTRAP-EXTN-MIB/" + catmSegCCStatusUpPVclRangeTable.EntityData.SegmentPath
     catmSegCCStatusUpPVclRangeTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     catmSegCCStatusUpPVclRangeTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     catmSegCCStatusUpPVclRangeTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1207,6 +1233,7 @@ func (catmSegCCStatusUpPVclRangeTable *CISCOATMPVCTRAPEXTNMIB_CatmSegCCStatusUpP
 type CISCOATMPVCTRAPEXTNMIB_CatmSegCCStatusUpPVclRangeTable_CatmSegCCStatusUpPVclRangeEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -1247,6 +1274,7 @@ func (catmSegCCStatusUpPVclRangeEntry *CISCOATMPVCTRAPEXTNMIB_CatmSegCCStatusUpP
     catmSegCCStatusUpPVclRangeEntry.EntityData.BundleName = "cisco_ios_xe"
     catmSegCCStatusUpPVclRangeEntry.EntityData.ParentYangName = "catmSegCCStatusUpPVclRangeTable"
     catmSegCCStatusUpPVclRangeEntry.EntityData.SegmentPath = "catmSegCCStatusUpPVclRangeEntry" + types.AddKeyToken(catmSegCCStatusUpPVclRangeEntry.IfIndex, "ifIndex") + types.AddKeyToken(catmSegCCStatusUpPVclRangeEntry.AtmVclVpi, "atmVclVpi") + types.AddKeyToken(catmSegCCStatusUpPVclRangeEntry.CatmStatusChangePVclRangeIndex, "catmStatusChangePVclRangeIndex")
+    catmSegCCStatusUpPVclRangeEntry.EntityData.AbsolutePath = "CISCO-ATM-PVCTRAP-EXTN-MIB:CISCO-ATM-PVCTRAP-EXTN-MIB/catmSegCCStatusUpPVclRangeTable/" + catmSegCCStatusUpPVclRangeEntry.EntityData.SegmentPath
     catmSegCCStatusUpPVclRangeEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     catmSegCCStatusUpPVclRangeEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     catmSegCCStatusUpPVclRangeEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1290,6 +1318,7 @@ func (catmEndCCStatusUpPVclRangeTable *CISCOATMPVCTRAPEXTNMIB_CatmEndCCStatusUpP
     catmEndCCStatusUpPVclRangeTable.EntityData.BundleName = "cisco_ios_xe"
     catmEndCCStatusUpPVclRangeTable.EntityData.ParentYangName = "CISCO-ATM-PVCTRAP-EXTN-MIB"
     catmEndCCStatusUpPVclRangeTable.EntityData.SegmentPath = "catmEndCCStatusUpPVclRangeTable"
+    catmEndCCStatusUpPVclRangeTable.EntityData.AbsolutePath = "CISCO-ATM-PVCTRAP-EXTN-MIB:CISCO-ATM-PVCTRAP-EXTN-MIB/" + catmEndCCStatusUpPVclRangeTable.EntityData.SegmentPath
     catmEndCCStatusUpPVclRangeTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     catmEndCCStatusUpPVclRangeTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     catmEndCCStatusUpPVclRangeTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1315,6 +1344,7 @@ func (catmEndCCStatusUpPVclRangeTable *CISCOATMPVCTRAPEXTNMIB_CatmEndCCStatusUpP
 type CISCOATMPVCTRAPEXTNMIB_CatmEndCCStatusUpPVclRangeTable_CatmEndCCStatusUpPVclRangeEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -1355,6 +1385,7 @@ func (catmEndCCStatusUpPVclRangeEntry *CISCOATMPVCTRAPEXTNMIB_CatmEndCCStatusUpP
     catmEndCCStatusUpPVclRangeEntry.EntityData.BundleName = "cisco_ios_xe"
     catmEndCCStatusUpPVclRangeEntry.EntityData.ParentYangName = "catmEndCCStatusUpPVclRangeTable"
     catmEndCCStatusUpPVclRangeEntry.EntityData.SegmentPath = "catmEndCCStatusUpPVclRangeEntry" + types.AddKeyToken(catmEndCCStatusUpPVclRangeEntry.IfIndex, "ifIndex") + types.AddKeyToken(catmEndCCStatusUpPVclRangeEntry.AtmVclVpi, "atmVclVpi") + types.AddKeyToken(catmEndCCStatusUpPVclRangeEntry.CatmStatusChangePVclRangeIndex, "catmStatusChangePVclRangeIndex")
+    catmEndCCStatusUpPVclRangeEntry.EntityData.AbsolutePath = "CISCO-ATM-PVCTRAP-EXTN-MIB:CISCO-ATM-PVCTRAP-EXTN-MIB/catmEndCCStatusUpPVclRangeTable/" + catmEndCCStatusUpPVclRangeEntry.EntityData.SegmentPath
     catmEndCCStatusUpPVclRangeEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     catmEndCCStatusUpPVclRangeEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     catmEndCCStatusUpPVclRangeEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1398,6 +1429,7 @@ func (catmAISRDIStatusUpPVclRangeTable *CISCOATMPVCTRAPEXTNMIB_CatmAISRDIStatusU
     catmAISRDIStatusUpPVclRangeTable.EntityData.BundleName = "cisco_ios_xe"
     catmAISRDIStatusUpPVclRangeTable.EntityData.ParentYangName = "CISCO-ATM-PVCTRAP-EXTN-MIB"
     catmAISRDIStatusUpPVclRangeTable.EntityData.SegmentPath = "catmAISRDIStatusUpPVclRangeTable"
+    catmAISRDIStatusUpPVclRangeTable.EntityData.AbsolutePath = "CISCO-ATM-PVCTRAP-EXTN-MIB:CISCO-ATM-PVCTRAP-EXTN-MIB/" + catmAISRDIStatusUpPVclRangeTable.EntityData.SegmentPath
     catmAISRDIStatusUpPVclRangeTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     catmAISRDIStatusUpPVclRangeTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     catmAISRDIStatusUpPVclRangeTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1423,6 +1455,7 @@ func (catmAISRDIStatusUpPVclRangeTable *CISCOATMPVCTRAPEXTNMIB_CatmAISRDIStatusU
 type CISCOATMPVCTRAPEXTNMIB_CatmAISRDIStatusUpPVclRangeTable_CatmAISRDIStatusUpPVclRangeEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -1463,6 +1496,7 @@ func (catmAISRDIStatusUpPVclRangeEntry *CISCOATMPVCTRAPEXTNMIB_CatmAISRDIStatusU
     catmAISRDIStatusUpPVclRangeEntry.EntityData.BundleName = "cisco_ios_xe"
     catmAISRDIStatusUpPVclRangeEntry.EntityData.ParentYangName = "catmAISRDIStatusUpPVclRangeTable"
     catmAISRDIStatusUpPVclRangeEntry.EntityData.SegmentPath = "catmAISRDIStatusUpPVclRangeEntry" + types.AddKeyToken(catmAISRDIStatusUpPVclRangeEntry.IfIndex, "ifIndex") + types.AddKeyToken(catmAISRDIStatusUpPVclRangeEntry.AtmVclVpi, "atmVclVpi") + types.AddKeyToken(catmAISRDIStatusUpPVclRangeEntry.CatmStatusChangePVclRangeIndex, "catmStatusChangePVclRangeIndex")
+    catmAISRDIStatusUpPVclRangeEntry.EntityData.AbsolutePath = "CISCO-ATM-PVCTRAP-EXTN-MIB:CISCO-ATM-PVCTRAP-EXTN-MIB/catmAISRDIStatusUpPVclRangeTable/" + catmAISRDIStatusUpPVclRangeEntry.EntityData.SegmentPath
     catmAISRDIStatusUpPVclRangeEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     catmAISRDIStatusUpPVclRangeEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     catmAISRDIStatusUpPVclRangeEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1506,6 +1540,7 @@ func (catmUpPVclRangeTable *CISCOATMPVCTRAPEXTNMIB_CatmUpPVclRangeTable) GetEnti
     catmUpPVclRangeTable.EntityData.BundleName = "cisco_ios_xe"
     catmUpPVclRangeTable.EntityData.ParentYangName = "CISCO-ATM-PVCTRAP-EXTN-MIB"
     catmUpPVclRangeTable.EntityData.SegmentPath = "catmUpPVclRangeTable"
+    catmUpPVclRangeTable.EntityData.AbsolutePath = "CISCO-ATM-PVCTRAP-EXTN-MIB:CISCO-ATM-PVCTRAP-EXTN-MIB/" + catmUpPVclRangeTable.EntityData.SegmentPath
     catmUpPVclRangeTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     catmUpPVclRangeTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     catmUpPVclRangeTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1531,6 +1566,7 @@ func (catmUpPVclRangeTable *CISCOATMPVCTRAPEXTNMIB_CatmUpPVclRangeTable) GetEnti
 type CISCOATMPVCTRAPEXTNMIB_CatmUpPVclRangeTable_CatmUpPVclRangeEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -1584,6 +1620,7 @@ func (catmUpPVclRangeEntry *CISCOATMPVCTRAPEXTNMIB_CatmUpPVclRangeTable_CatmUpPV
     catmUpPVclRangeEntry.EntityData.BundleName = "cisco_ios_xe"
     catmUpPVclRangeEntry.EntityData.ParentYangName = "catmUpPVclRangeTable"
     catmUpPVclRangeEntry.EntityData.SegmentPath = "catmUpPVclRangeEntry" + types.AddKeyToken(catmUpPVclRangeEntry.IfIndex, "ifIndex") + types.AddKeyToken(catmUpPVclRangeEntry.AtmVclVpi, "atmVclVpi") + types.AddKeyToken(catmUpPVclRangeEntry.CatmStatusChangePVclRangeIndex, "catmStatusChangePVclRangeIndex")
+    catmUpPVclRangeEntry.EntityData.AbsolutePath = "CISCO-ATM-PVCTRAP-EXTN-MIB:CISCO-ATM-PVCTRAP-EXTN-MIB/catmUpPVclRangeTable/" + catmUpPVclRangeEntry.EntityData.SegmentPath
     catmUpPVclRangeEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     catmUpPVclRangeEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     catmUpPVclRangeEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

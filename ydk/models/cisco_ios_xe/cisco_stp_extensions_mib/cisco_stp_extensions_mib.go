@@ -167,6 +167,7 @@ func (cISCOSTPEXTENSIONSMIB *CISCOSTPEXTENSIONSMIB) GetEntityData() *types.Commo
     cISCOSTPEXTENSIONSMIB.EntityData.BundleName = "cisco_ios_xe"
     cISCOSTPEXTENSIONSMIB.EntityData.ParentYangName = "CISCO-STP-EXTENSIONS-MIB"
     cISCOSTPEXTENSIONSMIB.EntityData.SegmentPath = "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB"
+    cISCOSTPEXTENSIONSMIB.EntityData.AbsolutePath = cISCOSTPEXTENSIONSMIB.EntityData.SegmentPath
     cISCOSTPEXTENSIONSMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cISCOSTPEXTENSIONSMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOSTPEXTENSIONSMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -264,6 +265,7 @@ func (stpxUplinkFastObjects *CISCOSTPEXTENSIONSMIB_StpxUplinkFastObjects) GetEnt
     stpxUplinkFastObjects.EntityData.BundleName = "cisco_ios_xe"
     stpxUplinkFastObjects.EntityData.ParentYangName = "CISCO-STP-EXTENSIONS-MIB"
     stpxUplinkFastObjects.EntityData.SegmentPath = "stpxUplinkFastObjects"
+    stpxUplinkFastObjects.EntityData.AbsolutePath = "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/" + stpxUplinkFastObjects.EntityData.SegmentPath
     stpxUplinkFastObjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     stpxUplinkFastObjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     stpxUplinkFastObjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -331,6 +333,7 @@ func (stpxBackboneFastObjects *CISCOSTPEXTENSIONSMIB_StpxBackboneFastObjects) Ge
     stpxBackboneFastObjects.EntityData.BundleName = "cisco_ios_xe"
     stpxBackboneFastObjects.EntityData.ParentYangName = "CISCO-STP-EXTENSIONS-MIB"
     stpxBackboneFastObjects.EntityData.SegmentPath = "stpxBackboneFastObjects"
+    stpxBackboneFastObjects.EntityData.AbsolutePath = "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/" + stpxBackboneFastObjects.EntityData.SegmentPath
     stpxBackboneFastObjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     stpxBackboneFastObjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     stpxBackboneFastObjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -416,6 +419,7 @@ func (stpxSpanningTreeObjects *CISCOSTPEXTENSIONSMIB_StpxSpanningTreeObjects) Ge
     stpxSpanningTreeObjects.EntityData.BundleName = "cisco_ios_xe"
     stpxSpanningTreeObjects.EntityData.ParentYangName = "CISCO-STP-EXTENSIONS-MIB"
     stpxSpanningTreeObjects.EntityData.SegmentPath = "stpxSpanningTreeObjects"
+    stpxSpanningTreeObjects.EntityData.AbsolutePath = "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/" + stpxSpanningTreeObjects.EntityData.SegmentPath
     stpxSpanningTreeObjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     stpxSpanningTreeObjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     stpxSpanningTreeObjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -484,6 +488,7 @@ func (stpxMISTPObjects *CISCOSTPEXTENSIONSMIB_StpxMISTPObjects) GetEntityData() 
     stpxMISTPObjects.EntityData.BundleName = "cisco_ios_xe"
     stpxMISTPObjects.EntityData.ParentYangName = "CISCO-STP-EXTENSIONS-MIB"
     stpxMISTPObjects.EntityData.SegmentPath = "stpxMISTPObjects"
+    stpxMISTPObjects.EntityData.AbsolutePath = "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/" + stpxMISTPObjects.EntityData.SegmentPath
     stpxMISTPObjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     stpxMISTPObjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     stpxMISTPObjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -513,6 +518,7 @@ func (stpxLoopGuardObjects *CISCOSTPEXTENSIONSMIB_StpxLoopGuardObjects) GetEntit
     stpxLoopGuardObjects.EntityData.BundleName = "cisco_ios_xe"
     stpxLoopGuardObjects.EntityData.ParentYangName = "CISCO-STP-EXTENSIONS-MIB"
     stpxLoopGuardObjects.EntityData.SegmentPath = "stpxLoopGuardObjects"
+    stpxLoopGuardObjects.EntityData.AbsolutePath = "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/" + stpxLoopGuardObjects.EntityData.SegmentPath
     stpxLoopGuardObjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     stpxLoopGuardObjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     stpxLoopGuardObjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -567,6 +573,7 @@ func (stpxFastStartObjects *CISCOSTPEXTENSIONSMIB_StpxFastStartObjects) GetEntit
     stpxFastStartObjects.EntityData.BundleName = "cisco_ios_xe"
     stpxFastStartObjects.EntityData.ParentYangName = "CISCO-STP-EXTENSIONS-MIB"
     stpxFastStartObjects.EntityData.SegmentPath = "stpxFastStartObjects"
+    stpxFastStartObjects.EntityData.AbsolutePath = "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/" + stpxFastStartObjects.EntityData.SegmentPath
     stpxFastStartObjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     stpxFastStartObjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     stpxFastStartObjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -611,6 +618,7 @@ func (stpxBpduSkewingObjects *CISCOSTPEXTENSIONSMIB_StpxBpduSkewingObjects) GetE
     stpxBpduSkewingObjects.EntityData.BundleName = "cisco_ios_xe"
     stpxBpduSkewingObjects.EntityData.ParentYangName = "CISCO-STP-EXTENSIONS-MIB"
     stpxBpduSkewingObjects.EntityData.SegmentPath = "stpxBpduSkewingObjects"
+    stpxBpduSkewingObjects.EntityData.AbsolutePath = "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/" + stpxBpduSkewingObjects.EntityData.SegmentPath
     stpxBpduSkewingObjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     stpxBpduSkewingObjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     stpxBpduSkewingObjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -697,6 +705,7 @@ func (stpxMSTObjects *CISCOSTPEXTENSIONSMIB_StpxMSTObjects) GetEntityData() *typ
     stpxMSTObjects.EntityData.BundleName = "cisco_ios_xe"
     stpxMSTObjects.EntityData.ParentYangName = "CISCO-STP-EXTENSIONS-MIB"
     stpxMSTObjects.EntityData.SegmentPath = "stpxMSTObjects"
+    stpxMSTObjects.EntityData.AbsolutePath = "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/" + stpxMSTObjects.EntityData.SegmentPath
     stpxMSTObjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     stpxMSTObjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     stpxMSTObjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -758,6 +767,7 @@ func (stpxRSTPObjects *CISCOSTPEXTENSIONSMIB_StpxRSTPObjects) GetEntityData() *t
     stpxRSTPObjects.EntityData.BundleName = "cisco_ios_xe"
     stpxRSTPObjects.EntityData.ParentYangName = "CISCO-STP-EXTENSIONS-MIB"
     stpxRSTPObjects.EntityData.SegmentPath = "stpxRSTPObjects"
+    stpxRSTPObjects.EntityData.AbsolutePath = "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/" + stpxRSTPObjects.EntityData.SegmentPath
     stpxRSTPObjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     stpxRSTPObjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     stpxRSTPObjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -810,6 +820,7 @@ func (stpxSMSTObjects *CISCOSTPEXTENSIONSMIB_StpxSMSTObjects) GetEntityData() *t
     stpxSMSTObjects.EntityData.BundleName = "cisco_ios_xe"
     stpxSMSTObjects.EntityData.ParentYangName = "CISCO-STP-EXTENSIONS-MIB"
     stpxSMSTObjects.EntityData.SegmentPath = "stpxSMSTObjects"
+    stpxSMSTObjects.EntityData.AbsolutePath = "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/" + stpxSMSTObjects.EntityData.SegmentPath
     stpxSMSTObjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     stpxSMSTObjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     stpxSMSTObjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -850,6 +861,7 @@ func (stpxPVSTVlanTable *CISCOSTPEXTENSIONSMIB_StpxPVSTVlanTable) GetEntityData(
     stpxPVSTVlanTable.EntityData.BundleName = "cisco_ios_xe"
     stpxPVSTVlanTable.EntityData.ParentYangName = "CISCO-STP-EXTENSIONS-MIB"
     stpxPVSTVlanTable.EntityData.SegmentPath = "stpxPVSTVlanTable"
+    stpxPVSTVlanTable.EntityData.AbsolutePath = "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/" + stpxPVSTVlanTable.EntityData.SegmentPath
     stpxPVSTVlanTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     stpxPVSTVlanTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     stpxPVSTVlanTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -872,6 +884,7 @@ func (stpxPVSTVlanTable *CISCOSTPEXTENSIONSMIB_StpxPVSTVlanTable) GetEntityData(
 type CISCOSTPEXTENSIONSMIB_StpxPVSTVlanTable_StpxPVSTVlanEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. An index value that uniquely identifies the
     // Virtual LAN associated with this information. The type is interface{} with
@@ -897,6 +910,7 @@ func (stpxPVSTVlanEntry *CISCOSTPEXTENSIONSMIB_StpxPVSTVlanTable_StpxPVSTVlanEnt
     stpxPVSTVlanEntry.EntityData.BundleName = "cisco_ios_xe"
     stpxPVSTVlanEntry.EntityData.ParentYangName = "stpxPVSTVlanTable"
     stpxPVSTVlanEntry.EntityData.SegmentPath = "stpxPVSTVlanEntry" + types.AddKeyToken(stpxPVSTVlanEntry.StpxPVSTVlanIndex, "stpxPVSTVlanIndex")
+    stpxPVSTVlanEntry.EntityData.AbsolutePath = "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/stpxPVSTVlanTable/" + stpxPVSTVlanEntry.EntityData.SegmentPath
     stpxPVSTVlanEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     stpxPVSTVlanEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     stpxPVSTVlanEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -946,6 +960,7 @@ func (stpxInconsistencyTable *CISCOSTPEXTENSIONSMIB_StpxInconsistencyTable) GetE
     stpxInconsistencyTable.EntityData.BundleName = "cisco_ios_xe"
     stpxInconsistencyTable.EntityData.ParentYangName = "CISCO-STP-EXTENSIONS-MIB"
     stpxInconsistencyTable.EntityData.SegmentPath = "stpxInconsistencyTable"
+    stpxInconsistencyTable.EntityData.AbsolutePath = "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/" + stpxInconsistencyTable.EntityData.SegmentPath
     stpxInconsistencyTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     stpxInconsistencyTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     stpxInconsistencyTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -968,6 +983,7 @@ func (stpxInconsistencyTable *CISCOSTPEXTENSIONSMIB_StpxInconsistencyTable) GetE
 type CISCOSTPEXTENSIONSMIB_StpxInconsistencyTable_StpxInconsistencyEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The VLAN id of the VLAN. The type is interface{}
     // with range: 0..4095.
@@ -990,6 +1006,7 @@ func (stpxInconsistencyEntry *CISCOSTPEXTENSIONSMIB_StpxInconsistencyTable_StpxI
     stpxInconsistencyEntry.EntityData.BundleName = "cisco_ios_xe"
     stpxInconsistencyEntry.EntityData.ParentYangName = "stpxInconsistencyTable"
     stpxInconsistencyEntry.EntityData.SegmentPath = "stpxInconsistencyEntry" + types.AddKeyToken(stpxInconsistencyEntry.StpxVlanIndex, "stpxVlanIndex") + types.AddKeyToken(stpxInconsistencyEntry.StpxPortIndex, "stpxPortIndex")
+    stpxInconsistencyEntry.EntityData.AbsolutePath = "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/stpxInconsistencyTable/" + stpxInconsistencyEntry.EntityData.SegmentPath
     stpxInconsistencyEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     stpxInconsistencyEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     stpxInconsistencyEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1024,6 +1041,7 @@ func (stpxRootGuardConfigTable *CISCOSTPEXTENSIONSMIB_StpxRootGuardConfigTable) 
     stpxRootGuardConfigTable.EntityData.BundleName = "cisco_ios_xe"
     stpxRootGuardConfigTable.EntityData.ParentYangName = "CISCO-STP-EXTENSIONS-MIB"
     stpxRootGuardConfigTable.EntityData.SegmentPath = "stpxRootGuardConfigTable"
+    stpxRootGuardConfigTable.EntityData.AbsolutePath = "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/" + stpxRootGuardConfigTable.EntityData.SegmentPath
     stpxRootGuardConfigTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     stpxRootGuardConfigTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     stpxRootGuardConfigTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1046,6 +1064,7 @@ func (stpxRootGuardConfigTable *CISCOSTPEXTENSIONSMIB_StpxRootGuardConfigTable) 
 type CISCOSTPEXTENSIONSMIB_StpxRootGuardConfigTable_StpxRootGuardConfigEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The value of dot1dBasePort (i.e. dot1dBridge.1.4)
     // for the bridge port. The type is interface{} with range: 1..65535.
@@ -1063,6 +1082,7 @@ func (stpxRootGuardConfigEntry *CISCOSTPEXTENSIONSMIB_StpxRootGuardConfigTable_S
     stpxRootGuardConfigEntry.EntityData.BundleName = "cisco_ios_xe"
     stpxRootGuardConfigEntry.EntityData.ParentYangName = "stpxRootGuardConfigTable"
     stpxRootGuardConfigEntry.EntityData.SegmentPath = "stpxRootGuardConfigEntry" + types.AddKeyToken(stpxRootGuardConfigEntry.StpxRootGuardConfigPortIndex, "stpxRootGuardConfigPortIndex")
+    stpxRootGuardConfigEntry.EntityData.AbsolutePath = "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/stpxRootGuardConfigTable/" + stpxRootGuardConfigEntry.EntityData.SegmentPath
     stpxRootGuardConfigEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     stpxRootGuardConfigEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     stpxRootGuardConfigEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1100,6 +1120,7 @@ func (stpxRootInconsistencyTable *CISCOSTPEXTENSIONSMIB_StpxRootInconsistencyTab
     stpxRootInconsistencyTable.EntityData.BundleName = "cisco_ios_xe"
     stpxRootInconsistencyTable.EntityData.ParentYangName = "CISCO-STP-EXTENSIONS-MIB"
     stpxRootInconsistencyTable.EntityData.SegmentPath = "stpxRootInconsistencyTable"
+    stpxRootInconsistencyTable.EntityData.AbsolutePath = "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/" + stpxRootInconsistencyTable.EntityData.SegmentPath
     stpxRootInconsistencyTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     stpxRootInconsistencyTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     stpxRootInconsistencyTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1123,6 +1144,7 @@ func (stpxRootInconsistencyTable *CISCOSTPEXTENSIONSMIB_StpxRootInconsistencyTab
 type CISCOSTPEXTENSIONSMIB_StpxRootInconsistencyTable_StpxRootInconsistencyEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The Spanning Tree instance id, such as the VLAN id
     // of the VLAN if the object value of stpxSpanningTreeType is pvstPlus(1) or
@@ -1144,6 +1166,7 @@ func (stpxRootInconsistencyEntry *CISCOSTPEXTENSIONSMIB_StpxRootInconsistencyTab
     stpxRootInconsistencyEntry.EntityData.BundleName = "cisco_ios_xe"
     stpxRootInconsistencyEntry.EntityData.ParentYangName = "stpxRootInconsistencyTable"
     stpxRootInconsistencyEntry.EntityData.SegmentPath = "stpxRootInconsistencyEntry" + types.AddKeyToken(stpxRootInconsistencyEntry.StpxRootInconsistencyIndex, "stpxRootInconsistencyIndex") + types.AddKeyToken(stpxRootInconsistencyEntry.StpxRootInconsistencyPortIndex, "stpxRootInconsistencyPortIndex")
+    stpxRootInconsistencyEntry.EntityData.AbsolutePath = "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/stpxRootInconsistencyTable/" + stpxRootInconsistencyEntry.EntityData.SegmentPath
     stpxRootInconsistencyEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     stpxRootInconsistencyEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     stpxRootInconsistencyEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1182,6 +1205,7 @@ func (stpxMISTPInstanceTable *CISCOSTPEXTENSIONSMIB_StpxMISTPInstanceTable) GetE
     stpxMISTPInstanceTable.EntityData.BundleName = "cisco_ios_xe"
     stpxMISTPInstanceTable.EntityData.ParentYangName = "CISCO-STP-EXTENSIONS-MIB"
     stpxMISTPInstanceTable.EntityData.SegmentPath = "stpxMISTPInstanceTable"
+    stpxMISTPInstanceTable.EntityData.AbsolutePath = "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/" + stpxMISTPInstanceTable.EntityData.SegmentPath
     stpxMISTPInstanceTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     stpxMISTPInstanceTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     stpxMISTPInstanceTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1204,6 +1228,7 @@ func (stpxMISTPInstanceTable *CISCOSTPEXTENSIONSMIB_StpxMISTPInstanceTable) GetE
 type CISCOSTPEXTENSIONSMIB_StpxMISTPInstanceTable_StpxMISTPInstanceEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. An arbitrary integer within the range from 1 to
     // the value of stpxMISTPInstanceNumber that uniquely identifies an instance.
@@ -1262,6 +1287,7 @@ func (stpxMISTPInstanceEntry *CISCOSTPEXTENSIONSMIB_StpxMISTPInstanceTable_StpxM
     stpxMISTPInstanceEntry.EntityData.BundleName = "cisco_ios_xe"
     stpxMISTPInstanceEntry.EntityData.ParentYangName = "stpxMISTPInstanceTable"
     stpxMISTPInstanceEntry.EntityData.SegmentPath = "stpxMISTPInstanceEntry" + types.AddKeyToken(stpxMISTPInstanceEntry.StpxMISTPInstanceIndex, "stpxMISTPInstanceIndex")
+    stpxMISTPInstanceEntry.EntityData.AbsolutePath = "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/stpxMISTPInstanceTable/" + stpxMISTPInstanceEntry.EntityData.SegmentPath
     stpxMISTPInstanceEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     stpxMISTPInstanceEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     stpxMISTPInstanceEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1299,6 +1325,7 @@ func (stpxLoopGuardConfigTable *CISCOSTPEXTENSIONSMIB_StpxLoopGuardConfigTable) 
     stpxLoopGuardConfigTable.EntityData.BundleName = "cisco_ios_xe"
     stpxLoopGuardConfigTable.EntityData.ParentYangName = "CISCO-STP-EXTENSIONS-MIB"
     stpxLoopGuardConfigTable.EntityData.SegmentPath = "stpxLoopGuardConfigTable"
+    stpxLoopGuardConfigTable.EntityData.AbsolutePath = "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/" + stpxLoopGuardConfigTable.EntityData.SegmentPath
     stpxLoopGuardConfigTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     stpxLoopGuardConfigTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     stpxLoopGuardConfigTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1321,6 +1348,7 @@ func (stpxLoopGuardConfigTable *CISCOSTPEXTENSIONSMIB_StpxLoopGuardConfigTable) 
 type CISCOSTPEXTENSIONSMIB_StpxLoopGuardConfigTable_StpxLoopGuardConfigEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The value of dot1dBasePort (i.e. dot1dBridge.1.4)
     // for the bridge port. The type is interface{} with range: 1..65535.
@@ -1357,6 +1385,7 @@ func (stpxLoopGuardConfigEntry *CISCOSTPEXTENSIONSMIB_StpxLoopGuardConfigTable_S
     stpxLoopGuardConfigEntry.EntityData.BundleName = "cisco_ios_xe"
     stpxLoopGuardConfigEntry.EntityData.ParentYangName = "stpxLoopGuardConfigTable"
     stpxLoopGuardConfigEntry.EntityData.SegmentPath = "stpxLoopGuardConfigEntry" + types.AddKeyToken(stpxLoopGuardConfigEntry.StpxLoopGuardConfigPortIndex, "stpxLoopGuardConfigPortIndex")
+    stpxLoopGuardConfigEntry.EntityData.AbsolutePath = "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/stpxLoopGuardConfigTable/" + stpxLoopGuardConfigEntry.EntityData.SegmentPath
     stpxLoopGuardConfigEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     stpxLoopGuardConfigEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     stpxLoopGuardConfigEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1406,6 +1435,7 @@ func (stpxLoopInconsistencyTable *CISCOSTPEXTENSIONSMIB_StpxLoopInconsistencyTab
     stpxLoopInconsistencyTable.EntityData.BundleName = "cisco_ios_xe"
     stpxLoopInconsistencyTable.EntityData.ParentYangName = "CISCO-STP-EXTENSIONS-MIB"
     stpxLoopInconsistencyTable.EntityData.SegmentPath = "stpxLoopInconsistencyTable"
+    stpxLoopInconsistencyTable.EntityData.AbsolutePath = "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/" + stpxLoopInconsistencyTable.EntityData.SegmentPath
     stpxLoopInconsistencyTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     stpxLoopInconsistencyTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     stpxLoopInconsistencyTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1429,6 +1459,7 @@ func (stpxLoopInconsistencyTable *CISCOSTPEXTENSIONSMIB_StpxLoopInconsistencyTab
 type CISCOSTPEXTENSIONSMIB_StpxLoopInconsistencyTable_StpxLoopInconsistencyEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The Spanning Tree instance id, such as the VLAN id
     // of the VLAN if the object value of stpxSpanningTreeType is pvstPlus(1) or
@@ -1450,6 +1481,7 @@ func (stpxLoopInconsistencyEntry *CISCOSTPEXTENSIONSMIB_StpxLoopInconsistencyTab
     stpxLoopInconsistencyEntry.EntityData.BundleName = "cisco_ios_xe"
     stpxLoopInconsistencyEntry.EntityData.ParentYangName = "stpxLoopInconsistencyTable"
     stpxLoopInconsistencyEntry.EntityData.SegmentPath = "stpxLoopInconsistencyEntry" + types.AddKeyToken(stpxLoopInconsistencyEntry.StpxLoopInconsistencyIndex, "stpxLoopInconsistencyIndex") + types.AddKeyToken(stpxLoopInconsistencyEntry.StpxLoopInconsistencyPortIndex, "stpxLoopInconsistencyPortIndex")
+    stpxLoopInconsistencyEntry.EntityData.AbsolutePath = "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/stpxLoopInconsistencyTable/" + stpxLoopInconsistencyEntry.EntityData.SegmentPath
     stpxLoopInconsistencyEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     stpxLoopInconsistencyEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     stpxLoopInconsistencyEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1485,6 +1517,7 @@ func (stpxFastStartPortTable *CISCOSTPEXTENSIONSMIB_StpxFastStartPortTable) GetE
     stpxFastStartPortTable.EntityData.BundleName = "cisco_ios_xe"
     stpxFastStartPortTable.EntityData.ParentYangName = "CISCO-STP-EXTENSIONS-MIB"
     stpxFastStartPortTable.EntityData.SegmentPath = "stpxFastStartPortTable"
+    stpxFastStartPortTable.EntityData.AbsolutePath = "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/" + stpxFastStartPortTable.EntityData.SegmentPath
     stpxFastStartPortTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     stpxFastStartPortTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     stpxFastStartPortTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1507,6 +1540,7 @@ func (stpxFastStartPortTable *CISCOSTPEXTENSIONSMIB_StpxFastStartPortTable) GetE
 type CISCOSTPEXTENSIONSMIB_StpxFastStartPortTable_StpxFastStartPortEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The value of dot1dBasePort (i.e. dot1dBridge.1.4)
     // for the bridge port. The type is interface{} with range: 1..65535.
@@ -1578,6 +1612,7 @@ func (stpxFastStartPortEntry *CISCOSTPEXTENSIONSMIB_StpxFastStartPortTable_StpxF
     stpxFastStartPortEntry.EntityData.BundleName = "cisco_ios_xe"
     stpxFastStartPortEntry.EntityData.ParentYangName = "stpxFastStartPortTable"
     stpxFastStartPortEntry.EntityData.SegmentPath = "stpxFastStartPortEntry" + types.AddKeyToken(stpxFastStartPortEntry.StpxFastStartPortIndex, "stpxFastStartPortIndex")
+    stpxFastStartPortEntry.EntityData.AbsolutePath = "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/stpxFastStartPortTable/" + stpxFastStartPortEntry.EntityData.SegmentPath
     stpxFastStartPortEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     stpxFastStartPortEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     stpxFastStartPortEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1651,6 +1686,7 @@ func (stpxFastStartOperModeTable *CISCOSTPEXTENSIONSMIB_StpxFastStartOperModeTab
     stpxFastStartOperModeTable.EntityData.BundleName = "cisco_ios_xe"
     stpxFastStartOperModeTable.EntityData.ParentYangName = "CISCO-STP-EXTENSIONS-MIB"
     stpxFastStartOperModeTable.EntityData.SegmentPath = "stpxFastStartOperModeTable"
+    stpxFastStartOperModeTable.EntityData.AbsolutePath = "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/" + stpxFastStartOperModeTable.EntityData.SegmentPath
     stpxFastStartOperModeTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     stpxFastStartOperModeTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     stpxFastStartOperModeTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1674,6 +1710,7 @@ func (stpxFastStartOperModeTable *CISCOSTPEXTENSIONSMIB_StpxFastStartOperModeTab
 type CISCOSTPEXTENSIONSMIB_StpxFastStartOperModeTable_StpxFastStartOperModeEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The Spanning Tree instance id, such as the VLAN id
     // of the VLAN if the object value of stpxSpanningTreeType is pvstPlus(1). The
@@ -1695,6 +1732,7 @@ func (stpxFastStartOperModeEntry *CISCOSTPEXTENSIONSMIB_StpxFastStartOperModeTab
     stpxFastStartOperModeEntry.EntityData.BundleName = "cisco_ios_xe"
     stpxFastStartOperModeEntry.EntityData.ParentYangName = "stpxFastStartOperModeTable"
     stpxFastStartOperModeEntry.EntityData.SegmentPath = "stpxFastStartOperModeEntry" + types.AddKeyToken(stpxFastStartOperModeEntry.StpxFastStartOperModeInstIndex, "stpxFastStartOperModeInstIndex") + types.AddKeyToken(stpxFastStartOperModeEntry.StpxFastStartOperModePortIndex, "stpxFastStartOperModePortIndex")
+    stpxFastStartOperModeEntry.EntityData.AbsolutePath = "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/stpxFastStartOperModeTable/" + stpxFastStartOperModeEntry.EntityData.SegmentPath
     stpxFastStartOperModeEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     stpxFastStartOperModeEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     stpxFastStartOperModeEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1751,6 +1789,7 @@ func (stpxBpduSkewingTable *CISCOSTPEXTENSIONSMIB_StpxBpduSkewingTable) GetEntit
     stpxBpduSkewingTable.EntityData.BundleName = "cisco_ios_xe"
     stpxBpduSkewingTable.EntityData.ParentYangName = "CISCO-STP-EXTENSIONS-MIB"
     stpxBpduSkewingTable.EntityData.SegmentPath = "stpxBpduSkewingTable"
+    stpxBpduSkewingTable.EntityData.AbsolutePath = "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/" + stpxBpduSkewingTable.EntityData.SegmentPath
     stpxBpduSkewingTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     stpxBpduSkewingTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     stpxBpduSkewingTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1773,6 +1812,7 @@ func (stpxBpduSkewingTable *CISCOSTPEXTENSIONSMIB_StpxBpduSkewingTable) GetEntit
 type CISCOSTPEXTENSIONSMIB_StpxBpduSkewingTable_StpxBpduSkewingEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The Spanning Tree instance id, such as the VLAN id
     // of the VLAN if the object value of stpxSpanningTreeType  is pvstPlus(1).
@@ -1804,6 +1844,7 @@ func (stpxBpduSkewingEntry *CISCOSTPEXTENSIONSMIB_StpxBpduSkewingTable_StpxBpduS
     stpxBpduSkewingEntry.EntityData.BundleName = "cisco_ios_xe"
     stpxBpduSkewingEntry.EntityData.ParentYangName = "stpxBpduSkewingTable"
     stpxBpduSkewingEntry.EntityData.SegmentPath = "stpxBpduSkewingEntry" + types.AddKeyToken(stpxBpduSkewingEntry.StpxBpduSkewingInstanceIndex, "stpxBpduSkewingInstanceIndex") + types.AddKeyToken(stpxBpduSkewingEntry.StpxBpduSkewingPortIndex, "stpxBpduSkewingPortIndex")
+    stpxBpduSkewingEntry.EntityData.AbsolutePath = "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/stpxBpduSkewingTable/" + stpxBpduSkewingEntry.EntityData.SegmentPath
     stpxBpduSkewingEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     stpxBpduSkewingEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     stpxBpduSkewingEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1843,6 +1884,7 @@ func (stpxMSTInstanceTable *CISCOSTPEXTENSIONSMIB_StpxMSTInstanceTable) GetEntit
     stpxMSTInstanceTable.EntityData.BundleName = "cisco_ios_xe"
     stpxMSTInstanceTable.EntityData.ParentYangName = "CISCO-STP-EXTENSIONS-MIB"
     stpxMSTInstanceTable.EntityData.SegmentPath = "stpxMSTInstanceTable"
+    stpxMSTInstanceTable.EntityData.AbsolutePath = "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/" + stpxMSTInstanceTable.EntityData.SegmentPath
     stpxMSTInstanceTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     stpxMSTInstanceTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     stpxMSTInstanceTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1865,6 +1907,7 @@ func (stpxMSTInstanceTable *CISCOSTPEXTENSIONSMIB_StpxMSTInstanceTable) GetEntit
 type CISCOSTPEXTENSIONSMIB_StpxMSTInstanceTable_StpxMSTInstanceEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. An integer that uniquely identifies an MST
     // instance  within the range of 0 to the object value of
@@ -1926,6 +1969,7 @@ func (stpxMSTInstanceEntry *CISCOSTPEXTENSIONSMIB_StpxMSTInstanceTable_StpxMSTIn
     stpxMSTInstanceEntry.EntityData.BundleName = "cisco_ios_xe"
     stpxMSTInstanceEntry.EntityData.ParentYangName = "stpxMSTInstanceTable"
     stpxMSTInstanceEntry.EntityData.SegmentPath = "stpxMSTInstanceEntry" + types.AddKeyToken(stpxMSTInstanceEntry.StpxMSTInstanceIndex, "stpxMSTInstanceIndex")
+    stpxMSTInstanceEntry.EntityData.AbsolutePath = "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/stpxMSTInstanceTable/" + stpxMSTInstanceEntry.EntityData.SegmentPath
     stpxMSTInstanceEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     stpxMSTInstanceEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     stpxMSTInstanceEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1971,6 +2015,7 @@ func (stpxMSTInstanceEditTable *CISCOSTPEXTENSIONSMIB_StpxMSTInstanceEditTable) 
     stpxMSTInstanceEditTable.EntityData.BundleName = "cisco_ios_xe"
     stpxMSTInstanceEditTable.EntityData.ParentYangName = "CISCO-STP-EXTENSIONS-MIB"
     stpxMSTInstanceEditTable.EntityData.SegmentPath = "stpxMSTInstanceEditTable"
+    stpxMSTInstanceEditTable.EntityData.AbsolutePath = "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/" + stpxMSTInstanceEditTable.EntityData.SegmentPath
     stpxMSTInstanceEditTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     stpxMSTInstanceEditTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     stpxMSTInstanceEditTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1993,6 +2038,7 @@ func (stpxMSTInstanceEditTable *CISCOSTPEXTENSIONSMIB_StpxMSTInstanceEditTable) 
 type CISCOSTPEXTENSIONSMIB_StpxMSTInstanceEditTable_StpxMSTInstanceEditEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. An integer that uniquely identifies an MST
     // instance  from 0 to the object value of stpxMSTMaxInstanceNumber.  The
@@ -2059,6 +2105,7 @@ func (stpxMSTInstanceEditEntry *CISCOSTPEXTENSIONSMIB_StpxMSTInstanceEditTable_S
     stpxMSTInstanceEditEntry.EntityData.BundleName = "cisco_ios_xe"
     stpxMSTInstanceEditEntry.EntityData.ParentYangName = "stpxMSTInstanceEditTable"
     stpxMSTInstanceEditEntry.EntityData.SegmentPath = "stpxMSTInstanceEditEntry" + types.AddKeyToken(stpxMSTInstanceEditEntry.StpxMSTInstanceEditIndex, "stpxMSTInstanceEditIndex")
+    stpxMSTInstanceEditEntry.EntityData.AbsolutePath = "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/stpxMSTInstanceEditTable/" + stpxMSTInstanceEditEntry.EntityData.SegmentPath
     stpxMSTInstanceEditEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     stpxMSTInstanceEditEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     stpxMSTInstanceEditEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2095,6 +2142,7 @@ func (stpxMSTPortTable *CISCOSTPEXTENSIONSMIB_StpxMSTPortTable) GetEntityData() 
     stpxMSTPortTable.EntityData.BundleName = "cisco_ios_xe"
     stpxMSTPortTable.EntityData.ParentYangName = "CISCO-STP-EXTENSIONS-MIB"
     stpxMSTPortTable.EntityData.SegmentPath = "stpxMSTPortTable"
+    stpxMSTPortTable.EntityData.AbsolutePath = "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/" + stpxMSTPortTable.EntityData.SegmentPath
     stpxMSTPortTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     stpxMSTPortTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     stpxMSTPortTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2117,6 +2165,7 @@ func (stpxMSTPortTable *CISCOSTPEXTENSIONSMIB_StpxMSTPortTable) GetEntityData() 
 type CISCOSTPEXTENSIONSMIB_StpxMSTPortTable_StpxMSTPortEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The value of dot1dBasePort (i.e. dot1dBridge.1.4)
     // for the bridge port. The type is interface{} with range: 1..65535.
@@ -2173,6 +2222,7 @@ func (stpxMSTPortEntry *CISCOSTPEXTENSIONSMIB_StpxMSTPortTable_StpxMSTPortEntry)
     stpxMSTPortEntry.EntityData.BundleName = "cisco_ios_xe"
     stpxMSTPortEntry.EntityData.ParentYangName = "stpxMSTPortTable"
     stpxMSTPortEntry.EntityData.SegmentPath = "stpxMSTPortEntry" + types.AddKeyToken(stpxMSTPortEntry.StpxMSTPortIndex, "stpxMSTPortIndex")
+    stpxMSTPortEntry.EntityData.AbsolutePath = "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/stpxMSTPortTable/" + stpxMSTPortEntry.EntityData.SegmentPath
     stpxMSTPortEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     stpxMSTPortEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     stpxMSTPortEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2235,6 +2285,7 @@ func (stpxMSTPortRoleTable *CISCOSTPEXTENSIONSMIB_StpxMSTPortRoleTable) GetEntit
     stpxMSTPortRoleTable.EntityData.BundleName = "cisco_ios_xe"
     stpxMSTPortRoleTable.EntityData.ParentYangName = "CISCO-STP-EXTENSIONS-MIB"
     stpxMSTPortRoleTable.EntityData.SegmentPath = "stpxMSTPortRoleTable"
+    stpxMSTPortRoleTable.EntityData.AbsolutePath = "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/" + stpxMSTPortRoleTable.EntityData.SegmentPath
     stpxMSTPortRoleTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     stpxMSTPortRoleTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     stpxMSTPortRoleTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2258,6 +2309,7 @@ func (stpxMSTPortRoleTable *CISCOSTPEXTENSIONSMIB_StpxMSTPortRoleTable) GetEntit
 type CISCOSTPEXTENSIONSMIB_StpxMSTPortRoleTable_StpxMSTPortRoleEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The MST instance id within the range of 0 to
     // stpxMSTMaxInstanceNumber. The type is interface{} with range: 0..256.
@@ -2286,6 +2338,7 @@ func (stpxMSTPortRoleEntry *CISCOSTPEXTENSIONSMIB_StpxMSTPortRoleTable_StpxMSTPo
     stpxMSTPortRoleEntry.EntityData.BundleName = "cisco_ios_xe"
     stpxMSTPortRoleEntry.EntityData.ParentYangName = "stpxMSTPortRoleTable"
     stpxMSTPortRoleEntry.EntityData.SegmentPath = "stpxMSTPortRoleEntry" + types.AddKeyToken(stpxMSTPortRoleEntry.StpxMSTPortRoleInstanceIndex, "stpxMSTPortRoleInstanceIndex") + types.AddKeyToken(stpxMSTPortRoleEntry.StpxMSTPortRolePortIndex, "stpxMSTPortRolePortIndex")
+    stpxMSTPortRoleEntry.EntityData.AbsolutePath = "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/stpxMSTPortRoleTable/" + stpxMSTPortRoleEntry.EntityData.SegmentPath
     stpxMSTPortRoleEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     stpxMSTPortRoleEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     stpxMSTPortRoleEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2339,6 +2392,7 @@ func (stpxRSTPPortTable *CISCOSTPEXTENSIONSMIB_StpxRSTPPortTable) GetEntityData(
     stpxRSTPPortTable.EntityData.BundleName = "cisco_ios_xe"
     stpxRSTPPortTable.EntityData.ParentYangName = "CISCO-STP-EXTENSIONS-MIB"
     stpxRSTPPortTable.EntityData.SegmentPath = "stpxRSTPPortTable"
+    stpxRSTPPortTable.EntityData.AbsolutePath = "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/" + stpxRSTPPortTable.EntityData.SegmentPath
     stpxRSTPPortTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     stpxRSTPPortTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     stpxRSTPPortTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2361,6 +2415,7 @@ func (stpxRSTPPortTable *CISCOSTPEXTENSIONSMIB_StpxRSTPPortTable) GetEntityData(
 type CISCOSTPEXTENSIONSMIB_StpxRSTPPortTable_StpxRSTPPortEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The value of dot1dBasePort (i.e. dot1dBridge.1.4)
     // for the bridge port. The type is interface{} with range: 1..65535.
@@ -2404,6 +2459,7 @@ func (stpxRSTPPortEntry *CISCOSTPEXTENSIONSMIB_StpxRSTPPortTable_StpxRSTPPortEnt
     stpxRSTPPortEntry.EntityData.BundleName = "cisco_ios_xe"
     stpxRSTPPortEntry.EntityData.ParentYangName = "stpxRSTPPortTable"
     stpxRSTPPortEntry.EntityData.SegmentPath = "stpxRSTPPortEntry" + types.AddKeyToken(stpxRSTPPortEntry.StpxRSTPPortIndex, "stpxRSTPPortIndex")
+    stpxRSTPPortEntry.EntityData.AbsolutePath = "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/stpxRSTPPortTable/" + stpxRSTPPortEntry.EntityData.SegmentPath
     stpxRSTPPortEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     stpxRSTPPortEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     stpxRSTPPortEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2463,6 +2519,7 @@ func (stpxRSTPPortRoleTable *CISCOSTPEXTENSIONSMIB_StpxRSTPPortRoleTable) GetEnt
     stpxRSTPPortRoleTable.EntityData.BundleName = "cisco_ios_xe"
     stpxRSTPPortRoleTable.EntityData.ParentYangName = "CISCO-STP-EXTENSIONS-MIB"
     stpxRSTPPortRoleTable.EntityData.SegmentPath = "stpxRSTPPortRoleTable"
+    stpxRSTPPortRoleTable.EntityData.AbsolutePath = "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/" + stpxRSTPPortRoleTable.EntityData.SegmentPath
     stpxRSTPPortRoleTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     stpxRSTPPortRoleTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     stpxRSTPPortRoleTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2485,6 +2542,7 @@ func (stpxRSTPPortRoleTable *CISCOSTPEXTENSIONSMIB_StpxRSTPPortRoleTable) GetEnt
 type CISCOSTPEXTENSIONSMIB_StpxRSTPPortRoleTable_StpxRSTPPortRoleEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The Spanning Tree instance id, it can either be a 
     // VLAN number if the stpxSpanningTreeType is rapidPvstPlus(5)  or an MST
@@ -2517,6 +2575,7 @@ func (stpxRSTPPortRoleEntry *CISCOSTPEXTENSIONSMIB_StpxRSTPPortRoleTable_StpxRST
     stpxRSTPPortRoleEntry.EntityData.BundleName = "cisco_ios_xe"
     stpxRSTPPortRoleEntry.EntityData.ParentYangName = "stpxRSTPPortRoleTable"
     stpxRSTPPortRoleEntry.EntityData.SegmentPath = "stpxRSTPPortRoleEntry" + types.AddKeyToken(stpxRSTPPortRoleEntry.StpxRSTPPortRoleInstanceIndex, "stpxRSTPPortRoleInstanceIndex") + types.AddKeyToken(stpxRSTPPortRoleEntry.StpxRSTPPortRolePortIndex, "stpxRSTPPortRolePortIndex")
+    stpxRSTPPortRoleEntry.EntityData.AbsolutePath = "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/stpxRSTPPortRoleTable/" + stpxRSTPPortRoleEntry.EntityData.SegmentPath
     stpxRSTPPortRoleEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     stpxRSTPPortRoleEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     stpxRSTPPortRoleEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2572,6 +2631,7 @@ func (stpxRPVSTPortTable *CISCOSTPEXTENSIONSMIB_StpxRPVSTPortTable) GetEntityDat
     stpxRPVSTPortTable.EntityData.BundleName = "cisco_ios_xe"
     stpxRPVSTPortTable.EntityData.ParentYangName = "CISCO-STP-EXTENSIONS-MIB"
     stpxRPVSTPortTable.EntityData.SegmentPath = "stpxRPVSTPortTable"
+    stpxRPVSTPortTable.EntityData.AbsolutePath = "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/" + stpxRPVSTPortTable.EntityData.SegmentPath
     stpxRPVSTPortTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     stpxRPVSTPortTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     stpxRPVSTPortTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2595,6 +2655,7 @@ func (stpxRPVSTPortTable *CISCOSTPEXTENSIONSMIB_StpxRPVSTPortTable) GetEntityDat
 type CISCOSTPEXTENSIONSMIB_StpxRPVSTPortTable_StpxRPVSTPortEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The VLAN id of the VLAN. The type is interface{}
     // with range: 0..4095.
@@ -2619,6 +2680,7 @@ func (stpxRPVSTPortEntry *CISCOSTPEXTENSIONSMIB_StpxRPVSTPortTable_StpxRPVSTPort
     stpxRPVSTPortEntry.EntityData.BundleName = "cisco_ios_xe"
     stpxRPVSTPortEntry.EntityData.ParentYangName = "stpxRPVSTPortTable"
     stpxRPVSTPortEntry.EntityData.SegmentPath = "stpxRPVSTPortEntry" + types.AddKeyToken(stpxRPVSTPortEntry.StpxRPVSTPortVlanIndex, "stpxRPVSTPortVlanIndex") + types.AddKeyToken(stpxRPVSTPortEntry.StpxRPVSTPortIndex, "stpxRPVSTPortIndex")
+    stpxRPVSTPortEntry.EntityData.AbsolutePath = "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/stpxRPVSTPortTable/" + stpxRPVSTPortEntry.EntityData.SegmentPath
     stpxRPVSTPortEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     stpxRPVSTPortEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     stpxRPVSTPortEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2653,6 +2715,7 @@ func (stpxSMSTInstanceTable *CISCOSTPEXTENSIONSMIB_StpxSMSTInstanceTable) GetEnt
     stpxSMSTInstanceTable.EntityData.BundleName = "cisco_ios_xe"
     stpxSMSTInstanceTable.EntityData.ParentYangName = "CISCO-STP-EXTENSIONS-MIB"
     stpxSMSTInstanceTable.EntityData.SegmentPath = "stpxSMSTInstanceTable"
+    stpxSMSTInstanceTable.EntityData.AbsolutePath = "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/" + stpxSMSTInstanceTable.EntityData.SegmentPath
     stpxSMSTInstanceTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     stpxSMSTInstanceTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     stpxSMSTInstanceTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2675,6 +2738,7 @@ func (stpxSMSTInstanceTable *CISCOSTPEXTENSIONSMIB_StpxSMSTInstanceTable) GetEnt
 type CISCOSTPEXTENSIONSMIB_StpxSMSTInstanceTable_StpxSMSTInstanceEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The MST instance ID, the value of which is in the
     // range  from 0 to stpxSMSTMaxInstanceID. The type is interface{} with range:
@@ -2714,7 +2778,7 @@ type CISCOSTPEXTENSIONSMIB_StpxSMSTInstanceTable_StpxSMSTInstanceEntry struct {
     // of CIST (Common and Internal  Spanning Tree) Regional Root for the MST
     // region.  This object is only instantiated when the object value of
     // stpxSpanningTreeType is mst(4) and stpxSMSTInstanceIndex is 0. The type is
-    // string with length: 8.
+    // string with length: 8..8.
     StpxSMSTInstanceCISTRegionalRoot interface{}
 
     // Indicates the CIST Internal Root Path Cost, i.e., the path cost to the CIST
@@ -2732,6 +2796,7 @@ func (stpxSMSTInstanceEntry *CISCOSTPEXTENSIONSMIB_StpxSMSTInstanceTable_StpxSMS
     stpxSMSTInstanceEntry.EntityData.BundleName = "cisco_ios_xe"
     stpxSMSTInstanceEntry.EntityData.ParentYangName = "stpxSMSTInstanceTable"
     stpxSMSTInstanceEntry.EntityData.SegmentPath = "stpxSMSTInstanceEntry" + types.AddKeyToken(stpxSMSTInstanceEntry.StpxSMSTInstanceIndex, "stpxSMSTInstanceIndex")
+    stpxSMSTInstanceEntry.EntityData.AbsolutePath = "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/stpxSMSTInstanceTable/" + stpxSMSTInstanceEntry.EntityData.SegmentPath
     stpxSMSTInstanceEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     stpxSMSTInstanceEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     stpxSMSTInstanceEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2774,6 +2839,7 @@ func (stpxSMSTInstanceEditTable *CISCOSTPEXTENSIONSMIB_StpxSMSTInstanceEditTable
     stpxSMSTInstanceEditTable.EntityData.BundleName = "cisco_ios_xe"
     stpxSMSTInstanceEditTable.EntityData.ParentYangName = "CISCO-STP-EXTENSIONS-MIB"
     stpxSMSTInstanceEditTable.EntityData.SegmentPath = "stpxSMSTInstanceEditTable"
+    stpxSMSTInstanceEditTable.EntityData.AbsolutePath = "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/" + stpxSMSTInstanceEditTable.EntityData.SegmentPath
     stpxSMSTInstanceEditTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     stpxSMSTInstanceEditTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     stpxSMSTInstanceEditTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2799,6 +2865,7 @@ func (stpxSMSTInstanceEditTable *CISCOSTPEXTENSIONSMIB_StpxSMSTInstanceEditTable
 type CISCOSTPEXTENSIONSMIB_StpxSMSTInstanceEditTable_StpxSMSTInstanceEditEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The MST instance ID, the value of which is in the
     // range from 0 to stpxSMSTMaxInstanceID.   The instances of this table entry
@@ -2857,6 +2924,7 @@ func (stpxSMSTInstanceEditEntry *CISCOSTPEXTENSIONSMIB_StpxSMSTInstanceEditTable
     stpxSMSTInstanceEditEntry.EntityData.BundleName = "cisco_ios_xe"
     stpxSMSTInstanceEditEntry.EntityData.ParentYangName = "stpxSMSTInstanceEditTable"
     stpxSMSTInstanceEditEntry.EntityData.SegmentPath = "stpxSMSTInstanceEditEntry" + types.AddKeyToken(stpxSMSTInstanceEditEntry.StpxSMSTInstanceEditIndex, "stpxSMSTInstanceEditIndex")
+    stpxSMSTInstanceEditEntry.EntityData.AbsolutePath = "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/stpxSMSTInstanceEditTable/" + stpxSMSTInstanceEditEntry.EntityData.SegmentPath
     stpxSMSTInstanceEditEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     stpxSMSTInstanceEditEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     stpxSMSTInstanceEditEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2895,6 +2963,7 @@ func (stpxSMSTPortTable *CISCOSTPEXTENSIONSMIB_StpxSMSTPortTable) GetEntityData(
     stpxSMSTPortTable.EntityData.BundleName = "cisco_ios_xe"
     stpxSMSTPortTable.EntityData.ParentYangName = "CISCO-STP-EXTENSIONS-MIB"
     stpxSMSTPortTable.EntityData.SegmentPath = "stpxSMSTPortTable"
+    stpxSMSTPortTable.EntityData.AbsolutePath = "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/" + stpxSMSTPortTable.EntityData.SegmentPath
     stpxSMSTPortTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     stpxSMSTPortTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     stpxSMSTPortTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2917,6 +2986,7 @@ func (stpxSMSTPortTable *CISCOSTPEXTENSIONSMIB_StpxSMSTPortTable) GetEntityData(
 type CISCOSTPEXTENSIONSMIB_StpxSMSTPortTable_StpxSMSTPortEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The value of dot1dBasePort (i.e. dot1dBridge.1.4)
     // for the bridge port. The type is interface{} with range: 1..65535.
@@ -2975,6 +3045,7 @@ func (stpxSMSTPortEntry *CISCOSTPEXTENSIONSMIB_StpxSMSTPortTable_StpxSMSTPortEnt
     stpxSMSTPortEntry.EntityData.BundleName = "cisco_ios_xe"
     stpxSMSTPortEntry.EntityData.ParentYangName = "stpxSMSTPortTable"
     stpxSMSTPortEntry.EntityData.SegmentPath = "stpxSMSTPortEntry" + types.AddKeyToken(stpxSMSTPortEntry.StpxSMSTPortIndex, "stpxSMSTPortIndex")
+    stpxSMSTPortEntry.EntityData.AbsolutePath = "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/stpxSMSTPortTable/" + stpxSMSTPortEntry.EntityData.SegmentPath
     stpxSMSTPortEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     stpxSMSTPortEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     stpxSMSTPortEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

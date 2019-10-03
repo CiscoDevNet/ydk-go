@@ -40,6 +40,7 @@ func (logServoRoot *LogServoRoot) GetEntityData() *types.CommonEntityData {
     logServoRoot.EntityData.BundleName = "cisco_ios_xr"
     logServoRoot.EntityData.ParentYangName = "Cisco-IOS-XR-ptp-pd-cfg"
     logServoRoot.EntityData.SegmentPath = "Cisco-IOS-XR-ptp-pd-cfg:log-servo-root"
+    logServoRoot.EntityData.AbsolutePath = logServoRoot.EntityData.SegmentPath
     logServoRoot.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     logServoRoot.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     logServoRoot.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

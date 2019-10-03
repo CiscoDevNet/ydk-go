@@ -1,7 +1,13 @@
+// This module contains definitions
+// for the Calvados model objects.
+// 
 // This module contains a collection of YANG
 // definitions for Cisco IOS-XR SysAdmin configuration.
 // 
 // Copyright(c) 2015-2017 by Cisco Systems, Inc.
+// All rights reserved.
+// 
+// Copyright (c) 2012-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package sysadmin_entity_sensor_mib
 
@@ -149,6 +155,7 @@ func (cISCOENTITYSENSORMIB *CISCOENTITYSENSORMIB) GetEntityData() *types.CommonE
     cISCOENTITYSENSORMIB.EntityData.BundleName = "cisco_ios_xr"
     cISCOENTITYSENSORMIB.EntityData.ParentYangName = "Cisco-IOS-XR-sysadmin-entity-sensor-mib"
     cISCOENTITYSENSORMIB.EntityData.SegmentPath = "Cisco-IOS-XR-sysadmin-entity-sensor-mib:CISCO-ENTITY-SENSOR-MIB"
+    cISCOENTITYSENSORMIB.EntityData.AbsolutePath = cISCOENTITYSENSORMIB.EntityData.SegmentPath
     cISCOENTITYSENSORMIB.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cISCOENTITYSENSORMIB.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cISCOENTITYSENSORMIB.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -179,6 +186,7 @@ func (entSensorValueTable *CISCOENTITYSENSORMIB_EntSensorValueTable) GetEntityDa
     entSensorValueTable.EntityData.BundleName = "cisco_ios_xr"
     entSensorValueTable.EntityData.ParentYangName = "CISCO-ENTITY-SENSOR-MIB"
     entSensorValueTable.EntityData.SegmentPath = "entSensorValueTable"
+    entSensorValueTable.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-entity-sensor-mib:CISCO-ENTITY-SENSOR-MIB/" + entSensorValueTable.EntityData.SegmentPath
     entSensorValueTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     entSensorValueTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     entSensorValueTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -199,6 +207,7 @@ func (entSensorValueTable *CISCOENTITYSENSORMIB_EntSensorValueTable) GetEntityDa
 type CISCOENTITYSENSORMIB_EntSensorValueTable_EntSensorValueEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is interface{} with range: 1..2147483647.
     EntPhysicalIndex interface{}
@@ -234,6 +243,7 @@ func (entSensorValueEntry *CISCOENTITYSENSORMIB_EntSensorValueTable_EntSensorVal
     entSensorValueEntry.EntityData.BundleName = "cisco_ios_xr"
     entSensorValueEntry.EntityData.ParentYangName = "entSensorValueTable"
     entSensorValueEntry.EntityData.SegmentPath = "entSensorValueEntry" + types.AddKeyToken(entSensorValueEntry.EntPhysicalIndex, "entPhysicalIndex")
+    entSensorValueEntry.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-entity-sensor-mib:CISCO-ENTITY-SENSOR-MIB/entSensorValueTable/" + entSensorValueEntry.EntityData.SegmentPath
     entSensorValueEntry.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     entSensorValueEntry.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     entSensorValueEntry.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -271,6 +281,7 @@ func (entSensorThresholdTable *CISCOENTITYSENSORMIB_EntSensorThresholdTable) Get
     entSensorThresholdTable.EntityData.BundleName = "cisco_ios_xr"
     entSensorThresholdTable.EntityData.ParentYangName = "CISCO-ENTITY-SENSOR-MIB"
     entSensorThresholdTable.EntityData.SegmentPath = "entSensorThresholdTable"
+    entSensorThresholdTable.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-entity-sensor-mib:CISCO-ENTITY-SENSOR-MIB/" + entSensorThresholdTable.EntityData.SegmentPath
     entSensorThresholdTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     entSensorThresholdTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     entSensorThresholdTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -291,6 +302,7 @@ func (entSensorThresholdTable *CISCOENTITYSENSORMIB_EntSensorThresholdTable) Get
 type CISCOENTITYSENSORMIB_EntSensorThresholdTable_EntSensorThresholdEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is interface{} with range: 1..2147483647.
     EntPhysicalIndex interface{}
@@ -320,6 +332,7 @@ func (entSensorThresholdEntry *CISCOENTITYSENSORMIB_EntSensorThresholdTable_EntS
     entSensorThresholdEntry.EntityData.BundleName = "cisco_ios_xr"
     entSensorThresholdEntry.EntityData.ParentYangName = "entSensorThresholdTable"
     entSensorThresholdEntry.EntityData.SegmentPath = "entSensorThresholdEntry" + types.AddKeyToken(entSensorThresholdEntry.EntPhysicalIndex, "entPhysicalIndex") + types.AddKeyToken(entSensorThresholdEntry.EntSensorThresholdIndex, "entSensorThresholdIndex")
+    entSensorThresholdEntry.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-entity-sensor-mib:CISCO-ENTITY-SENSOR-MIB/entSensorThresholdTable/" + entSensorThresholdEntry.EntityData.SegmentPath
     entSensorThresholdEntry.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     entSensorThresholdEntry.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     entSensorThresholdEntry.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

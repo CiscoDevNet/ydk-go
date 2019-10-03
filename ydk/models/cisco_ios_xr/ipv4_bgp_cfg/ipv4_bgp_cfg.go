@@ -356,6 +356,7 @@ func (bgp *Bgp) GetEntityData() *types.CommonEntityData {
     bgp.EntityData.BundleName = "cisco_ios_xr"
     bgp.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-cfg"
     bgp.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp"
+    bgp.EntityData.AbsolutePath = bgp.EntityData.SegmentPath
     bgp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bgp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bgp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -377,6 +378,7 @@ func (bgp *Bgp) GetEntityData() *types.CommonEntityData {
 type Bgp_Instance struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Instance Name. For Default instance use - default.
     // The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -392,6 +394,7 @@ func (instance *Bgp_Instance) GetEntityData() *types.CommonEntityData {
     instance.EntityData.BundleName = "cisco_ios_xr"
     instance.EntityData.ParentYangName = "bgp"
     instance.EntityData.SegmentPath = "instance" + types.AddKeyToken(instance.InstanceName, "instance-name")
+    instance.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/" + instance.EntityData.SegmentPath
     instance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     instance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     instance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -414,6 +417,7 @@ func (instance *Bgp_Instance) GetEntityData() *types.CommonEntityData {
 type Bgp_Instance_InstanceAs struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Higher 16 bits of 4-byte Autonomous system number.
     // The type is interface{} with range: 0..4294967295.
@@ -430,6 +434,7 @@ func (instanceAs *Bgp_Instance_InstanceAs) GetEntityData() *types.CommonEntityDa
     instanceAs.EntityData.BundleName = "cisco_ios_xr"
     instanceAs.EntityData.ParentYangName = "instance"
     instanceAs.EntityData.SegmentPath = "instance-as" + types.AddKeyToken(instanceAs.As, "as")
+    instanceAs.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/" + instanceAs.EntityData.SegmentPath
     instanceAs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     instanceAs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     instanceAs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -452,6 +457,7 @@ func (instanceAs *Bgp_Instance_InstanceAs) GetEntityData() *types.CommonEntityDa
 type Bgp_Instance_InstanceAs_FourByteAs struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. 2-byte or 4-byte Autonomous system number. The
     // type is interface{} with range: 0..4294967295.
@@ -474,6 +480,7 @@ func (fourByteAs *Bgp_Instance_InstanceAs_FourByteAs) GetEntityData() *types.Com
     fourByteAs.EntityData.BundleName = "cisco_ios_xr"
     fourByteAs.EntityData.ParentYangName = "instance-as"
     fourByteAs.EntityData.SegmentPath = "four-byte-as" + types.AddKeyToken(fourByteAs.As, "as")
+    fourByteAs.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/" + fourByteAs.EntityData.SegmentPath
     fourByteAs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fourByteAs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fourByteAs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -507,6 +514,7 @@ func (vrfs *Bgp_Instance_InstanceAs_FourByteAs_Vrfs) GetEntityData() *types.Comm
     vrfs.EntityData.BundleName = "cisco_ios_xr"
     vrfs.EntityData.ParentYangName = "four-byte-as"
     vrfs.EntityData.SegmentPath = "vrfs"
+    vrfs.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/" + vrfs.EntityData.SegmentPath
     vrfs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -528,6 +536,7 @@ func (vrfs *Bgp_Instance_InstanceAs_FourByteAs_Vrfs) GetEntityData() *types.Comm
 type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. VRF name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -546,6 +555,7 @@ func (vrf *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf) GetEntityData() *types.C
     vrf.EntityData.BundleName = "cisco_ios_xr"
     vrf.EntityData.ParentYangName = "vrfs"
     vrf.EntityData.SegmentPath = "vrf" + types.AddKeyToken(vrf.VrfName, "vrf-name")
+    vrf.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/" + vrf.EntityData.SegmentPath
     vrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -696,6 +706,7 @@ func (vrfGlobal *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal) GetEntit
     vrfGlobal.EntityData.BundleName = "cisco_ios_xr"
     vrfGlobal.EntityData.ParentYangName = "vrf"
     vrfGlobal.EntityData.SegmentPath = "vrf-global"
+    vrfGlobal.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/" + vrfGlobal.EntityData.SegmentPath
     vrfGlobal.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfGlobal.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfGlobal.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -773,6 +784,7 @@ func (routeDistinguisher *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_
     routeDistinguisher.EntityData.BundleName = "cisco_ios_xr"
     routeDistinguisher.EntityData.ParentYangName = "vrf-global"
     routeDistinguisher.EntityData.SegmentPath = "route-distinguisher"
+    routeDistinguisher.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-global/" + routeDistinguisher.EntityData.SegmentPath
     routeDistinguisher.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routeDistinguisher.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routeDistinguisher.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -808,6 +820,7 @@ func (vrfGlobalAfs *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlo
     vrfGlobalAfs.EntityData.BundleName = "cisco_ios_xr"
     vrfGlobalAfs.EntityData.ParentYangName = "vrf-global"
     vrfGlobalAfs.EntityData.SegmentPath = "vrf-global-afs"
+    vrfGlobalAfs.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-global/" + vrfGlobalAfs.EntityData.SegmentPath
     vrfGlobalAfs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfGlobalAfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfGlobalAfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -829,6 +842,7 @@ func (vrfGlobalAfs *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlo
 type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_VrfGlobalAf struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Address family. The type is BgpAddressFamily.
     AfName interface{}
@@ -971,6 +985,7 @@ func (vrfGlobalAf *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlob
     vrfGlobalAf.EntityData.BundleName = "cisco_ios_xr"
     vrfGlobalAf.EntityData.ParentYangName = "vrf-global-afs"
     vrfGlobalAf.EntityData.SegmentPath = "vrf-global-af" + types.AddKeyToken(vrfGlobalAf.AfName, "af-name")
+    vrfGlobalAf.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-global/vrf-global-afs/" + vrfGlobalAf.EntityData.SegmentPath
     vrfGlobalAf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfGlobalAf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfGlobalAf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1040,6 +1055,7 @@ func (mvpn *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_V
     mvpn.EntityData.BundleName = "cisco_ios_xr"
     mvpn.EntityData.ParentYangName = "vrf-global-af"
     mvpn.EntityData.SegmentPath = "mvpn"
+    mvpn.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-global/vrf-global-afs/vrf-global-af/" + mvpn.EntityData.SegmentPath
     mvpn.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mvpn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mvpn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1083,6 +1099,7 @@ func (ebgp *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_V
     ebgp.EntityData.BundleName = "cisco_ios_xr"
     ebgp.EntityData.ParentYangName = "vrf-global-af"
     ebgp.EntityData.SegmentPath = "ebgp"
+    ebgp.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-global/vrf-global-afs/vrf-global-af/" + ebgp.EntityData.SegmentPath
     ebgp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ebgp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ebgp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1129,6 +1146,7 @@ func (eibgp *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_
     eibgp.EntityData.BundleName = "cisco_ios_xr"
     eibgp.EntityData.ParentYangName = "vrf-global-af"
     eibgp.EntityData.SegmentPath = "eibgp"
+    eibgp.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-global/vrf-global-afs/vrf-global-af/" + eibgp.EntityData.SegmentPath
     eibgp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eibgp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eibgp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1176,6 +1194,7 @@ func (ibgp *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_V
     ibgp.EntityData.BundleName = "cisco_ios_xr"
     ibgp.EntityData.ParentYangName = "vrf-global-af"
     ibgp.EntityData.SegmentPath = "ibgp"
+    ibgp.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-global/vrf-global-afs/vrf-global-af/" + ibgp.EntityData.SegmentPath
     ibgp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ibgp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ibgp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1209,6 +1228,7 @@ func (aggregateAddresses *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_
     aggregateAddresses.EntityData.BundleName = "cisco_ios_xr"
     aggregateAddresses.EntityData.ParentYangName = "vrf-global-af"
     aggregateAddresses.EntityData.SegmentPath = "aggregate-addresses"
+    aggregateAddresses.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-global/vrf-global-afs/vrf-global-af/" + aggregateAddresses.EntityData.SegmentPath
     aggregateAddresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     aggregateAddresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     aggregateAddresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1230,6 +1250,7 @@ func (aggregateAddresses *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_
 type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_VrfGlobalAf_AggregateAddresses_AggregateAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Aggregate in prefix/length format (address part).
     // The type is one of the following types: string with pattern:
@@ -1265,6 +1286,7 @@ func (aggregateAddress *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_Vr
     aggregateAddress.EntityData.BundleName = "cisco_ios_xr"
     aggregateAddress.EntityData.ParentYangName = "aggregate-addresses"
     aggregateAddress.EntityData.SegmentPath = "aggregate-address" + types.AddKeyToken(aggregateAddress.AggregateAddr, "aggregate-addr") + types.AddKeyToken(aggregateAddress.AggregatePrefix, "aggregate-prefix")
+    aggregateAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-global/vrf-global-afs/vrf-global-af/aggregate-addresses/" + aggregateAddress.EntityData.SegmentPath
     aggregateAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     aggregateAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     aggregateAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1301,6 +1323,7 @@ func (optimalRouteReflectorGroups *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_V
     optimalRouteReflectorGroups.EntityData.BundleName = "cisco_ios_xr"
     optimalRouteReflectorGroups.EntityData.ParentYangName = "vrf-global-af"
     optimalRouteReflectorGroups.EntityData.SegmentPath = "optimal-route-reflector-groups"
+    optimalRouteReflectorGroups.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-global/vrf-global-afs/vrf-global-af/" + optimalRouteReflectorGroups.EntityData.SegmentPath
     optimalRouteReflectorGroups.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     optimalRouteReflectorGroups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     optimalRouteReflectorGroups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1323,6 +1346,7 @@ func (optimalRouteReflectorGroups *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_V
 type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_VrfGlobalAf_OptimalRouteReflectorGroups_OptimalRouteReflectorGroup struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of the ORR group. The type is string with
     // pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -1356,6 +1380,7 @@ func (optimalRouteReflectorGroup *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_Vr
     optimalRouteReflectorGroup.EntityData.BundleName = "cisco_ios_xr"
     optimalRouteReflectorGroup.EntityData.ParentYangName = "optimal-route-reflector-groups"
     optimalRouteReflectorGroup.EntityData.SegmentPath = "optimal-route-reflector-group" + types.AddKeyToken(optimalRouteReflectorGroup.GroupName, "group-name")
+    optimalRouteReflectorGroup.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-global/vrf-global-afs/vrf-global-af/optimal-route-reflector-groups/" + optimalRouteReflectorGroup.EntityData.SegmentPath
     optimalRouteReflectorGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     optimalRouteReflectorGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     optimalRouteReflectorGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1385,15 +1410,16 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_VrfGloba
     HalfLife interface{}
 
     // Value to start reusing a route. The type is interface{} with range:
-    // 1..20000.
+    // 1..20000. This attribute is mandatory.
     ReuseThreshold interface{}
 
     // Value to start suppressing a route. The type is interface{} with range:
-    // 1..20000.
+    // 1..20000. This attribute is mandatory.
     SuppressThreshold interface{}
 
     // Maximum duration to suppress a stable route (seconds). The type is
-    // interface{} with range: 1..255. Units are second.
+    // interface{} with range: 1..255. This attribute is mandatory. Units are
+    // second.
     SuppressTime interface{}
 
     // Route policy to specify criteria for dampening. This cannot be specified if
@@ -1407,6 +1433,7 @@ func (dampening *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobal
     dampening.EntityData.BundleName = "cisco_ios_xr"
     dampening.EntityData.ParentYangName = "vrf-global-af"
     dampening.EntityData.SegmentPath = "dampening"
+    dampening.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-global/vrf-global-afs/vrf-global-af/" + dampening.EntityData.SegmentPath
     dampening.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dampening.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dampening.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1448,6 +1475,7 @@ func (ripRoutes *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobal
     ripRoutes.EntityData.BundleName = "cisco_ios_xr"
     ripRoutes.EntityData.ParentYangName = "vrf-global-af"
     ripRoutes.EntityData.SegmentPath = "rip-routes"
+    ripRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-global/vrf-global-afs/vrf-global-af/" + ripRoutes.EntityData.SegmentPath
     ripRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ripRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ripRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1484,6 +1512,7 @@ func (lispRoutes *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGloba
     lispRoutes.EntityData.BundleName = "cisco_ios_xr"
     lispRoutes.EntityData.ParentYangName = "vrf-global-af"
     lispRoutes.EntityData.SegmentPath = "lisp-routes"
+    lispRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-global/vrf-global-afs/vrf-global-af/" + lispRoutes.EntityData.SegmentPath
     lispRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lispRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lispRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1522,6 +1551,7 @@ func (staticRoutes *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlo
     staticRoutes.EntityData.BundleName = "cisco_ios_xr"
     staticRoutes.EntityData.ParentYangName = "vrf-global-af"
     staticRoutes.EntityData.SegmentPath = "static-routes"
+    staticRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-global/vrf-global-afs/vrf-global-af/" + staticRoutes.EntityData.SegmentPath
     staticRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     staticRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     staticRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1562,6 +1592,7 @@ func (distance *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalA
     distance.EntityData.BundleName = "cisco_ios_xr"
     distance.EntityData.ParentYangName = "vrf-global-af"
     distance.EntityData.SegmentPath = "distance"
+    distance.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-global/vrf-global-afs/vrf-global-af/" + distance.EntityData.SegmentPath
     distance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     distance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     distance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1594,6 +1625,7 @@ func (applicationRoutes *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_V
     applicationRoutes.EntityData.BundleName = "cisco_ios_xr"
     applicationRoutes.EntityData.ParentYangName = "vrf-global-af"
     applicationRoutes.EntityData.SegmentPath = "application-routes"
+    applicationRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-global/vrf-global-afs/vrf-global-af/" + applicationRoutes.EntityData.SegmentPath
     applicationRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     applicationRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     applicationRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1615,6 +1647,7 @@ func (applicationRoutes *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_V
 type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_VrfGlobalAf_ApplicationRoutes_ApplicationRoute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. OnePK application name. The type is string with
     // pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -1636,6 +1669,7 @@ func (applicationRoute *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_Vr
     applicationRoute.EntityData.BundleName = "cisco_ios_xr"
     applicationRoute.EntityData.ParentYangName = "application-routes"
     applicationRoute.EntityData.SegmentPath = "application-route" + types.AddKeyToken(applicationRoute.InstanceName, "instance-name")
+    applicationRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-global/vrf-global-afs/vrf-global-af/application-routes/" + applicationRoute.EntityData.SegmentPath
     applicationRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     applicationRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     applicationRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1673,6 +1707,7 @@ func (labelMode *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobal
     labelMode.EntityData.BundleName = "cisco_ios_xr"
     labelMode.EntityData.ParentYangName = "vrf-global-af"
     labelMode.EntityData.SegmentPath = "label-mode"
+    labelMode.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-global/vrf-global-afs/vrf-global-af/" + labelMode.EntityData.SegmentPath
     labelMode.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labelMode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelMode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1704,6 +1739,7 @@ func (eigrpRoutes *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlob
     eigrpRoutes.EntityData.BundleName = "cisco_ios_xr"
     eigrpRoutes.EntityData.ParentYangName = "vrf-global-af"
     eigrpRoutes.EntityData.SegmentPath = "eigrp-routes"
+    eigrpRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-global/vrf-global-afs/vrf-global-af/" + eigrpRoutes.EntityData.SegmentPath
     eigrpRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eigrpRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eigrpRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1725,6 +1761,7 @@ func (eigrpRoutes *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlob
 type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_VrfGlobalAf_EigrpRoutes_EigrpRoute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. EIGRP router tag. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -1748,6 +1785,7 @@ func (eigrpRoute *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGloba
     eigrpRoute.EntityData.BundleName = "cisco_ios_xr"
     eigrpRoute.EntityData.ParentYangName = "eigrp-routes"
     eigrpRoute.EntityData.SegmentPath = "eigrp-route" + types.AddKeyToken(eigrpRoute.InstanceName, "instance-name")
+    eigrpRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-global/vrf-global-afs/vrf-global-af/eigrp-routes/" + eigrpRoute.EntityData.SegmentPath
     eigrpRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eigrpRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eigrpRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1781,6 +1819,7 @@ func (sourcedNetworks *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_Vrf
     sourcedNetworks.EntityData.BundleName = "cisco_ios_xr"
     sourcedNetworks.EntityData.ParentYangName = "vrf-global-af"
     sourcedNetworks.EntityData.SegmentPath = "sourced-networks"
+    sourcedNetworks.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-global/vrf-global-afs/vrf-global-af/" + sourcedNetworks.EntityData.SegmentPath
     sourcedNetworks.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sourcedNetworks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sourcedNetworks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1802,6 +1841,7 @@ func (sourcedNetworks *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_Vrf
 type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_VrfGlobalAf_SourcedNetworks_SourcedNetwork struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Network in prefix/length format (address part).
     // The type is one of the following types: string with pattern:
@@ -1827,6 +1867,7 @@ func (sourcedNetwork *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfG
     sourcedNetwork.EntityData.BundleName = "cisco_ios_xr"
     sourcedNetwork.EntityData.ParentYangName = "sourced-networks"
     sourcedNetwork.EntityData.SegmentPath = "sourced-network" + types.AddKeyToken(sourcedNetwork.NetworkAddr, "network-addr") + types.AddKeyToken(sourcedNetwork.NetworkPrefix, "network-prefix")
+    sourcedNetwork.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-global/vrf-global-afs/vrf-global-af/sourced-networks/" + sourcedNetwork.EntityData.SegmentPath
     sourcedNetwork.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sourcedNetwork.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sourcedNetwork.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1867,6 +1908,7 @@ func (connectedRoutes *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_Vrf
     connectedRoutes.EntityData.BundleName = "cisco_ios_xr"
     connectedRoutes.EntityData.ParentYangName = "vrf-global-af"
     connectedRoutes.EntityData.SegmentPath = "connected-routes"
+    connectedRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-global/vrf-global-afs/vrf-global-af/" + connectedRoutes.EntityData.SegmentPath
     connectedRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     connectedRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     connectedRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1904,6 +1946,7 @@ func (allocateLabel *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGl
     allocateLabel.EntityData.BundleName = "cisco_ios_xr"
     allocateLabel.EntityData.ParentYangName = "vrf-global-af"
     allocateLabel.EntityData.SegmentPath = "allocate-label"
+    allocateLabel.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-global/vrf-global-afs/vrf-global-af/" + allocateLabel.EntityData.SegmentPath
     allocateLabel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     allocateLabel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     allocateLabel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1938,6 +1981,7 @@ func (additionalPathsSelection *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfG
     additionalPathsSelection.EntityData.BundleName = "cisco_ios_xr"
     additionalPathsSelection.EntityData.ParentYangName = "vrf-global-af"
     additionalPathsSelection.EntityData.SegmentPath = "additional-paths-selection"
+    additionalPathsSelection.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-global/vrf-global-afs/vrf-global-af/" + additionalPathsSelection.EntityData.SegmentPath
     additionalPathsSelection.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     additionalPathsSelection.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     additionalPathsSelection.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1969,6 +2013,7 @@ func (ospfRoutes *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGloba
     ospfRoutes.EntityData.BundleName = "cisco_ios_xr"
     ospfRoutes.EntityData.ParentYangName = "vrf-global-af"
     ospfRoutes.EntityData.SegmentPath = "ospf-routes"
+    ospfRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-global/vrf-global-afs/vrf-global-af/" + ospfRoutes.EntityData.SegmentPath
     ospfRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ospfRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ospfRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1990,6 +2035,7 @@ func (ospfRoutes *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGloba
 type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_VrfGlobalAf_OspfRoutes_OspfRoute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. OSPF router tag. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -2015,6 +2061,7 @@ func (ospfRoute *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobal
     ospfRoute.EntityData.BundleName = "cisco_ios_xr"
     ospfRoute.EntityData.ParentYangName = "ospf-routes"
     ospfRoute.EntityData.SegmentPath = "ospf-route" + types.AddKeyToken(ospfRoute.InstanceName, "instance-name")
+    ospfRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-global/vrf-global-afs/vrf-global-af/ospf-routes/" + ospfRoute.EntityData.SegmentPath
     ospfRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ospfRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ospfRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2055,6 +2102,7 @@ func (mobileRoutes *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlo
     mobileRoutes.EntityData.BundleName = "cisco_ios_xr"
     mobileRoutes.EntityData.ParentYangName = "vrf-global-af"
     mobileRoutes.EntityData.SegmentPath = "mobile-routes"
+    mobileRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-global/vrf-global-afs/vrf-global-af/" + mobileRoutes.EntityData.SegmentPath
     mobileRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mobileRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mobileRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2094,6 +2142,7 @@ func (subscriberRoutes *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_Vr
     subscriberRoutes.EntityData.BundleName = "cisco_ios_xr"
     subscriberRoutes.EntityData.ParentYangName = "vrf-global-af"
     subscriberRoutes.EntityData.SegmentPath = "subscriber-routes"
+    subscriberRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-global/vrf-global-afs/vrf-global-af/" + subscriberRoutes.EntityData.SegmentPath
     subscriberRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     subscriberRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     subscriberRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2126,6 +2175,7 @@ func (mplsActivatedInterfaces *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGl
     mplsActivatedInterfaces.EntityData.BundleName = "cisco_ios_xr"
     mplsActivatedInterfaces.EntityData.ParentYangName = "vrf-global"
     mplsActivatedInterfaces.EntityData.SegmentPath = "mpls-activated-interfaces"
+    mplsActivatedInterfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-global/" + mplsActivatedInterfaces.EntityData.SegmentPath
     mplsActivatedInterfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mplsActivatedInterfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mplsActivatedInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2147,6 +2197,7 @@ func (mplsActivatedInterfaces *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGl
 type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_MplsActivatedInterfaces_MplsActivatedInterface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface Name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -2159,6 +2210,7 @@ func (mplsActivatedInterface *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlo
     mplsActivatedInterface.EntityData.BundleName = "cisco_ios_xr"
     mplsActivatedInterface.EntityData.ParentYangName = "mpls-activated-interfaces"
     mplsActivatedInterface.EntityData.SegmentPath = "mpls-activated-interface" + types.AddKeyToken(mplsActivatedInterface.InterfaceName, "interface-name")
+    mplsActivatedInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-global/mpls-activated-interfaces/" + mplsActivatedInterface.EntityData.SegmentPath
     mplsActivatedInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mplsActivatedInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mplsActivatedInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2199,6 +2251,7 @@ func (globalTimers *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_Global
     globalTimers.EntityData.BundleName = "cisco_ios_xr"
     globalTimers.EntityData.ParentYangName = "vrf-global"
     globalTimers.EntityData.SegmentPath = "global-timers"
+    globalTimers.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-global/" + globalTimers.EntityData.SegmentPath
     globalTimers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     globalTimers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     globalTimers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2235,6 +2288,7 @@ func (bfd *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_Bfd) GetEntityD
     bfd.EntityData.BundleName = "cisco_ios_xr"
     bfd.EntityData.ParentYangName = "vrf-global"
     bfd.EntityData.SegmentPath = "bfd"
+    bfd.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-global/" + bfd.EntityData.SegmentPath
     bfd.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bfd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bfd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2270,6 +2324,7 @@ func (sendSocketBufferSizes *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlob
     sendSocketBufferSizes.EntityData.BundleName = "cisco_ios_xr"
     sendSocketBufferSizes.EntityData.ParentYangName = "vrf-global"
     sendSocketBufferSizes.EntityData.SegmentPath = "send-socket-buffer-sizes"
+    sendSocketBufferSizes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-global/" + sendSocketBufferSizes.EntityData.SegmentPath
     sendSocketBufferSizes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sendSocketBufferSizes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sendSocketBufferSizes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2305,6 +2360,7 @@ func (receiveSocketBufferSizes *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfG
     receiveSocketBufferSizes.EntityData.BundleName = "cisco_ios_xr"
     receiveSocketBufferSizes.EntityData.ParentYangName = "vrf-global"
     receiveSocketBufferSizes.EntityData.SegmentPath = "receive-socket-buffer-sizes"
+    receiveSocketBufferSizes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-global/" + receiveSocketBufferSizes.EntityData.SegmentPath
     receiveSocketBufferSizes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     receiveSocketBufferSizes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receiveSocketBufferSizes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2340,6 +2396,7 @@ func (vrfNeighbors *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors) Ge
     vrfNeighbors.EntityData.BundleName = "cisco_ios_xr"
     vrfNeighbors.EntityData.ParentYangName = "vrf"
     vrfNeighbors.EntityData.SegmentPath = "vrf-neighbors"
+    vrfNeighbors.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/" + vrfNeighbors.EntityData.SegmentPath
     vrfNeighbors.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNeighbors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNeighbors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2365,6 +2422,7 @@ func (vrfNeighbors *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors) Ge
 type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Neighbor address. The type is one of the following
     // types: string with pattern:
@@ -2476,7 +2534,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor struct
     // the connected nexthop check for this peer. The type is bool.
     IgnoreConnectedCheckEbgp interface{}
 
-    // TRUE to suppress BGP 4-byte-as capability.  FALSE to not suppress it and to
+    // TRUE to suppress BGP 4-byte-as capability. FALSE to not suppress it and to
     // prevent inheritance from a parent. The type is bool.
     SuppressFourByteAsCapability interface{}
 
@@ -2551,6 +2609,7 @@ func (vrfNeighbor *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfN
     vrfNeighbor.EntityData.BundleName = "cisco_ios_xr"
     vrfNeighbor.EntityData.ParentYangName = "vrf-neighbors"
     vrfNeighbor.EntityData.SegmentPath = "vrf-neighbor" + types.AddKeyToken(vrfNeighbor.NeighborAddress, "neighbor-address")
+    vrfNeighbor.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-neighbors/" + vrfNeighbor.EntityData.SegmentPath
     vrfNeighbor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNeighbor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNeighbor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2630,6 +2689,7 @@ func (vrfNeighborAfs *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_V
     vrfNeighborAfs.EntityData.BundleName = "cisco_ios_xr"
     vrfNeighborAfs.EntityData.ParentYangName = "vrf-neighbor"
     vrfNeighborAfs.EntityData.SegmentPath = "vrf-neighbor-afs"
+    vrfNeighborAfs.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-neighbors/vrf-neighbor/" + vrfNeighborAfs.EntityData.SegmentPath
     vrfNeighborAfs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNeighborAfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNeighborAfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2651,6 +2711,7 @@ func (vrfNeighborAfs *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_V
 type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor_VrfNeighborAfs_VrfNeighborAf struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. BGP neighbor address family. The type is
     // BgpAddressFamily.
@@ -2662,11 +2723,11 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor_VrfNei
     NeighborAfLongLivedGracefulRestartCapable interface{}
 
     // TRUE to send extended communities to the external
-    // neighbor/neighbor-group/af-group.  FALSE not to send and to prevent
+    // neighbor/neighbor-group/af-group. FALSE not to send and to prevent
     // inheritance from a parent. The type is bool.
     SendExtCommunityEbgp interface{}
 
-    // TRUE to configure as a accept-route-legacy-RT.  FALSE to prevent
+    // TRUE to configure as a accept-route-legacy-RT. FALSE to prevent
     // accept-route-legacy-RT from being inherited. The type is bool.
     AcceptRouteLegacyRt interface{}
 
@@ -2736,7 +2797,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor_VrfNei
     // is none.
     AdvertiseOrf interface{}
 
-    // TRUE to configure as a route-reflector-client.  FALSE to prevent
+    // TRUE to configure as a route-reflector-client. FALSE to prevent
     // route-reflector-client from being inherited. The type is bool.
     RouteReflectorClient interface{}
 
@@ -2843,6 +2904,7 @@ func (vrfNeighborAf *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_Vr
     vrfNeighborAf.EntityData.BundleName = "cisco_ios_xr"
     vrfNeighborAf.EntityData.ParentYangName = "vrf-neighbor-afs"
     vrfNeighborAf.EntityData.SegmentPath = "vrf-neighbor-af" + types.AddKeyToken(vrfNeighborAf.AfName, "af-name")
+    vrfNeighborAf.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-neighbors/vrf-neighbor/vrf-neighbor-afs/" + vrfNeighborAf.EntityData.SegmentPath
     vrfNeighborAf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNeighborAf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNeighborAf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2931,6 +2993,7 @@ func (aigpCostCommunity *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbor
     aigpCostCommunity.EntityData.BundleName = "cisco_ios_xr"
     aigpCostCommunity.EntityData.ParentYangName = "vrf-neighbor-af"
     aigpCostCommunity.EntityData.SegmentPath = "aigp-cost-community"
+    aigpCostCommunity.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-neighbors/vrf-neighbor/vrf-neighbor-afs/vrf-neighbor-af/" + aigpCostCommunity.EntityData.SegmentPath
     aigpCostCommunity.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     aigpCostCommunity.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     aigpCostCommunity.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2969,6 +3032,7 @@ func (advertiseDefImpDisableV6 *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfN
     advertiseDefImpDisableV6.EntityData.BundleName = "cisco_ios_xr"
     advertiseDefImpDisableV6.EntityData.ParentYangName = "vrf-neighbor-af"
     advertiseDefImpDisableV6.EntityData.SegmentPath = "advertise-def-imp-disable-v6"
+    advertiseDefImpDisableV6.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-neighbors/vrf-neighbor/vrf-neighbor-afs/vrf-neighbor-af/" + advertiseDefImpDisableV6.EntityData.SegmentPath
     advertiseDefImpDisableV6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     advertiseDefImpDisableV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseDefImpDisableV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3006,6 +3070,7 @@ func (advertiseDisable *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors
     advertiseDisable.EntityData.BundleName = "cisco_ios_xr"
     advertiseDisable.EntityData.ParentYangName = "vrf-neighbor-af"
     advertiseDisable.EntityData.SegmentPath = "advertise-disable"
+    advertiseDisable.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-neighbors/vrf-neighbor/vrf-neighbor-afs/vrf-neighbor-af/" + advertiseDisable.EntityData.SegmentPath
     advertiseDisable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     advertiseDisable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseDisable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3057,6 +3122,7 @@ func (maximumPrefixes *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_
     maximumPrefixes.EntityData.BundleName = "cisco_ios_xr"
     maximumPrefixes.EntityData.ParentYangName = "vrf-neighbor-af"
     maximumPrefixes.EntityData.SegmentPath = "maximum-prefixes"
+    maximumPrefixes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-neighbors/vrf-neighbor/vrf-neighbor-afs/vrf-neighbor-af/" + maximumPrefixes.EntityData.SegmentPath
     maximumPrefixes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     maximumPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     maximumPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3099,6 +3165,7 @@ func (removePrivateAsEntireAsPathInbound *Bgp_Instance_InstanceAs_FourByteAs_Vrf
     removePrivateAsEntireAsPathInbound.EntityData.BundleName = "cisco_ios_xr"
     removePrivateAsEntireAsPathInbound.EntityData.ParentYangName = "vrf-neighbor-af"
     removePrivateAsEntireAsPathInbound.EntityData.SegmentPath = "remove-private-as-entire-as-path-inbound"
+    removePrivateAsEntireAsPathInbound.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-neighbors/vrf-neighbor/vrf-neighbor-afs/vrf-neighbor-af/" + removePrivateAsEntireAsPathInbound.EntityData.SegmentPath
     removePrivateAsEntireAsPathInbound.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     removePrivateAsEntireAsPathInbound.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     removePrivateAsEntireAsPathInbound.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3135,6 +3202,7 @@ func (advertiseDefImpDisableV4 *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfN
     advertiseDefImpDisableV4.EntityData.BundleName = "cisco_ios_xr"
     advertiseDefImpDisableV4.EntityData.ParentYangName = "vrf-neighbor-af"
     advertiseDefImpDisableV4.EntityData.SegmentPath = "advertise-def-imp-disable-v4"
+    advertiseDefImpDisableV4.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-neighbors/vrf-neighbor/vrf-neighbor-afs/vrf-neighbor-af/" + advertiseDefImpDisableV4.EntityData.SegmentPath
     advertiseDefImpDisableV4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     advertiseDefImpDisableV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseDefImpDisableV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3172,6 +3240,7 @@ func (advertiseL2vpnEvpn *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbo
     advertiseL2vpnEvpn.EntityData.BundleName = "cisco_ios_xr"
     advertiseL2vpnEvpn.EntityData.ParentYangName = "vrf-neighbor-af"
     advertiseL2vpnEvpn.EntityData.SegmentPath = "advertise-l2vpn-evpn"
+    advertiseL2vpnEvpn.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-neighbors/vrf-neighbor/vrf-neighbor-afs/vrf-neighbor-af/" + advertiseL2vpnEvpn.EntityData.SegmentPath
     advertiseL2vpnEvpn.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     advertiseL2vpnEvpn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseL2vpnEvpn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3210,6 +3279,7 @@ func (advertiseLocalL2vpnEvpn *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNe
     advertiseLocalL2vpnEvpn.EntityData.BundleName = "cisco_ios_xr"
     advertiseLocalL2vpnEvpn.EntityData.ParentYangName = "vrf-neighbor-af"
     advertiseLocalL2vpnEvpn.EntityData.SegmentPath = "advertise-local-l2vpn-evpn"
+    advertiseLocalL2vpnEvpn.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-neighbors/vrf-neighbor/vrf-neighbor-afs/vrf-neighbor-af/" + advertiseLocalL2vpnEvpn.EntityData.SegmentPath
     advertiseLocalL2vpnEvpn.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     advertiseLocalL2vpnEvpn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseLocalL2vpnEvpn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3247,6 +3317,7 @@ func (neighborAfLongLivedGracefulRestartStaleTime *Bgp_Instance_InstanceAs_FourB
     neighborAfLongLivedGracefulRestartStaleTime.EntityData.BundleName = "cisco_ios_xr"
     neighborAfLongLivedGracefulRestartStaleTime.EntityData.ParentYangName = "vrf-neighbor-af"
     neighborAfLongLivedGracefulRestartStaleTime.EntityData.SegmentPath = "neighbor-af-long-lived-graceful-restart-stale-time"
+    neighborAfLongLivedGracefulRestartStaleTime.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-neighbors/vrf-neighbor/vrf-neighbor-afs/vrf-neighbor-af/" + neighborAfLongLivedGracefulRestartStaleTime.EntityData.SegmentPath
     neighborAfLongLivedGracefulRestartStaleTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighborAfLongLivedGracefulRestartStaleTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborAfLongLivedGracefulRestartStaleTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3294,6 +3365,7 @@ func (siteOfOrigin *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_Vrf
     siteOfOrigin.EntityData.BundleName = "cisco_ios_xr"
     siteOfOrigin.EntityData.ParentYangName = "vrf-neighbor-af"
     siteOfOrigin.EntityData.SegmentPath = "site-of-origin"
+    siteOfOrigin.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-neighbors/vrf-neighbor/vrf-neighbor-afs/vrf-neighbor-af/" + siteOfOrigin.EntityData.SegmentPath
     siteOfOrigin.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     siteOfOrigin.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     siteOfOrigin.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3334,6 +3406,7 @@ func (advertiseV6 *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfN
     advertiseV6.EntityData.BundleName = "cisco_ios_xr"
     advertiseV6.EntityData.ParentYangName = "vrf-neighbor-af"
     advertiseV6.EntityData.SegmentPath = "advertise-v6"
+    advertiseV6.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-neighbors/vrf-neighbor/vrf-neighbor-afs/vrf-neighbor-af/" + advertiseV6.EntityData.SegmentPath
     advertiseV6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     advertiseV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3372,6 +3445,7 @@ func (advertiseLocalV6 *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors
     advertiseLocalV6.EntityData.BundleName = "cisco_ios_xr"
     advertiseLocalV6.EntityData.ParentYangName = "vrf-neighbor-af"
     advertiseLocalV6.EntityData.SegmentPath = "advertise-local-v6"
+    advertiseLocalV6.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-neighbors/vrf-neighbor/vrf-neighbor-afs/vrf-neighbor-af/" + advertiseLocalV6.EntityData.SegmentPath
     advertiseLocalV6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     advertiseLocalV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseLocalV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3413,6 +3487,7 @@ func (self *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "vrf-neighbor-af"
     self.EntityData.SegmentPath = "import"
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-neighbors/vrf-neighbor/vrf-neighbor-afs/vrf-neighbor-af/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3449,6 +3524,7 @@ func (defaultOriginate *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors
     defaultOriginate.EntityData.BundleName = "cisco_ios_xr"
     defaultOriginate.EntityData.ParentYangName = "vrf-neighbor-af"
     defaultOriginate.EntityData.SegmentPath = "default-originate"
+    defaultOriginate.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-neighbors/vrf-neighbor/vrf-neighbor-afs/vrf-neighbor-af/" + defaultOriginate.EntityData.SegmentPath
     defaultOriginate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     defaultOriginate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     defaultOriginate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3485,6 +3561,7 @@ func (softReconfiguration *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighb
     softReconfiguration.EntityData.BundleName = "cisco_ios_xr"
     softReconfiguration.EntityData.ParentYangName = "vrf-neighbor-af"
     softReconfiguration.EntityData.SegmentPath = "soft-reconfiguration"
+    softReconfiguration.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-neighbors/vrf-neighbor/vrf-neighbor-afs/vrf-neighbor-af/" + softReconfiguration.EntityData.SegmentPath
     softReconfiguration.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     softReconfiguration.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     softReconfiguration.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3521,6 +3598,7 @@ func (advertiseVrfImpDisableV6 *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfN
     advertiseVrfImpDisableV6.EntityData.BundleName = "cisco_ios_xr"
     advertiseVrfImpDisableV6.EntityData.ParentYangName = "vrf-neighbor-af"
     advertiseVrfImpDisableV6.EntityData.SegmentPath = "advertise-vrf-imp-disable-v6"
+    advertiseVrfImpDisableV6.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-neighbors/vrf-neighbor/vrf-neighbor-afs/vrf-neighbor-af/" + advertiseVrfImpDisableV6.EntityData.SegmentPath
     advertiseVrfImpDisableV6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     advertiseVrfImpDisableV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseVrfImpDisableV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3558,6 +3636,7 @@ func (advertiseV4 *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfN
     advertiseV4.EntityData.BundleName = "cisco_ios_xr"
     advertiseV4.EntityData.ParentYangName = "vrf-neighbor-af"
     advertiseV4.EntityData.SegmentPath = "advertise-v4"
+    advertiseV4.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-neighbors/vrf-neighbor/vrf-neighbor-afs/vrf-neighbor-af/" + advertiseV4.EntityData.SegmentPath
     advertiseV4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     advertiseV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3596,6 +3675,7 @@ func (advertiseLocalV4 *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors
     advertiseLocalV4.EntityData.BundleName = "cisco_ios_xr"
     advertiseLocalV4.EntityData.ParentYangName = "vrf-neighbor-af"
     advertiseLocalV4.EntityData.SegmentPath = "advertise-local-v4"
+    advertiseLocalV4.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-neighbors/vrf-neighbor/vrf-neighbor-afs/vrf-neighbor-af/" + advertiseLocalV4.EntityData.SegmentPath
     advertiseLocalV4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     advertiseLocalV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseLocalV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3636,6 +3716,7 @@ func (removePrivateAsEntireAsPath *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_V
     removePrivateAsEntireAsPath.EntityData.BundleName = "cisco_ios_xr"
     removePrivateAsEntireAsPath.EntityData.ParentYangName = "vrf-neighbor-af"
     removePrivateAsEntireAsPath.EntityData.SegmentPath = "remove-private-as-entire-as-path"
+    removePrivateAsEntireAsPath.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-neighbors/vrf-neighbor/vrf-neighbor-afs/vrf-neighbor-af/" + removePrivateAsEntireAsPath.EntityData.SegmentPath
     removePrivateAsEntireAsPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     removePrivateAsEntireAsPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     removePrivateAsEntireAsPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3672,6 +3753,7 @@ func (advertiseVrfImpDisableV4 *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfN
     advertiseVrfImpDisableV4.EntityData.BundleName = "cisco_ios_xr"
     advertiseVrfImpDisableV4.EntityData.ParentYangName = "vrf-neighbor-af"
     advertiseVrfImpDisableV4.EntityData.SegmentPath = "advertise-vrf-imp-disable-v4"
+    advertiseVrfImpDisableV4.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-neighbors/vrf-neighbor/vrf-neighbor-afs/vrf-neighbor-af/" + advertiseVrfImpDisableV4.EntityData.SegmentPath
     advertiseVrfImpDisableV4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     advertiseVrfImpDisableV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseVrfImpDisableV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3711,6 +3793,7 @@ func (localAddress *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_Vrf
     localAddress.EntityData.BundleName = "cisco_ios_xr"
     localAddress.EntityData.ParentYangName = "vrf-neighbor"
     localAddress.EntityData.SegmentPath = "local-address"
+    localAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-neighbors/vrf-neighbor/" + localAddress.EntityData.SegmentPath
     localAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     localAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     localAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3742,6 +3825,7 @@ func (bmpActivates *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_Vrf
     bmpActivates.EntityData.BundleName = "cisco_ios_xr"
     bmpActivates.EntityData.ParentYangName = "vrf-neighbor"
     bmpActivates.EntityData.SegmentPath = "bmp-activates"
+    bmpActivates.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-neighbors/vrf-neighbor/" + bmpActivates.EntityData.SegmentPath
     bmpActivates.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bmpActivates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bmpActivates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3763,6 +3847,7 @@ func (bmpActivates *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_Vrf
 type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor_BmpActivates_BmpActivate struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. BMP Server ID. The type is interface{} with range:
     // 1..8.
@@ -3775,6 +3860,7 @@ func (bmpActivate *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfN
     bmpActivate.EntityData.BundleName = "cisco_ios_xr"
     bmpActivate.EntityData.ParentYangName = "bmp-activates"
     bmpActivate.EntityData.SegmentPath = "bmp-activate" + types.AddKeyToken(bmpActivate.ServerId, "server-id")
+    bmpActivate.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-neighbors/vrf-neighbor/bmp-activates/" + bmpActivate.EntityData.SegmentPath
     bmpActivate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bmpActivate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bmpActivate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3810,6 +3896,7 @@ func (ebgpMultihop *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_Vrf
     ebgpMultihop.EntityData.BundleName = "cisco_ios_xr"
     ebgpMultihop.EntityData.ParentYangName = "vrf-neighbor"
     ebgpMultihop.EntityData.SegmentPath = "ebgp-multihop"
+    ebgpMultihop.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-neighbors/vrf-neighbor/" + ebgpMultihop.EntityData.SegmentPath
     ebgpMultihop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ebgpMultihop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ebgpMultihop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3843,6 +3930,7 @@ func (remoteAs *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeig
     remoteAs.EntityData.BundleName = "cisco_ios_xr"
     remoteAs.EntityData.ParentYangName = "vrf-neighbor"
     remoteAs.EntityData.SegmentPath = "remote-as"
+    remoteAs.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-neighbors/vrf-neighbor/" + remoteAs.EntityData.SegmentPath
     remoteAs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteAs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteAs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3891,6 +3979,7 @@ func (localAs *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeigh
     localAs.EntityData.BundleName = "cisco_ios_xr"
     localAs.EntityData.ParentYangName = "vrf-neighbor"
     localAs.EntityData.SegmentPath = "local-as"
+    localAs.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-neighbors/vrf-neighbor/" + localAs.EntityData.SegmentPath
     localAs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     localAs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     localAs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3930,6 +4019,7 @@ func (password *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeig
     password.EntityData.BundleName = "cisco_ios_xr"
     password.EntityData.ParentYangName = "vrf-neighbor"
     password.EntityData.SegmentPath = "password"
+    password.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-neighbors/vrf-neighbor/" + password.EntityData.SegmentPath
     password.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     password.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     password.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3968,6 +4058,7 @@ func (advertisementInterval *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeig
     advertisementInterval.EntityData.BundleName = "cisco_ios_xr"
     advertisementInterval.EntityData.ParentYangName = "vrf-neighbor"
     advertisementInterval.EntityData.SegmentPath = "advertisement-interval"
+    advertisementInterval.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-neighbors/vrf-neighbor/" + advertisementInterval.EntityData.SegmentPath
     advertisementInterval.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     advertisementInterval.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertisementInterval.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4004,6 +4095,7 @@ func (neighborClusterId *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbor
     neighborClusterId.EntityData.BundleName = "cisco_ios_xr"
     neighborClusterId.EntityData.ParentYangName = "vrf-neighbor"
     neighborClusterId.EntityData.SegmentPath = "neighbor-cluster-id"
+    neighborClusterId.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-neighbors/vrf-neighbor/" + neighborClusterId.EntityData.SegmentPath
     neighborClusterId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighborClusterId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborClusterId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4038,6 +4130,7 @@ func (tcpmss *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighb
     tcpmss.EntityData.BundleName = "cisco_ios_xr"
     tcpmss.EntityData.ParentYangName = "vrf-neighbor"
     tcpmss.EntityData.SegmentPath = "tcpmss"
+    tcpmss.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-neighbors/vrf-neighbor/" + tcpmss.EntityData.SegmentPath
     tcpmss.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tcpmss.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tcpmss.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4072,6 +4165,7 @@ func (tos *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor_
     tos.EntityData.BundleName = "cisco_ios_xr"
     tos.EntityData.ParentYangName = "vrf-neighbor"
     tos.EntityData.SegmentPath = "tos"
+    tos.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-neighbors/vrf-neighbor/" + tos.EntityData.SegmentPath
     tos.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tos.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tos.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4111,6 +4205,7 @@ func (updateInFiltering *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbor
     updateInFiltering.EntityData.BundleName = "cisco_ios_xr"
     updateInFiltering.EntityData.ParentYangName = "vrf-neighbor"
     updateInFiltering.EntityData.SegmentPath = "update-in-filtering"
+    updateInFiltering.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-neighbors/vrf-neighbor/" + updateInFiltering.EntityData.SegmentPath
     updateInFiltering.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     updateInFiltering.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     updateInFiltering.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4150,6 +4245,7 @@ func (updateInFilteringMessageBuffers *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_V
     updateInFilteringMessageBuffers.EntityData.BundleName = "cisco_ios_xr"
     updateInFilteringMessageBuffers.EntityData.ParentYangName = "update-in-filtering"
     updateInFilteringMessageBuffers.EntityData.SegmentPath = "update-in-filtering-message-buffers"
+    updateInFilteringMessageBuffers.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-neighbors/vrf-neighbor/update-in-filtering/" + updateInFilteringMessageBuffers.EntityData.SegmentPath
     updateInFilteringMessageBuffers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     updateInFilteringMessageBuffers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     updateInFilteringMessageBuffers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4188,6 +4284,7 @@ func (msgLogOut *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNei
     msgLogOut.EntityData.BundleName = "cisco_ios_xr"
     msgLogOut.EntityData.ParentYangName = "vrf-neighbor"
     msgLogOut.EntityData.SegmentPath = "msg-log-out"
+    msgLogOut.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-neighbors/vrf-neighbor/" + msgLogOut.EntityData.SegmentPath
     msgLogOut.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     msgLogOut.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     msgLogOut.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4230,6 +4327,7 @@ func (aoKeychain *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNe
     aoKeychain.EntityData.BundleName = "cisco_ios_xr"
     aoKeychain.EntityData.ParentYangName = "vrf-neighbor"
     aoKeychain.EntityData.SegmentPath = "ao-keychain"
+    aoKeychain.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-neighbors/vrf-neighbor/" + aoKeychain.EntityData.SegmentPath
     aoKeychain.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     aoKeychain.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     aoKeychain.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4268,6 +4366,7 @@ func (receiveBufferSize *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbor
     receiveBufferSize.EntityData.BundleName = "cisco_ios_xr"
     receiveBufferSize.EntityData.ParentYangName = "vrf-neighbor"
     receiveBufferSize.EntityData.SegmentPath = "receive-buffer-size"
+    receiveBufferSize.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-neighbors/vrf-neighbor/" + receiveBufferSize.EntityData.SegmentPath
     receiveBufferSize.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     receiveBufferSize.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receiveBufferSize.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4306,6 +4405,7 @@ func (msgLogIn *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeig
     msgLogIn.EntityData.BundleName = "cisco_ios_xr"
     msgLogIn.EntityData.ParentYangName = "vrf-neighbor"
     msgLogIn.EntityData.SegmentPath = "msg-log-in"
+    msgLogIn.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-neighbors/vrf-neighbor/" + msgLogIn.EntityData.SegmentPath
     msgLogIn.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     msgLogIn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     msgLogIn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4343,6 +4443,7 @@ func (sendBufferSize *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_V
     sendBufferSize.EntityData.BundleName = "cisco_ios_xr"
     sendBufferSize.EntityData.ParentYangName = "vrf-neighbor"
     sendBufferSize.EntityData.SegmentPath = "send-buffer-size"
+    sendBufferSize.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-neighbors/vrf-neighbor/" + sendBufferSize.EntityData.SegmentPath
     sendBufferSize.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sendBufferSize.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sendBufferSize.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4382,6 +4483,7 @@ func (timers *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighb
     timers.EntityData.BundleName = "cisco_ios_xr"
     timers.EntityData.ParentYangName = "vrf-neighbor"
     timers.EntityData.SegmentPath = "timers"
+    timers.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-neighbors/vrf-neighbor/" + timers.EntityData.SegmentPath
     timers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     timers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     timers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4418,6 +4520,7 @@ func (keychain *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeig
     keychain.EntityData.BundleName = "cisco_ios_xr"
     keychain.EntityData.ParentYangName = "vrf-neighbor"
     keychain.EntityData.SegmentPath = "keychain"
+    keychain.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-neighbors/vrf-neighbor/" + keychain.EntityData.SegmentPath
     keychain.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     keychain.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     keychain.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4458,6 +4561,7 @@ func (gracefulMaintenance *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighb
     gracefulMaintenance.EntityData.BundleName = "cisco_ios_xr"
     gracefulMaintenance.EntityData.ParentYangName = "vrf-neighbor"
     gracefulMaintenance.EntityData.SegmentPath = "graceful-maintenance"
+    gracefulMaintenance.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-neighbors/vrf-neighbor/" + gracefulMaintenance.EntityData.SegmentPath
     gracefulMaintenance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     gracefulMaintenance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     gracefulMaintenance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4494,6 +4598,7 @@ func (gracefulMaintenanceLocalPreference *Bgp_Instance_InstanceAs_FourByteAs_Vrf
     gracefulMaintenanceLocalPreference.EntityData.BundleName = "cisco_ios_xr"
     gracefulMaintenanceLocalPreference.EntityData.ParentYangName = "graceful-maintenance"
     gracefulMaintenanceLocalPreference.EntityData.SegmentPath = "graceful-maintenance-local-preference"
+    gracefulMaintenanceLocalPreference.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-neighbors/vrf-neighbor/graceful-maintenance/" + gracefulMaintenanceLocalPreference.EntityData.SegmentPath
     gracefulMaintenanceLocalPreference.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     gracefulMaintenanceLocalPreference.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     gracefulMaintenanceLocalPreference.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4529,6 +4634,7 @@ func (gracefulMaintenanceAsPrepends *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf
     gracefulMaintenanceAsPrepends.EntityData.BundleName = "cisco_ios_xr"
     gracefulMaintenanceAsPrepends.EntityData.ParentYangName = "graceful-maintenance"
     gracefulMaintenanceAsPrepends.EntityData.SegmentPath = "graceful-maintenance-as-prepends"
+    gracefulMaintenanceAsPrepends.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-neighbors/vrf-neighbor/graceful-maintenance/" + gracefulMaintenanceAsPrepends.EntityData.SegmentPath
     gracefulMaintenanceAsPrepends.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     gracefulMaintenanceAsPrepends.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     gracefulMaintenanceAsPrepends.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4548,6 +4654,7 @@ func (gracefulMaintenanceAsPrepends *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf
 type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixLength struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Prefix length. The type is interface{} with range:
     // 0..127.
@@ -4663,7 +4770,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixL
     // the connected nexthop check for this peer. The type is bool.
     IgnoreConnectedCheckEbgp interface{}
 
-    // TRUE to suppress BGP 4-byte-as capability.  FALSE to not suppress it and to
+    // TRUE to suppress BGP 4-byte-as capability. FALSE to not suppress it and to
     // prevent inheritance from a parent. The type is bool.
     SuppressFourByteAsCapability interface{}
 
@@ -4738,6 +4845,7 @@ func (vrfNeighborPrefixLength *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNe
     vrfNeighborPrefixLength.EntityData.BundleName = "cisco_ios_xr"
     vrfNeighborPrefixLength.EntityData.ParentYangName = "vrf-neighbors"
     vrfNeighborPrefixLength.EntityData.SegmentPath = "vrf-neighbor-prefix-length" + types.AddKeyToken(vrfNeighborPrefixLength.PrefixLength, "prefix-length") + types.AddKeyToken(vrfNeighborPrefixLength.NeighborAddress, "neighbor-address")
+    vrfNeighborPrefixLength.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-neighbors/" + vrfNeighborPrefixLength.EntityData.SegmentPath
     vrfNeighborPrefixLength.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNeighborPrefixLength.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNeighborPrefixLength.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4818,6 +4926,7 @@ func (vrfNeighborAfs *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_V
     vrfNeighborAfs.EntityData.BundleName = "cisco_ios_xr"
     vrfNeighborAfs.EntityData.ParentYangName = "vrf-neighbor-prefix-length"
     vrfNeighborAfs.EntityData.SegmentPath = "vrf-neighbor-afs"
+    vrfNeighborAfs.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-neighbors/vrf-neighbor-prefix-length/" + vrfNeighborAfs.EntityData.SegmentPath
     vrfNeighborAfs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNeighborAfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNeighborAfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4839,6 +4948,7 @@ func (vrfNeighborAfs *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_V
 type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixLength_VrfNeighborAfs_VrfNeighborAf struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. BGP neighbor address family. The type is
     // BgpAddressFamily.
@@ -4850,11 +4960,11 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixL
     NeighborAfLongLivedGracefulRestartCapable interface{}
 
     // TRUE to send extended communities to the external
-    // neighbor/neighbor-group/af-group.  FALSE not to send and to prevent
+    // neighbor/neighbor-group/af-group. FALSE not to send and to prevent
     // inheritance from a parent. The type is bool.
     SendExtCommunityEbgp interface{}
 
-    // TRUE to configure as a accept-route-legacy-RT.  FALSE to prevent
+    // TRUE to configure as a accept-route-legacy-RT. FALSE to prevent
     // accept-route-legacy-RT from being inherited. The type is bool.
     AcceptRouteLegacyRt interface{}
 
@@ -4924,7 +5034,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixL
     // is none.
     AdvertiseOrf interface{}
 
-    // TRUE to configure as a route-reflector-client.  FALSE to prevent
+    // TRUE to configure as a route-reflector-client. FALSE to prevent
     // route-reflector-client from being inherited. The type is bool.
     RouteReflectorClient interface{}
 
@@ -5031,6 +5141,7 @@ func (vrfNeighborAf *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_Vr
     vrfNeighborAf.EntityData.BundleName = "cisco_ios_xr"
     vrfNeighborAf.EntityData.ParentYangName = "vrf-neighbor-afs"
     vrfNeighborAf.EntityData.SegmentPath = "vrf-neighbor-af" + types.AddKeyToken(vrfNeighborAf.AfName, "af-name")
+    vrfNeighborAf.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-neighbors/vrf-neighbor-prefix-length/vrf-neighbor-afs/" + vrfNeighborAf.EntityData.SegmentPath
     vrfNeighborAf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNeighborAf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNeighborAf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5119,6 +5230,7 @@ func (aigpCostCommunity *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbor
     aigpCostCommunity.EntityData.BundleName = "cisco_ios_xr"
     aigpCostCommunity.EntityData.ParentYangName = "vrf-neighbor-af"
     aigpCostCommunity.EntityData.SegmentPath = "aigp-cost-community"
+    aigpCostCommunity.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-neighbors/vrf-neighbor-prefix-length/vrf-neighbor-afs/vrf-neighbor-af/" + aigpCostCommunity.EntityData.SegmentPath
     aigpCostCommunity.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     aigpCostCommunity.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     aigpCostCommunity.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5157,6 +5269,7 @@ func (advertiseDefImpDisableV6 *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfN
     advertiseDefImpDisableV6.EntityData.BundleName = "cisco_ios_xr"
     advertiseDefImpDisableV6.EntityData.ParentYangName = "vrf-neighbor-af"
     advertiseDefImpDisableV6.EntityData.SegmentPath = "advertise-def-imp-disable-v6"
+    advertiseDefImpDisableV6.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-neighbors/vrf-neighbor-prefix-length/vrf-neighbor-afs/vrf-neighbor-af/" + advertiseDefImpDisableV6.EntityData.SegmentPath
     advertiseDefImpDisableV6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     advertiseDefImpDisableV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseDefImpDisableV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5194,6 +5307,7 @@ func (advertiseDisable *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors
     advertiseDisable.EntityData.BundleName = "cisco_ios_xr"
     advertiseDisable.EntityData.ParentYangName = "vrf-neighbor-af"
     advertiseDisable.EntityData.SegmentPath = "advertise-disable"
+    advertiseDisable.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-neighbors/vrf-neighbor-prefix-length/vrf-neighbor-afs/vrf-neighbor-af/" + advertiseDisable.EntityData.SegmentPath
     advertiseDisable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     advertiseDisable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseDisable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5245,6 +5359,7 @@ func (maximumPrefixes *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_
     maximumPrefixes.EntityData.BundleName = "cisco_ios_xr"
     maximumPrefixes.EntityData.ParentYangName = "vrf-neighbor-af"
     maximumPrefixes.EntityData.SegmentPath = "maximum-prefixes"
+    maximumPrefixes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-neighbors/vrf-neighbor-prefix-length/vrf-neighbor-afs/vrf-neighbor-af/" + maximumPrefixes.EntityData.SegmentPath
     maximumPrefixes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     maximumPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     maximumPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5287,6 +5402,7 @@ func (removePrivateAsEntireAsPathInbound *Bgp_Instance_InstanceAs_FourByteAs_Vrf
     removePrivateAsEntireAsPathInbound.EntityData.BundleName = "cisco_ios_xr"
     removePrivateAsEntireAsPathInbound.EntityData.ParentYangName = "vrf-neighbor-af"
     removePrivateAsEntireAsPathInbound.EntityData.SegmentPath = "remove-private-as-entire-as-path-inbound"
+    removePrivateAsEntireAsPathInbound.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-neighbors/vrf-neighbor-prefix-length/vrf-neighbor-afs/vrf-neighbor-af/" + removePrivateAsEntireAsPathInbound.EntityData.SegmentPath
     removePrivateAsEntireAsPathInbound.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     removePrivateAsEntireAsPathInbound.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     removePrivateAsEntireAsPathInbound.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5323,6 +5439,7 @@ func (advertiseDefImpDisableV4 *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfN
     advertiseDefImpDisableV4.EntityData.BundleName = "cisco_ios_xr"
     advertiseDefImpDisableV4.EntityData.ParentYangName = "vrf-neighbor-af"
     advertiseDefImpDisableV4.EntityData.SegmentPath = "advertise-def-imp-disable-v4"
+    advertiseDefImpDisableV4.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-neighbors/vrf-neighbor-prefix-length/vrf-neighbor-afs/vrf-neighbor-af/" + advertiseDefImpDisableV4.EntityData.SegmentPath
     advertiseDefImpDisableV4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     advertiseDefImpDisableV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseDefImpDisableV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5360,6 +5477,7 @@ func (advertiseL2vpnEvpn *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbo
     advertiseL2vpnEvpn.EntityData.BundleName = "cisco_ios_xr"
     advertiseL2vpnEvpn.EntityData.ParentYangName = "vrf-neighbor-af"
     advertiseL2vpnEvpn.EntityData.SegmentPath = "advertise-l2vpn-evpn"
+    advertiseL2vpnEvpn.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-neighbors/vrf-neighbor-prefix-length/vrf-neighbor-afs/vrf-neighbor-af/" + advertiseL2vpnEvpn.EntityData.SegmentPath
     advertiseL2vpnEvpn.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     advertiseL2vpnEvpn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseL2vpnEvpn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5398,6 +5516,7 @@ func (advertiseLocalL2vpnEvpn *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNe
     advertiseLocalL2vpnEvpn.EntityData.BundleName = "cisco_ios_xr"
     advertiseLocalL2vpnEvpn.EntityData.ParentYangName = "vrf-neighbor-af"
     advertiseLocalL2vpnEvpn.EntityData.SegmentPath = "advertise-local-l2vpn-evpn"
+    advertiseLocalL2vpnEvpn.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-neighbors/vrf-neighbor-prefix-length/vrf-neighbor-afs/vrf-neighbor-af/" + advertiseLocalL2vpnEvpn.EntityData.SegmentPath
     advertiseLocalL2vpnEvpn.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     advertiseLocalL2vpnEvpn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseLocalL2vpnEvpn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5435,6 +5554,7 @@ func (neighborAfLongLivedGracefulRestartStaleTime *Bgp_Instance_InstanceAs_FourB
     neighborAfLongLivedGracefulRestartStaleTime.EntityData.BundleName = "cisco_ios_xr"
     neighborAfLongLivedGracefulRestartStaleTime.EntityData.ParentYangName = "vrf-neighbor-af"
     neighborAfLongLivedGracefulRestartStaleTime.EntityData.SegmentPath = "neighbor-af-long-lived-graceful-restart-stale-time"
+    neighborAfLongLivedGracefulRestartStaleTime.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-neighbors/vrf-neighbor-prefix-length/vrf-neighbor-afs/vrf-neighbor-af/" + neighborAfLongLivedGracefulRestartStaleTime.EntityData.SegmentPath
     neighborAfLongLivedGracefulRestartStaleTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighborAfLongLivedGracefulRestartStaleTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborAfLongLivedGracefulRestartStaleTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5482,6 +5602,7 @@ func (siteOfOrigin *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_Vrf
     siteOfOrigin.EntityData.BundleName = "cisco_ios_xr"
     siteOfOrigin.EntityData.ParentYangName = "vrf-neighbor-af"
     siteOfOrigin.EntityData.SegmentPath = "site-of-origin"
+    siteOfOrigin.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-neighbors/vrf-neighbor-prefix-length/vrf-neighbor-afs/vrf-neighbor-af/" + siteOfOrigin.EntityData.SegmentPath
     siteOfOrigin.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     siteOfOrigin.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     siteOfOrigin.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5522,6 +5643,7 @@ func (advertiseV6 *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfN
     advertiseV6.EntityData.BundleName = "cisco_ios_xr"
     advertiseV6.EntityData.ParentYangName = "vrf-neighbor-af"
     advertiseV6.EntityData.SegmentPath = "advertise-v6"
+    advertiseV6.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-neighbors/vrf-neighbor-prefix-length/vrf-neighbor-afs/vrf-neighbor-af/" + advertiseV6.EntityData.SegmentPath
     advertiseV6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     advertiseV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5560,6 +5682,7 @@ func (advertiseLocalV6 *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors
     advertiseLocalV6.EntityData.BundleName = "cisco_ios_xr"
     advertiseLocalV6.EntityData.ParentYangName = "vrf-neighbor-af"
     advertiseLocalV6.EntityData.SegmentPath = "advertise-local-v6"
+    advertiseLocalV6.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-neighbors/vrf-neighbor-prefix-length/vrf-neighbor-afs/vrf-neighbor-af/" + advertiseLocalV6.EntityData.SegmentPath
     advertiseLocalV6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     advertiseLocalV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseLocalV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5601,6 +5724,7 @@ func (self *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "vrf-neighbor-af"
     self.EntityData.SegmentPath = "import"
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-neighbors/vrf-neighbor-prefix-length/vrf-neighbor-afs/vrf-neighbor-af/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5637,6 +5761,7 @@ func (defaultOriginate *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors
     defaultOriginate.EntityData.BundleName = "cisco_ios_xr"
     defaultOriginate.EntityData.ParentYangName = "vrf-neighbor-af"
     defaultOriginate.EntityData.SegmentPath = "default-originate"
+    defaultOriginate.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-neighbors/vrf-neighbor-prefix-length/vrf-neighbor-afs/vrf-neighbor-af/" + defaultOriginate.EntityData.SegmentPath
     defaultOriginate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     defaultOriginate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     defaultOriginate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5673,6 +5798,7 @@ func (softReconfiguration *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighb
     softReconfiguration.EntityData.BundleName = "cisco_ios_xr"
     softReconfiguration.EntityData.ParentYangName = "vrf-neighbor-af"
     softReconfiguration.EntityData.SegmentPath = "soft-reconfiguration"
+    softReconfiguration.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-neighbors/vrf-neighbor-prefix-length/vrf-neighbor-afs/vrf-neighbor-af/" + softReconfiguration.EntityData.SegmentPath
     softReconfiguration.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     softReconfiguration.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     softReconfiguration.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5709,6 +5835,7 @@ func (advertiseVrfImpDisableV6 *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfN
     advertiseVrfImpDisableV6.EntityData.BundleName = "cisco_ios_xr"
     advertiseVrfImpDisableV6.EntityData.ParentYangName = "vrf-neighbor-af"
     advertiseVrfImpDisableV6.EntityData.SegmentPath = "advertise-vrf-imp-disable-v6"
+    advertiseVrfImpDisableV6.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-neighbors/vrf-neighbor-prefix-length/vrf-neighbor-afs/vrf-neighbor-af/" + advertiseVrfImpDisableV6.EntityData.SegmentPath
     advertiseVrfImpDisableV6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     advertiseVrfImpDisableV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseVrfImpDisableV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5746,6 +5873,7 @@ func (advertiseV4 *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfN
     advertiseV4.EntityData.BundleName = "cisco_ios_xr"
     advertiseV4.EntityData.ParentYangName = "vrf-neighbor-af"
     advertiseV4.EntityData.SegmentPath = "advertise-v4"
+    advertiseV4.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-neighbors/vrf-neighbor-prefix-length/vrf-neighbor-afs/vrf-neighbor-af/" + advertiseV4.EntityData.SegmentPath
     advertiseV4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     advertiseV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5784,6 +5912,7 @@ func (advertiseLocalV4 *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors
     advertiseLocalV4.EntityData.BundleName = "cisco_ios_xr"
     advertiseLocalV4.EntityData.ParentYangName = "vrf-neighbor-af"
     advertiseLocalV4.EntityData.SegmentPath = "advertise-local-v4"
+    advertiseLocalV4.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-neighbors/vrf-neighbor-prefix-length/vrf-neighbor-afs/vrf-neighbor-af/" + advertiseLocalV4.EntityData.SegmentPath
     advertiseLocalV4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     advertiseLocalV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseLocalV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5824,6 +5953,7 @@ func (removePrivateAsEntireAsPath *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_V
     removePrivateAsEntireAsPath.EntityData.BundleName = "cisco_ios_xr"
     removePrivateAsEntireAsPath.EntityData.ParentYangName = "vrf-neighbor-af"
     removePrivateAsEntireAsPath.EntityData.SegmentPath = "remove-private-as-entire-as-path"
+    removePrivateAsEntireAsPath.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-neighbors/vrf-neighbor-prefix-length/vrf-neighbor-afs/vrf-neighbor-af/" + removePrivateAsEntireAsPath.EntityData.SegmentPath
     removePrivateAsEntireAsPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     removePrivateAsEntireAsPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     removePrivateAsEntireAsPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5860,6 +5990,7 @@ func (advertiseVrfImpDisableV4 *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfN
     advertiseVrfImpDisableV4.EntityData.BundleName = "cisco_ios_xr"
     advertiseVrfImpDisableV4.EntityData.ParentYangName = "vrf-neighbor-af"
     advertiseVrfImpDisableV4.EntityData.SegmentPath = "advertise-vrf-imp-disable-v4"
+    advertiseVrfImpDisableV4.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-neighbors/vrf-neighbor-prefix-length/vrf-neighbor-afs/vrf-neighbor-af/" + advertiseVrfImpDisableV4.EntityData.SegmentPath
     advertiseVrfImpDisableV4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     advertiseVrfImpDisableV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseVrfImpDisableV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5899,6 +6030,7 @@ func (localAddress *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_Vrf
     localAddress.EntityData.BundleName = "cisco_ios_xr"
     localAddress.EntityData.ParentYangName = "vrf-neighbor-prefix-length"
     localAddress.EntityData.SegmentPath = "local-address"
+    localAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-neighbors/vrf-neighbor-prefix-length/" + localAddress.EntityData.SegmentPath
     localAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     localAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     localAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5930,6 +6062,7 @@ func (bmpActivates *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_Vrf
     bmpActivates.EntityData.BundleName = "cisco_ios_xr"
     bmpActivates.EntityData.ParentYangName = "vrf-neighbor-prefix-length"
     bmpActivates.EntityData.SegmentPath = "bmp-activates"
+    bmpActivates.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-neighbors/vrf-neighbor-prefix-length/" + bmpActivates.EntityData.SegmentPath
     bmpActivates.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bmpActivates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bmpActivates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5951,6 +6084,7 @@ func (bmpActivates *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_Vrf
 type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixLength_BmpActivates_BmpActivate struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. BMP Server ID. The type is interface{} with range:
     // 1..8.
@@ -5963,6 +6097,7 @@ func (bmpActivate *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfN
     bmpActivate.EntityData.BundleName = "cisco_ios_xr"
     bmpActivate.EntityData.ParentYangName = "bmp-activates"
     bmpActivate.EntityData.SegmentPath = "bmp-activate" + types.AddKeyToken(bmpActivate.ServerId, "server-id")
+    bmpActivate.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-neighbors/vrf-neighbor-prefix-length/bmp-activates/" + bmpActivate.EntityData.SegmentPath
     bmpActivate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bmpActivate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bmpActivate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5998,6 +6133,7 @@ func (ebgpMultihop *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_Vrf
     ebgpMultihop.EntityData.BundleName = "cisco_ios_xr"
     ebgpMultihop.EntityData.ParentYangName = "vrf-neighbor-prefix-length"
     ebgpMultihop.EntityData.SegmentPath = "ebgp-multihop"
+    ebgpMultihop.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-neighbors/vrf-neighbor-prefix-length/" + ebgpMultihop.EntityData.SegmentPath
     ebgpMultihop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ebgpMultihop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ebgpMultihop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6031,6 +6167,7 @@ func (remoteAs *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeig
     remoteAs.EntityData.BundleName = "cisco_ios_xr"
     remoteAs.EntityData.ParentYangName = "vrf-neighbor-prefix-length"
     remoteAs.EntityData.SegmentPath = "remote-as"
+    remoteAs.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-neighbors/vrf-neighbor-prefix-length/" + remoteAs.EntityData.SegmentPath
     remoteAs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteAs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteAs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6079,6 +6216,7 @@ func (localAs *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeigh
     localAs.EntityData.BundleName = "cisco_ios_xr"
     localAs.EntityData.ParentYangName = "vrf-neighbor-prefix-length"
     localAs.EntityData.SegmentPath = "local-as"
+    localAs.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-neighbors/vrf-neighbor-prefix-length/" + localAs.EntityData.SegmentPath
     localAs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     localAs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     localAs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6118,6 +6256,7 @@ func (password *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeig
     password.EntityData.BundleName = "cisco_ios_xr"
     password.EntityData.ParentYangName = "vrf-neighbor-prefix-length"
     password.EntityData.SegmentPath = "password"
+    password.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-neighbors/vrf-neighbor-prefix-length/" + password.EntityData.SegmentPath
     password.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     password.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     password.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6156,6 +6295,7 @@ func (advertisementInterval *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeig
     advertisementInterval.EntityData.BundleName = "cisco_ios_xr"
     advertisementInterval.EntityData.ParentYangName = "vrf-neighbor-prefix-length"
     advertisementInterval.EntityData.SegmentPath = "advertisement-interval"
+    advertisementInterval.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-neighbors/vrf-neighbor-prefix-length/" + advertisementInterval.EntityData.SegmentPath
     advertisementInterval.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     advertisementInterval.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertisementInterval.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6192,6 +6332,7 @@ func (neighborClusterId *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbor
     neighborClusterId.EntityData.BundleName = "cisco_ios_xr"
     neighborClusterId.EntityData.ParentYangName = "vrf-neighbor-prefix-length"
     neighborClusterId.EntityData.SegmentPath = "neighbor-cluster-id"
+    neighborClusterId.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-neighbors/vrf-neighbor-prefix-length/" + neighborClusterId.EntityData.SegmentPath
     neighborClusterId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighborClusterId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborClusterId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6226,6 +6367,7 @@ func (tcpmss *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighb
     tcpmss.EntityData.BundleName = "cisco_ios_xr"
     tcpmss.EntityData.ParentYangName = "vrf-neighbor-prefix-length"
     tcpmss.EntityData.SegmentPath = "tcpmss"
+    tcpmss.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-neighbors/vrf-neighbor-prefix-length/" + tcpmss.EntityData.SegmentPath
     tcpmss.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tcpmss.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tcpmss.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6260,6 +6402,7 @@ func (tos *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborP
     tos.EntityData.BundleName = "cisco_ios_xr"
     tos.EntityData.ParentYangName = "vrf-neighbor-prefix-length"
     tos.EntityData.SegmentPath = "tos"
+    tos.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-neighbors/vrf-neighbor-prefix-length/" + tos.EntityData.SegmentPath
     tos.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tos.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tos.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6299,6 +6442,7 @@ func (updateInFiltering *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbor
     updateInFiltering.EntityData.BundleName = "cisco_ios_xr"
     updateInFiltering.EntityData.ParentYangName = "vrf-neighbor-prefix-length"
     updateInFiltering.EntityData.SegmentPath = "update-in-filtering"
+    updateInFiltering.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-neighbors/vrf-neighbor-prefix-length/" + updateInFiltering.EntityData.SegmentPath
     updateInFiltering.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     updateInFiltering.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     updateInFiltering.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6338,6 +6482,7 @@ func (updateInFilteringMessageBuffers *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_V
     updateInFilteringMessageBuffers.EntityData.BundleName = "cisco_ios_xr"
     updateInFilteringMessageBuffers.EntityData.ParentYangName = "update-in-filtering"
     updateInFilteringMessageBuffers.EntityData.SegmentPath = "update-in-filtering-message-buffers"
+    updateInFilteringMessageBuffers.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-neighbors/vrf-neighbor-prefix-length/update-in-filtering/" + updateInFilteringMessageBuffers.EntityData.SegmentPath
     updateInFilteringMessageBuffers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     updateInFilteringMessageBuffers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     updateInFilteringMessageBuffers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6376,6 +6521,7 @@ func (msgLogOut *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNei
     msgLogOut.EntityData.BundleName = "cisco_ios_xr"
     msgLogOut.EntityData.ParentYangName = "vrf-neighbor-prefix-length"
     msgLogOut.EntityData.SegmentPath = "msg-log-out"
+    msgLogOut.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-neighbors/vrf-neighbor-prefix-length/" + msgLogOut.EntityData.SegmentPath
     msgLogOut.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     msgLogOut.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     msgLogOut.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6418,6 +6564,7 @@ func (aoKeychain *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNe
     aoKeychain.EntityData.BundleName = "cisco_ios_xr"
     aoKeychain.EntityData.ParentYangName = "vrf-neighbor-prefix-length"
     aoKeychain.EntityData.SegmentPath = "ao-keychain"
+    aoKeychain.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-neighbors/vrf-neighbor-prefix-length/" + aoKeychain.EntityData.SegmentPath
     aoKeychain.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     aoKeychain.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     aoKeychain.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6456,6 +6603,7 @@ func (receiveBufferSize *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbor
     receiveBufferSize.EntityData.BundleName = "cisco_ios_xr"
     receiveBufferSize.EntityData.ParentYangName = "vrf-neighbor-prefix-length"
     receiveBufferSize.EntityData.SegmentPath = "receive-buffer-size"
+    receiveBufferSize.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-neighbors/vrf-neighbor-prefix-length/" + receiveBufferSize.EntityData.SegmentPath
     receiveBufferSize.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     receiveBufferSize.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receiveBufferSize.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6494,6 +6642,7 @@ func (msgLogIn *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeig
     msgLogIn.EntityData.BundleName = "cisco_ios_xr"
     msgLogIn.EntityData.ParentYangName = "vrf-neighbor-prefix-length"
     msgLogIn.EntityData.SegmentPath = "msg-log-in"
+    msgLogIn.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-neighbors/vrf-neighbor-prefix-length/" + msgLogIn.EntityData.SegmentPath
     msgLogIn.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     msgLogIn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     msgLogIn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6531,6 +6680,7 @@ func (sendBufferSize *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_V
     sendBufferSize.EntityData.BundleName = "cisco_ios_xr"
     sendBufferSize.EntityData.ParentYangName = "vrf-neighbor-prefix-length"
     sendBufferSize.EntityData.SegmentPath = "send-buffer-size"
+    sendBufferSize.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-neighbors/vrf-neighbor-prefix-length/" + sendBufferSize.EntityData.SegmentPath
     sendBufferSize.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sendBufferSize.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sendBufferSize.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6570,6 +6720,7 @@ func (timers *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighb
     timers.EntityData.BundleName = "cisco_ios_xr"
     timers.EntityData.ParentYangName = "vrf-neighbor-prefix-length"
     timers.EntityData.SegmentPath = "timers"
+    timers.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-neighbors/vrf-neighbor-prefix-length/" + timers.EntityData.SegmentPath
     timers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     timers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     timers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6606,6 +6757,7 @@ func (keychain *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeig
     keychain.EntityData.BundleName = "cisco_ios_xr"
     keychain.EntityData.ParentYangName = "vrf-neighbor-prefix-length"
     keychain.EntityData.SegmentPath = "keychain"
+    keychain.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-neighbors/vrf-neighbor-prefix-length/" + keychain.EntityData.SegmentPath
     keychain.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     keychain.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     keychain.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6646,6 +6798,7 @@ func (gracefulMaintenance *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighb
     gracefulMaintenance.EntityData.BundleName = "cisco_ios_xr"
     gracefulMaintenance.EntityData.ParentYangName = "vrf-neighbor-prefix-length"
     gracefulMaintenance.EntityData.SegmentPath = "graceful-maintenance"
+    gracefulMaintenance.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-neighbors/vrf-neighbor-prefix-length/" + gracefulMaintenance.EntityData.SegmentPath
     gracefulMaintenance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     gracefulMaintenance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     gracefulMaintenance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6682,6 +6835,7 @@ func (gracefulMaintenanceLocalPreference *Bgp_Instance_InstanceAs_FourByteAs_Vrf
     gracefulMaintenanceLocalPreference.EntityData.BundleName = "cisco_ios_xr"
     gracefulMaintenanceLocalPreference.EntityData.ParentYangName = "graceful-maintenance"
     gracefulMaintenanceLocalPreference.EntityData.SegmentPath = "graceful-maintenance-local-preference"
+    gracefulMaintenanceLocalPreference.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-neighbors/vrf-neighbor-prefix-length/graceful-maintenance/" + gracefulMaintenanceLocalPreference.EntityData.SegmentPath
     gracefulMaintenanceLocalPreference.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     gracefulMaintenanceLocalPreference.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     gracefulMaintenanceLocalPreference.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6717,6 +6871,7 @@ func (gracefulMaintenanceAsPrepends *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf
     gracefulMaintenanceAsPrepends.EntityData.BundleName = "cisco_ios_xr"
     gracefulMaintenanceAsPrepends.EntityData.ParentYangName = "graceful-maintenance"
     gracefulMaintenanceAsPrepends.EntityData.SegmentPath = "graceful-maintenance-as-prepends"
+    gracefulMaintenanceAsPrepends.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-neighbors/vrf-neighbor-prefix-length/graceful-maintenance/" + gracefulMaintenanceAsPrepends.EntityData.SegmentPath
     gracefulMaintenanceAsPrepends.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     gracefulMaintenanceAsPrepends.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     gracefulMaintenanceAsPrepends.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6750,6 +6905,7 @@ func (defaultVrf *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf) GetEntityData()
     defaultVrf.EntityData.BundleName = "cisco_ios_xr"
     defaultVrf.EntityData.ParentYangName = "four-byte-as"
     defaultVrf.EntityData.SegmentPath = "default-vrf"
+    defaultVrf.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/" + defaultVrf.EntityData.SegmentPath
     defaultVrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     defaultVrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     defaultVrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6790,6 +6946,7 @@ func (bgpEntity *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity) GetEnt
     bgpEntity.EntityData.BundleName = "cisco_ios_xr"
     bgpEntity.EntityData.ParentYangName = "default-vrf"
     bgpEntity.EntityData.SegmentPath = "bgp-entity"
+    bgpEntity.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/" + bgpEntity.EntityData.SegmentPath
     bgpEntity.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bgpEntity.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bgpEntity.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6827,6 +6984,7 @@ func (neighbors *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbo
     neighbors.EntityData.BundleName = "cisco_ios_xr"
     neighbors.EntityData.ParentYangName = "bgp-entity"
     neighbors.EntityData.SegmentPath = "neighbors"
+    neighbors.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/" + neighbors.EntityData.SegmentPath
     neighbors.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighbors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighbors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6852,6 +7010,7 @@ func (neighbors *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbo
 type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Neighbor address. The type is one of the following
     // types: string with pattern:
@@ -6963,7 +7122,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor 
     // the connected nexthop check for this peer. The type is bool.
     IgnoreConnectedCheckEbgp interface{}
 
-    // TRUE to suppress BGP 4-byte-as capability.  FALSE to not suppress it and to
+    // TRUE to suppress BGP 4-byte-as capability. FALSE to not suppress it and to
     // prevent inheritance from a parent. The type is bool.
     SuppressFourByteAsCapability interface{}
 
@@ -7038,6 +7197,7 @@ func (neighbor *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbor
     neighbor.EntityData.BundleName = "cisco_ios_xr"
     neighbor.EntityData.ParentYangName = "neighbors"
     neighbor.EntityData.SegmentPath = "neighbor" + types.AddKeyToken(neighbor.NeighborAddress, "neighbor-address")
+    neighbor.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbors/" + neighbor.EntityData.SegmentPath
     neighbor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighbor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighbor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7117,6 +7277,7 @@ func (neighborAfs *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neigh
     neighborAfs.EntityData.BundleName = "cisco_ios_xr"
     neighborAfs.EntityData.ParentYangName = "neighbor"
     neighborAfs.EntityData.SegmentPath = "neighbor-afs"
+    neighborAfs.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbors/neighbor/" + neighborAfs.EntityData.SegmentPath
     neighborAfs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighborAfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborAfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7138,6 +7299,7 @@ func (neighborAfs *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neigh
 type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor_NeighborAfs_NeighborAf struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. BGP neighbor address family. The type is
     // BgpAddressFamily.
@@ -7152,11 +7314,11 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor_
     L2vpnSignalling interface{}
 
     // TRUE to send extended communities to the external
-    // neighbor/neighbor-group/af-group.  FALSE not to send and to prevent
+    // neighbor/neighbor-group/af-group. FALSE not to send and to prevent
     // inheritance from a parent. The type is bool.
     SendExtCommunityEbgp interface{}
 
-    // TRUE to configure as a accept-route-legacy-RT.  FALSE to prevent
+    // TRUE to configure as a accept-route-legacy-RT. FALSE to prevent
     // accept-route-legacy-RT from being inherited. The type is bool.
     AcceptRouteLegacyRt interface{}
 
@@ -7230,7 +7392,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor_
     // is none.
     AdvertiseOrf interface{}
 
-    // TRUE to configure as a route-reflector-client.  FALSE to prevent
+    // TRUE to configure as a route-reflector-client. FALSE to prevent
     // route-reflector-client from being inherited. The type is bool.
     RouteReflectorClient interface{}
 
@@ -7334,6 +7496,7 @@ func (neighborAf *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighb
     neighborAf.EntityData.BundleName = "cisco_ios_xr"
     neighborAf.EntityData.ParentYangName = "neighbor-afs"
     neighborAf.EntityData.SegmentPath = "neighbor-af" + types.AddKeyToken(neighborAf.AfName, "af-name")
+    neighborAf.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbors/neighbor/neighbor-afs/" + neighborAf.EntityData.SegmentPath
     neighborAf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighborAf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborAf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7423,6 +7586,7 @@ func (aigpCostCommunity *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity
     aigpCostCommunity.EntityData.BundleName = "cisco_ios_xr"
     aigpCostCommunity.EntityData.ParentYangName = "neighbor-af"
     aigpCostCommunity.EntityData.SegmentPath = "aigp-cost-community"
+    aigpCostCommunity.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbors/neighbor/neighbor-afs/neighbor-af/" + aigpCostCommunity.EntityData.SegmentPath
     aigpCostCommunity.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     aigpCostCommunity.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     aigpCostCommunity.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7461,6 +7625,7 @@ func (advertiseDefImpDisableV6 *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Bg
     advertiseDefImpDisableV6.EntityData.BundleName = "cisco_ios_xr"
     advertiseDefImpDisableV6.EntityData.ParentYangName = "neighbor-af"
     advertiseDefImpDisableV6.EntityData.SegmentPath = "advertise-def-imp-disable-v6"
+    advertiseDefImpDisableV6.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbors/neighbor/neighbor-afs/neighbor-af/" + advertiseDefImpDisableV6.EntityData.SegmentPath
     advertiseDefImpDisableV6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     advertiseDefImpDisableV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseDefImpDisableV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7498,6 +7663,7 @@ func (advertiseDisable *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_
     advertiseDisable.EntityData.BundleName = "cisco_ios_xr"
     advertiseDisable.EntityData.ParentYangName = "neighbor-af"
     advertiseDisable.EntityData.SegmentPath = "advertise-disable"
+    advertiseDisable.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbors/neighbor/neighbor-afs/neighbor-af/" + advertiseDisable.EntityData.SegmentPath
     advertiseDisable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     advertiseDisable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseDisable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7549,6 +7715,7 @@ func (maximumPrefixes *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_N
     maximumPrefixes.EntityData.BundleName = "cisco_ios_xr"
     maximumPrefixes.EntityData.ParentYangName = "neighbor-af"
     maximumPrefixes.EntityData.SegmentPath = "maximum-prefixes"
+    maximumPrefixes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbors/neighbor/neighbor-afs/neighbor-af/" + maximumPrefixes.EntityData.SegmentPath
     maximumPrefixes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     maximumPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     maximumPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7591,6 +7758,7 @@ func (removePrivateAsEntireAsPathInbound *Bgp_Instance_InstanceAs_FourByteAs_Def
     removePrivateAsEntireAsPathInbound.EntityData.BundleName = "cisco_ios_xr"
     removePrivateAsEntireAsPathInbound.EntityData.ParentYangName = "neighbor-af"
     removePrivateAsEntireAsPathInbound.EntityData.SegmentPath = "remove-private-as-entire-as-path-inbound"
+    removePrivateAsEntireAsPathInbound.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbors/neighbor/neighbor-afs/neighbor-af/" + removePrivateAsEntireAsPathInbound.EntityData.SegmentPath
     removePrivateAsEntireAsPathInbound.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     removePrivateAsEntireAsPathInbound.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     removePrivateAsEntireAsPathInbound.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7627,6 +7795,7 @@ func (advertiseDefImpDisableV4 *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Bg
     advertiseDefImpDisableV4.EntityData.BundleName = "cisco_ios_xr"
     advertiseDefImpDisableV4.EntityData.ParentYangName = "neighbor-af"
     advertiseDefImpDisableV4.EntityData.SegmentPath = "advertise-def-imp-disable-v4"
+    advertiseDefImpDisableV4.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbors/neighbor/neighbor-afs/neighbor-af/" + advertiseDefImpDisableV4.EntityData.SegmentPath
     advertiseDefImpDisableV4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     advertiseDefImpDisableV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseDefImpDisableV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7664,6 +7833,7 @@ func (advertiseL2vpnEvpn *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntit
     advertiseL2vpnEvpn.EntityData.BundleName = "cisco_ios_xr"
     advertiseL2vpnEvpn.EntityData.ParentYangName = "neighbor-af"
     advertiseL2vpnEvpn.EntityData.SegmentPath = "advertise-l2vpn-evpn"
+    advertiseL2vpnEvpn.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbors/neighbor/neighbor-afs/neighbor-af/" + advertiseL2vpnEvpn.EntityData.SegmentPath
     advertiseL2vpnEvpn.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     advertiseL2vpnEvpn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseL2vpnEvpn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7702,6 +7872,7 @@ func (advertiseLocalL2vpnEvpn *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Bgp
     advertiseLocalL2vpnEvpn.EntityData.BundleName = "cisco_ios_xr"
     advertiseLocalL2vpnEvpn.EntityData.ParentYangName = "neighbor-af"
     advertiseLocalL2vpnEvpn.EntityData.SegmentPath = "advertise-local-l2vpn-evpn"
+    advertiseLocalL2vpnEvpn.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbors/neighbor/neighbor-afs/neighbor-af/" + advertiseLocalL2vpnEvpn.EntityData.SegmentPath
     advertiseLocalL2vpnEvpn.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     advertiseLocalL2vpnEvpn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseLocalL2vpnEvpn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7739,6 +7910,7 @@ func (neighborAfLongLivedGracefulRestartStaleTime *Bgp_Instance_InstanceAs_FourB
     neighborAfLongLivedGracefulRestartStaleTime.EntityData.BundleName = "cisco_ios_xr"
     neighborAfLongLivedGracefulRestartStaleTime.EntityData.ParentYangName = "neighbor-af"
     neighborAfLongLivedGracefulRestartStaleTime.EntityData.SegmentPath = "neighbor-af-long-lived-graceful-restart-stale-time"
+    neighborAfLongLivedGracefulRestartStaleTime.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbors/neighbor/neighbor-afs/neighbor-af/" + neighborAfLongLivedGracefulRestartStaleTime.EntityData.SegmentPath
     neighborAfLongLivedGracefulRestartStaleTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighborAfLongLivedGracefulRestartStaleTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborAfLongLivedGracefulRestartStaleTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7775,6 +7947,7 @@ func (advertiseV6 *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neigh
     advertiseV6.EntityData.BundleName = "cisco_ios_xr"
     advertiseV6.EntityData.ParentYangName = "neighbor-af"
     advertiseV6.EntityData.SegmentPath = "advertise-v6"
+    advertiseV6.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbors/neighbor/neighbor-afs/neighbor-af/" + advertiseV6.EntityData.SegmentPath
     advertiseV6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     advertiseV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7813,6 +7986,7 @@ func (advertiseLocalV6 *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_
     advertiseLocalV6.EntityData.BundleName = "cisco_ios_xr"
     advertiseLocalV6.EntityData.ParentYangName = "neighbor-af"
     advertiseLocalV6.EntityData.SegmentPath = "advertise-local-v6"
+    advertiseLocalV6.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbors/neighbor/neighbor-afs/neighbor-af/" + advertiseLocalV6.EntityData.SegmentPath
     advertiseLocalV6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     advertiseLocalV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseLocalV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7854,6 +8028,7 @@ func (self *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Ne
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "neighbor-af"
     self.EntityData.SegmentPath = "import"
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbors/neighbor/neighbor-afs/neighbor-af/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7890,6 +8065,7 @@ func (defaultOriginate *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_
     defaultOriginate.EntityData.BundleName = "cisco_ios_xr"
     defaultOriginate.EntityData.ParentYangName = "neighbor-af"
     defaultOriginate.EntityData.SegmentPath = "default-originate"
+    defaultOriginate.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbors/neighbor/neighbor-afs/neighbor-af/" + defaultOriginate.EntityData.SegmentPath
     defaultOriginate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     defaultOriginate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     defaultOriginate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7926,6 +8102,7 @@ func (softReconfiguration *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEnti
     softReconfiguration.EntityData.BundleName = "cisco_ios_xr"
     softReconfiguration.EntityData.ParentYangName = "neighbor-af"
     softReconfiguration.EntityData.SegmentPath = "soft-reconfiguration"
+    softReconfiguration.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbors/neighbor/neighbor-afs/neighbor-af/" + softReconfiguration.EntityData.SegmentPath
     softReconfiguration.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     softReconfiguration.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     softReconfiguration.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7962,6 +8139,7 @@ func (advertiseVrfImpDisableV6 *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Bg
     advertiseVrfImpDisableV6.EntityData.BundleName = "cisco_ios_xr"
     advertiseVrfImpDisableV6.EntityData.ParentYangName = "neighbor-af"
     advertiseVrfImpDisableV6.EntityData.SegmentPath = "advertise-vrf-imp-disable-v6"
+    advertiseVrfImpDisableV6.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbors/neighbor/neighbor-afs/neighbor-af/" + advertiseVrfImpDisableV6.EntityData.SegmentPath
     advertiseVrfImpDisableV6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     advertiseVrfImpDisableV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseVrfImpDisableV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7999,6 +8177,7 @@ func (advertiseV4 *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neigh
     advertiseV4.EntityData.BundleName = "cisco_ios_xr"
     advertiseV4.EntityData.ParentYangName = "neighbor-af"
     advertiseV4.EntityData.SegmentPath = "advertise-v4"
+    advertiseV4.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbors/neighbor/neighbor-afs/neighbor-af/" + advertiseV4.EntityData.SegmentPath
     advertiseV4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     advertiseV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8037,6 +8216,7 @@ func (advertiseLocalV4 *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_
     advertiseLocalV4.EntityData.BundleName = "cisco_ios_xr"
     advertiseLocalV4.EntityData.ParentYangName = "neighbor-af"
     advertiseLocalV4.EntityData.SegmentPath = "advertise-local-v4"
+    advertiseLocalV4.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbors/neighbor/neighbor-afs/neighbor-af/" + advertiseLocalV4.EntityData.SegmentPath
     advertiseLocalV4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     advertiseLocalV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseLocalV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8077,6 +8257,7 @@ func (removePrivateAsEntireAsPath *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf
     removePrivateAsEntireAsPath.EntityData.BundleName = "cisco_ios_xr"
     removePrivateAsEntireAsPath.EntityData.ParentYangName = "neighbor-af"
     removePrivateAsEntireAsPath.EntityData.SegmentPath = "remove-private-as-entire-as-path"
+    removePrivateAsEntireAsPath.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbors/neighbor/neighbor-afs/neighbor-af/" + removePrivateAsEntireAsPath.EntityData.SegmentPath
     removePrivateAsEntireAsPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     removePrivateAsEntireAsPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     removePrivateAsEntireAsPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8113,6 +8294,7 @@ func (advertiseVrfImpDisableV4 *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Bg
     advertiseVrfImpDisableV4.EntityData.BundleName = "cisco_ios_xr"
     advertiseVrfImpDisableV4.EntityData.ParentYangName = "neighbor-af"
     advertiseVrfImpDisableV4.EntityData.SegmentPath = "advertise-vrf-imp-disable-v4"
+    advertiseVrfImpDisableV4.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbors/neighbor/neighbor-afs/neighbor-af/" + advertiseVrfImpDisableV4.EntityData.SegmentPath
     advertiseVrfImpDisableV4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     advertiseVrfImpDisableV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseVrfImpDisableV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8152,6 +8334,7 @@ func (localAddress *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neig
     localAddress.EntityData.BundleName = "cisco_ios_xr"
     localAddress.EntityData.ParentYangName = "neighbor"
     localAddress.EntityData.SegmentPath = "local-address"
+    localAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbors/neighbor/" + localAddress.EntityData.SegmentPath
     localAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     localAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     localAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8183,6 +8366,7 @@ func (bmpActivates *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neig
     bmpActivates.EntityData.BundleName = "cisco_ios_xr"
     bmpActivates.EntityData.ParentYangName = "neighbor"
     bmpActivates.EntityData.SegmentPath = "bmp-activates"
+    bmpActivates.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbors/neighbor/" + bmpActivates.EntityData.SegmentPath
     bmpActivates.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bmpActivates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bmpActivates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8204,6 +8388,7 @@ func (bmpActivates *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neig
 type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor_BmpActivates_BmpActivate struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. BMP Server ID. The type is interface{} with range:
     // 1..8.
@@ -8216,6 +8401,7 @@ func (bmpActivate *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neigh
     bmpActivate.EntityData.BundleName = "cisco_ios_xr"
     bmpActivate.EntityData.ParentYangName = "bmp-activates"
     bmpActivate.EntityData.SegmentPath = "bmp-activate" + types.AddKeyToken(bmpActivate.ServerId, "server-id")
+    bmpActivate.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbors/neighbor/bmp-activates/" + bmpActivate.EntityData.SegmentPath
     bmpActivate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bmpActivate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bmpActivate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8251,6 +8437,7 @@ func (ebgpMultihop *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neig
     ebgpMultihop.EntityData.BundleName = "cisco_ios_xr"
     ebgpMultihop.EntityData.ParentYangName = "neighbor"
     ebgpMultihop.EntityData.SegmentPath = "ebgp-multihop"
+    ebgpMultihop.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbors/neighbor/" + ebgpMultihop.EntityData.SegmentPath
     ebgpMultihop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ebgpMultihop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ebgpMultihop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8284,6 +8471,7 @@ func (remoteAs *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbor
     remoteAs.EntityData.BundleName = "cisco_ios_xr"
     remoteAs.EntityData.ParentYangName = "neighbor"
     remoteAs.EntityData.SegmentPath = "remote-as"
+    remoteAs.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbors/neighbor/" + remoteAs.EntityData.SegmentPath
     remoteAs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteAs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteAs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8332,6 +8520,7 @@ func (localAs *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors
     localAs.EntityData.BundleName = "cisco_ios_xr"
     localAs.EntityData.ParentYangName = "neighbor"
     localAs.EntityData.SegmentPath = "local-as"
+    localAs.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbors/neighbor/" + localAs.EntityData.SegmentPath
     localAs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     localAs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     localAs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8371,6 +8560,7 @@ func (password *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbor
     password.EntityData.BundleName = "cisco_ios_xr"
     password.EntityData.ParentYangName = "neighbor"
     password.EntityData.SegmentPath = "password"
+    password.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbors/neighbor/" + password.EntityData.SegmentPath
     password.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     password.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     password.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8409,6 +8599,7 @@ func (advertisementInterval *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEn
     advertisementInterval.EntityData.BundleName = "cisco_ios_xr"
     advertisementInterval.EntityData.ParentYangName = "neighbor"
     advertisementInterval.EntityData.SegmentPath = "advertisement-interval"
+    advertisementInterval.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbors/neighbor/" + advertisementInterval.EntityData.SegmentPath
     advertisementInterval.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     advertisementInterval.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertisementInterval.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8445,6 +8636,7 @@ func (neighborClusterId *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity
     neighborClusterId.EntityData.BundleName = "cisco_ios_xr"
     neighborClusterId.EntityData.ParentYangName = "neighbor"
     neighborClusterId.EntityData.SegmentPath = "neighbor-cluster-id"
+    neighborClusterId.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbors/neighbor/" + neighborClusterId.EntityData.SegmentPath
     neighborClusterId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighborClusterId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborClusterId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8479,6 +8671,7 @@ func (tcpmss *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_
     tcpmss.EntityData.BundleName = "cisco_ios_xr"
     tcpmss.EntityData.ParentYangName = "neighbor"
     tcpmss.EntityData.SegmentPath = "tcpmss"
+    tcpmss.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbors/neighbor/" + tcpmss.EntityData.SegmentPath
     tcpmss.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tcpmss.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tcpmss.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8513,6 +8706,7 @@ func (tos *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Nei
     tos.EntityData.BundleName = "cisco_ios_xr"
     tos.EntityData.ParentYangName = "neighbor"
     tos.EntityData.SegmentPath = "tos"
+    tos.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbors/neighbor/" + tos.EntityData.SegmentPath
     tos.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tos.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tos.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8552,6 +8746,7 @@ func (updateInFiltering *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity
     updateInFiltering.EntityData.BundleName = "cisco_ios_xr"
     updateInFiltering.EntityData.ParentYangName = "neighbor"
     updateInFiltering.EntityData.SegmentPath = "update-in-filtering"
+    updateInFiltering.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbors/neighbor/" + updateInFiltering.EntityData.SegmentPath
     updateInFiltering.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     updateInFiltering.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     updateInFiltering.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8591,6 +8786,7 @@ func (updateInFilteringMessageBuffers *Bgp_Instance_InstanceAs_FourByteAs_Defaul
     updateInFilteringMessageBuffers.EntityData.BundleName = "cisco_ios_xr"
     updateInFilteringMessageBuffers.EntityData.ParentYangName = "update-in-filtering"
     updateInFilteringMessageBuffers.EntityData.SegmentPath = "update-in-filtering-message-buffers"
+    updateInFilteringMessageBuffers.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbors/neighbor/update-in-filtering/" + updateInFilteringMessageBuffers.EntityData.SegmentPath
     updateInFilteringMessageBuffers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     updateInFilteringMessageBuffers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     updateInFilteringMessageBuffers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8629,6 +8825,7 @@ func (msgLogOut *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbo
     msgLogOut.EntityData.BundleName = "cisco_ios_xr"
     msgLogOut.EntityData.ParentYangName = "neighbor"
     msgLogOut.EntityData.SegmentPath = "msg-log-out"
+    msgLogOut.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbors/neighbor/" + msgLogOut.EntityData.SegmentPath
     msgLogOut.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     msgLogOut.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     msgLogOut.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8671,6 +8868,7 @@ func (aoKeychain *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighb
     aoKeychain.EntityData.BundleName = "cisco_ios_xr"
     aoKeychain.EntityData.ParentYangName = "neighbor"
     aoKeychain.EntityData.SegmentPath = "ao-keychain"
+    aoKeychain.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbors/neighbor/" + aoKeychain.EntityData.SegmentPath
     aoKeychain.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     aoKeychain.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     aoKeychain.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8709,6 +8907,7 @@ func (receiveBufferSize *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity
     receiveBufferSize.EntityData.BundleName = "cisco_ios_xr"
     receiveBufferSize.EntityData.ParentYangName = "neighbor"
     receiveBufferSize.EntityData.SegmentPath = "receive-buffer-size"
+    receiveBufferSize.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbors/neighbor/" + receiveBufferSize.EntityData.SegmentPath
     receiveBufferSize.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     receiveBufferSize.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receiveBufferSize.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8747,6 +8946,7 @@ func (msgLogIn *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbor
     msgLogIn.EntityData.BundleName = "cisco_ios_xr"
     msgLogIn.EntityData.ParentYangName = "neighbor"
     msgLogIn.EntityData.SegmentPath = "msg-log-in"
+    msgLogIn.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbors/neighbor/" + msgLogIn.EntityData.SegmentPath
     msgLogIn.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     msgLogIn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     msgLogIn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8784,6 +8984,7 @@ func (sendBufferSize *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Ne
     sendBufferSize.EntityData.BundleName = "cisco_ios_xr"
     sendBufferSize.EntityData.ParentYangName = "neighbor"
     sendBufferSize.EntityData.SegmentPath = "send-buffer-size"
+    sendBufferSize.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbors/neighbor/" + sendBufferSize.EntityData.SegmentPath
     sendBufferSize.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sendBufferSize.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sendBufferSize.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8823,6 +9024,7 @@ func (timers *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_
     timers.EntityData.BundleName = "cisco_ios_xr"
     timers.EntityData.ParentYangName = "neighbor"
     timers.EntityData.SegmentPath = "timers"
+    timers.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbors/neighbor/" + timers.EntityData.SegmentPath
     timers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     timers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     timers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8859,6 +9061,7 @@ func (keychain *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbor
     keychain.EntityData.BundleName = "cisco_ios_xr"
     keychain.EntityData.ParentYangName = "neighbor"
     keychain.EntityData.SegmentPath = "keychain"
+    keychain.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbors/neighbor/" + keychain.EntityData.SegmentPath
     keychain.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     keychain.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     keychain.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8899,6 +9102,7 @@ func (gracefulMaintenance *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEnti
     gracefulMaintenance.EntityData.BundleName = "cisco_ios_xr"
     gracefulMaintenance.EntityData.ParentYangName = "neighbor"
     gracefulMaintenance.EntityData.SegmentPath = "graceful-maintenance"
+    gracefulMaintenance.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbors/neighbor/" + gracefulMaintenance.EntityData.SegmentPath
     gracefulMaintenance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     gracefulMaintenance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     gracefulMaintenance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8935,6 +9139,7 @@ func (gracefulMaintenanceLocalPreference *Bgp_Instance_InstanceAs_FourByteAs_Def
     gracefulMaintenanceLocalPreference.EntityData.BundleName = "cisco_ios_xr"
     gracefulMaintenanceLocalPreference.EntityData.ParentYangName = "graceful-maintenance"
     gracefulMaintenanceLocalPreference.EntityData.SegmentPath = "graceful-maintenance-local-preference"
+    gracefulMaintenanceLocalPreference.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbors/neighbor/graceful-maintenance/" + gracefulMaintenanceLocalPreference.EntityData.SegmentPath
     gracefulMaintenanceLocalPreference.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     gracefulMaintenanceLocalPreference.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     gracefulMaintenanceLocalPreference.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8970,6 +9175,7 @@ func (gracefulMaintenanceAsPrepends *Bgp_Instance_InstanceAs_FourByteAs_DefaultV
     gracefulMaintenanceAsPrepends.EntityData.BundleName = "cisco_ios_xr"
     gracefulMaintenanceAsPrepends.EntityData.ParentYangName = "graceful-maintenance"
     gracefulMaintenanceAsPrepends.EntityData.SegmentPath = "graceful-maintenance-as-prepends"
+    gracefulMaintenanceAsPrepends.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbors/neighbor/graceful-maintenance/" + gracefulMaintenanceAsPrepends.EntityData.SegmentPath
     gracefulMaintenanceAsPrepends.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     gracefulMaintenanceAsPrepends.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     gracefulMaintenanceAsPrepends.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8989,6 +9195,7 @@ func (gracefulMaintenanceAsPrepends *Bgp_Instance_InstanceAs_FourByteAs_DefaultV
 type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborPrefixLength struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Prefix length. The type is interface{} with range:
     // 0..127.
@@ -9104,7 +9311,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborP
     // the connected nexthop check for this peer. The type is bool.
     IgnoreConnectedCheckEbgp interface{}
 
-    // TRUE to suppress BGP 4-byte-as capability.  FALSE to not suppress it and to
+    // TRUE to suppress BGP 4-byte-as capability. FALSE to not suppress it and to
     // prevent inheritance from a parent. The type is bool.
     SuppressFourByteAsCapability interface{}
 
@@ -9179,6 +9386,7 @@ func (neighborPrefixLength *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEnt
     neighborPrefixLength.EntityData.BundleName = "cisco_ios_xr"
     neighborPrefixLength.EntityData.ParentYangName = "neighbors"
     neighborPrefixLength.EntityData.SegmentPath = "neighbor-prefix-length" + types.AddKeyToken(neighborPrefixLength.PrefixLength, "prefix-length") + types.AddKeyToken(neighborPrefixLength.NeighborAddress, "neighbor-address")
+    neighborPrefixLength.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbors/" + neighborPrefixLength.EntityData.SegmentPath
     neighborPrefixLength.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighborPrefixLength.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborPrefixLength.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9259,6 +9467,7 @@ func (neighborAfs *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neigh
     neighborAfs.EntityData.BundleName = "cisco_ios_xr"
     neighborAfs.EntityData.ParentYangName = "neighbor-prefix-length"
     neighborAfs.EntityData.SegmentPath = "neighbor-afs"
+    neighborAfs.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbors/neighbor-prefix-length/" + neighborAfs.EntityData.SegmentPath
     neighborAfs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighborAfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborAfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9280,6 +9489,7 @@ func (neighborAfs *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neigh
 type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborPrefixLength_NeighborAfs_NeighborAf struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. BGP neighbor address family. The type is
     // BgpAddressFamily.
@@ -9294,11 +9504,11 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborP
     L2vpnSignalling interface{}
 
     // TRUE to send extended communities to the external
-    // neighbor/neighbor-group/af-group.  FALSE not to send and to prevent
+    // neighbor/neighbor-group/af-group. FALSE not to send and to prevent
     // inheritance from a parent. The type is bool.
     SendExtCommunityEbgp interface{}
 
-    // TRUE to configure as a accept-route-legacy-RT.  FALSE to prevent
+    // TRUE to configure as a accept-route-legacy-RT. FALSE to prevent
     // accept-route-legacy-RT from being inherited. The type is bool.
     AcceptRouteLegacyRt interface{}
 
@@ -9372,7 +9582,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborP
     // is none.
     AdvertiseOrf interface{}
 
-    // TRUE to configure as a route-reflector-client.  FALSE to prevent
+    // TRUE to configure as a route-reflector-client. FALSE to prevent
     // route-reflector-client from being inherited. The type is bool.
     RouteReflectorClient interface{}
 
@@ -9476,6 +9686,7 @@ func (neighborAf *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighb
     neighborAf.EntityData.BundleName = "cisco_ios_xr"
     neighborAf.EntityData.ParentYangName = "neighbor-afs"
     neighborAf.EntityData.SegmentPath = "neighbor-af" + types.AddKeyToken(neighborAf.AfName, "af-name")
+    neighborAf.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbors/neighbor-prefix-length/neighbor-afs/" + neighborAf.EntityData.SegmentPath
     neighborAf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighborAf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborAf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9565,6 +9776,7 @@ func (aigpCostCommunity *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity
     aigpCostCommunity.EntityData.BundleName = "cisco_ios_xr"
     aigpCostCommunity.EntityData.ParentYangName = "neighbor-af"
     aigpCostCommunity.EntityData.SegmentPath = "aigp-cost-community"
+    aigpCostCommunity.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbors/neighbor-prefix-length/neighbor-afs/neighbor-af/" + aigpCostCommunity.EntityData.SegmentPath
     aigpCostCommunity.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     aigpCostCommunity.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     aigpCostCommunity.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9603,6 +9815,7 @@ func (advertiseDefImpDisableV6 *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Bg
     advertiseDefImpDisableV6.EntityData.BundleName = "cisco_ios_xr"
     advertiseDefImpDisableV6.EntityData.ParentYangName = "neighbor-af"
     advertiseDefImpDisableV6.EntityData.SegmentPath = "advertise-def-imp-disable-v6"
+    advertiseDefImpDisableV6.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbors/neighbor-prefix-length/neighbor-afs/neighbor-af/" + advertiseDefImpDisableV6.EntityData.SegmentPath
     advertiseDefImpDisableV6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     advertiseDefImpDisableV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseDefImpDisableV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9640,6 +9853,7 @@ func (advertiseDisable *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_
     advertiseDisable.EntityData.BundleName = "cisco_ios_xr"
     advertiseDisable.EntityData.ParentYangName = "neighbor-af"
     advertiseDisable.EntityData.SegmentPath = "advertise-disable"
+    advertiseDisable.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbors/neighbor-prefix-length/neighbor-afs/neighbor-af/" + advertiseDisable.EntityData.SegmentPath
     advertiseDisable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     advertiseDisable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseDisable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9691,6 +9905,7 @@ func (maximumPrefixes *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_N
     maximumPrefixes.EntityData.BundleName = "cisco_ios_xr"
     maximumPrefixes.EntityData.ParentYangName = "neighbor-af"
     maximumPrefixes.EntityData.SegmentPath = "maximum-prefixes"
+    maximumPrefixes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbors/neighbor-prefix-length/neighbor-afs/neighbor-af/" + maximumPrefixes.EntityData.SegmentPath
     maximumPrefixes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     maximumPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     maximumPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9733,6 +9948,7 @@ func (removePrivateAsEntireAsPathInbound *Bgp_Instance_InstanceAs_FourByteAs_Def
     removePrivateAsEntireAsPathInbound.EntityData.BundleName = "cisco_ios_xr"
     removePrivateAsEntireAsPathInbound.EntityData.ParentYangName = "neighbor-af"
     removePrivateAsEntireAsPathInbound.EntityData.SegmentPath = "remove-private-as-entire-as-path-inbound"
+    removePrivateAsEntireAsPathInbound.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbors/neighbor-prefix-length/neighbor-afs/neighbor-af/" + removePrivateAsEntireAsPathInbound.EntityData.SegmentPath
     removePrivateAsEntireAsPathInbound.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     removePrivateAsEntireAsPathInbound.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     removePrivateAsEntireAsPathInbound.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9769,6 +9985,7 @@ func (advertiseDefImpDisableV4 *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Bg
     advertiseDefImpDisableV4.EntityData.BundleName = "cisco_ios_xr"
     advertiseDefImpDisableV4.EntityData.ParentYangName = "neighbor-af"
     advertiseDefImpDisableV4.EntityData.SegmentPath = "advertise-def-imp-disable-v4"
+    advertiseDefImpDisableV4.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbors/neighbor-prefix-length/neighbor-afs/neighbor-af/" + advertiseDefImpDisableV4.EntityData.SegmentPath
     advertiseDefImpDisableV4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     advertiseDefImpDisableV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseDefImpDisableV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9806,6 +10023,7 @@ func (advertiseL2vpnEvpn *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntit
     advertiseL2vpnEvpn.EntityData.BundleName = "cisco_ios_xr"
     advertiseL2vpnEvpn.EntityData.ParentYangName = "neighbor-af"
     advertiseL2vpnEvpn.EntityData.SegmentPath = "advertise-l2vpn-evpn"
+    advertiseL2vpnEvpn.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbors/neighbor-prefix-length/neighbor-afs/neighbor-af/" + advertiseL2vpnEvpn.EntityData.SegmentPath
     advertiseL2vpnEvpn.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     advertiseL2vpnEvpn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseL2vpnEvpn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9844,6 +10062,7 @@ func (advertiseLocalL2vpnEvpn *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Bgp
     advertiseLocalL2vpnEvpn.EntityData.BundleName = "cisco_ios_xr"
     advertiseLocalL2vpnEvpn.EntityData.ParentYangName = "neighbor-af"
     advertiseLocalL2vpnEvpn.EntityData.SegmentPath = "advertise-local-l2vpn-evpn"
+    advertiseLocalL2vpnEvpn.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbors/neighbor-prefix-length/neighbor-afs/neighbor-af/" + advertiseLocalL2vpnEvpn.EntityData.SegmentPath
     advertiseLocalL2vpnEvpn.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     advertiseLocalL2vpnEvpn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseLocalL2vpnEvpn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9881,6 +10100,7 @@ func (neighborAfLongLivedGracefulRestartStaleTime *Bgp_Instance_InstanceAs_FourB
     neighborAfLongLivedGracefulRestartStaleTime.EntityData.BundleName = "cisco_ios_xr"
     neighborAfLongLivedGracefulRestartStaleTime.EntityData.ParentYangName = "neighbor-af"
     neighborAfLongLivedGracefulRestartStaleTime.EntityData.SegmentPath = "neighbor-af-long-lived-graceful-restart-stale-time"
+    neighborAfLongLivedGracefulRestartStaleTime.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbors/neighbor-prefix-length/neighbor-afs/neighbor-af/" + neighborAfLongLivedGracefulRestartStaleTime.EntityData.SegmentPath
     neighborAfLongLivedGracefulRestartStaleTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighborAfLongLivedGracefulRestartStaleTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborAfLongLivedGracefulRestartStaleTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9917,6 +10137,7 @@ func (advertiseV6 *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neigh
     advertiseV6.EntityData.BundleName = "cisco_ios_xr"
     advertiseV6.EntityData.ParentYangName = "neighbor-af"
     advertiseV6.EntityData.SegmentPath = "advertise-v6"
+    advertiseV6.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbors/neighbor-prefix-length/neighbor-afs/neighbor-af/" + advertiseV6.EntityData.SegmentPath
     advertiseV6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     advertiseV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9955,6 +10176,7 @@ func (advertiseLocalV6 *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_
     advertiseLocalV6.EntityData.BundleName = "cisco_ios_xr"
     advertiseLocalV6.EntityData.ParentYangName = "neighbor-af"
     advertiseLocalV6.EntityData.SegmentPath = "advertise-local-v6"
+    advertiseLocalV6.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbors/neighbor-prefix-length/neighbor-afs/neighbor-af/" + advertiseLocalV6.EntityData.SegmentPath
     advertiseLocalV6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     advertiseLocalV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseLocalV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9996,6 +10218,7 @@ func (self *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Ne
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "neighbor-af"
     self.EntityData.SegmentPath = "import"
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbors/neighbor-prefix-length/neighbor-afs/neighbor-af/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10032,6 +10255,7 @@ func (defaultOriginate *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_
     defaultOriginate.EntityData.BundleName = "cisco_ios_xr"
     defaultOriginate.EntityData.ParentYangName = "neighbor-af"
     defaultOriginate.EntityData.SegmentPath = "default-originate"
+    defaultOriginate.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbors/neighbor-prefix-length/neighbor-afs/neighbor-af/" + defaultOriginate.EntityData.SegmentPath
     defaultOriginate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     defaultOriginate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     defaultOriginate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10068,6 +10292,7 @@ func (softReconfiguration *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEnti
     softReconfiguration.EntityData.BundleName = "cisco_ios_xr"
     softReconfiguration.EntityData.ParentYangName = "neighbor-af"
     softReconfiguration.EntityData.SegmentPath = "soft-reconfiguration"
+    softReconfiguration.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbors/neighbor-prefix-length/neighbor-afs/neighbor-af/" + softReconfiguration.EntityData.SegmentPath
     softReconfiguration.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     softReconfiguration.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     softReconfiguration.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10104,6 +10329,7 @@ func (advertiseVrfImpDisableV6 *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Bg
     advertiseVrfImpDisableV6.EntityData.BundleName = "cisco_ios_xr"
     advertiseVrfImpDisableV6.EntityData.ParentYangName = "neighbor-af"
     advertiseVrfImpDisableV6.EntityData.SegmentPath = "advertise-vrf-imp-disable-v6"
+    advertiseVrfImpDisableV6.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbors/neighbor-prefix-length/neighbor-afs/neighbor-af/" + advertiseVrfImpDisableV6.EntityData.SegmentPath
     advertiseVrfImpDisableV6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     advertiseVrfImpDisableV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseVrfImpDisableV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10141,6 +10367,7 @@ func (advertiseV4 *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neigh
     advertiseV4.EntityData.BundleName = "cisco_ios_xr"
     advertiseV4.EntityData.ParentYangName = "neighbor-af"
     advertiseV4.EntityData.SegmentPath = "advertise-v4"
+    advertiseV4.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbors/neighbor-prefix-length/neighbor-afs/neighbor-af/" + advertiseV4.EntityData.SegmentPath
     advertiseV4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     advertiseV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10179,6 +10406,7 @@ func (advertiseLocalV4 *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_
     advertiseLocalV4.EntityData.BundleName = "cisco_ios_xr"
     advertiseLocalV4.EntityData.ParentYangName = "neighbor-af"
     advertiseLocalV4.EntityData.SegmentPath = "advertise-local-v4"
+    advertiseLocalV4.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbors/neighbor-prefix-length/neighbor-afs/neighbor-af/" + advertiseLocalV4.EntityData.SegmentPath
     advertiseLocalV4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     advertiseLocalV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseLocalV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10219,6 +10447,7 @@ func (removePrivateAsEntireAsPath *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf
     removePrivateAsEntireAsPath.EntityData.BundleName = "cisco_ios_xr"
     removePrivateAsEntireAsPath.EntityData.ParentYangName = "neighbor-af"
     removePrivateAsEntireAsPath.EntityData.SegmentPath = "remove-private-as-entire-as-path"
+    removePrivateAsEntireAsPath.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbors/neighbor-prefix-length/neighbor-afs/neighbor-af/" + removePrivateAsEntireAsPath.EntityData.SegmentPath
     removePrivateAsEntireAsPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     removePrivateAsEntireAsPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     removePrivateAsEntireAsPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10255,6 +10484,7 @@ func (advertiseVrfImpDisableV4 *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Bg
     advertiseVrfImpDisableV4.EntityData.BundleName = "cisco_ios_xr"
     advertiseVrfImpDisableV4.EntityData.ParentYangName = "neighbor-af"
     advertiseVrfImpDisableV4.EntityData.SegmentPath = "advertise-vrf-imp-disable-v4"
+    advertiseVrfImpDisableV4.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbors/neighbor-prefix-length/neighbor-afs/neighbor-af/" + advertiseVrfImpDisableV4.EntityData.SegmentPath
     advertiseVrfImpDisableV4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     advertiseVrfImpDisableV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseVrfImpDisableV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10294,6 +10524,7 @@ func (localAddress *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neig
     localAddress.EntityData.BundleName = "cisco_ios_xr"
     localAddress.EntityData.ParentYangName = "neighbor-prefix-length"
     localAddress.EntityData.SegmentPath = "local-address"
+    localAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbors/neighbor-prefix-length/" + localAddress.EntityData.SegmentPath
     localAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     localAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     localAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10325,6 +10556,7 @@ func (bmpActivates *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neig
     bmpActivates.EntityData.BundleName = "cisco_ios_xr"
     bmpActivates.EntityData.ParentYangName = "neighbor-prefix-length"
     bmpActivates.EntityData.SegmentPath = "bmp-activates"
+    bmpActivates.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbors/neighbor-prefix-length/" + bmpActivates.EntityData.SegmentPath
     bmpActivates.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bmpActivates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bmpActivates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10346,6 +10578,7 @@ func (bmpActivates *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neig
 type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborPrefixLength_BmpActivates_BmpActivate struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. BMP Server ID. The type is interface{} with range:
     // 1..8.
@@ -10358,6 +10591,7 @@ func (bmpActivate *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neigh
     bmpActivate.EntityData.BundleName = "cisco_ios_xr"
     bmpActivate.EntityData.ParentYangName = "bmp-activates"
     bmpActivate.EntityData.SegmentPath = "bmp-activate" + types.AddKeyToken(bmpActivate.ServerId, "server-id")
+    bmpActivate.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbors/neighbor-prefix-length/bmp-activates/" + bmpActivate.EntityData.SegmentPath
     bmpActivate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bmpActivate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bmpActivate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10393,6 +10627,7 @@ func (ebgpMultihop *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neig
     ebgpMultihop.EntityData.BundleName = "cisco_ios_xr"
     ebgpMultihop.EntityData.ParentYangName = "neighbor-prefix-length"
     ebgpMultihop.EntityData.SegmentPath = "ebgp-multihop"
+    ebgpMultihop.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbors/neighbor-prefix-length/" + ebgpMultihop.EntityData.SegmentPath
     ebgpMultihop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ebgpMultihop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ebgpMultihop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10426,6 +10661,7 @@ func (remoteAs *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbor
     remoteAs.EntityData.BundleName = "cisco_ios_xr"
     remoteAs.EntityData.ParentYangName = "neighbor-prefix-length"
     remoteAs.EntityData.SegmentPath = "remote-as"
+    remoteAs.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbors/neighbor-prefix-length/" + remoteAs.EntityData.SegmentPath
     remoteAs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteAs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteAs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10474,6 +10710,7 @@ func (localAs *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors
     localAs.EntityData.BundleName = "cisco_ios_xr"
     localAs.EntityData.ParentYangName = "neighbor-prefix-length"
     localAs.EntityData.SegmentPath = "local-as"
+    localAs.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbors/neighbor-prefix-length/" + localAs.EntityData.SegmentPath
     localAs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     localAs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     localAs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10513,6 +10750,7 @@ func (password *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbor
     password.EntityData.BundleName = "cisco_ios_xr"
     password.EntityData.ParentYangName = "neighbor-prefix-length"
     password.EntityData.SegmentPath = "password"
+    password.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbors/neighbor-prefix-length/" + password.EntityData.SegmentPath
     password.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     password.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     password.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10551,6 +10789,7 @@ func (advertisementInterval *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEn
     advertisementInterval.EntityData.BundleName = "cisco_ios_xr"
     advertisementInterval.EntityData.ParentYangName = "neighbor-prefix-length"
     advertisementInterval.EntityData.SegmentPath = "advertisement-interval"
+    advertisementInterval.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbors/neighbor-prefix-length/" + advertisementInterval.EntityData.SegmentPath
     advertisementInterval.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     advertisementInterval.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertisementInterval.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10587,6 +10826,7 @@ func (neighborClusterId *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity
     neighborClusterId.EntityData.BundleName = "cisco_ios_xr"
     neighborClusterId.EntityData.ParentYangName = "neighbor-prefix-length"
     neighborClusterId.EntityData.SegmentPath = "neighbor-cluster-id"
+    neighborClusterId.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbors/neighbor-prefix-length/" + neighborClusterId.EntityData.SegmentPath
     neighborClusterId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighborClusterId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborClusterId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10621,6 +10861,7 @@ func (tcpmss *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_
     tcpmss.EntityData.BundleName = "cisco_ios_xr"
     tcpmss.EntityData.ParentYangName = "neighbor-prefix-length"
     tcpmss.EntityData.SegmentPath = "tcpmss"
+    tcpmss.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbors/neighbor-prefix-length/" + tcpmss.EntityData.SegmentPath
     tcpmss.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tcpmss.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tcpmss.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10655,6 +10896,7 @@ func (tos *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Nei
     tos.EntityData.BundleName = "cisco_ios_xr"
     tos.EntityData.ParentYangName = "neighbor-prefix-length"
     tos.EntityData.SegmentPath = "tos"
+    tos.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbors/neighbor-prefix-length/" + tos.EntityData.SegmentPath
     tos.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tos.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tos.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10694,6 +10936,7 @@ func (updateInFiltering *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity
     updateInFiltering.EntityData.BundleName = "cisco_ios_xr"
     updateInFiltering.EntityData.ParentYangName = "neighbor-prefix-length"
     updateInFiltering.EntityData.SegmentPath = "update-in-filtering"
+    updateInFiltering.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbors/neighbor-prefix-length/" + updateInFiltering.EntityData.SegmentPath
     updateInFiltering.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     updateInFiltering.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     updateInFiltering.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10733,6 +10976,7 @@ func (updateInFilteringMessageBuffers *Bgp_Instance_InstanceAs_FourByteAs_Defaul
     updateInFilteringMessageBuffers.EntityData.BundleName = "cisco_ios_xr"
     updateInFilteringMessageBuffers.EntityData.ParentYangName = "update-in-filtering"
     updateInFilteringMessageBuffers.EntityData.SegmentPath = "update-in-filtering-message-buffers"
+    updateInFilteringMessageBuffers.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbors/neighbor-prefix-length/update-in-filtering/" + updateInFilteringMessageBuffers.EntityData.SegmentPath
     updateInFilteringMessageBuffers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     updateInFilteringMessageBuffers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     updateInFilteringMessageBuffers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10771,6 +11015,7 @@ func (msgLogOut *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbo
     msgLogOut.EntityData.BundleName = "cisco_ios_xr"
     msgLogOut.EntityData.ParentYangName = "neighbor-prefix-length"
     msgLogOut.EntityData.SegmentPath = "msg-log-out"
+    msgLogOut.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbors/neighbor-prefix-length/" + msgLogOut.EntityData.SegmentPath
     msgLogOut.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     msgLogOut.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     msgLogOut.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10813,6 +11058,7 @@ func (aoKeychain *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighb
     aoKeychain.EntityData.BundleName = "cisco_ios_xr"
     aoKeychain.EntityData.ParentYangName = "neighbor-prefix-length"
     aoKeychain.EntityData.SegmentPath = "ao-keychain"
+    aoKeychain.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbors/neighbor-prefix-length/" + aoKeychain.EntityData.SegmentPath
     aoKeychain.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     aoKeychain.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     aoKeychain.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10851,6 +11097,7 @@ func (receiveBufferSize *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity
     receiveBufferSize.EntityData.BundleName = "cisco_ios_xr"
     receiveBufferSize.EntityData.ParentYangName = "neighbor-prefix-length"
     receiveBufferSize.EntityData.SegmentPath = "receive-buffer-size"
+    receiveBufferSize.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbors/neighbor-prefix-length/" + receiveBufferSize.EntityData.SegmentPath
     receiveBufferSize.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     receiveBufferSize.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receiveBufferSize.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10889,6 +11136,7 @@ func (msgLogIn *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbor
     msgLogIn.EntityData.BundleName = "cisco_ios_xr"
     msgLogIn.EntityData.ParentYangName = "neighbor-prefix-length"
     msgLogIn.EntityData.SegmentPath = "msg-log-in"
+    msgLogIn.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbors/neighbor-prefix-length/" + msgLogIn.EntityData.SegmentPath
     msgLogIn.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     msgLogIn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     msgLogIn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10926,6 +11174,7 @@ func (sendBufferSize *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Ne
     sendBufferSize.EntityData.BundleName = "cisco_ios_xr"
     sendBufferSize.EntityData.ParentYangName = "neighbor-prefix-length"
     sendBufferSize.EntityData.SegmentPath = "send-buffer-size"
+    sendBufferSize.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbors/neighbor-prefix-length/" + sendBufferSize.EntityData.SegmentPath
     sendBufferSize.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sendBufferSize.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sendBufferSize.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10965,6 +11214,7 @@ func (timers *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_
     timers.EntityData.BundleName = "cisco_ios_xr"
     timers.EntityData.ParentYangName = "neighbor-prefix-length"
     timers.EntityData.SegmentPath = "timers"
+    timers.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbors/neighbor-prefix-length/" + timers.EntityData.SegmentPath
     timers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     timers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     timers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11001,6 +11251,7 @@ func (keychain *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbor
     keychain.EntityData.BundleName = "cisco_ios_xr"
     keychain.EntityData.ParentYangName = "neighbor-prefix-length"
     keychain.EntityData.SegmentPath = "keychain"
+    keychain.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbors/neighbor-prefix-length/" + keychain.EntityData.SegmentPath
     keychain.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     keychain.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     keychain.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11041,6 +11292,7 @@ func (gracefulMaintenance *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEnti
     gracefulMaintenance.EntityData.BundleName = "cisco_ios_xr"
     gracefulMaintenance.EntityData.ParentYangName = "neighbor-prefix-length"
     gracefulMaintenance.EntityData.SegmentPath = "graceful-maintenance"
+    gracefulMaintenance.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbors/neighbor-prefix-length/" + gracefulMaintenance.EntityData.SegmentPath
     gracefulMaintenance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     gracefulMaintenance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     gracefulMaintenance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11077,6 +11329,7 @@ func (gracefulMaintenanceLocalPreference *Bgp_Instance_InstanceAs_FourByteAs_Def
     gracefulMaintenanceLocalPreference.EntityData.BundleName = "cisco_ios_xr"
     gracefulMaintenanceLocalPreference.EntityData.ParentYangName = "graceful-maintenance"
     gracefulMaintenanceLocalPreference.EntityData.SegmentPath = "graceful-maintenance-local-preference"
+    gracefulMaintenanceLocalPreference.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbors/neighbor-prefix-length/graceful-maintenance/" + gracefulMaintenanceLocalPreference.EntityData.SegmentPath
     gracefulMaintenanceLocalPreference.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     gracefulMaintenanceLocalPreference.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     gracefulMaintenanceLocalPreference.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11112,6 +11365,7 @@ func (gracefulMaintenanceAsPrepends *Bgp_Instance_InstanceAs_FourByteAs_DefaultV
     gracefulMaintenanceAsPrepends.EntityData.BundleName = "cisco_ios_xr"
     gracefulMaintenanceAsPrepends.EntityData.ParentYangName = "graceful-maintenance"
     gracefulMaintenanceAsPrepends.EntityData.SegmentPath = "graceful-maintenance-as-prepends"
+    gracefulMaintenanceAsPrepends.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbors/neighbor-prefix-length/graceful-maintenance/" + gracefulMaintenanceAsPrepends.EntityData.SegmentPath
     gracefulMaintenanceAsPrepends.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     gracefulMaintenanceAsPrepends.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     gracefulMaintenanceAsPrepends.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11143,6 +11397,7 @@ func (neighborGroups *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Ne
     neighborGroups.EntityData.BundleName = "cisco_ios_xr"
     neighborGroups.EntityData.ParentYangName = "bgp-entity"
     neighborGroups.EntityData.SegmentPath = "neighbor-groups"
+    neighborGroups.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/" + neighborGroups.EntityData.SegmentPath
     neighborGroups.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighborGroups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborGroups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11164,6 +11419,7 @@ func (neighborGroups *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Ne
 type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_NeighborGroup struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. BGP neighbor group name. The type is string with
     // pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -11272,7 +11528,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_Neig
     // the connected nexthop check for this peer. The type is bool.
     IgnoreConnectedCheckEbgp interface{}
 
-    // TRUE to suppress BGP 4-byte-as capability.  FALSE to not suppress it and to
+    // TRUE to suppress BGP 4-byte-as capability. FALSE to not suppress it and to
     // prevent inheritance from a parent. The type is bool.
     SuppressFourByteAsCapability interface{}
 
@@ -11352,6 +11608,7 @@ func (neighborGroup *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Nei
     neighborGroup.EntityData.BundleName = "cisco_ios_xr"
     neighborGroup.EntityData.ParentYangName = "neighbor-groups"
     neighborGroup.EntityData.SegmentPath = "neighbor-group" + types.AddKeyToken(neighborGroup.NeighborGroupName, "neighbor-group-name")
+    neighborGroup.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbor-groups/" + neighborGroup.EntityData.SegmentPath
     neighborGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighborGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11432,6 +11689,7 @@ func (neighborGroupAfs *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_
     neighborGroupAfs.EntityData.BundleName = "cisco_ios_xr"
     neighborGroupAfs.EntityData.ParentYangName = "neighbor-group"
     neighborGroupAfs.EntityData.SegmentPath = "neighbor-group-afs"
+    neighborGroupAfs.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbor-groups/neighbor-group/" + neighborGroupAfs.EntityData.SegmentPath
     neighborGroupAfs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighborGroupAfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborGroupAfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11453,6 +11711,7 @@ func (neighborGroupAfs *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_
 type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_NeighborGroup_NeighborGroupAfs_NeighborGroupAf struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. BGP neighbor group address family. The type is
     // BgpAddressFamily.
@@ -11467,11 +11726,11 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_Neig
     L2vpnSignalling interface{}
 
     // TRUE to send extended communities to the external
-    // neighbor/neighbor-group/af-group.  FALSE not to send and to prevent
+    // neighbor/neighbor-group/af-group. FALSE not to send and to prevent
     // inheritance from a parent. The type is bool.
     SendExtCommunityEbgp interface{}
 
-    // TRUE to configure as a accept-route-legacy-RT.  FALSE to prevent
+    // TRUE to configure as a accept-route-legacy-RT. FALSE to prevent
     // accept-route-legacy-RT from being inherited. The type is bool.
     AcceptRouteLegacyRt interface{}
 
@@ -11545,7 +11804,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_Neig
     // is none.
     AdvertiseOrf interface{}
 
-    // TRUE to configure as a route-reflector-client.  FALSE to prevent
+    // TRUE to configure as a route-reflector-client. FALSE to prevent
     // route-reflector-client from being inherited. The type is bool.
     RouteReflectorClient interface{}
 
@@ -11652,6 +11911,7 @@ func (neighborGroupAf *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_N
     neighborGroupAf.EntityData.BundleName = "cisco_ios_xr"
     neighborGroupAf.EntityData.ParentYangName = "neighbor-group-afs"
     neighborGroupAf.EntityData.SegmentPath = "neighbor-group-af" + types.AddKeyToken(neighborGroupAf.AfName, "af-name")
+    neighborGroupAf.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbor-groups/neighbor-group/neighbor-group-afs/" + neighborGroupAf.EntityData.SegmentPath
     neighborGroupAf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighborGroupAf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborGroupAf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11742,6 +12002,7 @@ func (aigpCostCommunity *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity
     aigpCostCommunity.EntityData.BundleName = "cisco_ios_xr"
     aigpCostCommunity.EntityData.ParentYangName = "neighbor-group-af"
     aigpCostCommunity.EntityData.SegmentPath = "aigp-cost-community"
+    aigpCostCommunity.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbor-groups/neighbor-group/neighbor-group-afs/neighbor-group-af/" + aigpCostCommunity.EntityData.SegmentPath
     aigpCostCommunity.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     aigpCostCommunity.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     aigpCostCommunity.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11780,6 +12041,7 @@ func (advertiseDefImpDisableV6 *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Bg
     advertiseDefImpDisableV6.EntityData.BundleName = "cisco_ios_xr"
     advertiseDefImpDisableV6.EntityData.ParentYangName = "neighbor-group-af"
     advertiseDefImpDisableV6.EntityData.SegmentPath = "advertise-def-imp-disable-v6"
+    advertiseDefImpDisableV6.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbor-groups/neighbor-group/neighbor-group-afs/neighbor-group-af/" + advertiseDefImpDisableV6.EntityData.SegmentPath
     advertiseDefImpDisableV6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     advertiseDefImpDisableV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseDefImpDisableV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11817,6 +12079,7 @@ func (advertiseDisable *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_
     advertiseDisable.EntityData.BundleName = "cisco_ios_xr"
     advertiseDisable.EntityData.ParentYangName = "neighbor-group-af"
     advertiseDisable.EntityData.SegmentPath = "advertise-disable"
+    advertiseDisable.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbor-groups/neighbor-group/neighbor-group-afs/neighbor-group-af/" + advertiseDisable.EntityData.SegmentPath
     advertiseDisable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     advertiseDisable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseDisable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11868,6 +12131,7 @@ func (maximumPrefixes *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_N
     maximumPrefixes.EntityData.BundleName = "cisco_ios_xr"
     maximumPrefixes.EntityData.ParentYangName = "neighbor-group-af"
     maximumPrefixes.EntityData.SegmentPath = "maximum-prefixes"
+    maximumPrefixes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbor-groups/neighbor-group/neighbor-group-afs/neighbor-group-af/" + maximumPrefixes.EntityData.SegmentPath
     maximumPrefixes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     maximumPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     maximumPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11910,6 +12174,7 @@ func (removePrivateAsEntireAsPathInbound *Bgp_Instance_InstanceAs_FourByteAs_Def
     removePrivateAsEntireAsPathInbound.EntityData.BundleName = "cisco_ios_xr"
     removePrivateAsEntireAsPathInbound.EntityData.ParentYangName = "neighbor-group-af"
     removePrivateAsEntireAsPathInbound.EntityData.SegmentPath = "remove-private-as-entire-as-path-inbound"
+    removePrivateAsEntireAsPathInbound.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbor-groups/neighbor-group/neighbor-group-afs/neighbor-group-af/" + removePrivateAsEntireAsPathInbound.EntityData.SegmentPath
     removePrivateAsEntireAsPathInbound.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     removePrivateAsEntireAsPathInbound.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     removePrivateAsEntireAsPathInbound.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11946,6 +12211,7 @@ func (advertiseDefImpDisableV4 *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Bg
     advertiseDefImpDisableV4.EntityData.BundleName = "cisco_ios_xr"
     advertiseDefImpDisableV4.EntityData.ParentYangName = "neighbor-group-af"
     advertiseDefImpDisableV4.EntityData.SegmentPath = "advertise-def-imp-disable-v4"
+    advertiseDefImpDisableV4.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbor-groups/neighbor-group/neighbor-group-afs/neighbor-group-af/" + advertiseDefImpDisableV4.EntityData.SegmentPath
     advertiseDefImpDisableV4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     advertiseDefImpDisableV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseDefImpDisableV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11983,6 +12249,7 @@ func (advertiseL2vpnEvpn *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntit
     advertiseL2vpnEvpn.EntityData.BundleName = "cisco_ios_xr"
     advertiseL2vpnEvpn.EntityData.ParentYangName = "neighbor-group-af"
     advertiseL2vpnEvpn.EntityData.SegmentPath = "advertise-l2vpn-evpn"
+    advertiseL2vpnEvpn.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbor-groups/neighbor-group/neighbor-group-afs/neighbor-group-af/" + advertiseL2vpnEvpn.EntityData.SegmentPath
     advertiseL2vpnEvpn.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     advertiseL2vpnEvpn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseL2vpnEvpn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12021,6 +12288,7 @@ func (advertiseLocalL2vpnEvpn *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Bgp
     advertiseLocalL2vpnEvpn.EntityData.BundleName = "cisco_ios_xr"
     advertiseLocalL2vpnEvpn.EntityData.ParentYangName = "neighbor-group-af"
     advertiseLocalL2vpnEvpn.EntityData.SegmentPath = "advertise-local-l2vpn-evpn"
+    advertiseLocalL2vpnEvpn.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbor-groups/neighbor-group/neighbor-group-afs/neighbor-group-af/" + advertiseLocalL2vpnEvpn.EntityData.SegmentPath
     advertiseLocalL2vpnEvpn.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     advertiseLocalL2vpnEvpn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseLocalL2vpnEvpn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12058,6 +12326,7 @@ func (neighborAfLongLivedGracefulRestartStaleTime *Bgp_Instance_InstanceAs_FourB
     neighborAfLongLivedGracefulRestartStaleTime.EntityData.BundleName = "cisco_ios_xr"
     neighborAfLongLivedGracefulRestartStaleTime.EntityData.ParentYangName = "neighbor-group-af"
     neighborAfLongLivedGracefulRestartStaleTime.EntityData.SegmentPath = "neighbor-af-long-lived-graceful-restart-stale-time"
+    neighborAfLongLivedGracefulRestartStaleTime.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbor-groups/neighbor-group/neighbor-group-afs/neighbor-group-af/" + neighborAfLongLivedGracefulRestartStaleTime.EntityData.SegmentPath
     neighborAfLongLivedGracefulRestartStaleTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighborAfLongLivedGracefulRestartStaleTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborAfLongLivedGracefulRestartStaleTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12105,6 +12374,7 @@ func (siteOfOrigin *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neig
     siteOfOrigin.EntityData.BundleName = "cisco_ios_xr"
     siteOfOrigin.EntityData.ParentYangName = "neighbor-group-af"
     siteOfOrigin.EntityData.SegmentPath = "site-of-origin"
+    siteOfOrigin.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbor-groups/neighbor-group/neighbor-group-afs/neighbor-group-af/" + siteOfOrigin.EntityData.SegmentPath
     siteOfOrigin.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     siteOfOrigin.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     siteOfOrigin.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12145,6 +12415,7 @@ func (advertiseV6 *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neigh
     advertiseV6.EntityData.BundleName = "cisco_ios_xr"
     advertiseV6.EntityData.ParentYangName = "neighbor-group-af"
     advertiseV6.EntityData.SegmentPath = "advertise-v6"
+    advertiseV6.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbor-groups/neighbor-group/neighbor-group-afs/neighbor-group-af/" + advertiseV6.EntityData.SegmentPath
     advertiseV6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     advertiseV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12183,6 +12454,7 @@ func (advertiseLocalV6 *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_
     advertiseLocalV6.EntityData.BundleName = "cisco_ios_xr"
     advertiseLocalV6.EntityData.ParentYangName = "neighbor-group-af"
     advertiseLocalV6.EntityData.SegmentPath = "advertise-local-v6"
+    advertiseLocalV6.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbor-groups/neighbor-group/neighbor-group-afs/neighbor-group-af/" + advertiseLocalV6.EntityData.SegmentPath
     advertiseLocalV6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     advertiseLocalV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseLocalV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12224,6 +12496,7 @@ func (self *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGrou
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "neighbor-group-af"
     self.EntityData.SegmentPath = "import"
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbor-groups/neighbor-group/neighbor-group-afs/neighbor-group-af/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12260,6 +12533,7 @@ func (defaultOriginate *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_
     defaultOriginate.EntityData.BundleName = "cisco_ios_xr"
     defaultOriginate.EntityData.ParentYangName = "neighbor-group-af"
     defaultOriginate.EntityData.SegmentPath = "default-originate"
+    defaultOriginate.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbor-groups/neighbor-group/neighbor-group-afs/neighbor-group-af/" + defaultOriginate.EntityData.SegmentPath
     defaultOriginate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     defaultOriginate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     defaultOriginate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12296,6 +12570,7 @@ func (softReconfiguration *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEnti
     softReconfiguration.EntityData.BundleName = "cisco_ios_xr"
     softReconfiguration.EntityData.ParentYangName = "neighbor-group-af"
     softReconfiguration.EntityData.SegmentPath = "soft-reconfiguration"
+    softReconfiguration.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbor-groups/neighbor-group/neighbor-group-afs/neighbor-group-af/" + softReconfiguration.EntityData.SegmentPath
     softReconfiguration.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     softReconfiguration.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     softReconfiguration.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12332,6 +12607,7 @@ func (advertiseVrfImpDisableV6 *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Bg
     advertiseVrfImpDisableV6.EntityData.BundleName = "cisco_ios_xr"
     advertiseVrfImpDisableV6.EntityData.ParentYangName = "neighbor-group-af"
     advertiseVrfImpDisableV6.EntityData.SegmentPath = "advertise-vrf-imp-disable-v6"
+    advertiseVrfImpDisableV6.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbor-groups/neighbor-group/neighbor-group-afs/neighbor-group-af/" + advertiseVrfImpDisableV6.EntityData.SegmentPath
     advertiseVrfImpDisableV6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     advertiseVrfImpDisableV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseVrfImpDisableV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12369,6 +12645,7 @@ func (advertiseV4 *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neigh
     advertiseV4.EntityData.BundleName = "cisco_ios_xr"
     advertiseV4.EntityData.ParentYangName = "neighbor-group-af"
     advertiseV4.EntityData.SegmentPath = "advertise-v4"
+    advertiseV4.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbor-groups/neighbor-group/neighbor-group-afs/neighbor-group-af/" + advertiseV4.EntityData.SegmentPath
     advertiseV4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     advertiseV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12407,6 +12684,7 @@ func (advertiseLocalV4 *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_
     advertiseLocalV4.EntityData.BundleName = "cisco_ios_xr"
     advertiseLocalV4.EntityData.ParentYangName = "neighbor-group-af"
     advertiseLocalV4.EntityData.SegmentPath = "advertise-local-v4"
+    advertiseLocalV4.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbor-groups/neighbor-group/neighbor-group-afs/neighbor-group-af/" + advertiseLocalV4.EntityData.SegmentPath
     advertiseLocalV4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     advertiseLocalV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseLocalV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12447,6 +12725,7 @@ func (removePrivateAsEntireAsPath *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf
     removePrivateAsEntireAsPath.EntityData.BundleName = "cisco_ios_xr"
     removePrivateAsEntireAsPath.EntityData.ParentYangName = "neighbor-group-af"
     removePrivateAsEntireAsPath.EntityData.SegmentPath = "remove-private-as-entire-as-path"
+    removePrivateAsEntireAsPath.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbor-groups/neighbor-group/neighbor-group-afs/neighbor-group-af/" + removePrivateAsEntireAsPath.EntityData.SegmentPath
     removePrivateAsEntireAsPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     removePrivateAsEntireAsPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     removePrivateAsEntireAsPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12483,6 +12762,7 @@ func (advertiseVrfImpDisableV4 *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Bg
     advertiseVrfImpDisableV4.EntityData.BundleName = "cisco_ios_xr"
     advertiseVrfImpDisableV4.EntityData.ParentYangName = "neighbor-group-af"
     advertiseVrfImpDisableV4.EntityData.SegmentPath = "advertise-vrf-imp-disable-v4"
+    advertiseVrfImpDisableV4.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbor-groups/neighbor-group/neighbor-group-afs/neighbor-group-af/" + advertiseVrfImpDisableV4.EntityData.SegmentPath
     advertiseVrfImpDisableV4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     advertiseVrfImpDisableV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseVrfImpDisableV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12522,6 +12802,7 @@ func (localAddress *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neig
     localAddress.EntityData.BundleName = "cisco_ios_xr"
     localAddress.EntityData.ParentYangName = "neighbor-group"
     localAddress.EntityData.SegmentPath = "local-address"
+    localAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbor-groups/neighbor-group/" + localAddress.EntityData.SegmentPath
     localAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     localAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     localAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12553,6 +12834,7 @@ func (bmpActivates *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neig
     bmpActivates.EntityData.BundleName = "cisco_ios_xr"
     bmpActivates.EntityData.ParentYangName = "neighbor-group"
     bmpActivates.EntityData.SegmentPath = "bmp-activates"
+    bmpActivates.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbor-groups/neighbor-group/" + bmpActivates.EntityData.SegmentPath
     bmpActivates.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bmpActivates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bmpActivates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12574,6 +12856,7 @@ func (bmpActivates *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neig
 type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_NeighborGroup_BmpActivates_BmpActivate struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. BMP Server ID. The type is interface{} with range:
     // 1..8.
@@ -12586,6 +12869,7 @@ func (bmpActivate *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neigh
     bmpActivate.EntityData.BundleName = "cisco_ios_xr"
     bmpActivate.EntityData.ParentYangName = "bmp-activates"
     bmpActivate.EntityData.SegmentPath = "bmp-activate" + types.AddKeyToken(bmpActivate.ServerId, "server-id")
+    bmpActivate.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbor-groups/neighbor-group/bmp-activates/" + bmpActivate.EntityData.SegmentPath
     bmpActivate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bmpActivate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bmpActivate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12621,6 +12905,7 @@ func (ebgpMultihop *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neig
     ebgpMultihop.EntityData.BundleName = "cisco_ios_xr"
     ebgpMultihop.EntityData.ParentYangName = "neighbor-group"
     ebgpMultihop.EntityData.SegmentPath = "ebgp-multihop"
+    ebgpMultihop.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbor-groups/neighbor-group/" + ebgpMultihop.EntityData.SegmentPath
     ebgpMultihop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ebgpMultihop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ebgpMultihop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12654,6 +12939,7 @@ func (remoteAs *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbor
     remoteAs.EntityData.BundleName = "cisco_ios_xr"
     remoteAs.EntityData.ParentYangName = "neighbor-group"
     remoteAs.EntityData.SegmentPath = "remote-as"
+    remoteAs.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbor-groups/neighbor-group/" + remoteAs.EntityData.SegmentPath
     remoteAs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteAs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteAs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12702,6 +12988,7 @@ func (localAs *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborG
     localAs.EntityData.BundleName = "cisco_ios_xr"
     localAs.EntityData.ParentYangName = "neighbor-group"
     localAs.EntityData.SegmentPath = "local-as"
+    localAs.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbor-groups/neighbor-group/" + localAs.EntityData.SegmentPath
     localAs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     localAs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     localAs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12741,6 +13028,7 @@ func (password *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbor
     password.EntityData.BundleName = "cisco_ios_xr"
     password.EntityData.ParentYangName = "neighbor-group"
     password.EntityData.SegmentPath = "password"
+    password.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbor-groups/neighbor-group/" + password.EntityData.SegmentPath
     password.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     password.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     password.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12779,6 +13067,7 @@ func (advertisementInterval *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEn
     advertisementInterval.EntityData.BundleName = "cisco_ios_xr"
     advertisementInterval.EntityData.ParentYangName = "neighbor-group"
     advertisementInterval.EntityData.SegmentPath = "advertisement-interval"
+    advertisementInterval.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbor-groups/neighbor-group/" + advertisementInterval.EntityData.SegmentPath
     advertisementInterval.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     advertisementInterval.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertisementInterval.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12815,6 +13104,7 @@ func (neighborClusterId *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity
     neighborClusterId.EntityData.BundleName = "cisco_ios_xr"
     neighborClusterId.EntityData.ParentYangName = "neighbor-group"
     neighborClusterId.EntityData.SegmentPath = "neighbor-cluster-id"
+    neighborClusterId.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbor-groups/neighbor-group/" + neighborClusterId.EntityData.SegmentPath
     neighborClusterId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighborClusterId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborClusterId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12849,6 +13139,7 @@ func (tcpmss *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGr
     tcpmss.EntityData.BundleName = "cisco_ios_xr"
     tcpmss.EntityData.ParentYangName = "neighbor-group"
     tcpmss.EntityData.SegmentPath = "tcpmss"
+    tcpmss.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbor-groups/neighbor-group/" + tcpmss.EntityData.SegmentPath
     tcpmss.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tcpmss.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tcpmss.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12883,6 +13174,7 @@ func (tos *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroup
     tos.EntityData.BundleName = "cisco_ios_xr"
     tos.EntityData.ParentYangName = "neighbor-group"
     tos.EntityData.SegmentPath = "tos"
+    tos.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbor-groups/neighbor-group/" + tos.EntityData.SegmentPath
     tos.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tos.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tos.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12922,6 +13214,7 @@ func (updateInFiltering *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity
     updateInFiltering.EntityData.BundleName = "cisco_ios_xr"
     updateInFiltering.EntityData.ParentYangName = "neighbor-group"
     updateInFiltering.EntityData.SegmentPath = "update-in-filtering"
+    updateInFiltering.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbor-groups/neighbor-group/" + updateInFiltering.EntityData.SegmentPath
     updateInFiltering.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     updateInFiltering.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     updateInFiltering.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12961,6 +13254,7 @@ func (updateInFilteringMessageBuffers *Bgp_Instance_InstanceAs_FourByteAs_Defaul
     updateInFilteringMessageBuffers.EntityData.BundleName = "cisco_ios_xr"
     updateInFilteringMessageBuffers.EntityData.ParentYangName = "update-in-filtering"
     updateInFilteringMessageBuffers.EntityData.SegmentPath = "update-in-filtering-message-buffers"
+    updateInFilteringMessageBuffers.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbor-groups/neighbor-group/update-in-filtering/" + updateInFilteringMessageBuffers.EntityData.SegmentPath
     updateInFilteringMessageBuffers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     updateInFilteringMessageBuffers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     updateInFilteringMessageBuffers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12999,6 +13293,7 @@ func (msgLogOut *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbo
     msgLogOut.EntityData.BundleName = "cisco_ios_xr"
     msgLogOut.EntityData.ParentYangName = "neighbor-group"
     msgLogOut.EntityData.SegmentPath = "msg-log-out"
+    msgLogOut.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbor-groups/neighbor-group/" + msgLogOut.EntityData.SegmentPath
     msgLogOut.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     msgLogOut.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     msgLogOut.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13041,6 +13336,7 @@ func (aoKeychain *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighb
     aoKeychain.EntityData.BundleName = "cisco_ios_xr"
     aoKeychain.EntityData.ParentYangName = "neighbor-group"
     aoKeychain.EntityData.SegmentPath = "ao-keychain"
+    aoKeychain.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbor-groups/neighbor-group/" + aoKeychain.EntityData.SegmentPath
     aoKeychain.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     aoKeychain.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     aoKeychain.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13079,6 +13375,7 @@ func (receiveBufferSize *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity
     receiveBufferSize.EntityData.BundleName = "cisco_ios_xr"
     receiveBufferSize.EntityData.ParentYangName = "neighbor-group"
     receiveBufferSize.EntityData.SegmentPath = "receive-buffer-size"
+    receiveBufferSize.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbor-groups/neighbor-group/" + receiveBufferSize.EntityData.SegmentPath
     receiveBufferSize.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     receiveBufferSize.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receiveBufferSize.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13117,6 +13414,7 @@ func (msgLogIn *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbor
     msgLogIn.EntityData.BundleName = "cisco_ios_xr"
     msgLogIn.EntityData.ParentYangName = "neighbor-group"
     msgLogIn.EntityData.SegmentPath = "msg-log-in"
+    msgLogIn.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbor-groups/neighbor-group/" + msgLogIn.EntityData.SegmentPath
     msgLogIn.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     msgLogIn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     msgLogIn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13154,6 +13452,7 @@ func (sendBufferSize *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Ne
     sendBufferSize.EntityData.BundleName = "cisco_ios_xr"
     sendBufferSize.EntityData.ParentYangName = "neighbor-group"
     sendBufferSize.EntityData.SegmentPath = "send-buffer-size"
+    sendBufferSize.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbor-groups/neighbor-group/" + sendBufferSize.EntityData.SegmentPath
     sendBufferSize.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sendBufferSize.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sendBufferSize.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13193,6 +13492,7 @@ func (timers *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGr
     timers.EntityData.BundleName = "cisco_ios_xr"
     timers.EntityData.ParentYangName = "neighbor-group"
     timers.EntityData.SegmentPath = "timers"
+    timers.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbor-groups/neighbor-group/" + timers.EntityData.SegmentPath
     timers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     timers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     timers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13229,6 +13529,7 @@ func (keychain *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbor
     keychain.EntityData.BundleName = "cisco_ios_xr"
     keychain.EntityData.ParentYangName = "neighbor-group"
     keychain.EntityData.SegmentPath = "keychain"
+    keychain.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbor-groups/neighbor-group/" + keychain.EntityData.SegmentPath
     keychain.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     keychain.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     keychain.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13269,6 +13570,7 @@ func (gracefulMaintenance *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEnti
     gracefulMaintenance.EntityData.BundleName = "cisco_ios_xr"
     gracefulMaintenance.EntityData.ParentYangName = "neighbor-group"
     gracefulMaintenance.EntityData.SegmentPath = "graceful-maintenance"
+    gracefulMaintenance.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbor-groups/neighbor-group/" + gracefulMaintenance.EntityData.SegmentPath
     gracefulMaintenance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     gracefulMaintenance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     gracefulMaintenance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13305,6 +13607,7 @@ func (gracefulMaintenanceLocalPreference *Bgp_Instance_InstanceAs_FourByteAs_Def
     gracefulMaintenanceLocalPreference.EntityData.BundleName = "cisco_ios_xr"
     gracefulMaintenanceLocalPreference.EntityData.ParentYangName = "graceful-maintenance"
     gracefulMaintenanceLocalPreference.EntityData.SegmentPath = "graceful-maintenance-local-preference"
+    gracefulMaintenanceLocalPreference.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbor-groups/neighbor-group/graceful-maintenance/" + gracefulMaintenanceLocalPreference.EntityData.SegmentPath
     gracefulMaintenanceLocalPreference.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     gracefulMaintenanceLocalPreference.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     gracefulMaintenanceLocalPreference.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13340,6 +13643,7 @@ func (gracefulMaintenanceAsPrepends *Bgp_Instance_InstanceAs_FourByteAs_DefaultV
     gracefulMaintenanceAsPrepends.EntityData.BundleName = "cisco_ios_xr"
     gracefulMaintenanceAsPrepends.EntityData.ParentYangName = "graceful-maintenance"
     gracefulMaintenanceAsPrepends.EntityData.SegmentPath = "graceful-maintenance-as-prepends"
+    gracefulMaintenanceAsPrepends.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbor-groups/neighbor-group/graceful-maintenance/" + gracefulMaintenanceAsPrepends.EntityData.SegmentPath
     gracefulMaintenanceAsPrepends.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     gracefulMaintenanceAsPrepends.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     gracefulMaintenanceAsPrepends.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13371,6 +13675,7 @@ func (afGroups *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_AfGroups
     afGroups.EntityData.BundleName = "cisco_ios_xr"
     afGroups.EntityData.ParentYangName = "bgp-entity"
     afGroups.EntityData.SegmentPath = "af-groups"
+    afGroups.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/" + afGroups.EntityData.SegmentPath
     afGroups.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     afGroups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     afGroups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13392,6 +13697,7 @@ func (afGroups *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_AfGroups
 type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_AfGroups_AfGroup struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. BGP AF group name. The type is string with
     // pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -13407,6 +13713,7 @@ func (afGroup *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_AfGroups_
     afGroup.EntityData.BundleName = "cisco_ios_xr"
     afGroup.EntityData.ParentYangName = "af-groups"
     afGroup.EntityData.SegmentPath = "af-group" + types.AddKeyToken(afGroup.AfGroupName, "af-group-name")
+    afGroup.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/af-groups/" + afGroup.EntityData.SegmentPath
     afGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     afGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     afGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13438,6 +13745,7 @@ func (afGroupAfs *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_AfGrou
     afGroupAfs.EntityData.BundleName = "cisco_ios_xr"
     afGroupAfs.EntityData.ParentYangName = "af-group"
     afGroupAfs.EntityData.SegmentPath = "af-group-afs"
+    afGroupAfs.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/af-groups/af-group/" + afGroupAfs.EntityData.SegmentPath
     afGroupAfs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     afGroupAfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     afGroupAfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13459,6 +13767,7 @@ func (afGroupAfs *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_AfGrou
 type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_AfGroups_AfGroup_AfGroupAfs_AfGroupAf struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. BGP AF group address family. The type is
     // BgpAddressFamily.
@@ -13482,11 +13791,11 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_AfGroups_AfGroup_Af
     L2vpnSignalling interface{}
 
     // TRUE to send extended communities to the external
-    // neighbor/neighbor-group/af-group.  FALSE not to send and to prevent
+    // neighbor/neighbor-group/af-group. FALSE not to send and to prevent
     // inheritance from a parent. The type is bool.
     SendExtCommunityEbgp interface{}
 
-    // TRUE to configure as a accept-route-legacy-RT.  FALSE to prevent
+    // TRUE to configure as a accept-route-legacy-RT. FALSE to prevent
     // accept-route-legacy-RT from being inherited. The type is bool.
     AcceptRouteLegacyRt interface{}
 
@@ -13554,7 +13863,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_AfGroups_AfGroup_Af
     // is none.
     AdvertiseOrf interface{}
 
-    // TRUE to configure as a route-reflector-client.  FALSE to prevent
+    // TRUE to configure as a route-reflector-client. FALSE to prevent
     // route-reflector-client from being inherited. The type is bool.
     RouteReflectorClient interface{}
 
@@ -13657,6 +13966,7 @@ func (afGroupAf *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_AfGroup
     afGroupAf.EntityData.BundleName = "cisco_ios_xr"
     afGroupAf.EntityData.ParentYangName = "af-group-afs"
     afGroupAf.EntityData.SegmentPath = "af-group-af" + types.AddKeyToken(afGroupAf.AfName, "af-name")
+    afGroupAf.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/af-groups/af-group/af-group-afs/" + afGroupAf.EntityData.SegmentPath
     afGroupAf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     afGroupAf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     afGroupAf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13747,6 +14057,7 @@ func (aigpCostCommunity *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity
     aigpCostCommunity.EntityData.BundleName = "cisco_ios_xr"
     aigpCostCommunity.EntityData.ParentYangName = "af-group-af"
     aigpCostCommunity.EntityData.SegmentPath = "aigp-cost-community"
+    aigpCostCommunity.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/af-groups/af-group/af-group-afs/af-group-af/" + aigpCostCommunity.EntityData.SegmentPath
     aigpCostCommunity.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     aigpCostCommunity.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     aigpCostCommunity.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13785,6 +14096,7 @@ func (advertiseDefImpDisableV6 *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Bg
     advertiseDefImpDisableV6.EntityData.BundleName = "cisco_ios_xr"
     advertiseDefImpDisableV6.EntityData.ParentYangName = "af-group-af"
     advertiseDefImpDisableV6.EntityData.SegmentPath = "advertise-def-imp-disable-v6"
+    advertiseDefImpDisableV6.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/af-groups/af-group/af-group-afs/af-group-af/" + advertiseDefImpDisableV6.EntityData.SegmentPath
     advertiseDefImpDisableV6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     advertiseDefImpDisableV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseDefImpDisableV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13822,6 +14134,7 @@ func (advertiseDisable *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_
     advertiseDisable.EntityData.BundleName = "cisco_ios_xr"
     advertiseDisable.EntityData.ParentYangName = "af-group-af"
     advertiseDisable.EntityData.SegmentPath = "advertise-disable"
+    advertiseDisable.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/af-groups/af-group/af-group-afs/af-group-af/" + advertiseDisable.EntityData.SegmentPath
     advertiseDisable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     advertiseDisable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseDisable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13873,6 +14186,7 @@ func (maximumPrefixes *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_A
     maximumPrefixes.EntityData.BundleName = "cisco_ios_xr"
     maximumPrefixes.EntityData.ParentYangName = "af-group-af"
     maximumPrefixes.EntityData.SegmentPath = "maximum-prefixes"
+    maximumPrefixes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/af-groups/af-group/af-group-afs/af-group-af/" + maximumPrefixes.EntityData.SegmentPath
     maximumPrefixes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     maximumPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     maximumPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13915,6 +14229,7 @@ func (removePrivateAsEntireAsPathInbound *Bgp_Instance_InstanceAs_FourByteAs_Def
     removePrivateAsEntireAsPathInbound.EntityData.BundleName = "cisco_ios_xr"
     removePrivateAsEntireAsPathInbound.EntityData.ParentYangName = "af-group-af"
     removePrivateAsEntireAsPathInbound.EntityData.SegmentPath = "remove-private-as-entire-as-path-inbound"
+    removePrivateAsEntireAsPathInbound.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/af-groups/af-group/af-group-afs/af-group-af/" + removePrivateAsEntireAsPathInbound.EntityData.SegmentPath
     removePrivateAsEntireAsPathInbound.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     removePrivateAsEntireAsPathInbound.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     removePrivateAsEntireAsPathInbound.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13951,6 +14266,7 @@ func (advertiseDefImpDisableV4 *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Bg
     advertiseDefImpDisableV4.EntityData.BundleName = "cisco_ios_xr"
     advertiseDefImpDisableV4.EntityData.ParentYangName = "af-group-af"
     advertiseDefImpDisableV4.EntityData.SegmentPath = "advertise-def-imp-disable-v4"
+    advertiseDefImpDisableV4.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/af-groups/af-group/af-group-afs/af-group-af/" + advertiseDefImpDisableV4.EntityData.SegmentPath
     advertiseDefImpDisableV4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     advertiseDefImpDisableV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseDefImpDisableV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13988,6 +14304,7 @@ func (advertiseL2vpnEvpn *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntit
     advertiseL2vpnEvpn.EntityData.BundleName = "cisco_ios_xr"
     advertiseL2vpnEvpn.EntityData.ParentYangName = "af-group-af"
     advertiseL2vpnEvpn.EntityData.SegmentPath = "advertise-l2vpn-evpn"
+    advertiseL2vpnEvpn.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/af-groups/af-group/af-group-afs/af-group-af/" + advertiseL2vpnEvpn.EntityData.SegmentPath
     advertiseL2vpnEvpn.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     advertiseL2vpnEvpn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseL2vpnEvpn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14026,6 +14343,7 @@ func (advertiseLocalL2vpnEvpn *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Bgp
     advertiseLocalL2vpnEvpn.EntityData.BundleName = "cisco_ios_xr"
     advertiseLocalL2vpnEvpn.EntityData.ParentYangName = "af-group-af"
     advertiseLocalL2vpnEvpn.EntityData.SegmentPath = "advertise-local-l2vpn-evpn"
+    advertiseLocalL2vpnEvpn.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/af-groups/af-group/af-group-afs/af-group-af/" + advertiseLocalL2vpnEvpn.EntityData.SegmentPath
     advertiseLocalL2vpnEvpn.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     advertiseLocalL2vpnEvpn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseLocalL2vpnEvpn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14063,6 +14381,7 @@ func (neighborAfLongLivedGracefulRestartStaleTime *Bgp_Instance_InstanceAs_FourB
     neighborAfLongLivedGracefulRestartStaleTime.EntityData.BundleName = "cisco_ios_xr"
     neighborAfLongLivedGracefulRestartStaleTime.EntityData.ParentYangName = "af-group-af"
     neighborAfLongLivedGracefulRestartStaleTime.EntityData.SegmentPath = "neighbor-af-long-lived-graceful-restart-stale-time"
+    neighborAfLongLivedGracefulRestartStaleTime.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/af-groups/af-group/af-group-afs/af-group-af/" + neighborAfLongLivedGracefulRestartStaleTime.EntityData.SegmentPath
     neighborAfLongLivedGracefulRestartStaleTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighborAfLongLivedGracefulRestartStaleTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborAfLongLivedGracefulRestartStaleTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14110,6 +14429,7 @@ func (siteOfOrigin *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_AfGr
     siteOfOrigin.EntityData.BundleName = "cisco_ios_xr"
     siteOfOrigin.EntityData.ParentYangName = "af-group-af"
     siteOfOrigin.EntityData.SegmentPath = "site-of-origin"
+    siteOfOrigin.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/af-groups/af-group/af-group-afs/af-group-af/" + siteOfOrigin.EntityData.SegmentPath
     siteOfOrigin.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     siteOfOrigin.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     siteOfOrigin.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14150,6 +14470,7 @@ func (advertiseV6 *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_AfGro
     advertiseV6.EntityData.BundleName = "cisco_ios_xr"
     advertiseV6.EntityData.ParentYangName = "af-group-af"
     advertiseV6.EntityData.SegmentPath = "advertise-v6"
+    advertiseV6.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/af-groups/af-group/af-group-afs/af-group-af/" + advertiseV6.EntityData.SegmentPath
     advertiseV6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     advertiseV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14188,6 +14509,7 @@ func (advertiseLocalV6 *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_
     advertiseLocalV6.EntityData.BundleName = "cisco_ios_xr"
     advertiseLocalV6.EntityData.ParentYangName = "af-group-af"
     advertiseLocalV6.EntityData.SegmentPath = "advertise-local-v6"
+    advertiseLocalV6.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/af-groups/af-group/af-group-afs/af-group-af/" + advertiseLocalV6.EntityData.SegmentPath
     advertiseLocalV6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     advertiseLocalV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseLocalV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14229,6 +14551,7 @@ func (self *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_AfGroups_AfG
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "af-group-af"
     self.EntityData.SegmentPath = "import"
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/af-groups/af-group/af-group-afs/af-group-af/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14265,6 +14588,7 @@ func (defaultOriginate *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_
     defaultOriginate.EntityData.BundleName = "cisco_ios_xr"
     defaultOriginate.EntityData.ParentYangName = "af-group-af"
     defaultOriginate.EntityData.SegmentPath = "default-originate"
+    defaultOriginate.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/af-groups/af-group/af-group-afs/af-group-af/" + defaultOriginate.EntityData.SegmentPath
     defaultOriginate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     defaultOriginate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     defaultOriginate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14301,6 +14625,7 @@ func (softReconfiguration *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEnti
     softReconfiguration.EntityData.BundleName = "cisco_ios_xr"
     softReconfiguration.EntityData.ParentYangName = "af-group-af"
     softReconfiguration.EntityData.SegmentPath = "soft-reconfiguration"
+    softReconfiguration.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/af-groups/af-group/af-group-afs/af-group-af/" + softReconfiguration.EntityData.SegmentPath
     softReconfiguration.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     softReconfiguration.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     softReconfiguration.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14337,6 +14662,7 @@ func (advertiseVrfImpDisableV6 *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Bg
     advertiseVrfImpDisableV6.EntityData.BundleName = "cisco_ios_xr"
     advertiseVrfImpDisableV6.EntityData.ParentYangName = "af-group-af"
     advertiseVrfImpDisableV6.EntityData.SegmentPath = "advertise-vrf-imp-disable-v6"
+    advertiseVrfImpDisableV6.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/af-groups/af-group/af-group-afs/af-group-af/" + advertiseVrfImpDisableV6.EntityData.SegmentPath
     advertiseVrfImpDisableV6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     advertiseVrfImpDisableV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseVrfImpDisableV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14374,6 +14700,7 @@ func (advertiseV4 *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_AfGro
     advertiseV4.EntityData.BundleName = "cisco_ios_xr"
     advertiseV4.EntityData.ParentYangName = "af-group-af"
     advertiseV4.EntityData.SegmentPath = "advertise-v4"
+    advertiseV4.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/af-groups/af-group/af-group-afs/af-group-af/" + advertiseV4.EntityData.SegmentPath
     advertiseV4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     advertiseV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14412,6 +14739,7 @@ func (advertiseLocalV4 *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_
     advertiseLocalV4.EntityData.BundleName = "cisco_ios_xr"
     advertiseLocalV4.EntityData.ParentYangName = "af-group-af"
     advertiseLocalV4.EntityData.SegmentPath = "advertise-local-v4"
+    advertiseLocalV4.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/af-groups/af-group/af-group-afs/af-group-af/" + advertiseLocalV4.EntityData.SegmentPath
     advertiseLocalV4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     advertiseLocalV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseLocalV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14452,6 +14780,7 @@ func (removePrivateAsEntireAsPath *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf
     removePrivateAsEntireAsPath.EntityData.BundleName = "cisco_ios_xr"
     removePrivateAsEntireAsPath.EntityData.ParentYangName = "af-group-af"
     removePrivateAsEntireAsPath.EntityData.SegmentPath = "remove-private-as-entire-as-path"
+    removePrivateAsEntireAsPath.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/af-groups/af-group/af-group-afs/af-group-af/" + removePrivateAsEntireAsPath.EntityData.SegmentPath
     removePrivateAsEntireAsPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     removePrivateAsEntireAsPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     removePrivateAsEntireAsPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14488,6 +14817,7 @@ func (advertiseVrfImpDisableV4 *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Bg
     advertiseVrfImpDisableV4.EntityData.BundleName = "cisco_ios_xr"
     advertiseVrfImpDisableV4.EntityData.ParentYangName = "af-group-af"
     advertiseVrfImpDisableV4.EntityData.SegmentPath = "advertise-vrf-imp-disable-v4"
+    advertiseVrfImpDisableV4.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/af-groups/af-group/af-group-afs/af-group-af/" + advertiseVrfImpDisableV4.EntityData.SegmentPath
     advertiseVrfImpDisableV4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     advertiseVrfImpDisableV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertiseVrfImpDisableV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14520,6 +14850,7 @@ func (sessionGroups *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Ses
     sessionGroups.EntityData.BundleName = "cisco_ios_xr"
     sessionGroups.EntityData.ParentYangName = "bgp-entity"
     sessionGroups.EntityData.SegmentPath = "session-groups"
+    sessionGroups.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/" + sessionGroups.EntityData.SegmentPath
     sessionGroups.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sessionGroups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionGroups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14541,6 +14872,7 @@ func (sessionGroups *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Ses
 type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_SessionGroups_SessionGroup struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. BGP session group name. The type is string with
     // pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -14646,7 +14978,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_SessionGroups_Sessi
     // the connected nexthop check for this peer. The type is bool.
     IgnoreConnectedCheckEbgp interface{}
 
-    // TRUE to suppress BGP 4-byte-as capability.  FALSE to not suppress it and to
+    // TRUE to suppress BGP 4-byte-as capability. FALSE to not suppress it and to
     // prevent inheritance from a parent. The type is bool.
     SuppressFourByteAsCapability interface{}
 
@@ -14723,6 +15055,7 @@ func (sessionGroup *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Sess
     sessionGroup.EntityData.BundleName = "cisco_ios_xr"
     sessionGroup.EntityData.ParentYangName = "session-groups"
     sessionGroup.EntityData.SegmentPath = "session-group" + types.AddKeyToken(sessionGroup.SessionGroupName, "session-group-name")
+    sessionGroup.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/session-groups/" + sessionGroup.EntityData.SegmentPath
     sessionGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sessionGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14808,6 +15141,7 @@ func (localAddress *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Sess
     localAddress.EntityData.BundleName = "cisco_ios_xr"
     localAddress.EntityData.ParentYangName = "session-group"
     localAddress.EntityData.SegmentPath = "local-address"
+    localAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/session-groups/session-group/" + localAddress.EntityData.SegmentPath
     localAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     localAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     localAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14839,6 +15173,7 @@ func (bmpActivates *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Sess
     bmpActivates.EntityData.BundleName = "cisco_ios_xr"
     bmpActivates.EntityData.ParentYangName = "session-group"
     bmpActivates.EntityData.SegmentPath = "bmp-activates"
+    bmpActivates.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/session-groups/session-group/" + bmpActivates.EntityData.SegmentPath
     bmpActivates.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bmpActivates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bmpActivates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14860,6 +15195,7 @@ func (bmpActivates *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Sess
 type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_SessionGroups_SessionGroup_BmpActivates_BmpActivate struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. BMP Server ID. The type is interface{} with range:
     // 1..8.
@@ -14872,6 +15208,7 @@ func (bmpActivate *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Sessi
     bmpActivate.EntityData.BundleName = "cisco_ios_xr"
     bmpActivate.EntityData.ParentYangName = "bmp-activates"
     bmpActivate.EntityData.SegmentPath = "bmp-activate" + types.AddKeyToken(bmpActivate.ServerId, "server-id")
+    bmpActivate.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/session-groups/session-group/bmp-activates/" + bmpActivate.EntityData.SegmentPath
     bmpActivate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bmpActivate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bmpActivate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14907,6 +15244,7 @@ func (ebgpMultihop *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Sess
     ebgpMultihop.EntityData.BundleName = "cisco_ios_xr"
     ebgpMultihop.EntityData.ParentYangName = "session-group"
     ebgpMultihop.EntityData.SegmentPath = "ebgp-multihop"
+    ebgpMultihop.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/session-groups/session-group/" + ebgpMultihop.EntityData.SegmentPath
     ebgpMultihop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ebgpMultihop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ebgpMultihop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14940,6 +15278,7 @@ func (remoteAs *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_SessionG
     remoteAs.EntityData.BundleName = "cisco_ios_xr"
     remoteAs.EntityData.ParentYangName = "session-group"
     remoteAs.EntityData.SegmentPath = "remote-as"
+    remoteAs.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/session-groups/session-group/" + remoteAs.EntityData.SegmentPath
     remoteAs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteAs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteAs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14988,6 +15327,7 @@ func (localAs *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_SessionGr
     localAs.EntityData.BundleName = "cisco_ios_xr"
     localAs.EntityData.ParentYangName = "session-group"
     localAs.EntityData.SegmentPath = "local-as"
+    localAs.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/session-groups/session-group/" + localAs.EntityData.SegmentPath
     localAs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     localAs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     localAs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15027,6 +15367,7 @@ func (password *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_SessionG
     password.EntityData.BundleName = "cisco_ios_xr"
     password.EntityData.ParentYangName = "session-group"
     password.EntityData.SegmentPath = "password"
+    password.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/session-groups/session-group/" + password.EntityData.SegmentPath
     password.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     password.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     password.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15065,6 +15406,7 @@ func (advertisementInterval *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEn
     advertisementInterval.EntityData.BundleName = "cisco_ios_xr"
     advertisementInterval.EntityData.ParentYangName = "session-group"
     advertisementInterval.EntityData.SegmentPath = "advertisement-interval"
+    advertisementInterval.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/session-groups/session-group/" + advertisementInterval.EntityData.SegmentPath
     advertisementInterval.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     advertisementInterval.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertisementInterval.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15101,6 +15443,7 @@ func (neighborClusterId *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity
     neighborClusterId.EntityData.BundleName = "cisco_ios_xr"
     neighborClusterId.EntityData.ParentYangName = "session-group"
     neighborClusterId.EntityData.SegmentPath = "neighbor-cluster-id"
+    neighborClusterId.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/session-groups/session-group/" + neighborClusterId.EntityData.SegmentPath
     neighborClusterId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighborClusterId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborClusterId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15135,6 +15478,7 @@ func (tcpmss *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_SessionGro
     tcpmss.EntityData.BundleName = "cisco_ios_xr"
     tcpmss.EntityData.ParentYangName = "session-group"
     tcpmss.EntityData.SegmentPath = "tcpmss"
+    tcpmss.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/session-groups/session-group/" + tcpmss.EntityData.SegmentPath
     tcpmss.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tcpmss.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tcpmss.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15169,6 +15513,7 @@ func (tos *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_SessionGroups
     tos.EntityData.BundleName = "cisco_ios_xr"
     tos.EntityData.ParentYangName = "session-group"
     tos.EntityData.SegmentPath = "tos"
+    tos.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/session-groups/session-group/" + tos.EntityData.SegmentPath
     tos.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tos.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tos.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15208,6 +15553,7 @@ func (updateInFiltering *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity
     updateInFiltering.EntityData.BundleName = "cisco_ios_xr"
     updateInFiltering.EntityData.ParentYangName = "session-group"
     updateInFiltering.EntityData.SegmentPath = "update-in-filtering"
+    updateInFiltering.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/session-groups/session-group/" + updateInFiltering.EntityData.SegmentPath
     updateInFiltering.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     updateInFiltering.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     updateInFiltering.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15247,6 +15593,7 @@ func (updateInFilteringMessageBuffers *Bgp_Instance_InstanceAs_FourByteAs_Defaul
     updateInFilteringMessageBuffers.EntityData.BundleName = "cisco_ios_xr"
     updateInFilteringMessageBuffers.EntityData.ParentYangName = "update-in-filtering"
     updateInFilteringMessageBuffers.EntityData.SegmentPath = "update-in-filtering-message-buffers"
+    updateInFilteringMessageBuffers.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/session-groups/session-group/update-in-filtering/" + updateInFilteringMessageBuffers.EntityData.SegmentPath
     updateInFilteringMessageBuffers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     updateInFilteringMessageBuffers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     updateInFilteringMessageBuffers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15285,6 +15632,7 @@ func (msgLogOut *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Session
     msgLogOut.EntityData.BundleName = "cisco_ios_xr"
     msgLogOut.EntityData.ParentYangName = "session-group"
     msgLogOut.EntityData.SegmentPath = "msg-log-out"
+    msgLogOut.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/session-groups/session-group/" + msgLogOut.EntityData.SegmentPath
     msgLogOut.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     msgLogOut.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     msgLogOut.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15327,6 +15675,7 @@ func (aoKeychain *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Sessio
     aoKeychain.EntityData.BundleName = "cisco_ios_xr"
     aoKeychain.EntityData.ParentYangName = "session-group"
     aoKeychain.EntityData.SegmentPath = "ao-keychain"
+    aoKeychain.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/session-groups/session-group/" + aoKeychain.EntityData.SegmentPath
     aoKeychain.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     aoKeychain.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     aoKeychain.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15365,6 +15714,7 @@ func (receiveBufferSize *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity
     receiveBufferSize.EntityData.BundleName = "cisco_ios_xr"
     receiveBufferSize.EntityData.ParentYangName = "session-group"
     receiveBufferSize.EntityData.SegmentPath = "receive-buffer-size"
+    receiveBufferSize.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/session-groups/session-group/" + receiveBufferSize.EntityData.SegmentPath
     receiveBufferSize.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     receiveBufferSize.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receiveBufferSize.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15403,6 +15753,7 @@ func (msgLogIn *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_SessionG
     msgLogIn.EntityData.BundleName = "cisco_ios_xr"
     msgLogIn.EntityData.ParentYangName = "session-group"
     msgLogIn.EntityData.SegmentPath = "msg-log-in"
+    msgLogIn.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/session-groups/session-group/" + msgLogIn.EntityData.SegmentPath
     msgLogIn.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     msgLogIn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     msgLogIn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15440,6 +15791,7 @@ func (sendBufferSize *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Se
     sendBufferSize.EntityData.BundleName = "cisco_ios_xr"
     sendBufferSize.EntityData.ParentYangName = "session-group"
     sendBufferSize.EntityData.SegmentPath = "send-buffer-size"
+    sendBufferSize.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/session-groups/session-group/" + sendBufferSize.EntityData.SegmentPath
     sendBufferSize.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sendBufferSize.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sendBufferSize.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15479,6 +15831,7 @@ func (timers *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_SessionGro
     timers.EntityData.BundleName = "cisco_ios_xr"
     timers.EntityData.ParentYangName = "session-group"
     timers.EntityData.SegmentPath = "timers"
+    timers.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/session-groups/session-group/" + timers.EntityData.SegmentPath
     timers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     timers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     timers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15515,6 +15868,7 @@ func (keychain *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_SessionG
     keychain.EntityData.BundleName = "cisco_ios_xr"
     keychain.EntityData.ParentYangName = "session-group"
     keychain.EntityData.SegmentPath = "keychain"
+    keychain.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/session-groups/session-group/" + keychain.EntityData.SegmentPath
     keychain.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     keychain.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     keychain.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15555,6 +15909,7 @@ func (gracefulMaintenance *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEnti
     gracefulMaintenance.EntityData.BundleName = "cisco_ios_xr"
     gracefulMaintenance.EntityData.ParentYangName = "session-group"
     gracefulMaintenance.EntityData.SegmentPath = "graceful-maintenance"
+    gracefulMaintenance.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/session-groups/session-group/" + gracefulMaintenance.EntityData.SegmentPath
     gracefulMaintenance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     gracefulMaintenance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     gracefulMaintenance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15591,6 +15946,7 @@ func (gracefulMaintenanceLocalPreference *Bgp_Instance_InstanceAs_FourByteAs_Def
     gracefulMaintenanceLocalPreference.EntityData.BundleName = "cisco_ios_xr"
     gracefulMaintenanceLocalPreference.EntityData.ParentYangName = "graceful-maintenance"
     gracefulMaintenanceLocalPreference.EntityData.SegmentPath = "graceful-maintenance-local-preference"
+    gracefulMaintenanceLocalPreference.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/session-groups/session-group/graceful-maintenance/" + gracefulMaintenanceLocalPreference.EntityData.SegmentPath
     gracefulMaintenanceLocalPreference.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     gracefulMaintenanceLocalPreference.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     gracefulMaintenanceLocalPreference.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15626,6 +15982,7 @@ func (gracefulMaintenanceAsPrepends *Bgp_Instance_InstanceAs_FourByteAs_DefaultV
     gracefulMaintenanceAsPrepends.EntityData.BundleName = "cisco_ios_xr"
     gracefulMaintenanceAsPrepends.EntityData.ParentYangName = "graceful-maintenance"
     gracefulMaintenanceAsPrepends.EntityData.SegmentPath = "graceful-maintenance-as-prepends"
+    gracefulMaintenanceAsPrepends.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/session-groups/session-group/graceful-maintenance/" + gracefulMaintenanceAsPrepends.EntityData.SegmentPath
     gracefulMaintenanceAsPrepends.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     gracefulMaintenanceAsPrepends.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     gracefulMaintenanceAsPrepends.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15676,7 +16033,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global struct {
     // interface{} with range: 5..3600. Units are second. The default value is 60.
     GlobalScanTime interface{}
 
-    // Prefix validation time (in seconds). Range  : 5 - 60. Specify 0 to disable
+    // Prefix validation time (in seconds). Range : 5 - 60. Specify 0 to disable
     // the timer. The type is interface{} with range: 0..60. Units are second.
     RpkiOriginAsValidationTime interface{}
 
@@ -15891,6 +16248,7 @@ func (global *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global) GetEntityDat
     global.EntityData.BundleName = "cisco_ios_xr"
     global.EntityData.ParentYangName = "default-vrf"
     global.EntityData.SegmentPath = "global"
+    global.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/" + global.EntityData.SegmentPath
     global.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     global.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     global.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15991,6 +16349,7 @@ func (clusterId *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_ClusterId)
     clusterId.EntityData.BundleName = "cisco_ios_xr"
     clusterId.EntityData.ParentYangName = "global"
     clusterId.EntityData.SegmentPath = "cluster-id"
+    clusterId.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/global/" + clusterId.EntityData.SegmentPath
     clusterId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clusterId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clusterId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16030,6 +16389,7 @@ func (writeLimit *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_WriteLimi
     writeLimit.EntityData.BundleName = "cisco_ios_xr"
     writeLimit.EntityData.ParentYangName = "global"
     writeLimit.EntityData.SegmentPath = "write-limit"
+    writeLimit.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/global/" + writeLimit.EntityData.SegmentPath
     writeLimit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     writeLimit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     writeLimit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16067,6 +16427,7 @@ func (updateDelay *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_UpdateDe
     updateDelay.EntityData.BundleName = "cisco_ios_xr"
     updateDelay.EntityData.ParentYangName = "global"
     updateDelay.EntityData.SegmentPath = "update-delay"
+    updateDelay.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/global/" + updateDelay.EntityData.SegmentPath
     updateDelay.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     updateDelay.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     updateDelay.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16100,6 +16461,7 @@ func (asLeague *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_AsLeague) G
     asLeague.EntityData.BundleName = "cisco_ios_xr"
     asLeague.EntityData.ParentYangName = "global"
     asLeague.EntityData.SegmentPath = "as-league"
+    asLeague.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/global/" + asLeague.EntityData.SegmentPath
     asLeague.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     asLeague.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asLeague.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16131,6 +16493,7 @@ func (peers *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_AsLeague_Peers
     peers.EntityData.BundleName = "cisco_ios_xr"
     peers.EntityData.ParentYangName = "as-league"
     peers.EntityData.SegmentPath = "peers"
+    peers.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/global/as-league/" + peers.EntityData.SegmentPath
     peers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16152,6 +16515,7 @@ func (peers *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_AsLeague_Peers
 type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_AsLeague_Peers_Peer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. xx of peer AS xx.yy. The type is interface{} with
     // range: 0..4294967295.
@@ -16168,6 +16532,7 @@ func (peer *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_AsLeague_Peers_
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
     peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.AsXx, "as-xx") + types.AddKeyToken(peer.AsYy, "as-yy")
+    peer.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/global/as-league/peers/" + peer.EntityData.SegmentPath
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16199,6 +16564,7 @@ func (rpkiServers *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_RpkiServ
     rpkiServers.EntityData.BundleName = "cisco_ios_xr"
     rpkiServers.EntityData.ParentYangName = "global"
     rpkiServers.EntityData.SegmentPath = "rpki-servers"
+    rpkiServers.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/global/" + rpkiServers.EntityData.SegmentPath
     rpkiServers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rpkiServers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rpkiServers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16220,6 +16586,7 @@ func (rpkiServers *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_RpkiServ
 type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_RpkiServers_RpkiServer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Server address (opaque string). The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -16259,6 +16626,7 @@ func (rpkiServer *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_RpkiServe
     rpkiServer.EntityData.BundleName = "cisco_ios_xr"
     rpkiServer.EntityData.ParentYangName = "rpki-servers"
     rpkiServer.EntityData.SegmentPath = "rpki-server" + types.AddKeyToken(rpkiServer.Server, "server")
+    rpkiServer.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/global/rpki-servers/" + rpkiServer.EntityData.SegmentPath
     rpkiServer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rpkiServer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rpkiServer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16301,6 +16669,7 @@ func (transport *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_RpkiServer
     transport.EntityData.BundleName = "cisco_ios_xr"
     transport.EntityData.ParentYangName = "rpki-server"
     transport.EntityData.SegmentPath = "transport"
+    transport.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/global/rpki-servers/rpki-server/" + transport.EntityData.SegmentPath
     transport.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     transport.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transport.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16332,6 +16701,7 @@ func (asListGroups *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_AsListG
     asListGroups.EntityData.BundleName = "cisco_ios_xr"
     asListGroups.EntityData.ParentYangName = "global"
     asListGroups.EntityData.SegmentPath = "as-list-groups"
+    asListGroups.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/global/" + asListGroups.EntityData.SegmentPath
     asListGroups.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     asListGroups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asListGroups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16353,6 +16723,7 @@ func (asListGroups *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_AsListG
 type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_AsListGroups_AsListGroup struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Group name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -16371,6 +16742,7 @@ func (asListGroup *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_AsListGr
     asListGroup.EntityData.BundleName = "cisco_ios_xr"
     asListGroup.EntityData.ParentYangName = "as-list-groups"
     asListGroup.EntityData.SegmentPath = "as-list-group" + types.AddKeyToken(asListGroup.AsListGroupName, "as-list-group-name")
+    asListGroup.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/global/as-list-groups/" + asListGroup.EntityData.SegmentPath
     asListGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     asListGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asListGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16403,6 +16775,7 @@ func (ases *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_AsListGroups_As
     ases.EntityData.BundleName = "cisco_ios_xr"
     ases.EntityData.ParentYangName = "as-list-group"
     ases.EntityData.SegmentPath = "ases"
+    ases.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/global/as-list-groups/as-list-group/" + ases.EntityData.SegmentPath
     ases.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ases.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ases.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16424,6 +16797,7 @@ func (ases *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_AsListGroups_As
 type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_AsListGroups_AsListGroup_Ases_As struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. xx of AS number/confed peer xx.yy. The type is
     // interface{} with range: 0..4294967295.
@@ -16440,6 +16814,7 @@ func (as *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_AsListGroups_AsLi
     as.EntityData.BundleName = "cisco_ios_xr"
     as.EntityData.ParentYangName = "ases"
     as.EntityData.SegmentPath = "as" + types.AddKeyToken(as.AsXx, "as-xx") + types.AddKeyToken(as.AsYy, "as-yy")
+    as.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/global/as-list-groups/as-list-group/ases/" + as.EntityData.SegmentPath
     as.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     as.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     as.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16471,6 +16846,7 @@ func (limits *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_Limits) GetEn
     limits.EntityData.BundleName = "cisco_ios_xr"
     limits.EntityData.ParentYangName = "global"
     limits.EntityData.SegmentPath = "limits"
+    limits.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/global/" + limits.EntityData.SegmentPath
     limits.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     limits.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     limits.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16503,6 +16879,7 @@ func (confederationDomain *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_
     confederationDomain.EntityData.BundleName = "cisco_ios_xr"
     confederationDomain.EntityData.ParentYangName = "global"
     confederationDomain.EntityData.SegmentPath = "confederation-domain"
+    confederationDomain.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/global/" + confederationDomain.EntityData.SegmentPath
     confederationDomain.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     confederationDomain.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     confederationDomain.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16534,6 +16911,7 @@ func (confederationPeerAses *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Globa
     confederationPeerAses.EntityData.BundleName = "cisco_ios_xr"
     confederationPeerAses.EntityData.ParentYangName = "global"
     confederationPeerAses.EntityData.SegmentPath = "confederation-peer-ases"
+    confederationPeerAses.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/global/" + confederationPeerAses.EntityData.SegmentPath
     confederationPeerAses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     confederationPeerAses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     confederationPeerAses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16555,6 +16933,7 @@ func (confederationPeerAses *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Globa
 type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_ConfederationPeerAses_ConfederationPeerAs struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. xx of AS number/confed peer xx.yy. The type is
     // interface{} with range: 0..4294967295.
@@ -16571,6 +16950,7 @@ func (confederationPeerAs *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_
     confederationPeerAs.EntityData.BundleName = "cisco_ios_xr"
     confederationPeerAs.EntityData.ParentYangName = "confederation-peer-ases"
     confederationPeerAs.EntityData.SegmentPath = "confederation-peer-as" + types.AddKeyToken(confederationPeerAs.AsXx, "as-xx") + types.AddKeyToken(confederationPeerAs.AsYy, "as-yy")
+    confederationPeerAs.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/global/confederation-peer-ases/" + confederationPeerAs.EntityData.SegmentPath
     confederationPeerAs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     confederationPeerAs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     confederationPeerAs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16602,6 +16982,7 @@ func (attributeFilterGroups *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Globa
     attributeFilterGroups.EntityData.BundleName = "cisco_ios_xr"
     attributeFilterGroups.EntityData.ParentYangName = "global"
     attributeFilterGroups.EntityData.SegmentPath = "attribute-filter-groups"
+    attributeFilterGroups.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/global/" + attributeFilterGroups.EntityData.SegmentPath
     attributeFilterGroups.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     attributeFilterGroups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attributeFilterGroups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16623,6 +17004,7 @@ func (attributeFilterGroups *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Globa
 type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_AttributeFilterGroups_AttributeFilterGroup struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Group name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -16641,6 +17023,7 @@ func (attributeFilterGroup *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global
     attributeFilterGroup.EntityData.BundleName = "cisco_ios_xr"
     attributeFilterGroup.EntityData.ParentYangName = "attribute-filter-groups"
     attributeFilterGroup.EntityData.SegmentPath = "attribute-filter-group" + types.AddKeyToken(attributeFilterGroup.AttributeFilterGroupName, "attribute-filter-group-name")
+    attributeFilterGroup.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/global/attribute-filter-groups/" + attributeFilterGroup.EntityData.SegmentPath
     attributeFilterGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     attributeFilterGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attributeFilterGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16673,6 +17056,7 @@ func (attributeFilters *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_Att
     attributeFilters.EntityData.BundleName = "cisco_ios_xr"
     attributeFilters.EntityData.ParentYangName = "attribute-filter-group"
     attributeFilters.EntityData.SegmentPath = "attribute-filters"
+    attributeFilters.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/global/attribute-filter-groups/attribute-filter-group/" + attributeFilters.EntityData.SegmentPath
     attributeFilters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     attributeFilters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attributeFilters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16694,6 +17078,7 @@ func (attributeFilters *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_Att
 type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_AttributeFilterGroups_AttributeFilterGroup_AttributeFilters_AttributeFilter struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Start of attribute range. The type is interface{}
     // with range: 0..256.
@@ -16714,6 +17099,7 @@ func (attributeFilter *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_Attr
     attributeFilter.EntityData.BundleName = "cisco_ios_xr"
     attributeFilter.EntityData.ParentYangName = "attribute-filters"
     attributeFilter.EntityData.SegmentPath = "attribute-filter" + types.AddKeyToken(attributeFilter.AttributeStart, "attribute-start") + types.AddKeyToken(attributeFilter.AttributeEnd, "attribute-end")
+    attributeFilter.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/global/attribute-filter-groups/attribute-filter-group/attribute-filters/" + attributeFilter.EntityData.SegmentPath
     attributeFilter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     attributeFilter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attributeFilter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16749,6 +17135,7 @@ func (globalGracefulMaintenanceActivate *Bgp_Instance_InstanceAs_FourByteAs_Defa
     globalGracefulMaintenanceActivate.EntityData.BundleName = "cisco_ios_xr"
     globalGracefulMaintenanceActivate.EntityData.ParentYangName = "global"
     globalGracefulMaintenanceActivate.EntityData.SegmentPath = "global-graceful-maintenance-activate"
+    globalGracefulMaintenanceActivate.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/global/" + globalGracefulMaintenanceActivate.EntityData.SegmentPath
     globalGracefulMaintenanceActivate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     globalGracefulMaintenanceActivate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     globalGracefulMaintenanceActivate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16780,6 +17167,7 @@ func (globalAfs *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs)
     globalAfs.EntityData.BundleName = "cisco_ios_xr"
     globalAfs.EntityData.ParentYangName = "global"
     globalAfs.EntityData.SegmentPath = "global-afs"
+    globalAfs.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/global/" + globalAfs.EntityData.SegmentPath
     globalAfs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     globalAfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     globalAfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16801,6 +17189,7 @@ func (globalAfs *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs)
 type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Address family. The type is BgpAddressFamily.
     AfName interface{}
@@ -17033,6 +17422,7 @@ func (globalAf *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_G
     globalAf.EntityData.BundleName = "cisco_ios_xr"
     globalAf.EntityData.ParentYangName = "global-afs"
     globalAf.EntityData.SegmentPath = "global-af" + types.AddKeyToken(globalAf.AfName, "af-name")
+    globalAf.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/global/global-afs/" + globalAf.EntityData.SegmentPath
     globalAf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     globalAf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     globalAf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17129,6 +17519,7 @@ func (isisRoutes *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs
     isisRoutes.EntityData.BundleName = "cisco_ios_xr"
     isisRoutes.EntityData.ParentYangName = "global-af"
     isisRoutes.EntityData.SegmentPath = "isis-routes"
+    isisRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/global/global-afs/global-af/" + isisRoutes.EntityData.SegmentPath
     isisRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     isisRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     isisRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17150,6 +17541,7 @@ func (isisRoutes *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs
 type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_IsisRoutes_IsisRoute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IS-IS instance name. The type is string with
     // pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -17173,6 +17565,7 @@ func (isisRoute *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_
     isisRoute.EntityData.BundleName = "cisco_ios_xr"
     isisRoute.EntityData.ParentYangName = "isis-routes"
     isisRoute.EntityData.SegmentPath = "isis-route" + types.AddKeyToken(isisRoute.InstanceName, "instance-name")
+    isisRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/global/global-afs/global-af/isis-routes/" + isisRoute.EntityData.SegmentPath
     isisRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     isisRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     isisRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17214,6 +17607,7 @@ func (domainDistinguisher *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_
     domainDistinguisher.EntityData.BundleName = "cisco_ios_xr"
     domainDistinguisher.EntityData.ParentYangName = "global-af"
     domainDistinguisher.EntityData.SegmentPath = "domain-distinguisher"
+    domainDistinguisher.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/global/global-afs/global-af/" + domainDistinguisher.EntityData.SegmentPath
     domainDistinguisher.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     domainDistinguisher.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     domainDistinguisher.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17246,7 +17640,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_Vrf
     // Configure policy for installation of routes to RIB. The type is string.
     TablePolicy interface{}
 
-    // Enable sourcing of import route-targets  from import-policy. The type is
+    // Enable sourcing of import route-targets from import-policy. The type is
     // interface{}.
     SourceRtImportPolicy interface{}
 
@@ -17264,6 +17658,7 @@ func (vrfAll *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_Glo
     vrfAll.EntityData.BundleName = "cisco_ios_xr"
     vrfAll.EntityData.ParentYangName = "global-af"
     vrfAll.EntityData.SegmentPath = "vrf-all"
+    vrfAll.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/global/global-afs/global-af/" + vrfAll.EntityData.SegmentPath
     vrfAll.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfAll.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfAll.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17302,6 +17697,7 @@ func (labelMode *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_
     labelMode.EntityData.BundleName = "cisco_ios_xr"
     labelMode.EntityData.ParentYangName = "vrf-all"
     labelMode.EntityData.SegmentPath = "label-mode"
+    labelMode.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/global/global-afs/global-af/vrf-all/" + labelMode.EntityData.SegmentPath
     labelMode.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labelMode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelMode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17334,6 +17730,7 @@ func (disableClusterClientToClientRrs *Bgp_Instance_InstanceAs_FourByteAs_Defaul
     disableClusterClientToClientRrs.EntityData.BundleName = "cisco_ios_xr"
     disableClusterClientToClientRrs.EntityData.ParentYangName = "global-af"
     disableClusterClientToClientRrs.EntityData.SegmentPath = "disable-cluster-client-to-client-rrs"
+    disableClusterClientToClientRrs.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/global/global-afs/global-af/" + disableClusterClientToClientRrs.EntityData.SegmentPath
     disableClusterClientToClientRrs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     disableClusterClientToClientRrs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     disableClusterClientToClientRrs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17356,6 +17753,7 @@ func (disableClusterClientToClientRrs *Bgp_Instance_InstanceAs_FourByteAs_Defaul
 type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_DisableClusterClientToClientRrs_DisableClusterClientToClientRr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Type of cluster-id. The type is BgpClusterId.
     ClusterType interface{}
@@ -17375,6 +17773,7 @@ func (disableClusterClientToClientRr *Bgp_Instance_InstanceAs_FourByteAs_Default
     disableClusterClientToClientRr.EntityData.BundleName = "cisco_ios_xr"
     disableClusterClientToClientRr.EntityData.ParentYangName = "disable-cluster-client-to-client-rrs"
     disableClusterClientToClientRr.EntityData.SegmentPath = "disable-cluster-client-to-client-rr" + types.AddKeyToken(disableClusterClientToClientRr.ClusterType, "cluster-type")
+    disableClusterClientToClientRr.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/global/global-afs/global-af/disable-cluster-client-to-client-rrs/" + disableClusterClientToClientRr.EntityData.SegmentPath
     disableClusterClientToClientRr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     disableClusterClientToClientRr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     disableClusterClientToClientRr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17401,6 +17800,7 @@ func (disableClusterClientToClientRr *Bgp_Instance_InstanceAs_FourByteAs_Default
 type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_DisableClusterClientToClientRrs_DisableClusterClientToClientRr_Number struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Cluster ID: if configured as a number. The type is
     // interface{} with range: 0..4294967295.
@@ -17413,6 +17813,7 @@ func (number *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_Glo
     number.EntityData.BundleName = "cisco_ios_xr"
     number.EntityData.ParentYangName = "disable-cluster-client-to-client-rr"
     number.EntityData.SegmentPath = "number" + types.AddKeyToken(number.ClusterIdNumber, "cluster-id-number")
+    number.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/global/global-afs/global-af/disable-cluster-client-to-client-rrs/disable-cluster-client-to-client-rr/" + number.EntityData.SegmentPath
     number.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     number.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     number.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17431,6 +17832,7 @@ func (number *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_Glo
 type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_DisableClusterClientToClientRrs_DisableClusterClientToClientRr_Ipv4Address struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Cluster ID: if configured as an IP Address. The
     // type is one of the following types: string with pattern:
@@ -17446,6 +17848,7 @@ func (ipv4Address *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAf
     ipv4Address.EntityData.BundleName = "cisco_ios_xr"
     ipv4Address.EntityData.ParentYangName = "disable-cluster-client-to-client-rr"
     ipv4Address.EntityData.SegmentPath = "ipv4-address" + types.AddKeyToken(ipv4Address.ClusterIdAddress, "cluster-id-address")
+    ipv4Address.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/global/global-afs/global-af/disable-cluster-client-to-client-rrs/disable-cluster-client-to-client-rr/" + ipv4Address.EntityData.SegmentPath
     ipv4Address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4Address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4Address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17482,6 +17885,7 @@ func (labelDelay *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs
     labelDelay.EntityData.BundleName = "cisco_ios_xr"
     labelDelay.EntityData.ParentYangName = "global-af"
     labelDelay.EntityData.SegmentPath = "label-delay"
+    labelDelay.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/global/global-afs/global-af/" + labelDelay.EntityData.SegmentPath
     labelDelay.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labelDelay.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelDelay.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17526,6 +17930,7 @@ func (ebgp *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_Globa
     ebgp.EntityData.BundleName = "cisco_ios_xr"
     ebgp.EntityData.ParentYangName = "global-af"
     ebgp.EntityData.SegmentPath = "ebgp"
+    ebgp.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/global/global-afs/global-af/" + ebgp.EntityData.SegmentPath
     ebgp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ebgp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ebgp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17572,6 +17977,7 @@ func (eibgp *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_Glob
     eibgp.EntityData.BundleName = "cisco_ios_xr"
     eibgp.EntityData.ParentYangName = "global-af"
     eibgp.EntityData.SegmentPath = "eibgp"
+    eibgp.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/global/global-afs/global-af/" + eibgp.EntityData.SegmentPath
     eibgp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eibgp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eibgp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17608,6 +18014,7 @@ func (retainRt *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_G
     retainRt.EntityData.BundleName = "cisco_ios_xr"
     retainRt.EntityData.ParentYangName = "global-af"
     retainRt.EntityData.SegmentPath = "retain-rt"
+    retainRt.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/global/global-afs/global-af/" + retainRt.EntityData.SegmentPath
     retainRt.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     retainRt.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     retainRt.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17653,6 +18060,7 @@ func (ibgp *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_Globa
     ibgp.EntityData.BundleName = "cisco_ios_xr"
     ibgp.EntityData.ParentYangName = "global-af"
     ibgp.EntityData.SegmentPath = "ibgp"
+    ibgp.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/global/global-afs/global-af/" + ibgp.EntityData.SegmentPath
     ibgp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ibgp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ibgp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17692,6 +18100,7 @@ func (importDelay *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAf
     importDelay.EntityData.BundleName = "cisco_ios_xr"
     importDelay.EntityData.ParentYangName = "global-af"
     importDelay.EntityData.SegmentPath = "import-delay"
+    importDelay.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/global/global-afs/global-af/" + importDelay.EntityData.SegmentPath
     importDelay.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     importDelay.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     importDelay.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17723,6 +18132,7 @@ func (aggregateAddresses *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_G
     aggregateAddresses.EntityData.BundleName = "cisco_ios_xr"
     aggregateAddresses.EntityData.ParentYangName = "global-af"
     aggregateAddresses.EntityData.SegmentPath = "aggregate-addresses"
+    aggregateAddresses.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/global/global-afs/global-af/" + aggregateAddresses.EntityData.SegmentPath
     aggregateAddresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     aggregateAddresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     aggregateAddresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17744,6 +18154,7 @@ func (aggregateAddresses *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_G
 type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_AggregateAddresses_AggregateAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Aggregate in prefix/length format (address part).
     // The type is one of the following types: string with pattern:
@@ -17779,6 +18190,7 @@ func (aggregateAddress *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_Glo
     aggregateAddress.EntityData.BundleName = "cisco_ios_xr"
     aggregateAddress.EntityData.ParentYangName = "aggregate-addresses"
     aggregateAddress.EntityData.SegmentPath = "aggregate-address" + types.AddKeyToken(aggregateAddress.AggregateAddr, "aggregate-addr") + types.AddKeyToken(aggregateAddress.AggregatePrefix, "aggregate-prefix")
+    aggregateAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/global/global-afs/global-af/aggregate-addresses/" + aggregateAddress.EntityData.SegmentPath
     aggregateAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     aggregateAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     aggregateAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17815,6 +18227,7 @@ func (optimalRouteReflectorGroups *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf
     optimalRouteReflectorGroups.EntityData.BundleName = "cisco_ios_xr"
     optimalRouteReflectorGroups.EntityData.ParentYangName = "global-af"
     optimalRouteReflectorGroups.EntityData.SegmentPath = "optimal-route-reflector-groups"
+    optimalRouteReflectorGroups.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/global/global-afs/global-af/" + optimalRouteReflectorGroups.EntityData.SegmentPath
     optimalRouteReflectorGroups.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     optimalRouteReflectorGroups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     optimalRouteReflectorGroups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17837,6 +18250,7 @@ func (optimalRouteReflectorGroups *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf
 type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_OptimalRouteReflectorGroups_OptimalRouteReflectorGroup struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of the ORR group. The type is string with
     // pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -17870,6 +18284,7 @@ func (optimalRouteReflectorGroup *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_
     optimalRouteReflectorGroup.EntityData.BundleName = "cisco_ios_xr"
     optimalRouteReflectorGroup.EntityData.ParentYangName = "optimal-route-reflector-groups"
     optimalRouteReflectorGroup.EntityData.SegmentPath = "optimal-route-reflector-group" + types.AddKeyToken(optimalRouteReflectorGroup.GroupName, "group-name")
+    optimalRouteReflectorGroup.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/global/global-afs/global-af/optimal-route-reflector-groups/" + optimalRouteReflectorGroup.EntityData.SegmentPath
     optimalRouteReflectorGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     optimalRouteReflectorGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     optimalRouteReflectorGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17899,15 +18314,16 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_Dam
     HalfLife interface{}
 
     // Value to start reusing a route. The type is interface{} with range:
-    // 1..20000.
+    // 1..20000. This attribute is mandatory.
     ReuseThreshold interface{}
 
     // Value to start suppressing a route. The type is interface{} with range:
-    // 1..20000.
+    // 1..20000. This attribute is mandatory.
     SuppressThreshold interface{}
 
     // Maximum duration to suppress a stable route (seconds). The type is
-    // interface{} with range: 1..255. Units are second.
+    // interface{} with range: 1..255. This attribute is mandatory. Units are
+    // second.
     SuppressTime interface{}
 
     // Route policy to specify criteria for dampening. This cannot be specified if
@@ -17921,6 +18337,7 @@ func (dampening *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_
     dampening.EntityData.BundleName = "cisco_ios_xr"
     dampening.EntityData.ParentYangName = "global-af"
     dampening.EntityData.SegmentPath = "dampening"
+    dampening.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/global/global-afs/global-af/" + dampening.EntityData.SegmentPath
     dampening.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dampening.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dampening.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17962,6 +18379,7 @@ func (ripRoutes *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_
     ripRoutes.EntityData.BundleName = "cisco_ios_xr"
     ripRoutes.EntityData.ParentYangName = "global-af"
     ripRoutes.EntityData.SegmentPath = "rip-routes"
+    ripRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/global/global-afs/global-af/" + ripRoutes.EntityData.SegmentPath
     ripRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ripRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ripRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17998,6 +18416,7 @@ func (lispRoutes *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs
     lispRoutes.EntityData.BundleName = "cisco_ios_xr"
     lispRoutes.EntityData.ParentYangName = "global-af"
     lispRoutes.EntityData.SegmentPath = "lisp-routes"
+    lispRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/global/global-afs/global-af/" + lispRoutes.EntityData.SegmentPath
     lispRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lispRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lispRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18036,6 +18455,7 @@ func (staticRoutes *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalA
     staticRoutes.EntityData.BundleName = "cisco_ios_xr"
     staticRoutes.EntityData.ParentYangName = "global-af"
     staticRoutes.EntityData.SegmentPath = "static-routes"
+    staticRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/global/global-afs/global-af/" + staticRoutes.EntityData.SegmentPath
     staticRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     staticRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     staticRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18076,6 +18496,7 @@ func (distance *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_G
     distance.EntityData.BundleName = "cisco_ios_xr"
     distance.EntityData.ParentYangName = "global-af"
     distance.EntityData.SegmentPath = "distance"
+    distance.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/global/global-afs/global-af/" + distance.EntityData.SegmentPath
     distance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     distance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     distance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18108,6 +18529,7 @@ func (applicationRoutes *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_Gl
     applicationRoutes.EntityData.BundleName = "cisco_ios_xr"
     applicationRoutes.EntityData.ParentYangName = "global-af"
     applicationRoutes.EntityData.SegmentPath = "application-routes"
+    applicationRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/global/global-afs/global-af/" + applicationRoutes.EntityData.SegmentPath
     applicationRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     applicationRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     applicationRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18129,6 +18551,7 @@ func (applicationRoutes *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_Gl
 type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_ApplicationRoutes_ApplicationRoute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. OnePK application name. The type is string with
     // pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -18150,6 +18573,7 @@ func (applicationRoute *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_Glo
     applicationRoute.EntityData.BundleName = "cisco_ios_xr"
     applicationRoute.EntityData.ParentYangName = "application-routes"
     applicationRoute.EntityData.SegmentPath = "application-route" + types.AddKeyToken(applicationRoute.InstanceName, "instance-name")
+    applicationRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/global/global-afs/global-af/application-routes/" + applicationRoute.EntityData.SegmentPath
     applicationRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     applicationRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     applicationRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18187,6 +18611,7 @@ func (labelMode *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_
     labelMode.EntityData.BundleName = "cisco_ios_xr"
     labelMode.EntityData.ParentYangName = "global-af"
     labelMode.EntityData.SegmentPath = "label-mode"
+    labelMode.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/global/global-afs/global-af/" + labelMode.EntityData.SegmentPath
     labelMode.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labelMode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelMode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18218,6 +18643,7 @@ func (eigrpRoutes *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAf
     eigrpRoutes.EntityData.BundleName = "cisco_ios_xr"
     eigrpRoutes.EntityData.ParentYangName = "global-af"
     eigrpRoutes.EntityData.SegmentPath = "eigrp-routes"
+    eigrpRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/global/global-afs/global-af/" + eigrpRoutes.EntityData.SegmentPath
     eigrpRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eigrpRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eigrpRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18239,6 +18665,7 @@ func (eigrpRoutes *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAf
 type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_EigrpRoutes_EigrpRoute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. EIGRP router tag. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -18262,6 +18689,7 @@ func (eigrpRoute *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs
     eigrpRoute.EntityData.BundleName = "cisco_ios_xr"
     eigrpRoute.EntityData.ParentYangName = "eigrp-routes"
     eigrpRoute.EntityData.SegmentPath = "eigrp-route" + types.AddKeyToken(eigrpRoute.InstanceName, "instance-name")
+    eigrpRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/global/global-afs/global-af/eigrp-routes/" + eigrpRoute.EntityData.SegmentPath
     eigrpRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eigrpRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eigrpRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18295,6 +18723,7 @@ func (sourcedNetworks *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_Glob
     sourcedNetworks.EntityData.BundleName = "cisco_ios_xr"
     sourcedNetworks.EntityData.ParentYangName = "global-af"
     sourcedNetworks.EntityData.SegmentPath = "sourced-networks"
+    sourcedNetworks.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/global/global-afs/global-af/" + sourcedNetworks.EntityData.SegmentPath
     sourcedNetworks.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sourcedNetworks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sourcedNetworks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18316,6 +18745,7 @@ func (sourcedNetworks *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_Glob
 type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_SourcedNetworks_SourcedNetwork struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Network in prefix/length format (address part).
     // The type is one of the following types: string with pattern:
@@ -18341,6 +18771,7 @@ func (sourcedNetwork *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_Globa
     sourcedNetwork.EntityData.BundleName = "cisco_ios_xr"
     sourcedNetwork.EntityData.ParentYangName = "sourced-networks"
     sourcedNetwork.EntityData.SegmentPath = "sourced-network" + types.AddKeyToken(sourcedNetwork.NetworkAddr, "network-addr") + types.AddKeyToken(sourcedNetwork.NetworkPrefix, "network-prefix")
+    sourcedNetwork.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/global/global-afs/global-af/sourced-networks/" + sourcedNetwork.EntityData.SegmentPath
     sourcedNetwork.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sourcedNetwork.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sourcedNetwork.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18381,6 +18812,7 @@ func (connectedRoutes *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_Glob
     connectedRoutes.EntityData.BundleName = "cisco_ios_xr"
     connectedRoutes.EntityData.ParentYangName = "global-af"
     connectedRoutes.EntityData.SegmentPath = "connected-routes"
+    connectedRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/global/global-afs/global-af/" + connectedRoutes.EntityData.SegmentPath
     connectedRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     connectedRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     connectedRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18418,6 +18850,7 @@ func (allocateLabel *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_Global
     allocateLabel.EntityData.BundleName = "cisco_ios_xr"
     allocateLabel.EntityData.ParentYangName = "global-af"
     allocateLabel.EntityData.SegmentPath = "allocate-label"
+    allocateLabel.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/global/global-afs/global-af/" + allocateLabel.EntityData.SegmentPath
     allocateLabel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     allocateLabel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     allocateLabel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18452,6 +18885,7 @@ func (additionalPathsSelection *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Gl
     additionalPathsSelection.EntityData.BundleName = "cisco_ios_xr"
     additionalPathsSelection.EntityData.ParentYangName = "global-af"
     additionalPathsSelection.EntityData.SegmentPath = "additional-paths-selection"
+    additionalPathsSelection.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/global/global-afs/global-af/" + additionalPathsSelection.EntityData.SegmentPath
     additionalPathsSelection.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     additionalPathsSelection.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     additionalPathsSelection.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18483,6 +18917,7 @@ func (ospfRoutes *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs
     ospfRoutes.EntityData.BundleName = "cisco_ios_xr"
     ospfRoutes.EntityData.ParentYangName = "global-af"
     ospfRoutes.EntityData.SegmentPath = "ospf-routes"
+    ospfRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/global/global-afs/global-af/" + ospfRoutes.EntityData.SegmentPath
     ospfRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ospfRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ospfRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18504,6 +18939,7 @@ func (ospfRoutes *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs
 type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_OspfRoutes_OspfRoute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. OSPF router tag. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -18529,6 +18965,7 @@ func (ospfRoute *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_
     ospfRoute.EntityData.BundleName = "cisco_ios_xr"
     ospfRoute.EntityData.ParentYangName = "ospf-routes"
     ospfRoute.EntityData.SegmentPath = "ospf-route" + types.AddKeyToken(ospfRoute.InstanceName, "instance-name")
+    ospfRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/global/global-afs/global-af/ospf-routes/" + ospfRoute.EntityData.SegmentPath
     ospfRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ospfRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ospfRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18569,6 +19006,7 @@ func (mobileRoutes *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalA
     mobileRoutes.EntityData.BundleName = "cisco_ios_xr"
     mobileRoutes.EntityData.ParentYangName = "global-af"
     mobileRoutes.EntityData.SegmentPath = "mobile-routes"
+    mobileRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/global/global-afs/global-af/" + mobileRoutes.EntityData.SegmentPath
     mobileRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mobileRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mobileRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18608,6 +19046,7 @@ func (subscriberRoutes *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_Glo
     subscriberRoutes.EntityData.BundleName = "cisco_ios_xr"
     subscriberRoutes.EntityData.ParentYangName = "global-af"
     subscriberRoutes.EntityData.SegmentPath = "subscriber-routes"
+    subscriberRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/global/global-afs/global-af/" + subscriberRoutes.EntityData.SegmentPath
     subscriberRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     subscriberRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     subscriberRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18640,6 +19079,7 @@ func (rpkiStaticRoutes *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_Rpk
     rpkiStaticRoutes.EntityData.BundleName = "cisco_ios_xr"
     rpkiStaticRoutes.EntityData.ParentYangName = "global"
     rpkiStaticRoutes.EntityData.SegmentPath = "rpki-static-routes"
+    rpkiStaticRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/global/" + rpkiStaticRoutes.EntityData.SegmentPath
     rpkiStaticRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rpkiStaticRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rpkiStaticRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18661,20 +19101,21 @@ func (rpkiStaticRoutes *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_Rpk
 type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_RpkiStaticRoutes_RpkiStaticRoute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Address. The type is one of the following types:
     // string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
-    Addrress interface{}
+    Address interface{}
 
     // This attribute is a key. Minimum Prefix Length. The type is interface{}
-    // with range: 0..4294967295.
+    // with range: 0..128.
     Minimum interface{}
 
     // This attribute is a key. Maximum Prefix Length. The type is interface{}
-    // with range: 0..4294967295.
+    // with range: 1..128.
     Maximum interface{}
 
     // This attribute is a key. AS Number. The type is interface{} with range:
@@ -18687,19 +19128,20 @@ func (rpkiStaticRoute *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_Rpki
     rpkiStaticRoute.EntityData.YangName = "rpki-static-route"
     rpkiStaticRoute.EntityData.BundleName = "cisco_ios_xr"
     rpkiStaticRoute.EntityData.ParentYangName = "rpki-static-routes"
-    rpkiStaticRoute.EntityData.SegmentPath = "rpki-static-route" + types.AddKeyToken(rpkiStaticRoute.Addrress, "addrress") + types.AddKeyToken(rpkiStaticRoute.Minimum, "minimum") + types.AddKeyToken(rpkiStaticRoute.Maximum, "maximum") + types.AddKeyToken(rpkiStaticRoute.As, "as")
+    rpkiStaticRoute.EntityData.SegmentPath = "rpki-static-route" + types.AddKeyToken(rpkiStaticRoute.Address, "address") + types.AddKeyToken(rpkiStaticRoute.Minimum, "minimum") + types.AddKeyToken(rpkiStaticRoute.Maximum, "maximum") + types.AddKeyToken(rpkiStaticRoute.As, "as")
+    rpkiStaticRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/global/rpki-static-routes/" + rpkiStaticRoute.EntityData.SegmentPath
     rpkiStaticRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rpkiStaticRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rpkiStaticRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     rpkiStaticRoute.EntityData.Children = types.NewOrderedMap()
     rpkiStaticRoute.EntityData.Leafs = types.NewOrderedMap()
-    rpkiStaticRoute.EntityData.Leafs.Append("addrress", types.YLeaf{"Addrress", rpkiStaticRoute.Addrress})
+    rpkiStaticRoute.EntityData.Leafs.Append("address", types.YLeaf{"Address", rpkiStaticRoute.Address})
     rpkiStaticRoute.EntityData.Leafs.Append("minimum", types.YLeaf{"Minimum", rpkiStaticRoute.Minimum})
     rpkiStaticRoute.EntityData.Leafs.Append("maximum", types.YLeaf{"Maximum", rpkiStaticRoute.Maximum})
     rpkiStaticRoute.EntityData.Leafs.Append("as", types.YLeaf{"As", rpkiStaticRoute.As})
 
-    rpkiStaticRoute.EntityData.YListKeys = []string {"Addrress", "Minimum", "Maximum", "As"}
+    rpkiStaticRoute.EntityData.YListKeys = []string {"Address", "Minimum", "Maximum", "As"}
 
     return &(rpkiStaticRoute.EntityData)
 }
@@ -18721,6 +19163,7 @@ func (mplsActivatedInterfaces *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Glo
     mplsActivatedInterfaces.EntityData.BundleName = "cisco_ios_xr"
     mplsActivatedInterfaces.EntityData.ParentYangName = "global"
     mplsActivatedInterfaces.EntityData.SegmentPath = "mpls-activated-interfaces"
+    mplsActivatedInterfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/global/" + mplsActivatedInterfaces.EntityData.SegmentPath
     mplsActivatedInterfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mplsActivatedInterfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mplsActivatedInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18742,6 +19185,7 @@ func (mplsActivatedInterfaces *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Glo
 type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_MplsActivatedInterfaces_MplsActivatedInterface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface Name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -18754,6 +19198,7 @@ func (mplsActivatedInterface *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Glob
     mplsActivatedInterface.EntityData.BundleName = "cisco_ios_xr"
     mplsActivatedInterface.EntityData.ParentYangName = "mpls-activated-interfaces"
     mplsActivatedInterface.EntityData.SegmentPath = "mpls-activated-interface" + types.AddKeyToken(mplsActivatedInterface.InterfaceName, "interface-name")
+    mplsActivatedInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/global/mpls-activated-interfaces/" + mplsActivatedInterface.EntityData.SegmentPath
     mplsActivatedInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mplsActivatedInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mplsActivatedInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18794,6 +19239,7 @@ func (globalTimers *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalT
     globalTimers.EntityData.BundleName = "cisco_ios_xr"
     globalTimers.EntityData.ParentYangName = "global"
     globalTimers.EntityData.SegmentPath = "global-timers"
+    globalTimers.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/global/" + globalTimers.EntityData.SegmentPath
     globalTimers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     globalTimers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     globalTimers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18830,6 +19276,7 @@ func (bfd *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_Bfd) GetEntityDa
     bfd.EntityData.BundleName = "cisco_ios_xr"
     bfd.EntityData.ParentYangName = "global"
     bfd.EntityData.SegmentPath = "bfd"
+    bfd.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/global/" + bfd.EntityData.SegmentPath
     bfd.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bfd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bfd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18865,6 +19312,7 @@ func (sendSocketBufferSizes *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Globa
     sendSocketBufferSizes.EntityData.BundleName = "cisco_ios_xr"
     sendSocketBufferSizes.EntityData.ParentYangName = "global"
     sendSocketBufferSizes.EntityData.SegmentPath = "send-socket-buffer-sizes"
+    sendSocketBufferSizes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/global/" + sendSocketBufferSizes.EntityData.SegmentPath
     sendSocketBufferSizes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sendSocketBufferSizes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sendSocketBufferSizes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18900,6 +19348,7 @@ func (receiveSocketBufferSizes *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Gl
     receiveSocketBufferSizes.EntityData.BundleName = "cisco_ios_xr"
     receiveSocketBufferSizes.EntityData.ParentYangName = "global"
     receiveSocketBufferSizes.EntityData.SegmentPath = "receive-socket-buffer-sizes"
+    receiveSocketBufferSizes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/global/" + receiveSocketBufferSizes.EntityData.SegmentPath
     receiveSocketBufferSizes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     receiveSocketBufferSizes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receiveSocketBufferSizes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18938,6 +19387,7 @@ func (bmpServerAll *BmpServerAll) GetEntityData() *types.CommonEntityData {
     bmpServerAll.EntityData.BundleName = "cisco_ios_xr"
     bmpServerAll.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-cfg"
     bmpServerAll.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-cfg:bmp-server-all"
+    bmpServerAll.EntityData.AbsolutePath = bmpServerAll.EntityData.SegmentPath
     bmpServerAll.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bmpServerAll.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bmpServerAll.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18977,6 +19427,7 @@ func (routeMonitoring *BmpServerAll_RouteMonitoring) GetEntityData() *types.Comm
     routeMonitoring.EntityData.BundleName = "cisco_ios_xr"
     routeMonitoring.EntityData.ParentYangName = "bmp-server-all"
     routeMonitoring.EntityData.SegmentPath = "route-monitoring"
+    routeMonitoring.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bmp-server-all/" + routeMonitoring.EntityData.SegmentPath
     routeMonitoring.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routeMonitoring.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routeMonitoring.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19007,6 +19458,7 @@ func (bmpServers *BmpServers) GetEntityData() *types.CommonEntityData {
     bmpServers.EntityData.BundleName = "cisco_ios_xr"
     bmpServers.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-cfg"
     bmpServers.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-cfg:bmp-servers"
+    bmpServers.EntityData.AbsolutePath = bmpServers.EntityData.SegmentPath
     bmpServers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bmpServers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bmpServers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19028,6 +19480,7 @@ func (bmpServers *BmpServers) GetEntityData() *types.CommonEntityData {
 type BmpServers_BmpServer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. BMP Server ID. The type is interface{} with range:
     // 1..8.
@@ -19093,6 +19546,7 @@ func (bmpServer *BmpServers_BmpServer) GetEntityData() *types.CommonEntityData {
     bmpServer.EntityData.BundleName = "cisco_ios_xr"
     bmpServer.EntityData.ParentYangName = "bmp-servers"
     bmpServer.EntityData.SegmentPath = "bmp-server" + types.AddKeyToken(bmpServer.ServerId, "server-id")
+    bmpServer.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bmp-servers/" + bmpServer.EntityData.SegmentPath
     bmpServer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bmpServer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bmpServer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19144,6 +19598,7 @@ func (initialRefreshDelay *BmpServers_BmpServer_InitialRefreshDelay) GetEntityDa
     initialRefreshDelay.EntityData.BundleName = "cisco_ios_xr"
     initialRefreshDelay.EntityData.ParentYangName = "bmp-server"
     initialRefreshDelay.EntityData.SegmentPath = "initial-refresh-delay"
+    initialRefreshDelay.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bmp-servers/bmp-server/" + initialRefreshDelay.EntityData.SegmentPath
     initialRefreshDelay.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     initialRefreshDelay.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     initialRefreshDelay.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19181,6 +19636,7 @@ func (hostPort *BmpServers_BmpServer_HostPort) GetEntityData() *types.CommonEnti
     hostPort.EntityData.BundleName = "cisco_ios_xr"
     hostPort.EntityData.ParentYangName = "bmp-server"
     hostPort.EntityData.SegmentPath = "host-port"
+    hostPort.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bmp-servers/bmp-server/" + hostPort.EntityData.SegmentPath
     hostPort.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hostPort.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hostPort.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19215,6 +19671,7 @@ func (tos *BmpServers_BmpServer_Tos) GetEntityData() *types.CommonEntityData {
     tos.EntityData.BundleName = "cisco_ios_xr"
     tos.EntityData.ParentYangName = "bmp-server"
     tos.EntityData.SegmentPath = "tos"
+    tos.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bmp-servers/bmp-server/" + tos.EntityData.SegmentPath
     tos.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tos.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tos.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

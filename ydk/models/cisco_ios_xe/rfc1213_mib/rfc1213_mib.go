@@ -81,6 +81,7 @@ func (rFC1213MIB *RFC1213MIB) GetEntityData() *types.CommonEntityData {
     rFC1213MIB.EntityData.BundleName = "cisco_ios_xe"
     rFC1213MIB.EntityData.ParentYangName = "RFC1213-MIB"
     rFC1213MIB.EntityData.SegmentPath = "RFC1213-MIB:RFC1213-MIB"
+    rFC1213MIB.EntityData.AbsolutePath = rFC1213MIB.EntityData.SegmentPath
     rFC1213MIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     rFC1213MIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     rFC1213MIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -172,6 +173,7 @@ func (system *RFC1213MIB_System) GetEntityData() *types.CommonEntityData {
     system.EntityData.BundleName = "cisco_ios_xe"
     system.EntityData.ParentYangName = "RFC1213-MIB"
     system.EntityData.SegmentPath = "system"
+    system.EntityData.AbsolutePath = "RFC1213-MIB:RFC1213-MIB/" + system.EntityData.SegmentPath
     system.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     system.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     system.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -208,6 +210,7 @@ func (interfaces *RFC1213MIB_Interfaces) GetEntityData() *types.CommonEntityData
     interfaces.EntityData.BundleName = "cisco_ios_xe"
     interfaces.EntityData.ParentYangName = "RFC1213-MIB"
     interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.AbsolutePath = "RFC1213-MIB:RFC1213-MIB/" + interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     interfaces.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -356,6 +359,7 @@ func (ip *RFC1213MIB_Ip) GetEntityData() *types.CommonEntityData {
     ip.EntityData.BundleName = "cisco_ios_xe"
     ip.EntityData.ParentYangName = "RFC1213-MIB"
     ip.EntityData.SegmentPath = "ip"
+    ip.EntityData.AbsolutePath = "RFC1213-MIB:RFC1213-MIB/" + ip.EntityData.SegmentPath
     ip.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ip.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ip.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -521,6 +525,7 @@ func (icmp *RFC1213MIB_Icmp) GetEntityData() *types.CommonEntityData {
     icmp.EntityData.BundleName = "cisco_ios_xe"
     icmp.EntityData.ParentYangName = "RFC1213-MIB"
     icmp.EntityData.SegmentPath = "icmp"
+    icmp.EntityData.AbsolutePath = "RFC1213-MIB:RFC1213-MIB/" + icmp.EntityData.SegmentPath
     icmp.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     icmp.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     icmp.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -647,6 +652,7 @@ func (tcp *RFC1213MIB_Tcp) GetEntityData() *types.CommonEntityData {
     tcp.EntityData.BundleName = "cisco_ios_xe"
     tcp.EntityData.ParentYangName = "RFC1213-MIB"
     tcp.EntityData.SegmentPath = "tcp"
+    tcp.EntityData.AbsolutePath = "RFC1213-MIB:RFC1213-MIB/" + tcp.EntityData.SegmentPath
     tcp.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     tcp.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     tcp.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -718,6 +724,7 @@ func (udp *RFC1213MIB_Udp) GetEntityData() *types.CommonEntityData {
     udp.EntityData.BundleName = "cisco_ios_xe"
     udp.EntityData.ParentYangName = "RFC1213-MIB"
     udp.EntityData.SegmentPath = "udp"
+    udp.EntityData.AbsolutePath = "RFC1213-MIB:RFC1213-MIB/" + udp.EntityData.SegmentPath
     udp.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     udp.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     udp.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -767,6 +774,7 @@ func (egp *RFC1213MIB_Egp) GetEntityData() *types.CommonEntityData {
     egp.EntityData.BundleName = "cisco_ios_xe"
     egp.EntityData.ParentYangName = "RFC1213-MIB"
     egp.EntityData.SegmentPath = "egp"
+    egp.EntityData.AbsolutePath = "RFC1213-MIB:RFC1213-MIB/" + egp.EntityData.SegmentPath
     egp.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     egp.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     egp.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -938,6 +946,7 @@ func (snmp *RFC1213MIB_Snmp) GetEntityData() *types.CommonEntityData {
     snmp.EntityData.BundleName = "cisco_ios_xe"
     snmp.EntityData.ParentYangName = "RFC1213-MIB"
     snmp.EntityData.SegmentPath = "snmp"
+    snmp.EntityData.AbsolutePath = "RFC1213-MIB:RFC1213-MIB/" + snmp.EntityData.SegmentPath
     snmp.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     snmp.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     snmp.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1005,6 +1014,7 @@ func (ifTable *RFC1213MIB_IfTable) GetEntityData() *types.CommonEntityData {
     ifTable.EntityData.BundleName = "cisco_ios_xe"
     ifTable.EntityData.ParentYangName = "RFC1213-MIB"
     ifTable.EntityData.SegmentPath = "ifTable"
+    ifTable.EntityData.AbsolutePath = "RFC1213-MIB:RFC1213-MIB/" + ifTable.EntityData.SegmentPath
     ifTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ifTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ifTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1028,6 +1038,7 @@ func (ifTable *RFC1213MIB_IfTable) GetEntityData() *types.CommonEntityData {
 type RFC1213MIB_IfTable_IfEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. A unique value for each interface.  Its value
     // ranges between 1 and the value of ifNumber.  The value for each interface
@@ -1157,6 +1168,7 @@ func (ifEntry *RFC1213MIB_IfTable_IfEntry) GetEntityData() *types.CommonEntityDa
     ifEntry.EntityData.BundleName = "cisco_ios_xe"
     ifEntry.EntityData.ParentYangName = "ifTable"
     ifEntry.EntityData.SegmentPath = "ifEntry" + types.AddKeyToken(ifEntry.IfIndex, "ifIndex")
+    ifEntry.EntityData.AbsolutePath = "RFC1213-MIB:RFC1213-MIB/ifTable/" + ifEntry.EntityData.SegmentPath
     ifEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ifEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ifEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1240,6 +1252,7 @@ func (atTable *RFC1213MIB_AtTable) GetEntityData() *types.CommonEntityData {
     atTable.EntityData.BundleName = "cisco_ios_xe"
     atTable.EntityData.ParentYangName = "RFC1213-MIB"
     atTable.EntityData.SegmentPath = "atTable"
+    atTable.EntityData.AbsolutePath = "RFC1213-MIB:RFC1213-MIB/" + atTable.EntityData.SegmentPath
     atTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     atTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     atTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1262,6 +1275,7 @@ func (atTable *RFC1213MIB_AtTable) GetEntityData() *types.CommonEntityData {
 type RFC1213MIB_AtTable_AtEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The interface on which this entry's equivalence is
     // effective.  The interface identified by a particular value of this index is
@@ -1300,6 +1314,7 @@ func (atEntry *RFC1213MIB_AtTable_AtEntry) GetEntityData() *types.CommonEntityDa
     atEntry.EntityData.BundleName = "cisco_ios_xe"
     atEntry.EntityData.ParentYangName = "atTable"
     atEntry.EntityData.SegmentPath = "atEntry" + types.AddKeyToken(atEntry.AtIfIndex, "atIfIndex") + types.AddKeyToken(atEntry.AtIfIndex2, "atIfIndex_2") + types.AddKeyToken(atEntry.AtNetAddress, "atNetAddress")
+    atEntry.EntityData.AbsolutePath = "RFC1213-MIB:RFC1213-MIB/atTable/" + atEntry.EntityData.SegmentPath
     atEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     atEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     atEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1334,6 +1349,7 @@ func (ipAddrTable *RFC1213MIB_IpAddrTable) GetEntityData() *types.CommonEntityDa
     ipAddrTable.EntityData.BundleName = "cisco_ios_xe"
     ipAddrTable.EntityData.ParentYangName = "RFC1213-MIB"
     ipAddrTable.EntityData.SegmentPath = "ipAddrTable"
+    ipAddrTable.EntityData.AbsolutePath = "RFC1213-MIB:RFC1213-MIB/" + ipAddrTable.EntityData.SegmentPath
     ipAddrTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ipAddrTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ipAddrTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1356,6 +1372,7 @@ func (ipAddrTable *RFC1213MIB_IpAddrTable) GetEntityData() *types.CommonEntityDa
 type RFC1213MIB_IpAddrTable_IpAddrEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The IP address to which this entry's addressing
     // information pertains. The type is string with pattern:
@@ -1395,6 +1412,7 @@ func (ipAddrEntry *RFC1213MIB_IpAddrTable_IpAddrEntry) GetEntityData() *types.Co
     ipAddrEntry.EntityData.BundleName = "cisco_ios_xe"
     ipAddrEntry.EntityData.ParentYangName = "ipAddrTable"
     ipAddrEntry.EntityData.SegmentPath = "ipAddrEntry" + types.AddKeyToken(ipAddrEntry.IpAdEntAddr, "ipAdEntAddr")
+    ipAddrEntry.EntityData.AbsolutePath = "RFC1213-MIB:RFC1213-MIB/ipAddrTable/" + ipAddrEntry.EntityData.SegmentPath
     ipAddrEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ipAddrEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ipAddrEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1429,6 +1447,7 @@ func (ipRouteTable *RFC1213MIB_IpRouteTable) GetEntityData() *types.CommonEntity
     ipRouteTable.EntityData.BundleName = "cisco_ios_xe"
     ipRouteTable.EntityData.ParentYangName = "RFC1213-MIB"
     ipRouteTable.EntityData.SegmentPath = "ipRouteTable"
+    ipRouteTable.EntityData.AbsolutePath = "RFC1213-MIB:RFC1213-MIB/" + ipRouteTable.EntityData.SegmentPath
     ipRouteTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ipRouteTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ipRouteTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1450,6 +1469,7 @@ func (ipRouteTable *RFC1213MIB_IpRouteTable) GetEntityData() *types.CommonEntity
 type RFC1213MIB_IpRouteTable_IpRouteEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The destination IP address of this route.  An
     // entry with a value of 0.0.0.0 is considered a default route.  Multiple
@@ -1557,6 +1577,7 @@ func (ipRouteEntry *RFC1213MIB_IpRouteTable_IpRouteEntry) GetEntityData() *types
     ipRouteEntry.EntityData.BundleName = "cisco_ios_xe"
     ipRouteEntry.EntityData.ParentYangName = "ipRouteTable"
     ipRouteEntry.EntityData.SegmentPath = "ipRouteEntry" + types.AddKeyToken(ipRouteEntry.IpRouteDest, "ipRouteDest")
+    ipRouteEntry.EntityData.AbsolutePath = "RFC1213-MIB:RFC1213-MIB/ipRouteTable/" + ipRouteEntry.EntityData.SegmentPath
     ipRouteEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ipRouteEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ipRouteEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1646,6 +1667,7 @@ func (ipNetToMediaTable *RFC1213MIB_IpNetToMediaTable) GetEntityData() *types.Co
     ipNetToMediaTable.EntityData.BundleName = "cisco_ios_xe"
     ipNetToMediaTable.EntityData.ParentYangName = "RFC1213-MIB"
     ipNetToMediaTable.EntityData.SegmentPath = "ipNetToMediaTable"
+    ipNetToMediaTable.EntityData.AbsolutePath = "RFC1213-MIB:RFC1213-MIB/" + ipNetToMediaTable.EntityData.SegmentPath
     ipNetToMediaTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ipNetToMediaTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ipNetToMediaTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1668,6 +1690,7 @@ func (ipNetToMediaTable *RFC1213MIB_IpNetToMediaTable) GetEntityData() *types.Co
 type RFC1213MIB_IpNetToMediaTable_IpNetToMediaEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The interface on which this entry's equivalence is
     // effective.  The interface identified by a particular value of this index is
@@ -1702,6 +1725,7 @@ func (ipNetToMediaEntry *RFC1213MIB_IpNetToMediaTable_IpNetToMediaEntry) GetEnti
     ipNetToMediaEntry.EntityData.BundleName = "cisco_ios_xe"
     ipNetToMediaEntry.EntityData.ParentYangName = "ipNetToMediaTable"
     ipNetToMediaEntry.EntityData.SegmentPath = "ipNetToMediaEntry" + types.AddKeyToken(ipNetToMediaEntry.IpNetToMediaIfIndex, "ipNetToMediaIfIndex") + types.AddKeyToken(ipNetToMediaEntry.IpNetToMediaNetAddress, "ipNetToMediaNetAddress")
+    ipNetToMediaEntry.EntityData.AbsolutePath = "RFC1213-MIB:RFC1213-MIB/ipNetToMediaTable/" + ipNetToMediaEntry.EntityData.SegmentPath
     ipNetToMediaEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ipNetToMediaEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ipNetToMediaEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1751,6 +1775,7 @@ func (tcpConnTable *RFC1213MIB_TcpConnTable) GetEntityData() *types.CommonEntity
     tcpConnTable.EntityData.BundleName = "cisco_ios_xe"
     tcpConnTable.EntityData.ParentYangName = "RFC1213-MIB"
     tcpConnTable.EntityData.SegmentPath = "tcpConnTable"
+    tcpConnTable.EntityData.AbsolutePath = "RFC1213-MIB:RFC1213-MIB/" + tcpConnTable.EntityData.SegmentPath
     tcpConnTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     tcpConnTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     tcpConnTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1776,6 +1801,7 @@ func (tcpConnTable *RFC1213MIB_TcpConnTable) GetEntityData() *types.CommonEntity
 type RFC1213MIB_TcpConnTable_TcpConnEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The local IP address for this TCP connection.  In
     // the case of a connection in the listen state which is willing to accept
@@ -1816,6 +1842,7 @@ func (tcpConnEntry *RFC1213MIB_TcpConnTable_TcpConnEntry) GetEntityData() *types
     tcpConnEntry.EntityData.BundleName = "cisco_ios_xe"
     tcpConnEntry.EntityData.ParentYangName = "tcpConnTable"
     tcpConnEntry.EntityData.SegmentPath = "tcpConnEntry" + types.AddKeyToken(tcpConnEntry.TcpConnLocalAddress, "tcpConnLocalAddress") + types.AddKeyToken(tcpConnEntry.TcpConnLocalPort, "tcpConnLocalPort") + types.AddKeyToken(tcpConnEntry.TcpConnRemAddress, "tcpConnRemAddress") + types.AddKeyToken(tcpConnEntry.TcpConnRemPort, "tcpConnRemPort")
+    tcpConnEntry.EntityData.AbsolutePath = "RFC1213-MIB:RFC1213-MIB/tcpConnTable/" + tcpConnEntry.EntityData.SegmentPath
     tcpConnEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     tcpConnEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     tcpConnEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1879,6 +1906,7 @@ func (udpTable *RFC1213MIB_UdpTable) GetEntityData() *types.CommonEntityData {
     udpTable.EntityData.BundleName = "cisco_ios_xe"
     udpTable.EntityData.ParentYangName = "RFC1213-MIB"
     udpTable.EntityData.SegmentPath = "udpTable"
+    udpTable.EntityData.AbsolutePath = "RFC1213-MIB:RFC1213-MIB/" + udpTable.EntityData.SegmentPath
     udpTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     udpTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     udpTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1901,6 +1929,7 @@ func (udpTable *RFC1213MIB_UdpTable) GetEntityData() *types.CommonEntityData {
 type RFC1213MIB_UdpTable_UdpEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The local IP address for this UDP listener.  In
     // the case of a UDP listener which is willing to accept datagrams for any IP
@@ -1920,6 +1949,7 @@ func (udpEntry *RFC1213MIB_UdpTable_UdpEntry) GetEntityData() *types.CommonEntit
     udpEntry.EntityData.BundleName = "cisco_ios_xe"
     udpEntry.EntityData.ParentYangName = "udpTable"
     udpEntry.EntityData.SegmentPath = "udpEntry" + types.AddKeyToken(udpEntry.UdpLocalAddress, "udpLocalAddress") + types.AddKeyToken(udpEntry.UdpLocalPort, "udpLocalPort")
+    udpEntry.EntityData.AbsolutePath = "RFC1213-MIB:RFC1213-MIB/udpTable/" + udpEntry.EntityData.SegmentPath
     udpEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     udpEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     udpEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1951,6 +1981,7 @@ func (egpNeighTable *RFC1213MIB_EgpNeighTable) GetEntityData() *types.CommonEnti
     egpNeighTable.EntityData.BundleName = "cisco_ios_xe"
     egpNeighTable.EntityData.ParentYangName = "RFC1213-MIB"
     egpNeighTable.EntityData.SegmentPath = "egpNeighTable"
+    egpNeighTable.EntityData.AbsolutePath = "RFC1213-MIB:RFC1213-MIB/" + egpNeighTable.EntityData.SegmentPath
     egpNeighTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     egpNeighTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     egpNeighTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1973,6 +2004,7 @@ func (egpNeighTable *RFC1213MIB_EgpNeighTable) GetEntityData() *types.CommonEnti
 type RFC1213MIB_EgpNeighTable_EgpNeighEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The IP address of this entry's EGP neighbor. The
     // type is string with pattern:
@@ -2058,6 +2090,7 @@ func (egpNeighEntry *RFC1213MIB_EgpNeighTable_EgpNeighEntry) GetEntityData() *ty
     egpNeighEntry.EntityData.BundleName = "cisco_ios_xe"
     egpNeighEntry.EntityData.ParentYangName = "egpNeighTable"
     egpNeighEntry.EntityData.SegmentPath = "egpNeighEntry" + types.AddKeyToken(egpNeighEntry.EgpNeighAddr, "egpNeighAddr")
+    egpNeighEntry.EntityData.AbsolutePath = "RFC1213-MIB:RFC1213-MIB/egpNeighTable/" + egpNeighEntry.EntityData.SegmentPath
     egpNeighEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     egpNeighEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     egpNeighEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

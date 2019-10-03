@@ -74,6 +74,7 @@ func (pIMMIB *PIMMIB) GetEntityData() *types.CommonEntityData {
     pIMMIB.EntityData.BundleName = "cisco_ios_xe"
     pIMMIB.EntityData.ParentYangName = "PIM-MIB"
     pIMMIB.EntityData.SegmentPath = "PIM-MIB:PIM-MIB"
+    pIMMIB.EntityData.AbsolutePath = pIMMIB.EntityData.SegmentPath
     pIMMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     pIMMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     pIMMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -112,6 +113,7 @@ func (pim *PIMMIB_Pim) GetEntityData() *types.CommonEntityData {
     pim.EntityData.BundleName = "cisco_ios_xe"
     pim.EntityData.ParentYangName = "PIM-MIB"
     pim.EntityData.SegmentPath = "pim"
+    pim.EntityData.AbsolutePath = "PIM-MIB:PIM-MIB/" + pim.EntityData.SegmentPath
     pim.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     pim.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     pim.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -144,6 +146,7 @@ func (pimInterfaceTable *PIMMIB_PimInterfaceTable) GetEntityData() *types.Common
     pimInterfaceTable.EntityData.BundleName = "cisco_ios_xe"
     pimInterfaceTable.EntityData.ParentYangName = "PIM-MIB"
     pimInterfaceTable.EntityData.SegmentPath = "pimInterfaceTable"
+    pimInterfaceTable.EntityData.AbsolutePath = "PIM-MIB:PIM-MIB/" + pimInterfaceTable.EntityData.SegmentPath
     pimInterfaceTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     pimInterfaceTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     pimInterfaceTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -165,6 +168,7 @@ func (pimInterfaceTable *PIMMIB_PimInterfaceTable) GetEntityData() *types.Common
 type PIMMIB_PimInterfaceTable_PimInterfaceEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The ifIndex value of this PIM interface. The type
     // is interface{} with range: 1..2147483647.
@@ -216,6 +220,7 @@ func (pimInterfaceEntry *PIMMIB_PimInterfaceTable_PimInterfaceEntry) GetEntityDa
     pimInterfaceEntry.EntityData.BundleName = "cisco_ios_xe"
     pimInterfaceEntry.EntityData.ParentYangName = "pimInterfaceTable"
     pimInterfaceEntry.EntityData.SegmentPath = "pimInterfaceEntry" + types.AddKeyToken(pimInterfaceEntry.PimInterfaceIfIndex, "pimInterfaceIfIndex")
+    pimInterfaceEntry.EntityData.AbsolutePath = "PIM-MIB:PIM-MIB/pimInterfaceTable/" + pimInterfaceEntry.EntityData.SegmentPath
     pimInterfaceEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     pimInterfaceEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     pimInterfaceEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -265,6 +270,7 @@ func (pimNeighborTable *PIMMIB_PimNeighborTable) GetEntityData() *types.CommonEn
     pimNeighborTable.EntityData.BundleName = "cisco_ios_xe"
     pimNeighborTable.EntityData.ParentYangName = "PIM-MIB"
     pimNeighborTable.EntityData.SegmentPath = "pimNeighborTable"
+    pimNeighborTable.EntityData.AbsolutePath = "PIM-MIB:PIM-MIB/" + pimNeighborTable.EntityData.SegmentPath
     pimNeighborTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     pimNeighborTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     pimNeighborTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -286,6 +292,7 @@ func (pimNeighborTable *PIMMIB_PimNeighborTable) GetEntityData() *types.CommonEn
 type PIMMIB_PimNeighborTable_PimNeighborEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The IP address of the PIM neighbor for which this
     // entry contains information. The type is string with pattern:
@@ -317,6 +324,7 @@ func (pimNeighborEntry *PIMMIB_PimNeighborTable_PimNeighborEntry) GetEntityData(
     pimNeighborEntry.EntityData.BundleName = "cisco_ios_xe"
     pimNeighborEntry.EntityData.ParentYangName = "pimNeighborTable"
     pimNeighborEntry.EntityData.SegmentPath = "pimNeighborEntry" + types.AddKeyToken(pimNeighborEntry.PimNeighborAddress, "pimNeighborAddress")
+    pimNeighborEntry.EntityData.AbsolutePath = "PIM-MIB:PIM-MIB/pimNeighborTable/" + pimNeighborEntry.EntityData.SegmentPath
     pimNeighborEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     pimNeighborEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     pimNeighborEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -363,6 +371,7 @@ func (pimIpMRouteTable *PIMMIB_PimIpMRouteTable) GetEntityData() *types.CommonEn
     pimIpMRouteTable.EntityData.BundleName = "cisco_ios_xe"
     pimIpMRouteTable.EntityData.ParentYangName = "PIM-MIB"
     pimIpMRouteTable.EntityData.SegmentPath = "pimIpMRouteTable"
+    pimIpMRouteTable.EntityData.AbsolutePath = "PIM-MIB:PIM-MIB/" + pimIpMRouteTable.EntityData.SegmentPath
     pimIpMRouteTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     pimIpMRouteTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     pimIpMRouteTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -386,6 +395,7 @@ func (pimIpMRouteTable *PIMMIB_PimIpMRouteTable) GetEntityData() *types.CommonEn
 type PIMMIB_PimIpMRouteTable_PimIpMRouteEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -428,7 +438,7 @@ type PIMMIB_PimIpMRouteTable_PimIpMRouteEntry struct {
 
     // This object describes PIM-specific flags related to a multicast state
     // entry.  See the PIM Sparse Mode specification for the meaning of the RPT
-    // and SPT bits. The type is string with length: 1.
+    // and SPT bits. The type is string with length: 1..1.
     PimIpMRouteFlags interface{}
 }
 
@@ -438,6 +448,7 @@ func (pimIpMRouteEntry *PIMMIB_PimIpMRouteTable_PimIpMRouteEntry) GetEntityData(
     pimIpMRouteEntry.EntityData.BundleName = "cisco_ios_xe"
     pimIpMRouteEntry.EntityData.ParentYangName = "pimIpMRouteTable"
     pimIpMRouteEntry.EntityData.SegmentPath = "pimIpMRouteEntry" + types.AddKeyToken(pimIpMRouteEntry.IpMRouteGroup, "ipMRouteGroup") + types.AddKeyToken(pimIpMRouteEntry.IpMRouteSource, "ipMRouteSource") + types.AddKeyToken(pimIpMRouteEntry.IpMRouteSourceMask, "ipMRouteSourceMask")
+    pimIpMRouteEntry.EntityData.AbsolutePath = "PIM-MIB:PIM-MIB/pimIpMRouteTable/" + pimIpMRouteEntry.EntityData.SegmentPath
     pimIpMRouteEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     pimIpMRouteEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     pimIpMRouteEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -479,6 +490,7 @@ func (pimRPTable *PIMMIB_PimRPTable) GetEntityData() *types.CommonEntityData {
     pimRPTable.EntityData.BundleName = "cisco_ios_xe"
     pimRPTable.EntityData.ParentYangName = "PIM-MIB"
     pimRPTable.EntityData.SegmentPath = "pimRPTable"
+    pimRPTable.EntityData.AbsolutePath = "PIM-MIB:PIM-MIB/" + pimRPTable.EntityData.SegmentPath
     pimRPTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     pimRPTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     pimRPTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -501,6 +513,7 @@ func (pimRPTable *PIMMIB_PimRPTable) GetEntityData() *types.CommonEntityData {
 type PIMMIB_PimRPTable_PimRPEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The IP multicast group address for which this
     // entry contains information about an RP. The type is string with pattern:
@@ -537,6 +550,7 @@ func (pimRPEntry *PIMMIB_PimRPTable_PimRPEntry) GetEntityData() *types.CommonEnt
     pimRPEntry.EntityData.BundleName = "cisco_ios_xe"
     pimRPEntry.EntityData.ParentYangName = "pimRPTable"
     pimRPEntry.EntityData.SegmentPath = "pimRPEntry" + types.AddKeyToken(pimRPEntry.PimRPGroupAddress, "pimRPGroupAddress") + types.AddKeyToken(pimRPEntry.PimRPAddress, "pimRPAddress")
+    pimRPEntry.EntityData.AbsolutePath = "PIM-MIB:PIM-MIB/pimRPTable/" + pimRPEntry.EntityData.SegmentPath
     pimRPEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     pimRPEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     pimRPEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -586,6 +600,7 @@ func (pimRPSetTable *PIMMIB_PimRPSetTable) GetEntityData() *types.CommonEntityDa
     pimRPSetTable.EntityData.BundleName = "cisco_ios_xe"
     pimRPSetTable.EntityData.ParentYangName = "PIM-MIB"
     pimRPSetTable.EntityData.SegmentPath = "pimRPSetTable"
+    pimRPSetTable.EntityData.AbsolutePath = "PIM-MIB:PIM-MIB/" + pimRPSetTable.EntityData.SegmentPath
     pimRPSetTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     pimRPSetTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     pimRPSetTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -607,6 +622,7 @@ func (pimRPSetTable *PIMMIB_PimRPSetTable) GetEntityData() *types.CommonEntityDa
 type PIMMIB_PimRPSetTable_PimRPSetEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key.  A number uniquely identifying the component. 
     // Each protocol instance connected to a separate domain should have a
@@ -648,6 +664,7 @@ func (pimRPSetEntry *PIMMIB_PimRPSetTable_PimRPSetEntry) GetEntityData() *types.
     pimRPSetEntry.EntityData.BundleName = "cisco_ios_xe"
     pimRPSetEntry.EntityData.ParentYangName = "pimRPSetTable"
     pimRPSetEntry.EntityData.SegmentPath = "pimRPSetEntry" + types.AddKeyToken(pimRPSetEntry.PimRPSetComponent, "pimRPSetComponent") + types.AddKeyToken(pimRPSetEntry.PimRPSetGroupAddress, "pimRPSetGroupAddress") + types.AddKeyToken(pimRPSetEntry.PimRPSetGroupMask, "pimRPSetGroupMask") + types.AddKeyToken(pimRPSetEntry.PimRPSetAddress, "pimRPSetAddress")
+    pimRPSetEntry.EntityData.AbsolutePath = "PIM-MIB:PIM-MIB/pimRPSetTable/" + pimRPSetEntry.EntityData.SegmentPath
     pimRPSetEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     pimRPSetEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     pimRPSetEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -687,6 +704,7 @@ func (pimIpMRouteNextHopTable *PIMMIB_PimIpMRouteNextHopTable) GetEntityData() *
     pimIpMRouteNextHopTable.EntityData.BundleName = "cisco_ios_xe"
     pimIpMRouteNextHopTable.EntityData.ParentYangName = "PIM-MIB"
     pimIpMRouteNextHopTable.EntityData.SegmentPath = "pimIpMRouteNextHopTable"
+    pimIpMRouteNextHopTable.EntityData.AbsolutePath = "PIM-MIB:PIM-MIB/" + pimIpMRouteNextHopTable.EntityData.SegmentPath
     pimIpMRouteNextHopTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     pimIpMRouteNextHopTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     pimIpMRouteNextHopTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -711,6 +729,7 @@ func (pimIpMRouteNextHopTable *PIMMIB_PimIpMRouteNextHopTable) GetEntityData() *
 type PIMMIB_PimIpMRouteNextHopTable_PimIpMRouteNextHopEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -753,6 +772,7 @@ func (pimIpMRouteNextHopEntry *PIMMIB_PimIpMRouteNextHopTable_PimIpMRouteNextHop
     pimIpMRouteNextHopEntry.EntityData.BundleName = "cisco_ios_xe"
     pimIpMRouteNextHopEntry.EntityData.ParentYangName = "pimIpMRouteNextHopTable"
     pimIpMRouteNextHopEntry.EntityData.SegmentPath = "pimIpMRouteNextHopEntry" + types.AddKeyToken(pimIpMRouteNextHopEntry.IpMRouteNextHopGroup, "ipMRouteNextHopGroup") + types.AddKeyToken(pimIpMRouteNextHopEntry.IpMRouteNextHopSource, "ipMRouteNextHopSource") + types.AddKeyToken(pimIpMRouteNextHopEntry.IpMRouteNextHopSourceMask, "ipMRouteNextHopSourceMask") + types.AddKeyToken(pimIpMRouteNextHopEntry.IpMRouteNextHopIfIndex, "ipMRouteNextHopIfIndex") + types.AddKeyToken(pimIpMRouteNextHopEntry.IpMRouteNextHopAddress, "ipMRouteNextHopAddress")
+    pimIpMRouteNextHopEntry.EntityData.AbsolutePath = "PIM-MIB:PIM-MIB/pimIpMRouteNextHopTable/" + pimIpMRouteNextHopEntry.EntityData.SegmentPath
     pimIpMRouteNextHopEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     pimIpMRouteNextHopEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     pimIpMRouteNextHopEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -810,6 +830,7 @@ func (pimCandidateRPTable *PIMMIB_PimCandidateRPTable) GetEntityData() *types.Co
     pimCandidateRPTable.EntityData.BundleName = "cisco_ios_xe"
     pimCandidateRPTable.EntityData.ParentYangName = "PIM-MIB"
     pimCandidateRPTable.EntityData.SegmentPath = "pimCandidateRPTable"
+    pimCandidateRPTable.EntityData.AbsolutePath = "PIM-MIB:PIM-MIB/" + pimCandidateRPTable.EntityData.SegmentPath
     pimCandidateRPTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     pimCandidateRPTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     pimCandidateRPTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -831,6 +852,7 @@ func (pimCandidateRPTable *PIMMIB_PimCandidateRPTable) GetEntityData() *types.Co
 type PIMMIB_PimCandidateRPTable_PimCandidateRPEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The IP multicast group address which, when
     // combined with pimCandidateRPGroupMask, identifies a group prefix for which
@@ -862,6 +884,7 @@ func (pimCandidateRPEntry *PIMMIB_PimCandidateRPTable_PimCandidateRPEntry) GetEn
     pimCandidateRPEntry.EntityData.BundleName = "cisco_ios_xe"
     pimCandidateRPEntry.EntityData.ParentYangName = "pimCandidateRPTable"
     pimCandidateRPEntry.EntityData.SegmentPath = "pimCandidateRPEntry" + types.AddKeyToken(pimCandidateRPEntry.PimCandidateRPGroupAddress, "pimCandidateRPGroupAddress") + types.AddKeyToken(pimCandidateRPEntry.PimCandidateRPGroupMask, "pimCandidateRPGroupMask")
+    pimCandidateRPEntry.EntityData.AbsolutePath = "PIM-MIB:PIM-MIB/pimCandidateRPTable/" + pimCandidateRPEntry.EntityData.SegmentPath
     pimCandidateRPEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     pimCandidateRPEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     pimCandidateRPEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -902,6 +925,7 @@ func (pimComponentTable *PIMMIB_PimComponentTable) GetEntityData() *types.Common
     pimComponentTable.EntityData.BundleName = "cisco_ios_xe"
     pimComponentTable.EntityData.ParentYangName = "PIM-MIB"
     pimComponentTable.EntityData.SegmentPath = "pimComponentTable"
+    pimComponentTable.EntityData.AbsolutePath = "PIM-MIB:PIM-MIB/" + pimComponentTable.EntityData.SegmentPath
     pimComponentTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     pimComponentTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     pimComponentTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -923,6 +947,7 @@ func (pimComponentTable *PIMMIB_PimComponentTable) GetEntityData() *types.Common
 type PIMMIB_PimComponentTable_PimComponentEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. A number uniquely identifying the component.  Each
     // protocol instance connected to a separate domain should have a different
@@ -961,6 +986,7 @@ func (pimComponentEntry *PIMMIB_PimComponentTable_PimComponentEntry) GetEntityDa
     pimComponentEntry.EntityData.BundleName = "cisco_ios_xe"
     pimComponentEntry.EntityData.ParentYangName = "pimComponentTable"
     pimComponentEntry.EntityData.SegmentPath = "pimComponentEntry" + types.AddKeyToken(pimComponentEntry.PimComponentIndex, "pimComponentIndex")
+    pimComponentEntry.EntityData.AbsolutePath = "PIM-MIB:PIM-MIB/pimComponentTable/" + pimComponentEntry.EntityData.SegmentPath
     pimComponentEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     pimComponentEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     pimComponentEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

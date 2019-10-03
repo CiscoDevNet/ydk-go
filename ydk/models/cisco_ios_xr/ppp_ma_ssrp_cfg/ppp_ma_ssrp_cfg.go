@@ -45,6 +45,7 @@ func (ssrp *Ssrp) GetEntityData() *types.CommonEntityData {
     ssrp.EntityData.BundleName = "cisco_ios_xr"
     ssrp.EntityData.ParentYangName = "Cisco-IOS-XR-ppp-ma-ssrp-cfg"
     ssrp.EntityData.SegmentPath = "Cisco-IOS-XR-ppp-ma-ssrp-cfg:ssrp"
+    ssrp.EntityData.AbsolutePath = ssrp.EntityData.SegmentPath
     ssrp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ssrp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ssrp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -74,6 +75,7 @@ func (profiles *Ssrp_Profiles) GetEntityData() *types.CommonEntityData {
     profiles.EntityData.BundleName = "cisco_ios_xr"
     profiles.EntityData.ParentYangName = "ssrp"
     profiles.EntityData.SegmentPath = "profiles"
+    profiles.EntityData.AbsolutePath = "Cisco-IOS-XR-ppp-ma-ssrp-cfg:ssrp/" + profiles.EntityData.SegmentPath
     profiles.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     profiles.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     profiles.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -95,6 +97,7 @@ func (profiles *Ssrp_Profiles) GetEntityData() *types.CommonEntityData {
 type Ssrp_Profiles_Profile struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The name of the profile. The type is string with
     // pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -116,6 +119,7 @@ func (profile *Ssrp_Profiles_Profile) GetEntityData() *types.CommonEntityData {
     profile.EntityData.BundleName = "cisco_ios_xr"
     profile.EntityData.ParentYangName = "profiles"
     profile.EntityData.SegmentPath = "profile" + types.AddKeyToken(profile.Name, "name")
+    profile.EntityData.AbsolutePath = "Cisco-IOS-XR-ppp-ma-ssrp-cfg:ssrp/profiles/" + profile.EntityData.SegmentPath
     profile.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     profile.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     profile.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

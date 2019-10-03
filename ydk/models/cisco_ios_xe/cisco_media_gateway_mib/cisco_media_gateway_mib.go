@@ -132,6 +132,7 @@ func (cISCOMEDIAGATEWAYMIB *CISCOMEDIAGATEWAYMIB) GetEntityData() *types.CommonE
     cISCOMEDIAGATEWAYMIB.EntityData.BundleName = "cisco_ios_xe"
     cISCOMEDIAGATEWAYMIB.EntityData.ParentYangName = "CISCO-MEDIA-GATEWAY-MIB"
     cISCOMEDIAGATEWAYMIB.EntityData.SegmentPath = "CISCO-MEDIA-GATEWAY-MIB:CISCO-MEDIA-GATEWAY-MIB"
+    cISCOMEDIAGATEWAYMIB.EntityData.AbsolutePath = cISCOMEDIAGATEWAYMIB.EntityData.SegmentPath
     cISCOMEDIAGATEWAYMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cISCOMEDIAGATEWAYMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOMEDIAGATEWAYMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -175,6 +176,7 @@ func (cMediaGwTable *CISCOMEDIAGATEWAYMIB_CMediaGwTable) GetEntityData() *types.
     cMediaGwTable.EntityData.BundleName = "cisco_ios_xe"
     cMediaGwTable.EntityData.ParentYangName = "CISCO-MEDIA-GATEWAY-MIB"
     cMediaGwTable.EntityData.SegmentPath = "cMediaGwTable"
+    cMediaGwTable.EntityData.AbsolutePath = "CISCO-MEDIA-GATEWAY-MIB:CISCO-MEDIA-GATEWAY-MIB/" + cMediaGwTable.EntityData.SegmentPath
     cMediaGwTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cMediaGwTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cMediaGwTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -200,6 +202,7 @@ func (cMediaGwTable *CISCOMEDIAGATEWAYMIB_CMediaGwTable) GetEntityData() *types.
 type CISCOMEDIAGATEWAYMIB_CMediaGwTable_CMediaGwEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. An index that uniquely identifies an entry in the 
     // cMediaGwTable. The type is interface{} with range: 1..2147483647.
@@ -270,6 +273,7 @@ func (cMediaGwEntry *CISCOMEDIAGATEWAYMIB_CMediaGwTable_CMediaGwEntry) GetEntity
     cMediaGwEntry.EntityData.BundleName = "cisco_ios_xe"
     cMediaGwEntry.EntityData.ParentYangName = "cMediaGwTable"
     cMediaGwEntry.EntityData.SegmentPath = "cMediaGwEntry" + types.AddKeyToken(cMediaGwEntry.CmgwIndex, "cmgwIndex")
+    cMediaGwEntry.EntityData.AbsolutePath = "CISCO-MEDIA-GATEWAY-MIB:CISCO-MEDIA-GATEWAY-MIB/cMediaGwTable/" + cMediaGwEntry.EntityData.SegmentPath
     cMediaGwEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cMediaGwEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cMediaGwEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -321,6 +325,7 @@ func (cmgwSignalProtocolTable *CISCOMEDIAGATEWAYMIB_CmgwSignalProtocolTable) Get
     cmgwSignalProtocolTable.EntityData.BundleName = "cisco_ios_xe"
     cmgwSignalProtocolTable.EntityData.ParentYangName = "CISCO-MEDIA-GATEWAY-MIB"
     cmgwSignalProtocolTable.EntityData.SegmentPath = "cmgwSignalProtocolTable"
+    cmgwSignalProtocolTable.EntityData.AbsolutePath = "CISCO-MEDIA-GATEWAY-MIB:CISCO-MEDIA-GATEWAY-MIB/" + cmgwSignalProtocolTable.EntityData.SegmentPath
     cmgwSignalProtocolTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cmgwSignalProtocolTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cmgwSignalProtocolTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -343,6 +348,7 @@ func (cmgwSignalProtocolTable *CISCOMEDIAGATEWAYMIB_CmgwSignalProtocolTable) Get
 type CISCOMEDIAGATEWAYMIB_CmgwSignalProtocolTable_CmgwSignalProtocolEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -410,6 +416,7 @@ func (cmgwSignalProtocolEntry *CISCOMEDIAGATEWAYMIB_CmgwSignalProtocolTable_Cmgw
     cmgwSignalProtocolEntry.EntityData.BundleName = "cisco_ios_xe"
     cmgwSignalProtocolEntry.EntityData.ParentYangName = "cmgwSignalProtocolTable"
     cmgwSignalProtocolEntry.EntityData.SegmentPath = "cmgwSignalProtocolEntry" + types.AddKeyToken(cmgwSignalProtocolEntry.CmgwIndex, "cmgwIndex") + types.AddKeyToken(cmgwSignalProtocolEntry.CmgwSignalProtocolIndex, "cmgwSignalProtocolIndex")
+    cmgwSignalProtocolEntry.EntityData.AbsolutePath = "CISCO-MEDIA-GATEWAY-MIB:CISCO-MEDIA-GATEWAY-MIB/cmgwSignalProtocolTable/" + cmgwSignalProtocolEntry.EntityData.SegmentPath
     cmgwSignalProtocolEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cmgwSignalProtocolEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cmgwSignalProtocolEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -476,6 +483,7 @@ func (cMediaGwIpConfigTable *CISCOMEDIAGATEWAYMIB_CMediaGwIpConfigTable) GetEnti
     cMediaGwIpConfigTable.EntityData.BundleName = "cisco_ios_xe"
     cMediaGwIpConfigTable.EntityData.ParentYangName = "CISCO-MEDIA-GATEWAY-MIB"
     cMediaGwIpConfigTable.EntityData.SegmentPath = "cMediaGwIpConfigTable"
+    cMediaGwIpConfigTable.EntityData.AbsolutePath = "CISCO-MEDIA-GATEWAY-MIB:CISCO-MEDIA-GATEWAY-MIB/" + cMediaGwIpConfigTable.EntityData.SegmentPath
     cMediaGwIpConfigTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cMediaGwIpConfigTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cMediaGwIpConfigTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -499,6 +507,7 @@ func (cMediaGwIpConfigTable *CISCOMEDIAGATEWAYMIB_CMediaGwIpConfigTable) GetEnti
 type CISCOMEDIAGATEWAYMIB_CMediaGwIpConfigTable_CMediaGwIpConfigEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -573,6 +582,7 @@ func (cMediaGwIpConfigEntry *CISCOMEDIAGATEWAYMIB_CMediaGwIpConfigTable_CMediaGw
     cMediaGwIpConfigEntry.EntityData.BundleName = "cisco_ios_xe"
     cMediaGwIpConfigEntry.EntityData.ParentYangName = "cMediaGwIpConfigTable"
     cMediaGwIpConfigEntry.EntityData.SegmentPath = "cMediaGwIpConfigEntry" + types.AddKeyToken(cMediaGwIpConfigEntry.CmgwIndex, "cmgwIndex") + types.AddKeyToken(cMediaGwIpConfigEntry.CmgwIpConfigIndex, "cmgwIpConfigIndex")
+    cMediaGwIpConfigEntry.EntityData.AbsolutePath = "CISCO-MEDIA-GATEWAY-MIB:CISCO-MEDIA-GATEWAY-MIB/cMediaGwIpConfigTable/" + cMediaGwIpConfigEntry.EntityData.SegmentPath
     cMediaGwIpConfigEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cMediaGwIpConfigEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cMediaGwIpConfigEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -620,6 +630,7 @@ func (cMediaGwDomainNameConfigTable *CISCOMEDIAGATEWAYMIB_CMediaGwDomainNameConf
     cMediaGwDomainNameConfigTable.EntityData.BundleName = "cisco_ios_xe"
     cMediaGwDomainNameConfigTable.EntityData.ParentYangName = "CISCO-MEDIA-GATEWAY-MIB"
     cMediaGwDomainNameConfigTable.EntityData.SegmentPath = "cMediaGwDomainNameConfigTable"
+    cMediaGwDomainNameConfigTable.EntityData.AbsolutePath = "CISCO-MEDIA-GATEWAY-MIB:CISCO-MEDIA-GATEWAY-MIB/" + cMediaGwDomainNameConfigTable.EntityData.SegmentPath
     cMediaGwDomainNameConfigTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cMediaGwDomainNameConfigTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cMediaGwDomainNameConfigTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -644,6 +655,7 @@ func (cMediaGwDomainNameConfigTable *CISCOMEDIAGATEWAYMIB_CMediaGwDomainNameConf
 type CISCOMEDIAGATEWAYMIB_CMediaGwDomainNameConfigTable_CMediaGwDomainNameConfigEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -689,6 +701,7 @@ func (cMediaGwDomainNameConfigEntry *CISCOMEDIAGATEWAYMIB_CMediaGwDomainNameConf
     cMediaGwDomainNameConfigEntry.EntityData.BundleName = "cisco_ios_xe"
     cMediaGwDomainNameConfigEntry.EntityData.ParentYangName = "cMediaGwDomainNameConfigTable"
     cMediaGwDomainNameConfigEntry.EntityData.SegmentPath = "cMediaGwDomainNameConfigEntry" + types.AddKeyToken(cMediaGwDomainNameConfigEntry.CmgwIndex, "cmgwIndex") + types.AddKeyToken(cMediaGwDomainNameConfigEntry.CmgwConfigDomainNameIndex, "cmgwConfigDomainNameIndex")
+    cMediaGwDomainNameConfigEntry.EntityData.AbsolutePath = "CISCO-MEDIA-GATEWAY-MIB:CISCO-MEDIA-GATEWAY-MIB/cMediaGwDomainNameConfigTable/" + cMediaGwDomainNameConfigEntry.EntityData.SegmentPath
     cMediaGwDomainNameConfigEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cMediaGwDomainNameConfigEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cMediaGwDomainNameConfigEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -744,6 +757,7 @@ func (cMediaGwDnsIpConfigTable *CISCOMEDIAGATEWAYMIB_CMediaGwDnsIpConfigTable) G
     cMediaGwDnsIpConfigTable.EntityData.BundleName = "cisco_ios_xe"
     cMediaGwDnsIpConfigTable.EntityData.ParentYangName = "CISCO-MEDIA-GATEWAY-MIB"
     cMediaGwDnsIpConfigTable.EntityData.SegmentPath = "cMediaGwDnsIpConfigTable"
+    cMediaGwDnsIpConfigTable.EntityData.AbsolutePath = "CISCO-MEDIA-GATEWAY-MIB:CISCO-MEDIA-GATEWAY-MIB/" + cMediaGwDnsIpConfigTable.EntityData.SegmentPath
     cMediaGwDnsIpConfigTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cMediaGwDnsIpConfigTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cMediaGwDnsIpConfigTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -766,6 +780,7 @@ func (cMediaGwDnsIpConfigTable *CISCOMEDIAGATEWAYMIB_CMediaGwDnsIpConfigTable) G
 type CISCOMEDIAGATEWAYMIB_CMediaGwDnsIpConfigTable_CMediaGwDnsIpConfigEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -807,6 +822,7 @@ func (cMediaGwDnsIpConfigEntry *CISCOMEDIAGATEWAYMIB_CMediaGwDnsIpConfigTable_CM
     cMediaGwDnsIpConfigEntry.EntityData.BundleName = "cisco_ios_xe"
     cMediaGwDnsIpConfigEntry.EntityData.ParentYangName = "cMediaGwDnsIpConfigTable"
     cMediaGwDnsIpConfigEntry.EntityData.SegmentPath = "cMediaGwDnsIpConfigEntry" + types.AddKeyToken(cMediaGwDnsIpConfigEntry.CmgwIndex, "cmgwIndex") + types.AddKeyToken(cMediaGwDnsIpConfigEntry.CmgwDnsIpIndex, "cmgwDnsIpIndex")
+    cMediaGwDnsIpConfigEntry.EntityData.AbsolutePath = "CISCO-MEDIA-GATEWAY-MIB:CISCO-MEDIA-GATEWAY-MIB/cMediaGwDnsIpConfigTable/" + cMediaGwDnsIpConfigEntry.EntityData.SegmentPath
     cMediaGwDnsIpConfigEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cMediaGwDnsIpConfigEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cMediaGwDnsIpConfigEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -852,6 +868,7 @@ func (cmgwLifTable *CISCOMEDIAGATEWAYMIB_CmgwLifTable) GetEntityData() *types.Co
     cmgwLifTable.EntityData.BundleName = "cisco_ios_xe"
     cmgwLifTable.EntityData.ParentYangName = "CISCO-MEDIA-GATEWAY-MIB"
     cmgwLifTable.EntityData.SegmentPath = "cmgwLifTable"
+    cmgwLifTable.EntityData.AbsolutePath = "CISCO-MEDIA-GATEWAY-MIB:CISCO-MEDIA-GATEWAY-MIB/" + cmgwLifTable.EntityData.SegmentPath
     cmgwLifTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cmgwLifTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cmgwLifTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -874,6 +891,7 @@ func (cmgwLifTable *CISCOMEDIAGATEWAYMIB_CmgwLifTable) GetEntityData() *types.Co
 type CISCOMEDIAGATEWAYMIB_CmgwLifTable_CmgwLifEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -908,6 +926,7 @@ func (cmgwLifEntry *CISCOMEDIAGATEWAYMIB_CmgwLifTable_CmgwLifEntry) GetEntityDat
     cmgwLifEntry.EntityData.BundleName = "cisco_ios_xe"
     cmgwLifEntry.EntityData.ParentYangName = "cmgwLifTable"
     cmgwLifEntry.EntityData.SegmentPath = "cmgwLifEntry" + types.AddKeyToken(cmgwLifEntry.CmgwIndex, "cmgwIndex") + types.AddKeyToken(cmgwLifEntry.CmgwLifNumber, "cmgwLifNumber")
+    cmgwLifEntry.EntityData.AbsolutePath = "CISCO-MEDIA-GATEWAY-MIB:CISCO-MEDIA-GATEWAY-MIB/cmgwLifTable/" + cmgwLifEntry.EntityData.SegmentPath
     cmgwLifEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cmgwLifEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cmgwLifEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -943,6 +962,7 @@ func (cMediaGwCallControlConfigTable *CISCOMEDIAGATEWAYMIB_CMediaGwCallControlCo
     cMediaGwCallControlConfigTable.EntityData.BundleName = "cisco_ios_xe"
     cMediaGwCallControlConfigTable.EntityData.ParentYangName = "CISCO-MEDIA-GATEWAY-MIB"
     cMediaGwCallControlConfigTable.EntityData.SegmentPath = "cMediaGwCallControlConfigTable"
+    cMediaGwCallControlConfigTable.EntityData.AbsolutePath = "CISCO-MEDIA-GATEWAY-MIB:CISCO-MEDIA-GATEWAY-MIB/" + cMediaGwCallControlConfigTable.EntityData.SegmentPath
     cMediaGwCallControlConfigTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cMediaGwCallControlConfigTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cMediaGwCallControlConfigTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -965,6 +985,7 @@ func (cMediaGwCallControlConfigTable *CISCOMEDIAGATEWAYMIB_CMediaGwCallControlCo
 type CISCOMEDIAGATEWAYMIB_CMediaGwCallControlConfigTable_CMediaGwCallControlConfigEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -1114,6 +1135,7 @@ func (cMediaGwCallControlConfigEntry *CISCOMEDIAGATEWAYMIB_CMediaGwCallControlCo
     cMediaGwCallControlConfigEntry.EntityData.BundleName = "cisco_ios_xe"
     cMediaGwCallControlConfigEntry.EntityData.ParentYangName = "cMediaGwCallControlConfigTable"
     cMediaGwCallControlConfigEntry.EntityData.SegmentPath = "cMediaGwCallControlConfigEntry" + types.AddKeyToken(cMediaGwCallControlConfigEntry.CmgwIndex, "cmgwIndex")
+    cMediaGwCallControlConfigEntry.EntityData.AbsolutePath = "CISCO-MEDIA-GATEWAY-MIB:CISCO-MEDIA-GATEWAY-MIB/cMediaGwCallControlConfigTable/" + cMediaGwCallControlConfigEntry.EntityData.SegmentPath
     cMediaGwCallControlConfigEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cMediaGwCallControlConfigEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cMediaGwCallControlConfigEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1188,6 +1210,7 @@ func (cMediaGwRscStatsTable *CISCOMEDIAGATEWAYMIB_CMediaGwRscStatsTable) GetEnti
     cMediaGwRscStatsTable.EntityData.BundleName = "cisco_ios_xe"
     cMediaGwRscStatsTable.EntityData.ParentYangName = "CISCO-MEDIA-GATEWAY-MIB"
     cMediaGwRscStatsTable.EntityData.SegmentPath = "cMediaGwRscStatsTable"
+    cMediaGwRscStatsTable.EntityData.AbsolutePath = "CISCO-MEDIA-GATEWAY-MIB:CISCO-MEDIA-GATEWAY-MIB/" + cMediaGwRscStatsTable.EntityData.SegmentPath
     cMediaGwRscStatsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cMediaGwRscStatsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cMediaGwRscStatsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1210,6 +1233,7 @@ func (cMediaGwRscStatsTable *CISCOMEDIAGATEWAYMIB_CMediaGwRscStatsTable) GetEnti
 type CISCOMEDIAGATEWAYMIB_CMediaGwRscStatsTable_CMediaGwRscStatsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -1248,6 +1272,7 @@ func (cMediaGwRscStatsEntry *CISCOMEDIAGATEWAYMIB_CMediaGwRscStatsTable_CMediaGw
     cMediaGwRscStatsEntry.EntityData.BundleName = "cisco_ios_xe"
     cMediaGwRscStatsEntry.EntityData.ParentYangName = "cMediaGwRscStatsTable"
     cMediaGwRscStatsEntry.EntityData.SegmentPath = "cMediaGwRscStatsEntry" + types.AddKeyToken(cMediaGwRscStatsEntry.CmgwIndex, "cmgwIndex") + types.AddKeyToken(cMediaGwRscStatsEntry.CmgwRscStatsIndex, "cmgwRscStatsIndex")
+    cMediaGwRscStatsEntry.EntityData.AbsolutePath = "CISCO-MEDIA-GATEWAY-MIB:CISCO-MEDIA-GATEWAY-MIB/cMediaGwRscStatsTable/" + cMediaGwRscStatsEntry.EntityData.SegmentPath
     cMediaGwRscStatsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cMediaGwRscStatsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cMediaGwRscStatsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

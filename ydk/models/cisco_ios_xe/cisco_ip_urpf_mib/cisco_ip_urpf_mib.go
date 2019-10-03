@@ -71,6 +71,7 @@ func (cISCOIPURPFMIB *CISCOIPURPFMIB) GetEntityData() *types.CommonEntityData {
     cISCOIPURPFMIB.EntityData.BundleName = "cisco_ios_xe"
     cISCOIPURPFMIB.EntityData.ParentYangName = "CISCO-IP-URPF-MIB"
     cISCOIPURPFMIB.EntityData.SegmentPath = "CISCO-IP-URPF-MIB:CISCO-IP-URPF-MIB"
+    cISCOIPURPFMIB.EntityData.AbsolutePath = cISCOIPURPFMIB.EntityData.SegmentPath
     cISCOIPURPFMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cISCOIPURPFMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOIPURPFMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -134,6 +135,7 @@ func (cipUrpfScalar *CISCOIPURPFMIB_CipUrpfScalar) GetEntityData() *types.Common
     cipUrpfScalar.EntityData.BundleName = "cisco_ios_xe"
     cipUrpfScalar.EntityData.ParentYangName = "CISCO-IP-URPF-MIB"
     cipUrpfScalar.EntityData.SegmentPath = "cipUrpfScalar"
+    cipUrpfScalar.EntityData.AbsolutePath = "CISCO-IP-URPF-MIB:CISCO-IP-URPF-MIB/" + cipUrpfScalar.EntityData.SegmentPath
     cipUrpfScalar.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cipUrpfScalar.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cipUrpfScalar.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -169,6 +171,7 @@ func (cipUrpfTable *CISCOIPURPFMIB_CipUrpfTable) GetEntityData() *types.CommonEn
     cipUrpfTable.EntityData.BundleName = "cisco_ios_xe"
     cipUrpfTable.EntityData.ParentYangName = "CISCO-IP-URPF-MIB"
     cipUrpfTable.EntityData.SegmentPath = "cipUrpfTable"
+    cipUrpfTable.EntityData.AbsolutePath = "CISCO-IP-URPF-MIB:CISCO-IP-URPF-MIB/" + cipUrpfTable.EntityData.SegmentPath
     cipUrpfTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cipUrpfTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cipUrpfTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -193,6 +196,7 @@ func (cipUrpfTable *CISCOIPURPFMIB_CipUrpfTable) GetEntityData() *types.CommonEn
 type CISCOIPURPFMIB_CipUrpfTable_CipUrpfEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Specifies the version of IP forwarding on an
     // interface to which the table row URPF counts, rates, and configuration
@@ -242,6 +246,7 @@ func (cipUrpfEntry *CISCOIPURPFMIB_CipUrpfTable_CipUrpfEntry) GetEntityData() *t
     cipUrpfEntry.EntityData.BundleName = "cisco_ios_xe"
     cipUrpfEntry.EntityData.ParentYangName = "cipUrpfTable"
     cipUrpfEntry.EntityData.SegmentPath = "cipUrpfEntry" + types.AddKeyToken(cipUrpfEntry.CipUrpfIpVersion, "cipUrpfIpVersion")
+    cipUrpfEntry.EntityData.AbsolutePath = "CISCO-IP-URPF-MIB:CISCO-IP-URPF-MIB/cipUrpfTable/" + cipUrpfEntry.EntityData.SegmentPath
     cipUrpfEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cipUrpfEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cipUrpfEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -291,6 +296,7 @@ func (cipUrpfIfMonTable *CISCOIPURPFMIB_CipUrpfIfMonTable) GetEntityData() *type
     cipUrpfIfMonTable.EntityData.BundleName = "cisco_ios_xe"
     cipUrpfIfMonTable.EntityData.ParentYangName = "CISCO-IP-URPF-MIB"
     cipUrpfIfMonTable.EntityData.SegmentPath = "cipUrpfIfMonTable"
+    cipUrpfIfMonTable.EntityData.AbsolutePath = "CISCO-IP-URPF-MIB:CISCO-IP-URPF-MIB/" + cipUrpfIfMonTable.EntityData.SegmentPath
     cipUrpfIfMonTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cipUrpfIfMonTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cipUrpfIfMonTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -322,6 +328,7 @@ func (cipUrpfIfMonTable *CISCOIPURPFMIB_CipUrpfIfMonTable) GetEntityData() *type
 type CISCOIPURPFMIB_CipUrpfIfMonTable_CipUrpfIfMonEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -439,6 +446,7 @@ func (cipUrpfIfMonEntry *CISCOIPURPFMIB_CipUrpfIfMonTable_CipUrpfIfMonEntry) Get
     cipUrpfIfMonEntry.EntityData.BundleName = "cisco_ios_xe"
     cipUrpfIfMonEntry.EntityData.ParentYangName = "cipUrpfIfMonTable"
     cipUrpfIfMonEntry.EntityData.SegmentPath = "cipUrpfIfMonEntry" + types.AddKeyToken(cipUrpfIfMonEntry.IfIndex, "ifIndex") + types.AddKeyToken(cipUrpfIfMonEntry.CipUrpfIfIpVersion, "cipUrpfIfIpVersion")
+    cipUrpfIfMonEntry.EntityData.AbsolutePath = "CISCO-IP-URPF-MIB:CISCO-IP-URPF-MIB/cipUrpfIfMonTable/" + cipUrpfIfMonEntry.EntityData.SegmentPath
     cipUrpfIfMonEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cipUrpfIfMonEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cipUrpfIfMonEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -510,6 +518,7 @@ func (cipUrpfVrfIfTable *CISCOIPURPFMIB_CipUrpfVrfIfTable) GetEntityData() *type
     cipUrpfVrfIfTable.EntityData.BundleName = "cisco_ios_xe"
     cipUrpfVrfIfTable.EntityData.ParentYangName = "CISCO-IP-URPF-MIB"
     cipUrpfVrfIfTable.EntityData.SegmentPath = "cipUrpfVrfIfTable"
+    cipUrpfVrfIfTable.EntityData.AbsolutePath = "CISCO-IP-URPF-MIB:CISCO-IP-URPF-MIB/" + cipUrpfVrfIfTable.EntityData.SegmentPath
     cipUrpfVrfIfTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cipUrpfVrfIfTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cipUrpfVrfIfTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -534,6 +543,7 @@ func (cipUrpfVrfIfTable *CISCOIPURPFMIB_CipUrpfVrfIfTable) GetEntityData() *type
 type CISCOIPURPFMIB_CipUrpfVrfIfTable_CipUrpfVrfIfEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with length: 0..32. Refers to
     // cisco_ip_urpf_mib.CISCOIPURPFMIB_CipUrpfVrfTable_CipUrpfVrfEntry_CipUrpfVrfName
@@ -564,6 +574,7 @@ func (cipUrpfVrfIfEntry *CISCOIPURPFMIB_CipUrpfVrfIfTable_CipUrpfVrfIfEntry) Get
     cipUrpfVrfIfEntry.EntityData.BundleName = "cisco_ios_xe"
     cipUrpfVrfIfEntry.EntityData.ParentYangName = "cipUrpfVrfIfTable"
     cipUrpfVrfIfEntry.EntityData.SegmentPath = "cipUrpfVrfIfEntry" + types.AddKeyToken(cipUrpfVrfIfEntry.CipUrpfVrfName, "cipUrpfVrfName") + types.AddKeyToken(cipUrpfVrfIfEntry.IfIndex, "ifIndex")
+    cipUrpfVrfIfEntry.EntityData.AbsolutePath = "CISCO-IP-URPF-MIB:CISCO-IP-URPF-MIB/cipUrpfVrfIfTable/" + cipUrpfVrfIfEntry.EntityData.SegmentPath
     cipUrpfVrfIfEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cipUrpfVrfIfEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cipUrpfVrfIfEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -600,6 +611,7 @@ func (cipUrpfVrfTable *CISCOIPURPFMIB_CipUrpfVrfTable) GetEntityData() *types.Co
     cipUrpfVrfTable.EntityData.BundleName = "cisco_ios_xe"
     cipUrpfVrfTable.EntityData.ParentYangName = "CISCO-IP-URPF-MIB"
     cipUrpfVrfTable.EntityData.SegmentPath = "cipUrpfVrfTable"
+    cipUrpfVrfTable.EntityData.AbsolutePath = "CISCO-IP-URPF-MIB:CISCO-IP-URPF-MIB/" + cipUrpfVrfTable.EntityData.SegmentPath
     cipUrpfVrfTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cipUrpfVrfTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cipUrpfVrfTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -624,6 +636,7 @@ func (cipUrpfVrfTable *CISCOIPURPFMIB_CipUrpfVrfTable) GetEntityData() *types.Co
 type CISCOIPURPFMIB_CipUrpfVrfTable_CipUrpfVrfEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. This field is used to specify the VRF Table name.
     // The type is string with length: 0..32.
@@ -636,6 +649,7 @@ func (cipUrpfVrfEntry *CISCOIPURPFMIB_CipUrpfVrfTable_CipUrpfVrfEntry) GetEntity
     cipUrpfVrfEntry.EntityData.BundleName = "cisco_ios_xe"
     cipUrpfVrfEntry.EntityData.ParentYangName = "cipUrpfVrfTable"
     cipUrpfVrfEntry.EntityData.SegmentPath = "cipUrpfVrfEntry" + types.AddKeyToken(cipUrpfVrfEntry.CipUrpfVrfName, "cipUrpfVrfName")
+    cipUrpfVrfEntry.EntityData.AbsolutePath = "CISCO-IP-URPF-MIB:CISCO-IP-URPF-MIB/cipUrpfVrfTable/" + cipUrpfVrfEntry.EntityData.SegmentPath
     cipUrpfVrfEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cipUrpfVrfEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cipUrpfVrfEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

@@ -321,6 +321,7 @@ func (softwareInstall *SoftwareInstall) GetEntityData() *types.CommonEntityData 
     softwareInstall.EntityData.BundleName = "cisco_ios_xr"
     softwareInstall.EntityData.ParentYangName = "Cisco-IOS-XR-spirit-install-instmgr-oper"
     softwareInstall.EntityData.SegmentPath = "Cisco-IOS-XR-spirit-install-instmgr-oper:software-install"
+    softwareInstall.EntityData.AbsolutePath = softwareInstall.EntityData.SegmentPath
     softwareInstall.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     softwareInstall.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     softwareInstall.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -366,6 +367,7 @@ func (superseded *SoftwareInstall_Superseded) GetEntityData() *types.CommonEntit
     superseded.EntityData.BundleName = "cisco_ios_xr"
     superseded.EntityData.ParentYangName = "software-install"
     superseded.EntityData.SegmentPath = "superseded"
+    superseded.EntityData.AbsolutePath = "Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/" + superseded.EntityData.SegmentPath
     superseded.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     superseded.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     superseded.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -373,6 +375,7 @@ func (superseded *SoftwareInstall_Superseded) GetEntityData() *types.CommonEntit
     superseded.EntityData.Children = types.NewOrderedMap()
     superseded.EntityData.Children.Append("superseded-package-info", types.YChild{"SupersededPackageInfo", nil})
     for i := range superseded.SupersededPackageInfo {
+        types.SetYListKey(superseded.SupersededPackageInfo[i], i)
         superseded.EntityData.Children.Append(types.GetSegmentPath(superseded.SupersededPackageInfo[i]), types.YChild{"SupersededPackageInfo", superseded.SupersededPackageInfo[i]})
     }
     superseded.EntityData.Leafs = types.NewOrderedMap()
@@ -387,6 +390,7 @@ func (superseded *SoftwareInstall_Superseded) GetEntityData() *types.CommonEntit
 type SoftwareInstall_Superseded_SupersededPackageInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // ErrorMessage. The type is string.
     ErrorMessage interface{}
@@ -409,7 +413,8 @@ func (supersededPackageInfo *SoftwareInstall_Superseded_SupersededPackageInfo) G
     supersededPackageInfo.EntityData.YangName = "superseded-package-info"
     supersededPackageInfo.EntityData.BundleName = "cisco_ios_xr"
     supersededPackageInfo.EntityData.ParentYangName = "superseded"
-    supersededPackageInfo.EntityData.SegmentPath = "superseded-package-info"
+    supersededPackageInfo.EntityData.SegmentPath = "superseded-package-info" + types.AddNoKeyToken(supersededPackageInfo)
+    supersededPackageInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/superseded/" + supersededPackageInfo.EntityData.SegmentPath
     supersededPackageInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     supersededPackageInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     supersededPackageInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -444,6 +449,7 @@ func (committedSummary *SoftwareInstall_CommittedSummary) GetEntityData() *types
     committedSummary.EntityData.BundleName = "cisco_ios_xr"
     committedSummary.EntityData.ParentYangName = "software-install"
     committedSummary.EntityData.SegmentPath = "committed-summary"
+    committedSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/" + committedSummary.EntityData.SegmentPath
     committedSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     committedSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     committedSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -451,6 +457,7 @@ func (committedSummary *SoftwareInstall_CommittedSummary) GetEntityData() *types
     committedSummary.EntityData.Children = types.NewOrderedMap()
     committedSummary.EntityData.Children.Append("committed-package-info", types.YChild{"CommittedPackageInfo", nil})
     for i := range committedSummary.CommittedPackageInfo {
+        types.SetYListKey(committedSummary.CommittedPackageInfo[i], i)
         committedSummary.EntityData.Children.Append(types.GetSegmentPath(committedSummary.CommittedPackageInfo[i]), types.YChild{"CommittedPackageInfo", committedSummary.CommittedPackageInfo[i]})
     }
     committedSummary.EntityData.Leafs = types.NewOrderedMap()
@@ -465,6 +472,7 @@ func (committedSummary *SoftwareInstall_CommittedSummary) GetEntityData() *types
 type SoftwareInstall_CommittedSummary_CommittedPackageInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // ErrorMessage. The type is string.
     ErrorMessage interface{}
@@ -491,7 +499,8 @@ func (committedPackageInfo *SoftwareInstall_CommittedSummary_CommittedPackageInf
     committedPackageInfo.EntityData.YangName = "committed-package-info"
     committedPackageInfo.EntityData.BundleName = "cisco_ios_xr"
     committedPackageInfo.EntityData.ParentYangName = "committed-summary"
-    committedPackageInfo.EntityData.SegmentPath = "committed-package-info"
+    committedPackageInfo.EntityData.SegmentPath = "committed-package-info" + types.AddNoKeyToken(committedPackageInfo)
+    committedPackageInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/committed-summary/" + committedPackageInfo.EntityData.SegmentPath
     committedPackageInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     committedPackageInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     committedPackageInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -527,6 +536,7 @@ func (activeSummary *SoftwareInstall_ActiveSummary) GetEntityData() *types.Commo
     activeSummary.EntityData.BundleName = "cisco_ios_xr"
     activeSummary.EntityData.ParentYangName = "software-install"
     activeSummary.EntityData.SegmentPath = "active-summary"
+    activeSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/" + activeSummary.EntityData.SegmentPath
     activeSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     activeSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     activeSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -534,6 +544,7 @@ func (activeSummary *SoftwareInstall_ActiveSummary) GetEntityData() *types.Commo
     activeSummary.EntityData.Children = types.NewOrderedMap()
     activeSummary.EntityData.Children.Append("active-package-info", types.YChild{"ActivePackageInfo", nil})
     for i := range activeSummary.ActivePackageInfo {
+        types.SetYListKey(activeSummary.ActivePackageInfo[i], i)
         activeSummary.EntityData.Children.Append(types.GetSegmentPath(activeSummary.ActivePackageInfo[i]), types.YChild{"ActivePackageInfo", activeSummary.ActivePackageInfo[i]})
     }
     activeSummary.EntityData.Leafs = types.NewOrderedMap()
@@ -548,6 +559,7 @@ func (activeSummary *SoftwareInstall_ActiveSummary) GetEntityData() *types.Commo
 type SoftwareInstall_ActiveSummary_ActivePackageInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // ErrorMessage. The type is string.
     ErrorMessage interface{}
@@ -573,7 +585,8 @@ func (activePackageInfo *SoftwareInstall_ActiveSummary_ActivePackageInfo) GetEnt
     activePackageInfo.EntityData.YangName = "active-package-info"
     activePackageInfo.EntityData.BundleName = "cisco_ios_xr"
     activePackageInfo.EntityData.ParentYangName = "active-summary"
-    activePackageInfo.EntityData.SegmentPath = "active-package-info"
+    activePackageInfo.EntityData.SegmentPath = "active-package-info" + types.AddNoKeyToken(activePackageInfo)
+    activePackageInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/active-summary/" + activePackageInfo.EntityData.SegmentPath
     activePackageInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     activePackageInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     activePackageInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -608,6 +621,7 @@ func (inactiveSummary *SoftwareInstall_InactiveSummary) GetEntityData() *types.C
     inactiveSummary.EntityData.BundleName = "cisco_ios_xr"
     inactiveSummary.EntityData.ParentYangName = "software-install"
     inactiveSummary.EntityData.SegmentPath = "inactive-summary"
+    inactiveSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/" + inactiveSummary.EntityData.SegmentPath
     inactiveSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     inactiveSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inactiveSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -658,6 +672,7 @@ func (prepare *SoftwareInstall_Prepare) GetEntityData() *types.CommonEntityData 
     prepare.EntityData.BundleName = "cisco_ios_xr"
     prepare.EntityData.ParentYangName = "software-install"
     prepare.EntityData.SegmentPath = "prepare"
+    prepare.EntityData.AbsolutePath = "Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/" + prepare.EntityData.SegmentPath
     prepare.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prepare.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prepare.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -665,10 +680,12 @@ func (prepare *SoftwareInstall_Prepare) GetEntityData() *types.CommonEntityData 
     prepare.EntityData.Children = types.NewOrderedMap()
     prepare.EntityData.Children.Append("rpm", types.YChild{"Rpm", nil})
     for i := range prepare.Rpm {
+        types.SetYListKey(prepare.Rpm[i], i)
         prepare.EntityData.Children.Append(types.GetSegmentPath(prepare.Rpm[i]), types.YChild{"Rpm", prepare.Rpm[i]})
     }
     prepare.EntityData.Children.Append("package", types.YChild{"Package", nil})
     for i := range prepare.Package {
+        types.SetYListKey(prepare.Package[i], i)
         prepare.EntityData.Children.Append(types.GetSegmentPath(prepare.Package[i]), types.YChild{"Package", prepare.Package[i]})
     }
     prepare.EntityData.Leafs = types.NewOrderedMap()
@@ -689,6 +706,7 @@ func (prepare *SoftwareInstall_Prepare) GetEntityData() *types.CommonEntityData 
 type SoftwareInstall_Prepare_Rpm struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // package. The type is string.
     Package interface{}
@@ -699,7 +717,8 @@ func (rpm *SoftwareInstall_Prepare_Rpm) GetEntityData() *types.CommonEntityData 
     rpm.EntityData.YangName = "rpm"
     rpm.EntityData.BundleName = "cisco_ios_xr"
     rpm.EntityData.ParentYangName = "prepare"
-    rpm.EntityData.SegmentPath = "rpm"
+    rpm.EntityData.SegmentPath = "rpm" + types.AddNoKeyToken(rpm)
+    rpm.EntityData.AbsolutePath = "Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/prepare/" + rpm.EntityData.SegmentPath
     rpm.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rpm.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rpm.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -718,6 +737,7 @@ func (rpm *SoftwareInstall_Prepare_Rpm) GetEntityData() *types.CommonEntityData 
 type SoftwareInstall_Prepare_Package struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // package. The type is string.
     Package interface{}
@@ -728,7 +748,8 @@ func (self *SoftwareInstall_Prepare_Package) GetEntityData() *types.CommonEntity
     self.EntityData.YangName = "package"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "prepare"
-    self.EntityData.SegmentPath = "package"
+    self.EntityData.SegmentPath = "package" + types.AddNoKeyToken(self)
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/prepare/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -759,6 +780,7 @@ func (active *SoftwareInstall_Active) GetEntityData() *types.CommonEntityData {
     active.EntityData.BundleName = "cisco_ios_xr"
     active.EntityData.ParentYangName = "software-install"
     active.EntityData.SegmentPath = "active"
+    active.EntityData.AbsolutePath = "Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/" + active.EntityData.SegmentPath
     active.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     active.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     active.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -766,6 +788,7 @@ func (active *SoftwareInstall_Active) GetEntityData() *types.CommonEntityData {
     active.EntityData.Children = types.NewOrderedMap()
     active.EntityData.Children.Append("active-package-info", types.YChild{"ActivePackageInfo", nil})
     for i := range active.ActivePackageInfo {
+        types.SetYListKey(active.ActivePackageInfo[i], i)
         active.EntityData.Children.Append(types.GetSegmentPath(active.ActivePackageInfo[i]), types.YChild{"ActivePackageInfo", active.ActivePackageInfo[i]})
     }
     active.EntityData.Leafs = types.NewOrderedMap()
@@ -780,6 +803,7 @@ func (active *SoftwareInstall_Active) GetEntityData() *types.CommonEntityData {
 type SoftwareInstall_Active_ActivePackageInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // ErrorMessage. The type is string.
     ErrorMessage interface{}
@@ -805,7 +829,8 @@ func (activePackageInfo *SoftwareInstall_Active_ActivePackageInfo) GetEntityData
     activePackageInfo.EntityData.YangName = "active-package-info"
     activePackageInfo.EntityData.BundleName = "cisco_ios_xr"
     activePackageInfo.EntityData.ParentYangName = "active"
-    activePackageInfo.EntityData.SegmentPath = "active-package-info"
+    activePackageInfo.EntityData.SegmentPath = "active-package-info" + types.AddNoKeyToken(activePackageInfo)
+    activePackageInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/active/" + activePackageInfo.EntityData.SegmentPath
     activePackageInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     activePackageInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     activePackageInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -845,6 +870,9 @@ type SoftwareInstall_Version struct {
     // duration since when system is up. The type is string.
     SystemUptime interface{}
 
+    // this tag is deprecated. The type is string.
+    ImgInfo interface{}
+
     // package. The type is slice of SoftwareInstall_Version_Package.
     Package []*SoftwareInstall_Version_Package
 }
@@ -855,6 +883,7 @@ func (version *SoftwareInstall_Version) GetEntityData() *types.CommonEntityData 
     version.EntityData.BundleName = "cisco_ios_xr"
     version.EntityData.ParentYangName = "software-install"
     version.EntityData.SegmentPath = "version"
+    version.EntityData.AbsolutePath = "Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/" + version.EntityData.SegmentPath
     version.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     version.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     version.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -862,6 +891,7 @@ func (version *SoftwareInstall_Version) GetEntityData() *types.CommonEntityData 
     version.EntityData.Children = types.NewOrderedMap()
     version.EntityData.Children.Append("package", types.YChild{"Package", nil})
     for i := range version.Package {
+        types.SetYListKey(version.Package[i], i)
         version.EntityData.Children.Append(types.GetSegmentPath(version.Package[i]), types.YChild{"Package", version.Package[i]})
     }
     version.EntityData.Leafs = types.NewOrderedMap()
@@ -870,6 +900,7 @@ func (version *SoftwareInstall_Version) GetEntityData() *types.CommonEntityData 
     version.EntityData.Leafs.Append("copyright-info", types.YLeaf{"CopyrightInfo", version.CopyrightInfo})
     version.EntityData.Leafs.Append("hardware-info", types.YLeaf{"HardwareInfo", version.HardwareInfo})
     version.EntityData.Leafs.Append("system-uptime", types.YLeaf{"SystemUptime", version.SystemUptime})
+    version.EntityData.Leafs.Append("img-info", types.YLeaf{"ImgInfo", version.ImgInfo})
 
     version.EntityData.YListKeys = []string {}
 
@@ -881,6 +912,7 @@ func (version *SoftwareInstall_Version) GetEntityData() *types.CommonEntityData 
 type SoftwareInstall_Version_Package struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Name. The type is string.
     Name interface{}
@@ -906,7 +938,8 @@ func (self *SoftwareInstall_Version_Package) GetEntityData() *types.CommonEntity
     self.EntityData.YangName = "package"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "version"
-    self.EntityData.SegmentPath = "package"
+    self.EntityData.SegmentPath = "package" + types.AddNoKeyToken(self)
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/version/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -941,6 +974,7 @@ func (inactive *SoftwareInstall_Inactive) GetEntityData() *types.CommonEntityDat
     inactive.EntityData.BundleName = "cisco_ios_xr"
     inactive.EntityData.ParentYangName = "software-install"
     inactive.EntityData.SegmentPath = "inactive"
+    inactive.EntityData.AbsolutePath = "Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/" + inactive.EntityData.SegmentPath
     inactive.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     inactive.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inactive.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -970,6 +1004,7 @@ func (request *SoftwareInstall_Request) GetEntityData() *types.CommonEntityData 
     request.EntityData.BundleName = "cisco_ios_xr"
     request.EntityData.ParentYangName = "software-install"
     request.EntityData.SegmentPath = "request"
+    request.EntityData.AbsolutePath = "Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/" + request.EntityData.SegmentPath
     request.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     request.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     request.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -999,6 +1034,7 @@ func (supersededSummary *SoftwareInstall_SupersededSummary) GetEntityData() *typ
     supersededSummary.EntityData.BundleName = "cisco_ios_xr"
     supersededSummary.EntityData.ParentYangName = "software-install"
     supersededSummary.EntityData.SegmentPath = "superseded-summary"
+    supersededSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/" + supersededSummary.EntityData.SegmentPath
     supersededSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     supersededSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     supersededSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1031,6 +1067,7 @@ func (issu *SoftwareInstall_Issu) GetEntityData() *types.CommonEntityData {
     issu.EntityData.BundleName = "cisco_ios_xr"
     issu.EntityData.ParentYangName = "software-install"
     issu.EntityData.SegmentPath = "issu"
+    issu.EntityData.AbsolutePath = "Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/" + issu.EntityData.SegmentPath
     issu.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     issu.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     issu.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1079,6 +1116,7 @@ func (stage *SoftwareInstall_Issu_Stage) GetEntityData() *types.CommonEntityData
     stage.EntityData.BundleName = "cisco_ios_xr"
     stage.EntityData.ParentYangName = "issu"
     stage.EntityData.SegmentPath = "stage"
+    stage.EntityData.AbsolutePath = "Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/issu/" + stage.EntityData.SegmentPath
     stage.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     stage.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stage.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1113,6 +1151,7 @@ func (inventory *SoftwareInstall_Issu_Inventory) GetEntityData() *types.CommonEn
     inventory.EntityData.BundleName = "cisco_ios_xr"
     inventory.EntityData.ParentYangName = "issu"
     inventory.EntityData.SegmentPath = "inventory"
+    inventory.EntityData.AbsolutePath = "Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/issu/" + inventory.EntityData.SegmentPath
     inventory.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     inventory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inventory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1120,6 +1159,7 @@ func (inventory *SoftwareInstall_Issu_Inventory) GetEntityData() *types.CommonEn
     inventory.EntityData.Children = types.NewOrderedMap()
     inventory.EntityData.Children.Append("invinfo", types.YChild{"Invinfo", nil})
     for i := range inventory.Invinfo {
+        types.SetYListKey(inventory.Invinfo[i], i)
         inventory.EntityData.Children.Append(types.GetSegmentPath(inventory.Invinfo[i]), types.YChild{"Invinfo", inventory.Invinfo[i]})
     }
     inventory.EntityData.Leafs = types.NewOrderedMap()
@@ -1134,6 +1174,7 @@ func (inventory *SoftwareInstall_Issu_Inventory) GetEntityData() *types.CommonEn
 type SoftwareInstall_Issu_Inventory_Invinfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Node ID. The type is interface{} with range: -2147483648..2147483647.
     NodeId interface{}
@@ -1156,7 +1197,8 @@ func (invinfo *SoftwareInstall_Issu_Inventory_Invinfo) GetEntityData() *types.Co
     invinfo.EntityData.YangName = "invinfo"
     invinfo.EntityData.BundleName = "cisco_ios_xr"
     invinfo.EntityData.ParentYangName = "inventory"
-    invinfo.EntityData.SegmentPath = "invinfo"
+    invinfo.EntityData.SegmentPath = "invinfo" + types.AddNoKeyToken(invinfo)
+    invinfo.EntityData.AbsolutePath = "Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/issu/inventory/" + invinfo.EntityData.SegmentPath
     invinfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invinfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invinfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1191,6 +1233,7 @@ func (committed *SoftwareInstall_Committed) GetEntityData() *types.CommonEntityD
     committed.EntityData.BundleName = "cisco_ios_xr"
     committed.EntityData.ParentYangName = "software-install"
     committed.EntityData.SegmentPath = "committed"
+    committed.EntityData.AbsolutePath = "Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/" + committed.EntityData.SegmentPath
     committed.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     committed.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     committed.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1198,6 +1241,7 @@ func (committed *SoftwareInstall_Committed) GetEntityData() *types.CommonEntityD
     committed.EntityData.Children = types.NewOrderedMap()
     committed.EntityData.Children.Append("committed-package-info", types.YChild{"CommittedPackageInfo", nil})
     for i := range committed.CommittedPackageInfo {
+        types.SetYListKey(committed.CommittedPackageInfo[i], i)
         committed.EntityData.Children.Append(types.GetSegmentPath(committed.CommittedPackageInfo[i]), types.YChild{"CommittedPackageInfo", committed.CommittedPackageInfo[i]})
     }
     committed.EntityData.Leafs = types.NewOrderedMap()
@@ -1212,6 +1256,7 @@ func (committed *SoftwareInstall_Committed) GetEntityData() *types.CommonEntityD
 type SoftwareInstall_Committed_CommittedPackageInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // ErrorMessage. The type is string.
     ErrorMessage interface{}
@@ -1238,7 +1283,8 @@ func (committedPackageInfo *SoftwareInstall_Committed_CommittedPackageInfo) GetE
     committedPackageInfo.EntityData.YangName = "committed-package-info"
     committedPackageInfo.EntityData.BundleName = "cisco_ios_xr"
     committedPackageInfo.EntityData.ParentYangName = "committed"
-    committedPackageInfo.EntityData.SegmentPath = "committed-package-info"
+    committedPackageInfo.EntityData.SegmentPath = "committed-package-info" + types.AddNoKeyToken(committedPackageInfo)
+    committedPackageInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/committed/" + committedPackageInfo.EntityData.SegmentPath
     committedPackageInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     committedPackageInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     committedPackageInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1282,6 +1328,7 @@ func (allOperationsLog *SoftwareInstall_AllOperationsLog) GetEntityData() *types
     allOperationsLog.EntityData.BundleName = "cisco_ios_xr"
     allOperationsLog.EntityData.ParentYangName = "software-install"
     allOperationsLog.EntityData.SegmentPath = "all-operations-log"
+    allOperationsLog.EntityData.AbsolutePath = "Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/" + allOperationsLog.EntityData.SegmentPath
     allOperationsLog.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     allOperationsLog.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     allOperationsLog.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1315,6 +1362,7 @@ func (reverseDetail *SoftwareInstall_AllOperationsLog_ReverseDetail) GetEntityDa
     reverseDetail.EntityData.BundleName = "cisco_ios_xr"
     reverseDetail.EntityData.ParentYangName = "all-operations-log"
     reverseDetail.EntityData.SegmentPath = "reverse-detail"
+    reverseDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/all-operations-log/" + reverseDetail.EntityData.SegmentPath
     reverseDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     reverseDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     reverseDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1344,6 +1392,7 @@ func (reverse *SoftwareInstall_AllOperationsLog_Reverse) GetEntityData() *types.
     reverse.EntityData.BundleName = "cisco_ios_xr"
     reverse.EntityData.ParentYangName = "all-operations-log"
     reverse.EntityData.SegmentPath = "reverse"
+    reverse.EntityData.AbsolutePath = "Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/all-operations-log/" + reverse.EntityData.SegmentPath
     reverse.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     reverse.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     reverse.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1373,6 +1422,7 @@ func (summary *SoftwareInstall_AllOperationsLog_Summary) GetEntityData() *types.
     summary.EntityData.BundleName = "cisco_ios_xr"
     summary.EntityData.ParentYangName = "all-operations-log"
     summary.EntityData.SegmentPath = "summary"
+    summary.EntityData.AbsolutePath = "Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/all-operations-log/" + summary.EntityData.SegmentPath
     summary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     summary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     summary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1402,6 +1452,7 @@ func (detail *SoftwareInstall_AllOperationsLog_Detail) GetEntityData() *types.Co
     detail.EntityData.BundleName = "cisco_ios_xr"
     detail.EntityData.ParentYangName = "all-operations-log"
     detail.EntityData.SegmentPath = "detail"
+    detail.EntityData.AbsolutePath = "Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/all-operations-log/" + detail.EntityData.SegmentPath
     detail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     detail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     detail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1432,6 +1483,7 @@ func (packages *SoftwareInstall_Packages) GetEntityData() *types.CommonEntityDat
     packages.EntityData.BundleName = "cisco_ios_xr"
     packages.EntityData.ParentYangName = "software-install"
     packages.EntityData.SegmentPath = "packages"
+    packages.EntityData.AbsolutePath = "Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/" + packages.EntityData.SegmentPath
     packages.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     packages.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     packages.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1453,6 +1505,7 @@ func (packages *SoftwareInstall_Packages) GetEntityData() *types.CommonEntityDat
 type SoftwareInstall_Packages_Package struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Package name. The type is string.
     PackageName interface{}
@@ -1473,6 +1526,7 @@ func (self *SoftwareInstall_Packages_Package) GetEntityData() *types.CommonEntit
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "packages"
     self.EntityData.SegmentPath = "package" + types.AddKeyToken(self.PackageName, "package-name")
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/packages/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1505,6 +1559,7 @@ func (verbose *SoftwareInstall_Packages_Package_Verbose) GetEntityData() *types.
     verbose.EntityData.BundleName = "cisco_ios_xr"
     verbose.EntityData.ParentYangName = "package"
     verbose.EntityData.SegmentPath = "verbose"
+    verbose.EntityData.AbsolutePath = "Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/packages/package/" + verbose.EntityData.SegmentPath
     verbose.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     verbose.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     verbose.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1534,6 +1589,7 @@ func (brief *SoftwareInstall_Packages_Package_Brief) GetEntityData() *types.Comm
     brief.EntityData.BundleName = "cisco_ios_xr"
     brief.EntityData.ParentYangName = "package"
     brief.EntityData.SegmentPath = "brief"
+    brief.EntityData.AbsolutePath = "Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/packages/package/" + brief.EntityData.SegmentPath
     brief.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     brief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     brief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1563,6 +1619,7 @@ func (detail *SoftwareInstall_Packages_Package_Detail) GetEntityData() *types.Co
     detail.EntityData.BundleName = "cisco_ios_xr"
     detail.EntityData.ParentYangName = "package"
     detail.EntityData.SegmentPath = "detail"
+    detail.EntityData.AbsolutePath = "Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/packages/package/" + detail.EntityData.SegmentPath
     detail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     detail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     detail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1593,6 +1650,7 @@ func (operationLogs *SoftwareInstall_OperationLogs) GetEntityData() *types.Commo
     operationLogs.EntityData.BundleName = "cisco_ios_xr"
     operationLogs.EntityData.ParentYangName = "software-install"
     operationLogs.EntityData.SegmentPath = "operation-logs"
+    operationLogs.EntityData.AbsolutePath = "Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/" + operationLogs.EntityData.SegmentPath
     operationLogs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     operationLogs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     operationLogs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1614,6 +1672,7 @@ func (operationLogs *SoftwareInstall_OperationLogs) GetEntityData() *types.Commo
 type SoftwareInstall_OperationLogs_OperationLog struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Log ID number. The type is interface{} with range:
     // 0..4294967295.
@@ -1632,6 +1691,7 @@ func (operationLog *SoftwareInstall_OperationLogs_OperationLog) GetEntityData() 
     operationLog.EntityData.BundleName = "cisco_ios_xr"
     operationLog.EntityData.ParentYangName = "operation-logs"
     operationLog.EntityData.SegmentPath = "operation-log" + types.AddKeyToken(operationLog.LogId, "log-id")
+    operationLog.EntityData.AbsolutePath = "Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/operation-logs/" + operationLog.EntityData.SegmentPath
     operationLog.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     operationLog.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     operationLog.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1664,6 +1724,7 @@ func (summary *SoftwareInstall_OperationLogs_OperationLog_Summary) GetEntityData
     summary.EntityData.BundleName = "cisco_ios_xr"
     summary.EntityData.ParentYangName = "operation-log"
     summary.EntityData.SegmentPath = "summary"
+    summary.EntityData.AbsolutePath = "Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/operation-logs/operation-log/" + summary.EntityData.SegmentPath
     summary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     summary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     summary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1694,6 +1755,7 @@ func (detail *SoftwareInstall_OperationLogs_OperationLog_Detail) GetEntityData()
     detail.EntityData.BundleName = "cisco_ios_xr"
     detail.EntityData.ParentYangName = "operation-log"
     detail.EntityData.SegmentPath = "detail"
+    detail.EntityData.AbsolutePath = "Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/operation-logs/operation-log/" + detail.EntityData.SegmentPath
     detail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     detail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     detail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1727,6 +1789,7 @@ func (repository *SoftwareInstall_Repository) GetEntityData() *types.CommonEntit
     repository.EntityData.BundleName = "cisco_ios_xr"
     repository.EntityData.ParentYangName = "software-install"
     repository.EntityData.SegmentPath = "repository"
+    repository.EntityData.AbsolutePath = "Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/" + repository.EntityData.SegmentPath
     repository.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     repository.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     repository.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1757,6 +1820,7 @@ func (xr *SoftwareInstall_Repository_Xr) GetEntityData() *types.CommonEntityData
     xr.EntityData.BundleName = "cisco_ios_xr"
     xr.EntityData.ParentYangName = "repository"
     xr.EntityData.SegmentPath = "xr"
+    xr.EntityData.AbsolutePath = "Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/repository/" + xr.EntityData.SegmentPath
     xr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     xr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     xr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1787,6 +1851,7 @@ func (all *SoftwareInstall_Repository_All) GetEntityData() *types.CommonEntityDa
     all.EntityData.BundleName = "cisco_ios_xr"
     all.EntityData.ParentYangName = "repository"
     all.EntityData.SegmentPath = "all"
+    all.EntityData.AbsolutePath = "Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/repository/" + all.EntityData.SegmentPath
     all.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     all.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     all.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

@@ -80,6 +80,7 @@ func (tty *Tty) GetEntityData() *types.CommonEntityData {
     tty.EntityData.BundleName = "cisco_ios_xr"
     tty.EntityData.ParentYangName = "Cisco-IOS-XR-tty-server-oper"
     tty.EntityData.SegmentPath = "Cisco-IOS-XR-tty-server-oper:tty"
+    tty.EntityData.AbsolutePath = tty.EntityData.SegmentPath
     tty.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tty.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tty.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -112,6 +113,7 @@ func (consoleNodes *Tty_ConsoleNodes) GetEntityData() *types.CommonEntityData {
     consoleNodes.EntityData.BundleName = "cisco_ios_xr"
     consoleNodes.EntityData.ParentYangName = "tty"
     consoleNodes.EntityData.SegmentPath = "console-nodes"
+    consoleNodes.EntityData.AbsolutePath = "Cisco-IOS-XR-tty-server-oper:tty/" + consoleNodes.EntityData.SegmentPath
     consoleNodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     consoleNodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     consoleNodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -133,6 +135,7 @@ func (consoleNodes *Tty_ConsoleNodes) GetEntityData() *types.CommonEntityData {
 type Tty_ConsoleNodes_ConsoleNode struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Node ID. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -148,6 +151,7 @@ func (consoleNode *Tty_ConsoleNodes_ConsoleNode) GetEntityData() *types.CommonEn
     consoleNode.EntityData.BundleName = "cisco_ios_xr"
     consoleNode.EntityData.ParentYangName = "console-nodes"
     consoleNode.EntityData.SegmentPath = "console-node" + types.AddKeyToken(consoleNode.Id, "id")
+    consoleNode.EntityData.AbsolutePath = "Cisco-IOS-XR-tty-server-oper:tty/console-nodes/" + consoleNode.EntityData.SegmentPath
     consoleNode.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     consoleNode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     consoleNode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -184,6 +188,7 @@ func (consoleLine *Tty_ConsoleNodes_ConsoleNode_ConsoleLine) GetEntityData() *ty
     consoleLine.EntityData.BundleName = "cisco_ios_xr"
     consoleLine.EntityData.ParentYangName = "console-node"
     consoleLine.EntityData.SegmentPath = "console-line"
+    consoleLine.EntityData.AbsolutePath = "Cisco-IOS-XR-tty-server-oper:tty/console-nodes/console-node/" + consoleLine.EntityData.SegmentPath
     consoleLine.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     consoleLine.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     consoleLine.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -224,6 +229,7 @@ func (consoleStatistics *Tty_ConsoleNodes_ConsoleNode_ConsoleLine_ConsoleStatist
     consoleStatistics.EntityData.BundleName = "cisco_ios_xr"
     consoleStatistics.EntityData.ParentYangName = "console-line"
     consoleStatistics.EntityData.SegmentPath = "console-statistics"
+    consoleStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-tty-server-oper:tty/console-nodes/console-node/console-line/" + consoleStatistics.EntityData.SegmentPath
     consoleStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     consoleStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     consoleStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -284,6 +290,7 @@ func (rs232 *Tty_ConsoleNodes_ConsoleNode_ConsoleLine_ConsoleStatistics_Rs232) G
     rs232.EntityData.BundleName = "cisco_ios_xr"
     rs232.EntityData.ParentYangName = "console-statistics"
     rs232.EntityData.SegmentPath = "rs232"
+    rs232.EntityData.AbsolutePath = "Cisco-IOS-XR-tty-server-oper:tty/console-nodes/console-node/console-line/console-statistics/" + rs232.EntityData.SegmentPath
     rs232.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rs232.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rs232.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -353,6 +360,7 @@ func (generalStatistics *Tty_ConsoleNodes_ConsoleNode_ConsoleLine_ConsoleStatist
     generalStatistics.EntityData.BundleName = "cisco_ios_xr"
     generalStatistics.EntityData.ParentYangName = "console-statistics"
     generalStatistics.EntityData.SegmentPath = "general-statistics"
+    generalStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-tty-server-oper:tty/console-nodes/console-node/console-line/console-statistics/" + generalStatistics.EntityData.SegmentPath
     generalStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     generalStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     generalStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -392,6 +400,7 @@ func (exec *Tty_ConsoleNodes_ConsoleNode_ConsoleLine_ConsoleStatistics_Exec) Get
     exec.EntityData.BundleName = "cisco_ios_xr"
     exec.EntityData.ParentYangName = "console-statistics"
     exec.EntityData.SegmentPath = "exec"
+    exec.EntityData.AbsolutePath = "Cisco-IOS-XR-tty-server-oper:tty/console-nodes/console-node/console-line/console-statistics/" + exec.EntityData.SegmentPath
     exec.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     exec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     exec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -421,6 +430,7 @@ func (aaa *Tty_ConsoleNodes_ConsoleNode_ConsoleLine_ConsoleStatistics_Aaa) GetEn
     aaa.EntityData.BundleName = "cisco_ios_xr"
     aaa.EntityData.ParentYangName = "console-statistics"
     aaa.EntityData.SegmentPath = "aaa"
+    aaa.EntityData.AbsolutePath = "Cisco-IOS-XR-tty-server-oper:tty/console-nodes/console-node/console-line/console-statistics/" + aaa.EntityData.SegmentPath
     aaa.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     aaa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     aaa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -453,6 +463,7 @@ func (state *Tty_ConsoleNodes_ConsoleNode_ConsoleLine_State) GetEntityData() *ty
     state.EntityData.BundleName = "cisco_ios_xr"
     state.EntityData.ParentYangName = "console-line"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "Cisco-IOS-XR-tty-server-oper:tty/console-nodes/console-node/console-line/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     state.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -484,6 +495,7 @@ func (template *Tty_ConsoleNodes_ConsoleNode_ConsoleLine_State_Template) GetEnti
     template.EntityData.BundleName = "cisco_ios_xr"
     template.EntityData.ParentYangName = "state"
     template.EntityData.SegmentPath = "template"
+    template.EntityData.AbsolutePath = "Cisco-IOS-XR-tty-server-oper:tty/console-nodes/console-node/console-line/state/" + template.EntityData.SegmentPath
     template.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     template.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     template.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -516,6 +528,7 @@ func (general *Tty_ConsoleNodes_ConsoleNode_ConsoleLine_State_General) GetEntity
     general.EntityData.BundleName = "cisco_ios_xr"
     general.EntityData.ParentYangName = "state"
     general.EntityData.SegmentPath = "general"
+    general.EntityData.AbsolutePath = "Cisco-IOS-XR-tty-server-oper:tty/console-nodes/console-node/console-line/state/" + general.EntityData.SegmentPath
     general.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     general.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     general.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -546,6 +559,7 @@ func (configuration *Tty_ConsoleNodes_ConsoleNode_ConsoleLine_Configuration) Get
     configuration.EntityData.BundleName = "cisco_ios_xr"
     configuration.EntityData.ParentYangName = "console-line"
     configuration.EntityData.SegmentPath = "configuration"
+    configuration.EntityData.AbsolutePath = "Cisco-IOS-XR-tty-server-oper:tty/console-nodes/console-node/console-line/" + configuration.EntityData.SegmentPath
     configuration.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configuration.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configuration.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -581,6 +595,7 @@ func (connectionConfiguration *Tty_ConsoleNodes_ConsoleNode_ConsoleLine_Configur
     connectionConfiguration.EntityData.BundleName = "cisco_ios_xr"
     connectionConfiguration.EntityData.ParentYangName = "configuration"
     connectionConfiguration.EntityData.SegmentPath = "connection-configuration"
+    connectionConfiguration.EntityData.AbsolutePath = "Cisco-IOS-XR-tty-server-oper:tty/console-nodes/console-node/console-line/configuration/" + connectionConfiguration.EntityData.SegmentPath
     connectionConfiguration.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     connectionConfiguration.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     connectionConfiguration.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -623,6 +638,7 @@ func (transportInput *Tty_ConsoleNodes_ConsoleNode_ConsoleLine_Configuration_Con
     transportInput.EntityData.BundleName = "cisco_ios_xr"
     transportInput.EntityData.ParentYangName = "connection-configuration"
     transportInput.EntityData.SegmentPath = "transport-input"
+    transportInput.EntityData.AbsolutePath = "Cisco-IOS-XR-tty-server-oper:tty/console-nodes/console-node/console-line/configuration/connection-configuration/" + transportInput.EntityData.SegmentPath
     transportInput.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     transportInput.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transportInput.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -655,6 +671,7 @@ func (vtyLines *Tty_VtyLines) GetEntityData() *types.CommonEntityData {
     vtyLines.EntityData.BundleName = "cisco_ios_xr"
     vtyLines.EntityData.ParentYangName = "tty"
     vtyLines.EntityData.SegmentPath = "vty-lines"
+    vtyLines.EntityData.AbsolutePath = "Cisco-IOS-XR-tty-server-oper:tty/" + vtyLines.EntityData.SegmentPath
     vtyLines.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vtyLines.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vtyLines.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -676,6 +693,7 @@ func (vtyLines *Tty_VtyLines) GetEntityData() *types.CommonEntityData {
 type Tty_VtyLines_VtyLine struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. VTY Line number. The type is interface{} with
     // range: 0..4294967295.
@@ -700,6 +718,7 @@ func (vtyLine *Tty_VtyLines_VtyLine) GetEntityData() *types.CommonEntityData {
     vtyLine.EntityData.BundleName = "cisco_ios_xr"
     vtyLine.EntityData.ParentYangName = "vty-lines"
     vtyLine.EntityData.SegmentPath = "vty-line" + types.AddKeyToken(vtyLine.LineNumber, "line-number")
+    vtyLine.EntityData.AbsolutePath = "Cisco-IOS-XR-tty-server-oper:tty/vty-lines/" + vtyLine.EntityData.SegmentPath
     vtyLine.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vtyLine.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vtyLine.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -742,6 +761,7 @@ func (vtyStatistics *Tty_VtyLines_VtyLine_VtyStatistics) GetEntityData() *types.
     vtyStatistics.EntityData.BundleName = "cisco_ios_xr"
     vtyStatistics.EntityData.ParentYangName = "vty-line"
     vtyStatistics.EntityData.SegmentPath = "vty-statistics"
+    vtyStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-tty-server-oper:tty/vty-lines/vty-line/" + vtyStatistics.EntityData.SegmentPath
     vtyStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vtyStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vtyStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -781,6 +801,7 @@ func (connection *Tty_VtyLines_VtyLine_VtyStatistics_Connection) GetEntityData()
     connection.EntityData.BundleName = "cisco_ios_xr"
     connection.EntityData.ParentYangName = "vty-statistics"
     connection.EntityData.SegmentPath = "connection"
+    connection.EntityData.AbsolutePath = "Cisco-IOS-XR-tty-server-oper:tty/vty-lines/vty-line/vty-statistics/" + connection.EntityData.SegmentPath
     connection.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     connection.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     connection.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -844,6 +865,7 @@ func (generalStatistics *Tty_VtyLines_VtyLine_VtyStatistics_GeneralStatistics) G
     generalStatistics.EntityData.BundleName = "cisco_ios_xr"
     generalStatistics.EntityData.ParentYangName = "vty-statistics"
     generalStatistics.EntityData.SegmentPath = "general-statistics"
+    generalStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-tty-server-oper:tty/vty-lines/vty-line/vty-statistics/" + generalStatistics.EntityData.SegmentPath
     generalStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     generalStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     generalStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -883,6 +905,7 @@ func (exec *Tty_VtyLines_VtyLine_VtyStatistics_Exec) GetEntityData() *types.Comm
     exec.EntityData.BundleName = "cisco_ios_xr"
     exec.EntityData.ParentYangName = "vty-statistics"
     exec.EntityData.SegmentPath = "exec"
+    exec.EntityData.AbsolutePath = "Cisco-IOS-XR-tty-server-oper:tty/vty-lines/vty-line/vty-statistics/" + exec.EntityData.SegmentPath
     exec.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     exec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     exec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -912,6 +935,7 @@ func (aaa *Tty_VtyLines_VtyLine_VtyStatistics_Aaa) GetEntityData() *types.Common
     aaa.EntityData.BundleName = "cisco_ios_xr"
     aaa.EntityData.ParentYangName = "vty-statistics"
     aaa.EntityData.SegmentPath = "aaa"
+    aaa.EntityData.AbsolutePath = "Cisco-IOS-XR-tty-server-oper:tty/vty-lines/vty-line/vty-statistics/" + aaa.EntityData.SegmentPath
     aaa.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     aaa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     aaa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -944,6 +968,7 @@ func (state *Tty_VtyLines_VtyLine_State) GetEntityData() *types.CommonEntityData
     state.EntityData.BundleName = "cisco_ios_xr"
     state.EntityData.ParentYangName = "vty-line"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "Cisco-IOS-XR-tty-server-oper:tty/vty-lines/vty-line/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     state.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -975,6 +1000,7 @@ func (template *Tty_VtyLines_VtyLine_State_Template) GetEntityData() *types.Comm
     template.EntityData.BundleName = "cisco_ios_xr"
     template.EntityData.ParentYangName = "state"
     template.EntityData.SegmentPath = "template"
+    template.EntityData.AbsolutePath = "Cisco-IOS-XR-tty-server-oper:tty/vty-lines/vty-line/state/" + template.EntityData.SegmentPath
     template.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     template.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     template.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1007,6 +1033,7 @@ func (general *Tty_VtyLines_VtyLine_State_General) GetEntityData() *types.Common
     general.EntityData.BundleName = "cisco_ios_xr"
     general.EntityData.ParentYangName = "state"
     general.EntityData.SegmentPath = "general"
+    general.EntityData.AbsolutePath = "Cisco-IOS-XR-tty-server-oper:tty/vty-lines/vty-line/state/" + general.EntityData.SegmentPath
     general.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     general.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     general.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1037,6 +1064,7 @@ func (configuration *Tty_VtyLines_VtyLine_Configuration) GetEntityData() *types.
     configuration.EntityData.BundleName = "cisco_ios_xr"
     configuration.EntityData.ParentYangName = "vty-line"
     configuration.EntityData.SegmentPath = "configuration"
+    configuration.EntityData.AbsolutePath = "Cisco-IOS-XR-tty-server-oper:tty/vty-lines/vty-line/" + configuration.EntityData.SegmentPath
     configuration.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configuration.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configuration.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1072,6 +1100,7 @@ func (connectionConfiguration *Tty_VtyLines_VtyLine_Configuration_ConnectionConf
     connectionConfiguration.EntityData.BundleName = "cisco_ios_xr"
     connectionConfiguration.EntityData.ParentYangName = "configuration"
     connectionConfiguration.EntityData.SegmentPath = "connection-configuration"
+    connectionConfiguration.EntityData.AbsolutePath = "Cisco-IOS-XR-tty-server-oper:tty/vty-lines/vty-line/configuration/" + connectionConfiguration.EntityData.SegmentPath
     connectionConfiguration.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     connectionConfiguration.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     connectionConfiguration.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1114,6 +1143,7 @@ func (transportInput *Tty_VtyLines_VtyLine_Configuration_ConnectionConfiguration
     transportInput.EntityData.BundleName = "cisco_ios_xr"
     transportInput.EntityData.ParentYangName = "connection-configuration"
     transportInput.EntityData.SegmentPath = "transport-input"
+    transportInput.EntityData.AbsolutePath = "Cisco-IOS-XR-tty-server-oper:tty/vty-lines/vty-line/configuration/connection-configuration/" + transportInput.EntityData.SegmentPath
     transportInput.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     transportInput.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transportInput.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1147,6 +1177,7 @@ func (sessions *Tty_VtyLines_VtyLine_Sessions) GetEntityData() *types.CommonEnti
     sessions.EntityData.BundleName = "cisco_ios_xr"
     sessions.EntityData.ParentYangName = "vty-line"
     sessions.EntityData.SegmentPath = "Cisco-IOS-XR-tty-management-oper:sessions"
+    sessions.EntityData.AbsolutePath = "Cisco-IOS-XR-tty-server-oper:tty/vty-lines/vty-line/" + sessions.EntityData.SegmentPath
     sessions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sessions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1154,6 +1185,7 @@ func (sessions *Tty_VtyLines_VtyLine_Sessions) GetEntityData() *types.CommonEnti
     sessions.EntityData.Children = types.NewOrderedMap()
     sessions.EntityData.Children.Append("outgoing-connection", types.YChild{"OutgoingConnection", nil})
     for i := range sessions.OutgoingConnection {
+        types.SetYListKey(sessions.OutgoingConnection[i], i)
         sessions.EntityData.Children.Append(types.GetSegmentPath(sessions.OutgoingConnection[i]), types.YChild{"OutgoingConnection", sessions.OutgoingConnection[i]})
     }
     sessions.EntityData.Leafs = types.NewOrderedMap()
@@ -1168,6 +1200,7 @@ func (sessions *Tty_VtyLines_VtyLine_Sessions) GetEntityData() *types.CommonEnti
 type Tty_VtyLines_VtyLine_Sessions_OutgoingConnection struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Connection ID [1-20]. The type is interface{} with range: 0..255.
     ConnectionId interface{}
@@ -1194,7 +1227,8 @@ func (outgoingConnection *Tty_VtyLines_VtyLine_Sessions_OutgoingConnection) GetE
     outgoingConnection.EntityData.YangName = "outgoing-connection"
     outgoingConnection.EntityData.BundleName = "cisco_ios_xr"
     outgoingConnection.EntityData.ParentYangName = "sessions"
-    outgoingConnection.EntityData.SegmentPath = "outgoing-connection"
+    outgoingConnection.EntityData.SegmentPath = "outgoing-connection" + types.AddNoKeyToken(outgoingConnection)
+    outgoingConnection.EntityData.AbsolutePath = "Cisco-IOS-XR-tty-server-oper:tty/vty-lines/vty-line/Cisco-IOS-XR-tty-management-oper:sessions/" + outgoingConnection.EntityData.SegmentPath
     outgoingConnection.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     outgoingConnection.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outgoingConnection.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1237,6 +1271,7 @@ func (hostAddress *Tty_VtyLines_VtyLine_Sessions_OutgoingConnection_HostAddress)
     hostAddress.EntityData.BundleName = "cisco_ios_xr"
     hostAddress.EntityData.ParentYangName = "outgoing-connection"
     hostAddress.EntityData.SegmentPath = "host-address"
+    hostAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-tty-server-oper:tty/vty-lines/vty-line/Cisco-IOS-XR-tty-management-oper:sessions/outgoing-connection/" + hostAddress.EntityData.SegmentPath
     hostAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hostAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hostAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1269,6 +1304,7 @@ func (auxiliaryNodes *Tty_AuxiliaryNodes) GetEntityData() *types.CommonEntityDat
     auxiliaryNodes.EntityData.BundleName = "cisco_ios_xr"
     auxiliaryNodes.EntityData.ParentYangName = "tty"
     auxiliaryNodes.EntityData.SegmentPath = "auxiliary-nodes"
+    auxiliaryNodes.EntityData.AbsolutePath = "Cisco-IOS-XR-tty-server-oper:tty/" + auxiliaryNodes.EntityData.SegmentPath
     auxiliaryNodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     auxiliaryNodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     auxiliaryNodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1290,6 +1326,7 @@ func (auxiliaryNodes *Tty_AuxiliaryNodes) GetEntityData() *types.CommonEntityDat
 type Tty_AuxiliaryNodes_AuxiliaryNode struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Node ID. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -1305,6 +1342,7 @@ func (auxiliaryNode *Tty_AuxiliaryNodes_AuxiliaryNode) GetEntityData() *types.Co
     auxiliaryNode.EntityData.BundleName = "cisco_ios_xr"
     auxiliaryNode.EntityData.ParentYangName = "auxiliary-nodes"
     auxiliaryNode.EntityData.SegmentPath = "auxiliary-node" + types.AddKeyToken(auxiliaryNode.Id, "id")
+    auxiliaryNode.EntityData.AbsolutePath = "Cisco-IOS-XR-tty-server-oper:tty/auxiliary-nodes/" + auxiliaryNode.EntityData.SegmentPath
     auxiliaryNode.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     auxiliaryNode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     auxiliaryNode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1341,6 +1379,7 @@ func (auxiliaryLine *Tty_AuxiliaryNodes_AuxiliaryNode_AuxiliaryLine) GetEntityDa
     auxiliaryLine.EntityData.BundleName = "cisco_ios_xr"
     auxiliaryLine.EntityData.ParentYangName = "auxiliary-node"
     auxiliaryLine.EntityData.SegmentPath = "auxiliary-line"
+    auxiliaryLine.EntityData.AbsolutePath = "Cisco-IOS-XR-tty-server-oper:tty/auxiliary-nodes/auxiliary-node/" + auxiliaryLine.EntityData.SegmentPath
     auxiliaryLine.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     auxiliaryLine.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     auxiliaryLine.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1381,6 +1420,7 @@ func (auxiliaryStatistics *Tty_AuxiliaryNodes_AuxiliaryNode_AuxiliaryLine_Auxili
     auxiliaryStatistics.EntityData.BundleName = "cisco_ios_xr"
     auxiliaryStatistics.EntityData.ParentYangName = "auxiliary-line"
     auxiliaryStatistics.EntityData.SegmentPath = "auxiliary-statistics"
+    auxiliaryStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-tty-server-oper:tty/auxiliary-nodes/auxiliary-node/auxiliary-line/" + auxiliaryStatistics.EntityData.SegmentPath
     auxiliaryStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     auxiliaryStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     auxiliaryStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1441,6 +1481,7 @@ func (rs232 *Tty_AuxiliaryNodes_AuxiliaryNode_AuxiliaryLine_AuxiliaryStatistics_
     rs232.EntityData.BundleName = "cisco_ios_xr"
     rs232.EntityData.ParentYangName = "auxiliary-statistics"
     rs232.EntityData.SegmentPath = "rs232"
+    rs232.EntityData.AbsolutePath = "Cisco-IOS-XR-tty-server-oper:tty/auxiliary-nodes/auxiliary-node/auxiliary-line/auxiliary-statistics/" + rs232.EntityData.SegmentPath
     rs232.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rs232.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rs232.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1510,6 +1551,7 @@ func (generalStatistics *Tty_AuxiliaryNodes_AuxiliaryNode_AuxiliaryLine_Auxiliar
     generalStatistics.EntityData.BundleName = "cisco_ios_xr"
     generalStatistics.EntityData.ParentYangName = "auxiliary-statistics"
     generalStatistics.EntityData.SegmentPath = "general-statistics"
+    generalStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-tty-server-oper:tty/auxiliary-nodes/auxiliary-node/auxiliary-line/auxiliary-statistics/" + generalStatistics.EntityData.SegmentPath
     generalStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     generalStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     generalStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1549,6 +1591,7 @@ func (exec *Tty_AuxiliaryNodes_AuxiliaryNode_AuxiliaryLine_AuxiliaryStatistics_E
     exec.EntityData.BundleName = "cisco_ios_xr"
     exec.EntityData.ParentYangName = "auxiliary-statistics"
     exec.EntityData.SegmentPath = "exec"
+    exec.EntityData.AbsolutePath = "Cisco-IOS-XR-tty-server-oper:tty/auxiliary-nodes/auxiliary-node/auxiliary-line/auxiliary-statistics/" + exec.EntityData.SegmentPath
     exec.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     exec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     exec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1578,6 +1621,7 @@ func (aaa *Tty_AuxiliaryNodes_AuxiliaryNode_AuxiliaryLine_AuxiliaryStatistics_Aa
     aaa.EntityData.BundleName = "cisco_ios_xr"
     aaa.EntityData.ParentYangName = "auxiliary-statistics"
     aaa.EntityData.SegmentPath = "aaa"
+    aaa.EntityData.AbsolutePath = "Cisco-IOS-XR-tty-server-oper:tty/auxiliary-nodes/auxiliary-node/auxiliary-line/auxiliary-statistics/" + aaa.EntityData.SegmentPath
     aaa.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     aaa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     aaa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1610,6 +1654,7 @@ func (state *Tty_AuxiliaryNodes_AuxiliaryNode_AuxiliaryLine_State) GetEntityData
     state.EntityData.BundleName = "cisco_ios_xr"
     state.EntityData.ParentYangName = "auxiliary-line"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "Cisco-IOS-XR-tty-server-oper:tty/auxiliary-nodes/auxiliary-node/auxiliary-line/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     state.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1641,6 +1686,7 @@ func (template *Tty_AuxiliaryNodes_AuxiliaryNode_AuxiliaryLine_State_Template) G
     template.EntityData.BundleName = "cisco_ios_xr"
     template.EntityData.ParentYangName = "state"
     template.EntityData.SegmentPath = "template"
+    template.EntityData.AbsolutePath = "Cisco-IOS-XR-tty-server-oper:tty/auxiliary-nodes/auxiliary-node/auxiliary-line/state/" + template.EntityData.SegmentPath
     template.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     template.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     template.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1673,6 +1719,7 @@ func (general *Tty_AuxiliaryNodes_AuxiliaryNode_AuxiliaryLine_State_General) Get
     general.EntityData.BundleName = "cisco_ios_xr"
     general.EntityData.ParentYangName = "state"
     general.EntityData.SegmentPath = "general"
+    general.EntityData.AbsolutePath = "Cisco-IOS-XR-tty-server-oper:tty/auxiliary-nodes/auxiliary-node/auxiliary-line/state/" + general.EntityData.SegmentPath
     general.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     general.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     general.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1703,6 +1750,7 @@ func (configuration *Tty_AuxiliaryNodes_AuxiliaryNode_AuxiliaryLine_Configuratio
     configuration.EntityData.BundleName = "cisco_ios_xr"
     configuration.EntityData.ParentYangName = "auxiliary-line"
     configuration.EntityData.SegmentPath = "configuration"
+    configuration.EntityData.AbsolutePath = "Cisco-IOS-XR-tty-server-oper:tty/auxiliary-nodes/auxiliary-node/auxiliary-line/" + configuration.EntityData.SegmentPath
     configuration.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configuration.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configuration.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1738,6 +1786,7 @@ func (connectionConfiguration *Tty_AuxiliaryNodes_AuxiliaryNode_AuxiliaryLine_Co
     connectionConfiguration.EntityData.BundleName = "cisco_ios_xr"
     connectionConfiguration.EntityData.ParentYangName = "configuration"
     connectionConfiguration.EntityData.SegmentPath = "connection-configuration"
+    connectionConfiguration.EntityData.AbsolutePath = "Cisco-IOS-XR-tty-server-oper:tty/auxiliary-nodes/auxiliary-node/auxiliary-line/configuration/" + connectionConfiguration.EntityData.SegmentPath
     connectionConfiguration.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     connectionConfiguration.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     connectionConfiguration.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1780,6 +1829,7 @@ func (transportInput *Tty_AuxiliaryNodes_AuxiliaryNode_AuxiliaryLine_Configurati
     transportInput.EntityData.BundleName = "cisco_ios_xr"
     transportInput.EntityData.ParentYangName = "connection-configuration"
     transportInput.EntityData.SegmentPath = "transport-input"
+    transportInput.EntityData.AbsolutePath = "Cisco-IOS-XR-tty-server-oper:tty/auxiliary-nodes/auxiliary-node/auxiliary-line/configuration/connection-configuration/" + transportInput.EntityData.SegmentPath
     transportInput.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     transportInput.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transportInput.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

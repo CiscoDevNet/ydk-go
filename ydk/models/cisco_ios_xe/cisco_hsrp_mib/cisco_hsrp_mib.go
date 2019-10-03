@@ -83,6 +83,7 @@ func (cISCOHSRPMIB *CISCOHSRPMIB) GetEntityData() *types.CommonEntityData {
     cISCOHSRPMIB.EntityData.BundleName = "cisco_ios_xe"
     cISCOHSRPMIB.EntityData.ParentYangName = "CISCO-HSRP-MIB"
     cISCOHSRPMIB.EntityData.SegmentPath = "CISCO-HSRP-MIB:CISCO-HSRP-MIB"
+    cISCOHSRPMIB.EntityData.AbsolutePath = cISCOHSRPMIB.EntityData.SegmentPath
     cISCOHSRPMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cISCOHSRPMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOHSRPMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -114,6 +115,7 @@ func (cHsrpGlobalConfig *CISCOHSRPMIB_CHsrpGlobalConfig) GetEntityData() *types.
     cHsrpGlobalConfig.EntityData.BundleName = "cisco_ios_xe"
     cHsrpGlobalConfig.EntityData.ParentYangName = "CISCO-HSRP-MIB"
     cHsrpGlobalConfig.EntityData.SegmentPath = "cHsrpGlobalConfig"
+    cHsrpGlobalConfig.EntityData.AbsolutePath = "CISCO-HSRP-MIB:CISCO-HSRP-MIB/" + cHsrpGlobalConfig.EntityData.SegmentPath
     cHsrpGlobalConfig.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cHsrpGlobalConfig.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cHsrpGlobalConfig.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -163,6 +165,7 @@ func (cHsrpGrpTable *CISCOHSRPMIB_CHsrpGrpTable) GetEntityData() *types.CommonEn
     cHsrpGrpTable.EntityData.BundleName = "cisco_ios_xe"
     cHsrpGrpTable.EntityData.ParentYangName = "CISCO-HSRP-MIB"
     cHsrpGrpTable.EntityData.SegmentPath = "cHsrpGrpTable"
+    cHsrpGrpTable.EntityData.AbsolutePath = "CISCO-HSRP-MIB:CISCO-HSRP-MIB/" + cHsrpGrpTable.EntityData.SegmentPath
     cHsrpGrpTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cHsrpGrpTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cHsrpGrpTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -217,6 +220,7 @@ func (cHsrpGrpTable *CISCOHSRPMIB_CHsrpGrpTable) GetEntityData() *types.CommonEn
 type CISCOHSRPMIB_CHsrpGrpTable_CHsrpGrpEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -368,6 +372,7 @@ func (cHsrpGrpEntry *CISCOHSRPMIB_CHsrpGrpTable_CHsrpGrpEntry) GetEntityData() *
     cHsrpGrpEntry.EntityData.BundleName = "cisco_ios_xe"
     cHsrpGrpEntry.EntityData.ParentYangName = "cHsrpGrpTable"
     cHsrpGrpEntry.EntityData.SegmentPath = "cHsrpGrpEntry" + types.AddKeyToken(cHsrpGrpEntry.IfIndex, "ifIndex") + types.AddKeyToken(cHsrpGrpEntry.CHsrpGrpNumber, "cHsrpGrpNumber")
+    cHsrpGrpEntry.EntityData.AbsolutePath = "CISCO-HSRP-MIB:CISCO-HSRP-MIB/cHsrpGrpTable/" + cHsrpGrpEntry.EntityData.SegmentPath
     cHsrpGrpEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cHsrpGrpEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cHsrpGrpEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

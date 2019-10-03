@@ -159,6 +159,7 @@ func (cISCOVPDNMGMTMIB *CISCOVPDNMGMTMIB) GetEntityData() *types.CommonEntityDat
     cISCOVPDNMGMTMIB.EntityData.BundleName = "cisco_ios_xe"
     cISCOVPDNMGMTMIB.EntityData.ParentYangName = "CISCO-VPDN-MGMT-MIB"
     cISCOVPDNMGMTMIB.EntityData.SegmentPath = "CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB"
+    cISCOVPDNMGMTMIB.EntityData.AbsolutePath = cISCOVPDNMGMTMIB.EntityData.SegmentPath
     cISCOVPDNMGMTMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cISCOVPDNMGMTMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOVPDNMGMTMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -207,6 +208,7 @@ func (ciscoVpdnMgmtMIBNotifs *CISCOVPDNMGMTMIB_CiscoVpdnMgmtMIBNotifs) GetEntity
     ciscoVpdnMgmtMIBNotifs.EntityData.BundleName = "cisco_ios_xe"
     ciscoVpdnMgmtMIBNotifs.EntityData.ParentYangName = "CISCO-VPDN-MGMT-MIB"
     ciscoVpdnMgmtMIBNotifs.EntityData.SegmentPath = "ciscoVpdnMgmtMIBNotifs"
+    ciscoVpdnMgmtMIBNotifs.EntityData.AbsolutePath = "CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB/" + ciscoVpdnMgmtMIBNotifs.EntityData.SegmentPath
     ciscoVpdnMgmtMIBNotifs.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ciscoVpdnMgmtMIBNotifs.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ciscoVpdnMgmtMIBNotifs.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -272,6 +274,7 @@ func (cvpdnSystemInfo *CISCOVPDNMGMTMIB_CvpdnSystemInfo) GetEntityData() *types.
     cvpdnSystemInfo.EntityData.BundleName = "cisco_ios_xe"
     cvpdnSystemInfo.EntityData.ParentYangName = "CISCO-VPDN-MGMT-MIB"
     cvpdnSystemInfo.EntityData.SegmentPath = "cvpdnSystemInfo"
+    cvpdnSystemInfo.EntityData.AbsolutePath = "CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB/" + cvpdnSystemInfo.EntityData.SegmentPath
     cvpdnSystemInfo.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cvpdnSystemInfo.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cvpdnSystemInfo.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -332,6 +335,7 @@ func (cvpdnMultilinkInfo *CISCOVPDNMGMTMIB_CvpdnMultilinkInfo) GetEntityData() *
     cvpdnMultilinkInfo.EntityData.BundleName = "cisco_ios_xe"
     cvpdnMultilinkInfo.EntityData.ParentYangName = "CISCO-VPDN-MGMT-MIB"
     cvpdnMultilinkInfo.EntityData.SegmentPath = "cvpdnMultilinkInfo"
+    cvpdnMultilinkInfo.EntityData.AbsolutePath = "CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB/" + cvpdnMultilinkInfo.EntityData.SegmentPath
     cvpdnMultilinkInfo.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cvpdnMultilinkInfo.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cvpdnMultilinkInfo.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -367,6 +371,7 @@ func (cvpdnSystemTable *CISCOVPDNMGMTMIB_CvpdnSystemTable) GetEntityData() *type
     cvpdnSystemTable.EntityData.BundleName = "cisco_ios_xe"
     cvpdnSystemTable.EntityData.ParentYangName = "CISCO-VPDN-MGMT-MIB"
     cvpdnSystemTable.EntityData.SegmentPath = "cvpdnSystemTable"
+    cvpdnSystemTable.EntityData.AbsolutePath = "CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB/" + cvpdnSystemTable.EntityData.SegmentPath
     cvpdnSystemTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cvpdnSystemTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cvpdnSystemTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -389,6 +394,7 @@ func (cvpdnSystemTable *CISCOVPDNMGMTMIB_CvpdnSystemTable) GetEntityData() *type
 type CISCOVPDNMGMTMIB_CvpdnSystemTable_CvpdnSystemEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The tunnel type.  This is the tunnel protocol. The
     // type is TunnelType.
@@ -430,6 +436,7 @@ func (cvpdnSystemEntry *CISCOVPDNMGMTMIB_CvpdnSystemTable_CvpdnSystemEntry) GetE
     cvpdnSystemEntry.EntityData.BundleName = "cisco_ios_xe"
     cvpdnSystemEntry.EntityData.ParentYangName = "cvpdnSystemTable"
     cvpdnSystemEntry.EntityData.SegmentPath = "cvpdnSystemEntry" + types.AddKeyToken(cvpdnSystemEntry.CvpdnSystemTunnelType, "cvpdnSystemTunnelType")
+    cvpdnSystemEntry.EntityData.AbsolutePath = "CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB/cvpdnSystemTable/" + cvpdnSystemEntry.EntityData.SegmentPath
     cvpdnSystemEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cvpdnSystemEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cvpdnSystemEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -467,6 +474,7 @@ func (cvpdnTunnelTable *CISCOVPDNMGMTMIB_CvpdnTunnelTable) GetEntityData() *type
     cvpdnTunnelTable.EntityData.BundleName = "cisco_ios_xe"
     cvpdnTunnelTable.EntityData.ParentYangName = "CISCO-VPDN-MGMT-MIB"
     cvpdnTunnelTable.EntityData.SegmentPath = "cvpdnTunnelTable"
+    cvpdnTunnelTable.EntityData.AbsolutePath = "CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB/" + cvpdnTunnelTable.EntityData.SegmentPath
     cvpdnTunnelTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cvpdnTunnelTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cvpdnTunnelTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -489,6 +497,7 @@ func (cvpdnTunnelTable *CISCOVPDNMGMTMIB_CvpdnTunnelTable) GetEntityData() *type
 type CISCOVPDNMGMTMIB_CvpdnTunnelTable_CvpdnTunnelEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The Tunnel ID of an active VPDN tunnel.  If it is
     // the instigator of the tunnel, the ID is the HGW/LNS tunnel ID, otherwise it
@@ -577,6 +586,7 @@ func (cvpdnTunnelEntry *CISCOVPDNMGMTMIB_CvpdnTunnelTable_CvpdnTunnelEntry) GetE
     cvpdnTunnelEntry.EntityData.BundleName = "cisco_ios_xe"
     cvpdnTunnelEntry.EntityData.ParentYangName = "cvpdnTunnelTable"
     cvpdnTunnelEntry.EntityData.SegmentPath = "cvpdnTunnelEntry" + types.AddKeyToken(cvpdnTunnelEntry.CvpdnTunnelTunnelId, "cvpdnTunnelTunnelId")
+    cvpdnTunnelEntry.EntityData.AbsolutePath = "CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB/cvpdnTunnelTable/" + cvpdnTunnelEntry.EntityData.SegmentPath
     cvpdnTunnelEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cvpdnTunnelEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cvpdnTunnelEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -655,6 +665,7 @@ func (cvpdnTunnelAttrTable *CISCOVPDNMGMTMIB_CvpdnTunnelAttrTable) GetEntityData
     cvpdnTunnelAttrTable.EntityData.BundleName = "cisco_ios_xe"
     cvpdnTunnelAttrTable.EntityData.ParentYangName = "CISCO-VPDN-MGMT-MIB"
     cvpdnTunnelAttrTable.EntityData.SegmentPath = "cvpdnTunnelAttrTable"
+    cvpdnTunnelAttrTable.EntityData.AbsolutePath = "CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB/" + cvpdnTunnelAttrTable.EntityData.SegmentPath
     cvpdnTunnelAttrTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cvpdnTunnelAttrTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cvpdnTunnelAttrTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -677,6 +688,7 @@ func (cvpdnTunnelAttrTable *CISCOVPDNMGMTMIB_CvpdnTunnelAttrTable) GetEntityData
 type CISCOVPDNMGMTMIB_CvpdnTunnelAttrTable_CvpdnTunnelAttrEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is TunnelType. Refers to
     // cisco_vpdn_mgmt_mib.CISCOVPDNMGMTMIB_CvpdnSystemTable_CvpdnSystemEntry_CvpdnSystemTunnelType
@@ -822,6 +834,7 @@ func (cvpdnTunnelAttrEntry *CISCOVPDNMGMTMIB_CvpdnTunnelAttrTable_CvpdnTunnelAtt
     cvpdnTunnelAttrEntry.EntityData.BundleName = "cisco_ios_xe"
     cvpdnTunnelAttrEntry.EntityData.ParentYangName = "cvpdnTunnelAttrTable"
     cvpdnTunnelAttrEntry.EntityData.SegmentPath = "cvpdnTunnelAttrEntry" + types.AddKeyToken(cvpdnTunnelAttrEntry.CvpdnSystemTunnelType, "cvpdnSystemTunnelType") + types.AddKeyToken(cvpdnTunnelAttrEntry.CvpdnTunnelAttrTunnelId, "cvpdnTunnelAttrTunnelId")
+    cvpdnTunnelAttrEntry.EntityData.AbsolutePath = "CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB/cvpdnTunnelAttrTable/" + cvpdnTunnelAttrEntry.EntityData.SegmentPath
     cvpdnTunnelAttrEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cvpdnTunnelAttrEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cvpdnTunnelAttrEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -938,6 +951,7 @@ func (cvpdnTunnelSessionTable *CISCOVPDNMGMTMIB_CvpdnTunnelSessionTable) GetEnti
     cvpdnTunnelSessionTable.EntityData.BundleName = "cisco_ios_xe"
     cvpdnTunnelSessionTable.EntityData.ParentYangName = "CISCO-VPDN-MGMT-MIB"
     cvpdnTunnelSessionTable.EntityData.SegmentPath = "cvpdnTunnelSessionTable"
+    cvpdnTunnelSessionTable.EntityData.AbsolutePath = "CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB/" + cvpdnTunnelSessionTable.EntityData.SegmentPath
     cvpdnTunnelSessionTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cvpdnTunnelSessionTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cvpdnTunnelSessionTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -960,6 +974,7 @@ func (cvpdnTunnelSessionTable *CISCOVPDNMGMTMIB_CvpdnTunnelSessionTable) GetEnti
 type CISCOVPDNMGMTMIB_CvpdnTunnelSessionTable_CvpdnTunnelSessionEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 0..4294967295.
     // Refers to
@@ -1084,6 +1099,7 @@ func (cvpdnTunnelSessionEntry *CISCOVPDNMGMTMIB_CvpdnTunnelSessionTable_CvpdnTun
     cvpdnTunnelSessionEntry.EntityData.BundleName = "cisco_ios_xe"
     cvpdnTunnelSessionEntry.EntityData.ParentYangName = "cvpdnTunnelSessionTable"
     cvpdnTunnelSessionEntry.EntityData.SegmentPath = "cvpdnTunnelSessionEntry" + types.AddKeyToken(cvpdnTunnelSessionEntry.CvpdnTunnelTunnelId, "cvpdnTunnelTunnelId") + types.AddKeyToken(cvpdnTunnelSessionEntry.CvpdnTunnelSessionId, "cvpdnTunnelSessionId")
+    cvpdnTunnelSessionEntry.EntityData.AbsolutePath = "CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB/cvpdnTunnelSessionTable/" + cvpdnTunnelSessionEntry.EntityData.SegmentPath
     cvpdnTunnelSessionEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cvpdnTunnelSessionEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cvpdnTunnelSessionEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1173,6 +1189,7 @@ func (cvpdnSessionAttrTable *CISCOVPDNMGMTMIB_CvpdnSessionAttrTable) GetEntityDa
     cvpdnSessionAttrTable.EntityData.BundleName = "cisco_ios_xe"
     cvpdnSessionAttrTable.EntityData.ParentYangName = "CISCO-VPDN-MGMT-MIB"
     cvpdnSessionAttrTable.EntityData.SegmentPath = "cvpdnSessionAttrTable"
+    cvpdnSessionAttrTable.EntityData.AbsolutePath = "CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB/" + cvpdnSessionAttrTable.EntityData.SegmentPath
     cvpdnSessionAttrTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cvpdnSessionAttrTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cvpdnSessionAttrTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1195,6 +1212,7 @@ func (cvpdnSessionAttrTable *CISCOVPDNMGMTMIB_CvpdnSessionAttrTable) GetEntityDa
 type CISCOVPDNMGMTMIB_CvpdnSessionAttrTable_CvpdnSessionAttrEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is TunnelType. Refers to
     // cisco_vpdn_mgmt_mib.CISCOVPDNMGMTMIB_CvpdnSystemTable_CvpdnSystemEntry_CvpdnSystemTunnelType
@@ -1370,6 +1388,7 @@ func (cvpdnSessionAttrEntry *CISCOVPDNMGMTMIB_CvpdnSessionAttrTable_CvpdnSession
     cvpdnSessionAttrEntry.EntityData.BundleName = "cisco_ios_xe"
     cvpdnSessionAttrEntry.EntityData.ParentYangName = "cvpdnSessionAttrTable"
     cvpdnSessionAttrEntry.EntityData.SegmentPath = "cvpdnSessionAttrEntry" + types.AddKeyToken(cvpdnSessionAttrEntry.CvpdnSystemTunnelType, "cvpdnSystemTunnelType") + types.AddKeyToken(cvpdnSessionAttrEntry.CvpdnTunnelAttrTunnelId, "cvpdnTunnelAttrTunnelId") + types.AddKeyToken(cvpdnSessionAttrEntry.CvpdnSessionAttrSessionId, "cvpdnSessionAttrSessionId")
+    cvpdnSessionAttrEntry.EntityData.AbsolutePath = "CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB/cvpdnSessionAttrTable/" + cvpdnSessionAttrEntry.EntityData.SegmentPath
     cvpdnSessionAttrEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cvpdnSessionAttrEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cvpdnSessionAttrEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1493,6 +1512,7 @@ func (cvpdnUserToFailHistInfoTable *CISCOVPDNMGMTMIB_CvpdnUserToFailHistInfoTabl
     cvpdnUserToFailHistInfoTable.EntityData.BundleName = "cisco_ios_xe"
     cvpdnUserToFailHistInfoTable.EntityData.ParentYangName = "CISCO-VPDN-MGMT-MIB"
     cvpdnUserToFailHistInfoTable.EntityData.SegmentPath = "cvpdnUserToFailHistInfoTable"
+    cvpdnUserToFailHistInfoTable.EntityData.AbsolutePath = "CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB/" + cvpdnUserToFailHistInfoTable.EntityData.SegmentPath
     cvpdnUserToFailHistInfoTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cvpdnUserToFailHistInfoTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cvpdnUserToFailHistInfoTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1515,6 +1535,7 @@ func (cvpdnUserToFailHistInfoTable *CISCOVPDNMGMTMIB_CvpdnUserToFailHistInfoTabl
 type CISCOVPDNMGMTMIB_CvpdnUserToFailHistInfoTable_CvpdnUserToFailHistInfoEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The user name for this failure entry. The type is
     // string with length: 1..255.
@@ -1608,6 +1629,7 @@ func (cvpdnUserToFailHistInfoEntry *CISCOVPDNMGMTMIB_CvpdnUserToFailHistInfoTabl
     cvpdnUserToFailHistInfoEntry.EntityData.BundleName = "cisco_ios_xe"
     cvpdnUserToFailHistInfoEntry.EntityData.ParentYangName = "cvpdnUserToFailHistInfoTable"
     cvpdnUserToFailHistInfoEntry.EntityData.SegmentPath = "cvpdnUserToFailHistInfoEntry" + types.AddKeyToken(cvpdnUserToFailHistInfoEntry.CvpdnUnameToFailHistUname, "cvpdnUnameToFailHistUname") + types.AddKeyToken(cvpdnUserToFailHistInfoEntry.CvpdnUnameToFailHistTunnelId, "cvpdnUnameToFailHistTunnelId")
+    cvpdnUserToFailHistInfoEntry.EntityData.AbsolutePath = "CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB/cvpdnUserToFailHistInfoTable/" + cvpdnUserToFailHistInfoEntry.EntityData.SegmentPath
     cvpdnUserToFailHistInfoEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cvpdnUserToFailHistInfoEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cvpdnUserToFailHistInfoEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1661,6 +1683,7 @@ func (cvpdnTemplateTable *CISCOVPDNMGMTMIB_CvpdnTemplateTable) GetEntityData() *
     cvpdnTemplateTable.EntityData.BundleName = "cisco_ios_xe"
     cvpdnTemplateTable.EntityData.ParentYangName = "CISCO-VPDN-MGMT-MIB"
     cvpdnTemplateTable.EntityData.SegmentPath = "cvpdnTemplateTable"
+    cvpdnTemplateTable.EntityData.AbsolutePath = "CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB/" + cvpdnTemplateTable.EntityData.SegmentPath
     cvpdnTemplateTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cvpdnTemplateTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cvpdnTemplateTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1683,6 +1706,7 @@ func (cvpdnTemplateTable *CISCOVPDNMGMTMIB_CvpdnTemplateTable) GetEntityData() *
 type CISCOVPDNMGMTMIB_CvpdnTemplateTable_CvpdnTemplateEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The name of the VPDN template. The type is string
     // with length: 1..255.
@@ -1700,6 +1724,7 @@ func (cvpdnTemplateEntry *CISCOVPDNMGMTMIB_CvpdnTemplateTable_CvpdnTemplateEntry
     cvpdnTemplateEntry.EntityData.BundleName = "cisco_ios_xe"
     cvpdnTemplateEntry.EntityData.ParentYangName = "cvpdnTemplateTable"
     cvpdnTemplateEntry.EntityData.SegmentPath = "cvpdnTemplateEntry" + types.AddKeyToken(cvpdnTemplateEntry.CvpdnTemplateName, "cvpdnTemplateName")
+    cvpdnTemplateEntry.EntityData.AbsolutePath = "CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB/cvpdnTemplateTable/" + cvpdnTemplateEntry.EntityData.SegmentPath
     cvpdnTemplateEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cvpdnTemplateEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cvpdnTemplateEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1733,6 +1758,7 @@ func (cvpdnBundleTable *CISCOVPDNMGMTMIB_CvpdnBundleTable) GetEntityData() *type
     cvpdnBundleTable.EntityData.BundleName = "cisco_ios_xe"
     cvpdnBundleTable.EntityData.ParentYangName = "CISCO-VPDN-MGMT-MIB"
     cvpdnBundleTable.EntityData.SegmentPath = "cvpdnBundleTable"
+    cvpdnBundleTable.EntityData.AbsolutePath = "CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB/" + cvpdnBundleTable.EntityData.SegmentPath
     cvpdnBundleTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cvpdnBundleTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cvpdnBundleTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1755,6 +1781,7 @@ func (cvpdnBundleTable *CISCOVPDNMGMTMIB_CvpdnBundleTable) GetEntityData() *type
 type CISCOVPDNMGMTMIB_CvpdnBundleTable_CvpdnBundleEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The name of the multilink PPP bundle associated
     // with a VPDN tunnel. The type is string with length: 1..64.
@@ -1806,6 +1833,7 @@ func (cvpdnBundleEntry *CISCOVPDNMGMTMIB_CvpdnBundleTable_CvpdnBundleEntry) GetE
     cvpdnBundleEntry.EntityData.BundleName = "cisco_ios_xe"
     cvpdnBundleEntry.EntityData.ParentYangName = "cvpdnBundleTable"
     cvpdnBundleEntry.EntityData.SegmentPath = "cvpdnBundleEntry" + types.AddKeyToken(cvpdnBundleEntry.CvpdnBundleName, "cvpdnBundleName")
+    cvpdnBundleEntry.EntityData.AbsolutePath = "CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB/cvpdnBundleTable/" + cvpdnBundleEntry.EntityData.SegmentPath
     cvpdnBundleEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cvpdnBundleEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cvpdnBundleEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1865,6 +1893,7 @@ func (cvpdnBundleChildTable *CISCOVPDNMGMTMIB_CvpdnBundleChildTable) GetEntityDa
     cvpdnBundleChildTable.EntityData.BundleName = "cisco_ios_xe"
     cvpdnBundleChildTable.EntityData.ParentYangName = "CISCO-VPDN-MGMT-MIB"
     cvpdnBundleChildTable.EntityData.SegmentPath = "cvpdnBundleChildTable"
+    cvpdnBundleChildTable.EntityData.AbsolutePath = "CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB/" + cvpdnBundleChildTable.EntityData.SegmentPath
     cvpdnBundleChildTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cvpdnBundleChildTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cvpdnBundleChildTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1887,6 +1916,7 @@ func (cvpdnBundleChildTable *CISCOVPDNMGMTMIB_CvpdnBundleChildTable) GetEntityDa
 type CISCOVPDNMGMTMIB_CvpdnBundleChildTable_CvpdnBundleChildEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with length: 1..64. Refers to
     // cisco_vpdn_mgmt_mib.CISCOVPDNMGMTMIB_CvpdnBundleTable_CvpdnBundleEntry_CvpdnBundleName
@@ -1914,6 +1944,7 @@ func (cvpdnBundleChildEntry *CISCOVPDNMGMTMIB_CvpdnBundleChildTable_CvpdnBundleC
     cvpdnBundleChildEntry.EntityData.BundleName = "cisco_ios_xe"
     cvpdnBundleChildEntry.EntityData.ParentYangName = "cvpdnBundleChildTable"
     cvpdnBundleChildEntry.EntityData.SegmentPath = "cvpdnBundleChildEntry" + types.AddKeyToken(cvpdnBundleChildEntry.CvpdnBundleName, "cvpdnBundleName") + types.AddKeyToken(cvpdnBundleChildEntry.CvpdnBundleChildTunnelType, "cvpdnBundleChildTunnelType") + types.AddKeyToken(cvpdnBundleChildEntry.CvpdnBundleChildTunnelId, "cvpdnBundleChildTunnelId") + types.AddKeyToken(cvpdnBundleChildEntry.CvpdnBundleChildSessionId, "cvpdnBundleChildSessionId")
+    cvpdnBundleChildEntry.EntityData.AbsolutePath = "CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB/cvpdnBundleChildTable/" + cvpdnBundleChildEntry.EntityData.SegmentPath
     cvpdnBundleChildEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cvpdnBundleChildEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cvpdnBundleChildEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

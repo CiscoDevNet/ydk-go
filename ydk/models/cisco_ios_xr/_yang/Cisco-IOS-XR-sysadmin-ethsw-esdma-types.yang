@@ -28,9 +28,9 @@ module Cisco-IOS-XR-sysadmin-ethsw-esdma-types {
      Copyright (c) 2012-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
-  revision 2018-02-28 {
+  revision 2018-10-26 {
     description
-      "Added esdma-switch_type-rp-sw1 to support the 2nd Aldrin swicth on asr9k RP3";
+      "Added esdma-switch-port-type to support fdb-port range";
   }
 
   typedef esdma-rack-type-enum {
@@ -208,6 +208,14 @@ module Cisco-IOS-XR-sysadmin-ethsw-esdma-types {
     }
     description
       "A type defining the allowable switch port numbers";
+  }
+
+  typedef esdma-switch-fdb-ports {
+    type int32 {
+      range "-1..128";
+    }
+    description
+      "A type defining the allowable switch fdb port numbers";
   }
 
   typedef esdma-switch-port-state {

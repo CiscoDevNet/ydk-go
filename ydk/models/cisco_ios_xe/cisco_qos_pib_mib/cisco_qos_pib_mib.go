@@ -258,6 +258,7 @@ func (cISCOQOSPIBMIB *CISCOQOSPIBMIB) GetEntityData() *types.CommonEntityData {
     cISCOQOSPIBMIB.EntityData.BundleName = "cisco_ios_xe"
     cISCOQOSPIBMIB.EntityData.ParentYangName = "CISCO-QOS-PIB-MIB"
     cISCOQOSPIBMIB.EntityData.SegmentPath = "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB"
+    cISCOQOSPIBMIB.EntityData.AbsolutePath = cISCOQOSPIBMIB.EntityData.SegmentPath
     cISCOQOSPIBMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cISCOQOSPIBMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOQOSPIBMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -311,6 +312,7 @@ func (qosDevicePibIncarnationTable *CISCOQOSPIBMIB_QosDevicePibIncarnationTable)
     qosDevicePibIncarnationTable.EntityData.BundleName = "cisco_ios_xe"
     qosDevicePibIncarnationTable.EntityData.ParentYangName = "CISCO-QOS-PIB-MIB"
     qosDevicePibIncarnationTable.EntityData.SegmentPath = "qosDevicePibIncarnationTable"
+    qosDevicePibIncarnationTable.EntityData.AbsolutePath = "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/" + qosDevicePibIncarnationTable.EntityData.SegmentPath
     qosDevicePibIncarnationTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     qosDevicePibIncarnationTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     qosDevicePibIncarnationTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -334,6 +336,7 @@ func (qosDevicePibIncarnationTable *CISCOQOSPIBMIB_QosDevicePibIncarnationTable)
 type CISCOQOSPIBMIB_QosDevicePibIncarnationTable_QosDevicePibIncarnationEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. An integer index to identify the instance of the
     // policy class. The type is interface{} with range: 0..4294967295.
@@ -345,7 +348,7 @@ type CISCOQOSPIBMIB_QosDevicePibIncarnationTable_QosDevicePibIncarnationEntry st
 
     // An octet string to identify the current incarnation.  It has meaning to the
     // PDP that installed the PIB and perhaps its standby PDPs. By default the
-    // empty string. The type is string with length: 128.
+    // empty string. The type is string with length: 128..128.
     QosDevicePibIncarnation interface{}
 
     // The number of seconds after a client close or TCP timeout for which the PEP
@@ -361,6 +364,7 @@ func (qosDevicePibIncarnationEntry *CISCOQOSPIBMIB_QosDevicePibIncarnationTable_
     qosDevicePibIncarnationEntry.EntityData.BundleName = "cisco_ios_xe"
     qosDevicePibIncarnationEntry.EntityData.ParentYangName = "qosDevicePibIncarnationTable"
     qosDevicePibIncarnationEntry.EntityData.SegmentPath = "qosDevicePibIncarnationEntry" + types.AddKeyToken(qosDevicePibIncarnationEntry.QosDeviceIncarnationId, "qosDeviceIncarnationId")
+    qosDevicePibIncarnationEntry.EntityData.AbsolutePath = "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/qosDevicePibIncarnationTable/" + qosDevicePibIncarnationEntry.EntityData.SegmentPath
     qosDevicePibIncarnationEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     qosDevicePibIncarnationEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     qosDevicePibIncarnationEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -401,6 +405,7 @@ func (qosDeviceAttributeTable *CISCOQOSPIBMIB_QosDeviceAttributeTable) GetEntity
     qosDeviceAttributeTable.EntityData.BundleName = "cisco_ios_xe"
     qosDeviceAttributeTable.EntityData.ParentYangName = "CISCO-QOS-PIB-MIB"
     qosDeviceAttributeTable.EntityData.SegmentPath = "qosDeviceAttributeTable"
+    qosDeviceAttributeTable.EntityData.AbsolutePath = "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/" + qosDeviceAttributeTable.EntityData.SegmentPath
     qosDeviceAttributeTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     qosDeviceAttributeTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     qosDeviceAttributeTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -423,6 +428,7 @@ func (qosDeviceAttributeTable *CISCOQOSPIBMIB_QosDeviceAttributeTable) GetEntity
 type CISCOQOSPIBMIB_QosDeviceAttributeTable_QosDeviceAttributeEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. An integer index to identify the instance of the
     // policy class. The type is interface{} with range: 0..4294967295.
@@ -462,6 +468,7 @@ func (qosDeviceAttributeEntry *CISCOQOSPIBMIB_QosDeviceAttributeTable_QosDeviceA
     qosDeviceAttributeEntry.EntityData.BundleName = "cisco_ios_xe"
     qosDeviceAttributeEntry.EntityData.ParentYangName = "qosDeviceAttributeTable"
     qosDeviceAttributeEntry.EntityData.SegmentPath = "qosDeviceAttributeEntry" + types.AddKeyToken(qosDeviceAttributeEntry.QosDeviceAttributeId, "qosDeviceAttributeId")
+    qosDeviceAttributeEntry.EntityData.AbsolutePath = "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/qosDeviceAttributeTable/" + qosDeviceAttributeEntry.EntityData.SegmentPath
     qosDeviceAttributeEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     qosDeviceAttributeEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     qosDeviceAttributeEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -501,6 +508,7 @@ func (qosInterfaceTypeTable *CISCOQOSPIBMIB_QosInterfaceTypeTable) GetEntityData
     qosInterfaceTypeTable.EntityData.BundleName = "cisco_ios_xe"
     qosInterfaceTypeTable.EntityData.ParentYangName = "CISCO-QOS-PIB-MIB"
     qosInterfaceTypeTable.EntityData.SegmentPath = "qosInterfaceTypeTable"
+    qosInterfaceTypeTable.EntityData.AbsolutePath = "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/" + qosInterfaceTypeTable.EntityData.SegmentPath
     qosInterfaceTypeTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     qosInterfaceTypeTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     qosInterfaceTypeTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -523,6 +531,7 @@ func (qosInterfaceTypeTable *CISCOQOSPIBMIB_QosInterfaceTypeTable) GetEntityData
 type CISCOQOSPIBMIB_QosInterfaceTypeTable_QosInterfaceTypeEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. An integer index to identify the instance of the
     // policy class. The type is interface{} with range: 0..4294967295.
@@ -547,6 +556,7 @@ func (qosInterfaceTypeEntry *CISCOQOSPIBMIB_QosInterfaceTypeTable_QosInterfaceTy
     qosInterfaceTypeEntry.EntityData.BundleName = "cisco_ios_xe"
     qosInterfaceTypeEntry.EntityData.ParentYangName = "qosInterfaceTypeTable"
     qosInterfaceTypeEntry.EntityData.SegmentPath = "qosInterfaceTypeEntry" + types.AddKeyToken(qosInterfaceTypeEntry.QosInterfaceTypeId, "qosInterfaceTypeId")
+    qosInterfaceTypeEntry.EntityData.AbsolutePath = "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/qosInterfaceTypeTable/" + qosInterfaceTypeEntry.EntityData.SegmentPath
     qosInterfaceTypeEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     qosInterfaceTypeEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     qosInterfaceTypeEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -585,6 +595,7 @@ func (qosDiffServMappingTable *CISCOQOSPIBMIB_QosDiffServMappingTable) GetEntity
     qosDiffServMappingTable.EntityData.BundleName = "cisco_ios_xe"
     qosDiffServMappingTable.EntityData.ParentYangName = "CISCO-QOS-PIB-MIB"
     qosDiffServMappingTable.EntityData.SegmentPath = "qosDiffServMappingTable"
+    qosDiffServMappingTable.EntityData.AbsolutePath = "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/" + qosDiffServMappingTable.EntityData.SegmentPath
     qosDiffServMappingTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     qosDiffServMappingTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     qosDiffServMappingTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -606,6 +617,7 @@ func (qosDiffServMappingTable *CISCOQOSPIBMIB_QosDiffServMappingTable) GetEntity
 type CISCOQOSPIBMIB_QosDiffServMappingTable_QosDiffServMappingEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. A DSCP for which this entry contains mappings. The
     // type is interface{} with range: 0..63.
@@ -626,6 +638,7 @@ func (qosDiffServMappingEntry *CISCOQOSPIBMIB_QosDiffServMappingTable_QosDiffSer
     qosDiffServMappingEntry.EntityData.BundleName = "cisco_ios_xe"
     qosDiffServMappingEntry.EntityData.ParentYangName = "qosDiffServMappingTable"
     qosDiffServMappingEntry.EntityData.SegmentPath = "qosDiffServMappingEntry" + types.AddKeyToken(qosDiffServMappingEntry.QosDscp, "qosDscp")
+    qosDiffServMappingEntry.EntityData.AbsolutePath = "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/qosDiffServMappingTable/" + qosDiffServMappingEntry.EntityData.SegmentPath
     qosDiffServMappingEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     qosDiffServMappingEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     qosDiffServMappingEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -662,6 +675,7 @@ func (qosCosToDscpTable *CISCOQOSPIBMIB_QosCosToDscpTable) GetEntityData() *type
     qosCosToDscpTable.EntityData.BundleName = "cisco_ios_xe"
     qosCosToDscpTable.EntityData.ParentYangName = "CISCO-QOS-PIB-MIB"
     qosCosToDscpTable.EntityData.SegmentPath = "qosCosToDscpTable"
+    qosCosToDscpTable.EntityData.AbsolutePath = "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/" + qosCosToDscpTable.EntityData.SegmentPath
     qosCosToDscpTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     qosCosToDscpTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     qosCosToDscpTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -683,6 +697,7 @@ func (qosCosToDscpTable *CISCOQOSPIBMIB_QosCosToDscpTable) GetEntityData() *type
 type CISCOQOSPIBMIB_QosCosToDscpTable_QosCosToDscpEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The L2 CoS value that is being mapped. The type is
     // interface{} with range: 0..7.
@@ -699,6 +714,7 @@ func (qosCosToDscpEntry *CISCOQOSPIBMIB_QosCosToDscpTable_QosCosToDscpEntry) Get
     qosCosToDscpEntry.EntityData.BundleName = "cisco_ios_xe"
     qosCosToDscpEntry.EntityData.ParentYangName = "qosCosToDscpTable"
     qosCosToDscpEntry.EntityData.SegmentPath = "qosCosToDscpEntry" + types.AddKeyToken(qosCosToDscpEntry.QosCosToDscpCos, "qosCosToDscpCos")
+    qosCosToDscpEntry.EntityData.AbsolutePath = "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/qosCosToDscpTable/" + qosCosToDscpEntry.EntityData.SegmentPath
     qosCosToDscpEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     qosCosToDscpEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     qosCosToDscpEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -733,6 +749,7 @@ func (qosUnmatchedPolicyTable *CISCOQOSPIBMIB_QosUnmatchedPolicyTable) GetEntity
     qosUnmatchedPolicyTable.EntityData.BundleName = "cisco_ios_xe"
     qosUnmatchedPolicyTable.EntityData.ParentYangName = "CISCO-QOS-PIB-MIB"
     qosUnmatchedPolicyTable.EntityData.SegmentPath = "qosUnmatchedPolicyTable"
+    qosUnmatchedPolicyTable.EntityData.AbsolutePath = "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/" + qosUnmatchedPolicyTable.EntityData.SegmentPath
     qosUnmatchedPolicyTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     qosUnmatchedPolicyTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     qosUnmatchedPolicyTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -756,6 +773,7 @@ func (qosUnmatchedPolicyTable *CISCOQOSPIBMIB_QosUnmatchedPolicyTable) GetEntity
 type CISCOQOSPIBMIB_QosUnmatchedPolicyTable_QosUnmatchedPolicyEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. An integer index to identify the instance of the
     // policy class. The type is interface{} with range: 0..4294967295.
@@ -806,6 +824,7 @@ func (qosUnmatchedPolicyEntry *CISCOQOSPIBMIB_QosUnmatchedPolicyTable_QosUnmatch
     qosUnmatchedPolicyEntry.EntityData.BundleName = "cisco_ios_xe"
     qosUnmatchedPolicyEntry.EntityData.ParentYangName = "qosUnmatchedPolicyTable"
     qosUnmatchedPolicyEntry.EntityData.SegmentPath = "qosUnmatchedPolicyEntry" + types.AddKeyToken(qosUnmatchedPolicyEntry.QosUnmatchedPolicyId, "qosUnmatchedPolicyId")
+    qosUnmatchedPolicyEntry.EntityData.AbsolutePath = "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/qosUnmatchedPolicyTable/" + qosUnmatchedPolicyEntry.EntityData.SegmentPath
     qosUnmatchedPolicyEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     qosUnmatchedPolicyEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     qosUnmatchedPolicyEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -854,6 +873,7 @@ func (qosPolicerTable *CISCOQOSPIBMIB_QosPolicerTable) GetEntityData() *types.Co
     qosPolicerTable.EntityData.BundleName = "cisco_ios_xe"
     qosPolicerTable.EntityData.ParentYangName = "CISCO-QOS-PIB-MIB"
     qosPolicerTable.EntityData.SegmentPath = "qosPolicerTable"
+    qosPolicerTable.EntityData.AbsolutePath = "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/" + qosPolicerTable.EntityData.SegmentPath
     qosPolicerTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     qosPolicerTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     qosPolicerTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -876,6 +896,7 @@ func (qosPolicerTable *CISCOQOSPIBMIB_QosPolicerTable) GetEntityData() *types.Co
 type CISCOQOSPIBMIB_QosPolicerTable_QosPolicerEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. An integer index to identify the instance of the
     // policy class. The type is interface{} with range: 0..4294967295.
@@ -907,6 +928,7 @@ func (qosPolicerEntry *CISCOQOSPIBMIB_QosPolicerTable_QosPolicerEntry) GetEntity
     qosPolicerEntry.EntityData.BundleName = "cisco_ios_xe"
     qosPolicerEntry.EntityData.ParentYangName = "qosPolicerTable"
     qosPolicerEntry.EntityData.SegmentPath = "qosPolicerEntry" + types.AddKeyToken(qosPolicerEntry.QosPolicerId, "qosPolicerId")
+    qosPolicerEntry.EntityData.AbsolutePath = "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/qosPolicerTable/" + qosPolicerEntry.EntityData.SegmentPath
     qosPolicerEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     qosPolicerEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     qosPolicerEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -954,6 +976,7 @@ func (qosAggregateTable *CISCOQOSPIBMIB_QosAggregateTable) GetEntityData() *type
     qosAggregateTable.EntityData.BundleName = "cisco_ios_xe"
     qosAggregateTable.EntityData.ParentYangName = "CISCO-QOS-PIB-MIB"
     qosAggregateTable.EntityData.SegmentPath = "qosAggregateTable"
+    qosAggregateTable.EntityData.AbsolutePath = "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/" + qosAggregateTable.EntityData.SegmentPath
     qosAggregateTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     qosAggregateTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     qosAggregateTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -976,6 +999,7 @@ func (qosAggregateTable *CISCOQOSPIBMIB_QosAggregateTable) GetEntityData() *type
 type CISCOQOSPIBMIB_QosAggregateTable_QosAggregateEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. An integer index to identify the instance of the
     // policy class. The type is interface{} with range: 0..4294967295.
@@ -993,6 +1017,7 @@ func (qosAggregateEntry *CISCOQOSPIBMIB_QosAggregateTable_QosAggregateEntry) Get
     qosAggregateEntry.EntityData.BundleName = "cisco_ios_xe"
     qosAggregateEntry.EntityData.ParentYangName = "qosAggregateTable"
     qosAggregateEntry.EntityData.SegmentPath = "qosAggregateEntry" + types.AddKeyToken(qosAggregateEntry.QosAggregateId, "qosAggregateId")
+    qosAggregateEntry.EntityData.AbsolutePath = "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/qosAggregateTable/" + qosAggregateEntry.EntityData.SegmentPath
     qosAggregateEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     qosAggregateEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     qosAggregateEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1025,6 +1050,7 @@ func (qosMacClassificationTable *CISCOQOSPIBMIB_QosMacClassificationTable) GetEn
     qosMacClassificationTable.EntityData.BundleName = "cisco_ios_xe"
     qosMacClassificationTable.EntityData.ParentYangName = "CISCO-QOS-PIB-MIB"
     qosMacClassificationTable.EntityData.SegmentPath = "qosMacClassificationTable"
+    qosMacClassificationTable.EntityData.AbsolutePath = "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/" + qosMacClassificationTable.EntityData.SegmentPath
     qosMacClassificationTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     qosMacClassificationTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     qosMacClassificationTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1047,6 +1073,7 @@ func (qosMacClassificationTable *CISCOQOSPIBMIB_QosMacClassificationTable) GetEn
 type CISCOQOSPIBMIB_QosMacClassificationTable_QosMacClassificationEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. An integer index to identify the instance of the
     // policy class. The type is interface{} with range: 0..4294967295.
@@ -1072,6 +1099,7 @@ func (qosMacClassificationEntry *CISCOQOSPIBMIB_QosMacClassificationTable_QosMac
     qosMacClassificationEntry.EntityData.BundleName = "cisco_ios_xe"
     qosMacClassificationEntry.EntityData.ParentYangName = "qosMacClassificationTable"
     qosMacClassificationEntry.EntityData.SegmentPath = "qosMacClassificationEntry" + types.AddKeyToken(qosMacClassificationEntry.QosMacClassificationId, "qosMacClassificationId")
+    qosMacClassificationEntry.EntityData.AbsolutePath = "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/qosMacClassificationTable/" + qosMacClassificationEntry.EntityData.SegmentPath
     qosMacClassificationEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     qosMacClassificationEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     qosMacClassificationEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1105,6 +1133,7 @@ func (qosIpAceTable *CISCOQOSPIBMIB_QosIpAceTable) GetEntityData() *types.Common
     qosIpAceTable.EntityData.BundleName = "cisco_ios_xe"
     qosIpAceTable.EntityData.ParentYangName = "CISCO-QOS-PIB-MIB"
     qosIpAceTable.EntityData.SegmentPath = "qosIpAceTable"
+    qosIpAceTable.EntityData.AbsolutePath = "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/" + qosIpAceTable.EntityData.SegmentPath
     qosIpAceTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     qosIpAceTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     qosIpAceTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1126,6 +1155,7 @@ func (qosIpAceTable *CISCOQOSPIBMIB_QosIpAceTable) GetEntityData() *types.Common
 type CISCOQOSPIBMIB_QosIpAceTable_QosIpAceEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. An integer index to identify the instance of the
     // policy class. The type is interface{} with range: 0..4294967295.
@@ -1194,6 +1224,7 @@ func (qosIpAceEntry *CISCOQOSPIBMIB_QosIpAceTable_QosIpAceEntry) GetEntityData()
     qosIpAceEntry.EntityData.BundleName = "cisco_ios_xe"
     qosIpAceEntry.EntityData.ParentYangName = "qosIpAceTable"
     qosIpAceEntry.EntityData.SegmentPath = "qosIpAceEntry" + types.AddKeyToken(qosIpAceEntry.QosIpAceId, "qosIpAceId")
+    qosIpAceEntry.EntityData.AbsolutePath = "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/qosIpAceTable/" + qosIpAceEntry.EntityData.SegmentPath
     qosIpAceEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     qosIpAceEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     qosIpAceEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1238,6 +1269,7 @@ func (qosIpAclDefinitionTable *CISCOQOSPIBMIB_QosIpAclDefinitionTable) GetEntity
     qosIpAclDefinitionTable.EntityData.BundleName = "cisco_ios_xe"
     qosIpAclDefinitionTable.EntityData.ParentYangName = "CISCO-QOS-PIB-MIB"
     qosIpAclDefinitionTable.EntityData.SegmentPath = "qosIpAclDefinitionTable"
+    qosIpAclDefinitionTable.EntityData.AbsolutePath = "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/" + qosIpAclDefinitionTable.EntityData.SegmentPath
     qosIpAclDefinitionTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     qosIpAclDefinitionTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     qosIpAclDefinitionTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1260,6 +1292,7 @@ func (qosIpAclDefinitionTable *CISCOQOSPIBMIB_QosIpAclDefinitionTable) GetEntity
 type CISCOQOSPIBMIB_QosIpAclDefinitionTable_QosIpAclDefinitionEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. An integer index to identify the instance of the
     // policy class. The type is interface{} with range: 0..4294967295.
@@ -1287,6 +1320,7 @@ func (qosIpAclDefinitionEntry *CISCOQOSPIBMIB_QosIpAclDefinitionTable_QosIpAclDe
     qosIpAclDefinitionEntry.EntityData.BundleName = "cisco_ios_xe"
     qosIpAclDefinitionEntry.EntityData.ParentYangName = "qosIpAclDefinitionTable"
     qosIpAclDefinitionEntry.EntityData.SegmentPath = "qosIpAclDefinitionEntry" + types.AddKeyToken(qosIpAclDefinitionEntry.QosIpAclDefinitionId, "qosIpAclDefinitionId")
+    qosIpAclDefinitionEntry.EntityData.AbsolutePath = "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/qosIpAclDefinitionTable/" + qosIpAclDefinitionEntry.EntityData.SegmentPath
     qosIpAclDefinitionEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     qosIpAclDefinitionEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     qosIpAclDefinitionEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1327,6 +1361,7 @@ func (qosIpAclActionTable *CISCOQOSPIBMIB_QosIpAclActionTable) GetEntityData() *
     qosIpAclActionTable.EntityData.BundleName = "cisco_ios_xe"
     qosIpAclActionTable.EntityData.ParentYangName = "CISCO-QOS-PIB-MIB"
     qosIpAclActionTable.EntityData.SegmentPath = "qosIpAclActionTable"
+    qosIpAclActionTable.EntityData.AbsolutePath = "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/" + qosIpAclActionTable.EntityData.SegmentPath
     qosIpAclActionTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     qosIpAclActionTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     qosIpAclActionTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1351,6 +1386,7 @@ func (qosIpAclActionTable *CISCOQOSPIBMIB_QosIpAclActionTable) GetEntityData() *
 type CISCOQOSPIBMIB_QosIpAclActionTable_QosIpAclActionEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. An integer index to identify the instance of the
     // policy class. The type is interface{} with range: 0..4294967295.
@@ -1410,6 +1446,7 @@ func (qosIpAclActionEntry *CISCOQOSPIBMIB_QosIpAclActionTable_QosIpAclActionEntr
     qosIpAclActionEntry.EntityData.BundleName = "cisco_ios_xe"
     qosIpAclActionEntry.EntityData.ParentYangName = "qosIpAclActionTable"
     qosIpAclActionEntry.EntityData.SegmentPath = "qosIpAclActionEntry" + types.AddKeyToken(qosIpAclActionEntry.QosIpAclActionId, "qosIpAclActionId")
+    qosIpAclActionEntry.EntityData.AbsolutePath = "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/qosIpAclActionTable/" + qosIpAclActionEntry.EntityData.SegmentPath
     qosIpAclActionEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     qosIpAclActionEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     qosIpAclActionEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1461,6 +1498,7 @@ func (qosIfSchedulingPreferencesTable *CISCOQOSPIBMIB_QosIfSchedulingPreferences
     qosIfSchedulingPreferencesTable.EntityData.BundleName = "cisco_ios_xe"
     qosIfSchedulingPreferencesTable.EntityData.ParentYangName = "CISCO-QOS-PIB-MIB"
     qosIfSchedulingPreferencesTable.EntityData.SegmentPath = "qosIfSchedulingPreferencesTable"
+    qosIfSchedulingPreferencesTable.EntityData.AbsolutePath = "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/" + qosIfSchedulingPreferencesTable.EntityData.SegmentPath
     qosIfSchedulingPreferencesTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     qosIfSchedulingPreferencesTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     qosIfSchedulingPreferencesTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1484,6 +1522,7 @@ func (qosIfSchedulingPreferencesTable *CISCOQOSPIBMIB_QosIfSchedulingPreferences
 type CISCOQOSPIBMIB_QosIfSchedulingPreferencesTable_QosIfSchedulingPreferenceEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. An integer index to identify the instance of the
     // policy class. The type is interface{} with range: 0..4294967295.
@@ -1513,6 +1552,7 @@ func (qosIfSchedulingPreferenceEntry *CISCOQOSPIBMIB_QosIfSchedulingPreferencesT
     qosIfSchedulingPreferenceEntry.EntityData.BundleName = "cisco_ios_xe"
     qosIfSchedulingPreferenceEntry.EntityData.ParentYangName = "qosIfSchedulingPreferencesTable"
     qosIfSchedulingPreferenceEntry.EntityData.SegmentPath = "qosIfSchedulingPreferenceEntry" + types.AddKeyToken(qosIfSchedulingPreferenceEntry.QosIfSchedulingPreferenceId, "qosIfSchedulingPreferenceId")
+    qosIfSchedulingPreferenceEntry.EntityData.AbsolutePath = "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/qosIfSchedulingPreferencesTable/" + qosIfSchedulingPreferenceEntry.EntityData.SegmentPath
     qosIfSchedulingPreferenceEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     qosIfSchedulingPreferenceEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     qosIfSchedulingPreferenceEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1571,6 +1611,7 @@ func (qosIfDropPreferenceTable *CISCOQOSPIBMIB_QosIfDropPreferenceTable) GetEnti
     qosIfDropPreferenceTable.EntityData.BundleName = "cisco_ios_xe"
     qosIfDropPreferenceTable.EntityData.ParentYangName = "CISCO-QOS-PIB-MIB"
     qosIfDropPreferenceTable.EntityData.SegmentPath = "qosIfDropPreferenceTable"
+    qosIfDropPreferenceTable.EntityData.AbsolutePath = "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/" + qosIfDropPreferenceTable.EntityData.SegmentPath
     qosIfDropPreferenceTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     qosIfDropPreferenceTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     qosIfDropPreferenceTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1594,6 +1635,7 @@ func (qosIfDropPreferenceTable *CISCOQOSPIBMIB_QosIfDropPreferenceTable) GetEnti
 type CISCOQOSPIBMIB_QosIfDropPreferenceTable_QosIfDropPreferenceEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. An integer index to identify the instance of the
     // policy class. The type is interface{} with range: 0..4294967295.
@@ -1619,6 +1661,7 @@ func (qosIfDropPreferenceEntry *CISCOQOSPIBMIB_QosIfDropPreferenceTable_QosIfDro
     qosIfDropPreferenceEntry.EntityData.BundleName = "cisco_ios_xe"
     qosIfDropPreferenceEntry.EntityData.ParentYangName = "qosIfDropPreferenceTable"
     qosIfDropPreferenceEntry.EntityData.SegmentPath = "qosIfDropPreferenceEntry" + types.AddKeyToken(qosIfDropPreferenceEntry.QosIfDropPreferenceId, "qosIfDropPreferenceId")
+    qosIfDropPreferenceEntry.EntityData.AbsolutePath = "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/qosIfDropPreferenceTable/" + qosIfDropPreferenceEntry.EntityData.SegmentPath
     qosIfDropPreferenceEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     qosIfDropPreferenceEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     qosIfDropPreferenceEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1664,6 +1707,7 @@ func (qosIfDscpAssignmentTable *CISCOQOSPIBMIB_QosIfDscpAssignmentTable) GetEnti
     qosIfDscpAssignmentTable.EntityData.BundleName = "cisco_ios_xe"
     qosIfDscpAssignmentTable.EntityData.ParentYangName = "CISCO-QOS-PIB-MIB"
     qosIfDscpAssignmentTable.EntityData.SegmentPath = "qosIfDscpAssignmentTable"
+    qosIfDscpAssignmentTable.EntityData.AbsolutePath = "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/" + qosIfDscpAssignmentTable.EntityData.SegmentPath
     qosIfDscpAssignmentTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     qosIfDscpAssignmentTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     qosIfDscpAssignmentTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1687,6 +1731,7 @@ func (qosIfDscpAssignmentTable *CISCOQOSPIBMIB_QosIfDscpAssignmentTable) GetEnti
 type CISCOQOSPIBMIB_QosIfDscpAssignmentTable_QosIfDscpAssignmentEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. An integer index to identify the instance of the
     // policy class. The type is interface{} with range: 0..4294967295.
@@ -1719,6 +1764,7 @@ func (qosIfDscpAssignmentEntry *CISCOQOSPIBMIB_QosIfDscpAssignmentTable_QosIfDsc
     qosIfDscpAssignmentEntry.EntityData.BundleName = "cisco_ios_xe"
     qosIfDscpAssignmentEntry.EntityData.ParentYangName = "qosIfDscpAssignmentTable"
     qosIfDscpAssignmentEntry.EntityData.SegmentPath = "qosIfDscpAssignmentEntry" + types.AddKeyToken(qosIfDscpAssignmentEntry.QosIfDscpAssignmentId, "qosIfDscpAssignmentId")
+    qosIfDscpAssignmentEntry.EntityData.AbsolutePath = "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/qosIfDscpAssignmentTable/" + qosIfDscpAssignmentEntry.EntityData.SegmentPath
     qosIfDscpAssignmentEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     qosIfDscpAssignmentEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     qosIfDscpAssignmentEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1762,6 +1808,7 @@ func (qosIfRedTable *CISCOQOSPIBMIB_QosIfRedTable) GetEntityData() *types.Common
     qosIfRedTable.EntityData.BundleName = "cisco_ios_xe"
     qosIfRedTable.EntityData.ParentYangName = "CISCO-QOS-PIB-MIB"
     qosIfRedTable.EntityData.SegmentPath = "qosIfRedTable"
+    qosIfRedTable.EntityData.AbsolutePath = "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/" + qosIfRedTable.EntityData.SegmentPath
     qosIfRedTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     qosIfRedTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     qosIfRedTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1785,6 +1832,7 @@ func (qosIfRedTable *CISCOQOSPIBMIB_QosIfRedTable) GetEntityData() *types.Common
 type CISCOQOSPIBMIB_QosIfRedTable_QosIfRedEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. An integer index to identify the instance of the
     // policy class. The type is interface{} with range: 0..4294967295.
@@ -1818,6 +1866,7 @@ func (qosIfRedEntry *CISCOQOSPIBMIB_QosIfRedTable_QosIfRedEntry) GetEntityData()
     qosIfRedEntry.EntityData.BundleName = "cisco_ios_xe"
     qosIfRedEntry.EntityData.ParentYangName = "qosIfRedTable"
     qosIfRedEntry.EntityData.SegmentPath = "qosIfRedEntry" + types.AddKeyToken(qosIfRedEntry.QosIfRedId, "qosIfRedId")
+    qosIfRedEntry.EntityData.AbsolutePath = "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/qosIfRedTable/" + qosIfRedEntry.EntityData.SegmentPath
     qosIfRedEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     qosIfRedEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     qosIfRedEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1859,6 +1908,7 @@ func (qosIfTailDropTable *CISCOQOSPIBMIB_QosIfTailDropTable) GetEntityData() *ty
     qosIfTailDropTable.EntityData.BundleName = "cisco_ios_xe"
     qosIfTailDropTable.EntityData.ParentYangName = "CISCO-QOS-PIB-MIB"
     qosIfTailDropTable.EntityData.SegmentPath = "qosIfTailDropTable"
+    qosIfTailDropTable.EntityData.AbsolutePath = "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/" + qosIfTailDropTable.EntityData.SegmentPath
     qosIfTailDropTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     qosIfTailDropTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     qosIfTailDropTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1882,6 +1932,7 @@ func (qosIfTailDropTable *CISCOQOSPIBMIB_QosIfTailDropTable) GetEntityData() *ty
 type CISCOQOSPIBMIB_QosIfTailDropTable_QosIfTailDropEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. An integer index to identify the instance of the
     // policy class. The type is interface{} with range: 0..4294967295.
@@ -1910,6 +1961,7 @@ func (qosIfTailDropEntry *CISCOQOSPIBMIB_QosIfTailDropTable_QosIfTailDropEntry) 
     qosIfTailDropEntry.EntityData.BundleName = "cisco_ios_xe"
     qosIfTailDropEntry.EntityData.ParentYangName = "qosIfTailDropTable"
     qosIfTailDropEntry.EntityData.SegmentPath = "qosIfTailDropEntry" + types.AddKeyToken(qosIfTailDropEntry.QosIfTailDropId, "qosIfTailDropId")
+    qosIfTailDropEntry.EntityData.AbsolutePath = "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/qosIfTailDropTable/" + qosIfTailDropEntry.EntityData.SegmentPath
     qosIfTailDropEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     qosIfTailDropEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     qosIfTailDropEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1951,6 +2003,7 @@ func (qosIfWeightsTable *CISCOQOSPIBMIB_QosIfWeightsTable) GetEntityData() *type
     qosIfWeightsTable.EntityData.BundleName = "cisco_ios_xe"
     qosIfWeightsTable.EntityData.ParentYangName = "CISCO-QOS-PIB-MIB"
     qosIfWeightsTable.EntityData.SegmentPath = "qosIfWeightsTable"
+    qosIfWeightsTable.EntityData.AbsolutePath = "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/" + qosIfWeightsTable.EntityData.SegmentPath
     qosIfWeightsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     qosIfWeightsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     qosIfWeightsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1974,6 +2027,7 @@ func (qosIfWeightsTable *CISCOQOSPIBMIB_QosIfWeightsTable) GetEntityData() *type
 type CISCOQOSPIBMIB_QosIfWeightsTable_QosIfWeightsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. An integer index to identify the instance of the
     // policy class. The type is interface{} with range: 0..4294967295.
@@ -2014,6 +2068,7 @@ func (qosIfWeightsEntry *CISCOQOSPIBMIB_QosIfWeightsTable_QosIfWeightsEntry) Get
     qosIfWeightsEntry.EntityData.BundleName = "cisco_ios_xe"
     qosIfWeightsEntry.EntityData.ParentYangName = "qosIfWeightsTable"
     qosIfWeightsEntry.EntityData.SegmentPath = "qosIfWeightsEntry" + types.AddKeyToken(qosIfWeightsEntry.QosIfWeightsId, "qosIfWeightsId")
+    qosIfWeightsEntry.EntityData.AbsolutePath = "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/qosIfWeightsTable/" + qosIfWeightsEntry.EntityData.SegmentPath
     qosIfWeightsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     qosIfWeightsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     qosIfWeightsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

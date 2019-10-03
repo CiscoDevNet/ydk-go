@@ -1,9 +1,15 @@
+// This module contains definitions
+// for the Calvados model objects.
+// 
 // This module contains a collection of YANG
 // definitions for Cisco IOS-XR SysAdmin configuration.
 // 
 // The Directory Services (DS).
 // 
 // Copyright(c) 2010-2017 by Cisco Systems, Inc.
+// All rights reserved.
+// 
+// Copyright (c) 2012-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package sysadmin_ds
 
@@ -81,6 +87,7 @@ func (services *Services) GetEntityData() *types.CommonEntityData {
     services.EntityData.BundleName = "cisco_ios_xr"
     services.EntityData.ParentYangName = "Cisco-IOS-XR-sysadmin-ds"
     services.EntityData.SegmentPath = "Cisco-IOS-XR-sysadmin-ds:services"
+    services.EntityData.AbsolutePath = services.EntityData.SegmentPath
     services.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     services.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     services.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -101,6 +108,7 @@ func (services *Services) GetEntityData() *types.CommonEntityData {
 type Services_AllLocations struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Node Location. The type is string.
     Location interface{}
@@ -115,6 +123,7 @@ func (allLocations *Services_AllLocations) GetEntityData() *types.CommonEntityDa
     allLocations.EntityData.BundleName = "cisco_ios_xr"
     allLocations.EntityData.ParentYangName = "services"
     allLocations.EntityData.SegmentPath = "all-locations" + types.AddKeyToken(allLocations.Location, "location")
+    allLocations.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-ds:services/" + allLocations.EntityData.SegmentPath
     allLocations.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     allLocations.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     allLocations.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -136,6 +145,7 @@ func (allLocations *Services_AllLocations) GetEntityData() *types.CommonEntityDa
 type Services_AllLocations_Services struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of the service. The type is string.
     Name interface{}
@@ -155,6 +165,7 @@ func (services *Services_AllLocations_Services) GetEntityData() *types.CommonEnt
     services.EntityData.BundleName = "cisco_ios_xr"
     services.EntityData.ParentYangName = "all-locations"
     services.EntityData.SegmentPath = "services" + types.AddKeyToken(services.Name, "name")
+    services.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-ds:services/all-locations/" + services.EntityData.SegmentPath
     services.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     services.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     services.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -162,10 +173,12 @@ func (services *Services_AllLocations_Services) GetEntityData() *types.CommonEnt
     services.EntityData.Children = types.NewOrderedMap()
     services.EntityData.Children.Append("endpoint", types.YChild{"Endpoint", nil})
     for i := range services.Endpoint {
+        types.SetYListKey(services.Endpoint[i], i)
         services.EntityData.Children.Append(types.GetSegmentPath(services.Endpoint[i]), types.YChild{"Endpoint", services.Endpoint[i]})
     }
     services.EntityData.Children.Append("registrations", types.YChild{"Registrations", nil})
     for i := range services.Registrations {
+        types.SetYListKey(services.Registrations[i], i)
         services.EntityData.Children.Append(types.GetSegmentPath(services.Registrations[i]), types.YChild{"Registrations", services.Registrations[i]})
     }
     services.EntityData.Leafs = types.NewOrderedMap()
@@ -181,6 +194,7 @@ func (services *Services_AllLocations_Services) GetEntityData() *types.CommonEnt
 type Services_AllLocations_Services_Endpoint struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is ServiceScope.
     Scope interface{}
@@ -207,7 +221,8 @@ func (endpoint *Services_AllLocations_Services_Endpoint) GetEntityData() *types.
     endpoint.EntityData.YangName = "endpoint"
     endpoint.EntityData.BundleName = "cisco_ios_xr"
     endpoint.EntityData.ParentYangName = "services"
-    endpoint.EntityData.SegmentPath = "endpoint"
+    endpoint.EntityData.SegmentPath = "endpoint" + types.AddNoKeyToken(endpoint)
+    endpoint.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-ds:services/all-locations/services/" + endpoint.EntityData.SegmentPath
     endpoint.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     endpoint.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     endpoint.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -231,6 +246,7 @@ func (endpoint *Services_AllLocations_Services_Endpoint) GetEntityData() *types.
 type Services_AllLocations_Services_Registrations struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is string.
     Client interface{}
@@ -244,7 +260,8 @@ func (registrations *Services_AllLocations_Services_Registrations) GetEntityData
     registrations.EntityData.YangName = "registrations"
     registrations.EntityData.BundleName = "cisco_ios_xr"
     registrations.EntityData.ParentYangName = "services"
-    registrations.EntityData.SegmentPath = "registrations"
+    registrations.EntityData.SegmentPath = "registrations" + types.AddNoKeyToken(registrations)
+    registrations.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-ds:services/all-locations/services/" + registrations.EntityData.SegmentPath
     registrations.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     registrations.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     registrations.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -278,6 +295,7 @@ func (servicesStats *ServicesStats) GetEntityData() *types.CommonEntityData {
     servicesStats.EntityData.BundleName = "cisco_ios_xr"
     servicesStats.EntityData.ParentYangName = "Cisco-IOS-XR-sysadmin-ds"
     servicesStats.EntityData.SegmentPath = "Cisco-IOS-XR-sysadmin-ds:services-stats"
+    servicesStats.EntityData.AbsolutePath = servicesStats.EntityData.SegmentPath
     servicesStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     servicesStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     servicesStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -310,6 +328,7 @@ func (ds *ServicesStats_Ds) GetEntityData() *types.CommonEntityData {
     ds.EntityData.BundleName = "cisco_ios_xr"
     ds.EntityData.ParentYangName = "services-stats"
     ds.EntityData.SegmentPath = "ds"
+    ds.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-ds:services-stats/" + ds.EntityData.SegmentPath
     ds.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ds.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ds.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -331,6 +350,7 @@ func (ds *ServicesStats_Ds) GetEntityData() *types.CommonEntityData {
 type ServicesStats_Ds_Trace struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     Buffer interface{}
@@ -345,6 +365,7 @@ func (trace *ServicesStats_Ds_Trace) GetEntityData() *types.CommonEntityData {
     trace.EntityData.BundleName = "cisco_ios_xr"
     trace.EntityData.ParentYangName = "ds"
     trace.EntityData.SegmentPath = "trace" + types.AddKeyToken(trace.Buffer, "buffer")
+    trace.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-ds:services-stats/ds/" + trace.EntityData.SegmentPath
     trace.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trace.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trace.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -366,6 +387,7 @@ func (trace *ServicesStats_Ds_Trace) GetEntityData() *types.CommonEntityData {
 type ServicesStats_Ds_Trace_Location struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     LocationName interface{}
@@ -380,6 +402,7 @@ func (location *ServicesStats_Ds_Trace_Location) GetEntityData() *types.CommonEn
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "trace"
     location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.LocationName, "location_name")
+    location.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-ds:services-stats/ds/trace/" + location.EntityData.SegmentPath
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -401,6 +424,7 @@ func (location *ServicesStats_Ds_Trace_Location) GetEntityData() *types.CommonEn
 type ServicesStats_Ds_Trace_Location_AllOptions struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     Option interface{}
@@ -416,6 +440,7 @@ func (allOptions *ServicesStats_Ds_Trace_Location_AllOptions) GetEntityData() *t
     allOptions.EntityData.BundleName = "cisco_ios_xr"
     allOptions.EntityData.ParentYangName = "location"
     allOptions.EntityData.SegmentPath = "all-options" + types.AddKeyToken(allOptions.Option, "option")
+    allOptions.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-ds:services-stats/ds/trace/location/" + allOptions.EntityData.SegmentPath
     allOptions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     allOptions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     allOptions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -423,6 +448,7 @@ func (allOptions *ServicesStats_Ds_Trace_Location_AllOptions) GetEntityData() *t
     allOptions.EntityData.Children = types.NewOrderedMap()
     allOptions.EntityData.Children.Append("trace-blocks", types.YChild{"TraceBlocks", nil})
     for i := range allOptions.TraceBlocks {
+        types.SetYListKey(allOptions.TraceBlocks[i], i)
         allOptions.EntityData.Children.Append(types.GetSegmentPath(allOptions.TraceBlocks[i]), types.YChild{"TraceBlocks", allOptions.TraceBlocks[i]})
     }
     allOptions.EntityData.Leafs = types.NewOrderedMap()
@@ -437,6 +463,7 @@ func (allOptions *ServicesStats_Ds_Trace_Location_AllOptions) GetEntityData() *t
 type ServicesStats_Ds_Trace_Location_AllOptions_TraceBlocks struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Trace output block. The type is string.
     Data interface{}
@@ -447,7 +474,8 @@ func (traceBlocks *ServicesStats_Ds_Trace_Location_AllOptions_TraceBlocks) GetEn
     traceBlocks.EntityData.YangName = "trace-blocks"
     traceBlocks.EntityData.BundleName = "cisco_ios_xr"
     traceBlocks.EntityData.ParentYangName = "all-options"
-    traceBlocks.EntityData.SegmentPath = "trace-blocks"
+    traceBlocks.EntityData.SegmentPath = "trace-blocks" + types.AddNoKeyToken(traceBlocks)
+    traceBlocks.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-ds:services-stats/ds/trace/location/all-options/" + traceBlocks.EntityData.SegmentPath
     traceBlocks.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     traceBlocks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     traceBlocks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -465,6 +493,7 @@ func (traceBlocks *ServicesStats_Ds_Trace_Location_AllOptions_TraceBlocks) GetEn
 type ServicesStats_AllLocations struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     Location interface{}
@@ -479,6 +508,7 @@ func (allLocations *ServicesStats_AllLocations) GetEntityData() *types.CommonEnt
     allLocations.EntityData.BundleName = "cisco_ios_xr"
     allLocations.EntityData.ParentYangName = "services-stats"
     allLocations.EntityData.SegmentPath = "all-locations" + types.AddKeyToken(allLocations.Location, "location")
+    allLocations.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-ds:services-stats/" + allLocations.EntityData.SegmentPath
     allLocations.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     allLocations.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     allLocations.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -500,6 +530,7 @@ func (allLocations *ServicesStats_AllLocations) GetEntityData() *types.CommonEnt
 type ServicesStats_AllLocations_Stats struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of the service. The type is string.
     Name interface{}
@@ -543,6 +574,7 @@ func (stats *ServicesStats_AllLocations_Stats) GetEntityData() *types.CommonEnti
     stats.EntityData.BundleName = "cisco_ios_xr"
     stats.EntityData.ParentYangName = "all-locations"
     stats.EntityData.SegmentPath = "stats" + types.AddKeyToken(stats.Name, "name")
+    stats.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-ds:services-stats/all-locations/" + stats.EntityData.SegmentPath
     stats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     stats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

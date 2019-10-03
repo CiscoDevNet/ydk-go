@@ -8,7 +8,7 @@ import (
 
 func GetCapabilities() map[string]string {
     caps := make(map[string]string)
-    caps["Cisco-NX-OS-device"] = "2018-11-04"
+    caps["Cisco-NX-OS-device"] = "2019-07-18"
     return caps
 }
 

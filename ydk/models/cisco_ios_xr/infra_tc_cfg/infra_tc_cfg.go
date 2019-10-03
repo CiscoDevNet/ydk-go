@@ -104,6 +104,7 @@ func (trafficCollector *TrafficCollector) GetEntityData() *types.CommonEntityDat
     trafficCollector.EntityData.BundleName = "cisco_ios_xr"
     trafficCollector.EntityData.ParentYangName = "Cisco-IOS-XR-infra-tc-cfg"
     trafficCollector.EntityData.SegmentPath = "Cisco-IOS-XR-infra-tc-cfg:traffic-collector"
+    trafficCollector.EntityData.AbsolutePath = trafficCollector.EntityData.SegmentPath
     trafficCollector.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trafficCollector.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trafficCollector.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -136,6 +137,7 @@ func (externalInterfaces *TrafficCollector_ExternalInterfaces) GetEntityData() *
     externalInterfaces.EntityData.BundleName = "cisco_ios_xr"
     externalInterfaces.EntityData.ParentYangName = "traffic-collector"
     externalInterfaces.EntityData.SegmentPath = "external-interfaces"
+    externalInterfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-tc-cfg:traffic-collector/" + externalInterfaces.EntityData.SegmentPath
     externalInterfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     externalInterfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     externalInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -157,6 +159,7 @@ func (externalInterfaces *TrafficCollector_ExternalInterfaces) GetEntityData() *
 type TrafficCollector_ExternalInterfaces_ExternalInterface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -172,6 +175,7 @@ func (externalInterface *TrafficCollector_ExternalInterfaces_ExternalInterface) 
     externalInterface.EntityData.BundleName = "cisco_ios_xr"
     externalInterface.EntityData.ParentYangName = "external-interfaces"
     externalInterface.EntityData.SegmentPath = "external-interface" + types.AddKeyToken(externalInterface.InterfaceName, "interface-name")
+    externalInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-tc-cfg:traffic-collector/external-interfaces/" + externalInterface.EntityData.SegmentPath
     externalInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     externalInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     externalInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -213,6 +217,7 @@ func (statistics *TrafficCollector_Statistics) GetEntityData() *types.CommonEnti
     statistics.EntityData.BundleName = "cisco_ios_xr"
     statistics.EntityData.ParentYangName = "traffic-collector"
     statistics.EntityData.SegmentPath = "statistics"
+    statistics.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-tc-cfg:traffic-collector/" + statistics.EntityData.SegmentPath
     statistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

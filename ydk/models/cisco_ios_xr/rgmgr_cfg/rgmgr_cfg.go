@@ -55,6 +55,7 @@ func (redundancyGroupManager *RedundancyGroupManager) GetEntityData() *types.Com
     redundancyGroupManager.EntityData.BundleName = "cisco_ios_xr"
     redundancyGroupManager.EntityData.ParentYangName = "Cisco-IOS-XR-rgmgr-cfg"
     redundancyGroupManager.EntityData.SegmentPath = "Cisco-IOS-XR-rgmgr-cfg:redundancy-group-manager"
+    redundancyGroupManager.EntityData.AbsolutePath = redundancyGroupManager.EntityData.SegmentPath
     redundancyGroupManager.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     redundancyGroupManager.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     redundancyGroupManager.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -89,6 +90,7 @@ func (aps *RedundancyGroupManager_Aps) GetEntityData() *types.CommonEntityData {
     aps.EntityData.BundleName = "cisco_ios_xr"
     aps.EntityData.ParentYangName = "redundancy-group-manager"
     aps.EntityData.SegmentPath = "aps"
+    aps.EntityData.AbsolutePath = "Cisco-IOS-XR-rgmgr-cfg:redundancy-group-manager/" + aps.EntityData.SegmentPath
     aps.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     aps.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     aps.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -123,6 +125,7 @@ func (defaultRedundancyGroup *RedundancyGroupManager_Aps_DefaultRedundancyGroup)
     defaultRedundancyGroup.EntityData.BundleName = "cisco_ios_xr"
     defaultRedundancyGroup.EntityData.ParentYangName = "aps"
     defaultRedundancyGroup.EntityData.SegmentPath = "default-redundancy-group"
+    defaultRedundancyGroup.EntityData.AbsolutePath = "Cisco-IOS-XR-rgmgr-cfg:redundancy-group-manager/aps/" + defaultRedundancyGroup.EntityData.SegmentPath
     defaultRedundancyGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     defaultRedundancyGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     defaultRedundancyGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -154,6 +157,7 @@ func (groups *RedundancyGroupManager_Aps_Groups) GetEntityData() *types.CommonEn
     groups.EntityData.BundleName = "cisco_ios_xr"
     groups.EntityData.ParentYangName = "aps"
     groups.EntityData.SegmentPath = "groups"
+    groups.EntityData.AbsolutePath = "Cisco-IOS-XR-rgmgr-cfg:redundancy-group-manager/aps/" + groups.EntityData.SegmentPath
     groups.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     groups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     groups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -175,6 +179,7 @@ func (groups *RedundancyGroupManager_Aps_Groups) GetEntityData() *types.CommonEn
 type RedundancyGroupManager_Aps_Groups_Group struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The redundancy group ID. The type is interface{}
     // with range: 1..32.
@@ -190,6 +195,7 @@ func (group *RedundancyGroupManager_Aps_Groups_Group) GetEntityData() *types.Com
     group.EntityData.BundleName = "cisco_ios_xr"
     group.EntityData.ParentYangName = "groups"
     group.EntityData.SegmentPath = "group" + types.AddKeyToken(group.GroupId, "group-id")
+    group.EntityData.AbsolutePath = "Cisco-IOS-XR-rgmgr-cfg:redundancy-group-manager/aps/groups/" + group.EntityData.SegmentPath
     group.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     group.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     group.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -221,6 +227,7 @@ func (controllers *RedundancyGroupManager_Aps_Groups_Group_Controllers) GetEntit
     controllers.EntityData.BundleName = "cisco_ios_xr"
     controllers.EntityData.ParentYangName = "group"
     controllers.EntityData.SegmentPath = "controllers"
+    controllers.EntityData.AbsolutePath = "Cisco-IOS-XR-rgmgr-cfg:redundancy-group-manager/aps/groups/group/" + controllers.EntityData.SegmentPath
     controllers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     controllers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     controllers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -242,6 +249,7 @@ func (controllers *RedundancyGroupManager_Aps_Groups_Group_Controllers) GetEntit
 type RedundancyGroupManager_Aps_Groups_Group_Controllers_Controller struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Controller Name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -261,6 +269,7 @@ func (controller *RedundancyGroupManager_Aps_Groups_Group_Controllers_Controller
     controller.EntityData.BundleName = "cisco_ios_xr"
     controller.EntityData.ParentYangName = "controllers"
     controller.EntityData.SegmentPath = "controller" + types.AddKeyToken(controller.ControllerName, "controller-name")
+    controller.EntityData.AbsolutePath = "Cisco-IOS-XR-rgmgr-cfg:redundancy-group-manager/aps/groups/group/controllers/" + controller.EntityData.SegmentPath
     controller.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     controller.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     controller.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -292,6 +301,7 @@ func (iccp *RedundancyGroupManager_Iccp) GetEntityData() *types.CommonEntityData
     iccp.EntityData.BundleName = "cisco_ios_xr"
     iccp.EntityData.ParentYangName = "redundancy-group-manager"
     iccp.EntityData.SegmentPath = "iccp"
+    iccp.EntityData.AbsolutePath = "Cisco-IOS-XR-rgmgr-cfg:redundancy-group-manager/" + iccp.EntityData.SegmentPath
     iccp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     iccp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     iccp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -322,6 +332,7 @@ func (iccpGroups *RedundancyGroupManager_Iccp_IccpGroups) GetEntityData() *types
     iccpGroups.EntityData.BundleName = "cisco_ios_xr"
     iccpGroups.EntityData.ParentYangName = "iccp"
     iccpGroups.EntityData.SegmentPath = "iccp-groups"
+    iccpGroups.EntityData.AbsolutePath = "Cisco-IOS-XR-rgmgr-cfg:redundancy-group-manager/iccp/" + iccpGroups.EntityData.SegmentPath
     iccpGroups.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     iccpGroups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     iccpGroups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -343,6 +354,7 @@ func (iccpGroups *RedundancyGroupManager_Iccp_IccpGroups) GetEntityData() *types
 type RedundancyGroupManager_Iccp_IccpGroups_IccpGroup struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The redundancy icc group number. The type is
     // interface{} with range: 1..4294967295.
@@ -361,11 +373,11 @@ type RedundancyGroupManager_Iccp_IccpGroups_IccpGroup struct {
     // ICCP member configuration.
     Members RedundancyGroupManager_Iccp_IccpGroups_IccpGroup_Members
 
-    // Multi-chassis Link Aggregation Control Protocol commands.
-    Mlacp RedundancyGroupManager_Iccp_IccpGroups_IccpGroup_Mlacp
-
     // nV Satellite configuration.
     NvSatellite RedundancyGroupManager_Iccp_IccpGroups_IccpGroup_NvSatellite
+
+    // Multi-chassis Link Aggregation Control Protocol commands.
+    Mlacp RedundancyGroupManager_Iccp_IccpGroups_IccpGroup_Mlacp
 }
 
 func (iccpGroup *RedundancyGroupManager_Iccp_IccpGroups_IccpGroup) GetEntityData() *types.CommonEntityData {
@@ -374,6 +386,7 @@ func (iccpGroup *RedundancyGroupManager_Iccp_IccpGroups_IccpGroup) GetEntityData
     iccpGroup.EntityData.BundleName = "cisco_ios_xr"
     iccpGroup.EntityData.ParentYangName = "iccp-groups"
     iccpGroup.EntityData.SegmentPath = "iccp-group" + types.AddKeyToken(iccpGroup.GroupNumber, "group-number")
+    iccpGroup.EntityData.AbsolutePath = "Cisco-IOS-XR-rgmgr-cfg:redundancy-group-manager/iccp/iccp-groups/" + iccpGroup.EntityData.SegmentPath
     iccpGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     iccpGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     iccpGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -381,8 +394,8 @@ func (iccpGroup *RedundancyGroupManager_Iccp_IccpGroups_IccpGroup) GetEntityData
     iccpGroup.EntityData.Children = types.NewOrderedMap()
     iccpGroup.EntityData.Children.Append("backbones", types.YChild{"Backbones", &iccpGroup.Backbones})
     iccpGroup.EntityData.Children.Append("members", types.YChild{"Members", &iccpGroup.Members})
-    iccpGroup.EntityData.Children.Append("Cisco-IOS-XR-bundlemgr-cfg:mlacp", types.YChild{"Mlacp", &iccpGroup.Mlacp})
     iccpGroup.EntityData.Children.Append("Cisco-IOS-XR-icpe-infra-cfg:nv-satellite", types.YChild{"NvSatellite", &iccpGroup.NvSatellite})
+    iccpGroup.EntityData.Children.Append("Cisco-IOS-XR-bundlemgr-cfg:mlacp", types.YChild{"Mlacp", &iccpGroup.Mlacp})
     iccpGroup.EntityData.Leafs = types.NewOrderedMap()
     iccpGroup.EntityData.Leafs.Append("group-number", types.YLeaf{"GroupNumber", iccpGroup.GroupNumber})
     iccpGroup.EntityData.Leafs.Append("isolation-recovery-delay", types.YLeaf{"IsolationRecoveryDelay", iccpGroup.IsolationRecoveryDelay})
@@ -410,6 +423,7 @@ func (backbones *RedundancyGroupManager_Iccp_IccpGroups_IccpGroup_Backbones) Get
     backbones.EntityData.BundleName = "cisco_ios_xr"
     backbones.EntityData.ParentYangName = "iccp-group"
     backbones.EntityData.SegmentPath = "backbones"
+    backbones.EntityData.AbsolutePath = "Cisco-IOS-XR-rgmgr-cfg:redundancy-group-manager/iccp/iccp-groups/iccp-group/" + backbones.EntityData.SegmentPath
     backbones.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     backbones.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     backbones.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -431,6 +445,7 @@ func (backbones *RedundancyGroupManager_Iccp_IccpGroups_IccpGroup_Backbones) Get
 type RedundancyGroupManager_Iccp_IccpGroups_IccpGroup_Backbones_Backbone struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. none. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -443,6 +458,7 @@ func (backbone *RedundancyGroupManager_Iccp_IccpGroups_IccpGroup_Backbones_Backb
     backbone.EntityData.BundleName = "cisco_ios_xr"
     backbone.EntityData.ParentYangName = "backbones"
     backbone.EntityData.SegmentPath = "backbone" + types.AddKeyToken(backbone.BackboneName, "backbone-name")
+    backbone.EntityData.AbsolutePath = "Cisco-IOS-XR-rgmgr-cfg:redundancy-group-manager/iccp/iccp-groups/iccp-group/backbones/" + backbone.EntityData.SegmentPath
     backbone.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     backbone.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     backbone.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -473,6 +489,7 @@ func (members *RedundancyGroupManager_Iccp_IccpGroups_IccpGroup_Members) GetEnti
     members.EntityData.BundleName = "cisco_ios_xr"
     members.EntityData.ParentYangName = "iccp-group"
     members.EntityData.SegmentPath = "members"
+    members.EntityData.AbsolutePath = "Cisco-IOS-XR-rgmgr-cfg:redundancy-group-manager/iccp/iccp-groups/iccp-group/" + members.EntityData.SegmentPath
     members.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     members.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     members.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -494,6 +511,7 @@ func (members *RedundancyGroupManager_Iccp_IccpGroups_IccpGroup_Members) GetEnti
 type RedundancyGroupManager_Iccp_IccpGroups_IccpGroup_Members_Member struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Neighbor IP address. The type is string with
     // pattern:
@@ -507,6 +525,7 @@ func (member *RedundancyGroupManager_Iccp_IccpGroups_IccpGroup_Members_Member) G
     member.EntityData.BundleName = "cisco_ios_xr"
     member.EntityData.ParentYangName = "members"
     member.EntityData.SegmentPath = "member" + types.AddKeyToken(member.NeighborAddress, "neighbor-address")
+    member.EntityData.AbsolutePath = "Cisco-IOS-XR-rgmgr-cfg:redundancy-group-manager/iccp/iccp-groups/iccp-group/members/" + member.EntityData.SegmentPath
     member.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     member.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     member.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -518,6 +537,37 @@ func (member *RedundancyGroupManager_Iccp_IccpGroups_IccpGroup_Members_Member) G
     member.EntityData.YListKeys = []string {"NeighborAddress"}
 
     return &(member.EntityData)
+}
+
+// RedundancyGroupManager_Iccp_IccpGroups_IccpGroup_NvSatellite
+// nV Satellite configuration
+type RedundancyGroupManager_Iccp_IccpGroups_IccpGroup_NvSatellite struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Optional identifier for this system. The type is string with pattern:
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    SystemMac interface{}
+}
+
+func (nvSatellite *RedundancyGroupManager_Iccp_IccpGroups_IccpGroup_NvSatellite) GetEntityData() *types.CommonEntityData {
+    nvSatellite.EntityData.YFilter = nvSatellite.YFilter
+    nvSatellite.EntityData.YangName = "nv-satellite"
+    nvSatellite.EntityData.BundleName = "cisco_ios_xr"
+    nvSatellite.EntityData.ParentYangName = "iccp-group"
+    nvSatellite.EntityData.SegmentPath = "Cisco-IOS-XR-icpe-infra-cfg:nv-satellite"
+    nvSatellite.EntityData.AbsolutePath = "Cisco-IOS-XR-rgmgr-cfg:redundancy-group-manager/iccp/iccp-groups/iccp-group/" + nvSatellite.EntityData.SegmentPath
+    nvSatellite.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nvSatellite.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nvSatellite.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    nvSatellite.EntityData.Children = types.NewOrderedMap()
+    nvSatellite.EntityData.Leafs = types.NewOrderedMap()
+    nvSatellite.EntityData.Leafs.Append("system-mac", types.YLeaf{"SystemMac", nvSatellite.SystemMac})
+
+    nvSatellite.EntityData.YListKeys = []string {}
+
+    return &(nvSatellite.EntityData)
 }
 
 // RedundancyGroupManager_Iccp_IccpGroups_IccpGroup_Mlacp
@@ -550,6 +600,7 @@ func (mlacp *RedundancyGroupManager_Iccp_IccpGroups_IccpGroup_Mlacp) GetEntityDa
     mlacp.EntityData.BundleName = "cisco_ios_xr"
     mlacp.EntityData.ParentYangName = "iccp-group"
     mlacp.EntityData.SegmentPath = "Cisco-IOS-XR-bundlemgr-cfg:mlacp"
+    mlacp.EntityData.AbsolutePath = "Cisco-IOS-XR-rgmgr-cfg:redundancy-group-manager/iccp/iccp-groups/iccp-group/" + mlacp.EntityData.SegmentPath
     mlacp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mlacp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mlacp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -564,35 +615,5 @@ func (mlacp *RedundancyGroupManager_Iccp_IccpGroups_IccpGroup_Mlacp) GetEntityDa
     mlacp.EntityData.YListKeys = []string {}
 
     return &(mlacp.EntityData)
-}
-
-// RedundancyGroupManager_Iccp_IccpGroups_IccpGroup_NvSatellite
-// nV Satellite configuration
-type RedundancyGroupManager_Iccp_IccpGroups_IccpGroup_NvSatellite struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Optional identifier for this system. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
-    SystemMac interface{}
-}
-
-func (nvSatellite *RedundancyGroupManager_Iccp_IccpGroups_IccpGroup_NvSatellite) GetEntityData() *types.CommonEntityData {
-    nvSatellite.EntityData.YFilter = nvSatellite.YFilter
-    nvSatellite.EntityData.YangName = "nv-satellite"
-    nvSatellite.EntityData.BundleName = "cisco_ios_xr"
-    nvSatellite.EntityData.ParentYangName = "iccp-group"
-    nvSatellite.EntityData.SegmentPath = "Cisco-IOS-XR-icpe-infra-cfg:nv-satellite"
-    nvSatellite.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    nvSatellite.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    nvSatellite.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    nvSatellite.EntityData.Children = types.NewOrderedMap()
-    nvSatellite.EntityData.Leafs = types.NewOrderedMap()
-    nvSatellite.EntityData.Leafs.Append("system-mac", types.YLeaf{"SystemMac", nvSatellite.SystemMac})
-
-    nvSatellite.EntityData.YListKeys = []string {}
-
-    return &(nvSatellite.EntityData)
 }
 

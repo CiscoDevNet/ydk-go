@@ -53,6 +53,7 @@ func (cISCOIGMPFILTERMIB *CISCOIGMPFILTERMIB) GetEntityData() *types.CommonEntit
     cISCOIGMPFILTERMIB.EntityData.BundleName = "cisco_ios_xe"
     cISCOIGMPFILTERMIB.EntityData.ParentYangName = "CISCO-IGMP-FILTER-MIB"
     cISCOIGMPFILTERMIB.EntityData.SegmentPath = "CISCO-IGMP-FILTER-MIB:CISCO-IGMP-FILTER-MIB"
+    cISCOIGMPFILTERMIB.EntityData.AbsolutePath = cISCOIGMPFILTERMIB.EntityData.SegmentPath
     cISCOIGMPFILTERMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cISCOIGMPFILTERMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOIGMPFILTERMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -91,6 +92,7 @@ func (cIgmpFilterGeneral *CISCOIGMPFILTERMIB_CIgmpFilterGeneral) GetEntityData()
     cIgmpFilterGeneral.EntityData.BundleName = "cisco_ios_xe"
     cIgmpFilterGeneral.EntityData.ParentYangName = "CISCO-IGMP-FILTER-MIB"
     cIgmpFilterGeneral.EntityData.SegmentPath = "cIgmpFilterGeneral"
+    cIgmpFilterGeneral.EntityData.AbsolutePath = "CISCO-IGMP-FILTER-MIB:CISCO-IGMP-FILTER-MIB/" + cIgmpFilterGeneral.EntityData.SegmentPath
     cIgmpFilterGeneral.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cIgmpFilterGeneral.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cIgmpFilterGeneral.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -213,6 +215,7 @@ func (cIgmpFilterEditor *CISCOIGMPFILTERMIB_CIgmpFilterEditor) GetEntityData() *
     cIgmpFilterEditor.EntityData.BundleName = "cisco_ios_xe"
     cIgmpFilterEditor.EntityData.ParentYangName = "CISCO-IGMP-FILTER-MIB"
     cIgmpFilterEditor.EntityData.SegmentPath = "cIgmpFilterEditor"
+    cIgmpFilterEditor.EntityData.AbsolutePath = "CISCO-IGMP-FILTER-MIB:CISCO-IGMP-FILTER-MIB/" + cIgmpFilterEditor.EntityData.SegmentPath
     cIgmpFilterEditor.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cIgmpFilterEditor.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cIgmpFilterEditor.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -309,6 +312,7 @@ func (cIgmpFilterTable *CISCOIGMPFILTERMIB_CIgmpFilterTable) GetEntityData() *ty
     cIgmpFilterTable.EntityData.BundleName = "cisco_ios_xe"
     cIgmpFilterTable.EntityData.ParentYangName = "CISCO-IGMP-FILTER-MIB"
     cIgmpFilterTable.EntityData.SegmentPath = "cIgmpFilterTable"
+    cIgmpFilterTable.EntityData.AbsolutePath = "CISCO-IGMP-FILTER-MIB:CISCO-IGMP-FILTER-MIB/" + cIgmpFilterTable.EntityData.SegmentPath
     cIgmpFilterTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cIgmpFilterTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cIgmpFilterTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -334,6 +338,7 @@ func (cIgmpFilterTable *CISCOIGMPFILTERMIB_CIgmpFilterTable) GetEntityData() *ty
 type CISCOIGMPFILTERMIB_CIgmpFilterTable_CIgmpFilterEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Index identifying this entry. The type is
     // interface{} with range: 0..4294967295.
@@ -375,6 +380,7 @@ func (cIgmpFilterEntry *CISCOIGMPFILTERMIB_CIgmpFilterTable_CIgmpFilterEntry) Ge
     cIgmpFilterEntry.EntityData.BundleName = "cisco_ios_xe"
     cIgmpFilterEntry.EntityData.ParentYangName = "cIgmpFilterTable"
     cIgmpFilterEntry.EntityData.SegmentPath = "cIgmpFilterEntry" + types.AddKeyToken(cIgmpFilterEntry.CIgmpFilterProfileIndex, "cIgmpFilterProfileIndex") + types.AddKeyToken(cIgmpFilterEntry.CIgmpFilterStartAddressType, "cIgmpFilterStartAddressType") + types.AddKeyToken(cIgmpFilterEntry.CIgmpFilterStartAddress, "cIgmpFilterStartAddress")
+    cIgmpFilterEntry.EntityData.AbsolutePath = "CISCO-IGMP-FILTER-MIB:CISCO-IGMP-FILTER-MIB/cIgmpFilterTable/" + cIgmpFilterEntry.EntityData.SegmentPath
     cIgmpFilterEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cIgmpFilterEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cIgmpFilterEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -423,6 +429,7 @@ func (cIgmpFilterInterfaceTable *CISCOIGMPFILTERMIB_CIgmpFilterInterfaceTable) G
     cIgmpFilterInterfaceTable.EntityData.BundleName = "cisco_ios_xe"
     cIgmpFilterInterfaceTable.EntityData.ParentYangName = "CISCO-IGMP-FILTER-MIB"
     cIgmpFilterInterfaceTable.EntityData.SegmentPath = "cIgmpFilterInterfaceTable"
+    cIgmpFilterInterfaceTable.EntityData.AbsolutePath = "CISCO-IGMP-FILTER-MIB:CISCO-IGMP-FILTER-MIB/" + cIgmpFilterInterfaceTable.EntityData.SegmentPath
     cIgmpFilterInterfaceTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cIgmpFilterInterfaceTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cIgmpFilterInterfaceTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -451,6 +458,7 @@ func (cIgmpFilterInterfaceTable *CISCOIGMPFILTERMIB_CIgmpFilterInterfaceTable) G
 type CISCOIGMPFILTERMIB_CIgmpFilterInterfaceTable_CIgmpFilterInterfaceEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -473,6 +481,7 @@ func (cIgmpFilterInterfaceEntry *CISCOIGMPFILTERMIB_CIgmpFilterInterfaceTable_CI
     cIgmpFilterInterfaceEntry.EntityData.BundleName = "cisco_ios_xe"
     cIgmpFilterInterfaceEntry.EntityData.ParentYangName = "cIgmpFilterInterfaceTable"
     cIgmpFilterInterfaceEntry.EntityData.SegmentPath = "cIgmpFilterInterfaceEntry" + types.AddKeyToken(cIgmpFilterInterfaceEntry.IfIndex, "ifIndex")
+    cIgmpFilterInterfaceEntry.EntityData.AbsolutePath = "CISCO-IGMP-FILTER-MIB:CISCO-IGMP-FILTER-MIB/cIgmpFilterInterfaceTable/" + cIgmpFilterInterfaceEntry.EntityData.SegmentPath
     cIgmpFilterInterfaceEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cIgmpFilterInterfaceEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cIgmpFilterInterfaceEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

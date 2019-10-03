@@ -414,6 +414,7 @@ func (ipsla *Ipsla) GetEntityData() *types.CommonEntityData {
     ipsla.EntityData.BundleName = "cisco_ios_xr"
     ipsla.EntityData.ParentYangName = "Cisco-IOS-XR-man-ipsla-oper"
     ipsla.EntityData.SegmentPath = "Cisco-IOS-XR-man-ipsla-oper:ipsla"
+    ipsla.EntityData.AbsolutePath = ipsla.EntityData.SegmentPath
     ipsla.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipsla.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipsla.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -449,6 +450,7 @@ func (mplsData *Ipsla_MplsData) GetEntityData() *types.CommonEntityData {
     mplsData.EntityData.BundleName = "cisco_ios_xr"
     mplsData.EntityData.ParentYangName = "ipsla"
     mplsData.EntityData.SegmentPath = "mpls-data"
+    mplsData.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/" + mplsData.EntityData.SegmentPath
     mplsData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mplsData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mplsData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -480,6 +482,7 @@ func (lspMonitors *Ipsla_MplsData_LspMonitors) GetEntityData() *types.CommonEnti
     lspMonitors.EntityData.BundleName = "cisco_ios_xr"
     lspMonitors.EntityData.ParentYangName = "mpls-data"
     lspMonitors.EntityData.SegmentPath = "lsp-monitors"
+    lspMonitors.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/mpls-data/" + lspMonitors.EntityData.SegmentPath
     lspMonitors.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lspMonitors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspMonitors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -501,6 +504,7 @@ func (lspMonitors *Ipsla_MplsData_LspMonitors) GetEntityData() *types.CommonEnti
 type Ipsla_MplsData_LspMonitors_LspMonitor struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Monitor ID. The type is interface{} with range:
     // 0..4294967295.
@@ -522,6 +526,7 @@ func (lspMonitor *Ipsla_MplsData_LspMonitors_LspMonitor) GetEntityData() *types.
     lspMonitor.EntityData.BundleName = "cisco_ios_xr"
     lspMonitor.EntityData.ParentYangName = "lsp-monitors"
     lspMonitor.EntityData.SegmentPath = "lsp-monitor" + types.AddKeyToken(lspMonitor.MonitorId, "monitor-id")
+    lspMonitor.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/mpls-data/lsp-monitors/" + lspMonitor.EntityData.SegmentPath
     lspMonitor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lspMonitor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspMonitor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -571,6 +576,7 @@ func (state *Ipsla_MplsData_LspMonitors_LspMonitor_State) GetEntityData() *types
     state.EntityData.BundleName = "cisco_ios_xr"
     state.EntityData.ParentYangName = "lsp-monitor"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/mpls-data/lsp-monitors/lsp-monitor/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     state.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -604,6 +610,7 @@ func (operations *Ipsla_MplsData_LspMonitors_LspMonitor_Operations) GetEntityDat
     operations.EntityData.BundleName = "cisco_ios_xr"
     operations.EntityData.ParentYangName = "lsp-monitor"
     operations.EntityData.SegmentPath = "operations"
+    operations.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/mpls-data/lsp-monitors/lsp-monitor/" + operations.EntityData.SegmentPath
     operations.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     operations.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     operations.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -625,6 +632,7 @@ func (operations *Ipsla_MplsData_LspMonitors_LspMonitor_Operations) GetEntityDat
 type Ipsla_MplsData_LspMonitors_LspMonitor_Operations_Operation struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Operation ID. The type is interface{} with range:
     // 0..4294967295.
@@ -643,6 +651,7 @@ func (operation *Ipsla_MplsData_LspMonitors_LspMonitor_Operations_Operation) Get
     operation.EntityData.BundleName = "cisco_ios_xr"
     operation.EntityData.ParentYangName = "operations"
     operation.EntityData.SegmentPath = "operation" + types.AddKeyToken(operation.OperationId, "operation-id")
+    operation.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/mpls-data/lsp-monitors/lsp-monitor/operations/" + operation.EntityData.SegmentPath
     operation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     operation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     operation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -685,6 +694,7 @@ func (state *Ipsla_MplsData_LspMonitors_LspMonitor_Operations_Operation_State) G
     state.EntityData.BundleName = "cisco_ios_xr"
     state.EntityData.ParentYangName = "operation"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/mpls-data/lsp-monitors/lsp-monitor/operations/operation/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     state.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -720,6 +730,7 @@ func (lpdPaths *Ipsla_MplsData_LspMonitors_LspMonitor_Operations_Operation_LpdPa
     lpdPaths.EntityData.BundleName = "cisco_ios_xr"
     lpdPaths.EntityData.ParentYangName = "operation"
     lpdPaths.EntityData.SegmentPath = "lpd-paths"
+    lpdPaths.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/mpls-data/lsp-monitors/lsp-monitor/operations/operation/" + lpdPaths.EntityData.SegmentPath
     lpdPaths.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lpdPaths.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lpdPaths.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -742,6 +753,7 @@ func (lpdPaths *Ipsla_MplsData_LspMonitors_LspMonitor_Operations_Operation_LpdPa
 type Ipsla_MplsData_LspMonitors_LspMonitor_Operations_Operation_LpdPaths_LpdPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. LPD path index. The type is interface{} with
     // range: 0..4294967295.
@@ -774,6 +786,7 @@ func (lpdPath *Ipsla_MplsData_LspMonitors_LspMonitor_Operations_Operation_LpdPat
     lpdPath.EntityData.BundleName = "cisco_ios_xr"
     lpdPath.EntityData.ParentYangName = "lpd-paths"
     lpdPath.EntityData.SegmentPath = "lpd-path" + types.AddKeyToken(lpdPath.PathIndex, "path-index")
+    lpdPath.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/mpls-data/lsp-monitors/lsp-monitor/operations/operation/lpd-paths/" + lpdPath.EntityData.SegmentPath
     lpdPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lpdPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lpdPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -821,6 +834,7 @@ func (pathId *Ipsla_MplsData_LspMonitors_LspMonitor_Operations_Operation_LpdPath
     pathId.EntityData.BundleName = "cisco_ios_xr"
     pathId.EntityData.ParentYangName = "lpd-path"
     pathId.EntityData.SegmentPath = "path-id"
+    pathId.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/mpls-data/lsp-monitors/lsp-monitor/operations/operation/lpd-paths/lpd-path/" + pathId.EntityData.SegmentPath
     pathId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pathId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pathId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -855,6 +869,7 @@ func (scanQueues *Ipsla_MplsData_LspMonitors_LspMonitor_ScanQueues) GetEntityDat
     scanQueues.EntityData.BundleName = "cisco_ios_xr"
     scanQueues.EntityData.ParentYangName = "lsp-monitor"
     scanQueues.EntityData.SegmentPath = "scan-queues"
+    scanQueues.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/mpls-data/lsp-monitors/lsp-monitor/" + scanQueues.EntityData.SegmentPath
     scanQueues.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     scanQueues.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     scanQueues.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -877,6 +892,7 @@ func (scanQueues *Ipsla_MplsData_LspMonitors_LspMonitor_ScanQueues) GetEntityDat
 type Ipsla_MplsData_LspMonitors_LspMonitor_ScanQueues_ScanQueue struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Nexthop Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -899,6 +915,7 @@ func (scanQueue *Ipsla_MplsData_LspMonitors_LspMonitor_ScanQueues_ScanQueue) Get
     scanQueue.EntityData.BundleName = "cisco_ios_xr"
     scanQueue.EntityData.ParentYangName = "scan-queues"
     scanQueue.EntityData.SegmentPath = "scan-queue" + types.AddKeyToken(scanQueue.Address, "address")
+    scanQueue.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/mpls-data/lsp-monitors/lsp-monitor/scan-queues/" + scanQueue.EntityData.SegmentPath
     scanQueue.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     scanQueue.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     scanQueue.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -931,6 +948,7 @@ func (discovery *Ipsla_MplsData_Discovery) GetEntityData() *types.CommonEntityDa
     discovery.EntityData.BundleName = "cisco_ios_xr"
     discovery.EntityData.ParentYangName = "mpls-data"
     discovery.EntityData.SegmentPath = "discovery"
+    discovery.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/mpls-data/" + discovery.EntityData.SegmentPath
     discovery.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     discovery.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     discovery.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -963,6 +981,7 @@ func (vpn *Ipsla_MplsData_Discovery_Vpn) GetEntityData() *types.CommonEntityData
     vpn.EntityData.BundleName = "cisco_ios_xr"
     vpn.EntityData.ParentYangName = "discovery"
     vpn.EntityData.SegmentPath = "vpn"
+    vpn.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/mpls-data/discovery/" + vpn.EntityData.SegmentPath
     vpn.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vpn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vpn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -994,6 +1013,7 @@ func (state *Ipsla_MplsData_Discovery_Vpn_State) GetEntityData() *types.CommonEn
     state.EntityData.BundleName = "cisco_ios_xr"
     state.EntityData.ParentYangName = "vpn"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/mpls-data/discovery/vpn/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     state.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1025,6 +1045,7 @@ func (nexthops *Ipsla_MplsData_Discovery_Vpn_Nexthops) GetEntityData() *types.Co
     nexthops.EntityData.BundleName = "cisco_ios_xr"
     nexthops.EntityData.ParentYangName = "vpn"
     nexthops.EntityData.SegmentPath = "nexthops"
+    nexthops.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/mpls-data/discovery/vpn/" + nexthops.EntityData.SegmentPath
     nexthops.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nexthops.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nexthops.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1046,6 +1067,7 @@ func (nexthops *Ipsla_MplsData_Discovery_Vpn_Nexthops) GetEntityData() *types.Co
 type Ipsla_MplsData_Discovery_Vpn_Nexthops_Nexthop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Nexthop Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -1064,6 +1086,7 @@ func (nexthop *Ipsla_MplsData_Discovery_Vpn_Nexthops_Nexthop) GetEntityData() *t
     nexthop.EntityData.BundleName = "cisco_ios_xr"
     nexthop.EntityData.ParentYangName = "nexthops"
     nexthop.EntityData.SegmentPath = "nexthop" + types.AddKeyToken(nexthop.Address, "address")
+    nexthop.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/mpls-data/discovery/vpn/nexthops/" + nexthop.EntityData.SegmentPath
     nexthop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nexthop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nexthop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1096,6 +1119,7 @@ func (vrfs *Ipsla_MplsData_Discovery_Vpn_Nexthops_Nexthop_Vrfs) GetEntityData() 
     vrfs.EntityData.BundleName = "cisco_ios_xr"
     vrfs.EntityData.ParentYangName = "nexthop"
     vrfs.EntityData.SegmentPath = "vrfs"
+    vrfs.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/mpls-data/discovery/vpn/nexthops/nexthop/" + vrfs.EntityData.SegmentPath
     vrfs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1117,6 +1141,7 @@ func (vrfs *Ipsla_MplsData_Discovery_Vpn_Nexthops_Nexthop_Vrfs) GetEntityData() 
 type Ipsla_MplsData_Discovery_Vpn_Nexthops_Nexthop_Vrfs_Vrf struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. VRF Name. The type is string with length: 1..32.
     VrfName interface{}
@@ -1132,6 +1157,7 @@ func (vrf *Ipsla_MplsData_Discovery_Vpn_Nexthops_Nexthop_Vrfs_Vrf) GetEntityData
     vrf.EntityData.BundleName = "cisco_ios_xr"
     vrf.EntityData.ParentYangName = "vrfs"
     vrf.EntityData.SegmentPath = "vrf" + types.AddKeyToken(vrf.VrfName, "vrf-name")
+    vrf.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/mpls-data/discovery/vpn/nexthops/nexthop/vrfs/" + vrf.EntityData.SegmentPath
     vrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1166,6 +1192,7 @@ func (prefix *Ipsla_MplsData_Discovery_Vpn_Nexthops_Nexthop_Prefix) GetEntityDat
     prefix.EntityData.BundleName = "cisco_ios_xr"
     prefix.EntityData.ParentYangName = "nexthop"
     prefix.EntityData.SegmentPath = "prefix"
+    prefix.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/mpls-data/discovery/vpn/nexthops/nexthop/" + prefix.EntityData.SegmentPath
     prefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1196,6 +1223,7 @@ func (responder *Ipsla_Responder) GetEntityData() *types.CommonEntityData {
     responder.EntityData.BundleName = "cisco_ios_xr"
     responder.EntityData.ParentYangName = "ipsla"
     responder.EntityData.SegmentPath = "responder"
+    responder.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/" + responder.EntityData.SegmentPath
     responder.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     responder.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     responder.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1225,6 +1253,7 @@ func (ports *Ipsla_Responder_Ports) GetEntityData() *types.CommonEntityData {
     ports.EntityData.BundleName = "cisco_ios_xr"
     ports.EntityData.ParentYangName = "responder"
     ports.EntityData.SegmentPath = "ports"
+    ports.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/responder/" + ports.EntityData.SegmentPath
     ports.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ports.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ports.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1246,6 +1275,7 @@ func (ports *Ipsla_Responder_Ports) GetEntityData() *types.CommonEntityData {
 type Ipsla_Responder_Ports_Port struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Port. The type is interface{} with range:
     // 0..65535.
@@ -1286,6 +1316,14 @@ type Ipsla_Responder_Ports_Port struct {
     // Socket. The type is interface{} with range: -2147483648..2147483647.
     Socket interface{}
 
+    // IPv6 address of Responder. The type is string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    LocalIpv6Address interface{}
+
+    // Represent if v4 or v6. The type is interface{} with range:
+    // -2147483648..2147483647.
+    Family interface{}
+
     // List of senders. The type is slice of Ipsla_Responder_Ports_Port_Sender.
     Sender []*Ipsla_Responder_Ports_Port_Sender
 }
@@ -1296,6 +1334,7 @@ func (port *Ipsla_Responder_Ports_Port) GetEntityData() *types.CommonEntityData 
     port.EntityData.BundleName = "cisco_ios_xr"
     port.EntityData.ParentYangName = "ports"
     port.EntityData.SegmentPath = "port" + types.AddKeyToken(port.Port, "port")
+    port.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/responder/ports/" + port.EntityData.SegmentPath
     port.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     port.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     port.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1303,6 +1342,7 @@ func (port *Ipsla_Responder_Ports_Port) GetEntityData() *types.CommonEntityData 
     port.EntityData.Children = types.NewOrderedMap()
     port.EntityData.Children.Append("sender", types.YChild{"Sender", nil})
     for i := range port.Sender {
+        types.SetYListKey(port.Sender[i], i)
         port.EntityData.Children.Append(types.GetSegmentPath(port.Sender[i]), types.YChild{"Sender", port.Sender[i]})
     }
     port.EntityData.Leafs = types.NewOrderedMap()
@@ -1317,6 +1357,8 @@ func (port *Ipsla_Responder_Ports_Port) GetEntityData() *types.CommonEntityData 
     port.EntityData.Leafs.Append("is-ipsla", types.YLeaf{"IsIpsla", port.IsIpsla})
     port.EntityData.Leafs.Append("drop-counter", types.YLeaf{"DropCounter", port.DropCounter})
     port.EntityData.Leafs.Append("socket", types.YLeaf{"Socket", port.Socket})
+    port.EntityData.Leafs.Append("local-ipv6-address", types.YLeaf{"LocalIpv6Address", port.LocalIpv6Address})
+    port.EntityData.Leafs.Append("family", types.YLeaf{"Family", port.Family})
 
     port.EntityData.YListKeys = []string {"Port"}
 
@@ -1328,8 +1370,10 @@ func (port *Ipsla_Responder_Ports_Port) GetEntityData() *types.CommonEntityData 
 type Ipsla_Responder_Ports_Port_Sender struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
-    // IP address of Sender. The type is interface{} with range: 0..4294967295.
+    // IP address of Sender. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     IpAddress interface{}
 
     // Port on which Sender is sending. The type is interface{} with range:
@@ -1339,6 +1383,10 @@ type Ipsla_Responder_Ports_Port_Sender struct {
     // Last received time. The type is interface{} with range:
     // 0..18446744073709551615.
     LastRecvTime interface{}
+
+    // IPv6 address of Sender. The type is string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    Ipv6Address interface{}
 }
 
 func (sender *Ipsla_Responder_Ports_Port_Sender) GetEntityData() *types.CommonEntityData {
@@ -1346,7 +1394,8 @@ func (sender *Ipsla_Responder_Ports_Port_Sender) GetEntityData() *types.CommonEn
     sender.EntityData.YangName = "sender"
     sender.EntityData.BundleName = "cisco_ios_xr"
     sender.EntityData.ParentYangName = "port"
-    sender.EntityData.SegmentPath = "sender"
+    sender.EntityData.SegmentPath = "sender" + types.AddNoKeyToken(sender)
+    sender.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/responder/ports/port/" + sender.EntityData.SegmentPath
     sender.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sender.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sender.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1356,6 +1405,7 @@ func (sender *Ipsla_Responder_Ports_Port_Sender) GetEntityData() *types.CommonEn
     sender.EntityData.Leafs.Append("ip-address", types.YLeaf{"IpAddress", sender.IpAddress})
     sender.EntityData.Leafs.Append("port", types.YLeaf{"Port", sender.Port})
     sender.EntityData.Leafs.Append("last-recv-time", types.YLeaf{"LastRecvTime", sender.LastRecvTime})
+    sender.EntityData.Leafs.Append("ipv6-address", types.YLeaf{"Ipv6Address", sender.Ipv6Address})
 
     sender.EntityData.YListKeys = []string {}
 
@@ -1378,6 +1428,7 @@ func (operationData *Ipsla_OperationData) GetEntityData() *types.CommonEntityDat
     operationData.EntityData.BundleName = "cisco_ios_xr"
     operationData.EntityData.ParentYangName = "ipsla"
     operationData.EntityData.SegmentPath = "operation-data"
+    operationData.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/" + operationData.EntityData.SegmentPath
     operationData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     operationData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     operationData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1408,6 +1459,7 @@ func (operations *Ipsla_OperationData_Operations) GetEntityData() *types.CommonE
     operations.EntityData.BundleName = "cisco_ios_xr"
     operations.EntityData.ParentYangName = "operation-data"
     operations.EntityData.SegmentPath = "operations"
+    operations.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/" + operations.EntityData.SegmentPath
     operations.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     operations.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     operations.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1429,6 +1481,7 @@ func (operations *Ipsla_OperationData_Operations) GetEntityData() *types.CommonE
 type Ipsla_OperationData_Operations_Operation struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Operation ID. The type is interface{} with range:
     // 0..4294967295.
@@ -1453,6 +1506,7 @@ func (operation *Ipsla_OperationData_Operations_Operation) GetEntityData() *type
     operation.EntityData.BundleName = "cisco_ios_xr"
     operation.EntityData.ParentYangName = "operations"
     operation.EntityData.SegmentPath = "operation" + types.AddKeyToken(operation.OperationId, "operation-id")
+    operation.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/" + operation.EntityData.SegmentPath
     operation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     operation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     operation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1486,6 +1540,7 @@ func (common *Ipsla_OperationData_Operations_Operation_Common) GetEntityData() *
     common.EntityData.BundleName = "cisco_ios_xr"
     common.EntityData.ParentYangName = "operation"
     common.EntityData.SegmentPath = "common"
+    common.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/" + common.EntityData.SegmentPath
     common.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     common.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     common.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1562,6 +1617,7 @@ func (operationalState *Ipsla_OperationData_Operations_Operation_Common_Operatio
     operationalState.EntityData.BundleName = "cisco_ios_xr"
     operationalState.EntityData.ParentYangName = "common"
     operationalState.EntityData.SegmentPath = "operational-state"
+    operationalState.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/common/" + operationalState.EntityData.SegmentPath
     operationalState.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     operationalState.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     operationalState.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1607,6 +1663,7 @@ func (lpd *Ipsla_OperationData_Operations_Operation_Lpd) GetEntityData() *types.
     lpd.EntityData.BundleName = "cisco_ios_xr"
     lpd.EntityData.ParentYangName = "operation"
     lpd.EntityData.SegmentPath = "lpd"
+    lpd.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/" + lpd.EntityData.SegmentPath
     lpd.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lpd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lpd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1640,6 +1697,7 @@ func (statistics *Ipsla_OperationData_Operations_Operation_Lpd_Statistics) GetEn
     statistics.EntityData.BundleName = "cisco_ios_xr"
     statistics.EntityData.ParentYangName = "lpd"
     statistics.EntityData.SegmentPath = "statistics"
+    statistics.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/lpd/" + statistics.EntityData.SegmentPath
     statistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1671,6 +1729,7 @@ func (latest *Ipsla_OperationData_Operations_Operation_Lpd_Statistics_Latest) Ge
     latest.EntityData.BundleName = "cisco_ios_xr"
     latest.EntityData.ParentYangName = "statistics"
     latest.EntityData.SegmentPath = "latest"
+    latest.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/lpd/statistics/" + latest.EntityData.SegmentPath
     latest.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     latest.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     latest.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1762,6 +1821,7 @@ func (target *Ipsla_OperationData_Operations_Operation_Lpd_Statistics_Latest_Tar
     target.EntityData.BundleName = "cisco_ios_xr"
     target.EntityData.ParentYangName = "latest"
     target.EntityData.SegmentPath = "target"
+    target.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/lpd/statistics/latest/" + target.EntityData.SegmentPath
     target.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     target.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     target.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1826,6 +1886,7 @@ func (targetAddress *Ipsla_OperationData_Operations_Operation_Lpd_Statistics_Lat
     targetAddress.EntityData.BundleName = "cisco_ios_xr"
     targetAddress.EntityData.ParentYangName = "target"
     targetAddress.EntityData.SegmentPath = "target-address"
+    targetAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/lpd/statistics/latest/target/" + targetAddress.EntityData.SegmentPath
     targetAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     targetAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     targetAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1864,6 +1925,7 @@ func (ipv4PrefixTarget *Ipsla_OperationData_Operations_Operation_Lpd_Statistics_
     ipv4PrefixTarget.EntityData.BundleName = "cisco_ios_xr"
     ipv4PrefixTarget.EntityData.ParentYangName = "target-address"
     ipv4PrefixTarget.EntityData.SegmentPath = "ipv4-prefix-target"
+    ipv4PrefixTarget.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/lpd/statistics/latest/target/target-address/" + ipv4PrefixTarget.EntityData.SegmentPath
     ipv4PrefixTarget.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4PrefixTarget.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4PrefixTarget.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1894,6 +1956,7 @@ func (tunnelIdTarget *Ipsla_OperationData_Operations_Operation_Lpd_Statistics_La
     tunnelIdTarget.EntityData.BundleName = "cisco_ios_xr"
     tunnelIdTarget.EntityData.ParentYangName = "target-address"
     tunnelIdTarget.EntityData.SegmentPath = "tunnel-id-target"
+    tunnelIdTarget.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/lpd/statistics/latest/target/target-address/" + tunnelIdTarget.EntityData.SegmentPath
     tunnelIdTarget.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tunnelIdTarget.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tunnelIdTarget.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1927,6 +1990,7 @@ func (ipv4PseudowireTarget *Ipsla_OperationData_Operations_Operation_Lpd_Statist
     ipv4PseudowireTarget.EntityData.BundleName = "cisco_ios_xr"
     ipv4PseudowireTarget.EntityData.ParentYangName = "target-address"
     ipv4PseudowireTarget.EntityData.SegmentPath = "ipv4-pseudowire-target"
+    ipv4PseudowireTarget.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/lpd/statistics/latest/target/target-address/" + ipv4PseudowireTarget.EntityData.SegmentPath
     ipv4PseudowireTarget.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4PseudowireTarget.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4PseudowireTarget.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1958,6 +2022,7 @@ func (aggregated *Ipsla_OperationData_Operations_Operation_Lpd_Statistics_Aggreg
     aggregated.EntityData.BundleName = "cisco_ios_xr"
     aggregated.EntityData.ParentYangName = "statistics"
     aggregated.EntityData.SegmentPath = "aggregated"
+    aggregated.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/lpd/statistics/" + aggregated.EntityData.SegmentPath
     aggregated.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     aggregated.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     aggregated.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1989,6 +2054,7 @@ func (hours *Ipsla_OperationData_Operations_Operation_Lpd_Statistics_Aggregated_
     hours.EntityData.BundleName = "cisco_ios_xr"
     hours.EntityData.ParentYangName = "aggregated"
     hours.EntityData.SegmentPath = "hours"
+    hours.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/lpd/statistics/aggregated/" + hours.EntityData.SegmentPath
     hours.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hours.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hours.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2011,6 +2077,7 @@ func (hours *Ipsla_OperationData_Operations_Operation_Lpd_Statistics_Aggregated_
 type Ipsla_OperationData_Operations_Operation_Lpd_Statistics_Aggregated_Hours_Hour struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Hour Index. The type is interface{} with range:
     // 0..4294967295.
@@ -2088,6 +2155,7 @@ func (hour *Ipsla_OperationData_Operations_Operation_Lpd_Statistics_Aggregated_H
     hour.EntityData.BundleName = "cisco_ios_xr"
     hour.EntityData.ParentYangName = "hours"
     hour.EntityData.SegmentPath = "hour" + types.AddKeyToken(hour.HourIndex, "hour-index")
+    hour.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/lpd/statistics/aggregated/hours/" + hour.EntityData.SegmentPath
     hour.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hour.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hour.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2153,6 +2221,7 @@ func (targetAddress *Ipsla_OperationData_Operations_Operation_Lpd_Statistics_Agg
     targetAddress.EntityData.BundleName = "cisco_ios_xr"
     targetAddress.EntityData.ParentYangName = "hour"
     targetAddress.EntityData.SegmentPath = "target-address"
+    targetAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/lpd/statistics/aggregated/hours/hour/" + targetAddress.EntityData.SegmentPath
     targetAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     targetAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     targetAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2191,6 +2260,7 @@ func (ipv4PrefixTarget *Ipsla_OperationData_Operations_Operation_Lpd_Statistics_
     ipv4PrefixTarget.EntityData.BundleName = "cisco_ios_xr"
     ipv4PrefixTarget.EntityData.ParentYangName = "target-address"
     ipv4PrefixTarget.EntityData.SegmentPath = "ipv4-prefix-target"
+    ipv4PrefixTarget.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/lpd/statistics/aggregated/hours/hour/target-address/" + ipv4PrefixTarget.EntityData.SegmentPath
     ipv4PrefixTarget.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4PrefixTarget.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4PrefixTarget.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2221,6 +2291,7 @@ func (tunnelIdTarget *Ipsla_OperationData_Operations_Operation_Lpd_Statistics_Ag
     tunnelIdTarget.EntityData.BundleName = "cisco_ios_xr"
     tunnelIdTarget.EntityData.ParentYangName = "target-address"
     tunnelIdTarget.EntityData.SegmentPath = "tunnel-id-target"
+    tunnelIdTarget.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/lpd/statistics/aggregated/hours/hour/target-address/" + tunnelIdTarget.EntityData.SegmentPath
     tunnelIdTarget.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tunnelIdTarget.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tunnelIdTarget.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2254,6 +2325,7 @@ func (ipv4PseudowireTarget *Ipsla_OperationData_Operations_Operation_Lpd_Statist
     ipv4PseudowireTarget.EntityData.BundleName = "cisco_ios_xr"
     ipv4PseudowireTarget.EntityData.ParentYangName = "target-address"
     ipv4PseudowireTarget.EntityData.SegmentPath = "ipv4-pseudowire-target"
+    ipv4PseudowireTarget.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/lpd/statistics/aggregated/hours/hour/target-address/" + ipv4PseudowireTarget.EntityData.SegmentPath
     ipv4PseudowireTarget.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4PseudowireTarget.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4PseudowireTarget.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2287,6 +2359,7 @@ func (status *Ipsla_OperationData_Operations_Operation_Lpd_Status) GetEntityData
     status.EntityData.BundleName = "cisco_ios_xr"
     status.EntityData.ParentYangName = "lpd"
     status.EntityData.SegmentPath = "status"
+    status.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/lpd/" + status.EntityData.SegmentPath
     status.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     status.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     status.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2318,6 +2391,7 @@ func (lpdPaths *Ipsla_OperationData_Operations_Operation_Lpd_Status_LpdPaths) Ge
     lpdPaths.EntityData.BundleName = "cisco_ios_xr"
     lpdPaths.EntityData.ParentYangName = "status"
     lpdPaths.EntityData.SegmentPath = "lpd-paths"
+    lpdPaths.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/lpd/status/" + lpdPaths.EntityData.SegmentPath
     lpdPaths.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lpdPaths.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lpdPaths.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2340,6 +2414,7 @@ func (lpdPaths *Ipsla_OperationData_Operations_Operation_Lpd_Status_LpdPaths) Ge
 type Ipsla_OperationData_Operations_Operation_Lpd_Status_LpdPaths_LpdPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. LPD path index. The type is interface{} with
     // range: 0..4294967295.
@@ -2358,6 +2433,7 @@ func (lpdPath *Ipsla_OperationData_Operations_Operation_Lpd_Status_LpdPaths_LpdP
     lpdPath.EntityData.BundleName = "cisco_ios_xr"
     lpdPath.EntityData.ParentYangName = "lpd-paths"
     lpdPath.EntityData.SegmentPath = "lpd-path" + types.AddKeyToken(lpdPath.PathIndex, "path-index")
+    lpdPath.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/lpd/status/lpd-paths/" + lpdPath.EntityData.SegmentPath
     lpdPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lpdPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lpdPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2401,6 +2477,7 @@ func (pathId *Ipsla_OperationData_Operations_Operation_Lpd_Status_LpdPaths_LpdPa
     pathId.EntityData.BundleName = "cisco_ios_xr"
     pathId.EntityData.ParentYangName = "lpd-path"
     pathId.EntityData.SegmentPath = "path-id"
+    pathId.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/lpd/status/lpd-paths/lpd-path/" + pathId.EntityData.SegmentPath
     pathId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pathId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pathId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2453,6 +2530,7 @@ func (state *Ipsla_OperationData_Operations_Operation_Lpd_Status_State) GetEntit
     state.EntityData.BundleName = "cisco_ios_xr"
     state.EntityData.ParentYangName = "status"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/lpd/status/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     state.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2505,6 +2583,7 @@ func (targetAddress *Ipsla_OperationData_Operations_Operation_Lpd_Status_State_T
     targetAddress.EntityData.BundleName = "cisco_ios_xr"
     targetAddress.EntityData.ParentYangName = "state"
     targetAddress.EntityData.SegmentPath = "target-address"
+    targetAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/lpd/status/state/" + targetAddress.EntityData.SegmentPath
     targetAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     targetAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     targetAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2543,6 +2622,7 @@ func (ipv4PrefixTarget *Ipsla_OperationData_Operations_Operation_Lpd_Status_Stat
     ipv4PrefixTarget.EntityData.BundleName = "cisco_ios_xr"
     ipv4PrefixTarget.EntityData.ParentYangName = "target-address"
     ipv4PrefixTarget.EntityData.SegmentPath = "ipv4-prefix-target"
+    ipv4PrefixTarget.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/lpd/status/state/target-address/" + ipv4PrefixTarget.EntityData.SegmentPath
     ipv4PrefixTarget.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4PrefixTarget.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4PrefixTarget.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2573,6 +2653,7 @@ func (tunnelIdTarget *Ipsla_OperationData_Operations_Operation_Lpd_Status_State_
     tunnelIdTarget.EntityData.BundleName = "cisco_ios_xr"
     tunnelIdTarget.EntityData.ParentYangName = "target-address"
     tunnelIdTarget.EntityData.SegmentPath = "tunnel-id-target"
+    tunnelIdTarget.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/lpd/status/state/target-address/" + tunnelIdTarget.EntityData.SegmentPath
     tunnelIdTarget.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tunnelIdTarget.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tunnelIdTarget.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2606,6 +2687,7 @@ func (ipv4PseudowireTarget *Ipsla_OperationData_Operations_Operation_Lpd_Status_
     ipv4PseudowireTarget.EntityData.BundleName = "cisco_ios_xr"
     ipv4PseudowireTarget.EntityData.ParentYangName = "target-address"
     ipv4PseudowireTarget.EntityData.SegmentPath = "ipv4-pseudowire-target"
+    ipv4PseudowireTarget.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/lpd/status/state/target-address/" + ipv4PseudowireTarget.EntityData.SegmentPath
     ipv4PseudowireTarget.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4PseudowireTarget.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4PseudowireTarget.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2639,6 +2721,7 @@ func (history *Ipsla_OperationData_Operations_Operation_History) GetEntityData()
     history.EntityData.BundleName = "cisco_ios_xr"
     history.EntityData.ParentYangName = "operation"
     history.EntityData.SegmentPath = "history"
+    history.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/" + history.EntityData.SegmentPath
     history.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     history.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     history.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2670,6 +2753,7 @@ func (path *Ipsla_OperationData_Operations_Operation_History_Path) GetEntityData
     path.EntityData.BundleName = "cisco_ios_xr"
     path.EntityData.ParentYangName = "history"
     path.EntityData.SegmentPath = "path"
+    path.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/history/" + path.EntityData.SegmentPath
     path.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     path.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     path.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2700,6 +2784,7 @@ func (lifes *Ipsla_OperationData_Operations_Operation_History_Path_Lifes) GetEnt
     lifes.EntityData.BundleName = "cisco_ios_xr"
     lifes.EntityData.ParentYangName = "path"
     lifes.EntityData.SegmentPath = "lifes"
+    lifes.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/history/path/" + lifes.EntityData.SegmentPath
     lifes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lifes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lifes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2722,6 +2807,7 @@ func (lifes *Ipsla_OperationData_Operations_Operation_History_Path_Lifes) GetEnt
 type Ipsla_OperationData_Operations_Operation_History_Path_Lifes_Life struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Life Index. The type is interface{} with range:
     // 0..4294967295.
@@ -2737,6 +2823,7 @@ func (life *Ipsla_OperationData_Operations_Operation_History_Path_Lifes_Life) Ge
     life.EntityData.BundleName = "cisco_ios_xr"
     life.EntityData.ParentYangName = "lifes"
     life.EntityData.SegmentPath = "life" + types.AddKeyToken(life.LifeIndex, "life-index")
+    life.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/history/path/lifes/" + life.EntityData.SegmentPath
     life.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     life.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     life.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2769,6 +2856,7 @@ func (buckets *Ipsla_OperationData_Operations_Operation_History_Path_Lifes_Life_
     buckets.EntityData.BundleName = "cisco_ios_xr"
     buckets.EntityData.ParentYangName = "life"
     buckets.EntityData.SegmentPath = "buckets"
+    buckets.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/history/path/lifes/life/" + buckets.EntityData.SegmentPath
     buckets.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     buckets.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     buckets.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2790,6 +2878,7 @@ func (buckets *Ipsla_OperationData_Operations_Operation_History_Path_Lifes_Life_
 type Ipsla_OperationData_Operations_Operation_History_Path_Lifes_Life_Buckets_Bucket struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Bucket Index. The type is interface{} with range:
     // 0..4294967295.
@@ -2805,6 +2894,7 @@ func (bucket *Ipsla_OperationData_Operations_Operation_History_Path_Lifes_Life_B
     bucket.EntityData.BundleName = "cisco_ios_xr"
     bucket.EntityData.ParentYangName = "buckets"
     bucket.EntityData.SegmentPath = "bucket" + types.AddKeyToken(bucket.BucketIndex, "bucket-index")
+    bucket.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/history/path/lifes/life/buckets/" + bucket.EntityData.SegmentPath
     bucket.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bucket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bucket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2836,6 +2926,7 @@ func (samples *Ipsla_OperationData_Operations_Operation_History_Path_Lifes_Life_
     samples.EntityData.BundleName = "cisco_ios_xr"
     samples.EntityData.ParentYangName = "bucket"
     samples.EntityData.SegmentPath = "samples"
+    samples.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/history/path/lifes/life/buckets/bucket/" + samples.EntityData.SegmentPath
     samples.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     samples.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     samples.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2857,6 +2948,7 @@ func (samples *Ipsla_OperationData_Operations_Operation_History_Path_Lifes_Life_
 type Ipsla_OperationData_Operations_Operation_History_Path_Lifes_Life_Buckets_Bucket_Samples_Sample struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Sample Index. The type is interface{} with range:
     // 0..4294967295.
@@ -2883,6 +2975,7 @@ func (sample *Ipsla_OperationData_Operations_Operation_History_Path_Lifes_Life_B
     sample.EntityData.BundleName = "cisco_ios_xr"
     sample.EntityData.ParentYangName = "samples"
     sample.EntityData.SegmentPath = "sample" + types.AddKeyToken(sample.SampleIndex, "sample-index")
+    sample.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/history/path/lifes/life/buckets/bucket/samples/" + sample.EntityData.SegmentPath
     sample.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sample.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sample.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2933,6 +3026,7 @@ func (targetAddress *Ipsla_OperationData_Operations_Operation_History_Path_Lifes
     targetAddress.EntityData.BundleName = "cisco_ios_xr"
     targetAddress.EntityData.ParentYangName = "sample"
     targetAddress.EntityData.SegmentPath = "target-address"
+    targetAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/history/path/lifes/life/buckets/bucket/samples/sample/" + targetAddress.EntityData.SegmentPath
     targetAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     targetAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     targetAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2971,6 +3065,7 @@ func (ipv4PrefixTarget *Ipsla_OperationData_Operations_Operation_History_Path_Li
     ipv4PrefixTarget.EntityData.BundleName = "cisco_ios_xr"
     ipv4PrefixTarget.EntityData.ParentYangName = "target-address"
     ipv4PrefixTarget.EntityData.SegmentPath = "ipv4-prefix-target"
+    ipv4PrefixTarget.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/history/path/lifes/life/buckets/bucket/samples/sample/target-address/" + ipv4PrefixTarget.EntityData.SegmentPath
     ipv4PrefixTarget.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4PrefixTarget.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4PrefixTarget.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3001,6 +3096,7 @@ func (tunnelIdTarget *Ipsla_OperationData_Operations_Operation_History_Path_Life
     tunnelIdTarget.EntityData.BundleName = "cisco_ios_xr"
     tunnelIdTarget.EntityData.ParentYangName = "target-address"
     tunnelIdTarget.EntityData.SegmentPath = "tunnel-id-target"
+    tunnelIdTarget.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/history/path/lifes/life/buckets/bucket/samples/sample/target-address/" + tunnelIdTarget.EntityData.SegmentPath
     tunnelIdTarget.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tunnelIdTarget.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tunnelIdTarget.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3034,6 +3130,7 @@ func (ipv4PseudowireTarget *Ipsla_OperationData_Operations_Operation_History_Pat
     ipv4PseudowireTarget.EntityData.BundleName = "cisco_ios_xr"
     ipv4PseudowireTarget.EntityData.ParentYangName = "target-address"
     ipv4PseudowireTarget.EntityData.SegmentPath = "ipv4-pseudowire-target"
+    ipv4PseudowireTarget.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/history/path/lifes/life/buckets/bucket/samples/sample/target-address/" + ipv4PseudowireTarget.EntityData.SegmentPath
     ipv4PseudowireTarget.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4PseudowireTarget.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4PseudowireTarget.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3064,6 +3161,7 @@ func (target *Ipsla_OperationData_Operations_Operation_History_Target) GetEntity
     target.EntityData.BundleName = "cisco_ios_xr"
     target.EntityData.ParentYangName = "history"
     target.EntityData.SegmentPath = "target"
+    target.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/history/" + target.EntityData.SegmentPath
     target.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     target.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     target.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3094,6 +3192,7 @@ func (lifes *Ipsla_OperationData_Operations_Operation_History_Target_Lifes) GetE
     lifes.EntityData.BundleName = "cisco_ios_xr"
     lifes.EntityData.ParentYangName = "target"
     lifes.EntityData.SegmentPath = "lifes"
+    lifes.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/history/target/" + lifes.EntityData.SegmentPath
     lifes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lifes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lifes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3116,6 +3215,7 @@ func (lifes *Ipsla_OperationData_Operations_Operation_History_Target_Lifes) GetE
 type Ipsla_OperationData_Operations_Operation_History_Target_Lifes_Life struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Life Index. The type is interface{} with range:
     // 0..4294967295.
@@ -3131,6 +3231,7 @@ func (life *Ipsla_OperationData_Operations_Operation_History_Target_Lifes_Life) 
     life.EntityData.BundleName = "cisco_ios_xr"
     life.EntityData.ParentYangName = "lifes"
     life.EntityData.SegmentPath = "life" + types.AddKeyToken(life.LifeIndex, "life-index")
+    life.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/history/target/lifes/" + life.EntityData.SegmentPath
     life.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     life.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     life.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3163,6 +3264,7 @@ func (buckets *Ipsla_OperationData_Operations_Operation_History_Target_Lifes_Lif
     buckets.EntityData.BundleName = "cisco_ios_xr"
     buckets.EntityData.ParentYangName = "life"
     buckets.EntityData.SegmentPath = "buckets"
+    buckets.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/history/target/lifes/life/" + buckets.EntityData.SegmentPath
     buckets.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     buckets.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     buckets.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3184,6 +3286,7 @@ func (buckets *Ipsla_OperationData_Operations_Operation_History_Target_Lifes_Lif
 type Ipsla_OperationData_Operations_Operation_History_Target_Lifes_Life_Buckets_Bucket struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Bucket Index. The type is interface{} with range:
     // 0..4294967295.
@@ -3210,6 +3313,7 @@ func (bucket *Ipsla_OperationData_Operations_Operation_History_Target_Lifes_Life
     bucket.EntityData.BundleName = "cisco_ios_xr"
     bucket.EntityData.ParentYangName = "buckets"
     bucket.EntityData.SegmentPath = "bucket" + types.AddKeyToken(bucket.BucketIndex, "bucket-index")
+    bucket.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/history/target/lifes/life/buckets/" + bucket.EntityData.SegmentPath
     bucket.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bucket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bucket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3260,6 +3364,7 @@ func (targetAddress *Ipsla_OperationData_Operations_Operation_History_Target_Lif
     targetAddress.EntityData.BundleName = "cisco_ios_xr"
     targetAddress.EntityData.ParentYangName = "bucket"
     targetAddress.EntityData.SegmentPath = "target-address"
+    targetAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/history/target/lifes/life/buckets/bucket/" + targetAddress.EntityData.SegmentPath
     targetAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     targetAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     targetAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3298,6 +3403,7 @@ func (ipv4PrefixTarget *Ipsla_OperationData_Operations_Operation_History_Target_
     ipv4PrefixTarget.EntityData.BundleName = "cisco_ios_xr"
     ipv4PrefixTarget.EntityData.ParentYangName = "target-address"
     ipv4PrefixTarget.EntityData.SegmentPath = "ipv4-prefix-target"
+    ipv4PrefixTarget.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/history/target/lifes/life/buckets/bucket/target-address/" + ipv4PrefixTarget.EntityData.SegmentPath
     ipv4PrefixTarget.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4PrefixTarget.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4PrefixTarget.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3328,6 +3434,7 @@ func (tunnelIdTarget *Ipsla_OperationData_Operations_Operation_History_Target_Li
     tunnelIdTarget.EntityData.BundleName = "cisco_ios_xr"
     tunnelIdTarget.EntityData.ParentYangName = "target-address"
     tunnelIdTarget.EntityData.SegmentPath = "tunnel-id-target"
+    tunnelIdTarget.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/history/target/lifes/life/buckets/bucket/target-address/" + tunnelIdTarget.EntityData.SegmentPath
     tunnelIdTarget.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tunnelIdTarget.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tunnelIdTarget.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3361,6 +3468,7 @@ func (ipv4PseudowireTarget *Ipsla_OperationData_Operations_Operation_History_Tar
     ipv4PseudowireTarget.EntityData.BundleName = "cisco_ios_xr"
     ipv4PseudowireTarget.EntityData.ParentYangName = "target-address"
     ipv4PseudowireTarget.EntityData.SegmentPath = "ipv4-pseudowire-target"
+    ipv4PseudowireTarget.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/history/target/lifes/life/buckets/bucket/target-address/" + ipv4PseudowireTarget.EntityData.SegmentPath
     ipv4PseudowireTarget.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4PseudowireTarget.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4PseudowireTarget.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3394,6 +3502,7 @@ func (statistics *Ipsla_OperationData_Operations_Operation_Statistics) GetEntity
     statistics.EntityData.BundleName = "cisco_ios_xr"
     statistics.EntityData.ParentYangName = "operation"
     statistics.EntityData.SegmentPath = "statistics"
+    statistics.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/" + statistics.EntityData.SegmentPath
     statistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3431,6 +3540,7 @@ func (latest *Ipsla_OperationData_Operations_Operation_Statistics_Latest) GetEnt
     latest.EntityData.BundleName = "cisco_ios_xr"
     latest.EntityData.ParentYangName = "statistics"
     latest.EntityData.SegmentPath = "latest"
+    latest.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/statistics/" + latest.EntityData.SegmentPath
     latest.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     latest.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     latest.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3465,6 +3575,7 @@ func (target *Ipsla_OperationData_Operations_Operation_Statistics_Latest_Target)
     target.EntityData.BundleName = "cisco_ios_xr"
     target.EntityData.ParentYangName = "latest"
     target.EntityData.SegmentPath = "target"
+    target.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/statistics/latest/" + target.EntityData.SegmentPath
     target.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     target.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     target.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3558,6 +3669,7 @@ func (commonStats *Ipsla_OperationData_Operations_Operation_Statistics_Latest_Ta
     commonStats.EntityData.BundleName = "cisco_ios_xr"
     commonStats.EntityData.ParentYangName = "target"
     commonStats.EntityData.SegmentPath = "common-stats"
+    commonStats.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/statistics/latest/target/" + commonStats.EntityData.SegmentPath
     commonStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     commonStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     commonStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3610,6 +3722,7 @@ func (specificStats *Ipsla_OperationData_Operations_Operation_Statistics_Latest_
     specificStats.EntityData.BundleName = "cisco_ios_xr"
     specificStats.EntityData.ParentYangName = "target"
     specificStats.EntityData.SegmentPath = "specific-stats"
+    specificStats.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/statistics/latest/target/" + specificStats.EntityData.SegmentPath
     specificStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     specificStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     specificStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3740,6 +3853,7 @@ func (icmpPathJitterStats *Ipsla_OperationData_Operations_Operation_Statistics_L
     icmpPathJitterStats.EntityData.BundleName = "cisco_ios_xr"
     icmpPathJitterStats.EntityData.ParentYangName = "specific-stats"
     icmpPathJitterStats.EntityData.SegmentPath = "icmp-path-jitter-stats"
+    icmpPathJitterStats.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/statistics/latest/target/specific-stats/" + icmpPathJitterStats.EntityData.SegmentPath
     icmpPathJitterStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     icmpPathJitterStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     icmpPathJitterStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3953,6 +4067,7 @@ func (udpJitterStats *Ipsla_OperationData_Operations_Operation_Statistics_Latest
     udpJitterStats.EntityData.BundleName = "cisco_ios_xr"
     udpJitterStats.EntityData.ParentYangName = "specific-stats"
     udpJitterStats.EntityData.SegmentPath = "udp-jitter-stats"
+    udpJitterStats.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/statistics/latest/target/specific-stats/" + udpJitterStats.EntityData.SegmentPath
     udpJitterStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     udpJitterStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     udpJitterStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4023,6 +4138,7 @@ func (hops *Ipsla_OperationData_Operations_Operation_Statistics_Latest_Hops) Get
     hops.EntityData.BundleName = "cisco_ios_xr"
     hops.EntityData.ParentYangName = "latest"
     hops.EntityData.SegmentPath = "hops"
+    hops.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/statistics/latest/" + hops.EntityData.SegmentPath
     hops.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hops.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hops.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4045,6 +4161,7 @@ func (hops *Ipsla_OperationData_Operations_Operation_Statistics_Latest_Hops) Get
 type Ipsla_OperationData_Operations_Operation_Statistics_Latest_Hops_Hop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Hop Index. The type is interface{} with range:
     // 0..4294967295.
@@ -4063,6 +4180,7 @@ func (hop *Ipsla_OperationData_Operations_Operation_Statistics_Latest_Hops_Hop) 
     hop.EntityData.BundleName = "cisco_ios_xr"
     hop.EntityData.ParentYangName = "hops"
     hop.EntityData.SegmentPath = "hop" + types.AddKeyToken(hop.HopIndex, "hop-index")
+    hop.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/statistics/latest/hops/" + hop.EntityData.SegmentPath
     hop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4157,6 +4275,7 @@ func (commonStats *Ipsla_OperationData_Operations_Operation_Statistics_Latest_Ho
     commonStats.EntityData.BundleName = "cisco_ios_xr"
     commonStats.EntityData.ParentYangName = "hop"
     commonStats.EntityData.SegmentPath = "common-stats"
+    commonStats.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/statistics/latest/hops/hop/" + commonStats.EntityData.SegmentPath
     commonStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     commonStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     commonStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4209,6 +4328,7 @@ func (specificStats *Ipsla_OperationData_Operations_Operation_Statistics_Latest_
     specificStats.EntityData.BundleName = "cisco_ios_xr"
     specificStats.EntityData.ParentYangName = "hop"
     specificStats.EntityData.SegmentPath = "specific-stats"
+    specificStats.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/statistics/latest/hops/hop/" + specificStats.EntityData.SegmentPath
     specificStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     specificStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     specificStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4339,6 +4459,7 @@ func (icmpPathJitterStats *Ipsla_OperationData_Operations_Operation_Statistics_L
     icmpPathJitterStats.EntityData.BundleName = "cisco_ios_xr"
     icmpPathJitterStats.EntityData.ParentYangName = "specific-stats"
     icmpPathJitterStats.EntityData.SegmentPath = "icmp-path-jitter-stats"
+    icmpPathJitterStats.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/statistics/latest/hops/hop/specific-stats/" + icmpPathJitterStats.EntityData.SegmentPath
     icmpPathJitterStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     icmpPathJitterStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     icmpPathJitterStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4552,6 +4673,7 @@ func (udpJitterStats *Ipsla_OperationData_Operations_Operation_Statistics_Latest
     udpJitterStats.EntityData.BundleName = "cisco_ios_xr"
     udpJitterStats.EntityData.ParentYangName = "specific-stats"
     udpJitterStats.EntityData.SegmentPath = "udp-jitter-stats"
+    udpJitterStats.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/statistics/latest/hops/hop/specific-stats/" + udpJitterStats.EntityData.SegmentPath
     udpJitterStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     udpJitterStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     udpJitterStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4621,6 +4743,7 @@ func (lpdPaths *Ipsla_OperationData_Operations_Operation_Statistics_Latest_LpdPa
     lpdPaths.EntityData.BundleName = "cisco_ios_xr"
     lpdPaths.EntityData.ParentYangName = "latest"
     lpdPaths.EntityData.SegmentPath = "lpd-paths"
+    lpdPaths.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/statistics/latest/" + lpdPaths.EntityData.SegmentPath
     lpdPaths.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lpdPaths.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lpdPaths.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4643,6 +4766,7 @@ func (lpdPaths *Ipsla_OperationData_Operations_Operation_Statistics_Latest_LpdPa
 type Ipsla_OperationData_Operations_Operation_Statistics_Latest_LpdPaths_LpdPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. LPD path index. The type is interface{} with
     // range: 0..4294967295.
@@ -4661,6 +4785,7 @@ func (lpdPath *Ipsla_OperationData_Operations_Operation_Statistics_Latest_LpdPat
     lpdPath.EntityData.BundleName = "cisco_ios_xr"
     lpdPath.EntityData.ParentYangName = "lpd-paths"
     lpdPath.EntityData.SegmentPath = "lpd-path" + types.AddKeyToken(lpdPath.PathIndex, "path-index")
+    lpdPath.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/statistics/latest/lpd-paths/" + lpdPath.EntityData.SegmentPath
     lpdPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lpdPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lpdPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4704,6 +4829,7 @@ func (pathId *Ipsla_OperationData_Operations_Operation_Statistics_Latest_LpdPath
     pathId.EntityData.BundleName = "cisco_ios_xr"
     pathId.EntityData.ParentYangName = "lpd-path"
     pathId.EntityData.SegmentPath = "path-id"
+    pathId.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/statistics/latest/lpd-paths/lpd-path/" + pathId.EntityData.SegmentPath
     pathId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pathId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pathId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4740,6 +4866,7 @@ func (aggregated *Ipsla_OperationData_Operations_Operation_Statistics_Aggregated
     aggregated.EntityData.BundleName = "cisco_ios_xr"
     aggregated.EntityData.ParentYangName = "statistics"
     aggregated.EntityData.SegmentPath = "aggregated"
+    aggregated.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/statistics/" + aggregated.EntityData.SegmentPath
     aggregated.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     aggregated.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     aggregated.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4774,6 +4901,7 @@ func (enhancedIntervals *Ipsla_OperationData_Operations_Operation_Statistics_Agg
     enhancedIntervals.EntityData.BundleName = "cisco_ios_xr"
     enhancedIntervals.EntityData.ParentYangName = "aggregated"
     enhancedIntervals.EntityData.SegmentPath = "enhanced-intervals"
+    enhancedIntervals.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/statistics/aggregated/" + enhancedIntervals.EntityData.SegmentPath
     enhancedIntervals.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     enhancedIntervals.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     enhancedIntervals.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4798,6 +4926,7 @@ func (enhancedIntervals *Ipsla_OperationData_Operations_Operation_Statistics_Agg
 type Ipsla_OperationData_Operations_Operation_Statistics_Aggregated_EnhancedIntervals_EnhancedInterval struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Enhanced Interval in seconds. The type is
     // interface{} with range: 0..4294967295. Units are second.
@@ -4813,6 +4942,7 @@ func (enhancedInterval *Ipsla_OperationData_Operations_Operation_Statistics_Aggr
     enhancedInterval.EntityData.BundleName = "cisco_ios_xr"
     enhancedInterval.EntityData.ParentYangName = "enhanced-intervals"
     enhancedInterval.EntityData.SegmentPath = "enhanced-interval" + types.AddKeyToken(enhancedInterval.EnhancedInterval, "enhanced-interval")
+    enhancedInterval.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/statistics/aggregated/enhanced-intervals/" + enhancedInterval.EntityData.SegmentPath
     enhancedInterval.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     enhancedInterval.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     enhancedInterval.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4845,6 +4975,7 @@ func (startTimes *Ipsla_OperationData_Operations_Operation_Statistics_Aggregated
     startTimes.EntityData.BundleName = "cisco_ios_xr"
     startTimes.EntityData.ParentYangName = "enhanced-interval"
     startTimes.EntityData.SegmentPath = "start-times"
+    startTimes.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/statistics/aggregated/enhanced-intervals/enhanced-interval/" + startTimes.EntityData.SegmentPath
     startTimes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     startTimes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     startTimes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4867,6 +4998,7 @@ func (startTimes *Ipsla_OperationData_Operations_Operation_Statistics_Aggregated
 type Ipsla_OperationData_Operations_Operation_Statistics_Aggregated_EnhancedIntervals_EnhancedInterval_StartTimes_StartTime struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interval Start Time. The type is string with
     // pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -4885,6 +5017,7 @@ func (startTime *Ipsla_OperationData_Operations_Operation_Statistics_Aggregated_
     startTime.EntityData.BundleName = "cisco_ios_xr"
     startTime.EntityData.ParentYangName = "start-times"
     startTime.EntityData.SegmentPath = "start-time" + types.AddKeyToken(startTime.IntervalStartTime, "interval-start-time")
+    startTime.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/statistics/aggregated/enhanced-intervals/enhanced-interval/start-times/" + startTime.EntityData.SegmentPath
     startTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     startTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     startTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4979,6 +5112,7 @@ func (commonStats *Ipsla_OperationData_Operations_Operation_Statistics_Aggregate
     commonStats.EntityData.BundleName = "cisco_ios_xr"
     commonStats.EntityData.ParentYangName = "start-time"
     commonStats.EntityData.SegmentPath = "common-stats"
+    commonStats.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/statistics/aggregated/enhanced-intervals/enhanced-interval/start-times/start-time/" + commonStats.EntityData.SegmentPath
     commonStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     commonStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     commonStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5031,6 +5165,7 @@ func (specificStats *Ipsla_OperationData_Operations_Operation_Statistics_Aggrega
     specificStats.EntityData.BundleName = "cisco_ios_xr"
     specificStats.EntityData.ParentYangName = "start-time"
     specificStats.EntityData.SegmentPath = "specific-stats"
+    specificStats.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/statistics/aggregated/enhanced-intervals/enhanced-interval/start-times/start-time/" + specificStats.EntityData.SegmentPath
     specificStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     specificStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     specificStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5161,6 +5296,7 @@ func (icmpPathJitterStats *Ipsla_OperationData_Operations_Operation_Statistics_A
     icmpPathJitterStats.EntityData.BundleName = "cisco_ios_xr"
     icmpPathJitterStats.EntityData.ParentYangName = "specific-stats"
     icmpPathJitterStats.EntityData.SegmentPath = "icmp-path-jitter-stats"
+    icmpPathJitterStats.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/statistics/aggregated/enhanced-intervals/enhanced-interval/start-times/start-time/specific-stats/" + icmpPathJitterStats.EntityData.SegmentPath
     icmpPathJitterStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     icmpPathJitterStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     icmpPathJitterStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5374,6 +5510,7 @@ func (udpJitterStats *Ipsla_OperationData_Operations_Operation_Statistics_Aggreg
     udpJitterStats.EntityData.BundleName = "cisco_ios_xr"
     udpJitterStats.EntityData.ParentYangName = "specific-stats"
     udpJitterStats.EntityData.SegmentPath = "udp-jitter-stats"
+    udpJitterStats.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/statistics/aggregated/enhanced-intervals/enhanced-interval/start-times/start-time/specific-stats/" + udpJitterStats.EntityData.SegmentPath
     udpJitterStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     udpJitterStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     udpJitterStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5444,6 +5581,7 @@ func (hours *Ipsla_OperationData_Operations_Operation_Statistics_Aggregated_Hour
     hours.EntityData.BundleName = "cisco_ios_xr"
     hours.EntityData.ParentYangName = "aggregated"
     hours.EntityData.SegmentPath = "hours"
+    hours.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/statistics/aggregated/" + hours.EntityData.SegmentPath
     hours.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hours.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hours.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5466,6 +5604,7 @@ func (hours *Ipsla_OperationData_Operations_Operation_Statistics_Aggregated_Hour
 type Ipsla_OperationData_Operations_Operation_Statistics_Aggregated_Hours_Hour struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Hour Index. The type is interface{} with range:
     // 0..4294967295.
@@ -5485,6 +5624,7 @@ func (hour *Ipsla_OperationData_Operations_Operation_Statistics_Aggregated_Hours
     hour.EntityData.BundleName = "cisco_ios_xr"
     hour.EntityData.ParentYangName = "hours"
     hour.EntityData.SegmentPath = "hour" + types.AddKeyToken(hour.HourIndex, "hour-index")
+    hour.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/statistics/aggregated/hours/" + hour.EntityData.SegmentPath
     hour.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hour.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hour.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5520,6 +5660,7 @@ func (distributed *Ipsla_OperationData_Operations_Operation_Statistics_Aggregate
     distributed.EntityData.BundleName = "cisco_ios_xr"
     distributed.EntityData.ParentYangName = "hour"
     distributed.EntityData.SegmentPath = "distributed"
+    distributed.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/statistics/aggregated/hours/hour/" + distributed.EntityData.SegmentPath
     distributed.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     distributed.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     distributed.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5552,6 +5693,7 @@ func (paths *Ipsla_OperationData_Operations_Operation_Statistics_Aggregated_Hour
     paths.EntityData.BundleName = "cisco_ios_xr"
     paths.EntityData.ParentYangName = "distributed"
     paths.EntityData.SegmentPath = "paths"
+    paths.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/statistics/aggregated/hours/hour/distributed/" + paths.EntityData.SegmentPath
     paths.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     paths.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     paths.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5573,6 +5715,7 @@ func (paths *Ipsla_OperationData_Operations_Operation_Statistics_Aggregated_Hour
 type Ipsla_OperationData_Operations_Operation_Statistics_Aggregated_Hours_Hour_Distributed_Paths_Path struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Path Index. The type is interface{} with range:
     // 0..4294967295.
@@ -5588,6 +5731,7 @@ func (path *Ipsla_OperationData_Operations_Operation_Statistics_Aggregated_Hours
     path.EntityData.BundleName = "cisco_ios_xr"
     path.EntityData.ParentYangName = "paths"
     path.EntityData.SegmentPath = "path" + types.AddKeyToken(path.PathIndex, "path-index")
+    path.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/statistics/aggregated/hours/hour/distributed/paths/" + path.EntityData.SegmentPath
     path.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     path.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     path.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5620,6 +5764,7 @@ func (hops *Ipsla_OperationData_Operations_Operation_Statistics_Aggregated_Hours
     hops.EntityData.BundleName = "cisco_ios_xr"
     hops.EntityData.ParentYangName = "path"
     hops.EntityData.SegmentPath = "hops"
+    hops.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/statistics/aggregated/hours/hour/distributed/paths/path/" + hops.EntityData.SegmentPath
     hops.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hops.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hops.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5642,6 +5787,7 @@ func (hops *Ipsla_OperationData_Operations_Operation_Statistics_Aggregated_Hours
 type Ipsla_OperationData_Operations_Operation_Statistics_Aggregated_Hours_Hour_Distributed_Paths_Path_Hops_Hop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Hop Index. The type is interface{} with range:
     // 0..4294967295.
@@ -5657,6 +5803,7 @@ func (hop *Ipsla_OperationData_Operations_Operation_Statistics_Aggregated_Hours_
     hop.EntityData.BundleName = "cisco_ios_xr"
     hop.EntityData.ParentYangName = "hops"
     hop.EntityData.SegmentPath = "hop" + types.AddKeyToken(hop.HopIndex, "hop-index")
+    hop.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/statistics/aggregated/hours/hour/distributed/paths/path/hops/" + hop.EntityData.SegmentPath
     hop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5690,6 +5837,7 @@ func (distributionIntervals *Ipsla_OperationData_Operations_Operation_Statistics
     distributionIntervals.EntityData.BundleName = "cisco_ios_xr"
     distributionIntervals.EntityData.ParentYangName = "hop"
     distributionIntervals.EntityData.SegmentPath = "distribution-intervals"
+    distributionIntervals.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/statistics/aggregated/hours/hour/distributed/paths/path/hops/hop/" + distributionIntervals.EntityData.SegmentPath
     distributionIntervals.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     distributionIntervals.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     distributionIntervals.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5712,6 +5860,7 @@ func (distributionIntervals *Ipsla_OperationData_Operations_Operation_Statistics
 type Ipsla_OperationData_Operations_Operation_Statistics_Aggregated_Hours_Hour_Distributed_Paths_Path_Hops_Hop_DistributionIntervals_DistributionInterval struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Distribution Interval. The type is interface{}
     // with range: 0..4294967295.
@@ -5730,6 +5879,7 @@ func (distributionInterval *Ipsla_OperationData_Operations_Operation_Statistics_
     distributionInterval.EntityData.BundleName = "cisco_ios_xr"
     distributionInterval.EntityData.ParentYangName = "distribution-intervals"
     distributionInterval.EntityData.SegmentPath = "distribution-interval" + types.AddKeyToken(distributionInterval.DistributionIndex, "distribution-index")
+    distributionInterval.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/statistics/aggregated/hours/hour/distributed/paths/path/hops/hop/distribution-intervals/" + distributionInterval.EntityData.SegmentPath
     distributionInterval.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     distributionInterval.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     distributionInterval.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5824,6 +5974,7 @@ func (commonStats *Ipsla_OperationData_Operations_Operation_Statistics_Aggregate
     commonStats.EntityData.BundleName = "cisco_ios_xr"
     commonStats.EntityData.ParentYangName = "distribution-interval"
     commonStats.EntityData.SegmentPath = "common-stats"
+    commonStats.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/statistics/aggregated/hours/hour/distributed/paths/path/hops/hop/distribution-intervals/distribution-interval/" + commonStats.EntityData.SegmentPath
     commonStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     commonStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     commonStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5876,6 +6027,7 @@ func (specificStats *Ipsla_OperationData_Operations_Operation_Statistics_Aggrega
     specificStats.EntityData.BundleName = "cisco_ios_xr"
     specificStats.EntityData.ParentYangName = "distribution-interval"
     specificStats.EntityData.SegmentPath = "specific-stats"
+    specificStats.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/statistics/aggregated/hours/hour/distributed/paths/path/hops/hop/distribution-intervals/distribution-interval/" + specificStats.EntityData.SegmentPath
     specificStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     specificStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     specificStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6006,6 +6158,7 @@ func (icmpPathJitterStats *Ipsla_OperationData_Operations_Operation_Statistics_A
     icmpPathJitterStats.EntityData.BundleName = "cisco_ios_xr"
     icmpPathJitterStats.EntityData.ParentYangName = "specific-stats"
     icmpPathJitterStats.EntityData.SegmentPath = "icmp-path-jitter-stats"
+    icmpPathJitterStats.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/statistics/aggregated/hours/hour/distributed/paths/path/hops/hop/distribution-intervals/distribution-interval/specific-stats/" + icmpPathJitterStats.EntityData.SegmentPath
     icmpPathJitterStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     icmpPathJitterStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     icmpPathJitterStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6219,6 +6372,7 @@ func (udpJitterStats *Ipsla_OperationData_Operations_Operation_Statistics_Aggreg
     udpJitterStats.EntityData.BundleName = "cisco_ios_xr"
     udpJitterStats.EntityData.ParentYangName = "specific-stats"
     udpJitterStats.EntityData.SegmentPath = "udp-jitter-stats"
+    udpJitterStats.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/statistics/aggregated/hours/hour/distributed/paths/path/hops/hop/distribution-intervals/distribution-interval/specific-stats/" + udpJitterStats.EntityData.SegmentPath
     udpJitterStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     udpJitterStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     udpJitterStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6288,6 +6442,7 @@ func (target *Ipsla_OperationData_Operations_Operation_Statistics_Aggregated_Hou
     target.EntityData.BundleName = "cisco_ios_xr"
     target.EntityData.ParentYangName = "distributed"
     target.EntityData.SegmentPath = "target"
+    target.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/statistics/aggregated/hours/hour/distributed/" + target.EntityData.SegmentPath
     target.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     target.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     target.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6320,6 +6475,7 @@ func (distributionIntervals *Ipsla_OperationData_Operations_Operation_Statistics
     distributionIntervals.EntityData.BundleName = "cisco_ios_xr"
     distributionIntervals.EntityData.ParentYangName = "target"
     distributionIntervals.EntityData.SegmentPath = "distribution-intervals"
+    distributionIntervals.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/statistics/aggregated/hours/hour/distributed/target/" + distributionIntervals.EntityData.SegmentPath
     distributionIntervals.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     distributionIntervals.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     distributionIntervals.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6342,6 +6498,7 @@ func (distributionIntervals *Ipsla_OperationData_Operations_Operation_Statistics
 type Ipsla_OperationData_Operations_Operation_Statistics_Aggregated_Hours_Hour_Distributed_Target_DistributionIntervals_DistributionInterval struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Distribution Interval. The type is interface{}
     // with range: 0..4294967295.
@@ -6360,6 +6517,7 @@ func (distributionInterval *Ipsla_OperationData_Operations_Operation_Statistics_
     distributionInterval.EntityData.BundleName = "cisco_ios_xr"
     distributionInterval.EntityData.ParentYangName = "distribution-intervals"
     distributionInterval.EntityData.SegmentPath = "distribution-interval" + types.AddKeyToken(distributionInterval.DistributionIndex, "distribution-index")
+    distributionInterval.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/statistics/aggregated/hours/hour/distributed/target/distribution-intervals/" + distributionInterval.EntityData.SegmentPath
     distributionInterval.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     distributionInterval.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     distributionInterval.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6454,6 +6612,7 @@ func (commonStats *Ipsla_OperationData_Operations_Operation_Statistics_Aggregate
     commonStats.EntityData.BundleName = "cisco_ios_xr"
     commonStats.EntityData.ParentYangName = "distribution-interval"
     commonStats.EntityData.SegmentPath = "common-stats"
+    commonStats.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/statistics/aggregated/hours/hour/distributed/target/distribution-intervals/distribution-interval/" + commonStats.EntityData.SegmentPath
     commonStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     commonStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     commonStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6506,6 +6665,7 @@ func (specificStats *Ipsla_OperationData_Operations_Operation_Statistics_Aggrega
     specificStats.EntityData.BundleName = "cisco_ios_xr"
     specificStats.EntityData.ParentYangName = "distribution-interval"
     specificStats.EntityData.SegmentPath = "specific-stats"
+    specificStats.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/statistics/aggregated/hours/hour/distributed/target/distribution-intervals/distribution-interval/" + specificStats.EntityData.SegmentPath
     specificStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     specificStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     specificStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6636,6 +6796,7 @@ func (icmpPathJitterStats *Ipsla_OperationData_Operations_Operation_Statistics_A
     icmpPathJitterStats.EntityData.BundleName = "cisco_ios_xr"
     icmpPathJitterStats.EntityData.ParentYangName = "specific-stats"
     icmpPathJitterStats.EntityData.SegmentPath = "icmp-path-jitter-stats"
+    icmpPathJitterStats.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/statistics/aggregated/hours/hour/distributed/target/distribution-intervals/distribution-interval/specific-stats/" + icmpPathJitterStats.EntityData.SegmentPath
     icmpPathJitterStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     icmpPathJitterStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     icmpPathJitterStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6849,6 +7010,7 @@ func (udpJitterStats *Ipsla_OperationData_Operations_Operation_Statistics_Aggreg
     udpJitterStats.EntityData.BundleName = "cisco_ios_xr"
     udpJitterStats.EntityData.ParentYangName = "specific-stats"
     udpJitterStats.EntityData.SegmentPath = "udp-jitter-stats"
+    udpJitterStats.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/statistics/aggregated/hours/hour/distributed/target/distribution-intervals/distribution-interval/specific-stats/" + udpJitterStats.EntityData.SegmentPath
     udpJitterStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     udpJitterStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     udpJitterStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6924,6 +7086,7 @@ func (nonDistributed *Ipsla_OperationData_Operations_Operation_Statistics_Aggreg
     nonDistributed.EntityData.BundleName = "cisco_ios_xr"
     nonDistributed.EntityData.ParentYangName = "hour"
     nonDistributed.EntityData.SegmentPath = "non-distributed"
+    nonDistributed.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/statistics/aggregated/hours/hour/" + nonDistributed.EntityData.SegmentPath
     nonDistributed.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nonDistributed.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nonDistributed.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6959,6 +7122,7 @@ func (target *Ipsla_OperationData_Operations_Operation_Statistics_Aggregated_Hou
     target.EntityData.BundleName = "cisco_ios_xr"
     target.EntityData.ParentYangName = "non-distributed"
     target.EntityData.SegmentPath = "target"
+    target.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/statistics/aggregated/hours/hour/non-distributed/" + target.EntityData.SegmentPath
     target.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     target.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     target.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7052,6 +7216,7 @@ func (commonStats *Ipsla_OperationData_Operations_Operation_Statistics_Aggregate
     commonStats.EntityData.BundleName = "cisco_ios_xr"
     commonStats.EntityData.ParentYangName = "target"
     commonStats.EntityData.SegmentPath = "common-stats"
+    commonStats.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/statistics/aggregated/hours/hour/non-distributed/target/" + commonStats.EntityData.SegmentPath
     commonStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     commonStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     commonStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7104,6 +7269,7 @@ func (specificStats *Ipsla_OperationData_Operations_Operation_Statistics_Aggrega
     specificStats.EntityData.BundleName = "cisco_ios_xr"
     specificStats.EntityData.ParentYangName = "target"
     specificStats.EntityData.SegmentPath = "specific-stats"
+    specificStats.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/statistics/aggregated/hours/hour/non-distributed/target/" + specificStats.EntityData.SegmentPath
     specificStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     specificStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     specificStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7234,6 +7400,7 @@ func (icmpPathJitterStats *Ipsla_OperationData_Operations_Operation_Statistics_A
     icmpPathJitterStats.EntityData.BundleName = "cisco_ios_xr"
     icmpPathJitterStats.EntityData.ParentYangName = "specific-stats"
     icmpPathJitterStats.EntityData.SegmentPath = "icmp-path-jitter-stats"
+    icmpPathJitterStats.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/statistics/aggregated/hours/hour/non-distributed/target/specific-stats/" + icmpPathJitterStats.EntityData.SegmentPath
     icmpPathJitterStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     icmpPathJitterStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     icmpPathJitterStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7447,6 +7614,7 @@ func (udpJitterStats *Ipsla_OperationData_Operations_Operation_Statistics_Aggreg
     udpJitterStats.EntityData.BundleName = "cisco_ios_xr"
     udpJitterStats.EntityData.ParentYangName = "specific-stats"
     udpJitterStats.EntityData.SegmentPath = "udp-jitter-stats"
+    udpJitterStats.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/statistics/aggregated/hours/hour/non-distributed/target/specific-stats/" + udpJitterStats.EntityData.SegmentPath
     udpJitterStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     udpJitterStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     udpJitterStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7517,6 +7685,7 @@ func (paths *Ipsla_OperationData_Operations_Operation_Statistics_Aggregated_Hour
     paths.EntityData.BundleName = "cisco_ios_xr"
     paths.EntityData.ParentYangName = "non-distributed"
     paths.EntityData.SegmentPath = "paths"
+    paths.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/statistics/aggregated/hours/hour/non-distributed/" + paths.EntityData.SegmentPath
     paths.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     paths.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     paths.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7538,6 +7707,7 @@ func (paths *Ipsla_OperationData_Operations_Operation_Statistics_Aggregated_Hour
 type Ipsla_OperationData_Operations_Operation_Statistics_Aggregated_Hours_Hour_NonDistributed_Paths_Path struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Path Index. The type is interface{} with range:
     // 0..4294967295.
@@ -7553,6 +7723,7 @@ func (path *Ipsla_OperationData_Operations_Operation_Statistics_Aggregated_Hours
     path.EntityData.BundleName = "cisco_ios_xr"
     path.EntityData.ParentYangName = "paths"
     path.EntityData.SegmentPath = "path" + types.AddKeyToken(path.PathIndex, "path-index")
+    path.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/statistics/aggregated/hours/hour/non-distributed/paths/" + path.EntityData.SegmentPath
     path.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     path.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     path.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7585,6 +7756,7 @@ func (hops *Ipsla_OperationData_Operations_Operation_Statistics_Aggregated_Hours
     hops.EntityData.BundleName = "cisco_ios_xr"
     hops.EntityData.ParentYangName = "path"
     hops.EntityData.SegmentPath = "hops"
+    hops.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/statistics/aggregated/hours/hour/non-distributed/paths/path/" + hops.EntityData.SegmentPath
     hops.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hops.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hops.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7607,6 +7779,7 @@ func (hops *Ipsla_OperationData_Operations_Operation_Statistics_Aggregated_Hours
 type Ipsla_OperationData_Operations_Operation_Statistics_Aggregated_Hours_Hour_NonDistributed_Paths_Path_Hops_Hop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Hop Index. The type is interface{} with range:
     // 0..4294967295.
@@ -7625,6 +7798,7 @@ func (hop *Ipsla_OperationData_Operations_Operation_Statistics_Aggregated_Hours_
     hop.EntityData.BundleName = "cisco_ios_xr"
     hop.EntityData.ParentYangName = "hops"
     hop.EntityData.SegmentPath = "hop" + types.AddKeyToken(hop.HopIndex, "hop-index")
+    hop.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/statistics/aggregated/hours/hour/non-distributed/paths/path/hops/" + hop.EntityData.SegmentPath
     hop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7719,6 +7893,7 @@ func (commonStats *Ipsla_OperationData_Operations_Operation_Statistics_Aggregate
     commonStats.EntityData.BundleName = "cisco_ios_xr"
     commonStats.EntityData.ParentYangName = "hop"
     commonStats.EntityData.SegmentPath = "common-stats"
+    commonStats.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/statistics/aggregated/hours/hour/non-distributed/paths/path/hops/hop/" + commonStats.EntityData.SegmentPath
     commonStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     commonStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     commonStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7771,6 +7946,7 @@ func (specificStats *Ipsla_OperationData_Operations_Operation_Statistics_Aggrega
     specificStats.EntityData.BundleName = "cisco_ios_xr"
     specificStats.EntityData.ParentYangName = "hop"
     specificStats.EntityData.SegmentPath = "specific-stats"
+    specificStats.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/statistics/aggregated/hours/hour/non-distributed/paths/path/hops/hop/" + specificStats.EntityData.SegmentPath
     specificStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     specificStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     specificStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7901,6 +8077,7 @@ func (icmpPathJitterStats *Ipsla_OperationData_Operations_Operation_Statistics_A
     icmpPathJitterStats.EntityData.BundleName = "cisco_ios_xr"
     icmpPathJitterStats.EntityData.ParentYangName = "specific-stats"
     icmpPathJitterStats.EntityData.SegmentPath = "icmp-path-jitter-stats"
+    icmpPathJitterStats.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/statistics/aggregated/hours/hour/non-distributed/paths/path/hops/hop/specific-stats/" + icmpPathJitterStats.EntityData.SegmentPath
     icmpPathJitterStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     icmpPathJitterStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     icmpPathJitterStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8114,6 +8291,7 @@ func (udpJitterStats *Ipsla_OperationData_Operations_Operation_Statistics_Aggreg
     udpJitterStats.EntityData.BundleName = "cisco_ios_xr"
     udpJitterStats.EntityData.ParentYangName = "specific-stats"
     udpJitterStats.EntityData.SegmentPath = "udp-jitter-stats"
+    udpJitterStats.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/statistics/aggregated/hours/hour/non-distributed/paths/path/hops/hop/specific-stats/" + udpJitterStats.EntityData.SegmentPath
     udpJitterStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     udpJitterStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     udpJitterStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8183,6 +8361,7 @@ func (lpdPaths *Ipsla_OperationData_Operations_Operation_Statistics_Aggregated_H
     lpdPaths.EntityData.BundleName = "cisco_ios_xr"
     lpdPaths.EntityData.ParentYangName = "non-distributed"
     lpdPaths.EntityData.SegmentPath = "lpd-paths"
+    lpdPaths.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/statistics/aggregated/hours/hour/non-distributed/" + lpdPaths.EntityData.SegmentPath
     lpdPaths.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lpdPaths.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lpdPaths.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8205,6 +8384,7 @@ func (lpdPaths *Ipsla_OperationData_Operations_Operation_Statistics_Aggregated_H
 type Ipsla_OperationData_Operations_Operation_Statistics_Aggregated_Hours_Hour_NonDistributed_LpdPaths_LpdPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. LPD path index. The type is interface{} with
     // range: 0..4294967295.
@@ -8223,6 +8403,7 @@ func (lpdPath *Ipsla_OperationData_Operations_Operation_Statistics_Aggregated_Ho
     lpdPath.EntityData.BundleName = "cisco_ios_xr"
     lpdPath.EntityData.ParentYangName = "lpd-paths"
     lpdPath.EntityData.SegmentPath = "lpd-path" + types.AddKeyToken(lpdPath.PathIndex, "path-index")
+    lpdPath.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/statistics/aggregated/hours/hour/non-distributed/lpd-paths/" + lpdPath.EntityData.SegmentPath
     lpdPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lpdPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lpdPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8266,6 +8447,7 @@ func (pathId *Ipsla_OperationData_Operations_Operation_Statistics_Aggregated_Hou
     pathId.EntityData.BundleName = "cisco_ios_xr"
     pathId.EntityData.ParentYangName = "lpd-path"
     pathId.EntityData.SegmentPath = "path-id"
+    pathId.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/operation/statistics/aggregated/hours/hour/non-distributed/lpd-paths/lpd-path/" + pathId.EntityData.SegmentPath
     pathId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pathId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pathId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8334,6 +8516,7 @@ func (applicationInfo *Ipsla_ApplicationInfo) GetEntityData() *types.CommonEntit
     applicationInfo.EntityData.BundleName = "cisco_ios_xr"
     applicationInfo.EntityData.ParentYangName = "ipsla"
     applicationInfo.EntityData.SegmentPath = "application-info"
+    applicationInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ipsla-oper:ipsla/" + applicationInfo.EntityData.SegmentPath
     applicationInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     applicationInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     applicationInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

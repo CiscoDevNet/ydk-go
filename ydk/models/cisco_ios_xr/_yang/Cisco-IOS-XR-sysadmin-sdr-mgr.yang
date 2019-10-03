@@ -39,9 +39,9 @@ module Cisco-IOS-XR-sysadmin-sdr-mgr {
      Copyright (c) 2012-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
-  revision 2018-05-15 {
+  revision 2018-10-22 {
     description
-      "Added node-type leaf in sdr-operation container";
+      "Removed choice for action re_pair";
   }
 
   typedef Location {
@@ -201,11 +201,7 @@ module Cisco-IOS-XR-sysadmin-sdr-mgr {
       container Action {
         config false;
         tailf:action "re_pair" {
-          input {
-            choice what_act {
-              mandatory true;
-            }
-          }
+          input;
           output {
             leaf result {
               type string;

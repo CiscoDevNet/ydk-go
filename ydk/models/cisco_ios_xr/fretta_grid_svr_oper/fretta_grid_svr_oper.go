@@ -40,6 +40,7 @@ func (grid *Grid) GetEntityData() *types.CommonEntityData {
     grid.EntityData.BundleName = "cisco_ios_xr"
     grid.EntityData.ParentYangName = "Cisco-IOS-XR-fretta-grid-svr-oper"
     grid.EntityData.SegmentPath = "Cisco-IOS-XR-fretta-grid-svr-oper:grid"
+    grid.EntityData.AbsolutePath = grid.EntityData.SegmentPath
     grid.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     grid.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     grid.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -70,6 +71,7 @@ func (nodes *Grid_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.BundleName = "cisco_ios_xr"
     nodes.EntityData.ParentYangName = "grid"
     nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.AbsolutePath = "Cisco-IOS-XR-fretta-grid-svr-oper:grid/" + nodes.EntityData.SegmentPath
     nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -91,6 +93,7 @@ func (nodes *Grid_Nodes) GetEntityData() *types.CommonEntityData {
 type Grid_Nodes_Node struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Node ID. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -109,6 +112,7 @@ func (node *Grid_Nodes_Node) GetEntityData() *types.CommonEntityData {
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
     node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeName, "node-name")
+    node.EntityData.AbsolutePath = "Cisco-IOS-XR-fretta-grid-svr-oper:grid/nodes/" + node.EntityData.SegmentPath
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -140,6 +144,7 @@ func (clientXr *Grid_Nodes_Node_ClientXr) GetEntityData() *types.CommonEntityDat
     clientXr.EntityData.BundleName = "cisco_ios_xr"
     clientXr.EntityData.ParentYangName = "node"
     clientXr.EntityData.SegmentPath = "client-xr"
+    clientXr.EntityData.AbsolutePath = "Cisco-IOS-XR-fretta-grid-svr-oper:grid/nodes/node/" + clientXr.EntityData.SegmentPath
     clientXr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clientXr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clientXr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -161,6 +166,7 @@ func (clientXr *Grid_Nodes_Node_ClientXr) GetEntityData() *types.CommonEntityDat
 type Grid_Nodes_Node_ClientXr_Client struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Client name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -177,6 +183,7 @@ func (client *Grid_Nodes_Node_ClientXr_Client) GetEntityData() *types.CommonEnti
     client.EntityData.BundleName = "cisco_ios_xr"
     client.EntityData.ParentYangName = "client-xr"
     client.EntityData.SegmentPath = "client" + types.AddKeyToken(client.ClientName, "client-name")
+    client.EntityData.AbsolutePath = "Cisco-IOS-XR-fretta-grid-svr-oper:grid/nodes/node/client-xr/" + client.EntityData.SegmentPath
     client.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     client.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     client.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -184,6 +191,7 @@ func (client *Grid_Nodes_Node_ClientXr_Client) GetEntityData() *types.CommonEnti
     client.EntityData.Children = types.NewOrderedMap()
     client.EntityData.Children.Append("client-data", types.YChild{"ClientData", nil})
     for i := range client.ClientData {
+        types.SetYListKey(client.ClientData[i], i)
         client.EntityData.Children.Append(types.GetSegmentPath(client.ClientData[i]), types.YChild{"ClientData", client.ClientData[i]})
     }
     client.EntityData.Leafs = types.NewOrderedMap()
@@ -199,6 +207,7 @@ func (client *Grid_Nodes_Node_ClientXr_Client) GetEntityData() *types.CommonEnti
 type Grid_Nodes_Node_ClientXr_Client_ClientData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Resource ID. The type is interface{} with range: 0..4294967295.
     ResId interface{}
@@ -209,7 +218,8 @@ func (clientData *Grid_Nodes_Node_ClientXr_Client_ClientData) GetEntityData() *t
     clientData.EntityData.YangName = "client-data"
     clientData.EntityData.BundleName = "cisco_ios_xr"
     clientData.EntityData.ParentYangName = "client"
-    clientData.EntityData.SegmentPath = "client-data"
+    clientData.EntityData.SegmentPath = "client-data" + types.AddNoKeyToken(clientData)
+    clientData.EntityData.AbsolutePath = "Cisco-IOS-XR-fretta-grid-svr-oper:grid/nodes/node/client-xr/client/" + clientData.EntityData.SegmentPath
     clientData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clientData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clientData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -240,6 +250,7 @@ func (clients *Grid_Nodes_Node_Clients) GetEntityData() *types.CommonEntityData 
     clients.EntityData.BundleName = "cisco_ios_xr"
     clients.EntityData.ParentYangName = "node"
     clients.EntityData.SegmentPath = "clients"
+    clients.EntityData.AbsolutePath = "Cisco-IOS-XR-fretta-grid-svr-oper:grid/nodes/node/" + clients.EntityData.SegmentPath
     clients.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clients.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clients.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -261,6 +272,7 @@ func (clients *Grid_Nodes_Node_Clients) GetEntityData() *types.CommonEntityData 
 type Grid_Nodes_Node_Clients_Client struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Client name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -277,6 +289,7 @@ func (client *Grid_Nodes_Node_Clients_Client) GetEntityData() *types.CommonEntit
     client.EntityData.BundleName = "cisco_ios_xr"
     client.EntityData.ParentYangName = "clients"
     client.EntityData.SegmentPath = "client" + types.AddKeyToken(client.ClientName, "client-name")
+    client.EntityData.AbsolutePath = "Cisco-IOS-XR-fretta-grid-svr-oper:grid/nodes/node/clients/" + client.EntityData.SegmentPath
     client.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     client.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     client.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -284,6 +297,7 @@ func (client *Grid_Nodes_Node_Clients_Client) GetEntityData() *types.CommonEntit
     client.EntityData.Children = types.NewOrderedMap()
     client.EntityData.Children.Append("client-data", types.YChild{"ClientData", nil})
     for i := range client.ClientData {
+        types.SetYListKey(client.ClientData[i], i)
         client.EntityData.Children.Append(types.GetSegmentPath(client.ClientData[i]), types.YChild{"ClientData", client.ClientData[i]})
     }
     client.EntityData.Leafs = types.NewOrderedMap()
@@ -299,6 +313,7 @@ func (client *Grid_Nodes_Node_Clients_Client) GetEntityData() *types.CommonEntit
 type Grid_Nodes_Node_Clients_Client_ClientData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Resource ID. The type is interface{} with range: 0..4294967295.
     ResId interface{}
@@ -309,7 +324,8 @@ func (clientData *Grid_Nodes_Node_Clients_Client_ClientData) GetEntityData() *ty
     clientData.EntityData.YangName = "client-data"
     clientData.EntityData.BundleName = "cisco_ios_xr"
     clientData.EntityData.ParentYangName = "client"
-    clientData.EntityData.SegmentPath = "client-data"
+    clientData.EntityData.SegmentPath = "client-data" + types.AddNoKeyToken(clientData)
+    clientData.EntityData.AbsolutePath = "Cisco-IOS-XR-fretta-grid-svr-oper:grid/nodes/node/clients/client/" + clientData.EntityData.SegmentPath
     clientData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clientData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clientData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

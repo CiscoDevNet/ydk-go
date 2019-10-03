@@ -77,6 +77,7 @@ func (pim *Pim) GetEntityData() *types.CommonEntityData {
     pim.EntityData.BundleName = "cisco_ios_xr"
     pim.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-pim-cfg"
     pim.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-pim-cfg:pim"
+    pim.EntityData.AbsolutePath = pim.EntityData.SegmentPath
     pim.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pim.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pim.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -107,6 +108,7 @@ func (vrfs *Pim_Vrfs) GetEntityData() *types.CommonEntityData {
     vrfs.EntityData.BundleName = "cisco_ios_xr"
     vrfs.EntityData.ParentYangName = "pim"
     vrfs.EntityData.SegmentPath = "vrfs"
+    vrfs.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/" + vrfs.EntityData.SegmentPath
     vrfs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -128,6 +130,7 @@ func (vrfs *Pim_Vrfs) GetEntityData() *types.CommonEntityData {
 type Pim_Vrfs_Vrf struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. VRF name. The type is string with length: 1..32.
     VrfName interface{}
@@ -145,6 +148,7 @@ func (vrf *Pim_Vrfs_Vrf) GetEntityData() *types.CommonEntityData {
     vrf.EntityData.BundleName = "cisco_ios_xr"
     vrf.EntityData.ParentYangName = "vrfs"
     vrf.EntityData.SegmentPath = "vrf" + types.AddKeyToken(vrf.VrfName, "vrf-name")
+    vrf.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/vrfs/" + vrf.EntityData.SegmentPath
     vrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -271,6 +275,7 @@ func (ipv4 *Pim_Vrfs_Vrf_Ipv4) GetEntityData() *types.CommonEntityData {
     ipv4.EntityData.BundleName = "cisco_ios_xr"
     ipv4.EntityData.ParentYangName = "vrf"
     ipv4.EntityData.SegmentPath = "ipv4"
+    ipv4.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/vrfs/vrf/" + ipv4.EntityData.SegmentPath
     ipv4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -329,6 +334,7 @@ func (sparseModeRpAddresses *Pim_Vrfs_Vrf_Ipv4_SparseModeRpAddresses) GetEntityD
     sparseModeRpAddresses.EntityData.BundleName = "cisco_ios_xr"
     sparseModeRpAddresses.EntityData.ParentYangName = "ipv4"
     sparseModeRpAddresses.EntityData.SegmentPath = "sparse-mode-rp-addresses"
+    sparseModeRpAddresses.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/vrfs/vrf/ipv4/" + sparseModeRpAddresses.EntityData.SegmentPath
     sparseModeRpAddresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sparseModeRpAddresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sparseModeRpAddresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -350,6 +356,7 @@ func (sparseModeRpAddresses *Pim_Vrfs_Vrf_Ipv4_SparseModeRpAddresses) GetEntityD
 type Pim_Vrfs_Vrf_Ipv4_SparseModeRpAddresses_SparseModeRpAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. RP address of Rendezvous Point. The type is one of
     // the following types: string with pattern:
@@ -358,7 +365,7 @@ type Pim_Vrfs_Vrf_Ipv4_SparseModeRpAddresses_SparseModeRpAddress struct {
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     RpAddress interface{}
 
-    // Access list of groups that should map to a  given RP. The type is string
+    // Access list of groups that should map to a given RP. The type is string
     // with length: 1..64.
     AccessListName interface{}
 
@@ -373,6 +380,7 @@ func (sparseModeRpAddress *Pim_Vrfs_Vrf_Ipv4_SparseModeRpAddresses_SparseModeRpA
     sparseModeRpAddress.EntityData.BundleName = "cisco_ios_xr"
     sparseModeRpAddress.EntityData.ParentYangName = "sparse-mode-rp-addresses"
     sparseModeRpAddress.EntityData.SegmentPath = "sparse-mode-rp-address" + types.AddKeyToken(sparseModeRpAddress.RpAddress, "rp-address")
+    sparseModeRpAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/vrfs/vrf/ipv4/sparse-mode-rp-addresses/" + sparseModeRpAddress.EntityData.SegmentPath
     sparseModeRpAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sparseModeRpAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sparseModeRpAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -429,6 +437,7 @@ func (inheritableDefaults *Pim_Vrfs_Vrf_Ipv4_InheritableDefaults) GetEntityData(
     inheritableDefaults.EntityData.BundleName = "cisco_ios_xr"
     inheritableDefaults.EntityData.ParentYangName = "ipv4"
     inheritableDefaults.EntityData.SegmentPath = "inheritable-defaults"
+    inheritableDefaults.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/vrfs/vrf/ipv4/" + inheritableDefaults.EntityData.SegmentPath
     inheritableDefaults.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     inheritableDefaults.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inheritableDefaults.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -464,6 +473,7 @@ func (rpf *Pim_Vrfs_Vrf_Ipv4_Rpf) GetEntityData() *types.CommonEntityData {
     rpf.EntityData.BundleName = "cisco_ios_xr"
     rpf.EntityData.ParentYangName = "ipv4"
     rpf.EntityData.SegmentPath = "rpf"
+    rpf.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/vrfs/vrf/ipv4/" + rpf.EntityData.SegmentPath
     rpf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rpf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rpf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -510,6 +520,7 @@ func (maximum *Pim_Vrfs_Vrf_Ipv4_Maximum) GetEntityData() *types.CommonEntityDat
     maximum.EntityData.BundleName = "cisco_ios_xr"
     maximum.EntityData.ParentYangName = "ipv4"
     maximum.EntityData.SegmentPath = "maximum"
+    maximum.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/vrfs/vrf/ipv4/" + maximum.EntityData.SegmentPath
     maximum.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     maximum.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     maximum.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -552,6 +563,7 @@ func (groupMappingsAutoRp *Pim_Vrfs_Vrf_Ipv4_Maximum_GroupMappingsAutoRp) GetEnt
     groupMappingsAutoRp.EntityData.BundleName = "cisco_ios_xr"
     groupMappingsAutoRp.EntityData.ParentYangName = "maximum"
     groupMappingsAutoRp.EntityData.SegmentPath = "group-mappings-auto-rp"
+    groupMappingsAutoRp.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/vrfs/vrf/ipv4/maximum/" + groupMappingsAutoRp.EntityData.SegmentPath
     groupMappingsAutoRp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     groupMappingsAutoRp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     groupMappingsAutoRp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -590,6 +602,7 @@ func (bsrGroupMappings *Pim_Vrfs_Vrf_Ipv4_Maximum_BsrGroupMappings) GetEntityDat
     bsrGroupMappings.EntityData.BundleName = "cisco_ios_xr"
     bsrGroupMappings.EntityData.ParentYangName = "maximum"
     bsrGroupMappings.EntityData.SegmentPath = "bsr-group-mappings"
+    bsrGroupMappings.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/vrfs/vrf/ipv4/maximum/" + bsrGroupMappings.EntityData.SegmentPath
     bsrGroupMappings.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bsrGroupMappings.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bsrGroupMappings.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -628,6 +641,7 @@ func (registerStates *Pim_Vrfs_Vrf_Ipv4_Maximum_RegisterStates) GetEntityData() 
     registerStates.EntityData.BundleName = "cisco_ios_xr"
     registerStates.EntityData.ParentYangName = "maximum"
     registerStates.EntityData.SegmentPath = "register-states"
+    registerStates.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/vrfs/vrf/ipv4/maximum/" + registerStates.EntityData.SegmentPath
     registerStates.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     registerStates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     registerStates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -666,6 +680,7 @@ func (routeInterfaces *Pim_Vrfs_Vrf_Ipv4_Maximum_RouteInterfaces) GetEntityData(
     routeInterfaces.EntityData.BundleName = "cisco_ios_xr"
     routeInterfaces.EntityData.ParentYangName = "maximum"
     routeInterfaces.EntityData.SegmentPath = "route-interfaces"
+    routeInterfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/vrfs/vrf/ipv4/maximum/" + routeInterfaces.EntityData.SegmentPath
     routeInterfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routeInterfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routeInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -704,6 +719,7 @@ func (bsrCandidateRpCache *Pim_Vrfs_Vrf_Ipv4_Maximum_BsrCandidateRpCache) GetEnt
     bsrCandidateRpCache.EntityData.BundleName = "cisco_ios_xr"
     bsrCandidateRpCache.EntityData.ParentYangName = "maximum"
     bsrCandidateRpCache.EntityData.SegmentPath = "bsr-candidate-rp-cache"
+    bsrCandidateRpCache.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/vrfs/vrf/ipv4/maximum/" + bsrCandidateRpCache.EntityData.SegmentPath
     bsrCandidateRpCache.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bsrCandidateRpCache.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bsrCandidateRpCache.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -741,6 +757,7 @@ func (routes *Pim_Vrfs_Vrf_Ipv4_Maximum_Routes) GetEntityData() *types.CommonEnt
     routes.EntityData.BundleName = "cisco_ios_xr"
     routes.EntityData.ParentYangName = "maximum"
     routes.EntityData.SegmentPath = "routes"
+    routes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/vrfs/vrf/ipv4/maximum/" + routes.EntityData.SegmentPath
     routes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -776,6 +793,7 @@ func (sgExpiryTimer *Pim_Vrfs_Vrf_Ipv4_SgExpiryTimer) GetEntityData() *types.Com
     sgExpiryTimer.EntityData.BundleName = "cisco_ios_xr"
     sgExpiryTimer.EntityData.ParentYangName = "ipv4"
     sgExpiryTimer.EntityData.SegmentPath = "sg-expiry-timer"
+    sgExpiryTimer.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/vrfs/vrf/ipv4/" + sgExpiryTimer.EntityData.SegmentPath
     sgExpiryTimer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sgExpiryTimer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sgExpiryTimer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -818,6 +836,7 @@ func (rpfVectorEnable *Pim_Vrfs_Vrf_Ipv4_RpfVectorEnable) GetEntityData() *types
     rpfVectorEnable.EntityData.BundleName = "cisco_ios_xr"
     rpfVectorEnable.EntityData.ParentYangName = "ipv4"
     rpfVectorEnable.EntityData.SegmentPath = "rpf-vector-enable"
+    rpfVectorEnable.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/vrfs/vrf/ipv4/" + rpfVectorEnable.EntityData.SegmentPath
     rpfVectorEnable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rpfVectorEnable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rpfVectorEnable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -855,6 +874,7 @@ func (ssm *Pim_Vrfs_Vrf_Ipv4_Ssm) GetEntityData() *types.CommonEntityData {
     ssm.EntityData.BundleName = "cisco_ios_xr"
     ssm.EntityData.ParentYangName = "ipv4"
     ssm.EntityData.SegmentPath = "ssm"
+    ssm.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/vrfs/vrf/ipv4/" + ssm.EntityData.SegmentPath
     ssm.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ssm.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ssm.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -886,6 +906,7 @@ func (injects *Pim_Vrfs_Vrf_Ipv4_Injects) GetEntityData() *types.CommonEntityDat
     injects.EntityData.BundleName = "cisco_ios_xr"
     injects.EntityData.ParentYangName = "ipv4"
     injects.EntityData.SegmentPath = "injects"
+    injects.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/vrfs/vrf/ipv4/" + injects.EntityData.SegmentPath
     injects.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     injects.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     injects.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -907,6 +928,7 @@ func (injects *Pim_Vrfs_Vrf_Ipv4_Injects) GetEntityData() *types.CommonEntityDat
 type Pim_Vrfs_Vrf_Ipv4_Injects_Inject struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Source Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -927,6 +949,7 @@ func (inject *Pim_Vrfs_Vrf_Ipv4_Injects_Inject) GetEntityData() *types.CommonEnt
     inject.EntityData.BundleName = "cisco_ios_xr"
     inject.EntityData.ParentYangName = "injects"
     inject.EntityData.SegmentPath = "inject" + types.AddKeyToken(inject.SourceAddress, "source-address") + types.AddKeyToken(inject.PrefixLength, "prefix-length")
+    inject.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/vrfs/vrf/ipv4/injects/" + inject.EntityData.SegmentPath
     inject.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     inject.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inject.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -959,6 +982,7 @@ func (bidirRpAddresses *Pim_Vrfs_Vrf_Ipv4_BidirRpAddresses) GetEntityData() *typ
     bidirRpAddresses.EntityData.BundleName = "cisco_ios_xr"
     bidirRpAddresses.EntityData.ParentYangName = "ipv4"
     bidirRpAddresses.EntityData.SegmentPath = "bidir-rp-addresses"
+    bidirRpAddresses.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/vrfs/vrf/ipv4/" + bidirRpAddresses.EntityData.SegmentPath
     bidirRpAddresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bidirRpAddresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bidirRpAddresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -980,6 +1004,7 @@ func (bidirRpAddresses *Pim_Vrfs_Vrf_Ipv4_BidirRpAddresses) GetEntityData() *typ
 type Pim_Vrfs_Vrf_Ipv4_BidirRpAddresses_BidirRpAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. RP address of Rendezvous Point. The type is one of
     // the following types: string with pattern:
@@ -1003,6 +1028,7 @@ func (bidirRpAddress *Pim_Vrfs_Vrf_Ipv4_BidirRpAddresses_BidirRpAddress) GetEnti
     bidirRpAddress.EntityData.BundleName = "cisco_ios_xr"
     bidirRpAddress.EntityData.ParentYangName = "bidir-rp-addresses"
     bidirRpAddress.EntityData.SegmentPath = "bidir-rp-address" + types.AddKeyToken(bidirRpAddress.RpAddress, "rp-address")
+    bidirRpAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/vrfs/vrf/ipv4/bidir-rp-addresses/" + bidirRpAddress.EntityData.SegmentPath
     bidirRpAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bidirRpAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bidirRpAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1037,6 +1063,7 @@ func (bsr *Pim_Vrfs_Vrf_Ipv4_Bsr) GetEntityData() *types.CommonEntityData {
     bsr.EntityData.BundleName = "cisco_ios_xr"
     bsr.EntityData.ParentYangName = "ipv4"
     bsr.EntityData.SegmentPath = "bsr"
+    bsr.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/vrfs/vrf/ipv4/" + bsr.EntityData.SegmentPath
     bsr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bsr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bsr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1082,6 +1109,7 @@ func (candidateBsr *Pim_Vrfs_Vrf_Ipv4_Bsr_CandidateBsr) GetEntityData() *types.C
     candidateBsr.EntityData.BundleName = "cisco_ios_xr"
     candidateBsr.EntityData.ParentYangName = "bsr"
     candidateBsr.EntityData.SegmentPath = "candidate-bsr"
+    candidateBsr.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/vrfs/vrf/ipv4/bsr/" + candidateBsr.EntityData.SegmentPath
     candidateBsr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     candidateBsr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     candidateBsr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1114,6 +1142,7 @@ func (candidateRps *Pim_Vrfs_Vrf_Ipv4_Bsr_CandidateRps) GetEntityData() *types.C
     candidateRps.EntityData.BundleName = "cisco_ios_xr"
     candidateRps.EntityData.ParentYangName = "bsr"
     candidateRps.EntityData.SegmentPath = "candidate-rps"
+    candidateRps.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/vrfs/vrf/ipv4/bsr/" + candidateRps.EntityData.SegmentPath
     candidateRps.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     candidateRps.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     candidateRps.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1135,6 +1164,7 @@ func (candidateRps *Pim_Vrfs_Vrf_Ipv4_Bsr_CandidateRps) GetEntityData() *types.C
 type Pim_Vrfs_Vrf_Ipv4_Bsr_CandidateRps_CandidateRp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Address of Candidate-RP. The type is one of the
     // following types: string with pattern:
@@ -1165,6 +1195,7 @@ func (candidateRp *Pim_Vrfs_Vrf_Ipv4_Bsr_CandidateRps_CandidateRp) GetEntityData
     candidateRp.EntityData.BundleName = "cisco_ios_xr"
     candidateRp.EntityData.ParentYangName = "candidate-rps"
     candidateRp.EntityData.SegmentPath = "candidate-rp" + types.AddKeyToken(candidateRp.Address, "address") + types.AddKeyToken(candidateRp.Mode, "mode")
+    candidateRp.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/vrfs/vrf/ipv4/bsr/candidate-rps/" + candidateRp.EntityData.SegmentPath
     candidateRp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     candidateRp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     candidateRp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1215,6 +1246,7 @@ func (mofrr *Pim_Vrfs_Vrf_Ipv4_Mofrr) GetEntityData() *types.CommonEntityData {
     mofrr.EntityData.BundleName = "cisco_ios_xr"
     mofrr.EntityData.ParentYangName = "ipv4"
     mofrr.EntityData.SegmentPath = "mofrr"
+    mofrr.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/vrfs/vrf/ipv4/" + mofrr.EntityData.SegmentPath
     mofrr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mofrr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mofrr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1250,6 +1282,7 @@ func (cloneJoins *Pim_Vrfs_Vrf_Ipv4_Mofrr_CloneJoins) GetEntityData() *types.Com
     cloneJoins.EntityData.BundleName = "cisco_ios_xr"
     cloneJoins.EntityData.ParentYangName = "mofrr"
     cloneJoins.EntityData.SegmentPath = "clone-joins"
+    cloneJoins.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/vrfs/vrf/ipv4/mofrr/" + cloneJoins.EntityData.SegmentPath
     cloneJoins.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cloneJoins.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cloneJoins.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1271,6 +1304,7 @@ func (cloneJoins *Pim_Vrfs_Vrf_Ipv4_Mofrr_CloneJoins) GetEntityData() *types.Com
 type Pim_Vrfs_Vrf_Ipv4_Mofrr_CloneJoins_CloneJoin struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Original source address (S). The type is string
     // with pattern:
@@ -1298,6 +1332,7 @@ func (cloneJoin *Pim_Vrfs_Vrf_Ipv4_Mofrr_CloneJoins_CloneJoin) GetEntityData() *
     cloneJoin.EntityData.BundleName = "cisco_ios_xr"
     cloneJoin.EntityData.ParentYangName = "clone-joins"
     cloneJoin.EntityData.SegmentPath = "clone-join" + types.AddKeyToken(cloneJoin.Source, "source") + types.AddKeyToken(cloneJoin.Primary, "primary") + types.AddKeyToken(cloneJoin.Backup, "backup") + types.AddKeyToken(cloneJoin.PrefixLength, "prefix-length")
+    cloneJoin.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/vrfs/vrf/ipv4/mofrr/clone-joins/" + cloneJoin.EntityData.SegmentPath
     cloneJoin.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cloneJoin.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cloneJoin.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1331,6 +1366,7 @@ func (cloneSources *Pim_Vrfs_Vrf_Ipv4_Mofrr_CloneSources) GetEntityData() *types
     cloneSources.EntityData.BundleName = "cisco_ios_xr"
     cloneSources.EntityData.ParentYangName = "mofrr"
     cloneSources.EntityData.SegmentPath = "clone-sources"
+    cloneSources.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/vrfs/vrf/ipv4/mofrr/" + cloneSources.EntityData.SegmentPath
     cloneSources.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cloneSources.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cloneSources.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1353,6 +1389,7 @@ func (cloneSources *Pim_Vrfs_Vrf_Ipv4_Mofrr_CloneSources) GetEntityData() *types
 type Pim_Vrfs_Vrf_Ipv4_Mofrr_CloneSources_CloneSource struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Original source address (S). The type is string
     // with pattern:
@@ -1380,6 +1417,7 @@ func (cloneSource *Pim_Vrfs_Vrf_Ipv4_Mofrr_CloneSources_CloneSource) GetEntityDa
     cloneSource.EntityData.BundleName = "cisco_ios_xr"
     cloneSource.EntityData.ParentYangName = "clone-sources"
     cloneSource.EntityData.SegmentPath = "clone-source" + types.AddKeyToken(cloneSource.Source, "source") + types.AddKeyToken(cloneSource.Primary, "primary") + types.AddKeyToken(cloneSource.Backup, "backup") + types.AddKeyToken(cloneSource.PrefixLength, "prefix-length")
+    cloneSource.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/vrfs/vrf/ipv4/mofrr/clone-sources/" + cloneSource.EntityData.SegmentPath
     cloneSource.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cloneSource.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cloneSource.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1413,6 +1451,7 @@ func (paths *Pim_Vrfs_Vrf_Ipv4_Paths) GetEntityData() *types.CommonEntityData {
     paths.EntityData.BundleName = "cisco_ios_xr"
     paths.EntityData.ParentYangName = "ipv4"
     paths.EntityData.SegmentPath = "paths"
+    paths.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/vrfs/vrf/ipv4/" + paths.EntityData.SegmentPath
     paths.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     paths.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     paths.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1434,6 +1473,7 @@ func (paths *Pim_Vrfs_Vrf_Ipv4_Paths) GetEntityData() *types.CommonEntityData {
 type Pim_Vrfs_Vrf_Ipv4_Paths_Path struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Source Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -1454,6 +1494,7 @@ func (path *Pim_Vrfs_Vrf_Ipv4_Paths_Path) GetEntityData() *types.CommonEntityDat
     path.EntityData.BundleName = "cisco_ios_xr"
     path.EntityData.ParentYangName = "paths"
     path.EntityData.SegmentPath = "path" + types.AddKeyToken(path.SourceAddress, "source-address") + types.AddKeyToken(path.PrefixLength, "prefix-length")
+    path.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/vrfs/vrf/ipv4/paths/" + path.EntityData.SegmentPath
     path.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     path.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     path.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1492,6 +1533,7 @@ func (allowRp *Pim_Vrfs_Vrf_Ipv4_AllowRp) GetEntityData() *types.CommonEntityDat
     allowRp.EntityData.BundleName = "cisco_ios_xr"
     allowRp.EntityData.ParentYangName = "ipv4"
     allowRp.EntityData.SegmentPath = "allow-rp"
+    allowRp.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/vrfs/vrf/ipv4/" + allowRp.EntityData.SegmentPath
     allowRp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     allowRp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     allowRp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1527,6 +1569,7 @@ func (convergence *Pim_Vrfs_Vrf_Ipv4_Convergence) GetEntityData() *types.CommonE
     convergence.EntityData.BundleName = "cisco_ios_xr"
     convergence.EntityData.ParentYangName = "ipv4"
     convergence.EntityData.SegmentPath = "convergence"
+    convergence.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/vrfs/vrf/ipv4/" + convergence.EntityData.SegmentPath
     convergence.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     convergence.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     convergence.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1558,6 +1601,7 @@ func (interfaces *Pim_Vrfs_Vrf_Ipv4_Interfaces) GetEntityData() *types.CommonEnt
     interfaces.EntityData.BundleName = "cisco_ios_xr"
     interfaces.EntityData.ParentYangName = "ipv4"
     interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/vrfs/vrf/ipv4/" + interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1579,6 +1623,7 @@ func (interfaces *Pim_Vrfs_Vrf_Ipv4_Interfaces) GetEntityData() *types.CommonEnt
 type Pim_Vrfs_Vrf_Ipv4_Interfaces_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The name of interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -1634,6 +1679,7 @@ func (self *Pim_Vrfs_Vrf_Ipv4_Interfaces_Interface) GetEntityData() *types.Commo
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/vrfs/vrf/ipv4/interfaces/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1686,6 +1732,7 @@ func (maximumRoutes *Pim_Vrfs_Vrf_Ipv4_Interfaces_Interface_MaximumRoutes) GetEn
     maximumRoutes.EntityData.BundleName = "cisco_ios_xr"
     maximumRoutes.EntityData.ParentYangName = "interface"
     maximumRoutes.EntityData.SegmentPath = "maximum-routes"
+    maximumRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/vrfs/vrf/ipv4/interfaces/interface/" + maximumRoutes.EntityData.SegmentPath
     maximumRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     maximumRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     maximumRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1726,6 +1773,7 @@ func (bfd *Pim_Vrfs_Vrf_Ipv4_Interfaces_Interface_Bfd) GetEntityData() *types.Co
     bfd.EntityData.BundleName = "cisco_ios_xr"
     bfd.EntityData.ParentYangName = "interface"
     bfd.EntityData.SegmentPath = "bfd"
+    bfd.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/vrfs/vrf/ipv4/interfaces/interface/" + bfd.EntityData.SegmentPath
     bfd.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bfd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bfd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1845,6 +1893,7 @@ func (ipv6 *Pim_Vrfs_Vrf_Ipv6) GetEntityData() *types.CommonEntityData {
     ipv6.EntityData.BundleName = "cisco_ios_xr"
     ipv6.EntityData.ParentYangName = "vrf"
     ipv6.EntityData.SegmentPath = "ipv6"
+    ipv6.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/vrfs/vrf/" + ipv6.EntityData.SegmentPath
     ipv6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1901,6 +1950,7 @@ func (sparseModeRpAddresses *Pim_Vrfs_Vrf_Ipv6_SparseModeRpAddresses) GetEntityD
     sparseModeRpAddresses.EntityData.BundleName = "cisco_ios_xr"
     sparseModeRpAddresses.EntityData.ParentYangName = "ipv6"
     sparseModeRpAddresses.EntityData.SegmentPath = "sparse-mode-rp-addresses"
+    sparseModeRpAddresses.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/vrfs/vrf/ipv6/" + sparseModeRpAddresses.EntityData.SegmentPath
     sparseModeRpAddresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sparseModeRpAddresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sparseModeRpAddresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1922,6 +1972,7 @@ func (sparseModeRpAddresses *Pim_Vrfs_Vrf_Ipv6_SparseModeRpAddresses) GetEntityD
 type Pim_Vrfs_Vrf_Ipv6_SparseModeRpAddresses_SparseModeRpAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. RP address of Rendezvous Point. The type is one of
     // the following types: string with pattern:
@@ -1930,7 +1981,7 @@ type Pim_Vrfs_Vrf_Ipv6_SparseModeRpAddresses_SparseModeRpAddress struct {
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     RpAddress interface{}
 
-    // Access list of groups that should map to a  given RP. The type is string
+    // Access list of groups that should map to a given RP. The type is string
     // with length: 1..64.
     AccessListName interface{}
 
@@ -1945,6 +1996,7 @@ func (sparseModeRpAddress *Pim_Vrfs_Vrf_Ipv6_SparseModeRpAddresses_SparseModeRpA
     sparseModeRpAddress.EntityData.BundleName = "cisco_ios_xr"
     sparseModeRpAddress.EntityData.ParentYangName = "sparse-mode-rp-addresses"
     sparseModeRpAddress.EntityData.SegmentPath = "sparse-mode-rp-address" + types.AddKeyToken(sparseModeRpAddress.RpAddress, "rp-address")
+    sparseModeRpAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/vrfs/vrf/ipv6/sparse-mode-rp-addresses/" + sparseModeRpAddress.EntityData.SegmentPath
     sparseModeRpAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sparseModeRpAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sparseModeRpAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2001,6 +2053,7 @@ func (inheritableDefaults *Pim_Vrfs_Vrf_Ipv6_InheritableDefaults) GetEntityData(
     inheritableDefaults.EntityData.BundleName = "cisco_ios_xr"
     inheritableDefaults.EntityData.ParentYangName = "ipv6"
     inheritableDefaults.EntityData.SegmentPath = "inheritable-defaults"
+    inheritableDefaults.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/vrfs/vrf/ipv6/" + inheritableDefaults.EntityData.SegmentPath
     inheritableDefaults.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     inheritableDefaults.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inheritableDefaults.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2036,6 +2089,7 @@ func (rpf *Pim_Vrfs_Vrf_Ipv6_Rpf) GetEntityData() *types.CommonEntityData {
     rpf.EntityData.BundleName = "cisco_ios_xr"
     rpf.EntityData.ParentYangName = "ipv6"
     rpf.EntityData.SegmentPath = "rpf"
+    rpf.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/vrfs/vrf/ipv6/" + rpf.EntityData.SegmentPath
     rpf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rpf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rpf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2082,6 +2136,7 @@ func (maximum *Pim_Vrfs_Vrf_Ipv6_Maximum) GetEntityData() *types.CommonEntityDat
     maximum.EntityData.BundleName = "cisco_ios_xr"
     maximum.EntityData.ParentYangName = "ipv6"
     maximum.EntityData.SegmentPath = "maximum"
+    maximum.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/vrfs/vrf/ipv6/" + maximum.EntityData.SegmentPath
     maximum.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     maximum.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     maximum.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2124,6 +2179,7 @@ func (groupMappingsAutoRp *Pim_Vrfs_Vrf_Ipv6_Maximum_GroupMappingsAutoRp) GetEnt
     groupMappingsAutoRp.EntityData.BundleName = "cisco_ios_xr"
     groupMappingsAutoRp.EntityData.ParentYangName = "maximum"
     groupMappingsAutoRp.EntityData.SegmentPath = "group-mappings-auto-rp"
+    groupMappingsAutoRp.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/vrfs/vrf/ipv6/maximum/" + groupMappingsAutoRp.EntityData.SegmentPath
     groupMappingsAutoRp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     groupMappingsAutoRp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     groupMappingsAutoRp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2162,6 +2218,7 @@ func (bsrGroupMappings *Pim_Vrfs_Vrf_Ipv6_Maximum_BsrGroupMappings) GetEntityDat
     bsrGroupMappings.EntityData.BundleName = "cisco_ios_xr"
     bsrGroupMappings.EntityData.ParentYangName = "maximum"
     bsrGroupMappings.EntityData.SegmentPath = "bsr-group-mappings"
+    bsrGroupMappings.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/vrfs/vrf/ipv6/maximum/" + bsrGroupMappings.EntityData.SegmentPath
     bsrGroupMappings.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bsrGroupMappings.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bsrGroupMappings.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2200,6 +2257,7 @@ func (registerStates *Pim_Vrfs_Vrf_Ipv6_Maximum_RegisterStates) GetEntityData() 
     registerStates.EntityData.BundleName = "cisco_ios_xr"
     registerStates.EntityData.ParentYangName = "maximum"
     registerStates.EntityData.SegmentPath = "register-states"
+    registerStates.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/vrfs/vrf/ipv6/maximum/" + registerStates.EntityData.SegmentPath
     registerStates.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     registerStates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     registerStates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2238,6 +2296,7 @@ func (routeInterfaces *Pim_Vrfs_Vrf_Ipv6_Maximum_RouteInterfaces) GetEntityData(
     routeInterfaces.EntityData.BundleName = "cisco_ios_xr"
     routeInterfaces.EntityData.ParentYangName = "maximum"
     routeInterfaces.EntityData.SegmentPath = "route-interfaces"
+    routeInterfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/vrfs/vrf/ipv6/maximum/" + routeInterfaces.EntityData.SegmentPath
     routeInterfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routeInterfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routeInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2276,6 +2335,7 @@ func (bsrCandidateRpCache *Pim_Vrfs_Vrf_Ipv6_Maximum_BsrCandidateRpCache) GetEnt
     bsrCandidateRpCache.EntityData.BundleName = "cisco_ios_xr"
     bsrCandidateRpCache.EntityData.ParentYangName = "maximum"
     bsrCandidateRpCache.EntityData.SegmentPath = "bsr-candidate-rp-cache"
+    bsrCandidateRpCache.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/vrfs/vrf/ipv6/maximum/" + bsrCandidateRpCache.EntityData.SegmentPath
     bsrCandidateRpCache.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bsrCandidateRpCache.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bsrCandidateRpCache.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2313,6 +2373,7 @@ func (routes *Pim_Vrfs_Vrf_Ipv6_Maximum_Routes) GetEntityData() *types.CommonEnt
     routes.EntityData.BundleName = "cisco_ios_xr"
     routes.EntityData.ParentYangName = "maximum"
     routes.EntityData.SegmentPath = "routes"
+    routes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/vrfs/vrf/ipv6/maximum/" + routes.EntityData.SegmentPath
     routes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2348,6 +2409,7 @@ func (sgExpiryTimer *Pim_Vrfs_Vrf_Ipv6_SgExpiryTimer) GetEntityData() *types.Com
     sgExpiryTimer.EntityData.BundleName = "cisco_ios_xr"
     sgExpiryTimer.EntityData.ParentYangName = "ipv6"
     sgExpiryTimer.EntityData.SegmentPath = "sg-expiry-timer"
+    sgExpiryTimer.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/vrfs/vrf/ipv6/" + sgExpiryTimer.EntityData.SegmentPath
     sgExpiryTimer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sgExpiryTimer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sgExpiryTimer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2390,6 +2452,7 @@ func (rpfVectorEnable *Pim_Vrfs_Vrf_Ipv6_RpfVectorEnable) GetEntityData() *types
     rpfVectorEnable.EntityData.BundleName = "cisco_ios_xr"
     rpfVectorEnable.EntityData.ParentYangName = "ipv6"
     rpfVectorEnable.EntityData.SegmentPath = "rpf-vector-enable"
+    rpfVectorEnable.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/vrfs/vrf/ipv6/" + rpfVectorEnable.EntityData.SegmentPath
     rpfVectorEnable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rpfVectorEnable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rpfVectorEnable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2427,6 +2490,7 @@ func (ssm *Pim_Vrfs_Vrf_Ipv6_Ssm) GetEntityData() *types.CommonEntityData {
     ssm.EntityData.BundleName = "cisco_ios_xr"
     ssm.EntityData.ParentYangName = "ipv6"
     ssm.EntityData.SegmentPath = "ssm"
+    ssm.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/vrfs/vrf/ipv6/" + ssm.EntityData.SegmentPath
     ssm.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ssm.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ssm.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2458,6 +2522,7 @@ func (bidirRpAddresses *Pim_Vrfs_Vrf_Ipv6_BidirRpAddresses) GetEntityData() *typ
     bidirRpAddresses.EntityData.BundleName = "cisco_ios_xr"
     bidirRpAddresses.EntityData.ParentYangName = "ipv6"
     bidirRpAddresses.EntityData.SegmentPath = "bidir-rp-addresses"
+    bidirRpAddresses.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/vrfs/vrf/ipv6/" + bidirRpAddresses.EntityData.SegmentPath
     bidirRpAddresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bidirRpAddresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bidirRpAddresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2479,6 +2544,7 @@ func (bidirRpAddresses *Pim_Vrfs_Vrf_Ipv6_BidirRpAddresses) GetEntityData() *typ
 type Pim_Vrfs_Vrf_Ipv6_BidirRpAddresses_BidirRpAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. RP address of Rendezvous Point. The type is one of
     // the following types: string with pattern:
@@ -2502,6 +2568,7 @@ func (bidirRpAddress *Pim_Vrfs_Vrf_Ipv6_BidirRpAddresses_BidirRpAddress) GetEnti
     bidirRpAddress.EntityData.BundleName = "cisco_ios_xr"
     bidirRpAddress.EntityData.ParentYangName = "bidir-rp-addresses"
     bidirRpAddress.EntityData.SegmentPath = "bidir-rp-address" + types.AddKeyToken(bidirRpAddress.RpAddress, "rp-address")
+    bidirRpAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/vrfs/vrf/ipv6/bidir-rp-addresses/" + bidirRpAddress.EntityData.SegmentPath
     bidirRpAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bidirRpAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bidirRpAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2536,6 +2603,7 @@ func (bsr *Pim_Vrfs_Vrf_Ipv6_Bsr) GetEntityData() *types.CommonEntityData {
     bsr.EntityData.BundleName = "cisco_ios_xr"
     bsr.EntityData.ParentYangName = "ipv6"
     bsr.EntityData.SegmentPath = "bsr"
+    bsr.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/vrfs/vrf/ipv6/" + bsr.EntityData.SegmentPath
     bsr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bsr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bsr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2578,6 +2646,7 @@ func (candidateBsr *Pim_Vrfs_Vrf_Ipv6_Bsr_CandidateBsr) GetEntityData() *types.C
     candidateBsr.EntityData.BundleName = "cisco_ios_xr"
     candidateBsr.EntityData.ParentYangName = "bsr"
     candidateBsr.EntityData.SegmentPath = "candidate-bsr"
+    candidateBsr.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/vrfs/vrf/ipv6/bsr/" + candidateBsr.EntityData.SegmentPath
     candidateBsr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     candidateBsr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     candidateBsr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2610,6 +2679,7 @@ func (candidateRps *Pim_Vrfs_Vrf_Ipv6_Bsr_CandidateRps) GetEntityData() *types.C
     candidateRps.EntityData.BundleName = "cisco_ios_xr"
     candidateRps.EntityData.ParentYangName = "bsr"
     candidateRps.EntityData.SegmentPath = "candidate-rps"
+    candidateRps.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/vrfs/vrf/ipv6/bsr/" + candidateRps.EntityData.SegmentPath
     candidateRps.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     candidateRps.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     candidateRps.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2631,6 +2701,7 @@ func (candidateRps *Pim_Vrfs_Vrf_Ipv6_Bsr_CandidateRps) GetEntityData() *types.C
 type Pim_Vrfs_Vrf_Ipv6_Bsr_CandidateRps_CandidateRp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Address of Candidate-RP. The type is one of the
     // following types: string with pattern:
@@ -2661,6 +2732,7 @@ func (candidateRp *Pim_Vrfs_Vrf_Ipv6_Bsr_CandidateRps_CandidateRp) GetEntityData
     candidateRp.EntityData.BundleName = "cisco_ios_xr"
     candidateRp.EntityData.ParentYangName = "candidate-rps"
     candidateRp.EntityData.SegmentPath = "candidate-rp" + types.AddKeyToken(candidateRp.Address, "address") + types.AddKeyToken(candidateRp.Mode, "mode")
+    candidateRp.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/vrfs/vrf/ipv6/bsr/candidate-rps/" + candidateRp.EntityData.SegmentPath
     candidateRp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     candidateRp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     candidateRp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2701,6 +2773,7 @@ func (allowRp *Pim_Vrfs_Vrf_Ipv6_AllowRp) GetEntityData() *types.CommonEntityDat
     allowRp.EntityData.BundleName = "cisco_ios_xr"
     allowRp.EntityData.ParentYangName = "ipv6"
     allowRp.EntityData.SegmentPath = "allow-rp"
+    allowRp.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/vrfs/vrf/ipv6/" + allowRp.EntityData.SegmentPath
     allowRp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     allowRp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     allowRp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2732,6 +2805,7 @@ func (embeddedRpAddresses *Pim_Vrfs_Vrf_Ipv6_EmbeddedRpAddresses) GetEntityData(
     embeddedRpAddresses.EntityData.BundleName = "cisco_ios_xr"
     embeddedRpAddresses.EntityData.ParentYangName = "ipv6"
     embeddedRpAddresses.EntityData.SegmentPath = "embedded-rp-addresses"
+    embeddedRpAddresses.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/vrfs/vrf/ipv6/" + embeddedRpAddresses.EntityData.SegmentPath
     embeddedRpAddresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     embeddedRpAddresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     embeddedRpAddresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2753,6 +2827,7 @@ func (embeddedRpAddresses *Pim_Vrfs_Vrf_Ipv6_EmbeddedRpAddresses) GetEntityData(
 type Pim_Vrfs_Vrf_Ipv6_EmbeddedRpAddresses_EmbeddedRpAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. RP address of the Rendezvous Point. The type is
     // one of the following types: string with pattern:
@@ -2772,6 +2847,7 @@ func (embeddedRpAddress *Pim_Vrfs_Vrf_Ipv6_EmbeddedRpAddresses_EmbeddedRpAddress
     embeddedRpAddress.EntityData.BundleName = "cisco_ios_xr"
     embeddedRpAddress.EntityData.ParentYangName = "embedded-rp-addresses"
     embeddedRpAddress.EntityData.SegmentPath = "embedded-rp-address" + types.AddKeyToken(embeddedRpAddress.RpAddress, "rp-address")
+    embeddedRpAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/vrfs/vrf/ipv6/embedded-rp-addresses/" + embeddedRpAddress.EntityData.SegmentPath
     embeddedRpAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     embeddedRpAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     embeddedRpAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2807,6 +2883,7 @@ func (convergence *Pim_Vrfs_Vrf_Ipv6_Convergence) GetEntityData() *types.CommonE
     convergence.EntityData.BundleName = "cisco_ios_xr"
     convergence.EntityData.ParentYangName = "ipv6"
     convergence.EntityData.SegmentPath = "convergence"
+    convergence.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/vrfs/vrf/ipv6/" + convergence.EntityData.SegmentPath
     convergence.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     convergence.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     convergence.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2838,6 +2915,7 @@ func (interfaces *Pim_Vrfs_Vrf_Ipv6_Interfaces) GetEntityData() *types.CommonEnt
     interfaces.EntityData.BundleName = "cisco_ios_xr"
     interfaces.EntityData.ParentYangName = "ipv6"
     interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/vrfs/vrf/ipv6/" + interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2859,6 +2937,7 @@ func (interfaces *Pim_Vrfs_Vrf_Ipv6_Interfaces) GetEntityData() *types.CommonEnt
 type Pim_Vrfs_Vrf_Ipv6_Interfaces_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The name of interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -2914,6 +2993,7 @@ func (self *Pim_Vrfs_Vrf_Ipv6_Interfaces_Interface) GetEntityData() *types.Commo
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/vrfs/vrf/ipv6/interfaces/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2966,6 +3046,7 @@ func (maximumRoutes *Pim_Vrfs_Vrf_Ipv6_Interfaces_Interface_MaximumRoutes) GetEn
     maximumRoutes.EntityData.BundleName = "cisco_ios_xr"
     maximumRoutes.EntityData.ParentYangName = "interface"
     maximumRoutes.EntityData.SegmentPath = "maximum-routes"
+    maximumRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/vrfs/vrf/ipv6/interfaces/interface/" + maximumRoutes.EntityData.SegmentPath
     maximumRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     maximumRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     maximumRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3006,6 +3087,7 @@ func (bfd *Pim_Vrfs_Vrf_Ipv6_Interfaces_Interface_Bfd) GetEntityData() *types.Co
     bfd.EntityData.BundleName = "cisco_ios_xr"
     bfd.EntityData.ParentYangName = "interface"
     bfd.EntityData.SegmentPath = "bfd"
+    bfd.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/vrfs/vrf/ipv6/interfaces/interface/" + bfd.EntityData.SegmentPath
     bfd.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bfd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bfd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3040,6 +3122,7 @@ func (defaultContext *Pim_DefaultContext) GetEntityData() *types.CommonEntityDat
     defaultContext.EntityData.BundleName = "cisco_ios_xr"
     defaultContext.EntityData.ParentYangName = "pim"
     defaultContext.EntityData.SegmentPath = "default-context"
+    defaultContext.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/" + defaultContext.EntityData.SegmentPath
     defaultContext.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     defaultContext.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     defaultContext.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3161,6 +3244,7 @@ func (ipv6 *Pim_DefaultContext_Ipv6) GetEntityData() *types.CommonEntityData {
     ipv6.EntityData.BundleName = "cisco_ios_xr"
     ipv6.EntityData.ParentYangName = "default-context"
     ipv6.EntityData.SegmentPath = "ipv6"
+    ipv6.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/" + ipv6.EntityData.SegmentPath
     ipv6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3218,6 +3302,7 @@ func (interfaces *Pim_DefaultContext_Ipv6_Interfaces) GetEntityData() *types.Com
     interfaces.EntityData.BundleName = "cisco_ios_xr"
     interfaces.EntityData.ParentYangName = "ipv6"
     interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/" + interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3239,6 +3324,7 @@ func (interfaces *Pim_DefaultContext_Ipv6_Interfaces) GetEntityData() *types.Com
 type Pim_DefaultContext_Ipv6_Interfaces_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The name of interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -3294,6 +3380,7 @@ func (self *Pim_DefaultContext_Ipv6_Interfaces_Interface) GetEntityData() *types
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/interfaces/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3346,6 +3433,7 @@ func (maximumRoutes *Pim_DefaultContext_Ipv6_Interfaces_Interface_MaximumRoutes)
     maximumRoutes.EntityData.BundleName = "cisco_ios_xr"
     maximumRoutes.EntityData.ParentYangName = "interface"
     maximumRoutes.EntityData.SegmentPath = "maximum-routes"
+    maximumRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/interfaces/interface/" + maximumRoutes.EntityData.SegmentPath
     maximumRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     maximumRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     maximumRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3386,6 +3474,7 @@ func (bfd *Pim_DefaultContext_Ipv6_Interfaces_Interface_Bfd) GetEntityData() *ty
     bfd.EntityData.BundleName = "cisco_ios_xr"
     bfd.EntityData.ParentYangName = "interface"
     bfd.EntityData.SegmentPath = "bfd"
+    bfd.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/interfaces/interface/" + bfd.EntityData.SegmentPath
     bfd.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bfd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bfd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3418,6 +3507,7 @@ func (sparseModeRpAddresses *Pim_DefaultContext_Ipv6_SparseModeRpAddresses) GetE
     sparseModeRpAddresses.EntityData.BundleName = "cisco_ios_xr"
     sparseModeRpAddresses.EntityData.ParentYangName = "ipv6"
     sparseModeRpAddresses.EntityData.SegmentPath = "sparse-mode-rp-addresses"
+    sparseModeRpAddresses.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/" + sparseModeRpAddresses.EntityData.SegmentPath
     sparseModeRpAddresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sparseModeRpAddresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sparseModeRpAddresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3439,6 +3529,7 @@ func (sparseModeRpAddresses *Pim_DefaultContext_Ipv6_SparseModeRpAddresses) GetE
 type Pim_DefaultContext_Ipv6_SparseModeRpAddresses_SparseModeRpAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. RP address of Rendezvous Point. The type is one of
     // the following types: string with pattern:
@@ -3447,7 +3538,7 @@ type Pim_DefaultContext_Ipv6_SparseModeRpAddresses_SparseModeRpAddress struct {
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     RpAddress interface{}
 
-    // Access list of groups that should map to a  given RP. The type is string
+    // Access list of groups that should map to a given RP. The type is string
     // with length: 1..64.
     AccessListName interface{}
 
@@ -3462,6 +3553,7 @@ func (sparseModeRpAddress *Pim_DefaultContext_Ipv6_SparseModeRpAddresses_SparseM
     sparseModeRpAddress.EntityData.BundleName = "cisco_ios_xr"
     sparseModeRpAddress.EntityData.ParentYangName = "sparse-mode-rp-addresses"
     sparseModeRpAddress.EntityData.SegmentPath = "sparse-mode-rp-address" + types.AddKeyToken(sparseModeRpAddress.RpAddress, "rp-address")
+    sparseModeRpAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/sparse-mode-rp-addresses/" + sparseModeRpAddress.EntityData.SegmentPath
     sparseModeRpAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sparseModeRpAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sparseModeRpAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3518,6 +3610,7 @@ func (inheritableDefaults *Pim_DefaultContext_Ipv6_InheritableDefaults) GetEntit
     inheritableDefaults.EntityData.BundleName = "cisco_ios_xr"
     inheritableDefaults.EntityData.ParentYangName = "ipv6"
     inheritableDefaults.EntityData.SegmentPath = "inheritable-defaults"
+    inheritableDefaults.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/" + inheritableDefaults.EntityData.SegmentPath
     inheritableDefaults.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     inheritableDefaults.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inheritableDefaults.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3553,6 +3646,7 @@ func (rpf *Pim_DefaultContext_Ipv6_Rpf) GetEntityData() *types.CommonEntityData 
     rpf.EntityData.BundleName = "cisco_ios_xr"
     rpf.EntityData.ParentYangName = "ipv6"
     rpf.EntityData.SegmentPath = "rpf"
+    rpf.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/" + rpf.EntityData.SegmentPath
     rpf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rpf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rpf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3587,6 +3681,7 @@ func (sgExpiryTimer *Pim_DefaultContext_Ipv6_SgExpiryTimer) GetEntityData() *typ
     sgExpiryTimer.EntityData.BundleName = "cisco_ios_xr"
     sgExpiryTimer.EntityData.ParentYangName = "ipv6"
     sgExpiryTimer.EntityData.SegmentPath = "sg-expiry-timer"
+    sgExpiryTimer.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/" + sgExpiryTimer.EntityData.SegmentPath
     sgExpiryTimer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sgExpiryTimer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sgExpiryTimer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3629,6 +3724,7 @@ func (rpfVectorEnable *Pim_DefaultContext_Ipv6_RpfVectorEnable) GetEntityData() 
     rpfVectorEnable.EntityData.BundleName = "cisco_ios_xr"
     rpfVectorEnable.EntityData.ParentYangName = "ipv6"
     rpfVectorEnable.EntityData.SegmentPath = "rpf-vector-enable"
+    rpfVectorEnable.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/" + rpfVectorEnable.EntityData.SegmentPath
     rpfVectorEnable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rpfVectorEnable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rpfVectorEnable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3662,6 +3758,7 @@ func (nsf *Pim_DefaultContext_Ipv6_Nsf) GetEntityData() *types.CommonEntityData 
     nsf.EntityData.BundleName = "cisco_ios_xr"
     nsf.EntityData.ParentYangName = "ipv6"
     nsf.EntityData.SegmentPath = "nsf"
+    nsf.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/" + nsf.EntityData.SegmentPath
     nsf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nsf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nsf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3735,6 +3832,7 @@ func (maximum *Pim_DefaultContext_Ipv6_Maximum) GetEntityData() *types.CommonEnt
     maximum.EntityData.BundleName = "cisco_ios_xr"
     maximum.EntityData.ParentYangName = "ipv6"
     maximum.EntityData.SegmentPath = "maximum"
+    maximum.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/" + maximum.EntityData.SegmentPath
     maximum.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     maximum.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     maximum.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3785,6 +3883,7 @@ func (bsrGlobalGroupMappings *Pim_DefaultContext_Ipv6_Maximum_BsrGlobalGroupMapp
     bsrGlobalGroupMappings.EntityData.BundleName = "cisco_ios_xr"
     bsrGlobalGroupMappings.EntityData.ParentYangName = "maximum"
     bsrGlobalGroupMappings.EntityData.SegmentPath = "bsr-global-group-mappings"
+    bsrGlobalGroupMappings.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/maximum/" + bsrGlobalGroupMappings.EntityData.SegmentPath
     bsrGlobalGroupMappings.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bsrGlobalGroupMappings.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bsrGlobalGroupMappings.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3822,6 +3921,7 @@ func (globalRoutes *Pim_DefaultContext_Ipv6_Maximum_GlobalRoutes) GetEntityData(
     globalRoutes.EntityData.BundleName = "cisco_ios_xr"
     globalRoutes.EntityData.ParentYangName = "maximum"
     globalRoutes.EntityData.SegmentPath = "global-routes"
+    globalRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/maximum/" + globalRoutes.EntityData.SegmentPath
     globalRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     globalRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     globalRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3860,6 +3960,7 @@ func (globalGroupMappingsAutoRp *Pim_DefaultContext_Ipv6_Maximum_GlobalGroupMapp
     globalGroupMappingsAutoRp.EntityData.BundleName = "cisco_ios_xr"
     globalGroupMappingsAutoRp.EntityData.ParentYangName = "maximum"
     globalGroupMappingsAutoRp.EntityData.SegmentPath = "global-group-mappings-auto-rp"
+    globalGroupMappingsAutoRp.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/maximum/" + globalGroupMappingsAutoRp.EntityData.SegmentPath
     globalGroupMappingsAutoRp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     globalGroupMappingsAutoRp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     globalGroupMappingsAutoRp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3898,6 +3999,7 @@ func (bsrGlobalCandidateRpCache *Pim_DefaultContext_Ipv6_Maximum_BsrGlobalCandid
     bsrGlobalCandidateRpCache.EntityData.BundleName = "cisco_ios_xr"
     bsrGlobalCandidateRpCache.EntityData.ParentYangName = "maximum"
     bsrGlobalCandidateRpCache.EntityData.SegmentPath = "bsr-global-candidate-rp-cache"
+    bsrGlobalCandidateRpCache.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/maximum/" + bsrGlobalCandidateRpCache.EntityData.SegmentPath
     bsrGlobalCandidateRpCache.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bsrGlobalCandidateRpCache.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bsrGlobalCandidateRpCache.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3936,6 +4038,7 @@ func (globalRegisterStates *Pim_DefaultContext_Ipv6_Maximum_GlobalRegisterStates
     globalRegisterStates.EntityData.BundleName = "cisco_ios_xr"
     globalRegisterStates.EntityData.ParentYangName = "maximum"
     globalRegisterStates.EntityData.SegmentPath = "global-register-states"
+    globalRegisterStates.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/maximum/" + globalRegisterStates.EntityData.SegmentPath
     globalRegisterStates.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     globalRegisterStates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     globalRegisterStates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3974,6 +4077,7 @@ func (globalRouteInterfaces *Pim_DefaultContext_Ipv6_Maximum_GlobalRouteInterfac
     globalRouteInterfaces.EntityData.BundleName = "cisco_ios_xr"
     globalRouteInterfaces.EntityData.ParentYangName = "maximum"
     globalRouteInterfaces.EntityData.SegmentPath = "global-route-interfaces"
+    globalRouteInterfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/maximum/" + globalRouteInterfaces.EntityData.SegmentPath
     globalRouteInterfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     globalRouteInterfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     globalRouteInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4012,6 +4116,7 @@ func (groupMappingsAutoRp *Pim_DefaultContext_Ipv6_Maximum_GroupMappingsAutoRp) 
     groupMappingsAutoRp.EntityData.BundleName = "cisco_ios_xr"
     groupMappingsAutoRp.EntityData.ParentYangName = "maximum"
     groupMappingsAutoRp.EntityData.SegmentPath = "group-mappings-auto-rp"
+    groupMappingsAutoRp.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/maximum/" + groupMappingsAutoRp.EntityData.SegmentPath
     groupMappingsAutoRp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     groupMappingsAutoRp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     groupMappingsAutoRp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4050,6 +4155,7 @@ func (bsrGroupMappings *Pim_DefaultContext_Ipv6_Maximum_BsrGroupMappings) GetEnt
     bsrGroupMappings.EntityData.BundleName = "cisco_ios_xr"
     bsrGroupMappings.EntityData.ParentYangName = "maximum"
     bsrGroupMappings.EntityData.SegmentPath = "bsr-group-mappings"
+    bsrGroupMappings.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/maximum/" + bsrGroupMappings.EntityData.SegmentPath
     bsrGroupMappings.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bsrGroupMappings.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bsrGroupMappings.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4088,6 +4194,7 @@ func (registerStates *Pim_DefaultContext_Ipv6_Maximum_RegisterStates) GetEntityD
     registerStates.EntityData.BundleName = "cisco_ios_xr"
     registerStates.EntityData.ParentYangName = "maximum"
     registerStates.EntityData.SegmentPath = "register-states"
+    registerStates.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/maximum/" + registerStates.EntityData.SegmentPath
     registerStates.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     registerStates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     registerStates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4126,6 +4233,7 @@ func (routeInterfaces *Pim_DefaultContext_Ipv6_Maximum_RouteInterfaces) GetEntit
     routeInterfaces.EntityData.BundleName = "cisco_ios_xr"
     routeInterfaces.EntityData.ParentYangName = "maximum"
     routeInterfaces.EntityData.SegmentPath = "route-interfaces"
+    routeInterfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/maximum/" + routeInterfaces.EntityData.SegmentPath
     routeInterfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routeInterfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routeInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4164,6 +4272,7 @@ func (bsrCandidateRpCache *Pim_DefaultContext_Ipv6_Maximum_BsrCandidateRpCache) 
     bsrCandidateRpCache.EntityData.BundleName = "cisco_ios_xr"
     bsrCandidateRpCache.EntityData.ParentYangName = "maximum"
     bsrCandidateRpCache.EntityData.SegmentPath = "bsr-candidate-rp-cache"
+    bsrCandidateRpCache.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/maximum/" + bsrCandidateRpCache.EntityData.SegmentPath
     bsrCandidateRpCache.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bsrCandidateRpCache.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bsrCandidateRpCache.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4201,6 +4310,7 @@ func (routes *Pim_DefaultContext_Ipv6_Maximum_Routes) GetEntityData() *types.Com
     routes.EntityData.BundleName = "cisco_ios_xr"
     routes.EntityData.ParentYangName = "maximum"
     routes.EntityData.SegmentPath = "routes"
+    routes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/maximum/" + routes.EntityData.SegmentPath
     routes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4236,6 +4346,7 @@ func (ssm *Pim_DefaultContext_Ipv6_Ssm) GetEntityData() *types.CommonEntityData 
     ssm.EntityData.BundleName = "cisco_ios_xr"
     ssm.EntityData.ParentYangName = "ipv6"
     ssm.EntityData.SegmentPath = "ssm"
+    ssm.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/" + ssm.EntityData.SegmentPath
     ssm.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ssm.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ssm.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4267,6 +4378,7 @@ func (bidirRpAddresses *Pim_DefaultContext_Ipv6_BidirRpAddresses) GetEntityData(
     bidirRpAddresses.EntityData.BundleName = "cisco_ios_xr"
     bidirRpAddresses.EntityData.ParentYangName = "ipv6"
     bidirRpAddresses.EntityData.SegmentPath = "bidir-rp-addresses"
+    bidirRpAddresses.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/" + bidirRpAddresses.EntityData.SegmentPath
     bidirRpAddresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bidirRpAddresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bidirRpAddresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4288,6 +4400,7 @@ func (bidirRpAddresses *Pim_DefaultContext_Ipv6_BidirRpAddresses) GetEntityData(
 type Pim_DefaultContext_Ipv6_BidirRpAddresses_BidirRpAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. RP address of Rendezvous Point. The type is one of
     // the following types: string with pattern:
@@ -4311,6 +4424,7 @@ func (bidirRpAddress *Pim_DefaultContext_Ipv6_BidirRpAddresses_BidirRpAddress) G
     bidirRpAddress.EntityData.BundleName = "cisco_ios_xr"
     bidirRpAddress.EntityData.ParentYangName = "bidir-rp-addresses"
     bidirRpAddress.EntityData.SegmentPath = "bidir-rp-address" + types.AddKeyToken(bidirRpAddress.RpAddress, "rp-address")
+    bidirRpAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/bidir-rp-addresses/" + bidirRpAddress.EntityData.SegmentPath
     bidirRpAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bidirRpAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bidirRpAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4345,6 +4459,7 @@ func (bsr *Pim_DefaultContext_Ipv6_Bsr) GetEntityData() *types.CommonEntityData 
     bsr.EntityData.BundleName = "cisco_ios_xr"
     bsr.EntityData.ParentYangName = "ipv6"
     bsr.EntityData.SegmentPath = "bsr"
+    bsr.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/" + bsr.EntityData.SegmentPath
     bsr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bsr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bsr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4387,6 +4502,7 @@ func (candidateBsr *Pim_DefaultContext_Ipv6_Bsr_CandidateBsr) GetEntityData() *t
     candidateBsr.EntityData.BundleName = "cisco_ios_xr"
     candidateBsr.EntityData.ParentYangName = "bsr"
     candidateBsr.EntityData.SegmentPath = "candidate-bsr"
+    candidateBsr.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/bsr/" + candidateBsr.EntityData.SegmentPath
     candidateBsr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     candidateBsr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     candidateBsr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4419,6 +4535,7 @@ func (candidateRps *Pim_DefaultContext_Ipv6_Bsr_CandidateRps) GetEntityData() *t
     candidateRps.EntityData.BundleName = "cisco_ios_xr"
     candidateRps.EntityData.ParentYangName = "bsr"
     candidateRps.EntityData.SegmentPath = "candidate-rps"
+    candidateRps.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/bsr/" + candidateRps.EntityData.SegmentPath
     candidateRps.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     candidateRps.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     candidateRps.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4440,6 +4557,7 @@ func (candidateRps *Pim_DefaultContext_Ipv6_Bsr_CandidateRps) GetEntityData() *t
 type Pim_DefaultContext_Ipv6_Bsr_CandidateRps_CandidateRp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Address of Candidate-RP. The type is one of the
     // following types: string with pattern:
@@ -4470,6 +4588,7 @@ func (candidateRp *Pim_DefaultContext_Ipv6_Bsr_CandidateRps_CandidateRp) GetEnti
     candidateRp.EntityData.BundleName = "cisco_ios_xr"
     candidateRp.EntityData.ParentYangName = "candidate-rps"
     candidateRp.EntityData.SegmentPath = "candidate-rp" + types.AddKeyToken(candidateRp.Address, "address") + types.AddKeyToken(candidateRp.Mode, "mode")
+    candidateRp.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/bsr/candidate-rps/" + candidateRp.EntityData.SegmentPath
     candidateRp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     candidateRp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     candidateRp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4510,6 +4629,7 @@ func (allowRp *Pim_DefaultContext_Ipv6_AllowRp) GetEntityData() *types.CommonEnt
     allowRp.EntityData.BundleName = "cisco_ios_xr"
     allowRp.EntityData.ParentYangName = "ipv6"
     allowRp.EntityData.SegmentPath = "allow-rp"
+    allowRp.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/" + allowRp.EntityData.SegmentPath
     allowRp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     allowRp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     allowRp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4541,6 +4661,7 @@ func (embeddedRpAddresses *Pim_DefaultContext_Ipv6_EmbeddedRpAddresses) GetEntit
     embeddedRpAddresses.EntityData.BundleName = "cisco_ios_xr"
     embeddedRpAddresses.EntityData.ParentYangName = "ipv6"
     embeddedRpAddresses.EntityData.SegmentPath = "embedded-rp-addresses"
+    embeddedRpAddresses.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/" + embeddedRpAddresses.EntityData.SegmentPath
     embeddedRpAddresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     embeddedRpAddresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     embeddedRpAddresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4562,6 +4683,7 @@ func (embeddedRpAddresses *Pim_DefaultContext_Ipv6_EmbeddedRpAddresses) GetEntit
 type Pim_DefaultContext_Ipv6_EmbeddedRpAddresses_EmbeddedRpAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. RP address of the Rendezvous Point. The type is
     // one of the following types: string with pattern:
@@ -4581,6 +4703,7 @@ func (embeddedRpAddress *Pim_DefaultContext_Ipv6_EmbeddedRpAddresses_EmbeddedRpA
     embeddedRpAddress.EntityData.BundleName = "cisco_ios_xr"
     embeddedRpAddress.EntityData.ParentYangName = "embedded-rp-addresses"
     embeddedRpAddress.EntityData.SegmentPath = "embedded-rp-address" + types.AddKeyToken(embeddedRpAddress.RpAddress, "rp-address")
+    embeddedRpAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/embedded-rp-addresses/" + embeddedRpAddress.EntityData.SegmentPath
     embeddedRpAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     embeddedRpAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     embeddedRpAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4616,6 +4739,7 @@ func (convergence *Pim_DefaultContext_Ipv6_Convergence) GetEntityData() *types.C
     convergence.EntityData.BundleName = "cisco_ios_xr"
     convergence.EntityData.ParentYangName = "ipv6"
     convergence.EntityData.SegmentPath = "convergence"
+    convergence.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/" + convergence.EntityData.SegmentPath
     convergence.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     convergence.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     convergence.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4753,6 +4877,7 @@ func (ipv4 *Pim_DefaultContext_Ipv4) GetEntityData() *types.CommonEntityData {
     ipv4.EntityData.BundleName = "cisco_ios_xr"
     ipv4.EntityData.ParentYangName = "default-context"
     ipv4.EntityData.SegmentPath = "ipv4"
+    ipv4.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/" + ipv4.EntityData.SegmentPath
     ipv4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4814,6 +4939,7 @@ func (rpfRedirect *Pim_DefaultContext_Ipv4_RpfRedirect) GetEntityData() *types.C
     rpfRedirect.EntityData.BundleName = "cisco_ios_xr"
     rpfRedirect.EntityData.ParentYangName = "ipv4"
     rpfRedirect.EntityData.SegmentPath = "rpf-redirect"
+    rpfRedirect.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/" + rpfRedirect.EntityData.SegmentPath
     rpfRedirect.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rpfRedirect.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rpfRedirect.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4844,6 +4970,7 @@ func (interfaces *Pim_DefaultContext_Ipv4_Interfaces) GetEntityData() *types.Com
     interfaces.EntityData.BundleName = "cisco_ios_xr"
     interfaces.EntityData.ParentYangName = "ipv4"
     interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/" + interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4865,6 +4992,7 @@ func (interfaces *Pim_DefaultContext_Ipv4_Interfaces) GetEntityData() *types.Com
 type Pim_DefaultContext_Ipv4_Interfaces_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The name of interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -4923,6 +5051,7 @@ func (self *Pim_DefaultContext_Ipv4_Interfaces_Interface) GetEntityData() *types
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/interfaces/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4974,6 +5103,7 @@ func (redirectBundle *Pim_DefaultContext_Ipv4_Interfaces_Interface_RedirectBundl
     redirectBundle.EntityData.BundleName = "cisco_ios_xr"
     redirectBundle.EntityData.ParentYangName = "interface"
     redirectBundle.EntityData.SegmentPath = "redirect-bundle"
+    redirectBundle.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/interfaces/interface/" + redirectBundle.EntityData.SegmentPath
     redirectBundle.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     redirectBundle.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     redirectBundle.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5016,6 +5146,7 @@ func (maximumRoutes *Pim_DefaultContext_Ipv4_Interfaces_Interface_MaximumRoutes)
     maximumRoutes.EntityData.BundleName = "cisco_ios_xr"
     maximumRoutes.EntityData.ParentYangName = "interface"
     maximumRoutes.EntityData.SegmentPath = "maximum-routes"
+    maximumRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/interfaces/interface/" + maximumRoutes.EntityData.SegmentPath
     maximumRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     maximumRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     maximumRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5056,6 +5187,7 @@ func (bfd *Pim_DefaultContext_Ipv4_Interfaces_Interface_Bfd) GetEntityData() *ty
     bfd.EntityData.BundleName = "cisco_ios_xr"
     bfd.EntityData.ParentYangName = "interface"
     bfd.EntityData.SegmentPath = "bfd"
+    bfd.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/interfaces/interface/" + bfd.EntityData.SegmentPath
     bfd.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bfd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bfd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5088,6 +5220,7 @@ func (autoRpCandidateRps *Pim_DefaultContext_Ipv4_AutoRpCandidateRps) GetEntityD
     autoRpCandidateRps.EntityData.BundleName = "cisco_ios_xr"
     autoRpCandidateRps.EntityData.ParentYangName = "ipv4"
     autoRpCandidateRps.EntityData.SegmentPath = "auto-rp-candidate-rps"
+    autoRpCandidateRps.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/" + autoRpCandidateRps.EntityData.SegmentPath
     autoRpCandidateRps.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     autoRpCandidateRps.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     autoRpCandidateRps.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5109,6 +5242,7 @@ func (autoRpCandidateRps *Pim_DefaultContext_Ipv4_AutoRpCandidateRps) GetEntityD
 type Pim_DefaultContext_Ipv4_AutoRpCandidateRps_AutoRpCandidateRp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface from which Candidate-RP packets will be
     // sourced. The type is string with pattern: [a-zA-Z0-9._/-]+.
@@ -5136,6 +5270,7 @@ func (autoRpCandidateRp *Pim_DefaultContext_Ipv4_AutoRpCandidateRps_AutoRpCandid
     autoRpCandidateRp.EntityData.BundleName = "cisco_ios_xr"
     autoRpCandidateRp.EntityData.ParentYangName = "auto-rp-candidate-rps"
     autoRpCandidateRp.EntityData.SegmentPath = "auto-rp-candidate-rp" + types.AddKeyToken(autoRpCandidateRp.InterfaceName, "interface-name") + types.AddKeyToken(autoRpCandidateRp.ProtocolMode, "protocol-mode")
+    autoRpCandidateRp.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/auto-rp-candidate-rps/" + autoRpCandidateRp.EntityData.SegmentPath
     autoRpCandidateRp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     autoRpCandidateRp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     autoRpCandidateRp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5172,6 +5307,7 @@ func (autoRpMappingAgent *Pim_DefaultContext_Ipv4_AutoRpMappingAgent) GetEntityD
     autoRpMappingAgent.EntityData.BundleName = "cisco_ios_xr"
     autoRpMappingAgent.EntityData.ParentYangName = "ipv4"
     autoRpMappingAgent.EntityData.SegmentPath = "auto-rp-mapping-agent"
+    autoRpMappingAgent.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/" + autoRpMappingAgent.EntityData.SegmentPath
     autoRpMappingAgent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     autoRpMappingAgent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     autoRpMappingAgent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5214,6 +5350,7 @@ func (parameters *Pim_DefaultContext_Ipv4_AutoRpMappingAgent_Parameters) GetEnti
     parameters.EntityData.BundleName = "cisco_ios_xr"
     parameters.EntityData.ParentYangName = "auto-rp-mapping-agent"
     parameters.EntityData.SegmentPath = "parameters"
+    parameters.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/auto-rp-mapping-agent/" + parameters.EntityData.SegmentPath
     parameters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     parameters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     parameters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5252,6 +5389,7 @@ func (cacheLimit *Pim_DefaultContext_Ipv4_AutoRpMappingAgent_CacheLimit) GetEnti
     cacheLimit.EntityData.BundleName = "cisco_ios_xr"
     cacheLimit.EntityData.ParentYangName = "auto-rp-mapping-agent"
     cacheLimit.EntityData.SegmentPath = "cache-limit"
+    cacheLimit.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/auto-rp-mapping-agent/" + cacheLimit.EntityData.SegmentPath
     cacheLimit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cacheLimit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cacheLimit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5283,6 +5421,7 @@ func (sparseModeRpAddresses *Pim_DefaultContext_Ipv4_SparseModeRpAddresses) GetE
     sparseModeRpAddresses.EntityData.BundleName = "cisco_ios_xr"
     sparseModeRpAddresses.EntityData.ParentYangName = "ipv4"
     sparseModeRpAddresses.EntityData.SegmentPath = "sparse-mode-rp-addresses"
+    sparseModeRpAddresses.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/" + sparseModeRpAddresses.EntityData.SegmentPath
     sparseModeRpAddresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sparseModeRpAddresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sparseModeRpAddresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5304,6 +5443,7 @@ func (sparseModeRpAddresses *Pim_DefaultContext_Ipv4_SparseModeRpAddresses) GetE
 type Pim_DefaultContext_Ipv4_SparseModeRpAddresses_SparseModeRpAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. RP address of Rendezvous Point. The type is one of
     // the following types: string with pattern:
@@ -5312,7 +5452,7 @@ type Pim_DefaultContext_Ipv4_SparseModeRpAddresses_SparseModeRpAddress struct {
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     RpAddress interface{}
 
-    // Access list of groups that should map to a  given RP. The type is string
+    // Access list of groups that should map to a given RP. The type is string
     // with length: 1..64.
     AccessListName interface{}
 
@@ -5327,6 +5467,7 @@ func (sparseModeRpAddress *Pim_DefaultContext_Ipv4_SparseModeRpAddresses_SparseM
     sparseModeRpAddress.EntityData.BundleName = "cisco_ios_xr"
     sparseModeRpAddress.EntityData.ParentYangName = "sparse-mode-rp-addresses"
     sparseModeRpAddress.EntityData.SegmentPath = "sparse-mode-rp-address" + types.AddKeyToken(sparseModeRpAddress.RpAddress, "rp-address")
+    sparseModeRpAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/sparse-mode-rp-addresses/" + sparseModeRpAddress.EntityData.SegmentPath
     sparseModeRpAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sparseModeRpAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sparseModeRpAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5383,6 +5524,7 @@ func (inheritableDefaults *Pim_DefaultContext_Ipv4_InheritableDefaults) GetEntit
     inheritableDefaults.EntityData.BundleName = "cisco_ios_xr"
     inheritableDefaults.EntityData.ParentYangName = "ipv4"
     inheritableDefaults.EntityData.SegmentPath = "inheritable-defaults"
+    inheritableDefaults.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/" + inheritableDefaults.EntityData.SegmentPath
     inheritableDefaults.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     inheritableDefaults.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inheritableDefaults.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5418,6 +5560,7 @@ func (rpf *Pim_DefaultContext_Ipv4_Rpf) GetEntityData() *types.CommonEntityData 
     rpf.EntityData.BundleName = "cisco_ios_xr"
     rpf.EntityData.ParentYangName = "ipv4"
     rpf.EntityData.SegmentPath = "rpf"
+    rpf.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/" + rpf.EntityData.SegmentPath
     rpf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rpf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rpf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5452,6 +5595,7 @@ func (sgExpiryTimer *Pim_DefaultContext_Ipv4_SgExpiryTimer) GetEntityData() *typ
     sgExpiryTimer.EntityData.BundleName = "cisco_ios_xr"
     sgExpiryTimer.EntityData.ParentYangName = "ipv4"
     sgExpiryTimer.EntityData.SegmentPath = "sg-expiry-timer"
+    sgExpiryTimer.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/" + sgExpiryTimer.EntityData.SegmentPath
     sgExpiryTimer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sgExpiryTimer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sgExpiryTimer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5494,6 +5638,7 @@ func (rpfVectorEnable *Pim_DefaultContext_Ipv4_RpfVectorEnable) GetEntityData() 
     rpfVectorEnable.EntityData.BundleName = "cisco_ios_xr"
     rpfVectorEnable.EntityData.ParentYangName = "ipv4"
     rpfVectorEnable.EntityData.SegmentPath = "rpf-vector-enable"
+    rpfVectorEnable.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/" + rpfVectorEnable.EntityData.SegmentPath
     rpfVectorEnable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rpfVectorEnable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rpfVectorEnable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5527,6 +5672,7 @@ func (nsf *Pim_DefaultContext_Ipv4_Nsf) GetEntityData() *types.CommonEntityData 
     nsf.EntityData.BundleName = "cisco_ios_xr"
     nsf.EntityData.ParentYangName = "ipv4"
     nsf.EntityData.SegmentPath = "nsf"
+    nsf.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/" + nsf.EntityData.SegmentPath
     nsf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nsf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nsf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5600,6 +5746,7 @@ func (maximum *Pim_DefaultContext_Ipv4_Maximum) GetEntityData() *types.CommonEnt
     maximum.EntityData.BundleName = "cisco_ios_xr"
     maximum.EntityData.ParentYangName = "ipv4"
     maximum.EntityData.SegmentPath = "maximum"
+    maximum.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/" + maximum.EntityData.SegmentPath
     maximum.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     maximum.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     maximum.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5650,6 +5797,7 @@ func (bsrGlobalGroupMappings *Pim_DefaultContext_Ipv4_Maximum_BsrGlobalGroupMapp
     bsrGlobalGroupMappings.EntityData.BundleName = "cisco_ios_xr"
     bsrGlobalGroupMappings.EntityData.ParentYangName = "maximum"
     bsrGlobalGroupMappings.EntityData.SegmentPath = "bsr-global-group-mappings"
+    bsrGlobalGroupMappings.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/maximum/" + bsrGlobalGroupMappings.EntityData.SegmentPath
     bsrGlobalGroupMappings.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bsrGlobalGroupMappings.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bsrGlobalGroupMappings.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5687,6 +5835,7 @@ func (globalRoutes *Pim_DefaultContext_Ipv4_Maximum_GlobalRoutes) GetEntityData(
     globalRoutes.EntityData.BundleName = "cisco_ios_xr"
     globalRoutes.EntityData.ParentYangName = "maximum"
     globalRoutes.EntityData.SegmentPath = "global-routes"
+    globalRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/maximum/" + globalRoutes.EntityData.SegmentPath
     globalRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     globalRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     globalRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5725,6 +5874,7 @@ func (globalGroupMappingsAutoRp *Pim_DefaultContext_Ipv4_Maximum_GlobalGroupMapp
     globalGroupMappingsAutoRp.EntityData.BundleName = "cisco_ios_xr"
     globalGroupMappingsAutoRp.EntityData.ParentYangName = "maximum"
     globalGroupMappingsAutoRp.EntityData.SegmentPath = "global-group-mappings-auto-rp"
+    globalGroupMappingsAutoRp.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/maximum/" + globalGroupMappingsAutoRp.EntityData.SegmentPath
     globalGroupMappingsAutoRp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     globalGroupMappingsAutoRp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     globalGroupMappingsAutoRp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5763,6 +5913,7 @@ func (bsrGlobalCandidateRpCache *Pim_DefaultContext_Ipv4_Maximum_BsrGlobalCandid
     bsrGlobalCandidateRpCache.EntityData.BundleName = "cisco_ios_xr"
     bsrGlobalCandidateRpCache.EntityData.ParentYangName = "maximum"
     bsrGlobalCandidateRpCache.EntityData.SegmentPath = "bsr-global-candidate-rp-cache"
+    bsrGlobalCandidateRpCache.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/maximum/" + bsrGlobalCandidateRpCache.EntityData.SegmentPath
     bsrGlobalCandidateRpCache.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bsrGlobalCandidateRpCache.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bsrGlobalCandidateRpCache.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5801,6 +5952,7 @@ func (globalRegisterStates *Pim_DefaultContext_Ipv4_Maximum_GlobalRegisterStates
     globalRegisterStates.EntityData.BundleName = "cisco_ios_xr"
     globalRegisterStates.EntityData.ParentYangName = "maximum"
     globalRegisterStates.EntityData.SegmentPath = "global-register-states"
+    globalRegisterStates.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/maximum/" + globalRegisterStates.EntityData.SegmentPath
     globalRegisterStates.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     globalRegisterStates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     globalRegisterStates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5839,6 +5991,7 @@ func (globalRouteInterfaces *Pim_DefaultContext_Ipv4_Maximum_GlobalRouteInterfac
     globalRouteInterfaces.EntityData.BundleName = "cisco_ios_xr"
     globalRouteInterfaces.EntityData.ParentYangName = "maximum"
     globalRouteInterfaces.EntityData.SegmentPath = "global-route-interfaces"
+    globalRouteInterfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/maximum/" + globalRouteInterfaces.EntityData.SegmentPath
     globalRouteInterfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     globalRouteInterfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     globalRouteInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5877,6 +6030,7 @@ func (groupMappingsAutoRp *Pim_DefaultContext_Ipv4_Maximum_GroupMappingsAutoRp) 
     groupMappingsAutoRp.EntityData.BundleName = "cisco_ios_xr"
     groupMappingsAutoRp.EntityData.ParentYangName = "maximum"
     groupMappingsAutoRp.EntityData.SegmentPath = "group-mappings-auto-rp"
+    groupMappingsAutoRp.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/maximum/" + groupMappingsAutoRp.EntityData.SegmentPath
     groupMappingsAutoRp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     groupMappingsAutoRp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     groupMappingsAutoRp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5915,6 +6069,7 @@ func (bsrGroupMappings *Pim_DefaultContext_Ipv4_Maximum_BsrGroupMappings) GetEnt
     bsrGroupMappings.EntityData.BundleName = "cisco_ios_xr"
     bsrGroupMappings.EntityData.ParentYangName = "maximum"
     bsrGroupMappings.EntityData.SegmentPath = "bsr-group-mappings"
+    bsrGroupMappings.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/maximum/" + bsrGroupMappings.EntityData.SegmentPath
     bsrGroupMappings.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bsrGroupMappings.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bsrGroupMappings.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5953,6 +6108,7 @@ func (registerStates *Pim_DefaultContext_Ipv4_Maximum_RegisterStates) GetEntityD
     registerStates.EntityData.BundleName = "cisco_ios_xr"
     registerStates.EntityData.ParentYangName = "maximum"
     registerStates.EntityData.SegmentPath = "register-states"
+    registerStates.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/maximum/" + registerStates.EntityData.SegmentPath
     registerStates.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     registerStates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     registerStates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5991,6 +6147,7 @@ func (routeInterfaces *Pim_DefaultContext_Ipv4_Maximum_RouteInterfaces) GetEntit
     routeInterfaces.EntityData.BundleName = "cisco_ios_xr"
     routeInterfaces.EntityData.ParentYangName = "maximum"
     routeInterfaces.EntityData.SegmentPath = "route-interfaces"
+    routeInterfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/maximum/" + routeInterfaces.EntityData.SegmentPath
     routeInterfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routeInterfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routeInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6029,6 +6186,7 @@ func (bsrCandidateRpCache *Pim_DefaultContext_Ipv4_Maximum_BsrCandidateRpCache) 
     bsrCandidateRpCache.EntityData.BundleName = "cisco_ios_xr"
     bsrCandidateRpCache.EntityData.ParentYangName = "maximum"
     bsrCandidateRpCache.EntityData.SegmentPath = "bsr-candidate-rp-cache"
+    bsrCandidateRpCache.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/maximum/" + bsrCandidateRpCache.EntityData.SegmentPath
     bsrCandidateRpCache.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bsrCandidateRpCache.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bsrCandidateRpCache.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6066,6 +6224,7 @@ func (routes *Pim_DefaultContext_Ipv4_Maximum_Routes) GetEntityData() *types.Com
     routes.EntityData.BundleName = "cisco_ios_xr"
     routes.EntityData.ParentYangName = "maximum"
     routes.EntityData.SegmentPath = "routes"
+    routes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/maximum/" + routes.EntityData.SegmentPath
     routes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6101,6 +6260,7 @@ func (ssm *Pim_DefaultContext_Ipv4_Ssm) GetEntityData() *types.CommonEntityData 
     ssm.EntityData.BundleName = "cisco_ios_xr"
     ssm.EntityData.ParentYangName = "ipv4"
     ssm.EntityData.SegmentPath = "ssm"
+    ssm.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/" + ssm.EntityData.SegmentPath
     ssm.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ssm.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ssm.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6132,6 +6292,7 @@ func (injects *Pim_DefaultContext_Ipv4_Injects) GetEntityData() *types.CommonEnt
     injects.EntityData.BundleName = "cisco_ios_xr"
     injects.EntityData.ParentYangName = "ipv4"
     injects.EntityData.SegmentPath = "injects"
+    injects.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/" + injects.EntityData.SegmentPath
     injects.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     injects.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     injects.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6153,6 +6314,7 @@ func (injects *Pim_DefaultContext_Ipv4_Injects) GetEntityData() *types.CommonEnt
 type Pim_DefaultContext_Ipv4_Injects_Inject struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Source Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -6173,6 +6335,7 @@ func (inject *Pim_DefaultContext_Ipv4_Injects_Inject) GetEntityData() *types.Com
     inject.EntityData.BundleName = "cisco_ios_xr"
     inject.EntityData.ParentYangName = "injects"
     inject.EntityData.SegmentPath = "inject" + types.AddKeyToken(inject.SourceAddress, "source-address") + types.AddKeyToken(inject.PrefixLength, "prefix-length")
+    inject.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/injects/" + inject.EntityData.SegmentPath
     inject.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     inject.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inject.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6205,6 +6368,7 @@ func (bidirRpAddresses *Pim_DefaultContext_Ipv4_BidirRpAddresses) GetEntityData(
     bidirRpAddresses.EntityData.BundleName = "cisco_ios_xr"
     bidirRpAddresses.EntityData.ParentYangName = "ipv4"
     bidirRpAddresses.EntityData.SegmentPath = "bidir-rp-addresses"
+    bidirRpAddresses.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/" + bidirRpAddresses.EntityData.SegmentPath
     bidirRpAddresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bidirRpAddresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bidirRpAddresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6226,6 +6390,7 @@ func (bidirRpAddresses *Pim_DefaultContext_Ipv4_BidirRpAddresses) GetEntityData(
 type Pim_DefaultContext_Ipv4_BidirRpAddresses_BidirRpAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. RP address of Rendezvous Point. The type is one of
     // the following types: string with pattern:
@@ -6249,6 +6414,7 @@ func (bidirRpAddress *Pim_DefaultContext_Ipv4_BidirRpAddresses_BidirRpAddress) G
     bidirRpAddress.EntityData.BundleName = "cisco_ios_xr"
     bidirRpAddress.EntityData.ParentYangName = "bidir-rp-addresses"
     bidirRpAddress.EntityData.SegmentPath = "bidir-rp-address" + types.AddKeyToken(bidirRpAddress.RpAddress, "rp-address")
+    bidirRpAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/bidir-rp-addresses/" + bidirRpAddress.EntityData.SegmentPath
     bidirRpAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bidirRpAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bidirRpAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6283,6 +6449,7 @@ func (bsr *Pim_DefaultContext_Ipv4_Bsr) GetEntityData() *types.CommonEntityData 
     bsr.EntityData.BundleName = "cisco_ios_xr"
     bsr.EntityData.ParentYangName = "ipv4"
     bsr.EntityData.SegmentPath = "bsr"
+    bsr.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/" + bsr.EntityData.SegmentPath
     bsr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bsr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bsr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6328,6 +6495,7 @@ func (candidateBsr *Pim_DefaultContext_Ipv4_Bsr_CandidateBsr) GetEntityData() *t
     candidateBsr.EntityData.BundleName = "cisco_ios_xr"
     candidateBsr.EntityData.ParentYangName = "bsr"
     candidateBsr.EntityData.SegmentPath = "candidate-bsr"
+    candidateBsr.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/bsr/" + candidateBsr.EntityData.SegmentPath
     candidateBsr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     candidateBsr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     candidateBsr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6360,6 +6528,7 @@ func (candidateRps *Pim_DefaultContext_Ipv4_Bsr_CandidateRps) GetEntityData() *t
     candidateRps.EntityData.BundleName = "cisco_ios_xr"
     candidateRps.EntityData.ParentYangName = "bsr"
     candidateRps.EntityData.SegmentPath = "candidate-rps"
+    candidateRps.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/bsr/" + candidateRps.EntityData.SegmentPath
     candidateRps.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     candidateRps.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     candidateRps.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6381,6 +6550,7 @@ func (candidateRps *Pim_DefaultContext_Ipv4_Bsr_CandidateRps) GetEntityData() *t
 type Pim_DefaultContext_Ipv4_Bsr_CandidateRps_CandidateRp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Address of Candidate-RP. The type is one of the
     // following types: string with pattern:
@@ -6411,6 +6581,7 @@ func (candidateRp *Pim_DefaultContext_Ipv4_Bsr_CandidateRps_CandidateRp) GetEnti
     candidateRp.EntityData.BundleName = "cisco_ios_xr"
     candidateRp.EntityData.ParentYangName = "candidate-rps"
     candidateRp.EntityData.SegmentPath = "candidate-rp" + types.AddKeyToken(candidateRp.Address, "address") + types.AddKeyToken(candidateRp.Mode, "mode")
+    candidateRp.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/bsr/candidate-rps/" + candidateRp.EntityData.SegmentPath
     candidateRp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     candidateRp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     candidateRp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6461,6 +6632,7 @@ func (mofrr *Pim_DefaultContext_Ipv4_Mofrr) GetEntityData() *types.CommonEntityD
     mofrr.EntityData.BundleName = "cisco_ios_xr"
     mofrr.EntityData.ParentYangName = "ipv4"
     mofrr.EntityData.SegmentPath = "mofrr"
+    mofrr.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/" + mofrr.EntityData.SegmentPath
     mofrr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mofrr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mofrr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6496,6 +6668,7 @@ func (cloneJoins *Pim_DefaultContext_Ipv4_Mofrr_CloneJoins) GetEntityData() *typ
     cloneJoins.EntityData.BundleName = "cisco_ios_xr"
     cloneJoins.EntityData.ParentYangName = "mofrr"
     cloneJoins.EntityData.SegmentPath = "clone-joins"
+    cloneJoins.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/mofrr/" + cloneJoins.EntityData.SegmentPath
     cloneJoins.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cloneJoins.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cloneJoins.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6517,6 +6690,7 @@ func (cloneJoins *Pim_DefaultContext_Ipv4_Mofrr_CloneJoins) GetEntityData() *typ
 type Pim_DefaultContext_Ipv4_Mofrr_CloneJoins_CloneJoin struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Original source address (S). The type is string
     // with pattern:
@@ -6544,6 +6718,7 @@ func (cloneJoin *Pim_DefaultContext_Ipv4_Mofrr_CloneJoins_CloneJoin) GetEntityDa
     cloneJoin.EntityData.BundleName = "cisco_ios_xr"
     cloneJoin.EntityData.ParentYangName = "clone-joins"
     cloneJoin.EntityData.SegmentPath = "clone-join" + types.AddKeyToken(cloneJoin.Source, "source") + types.AddKeyToken(cloneJoin.Primary, "primary") + types.AddKeyToken(cloneJoin.Backup, "backup") + types.AddKeyToken(cloneJoin.PrefixLength, "prefix-length")
+    cloneJoin.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/mofrr/clone-joins/" + cloneJoin.EntityData.SegmentPath
     cloneJoin.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cloneJoin.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cloneJoin.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6577,6 +6752,7 @@ func (cloneSources *Pim_DefaultContext_Ipv4_Mofrr_CloneSources) GetEntityData() 
     cloneSources.EntityData.BundleName = "cisco_ios_xr"
     cloneSources.EntityData.ParentYangName = "mofrr"
     cloneSources.EntityData.SegmentPath = "clone-sources"
+    cloneSources.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/mofrr/" + cloneSources.EntityData.SegmentPath
     cloneSources.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cloneSources.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cloneSources.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6599,6 +6775,7 @@ func (cloneSources *Pim_DefaultContext_Ipv4_Mofrr_CloneSources) GetEntityData() 
 type Pim_DefaultContext_Ipv4_Mofrr_CloneSources_CloneSource struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Original source address (S). The type is string
     // with pattern:
@@ -6626,6 +6803,7 @@ func (cloneSource *Pim_DefaultContext_Ipv4_Mofrr_CloneSources_CloneSource) GetEn
     cloneSource.EntityData.BundleName = "cisco_ios_xr"
     cloneSource.EntityData.ParentYangName = "clone-sources"
     cloneSource.EntityData.SegmentPath = "clone-source" + types.AddKeyToken(cloneSource.Source, "source") + types.AddKeyToken(cloneSource.Primary, "primary") + types.AddKeyToken(cloneSource.Backup, "backup") + types.AddKeyToken(cloneSource.PrefixLength, "prefix-length")
+    cloneSource.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/mofrr/clone-sources/" + cloneSource.EntityData.SegmentPath
     cloneSource.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cloneSource.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cloneSource.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6659,6 +6837,7 @@ func (paths *Pim_DefaultContext_Ipv4_Paths) GetEntityData() *types.CommonEntityD
     paths.EntityData.BundleName = "cisco_ios_xr"
     paths.EntityData.ParentYangName = "ipv4"
     paths.EntityData.SegmentPath = "paths"
+    paths.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/" + paths.EntityData.SegmentPath
     paths.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     paths.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     paths.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6680,6 +6859,7 @@ func (paths *Pim_DefaultContext_Ipv4_Paths) GetEntityData() *types.CommonEntityD
 type Pim_DefaultContext_Ipv4_Paths_Path struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Source Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -6700,6 +6880,7 @@ func (path *Pim_DefaultContext_Ipv4_Paths_Path) GetEntityData() *types.CommonEnt
     path.EntityData.BundleName = "cisco_ios_xr"
     path.EntityData.ParentYangName = "paths"
     path.EntityData.SegmentPath = "path" + types.AddKeyToken(path.SourceAddress, "source-address") + types.AddKeyToken(path.PrefixLength, "prefix-length")
+    path.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/paths/" + path.EntityData.SegmentPath
     path.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     path.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     path.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6738,6 +6919,7 @@ func (allowRp *Pim_DefaultContext_Ipv4_AllowRp) GetEntityData() *types.CommonEnt
     allowRp.EntityData.BundleName = "cisco_ios_xr"
     allowRp.EntityData.ParentYangName = "ipv4"
     allowRp.EntityData.SegmentPath = "allow-rp"
+    allowRp.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/" + allowRp.EntityData.SegmentPath
     allowRp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     allowRp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     allowRp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6773,6 +6955,7 @@ func (convergence *Pim_DefaultContext_Ipv4_Convergence) GetEntityData() *types.C
     convergence.EntityData.BundleName = "cisco_ios_xr"
     convergence.EntityData.ParentYangName = "ipv4"
     convergence.EntityData.SegmentPath = "convergence"
+    convergence.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/" + convergence.EntityData.SegmentPath
     convergence.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     convergence.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     convergence.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

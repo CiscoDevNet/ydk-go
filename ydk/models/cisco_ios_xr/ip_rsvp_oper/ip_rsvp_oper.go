@@ -553,6 +553,7 @@ func (rsvpStandby *RsvpStandby) GetEntityData() *types.CommonEntityData {
     rsvpStandby.EntityData.BundleName = "cisco_ios_xr"
     rsvpStandby.EntityData.ParentYangName = "Cisco-IOS-XR-ip-rsvp-oper"
     rsvpStandby.EntityData.SegmentPath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby"
+    rsvpStandby.EntityData.AbsolutePath = rsvpStandby.EntityData.SegmentPath
     rsvpStandby.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rsvpStandby.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rsvpStandby.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -612,6 +613,7 @@ func (interfaceNeighborBriefs *RsvpStandby_InterfaceNeighborBriefs) GetEntityDat
     interfaceNeighborBriefs.EntityData.BundleName = "cisco_ios_xr"
     interfaceNeighborBriefs.EntityData.ParentYangName = "rsvp-standby"
     interfaceNeighborBriefs.EntityData.SegmentPath = "interface-neighbor-briefs"
+    interfaceNeighborBriefs.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/" + interfaceNeighborBriefs.EntityData.SegmentPath
     interfaceNeighborBriefs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceNeighborBriefs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceNeighborBriefs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -633,6 +635,7 @@ func (interfaceNeighborBriefs *RsvpStandby_InterfaceNeighborBriefs) GetEntityDat
 type RsvpStandby_InterfaceNeighborBriefs_InterfaceNeighborBrief struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Address of global neighbor. The type is string
     // with pattern:
@@ -654,6 +657,7 @@ func (interfaceNeighborBrief *RsvpStandby_InterfaceNeighborBriefs_InterfaceNeigh
     interfaceNeighborBrief.EntityData.BundleName = "cisco_ios_xr"
     interfaceNeighborBrief.EntityData.ParentYangName = "interface-neighbor-briefs"
     interfaceNeighborBrief.EntityData.SegmentPath = "interface-neighbor-brief" + types.AddKeyToken(interfaceNeighborBrief.NeighborAddress, "neighbor-address")
+    interfaceNeighborBrief.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/interface-neighbor-briefs/" + interfaceNeighborBrief.EntityData.SegmentPath
     interfaceNeighborBrief.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceNeighborBrief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceNeighborBrief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -661,6 +665,7 @@ func (interfaceNeighborBrief *RsvpStandby_InterfaceNeighborBriefs_InterfaceNeigh
     interfaceNeighborBrief.EntityData.Children = types.NewOrderedMap()
     interfaceNeighborBrief.EntityData.Children.Append("interface-neighbor-list-compact", types.YChild{"InterfaceNeighborListCompact", nil})
     for i := range interfaceNeighborBrief.InterfaceNeighborListCompact {
+        types.SetYListKey(interfaceNeighborBrief.InterfaceNeighborListCompact[i], i)
         interfaceNeighborBrief.EntityData.Children.Append(types.GetSegmentPath(interfaceNeighborBrief.InterfaceNeighborListCompact[i]), types.YChild{"InterfaceNeighborListCompact", interfaceNeighborBrief.InterfaceNeighborListCompact[i]})
     }
     interfaceNeighborBrief.EntityData.Leafs = types.NewOrderedMap()
@@ -677,6 +682,7 @@ func (interfaceNeighborBrief *RsvpStandby_InterfaceNeighborBriefs_InterfaceNeigh
 type RsvpStandby_InterfaceNeighborBriefs_InterfaceNeighborBrief_InterfaceNeighborListCompact struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Interface Neighbor address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -692,7 +698,8 @@ func (interfaceNeighborListCompact *RsvpStandby_InterfaceNeighborBriefs_Interfac
     interfaceNeighborListCompact.EntityData.YangName = "interface-neighbor-list-compact"
     interfaceNeighborListCompact.EntityData.BundleName = "cisco_ios_xr"
     interfaceNeighborListCompact.EntityData.ParentYangName = "interface-neighbor-brief"
-    interfaceNeighborListCompact.EntityData.SegmentPath = "interface-neighbor-list-compact"
+    interfaceNeighborListCompact.EntityData.SegmentPath = "interface-neighbor-list-compact" + types.AddNoKeyToken(interfaceNeighborListCompact)
+    interfaceNeighborListCompact.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/interface-neighbor-briefs/interface-neighbor-brief/" + interfaceNeighborListCompact.EntityData.SegmentPath
     interfaceNeighborListCompact.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceNeighborListCompact.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceNeighborListCompact.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -725,6 +732,7 @@ func (controllerSummaries *RsvpStandby_ControllerSummaries) GetEntityData() *typ
     controllerSummaries.EntityData.BundleName = "cisco_ios_xr"
     controllerSummaries.EntityData.ParentYangName = "rsvp-standby"
     controllerSummaries.EntityData.SegmentPath = "controller-summaries"
+    controllerSummaries.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/" + controllerSummaries.EntityData.SegmentPath
     controllerSummaries.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     controllerSummaries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     controllerSummaries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -746,6 +754,7 @@ func (controllerSummaries *RsvpStandby_ControllerSummaries) GetEntityData() *typ
 type RsvpStandby_ControllerSummaries_ControllerSummary struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Controller Name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -780,6 +789,7 @@ func (controllerSummary *RsvpStandby_ControllerSummaries_ControllerSummary) GetE
     controllerSummary.EntityData.BundleName = "cisco_ios_xr"
     controllerSummary.EntityData.ParentYangName = "controller-summaries"
     controllerSummary.EntityData.SegmentPath = "controller-summary" + types.AddKeyToken(controllerSummary.ControllerName, "controller-name")
+    controllerSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/controller-summaries/" + controllerSummary.EntityData.SegmentPath
     controllerSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     controllerSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     controllerSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -821,6 +831,7 @@ func (bandwidthInformation *RsvpStandby_ControllerSummaries_ControllerSummary_Ba
     bandwidthInformation.EntityData.BundleName = "cisco_ios_xr"
     bandwidthInformation.EntityData.ParentYangName = "controller-summary"
     bandwidthInformation.EntityData.SegmentPath = "bandwidth-information"
+    bandwidthInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/controller-summaries/controller-summary/" + bandwidthInformation.EntityData.SegmentPath
     bandwidthInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bandwidthInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bandwidthInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -873,6 +884,7 @@ func (preStandardDsteInterface *RsvpStandby_ControllerSummaries_ControllerSummar
     preStandardDsteInterface.EntityData.BundleName = "cisco_ios_xr"
     preStandardDsteInterface.EntityData.ParentYangName = "bandwidth-information"
     preStandardDsteInterface.EntityData.SegmentPath = "pre-standard-dste-interface"
+    preStandardDsteInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/controller-summaries/controller-summary/bandwidth-information/" + preStandardDsteInterface.EntityData.SegmentPath
     preStandardDsteInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     preStandardDsteInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     preStandardDsteInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -936,6 +948,7 @@ func (standardDsteInterface *RsvpStandby_ControllerSummaries_ControllerSummary_B
     standardDsteInterface.EntityData.BundleName = "cisco_ios_xr"
     standardDsteInterface.EntityData.ParentYangName = "bandwidth-information"
     standardDsteInterface.EntityData.SegmentPath = "standard-dste-interface"
+    standardDsteInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/controller-summaries/controller-summary/bandwidth-information/" + standardDsteInterface.EntityData.SegmentPath
     standardDsteInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     standardDsteInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     standardDsteInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -973,6 +986,7 @@ func (authenticationBriefs *RsvpStandby_AuthenticationBriefs) GetEntityData() *t
     authenticationBriefs.EntityData.BundleName = "cisco_ios_xr"
     authenticationBriefs.EntityData.ParentYangName = "rsvp-standby"
     authenticationBriefs.EntityData.SegmentPath = "authentication-briefs"
+    authenticationBriefs.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/" + authenticationBriefs.EntityData.SegmentPath
     authenticationBriefs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     authenticationBriefs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     authenticationBriefs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -994,6 +1008,7 @@ func (authenticationBriefs *RsvpStandby_AuthenticationBriefs) GetEntityData() *t
 type RsvpStandby_AuthenticationBriefs_AuthenticationBrief struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Source Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -1045,6 +1060,7 @@ func (authenticationBrief *RsvpStandby_AuthenticationBriefs_AuthenticationBrief)
     authenticationBrief.EntityData.BundleName = "cisco_ios_xr"
     authenticationBrief.EntityData.ParentYangName = "authentication-briefs"
     authenticationBrief.EntityData.SegmentPath = "authentication-brief" + types.AddKeyToken(authenticationBrief.SourceAddress, "source-address") + types.AddKeyToken(authenticationBrief.DestinationAddress, "destination-address") + types.AddKeyToken(authenticationBrief.ModeId, "mode-id") + types.AddKeyToken(authenticationBrief.InterfaceName, "interface-name")
+    authenticationBrief.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/authentication-briefs/" + authenticationBrief.EntityData.SegmentPath
     authenticationBrief.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     authenticationBrief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     authenticationBrief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1086,6 +1102,7 @@ func (sessionBriefs *RsvpStandby_SessionBriefs) GetEntityData() *types.CommonEnt
     sessionBriefs.EntityData.BundleName = "cisco_ios_xr"
     sessionBriefs.EntityData.ParentYangName = "rsvp-standby"
     sessionBriefs.EntityData.SegmentPath = "session-briefs"
+    sessionBriefs.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/" + sessionBriefs.EntityData.SegmentPath
     sessionBriefs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sessionBriefs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionBriefs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1093,6 +1110,7 @@ func (sessionBriefs *RsvpStandby_SessionBriefs) GetEntityData() *types.CommonEnt
     sessionBriefs.EntityData.Children = types.NewOrderedMap()
     sessionBriefs.EntityData.Children.Append("session-brief", types.YChild{"SessionBrief", nil})
     for i := range sessionBriefs.SessionBrief {
+        types.SetYListKey(sessionBriefs.SessionBrief[i], i)
         sessionBriefs.EntityData.Children.Append(types.GetSegmentPath(sessionBriefs.SessionBrief[i]), types.YChild{"SessionBrief", sessionBriefs.SessionBrief[i]})
     }
     sessionBriefs.EntityData.Leafs = types.NewOrderedMap()
@@ -1107,6 +1125,7 @@ func (sessionBriefs *RsvpStandby_SessionBriefs) GetEntityData() *types.CommonEnt
 type RsvpStandby_SessionBriefs_SessionBrief struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Destination Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -1156,7 +1175,8 @@ func (sessionBrief *RsvpStandby_SessionBriefs_SessionBrief) GetEntityData() *typ
     sessionBrief.EntityData.YangName = "session-brief"
     sessionBrief.EntityData.BundleName = "cisco_ios_xr"
     sessionBrief.EntityData.ParentYangName = "session-briefs"
-    sessionBrief.EntityData.SegmentPath = "session-brief"
+    sessionBrief.EntityData.SegmentPath = "session-brief" + types.AddNoKeyToken(sessionBrief)
+    sessionBrief.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/session-briefs/" + sessionBrief.EntityData.SegmentPath
     sessionBrief.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sessionBrief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionBrief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1197,6 +1217,7 @@ func (session *RsvpStandby_SessionBriefs_SessionBrief_Session) GetEntityData() *
     session.EntityData.BundleName = "cisco_ios_xr"
     session.EntityData.ParentYangName = "session-brief"
     session.EntityData.SegmentPath = "session"
+    session.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/session-briefs/session-brief/" + session.EntityData.SegmentPath
     session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1238,6 +1259,7 @@ func (rsvpSession *RsvpStandby_SessionBriefs_SessionBrief_Session_RsvpSession) G
     rsvpSession.EntityData.BundleName = "cisco_ios_xr"
     rsvpSession.EntityData.ParentYangName = "session"
     rsvpSession.EntityData.SegmentPath = "rsvp-session"
+    rsvpSession.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/session-briefs/session-brief/session/" + rsvpSession.EntityData.SegmentPath
     rsvpSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rsvpSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rsvpSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1279,6 +1301,7 @@ func (ipv4 *RsvpStandby_SessionBriefs_SessionBrief_Session_RsvpSession_Ipv4) Get
     ipv4.EntityData.BundleName = "cisco_ios_xr"
     ipv4.EntityData.ParentYangName = "rsvp-session"
     ipv4.EntityData.SegmentPath = "ipv4"
+    ipv4.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/session-briefs/session-brief/session/rsvp-session/" + ipv4.EntityData.SegmentPath
     ipv4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1318,6 +1341,7 @@ func (ipv4LspSession *RsvpStandby_SessionBriefs_SessionBrief_Session_RsvpSession
     ipv4LspSession.EntityData.BundleName = "cisco_ios_xr"
     ipv4LspSession.EntityData.ParentYangName = "rsvp-session"
     ipv4LspSession.EntityData.SegmentPath = "ipv4-lsp-session"
+    ipv4LspSession.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/session-briefs/session-brief/session/rsvp-session/" + ipv4LspSession.EntityData.SegmentPath
     ipv4LspSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4LspSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4LspSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1357,6 +1381,7 @@ func (ipv4UniSession *RsvpStandby_SessionBriefs_SessionBrief_Session_RsvpSession
     ipv4UniSession.EntityData.BundleName = "cisco_ios_xr"
     ipv4UniSession.EntityData.ParentYangName = "rsvp-session"
     ipv4UniSession.EntityData.SegmentPath = "ipv4-uni-session"
+    ipv4UniSession.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/session-briefs/session-brief/session/rsvp-session/" + ipv4UniSession.EntityData.SegmentPath
     ipv4UniSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4UniSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4UniSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1396,6 +1421,7 @@ func (ipv4P2mpLspSession *RsvpStandby_SessionBriefs_SessionBrief_Session_RsvpSes
     ipv4P2mpLspSession.EntityData.BundleName = "cisco_ios_xr"
     ipv4P2mpLspSession.EntityData.ParentYangName = "rsvp-session"
     ipv4P2mpLspSession.EntityData.SegmentPath = "ipv4-p2mp-lsp-session"
+    ipv4P2mpLspSession.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/session-briefs/session-brief/session/rsvp-session/" + ipv4P2mpLspSession.EntityData.SegmentPath
     ipv4P2mpLspSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4P2mpLspSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4P2mpLspSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1428,6 +1454,7 @@ func (psbDetaileds *RsvpStandby_PsbDetaileds) GetEntityData() *types.CommonEntit
     psbDetaileds.EntityData.BundleName = "cisco_ios_xr"
     psbDetaileds.EntityData.ParentYangName = "rsvp-standby"
     psbDetaileds.EntityData.SegmentPath = "psb-detaileds"
+    psbDetaileds.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/" + psbDetaileds.EntityData.SegmentPath
     psbDetaileds.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     psbDetaileds.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     psbDetaileds.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1435,6 +1462,7 @@ func (psbDetaileds *RsvpStandby_PsbDetaileds) GetEntityData() *types.CommonEntit
     psbDetaileds.EntityData.Children = types.NewOrderedMap()
     psbDetaileds.EntityData.Children.Append("psb-detailed", types.YChild{"PsbDetailed", nil})
     for i := range psbDetaileds.PsbDetailed {
+        types.SetYListKey(psbDetaileds.PsbDetailed[i], i)
         psbDetaileds.EntityData.Children.Append(types.GetSegmentPath(psbDetaileds.PsbDetailed[i]), types.YChild{"PsbDetailed", psbDetaileds.PsbDetailed[i]})
     }
     psbDetaileds.EntityData.Leafs = types.NewOrderedMap()
@@ -1449,6 +1477,7 @@ func (psbDetaileds *RsvpStandby_PsbDetaileds) GetEntityData() *types.CommonEntit
 type RsvpStandby_PsbDetaileds_PsbDetailed struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Destination Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -1562,7 +1591,8 @@ func (psbDetailed *RsvpStandby_PsbDetaileds_PsbDetailed) GetEntityData() *types.
     psbDetailed.EntityData.YangName = "psb-detailed"
     psbDetailed.EntityData.BundleName = "cisco_ios_xr"
     psbDetailed.EntityData.ParentYangName = "psb-detaileds"
-    psbDetailed.EntityData.SegmentPath = "psb-detailed"
+    psbDetailed.EntityData.SegmentPath = "psb-detailed" + types.AddNoKeyToken(psbDetailed)
+    psbDetailed.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/psb-detaileds/" + psbDetailed.EntityData.SegmentPath
     psbDetailed.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     psbDetailed.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     psbDetailed.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1585,14 +1615,17 @@ func (psbDetailed *RsvpStandby_PsbDetaileds_PsbDetailed) GetEntityData() *types.
     psbDetailed.EntityData.Children.Append("class-type", types.YChild{"ClassType", &psbDetailed.ClassType})
     psbDetailed.EntityData.Children.Append("pfc", types.YChild{"Pfc", nil})
     for i := range psbDetailed.Pfc {
+        types.SetYListKey(psbDetailed.Pfc[i], i)
         psbDetailed.EntityData.Children.Append(types.GetSegmentPath(psbDetailed.Pfc[i]), types.YChild{"Pfc", psbDetailed.Pfc[i]})
     }
     psbDetailed.EntityData.Children.Append("in-ero", types.YChild{"InEro", nil})
     for i := range psbDetailed.InEro {
+        types.SetYListKey(psbDetailed.InEro[i], i)
         psbDetailed.EntityData.Children.Append(types.GetSegmentPath(psbDetailed.InEro[i]), types.YChild{"InEro", psbDetailed.InEro[i]})
     }
     psbDetailed.EntityData.Children.Append("out-ero", types.YChild{"OutEro", nil})
     for i := range psbDetailed.OutEro {
+        types.SetYListKey(psbDetailed.OutEro[i], i)
         psbDetailed.EntityData.Children.Append(types.GetSegmentPath(psbDetailed.OutEro[i]), types.YChild{"OutEro", psbDetailed.OutEro[i]})
     }
     psbDetailed.EntityData.Leafs = types.NewOrderedMap()
@@ -1633,6 +1666,7 @@ func (session *RsvpStandby_PsbDetaileds_PsbDetailed_Session) GetEntityData() *ty
     session.EntityData.BundleName = "cisco_ios_xr"
     session.EntityData.ParentYangName = "psb-detailed"
     session.EntityData.SegmentPath = "session"
+    session.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/psb-detaileds/psb-detailed/" + session.EntityData.SegmentPath
     session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1674,6 +1708,7 @@ func (rsvpSession *RsvpStandby_PsbDetaileds_PsbDetailed_Session_RsvpSession) Get
     rsvpSession.EntityData.BundleName = "cisco_ios_xr"
     rsvpSession.EntityData.ParentYangName = "session"
     rsvpSession.EntityData.SegmentPath = "rsvp-session"
+    rsvpSession.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/psb-detaileds/psb-detailed/session/" + rsvpSession.EntityData.SegmentPath
     rsvpSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rsvpSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rsvpSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1715,6 +1750,7 @@ func (ipv4 *RsvpStandby_PsbDetaileds_PsbDetailed_Session_RsvpSession_Ipv4) GetEn
     ipv4.EntityData.BundleName = "cisco_ios_xr"
     ipv4.EntityData.ParentYangName = "rsvp-session"
     ipv4.EntityData.SegmentPath = "ipv4"
+    ipv4.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/psb-detaileds/psb-detailed/session/rsvp-session/" + ipv4.EntityData.SegmentPath
     ipv4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1754,6 +1790,7 @@ func (ipv4LspSession *RsvpStandby_PsbDetaileds_PsbDetailed_Session_RsvpSession_I
     ipv4LspSession.EntityData.BundleName = "cisco_ios_xr"
     ipv4LspSession.EntityData.ParentYangName = "rsvp-session"
     ipv4LspSession.EntityData.SegmentPath = "ipv4-lsp-session"
+    ipv4LspSession.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/psb-detaileds/psb-detailed/session/rsvp-session/" + ipv4LspSession.EntityData.SegmentPath
     ipv4LspSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4LspSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4LspSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1793,6 +1830,7 @@ func (ipv4UniSession *RsvpStandby_PsbDetaileds_PsbDetailed_Session_RsvpSession_I
     ipv4UniSession.EntityData.BundleName = "cisco_ios_xr"
     ipv4UniSession.EntityData.ParentYangName = "rsvp-session"
     ipv4UniSession.EntityData.SegmentPath = "ipv4-uni-session"
+    ipv4UniSession.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/psb-detaileds/psb-detailed/session/rsvp-session/" + ipv4UniSession.EntityData.SegmentPath
     ipv4UniSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4UniSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4UniSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1832,6 +1870,7 @@ func (ipv4P2mpLspSession *RsvpStandby_PsbDetaileds_PsbDetailed_Session_RsvpSessi
     ipv4P2mpLspSession.EntityData.BundleName = "cisco_ios_xr"
     ipv4P2mpLspSession.EntityData.ParentYangName = "rsvp-session"
     ipv4P2mpLspSession.EntityData.SegmentPath = "ipv4-p2mp-lsp-session"
+    ipv4P2mpLspSession.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/psb-detaileds/psb-detailed/session/rsvp-session/" + ipv4P2mpLspSession.EntityData.SegmentPath
     ipv4P2mpLspSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4P2mpLspSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4P2mpLspSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1864,6 +1903,7 @@ func (s2lSubLsp *RsvpStandby_PsbDetaileds_PsbDetailed_S2lSubLsp) GetEntityData()
     s2lSubLsp.EntityData.BundleName = "cisco_ios_xr"
     s2lSubLsp.EntityData.ParentYangName = "psb-detailed"
     s2lSubLsp.EntityData.SegmentPath = "s2l-sub-lsp"
+    s2lSubLsp.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/psb-detaileds/psb-detailed/" + s2lSubLsp.EntityData.SegmentPath
     s2lSubLsp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     s2lSubLsp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     s2lSubLsp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1893,6 +1933,7 @@ func (template *RsvpStandby_PsbDetaileds_PsbDetailed_Template) GetEntityData() *
     template.EntityData.BundleName = "cisco_ios_xr"
     template.EntityData.ParentYangName = "psb-detailed"
     template.EntityData.SegmentPath = "template"
+    template.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/psb-detaileds/psb-detailed/" + template.EntityData.SegmentPath
     template.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     template.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     template.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1928,6 +1969,7 @@ func (rsvpFilter *RsvpStandby_PsbDetaileds_PsbDetailed_Template_RsvpFilter) GetE
     rsvpFilter.EntityData.BundleName = "cisco_ios_xr"
     rsvpFilter.EntityData.ParentYangName = "template"
     rsvpFilter.EntityData.SegmentPath = "rsvp-filter"
+    rsvpFilter.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/psb-detaileds/psb-detailed/template/" + rsvpFilter.EntityData.SegmentPath
     rsvpFilter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rsvpFilter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rsvpFilter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1963,6 +2005,7 @@ func (udpIpv4Session *RsvpStandby_PsbDetaileds_PsbDetailed_Template_RsvpFilter_U
     udpIpv4Session.EntityData.BundleName = "cisco_ios_xr"
     udpIpv4Session.EntityData.ParentYangName = "rsvp-filter"
     udpIpv4Session.EntityData.SegmentPath = "udp-ipv4-session"
+    udpIpv4Session.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/psb-detaileds/psb-detailed/template/rsvp-filter/" + udpIpv4Session.EntityData.SegmentPath
     udpIpv4Session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     udpIpv4Session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     udpIpv4Session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2005,6 +2048,7 @@ func (p2mpIpv4Session *RsvpStandby_PsbDetaileds_PsbDetailed_Template_RsvpFilter_
     p2mpIpv4Session.EntityData.BundleName = "cisco_ios_xr"
     p2mpIpv4Session.EntityData.ParentYangName = "rsvp-filter"
     p2mpIpv4Session.EntityData.SegmentPath = "p2mp-ipv4-session"
+    p2mpIpv4Session.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/psb-detaileds/psb-detailed/template/rsvp-filter/" + p2mpIpv4Session.EntityData.SegmentPath
     p2mpIpv4Session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     p2mpIpv4Session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     p2mpIpv4Session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2043,6 +2087,7 @@ func (sessionAttribute *RsvpStandby_PsbDetaileds_PsbDetailed_SessionAttribute) G
     sessionAttribute.EntityData.BundleName = "cisco_ios_xr"
     sessionAttribute.EntityData.ParentYangName = "psb-detailed"
     sessionAttribute.EntityData.SegmentPath = "session-attribute"
+    sessionAttribute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/psb-detaileds/psb-detailed/" + sessionAttribute.EntityData.SegmentPath
     sessionAttribute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sessionAttribute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionAttribute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2086,6 +2131,7 @@ func (sessAttributeFlags *RsvpStandby_PsbDetaileds_PsbDetailed_SessionAttribute_
     sessAttributeFlags.EntityData.BundleName = "cisco_ios_xr"
     sessAttributeFlags.EntityData.ParentYangName = "session-attribute"
     sessAttributeFlags.EntityData.SegmentPath = "sess-attribute-flags"
+    sessAttributeFlags.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/psb-detaileds/psb-detailed/session-attribute/" + sessAttributeFlags.EntityData.SegmentPath
     sessAttributeFlags.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sessAttributeFlags.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessAttributeFlags.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2134,6 +2180,7 @@ func (trafficSpec *RsvpStandby_PsbDetaileds_PsbDetailed_TrafficSpec) GetEntityDa
     trafficSpec.EntityData.BundleName = "cisco_ios_xr"
     trafficSpec.EntityData.ParentYangName = "psb-detailed"
     trafficSpec.EntityData.SegmentPath = "traffic-spec"
+    trafficSpec.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/psb-detaileds/psb-detailed/" + trafficSpec.EntityData.SegmentPath
     trafficSpec.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trafficSpec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trafficSpec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2173,6 +2220,7 @@ func (genericTrafficSpec *RsvpStandby_PsbDetaileds_PsbDetailed_GenericTrafficSpe
     genericTrafficSpec.EntityData.BundleName = "cisco_ios_xr"
     genericTrafficSpec.EntityData.ParentYangName = "psb-detailed"
     genericTrafficSpec.EntityData.SegmentPath = "generic-traffic-spec"
+    genericTrafficSpec.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/psb-detaileds/psb-detailed/" + genericTrafficSpec.EntityData.SegmentPath
     genericTrafficSpec.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     genericTrafficSpec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     genericTrafficSpec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2215,6 +2263,7 @@ func (g709otnTspec *RsvpStandby_PsbDetaileds_PsbDetailed_GenericTrafficSpec_G709
     g709otnTspec.EntityData.BundleName = "cisco_ios_xr"
     g709otnTspec.EntityData.ParentYangName = "generic-traffic-spec"
     g709otnTspec.EntityData.SegmentPath = "g709otn-tspec"
+    g709otnTspec.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/psb-detaileds/psb-detailed/generic-traffic-spec/" + g709otnTspec.EntityData.SegmentPath
     g709otnTspec.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     g709otnTspec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     g709otnTspec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2262,6 +2311,7 @@ func (intsrvTspec *RsvpStandby_PsbDetaileds_PsbDetailed_GenericTrafficSpec_Intsr
     intsrvTspec.EntityData.BundleName = "cisco_ios_xr"
     intsrvTspec.EntityData.ParentYangName = "generic-traffic-spec"
     intsrvTspec.EntityData.SegmentPath = "intsrv-tspec"
+    intsrvTspec.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/psb-detaileds/psb-detailed/generic-traffic-spec/" + intsrvTspec.EntityData.SegmentPath
     intsrvTspec.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     intsrvTspec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     intsrvTspec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2310,6 +2360,7 @@ func (pathFlags *RsvpStandby_PsbDetaileds_PsbDetailed_PathFlags) GetEntityData()
     pathFlags.EntityData.BundleName = "cisco_ios_xr"
     pathFlags.EntityData.ParentYangName = "psb-detailed"
     pathFlags.EntityData.SegmentPath = "path-flags"
+    pathFlags.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/psb-detaileds/psb-detailed/" + pathFlags.EntityData.SegmentPath
     pathFlags.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pathFlags.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pathFlags.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2349,6 +2400,7 @@ func (hop *RsvpStandby_PsbDetaileds_PsbDetailed_Hop) GetEntityData() *types.Comm
     hop.EntityData.BundleName = "cisco_ios_xr"
     hop.EntityData.ParentYangName = "psb-detailed"
     hop.EntityData.SegmentPath = "hop"
+    hop.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/psb-detaileds/psb-detailed/" + hop.EntityData.SegmentPath
     hop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2391,6 +2443,7 @@ func (policySourceInfo *RsvpStandby_PsbDetaileds_PsbDetailed_PolicySourceInfo) G
     policySourceInfo.EntityData.BundleName = "cisco_ios_xr"
     policySourceInfo.EntityData.ParentYangName = "psb-detailed"
     policySourceInfo.EntityData.SegmentPath = "policy-source-info"
+    policySourceInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/psb-detaileds/psb-detailed/" + policySourceInfo.EntityData.SegmentPath
     policySourceInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     policySourceInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policySourceInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2444,6 +2497,7 @@ func (header *RsvpStandby_PsbDetaileds_PsbDetailed_Header) GetEntityData() *type
     header.EntityData.BundleName = "cisco_ios_xr"
     header.EntityData.ParentYangName = "psb-detailed"
     header.EntityData.SegmentPath = "header"
+    header.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/psb-detaileds/psb-detailed/" + header.EntityData.SegmentPath
     header.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     header.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     header.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2484,6 +2538,7 @@ func (expiryTime *RsvpStandby_PsbDetaileds_PsbDetailed_ExpiryTime) GetEntityData
     expiryTime.EntityData.BundleName = "cisco_ios_xr"
     expiryTime.EntityData.ParentYangName = "psb-detailed"
     expiryTime.EntityData.SegmentPath = "expiry-time"
+    expiryTime.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/psb-detaileds/psb-detailed/" + expiryTime.EntityData.SegmentPath
     expiryTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     expiryTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     expiryTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2520,6 +2575,7 @@ func (policyFlags *RsvpStandby_PsbDetaileds_PsbDetailed_PolicyFlags) GetEntityDa
     policyFlags.EntityData.BundleName = "cisco_ios_xr"
     policyFlags.EntityData.ParentYangName = "psb-detailed"
     policyFlags.EntityData.SegmentPath = "policy-flags"
+    policyFlags.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/psb-detaileds/psb-detailed/" + policyFlags.EntityData.SegmentPath
     policyFlags.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     policyFlags.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policyFlags.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2560,6 +2616,7 @@ func (policyQueryFlags *RsvpStandby_PsbDetaileds_PsbDetailed_PolicyQueryFlags) G
     policyQueryFlags.EntityData.BundleName = "cisco_ios_xr"
     policyQueryFlags.EntityData.ParentYangName = "psb-detailed"
     policyQueryFlags.EntityData.SegmentPath = "policy-query-flags"
+    policyQueryFlags.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/psb-detaileds/psb-detailed/" + policyQueryFlags.EntityData.SegmentPath
     policyQueryFlags.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     policyQueryFlags.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policyQueryFlags.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2632,6 +2689,7 @@ func (labelInfo *RsvpStandby_PsbDetaileds_PsbDetailed_LabelInfo) GetEntityData()
     labelInfo.EntityData.BundleName = "cisco_ios_xr"
     labelInfo.EntityData.ParentYangName = "psb-detailed"
     labelInfo.EntityData.SegmentPath = "label-info"
+    labelInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/psb-detaileds/psb-detailed/" + labelInfo.EntityData.SegmentPath
     labelInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labelInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2677,6 +2735,7 @@ func (genericLocalDownstreamLabel *RsvpStandby_PsbDetaileds_PsbDetailed_LabelInf
     genericLocalDownstreamLabel.EntityData.BundleName = "cisco_ios_xr"
     genericLocalDownstreamLabel.EntityData.ParentYangName = "label-info"
     genericLocalDownstreamLabel.EntityData.SegmentPath = "generic-local-downstream-label"
+    genericLocalDownstreamLabel.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/psb-detaileds/psb-detailed/label-info/" + genericLocalDownstreamLabel.EntityData.SegmentPath
     genericLocalDownstreamLabel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     genericLocalDownstreamLabel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     genericLocalDownstreamLabel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2708,6 +2767,7 @@ func (generalizedLabel *RsvpStandby_PsbDetaileds_PsbDetailed_LabelInfo_GenericLo
     generalizedLabel.EntityData.BundleName = "cisco_ios_xr"
     generalizedLabel.EntityData.ParentYangName = "generic-local-downstream-label"
     generalizedLabel.EntityData.SegmentPath = "generalized-label"
+    generalizedLabel.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/psb-detaileds/psb-detailed/label-info/generic-local-downstream-label/" + generalizedLabel.EntityData.SegmentPath
     generalizedLabel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     generalizedLabel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     generalizedLabel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2715,6 +2775,7 @@ func (generalizedLabel *RsvpStandby_PsbDetaileds_PsbDetailed_LabelInfo_GenericLo
     generalizedLabel.EntityData.Children = types.NewOrderedMap()
     generalizedLabel.EntityData.Children.Append("value", types.YChild{"Value", nil})
     for i := range generalizedLabel.Value {
+        types.SetYListKey(generalizedLabel.Value[i], i)
         generalizedLabel.EntityData.Children.Append(types.GetSegmentPath(generalizedLabel.Value[i]), types.YChild{"Value", generalizedLabel.Value[i]})
     }
     generalizedLabel.EntityData.Leafs = types.NewOrderedMap()
@@ -2729,6 +2790,7 @@ func (generalizedLabel *RsvpStandby_PsbDetaileds_PsbDetailed_LabelInfo_GenericLo
 type RsvpStandby_PsbDetaileds_PsbDetailed_LabelInfo_GenericLocalDownstreamLabel_GeneralizedLabel_Value struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -2739,7 +2801,8 @@ func (value *RsvpStandby_PsbDetaileds_PsbDetailed_LabelInfo_GenericLocalDownstre
     value.EntityData.YangName = "value"
     value.EntityData.BundleName = "cisco_ios_xr"
     value.EntityData.ParentYangName = "generalized-label"
-    value.EntityData.SegmentPath = "value"
+    value.EntityData.SegmentPath = "value" + types.AddNoKeyToken(value)
+    value.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/psb-detaileds/psb-detailed/label-info/generic-local-downstream-label/generalized-label/" + value.EntityData.SegmentPath
     value.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     value.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     value.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2772,6 +2835,7 @@ func (genericOutgoingDownstreamLabel *RsvpStandby_PsbDetaileds_PsbDetailed_Label
     genericOutgoingDownstreamLabel.EntityData.BundleName = "cisco_ios_xr"
     genericOutgoingDownstreamLabel.EntityData.ParentYangName = "label-info"
     genericOutgoingDownstreamLabel.EntityData.SegmentPath = "generic-outgoing-downstream-label"
+    genericOutgoingDownstreamLabel.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/psb-detaileds/psb-detailed/label-info/" + genericOutgoingDownstreamLabel.EntityData.SegmentPath
     genericOutgoingDownstreamLabel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     genericOutgoingDownstreamLabel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     genericOutgoingDownstreamLabel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2803,6 +2867,7 @@ func (generalizedLabel *RsvpStandby_PsbDetaileds_PsbDetailed_LabelInfo_GenericOu
     generalizedLabel.EntityData.BundleName = "cisco_ios_xr"
     generalizedLabel.EntityData.ParentYangName = "generic-outgoing-downstream-label"
     generalizedLabel.EntityData.SegmentPath = "generalized-label"
+    generalizedLabel.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/psb-detaileds/psb-detailed/label-info/generic-outgoing-downstream-label/" + generalizedLabel.EntityData.SegmentPath
     generalizedLabel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     generalizedLabel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     generalizedLabel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2810,6 +2875,7 @@ func (generalizedLabel *RsvpStandby_PsbDetaileds_PsbDetailed_LabelInfo_GenericOu
     generalizedLabel.EntityData.Children = types.NewOrderedMap()
     generalizedLabel.EntityData.Children.Append("value", types.YChild{"Value", nil})
     for i := range generalizedLabel.Value {
+        types.SetYListKey(generalizedLabel.Value[i], i)
         generalizedLabel.EntityData.Children.Append(types.GetSegmentPath(generalizedLabel.Value[i]), types.YChild{"Value", generalizedLabel.Value[i]})
     }
     generalizedLabel.EntityData.Leafs = types.NewOrderedMap()
@@ -2824,6 +2890,7 @@ func (generalizedLabel *RsvpStandby_PsbDetaileds_PsbDetailed_LabelInfo_GenericOu
 type RsvpStandby_PsbDetaileds_PsbDetailed_LabelInfo_GenericOutgoingDownstreamLabel_GeneralizedLabel_Value struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -2834,7 +2901,8 @@ func (value *RsvpStandby_PsbDetaileds_PsbDetailed_LabelInfo_GenericOutgoingDowns
     value.EntityData.YangName = "value"
     value.EntityData.BundleName = "cisco_ios_xr"
     value.EntityData.ParentYangName = "generalized-label"
-    value.EntityData.SegmentPath = "value"
+    value.EntityData.SegmentPath = "value" + types.AddNoKeyToken(value)
+    value.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/psb-detaileds/psb-detailed/label-info/generic-outgoing-downstream-label/generalized-label/" + value.EntityData.SegmentPath
     value.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     value.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     value.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2867,6 +2935,7 @@ func (genericMergePointLabel *RsvpStandby_PsbDetaileds_PsbDetailed_LabelInfo_Gen
     genericMergePointLabel.EntityData.BundleName = "cisco_ios_xr"
     genericMergePointLabel.EntityData.ParentYangName = "label-info"
     genericMergePointLabel.EntityData.SegmentPath = "generic-merge-point-label"
+    genericMergePointLabel.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/psb-detaileds/psb-detailed/label-info/" + genericMergePointLabel.EntityData.SegmentPath
     genericMergePointLabel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     genericMergePointLabel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     genericMergePointLabel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2898,6 +2967,7 @@ func (generalizedLabel *RsvpStandby_PsbDetaileds_PsbDetailed_LabelInfo_GenericMe
     generalizedLabel.EntityData.BundleName = "cisco_ios_xr"
     generalizedLabel.EntityData.ParentYangName = "generic-merge-point-label"
     generalizedLabel.EntityData.SegmentPath = "generalized-label"
+    generalizedLabel.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/psb-detaileds/psb-detailed/label-info/generic-merge-point-label/" + generalizedLabel.EntityData.SegmentPath
     generalizedLabel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     generalizedLabel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     generalizedLabel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2905,6 +2975,7 @@ func (generalizedLabel *RsvpStandby_PsbDetaileds_PsbDetailed_LabelInfo_GenericMe
     generalizedLabel.EntityData.Children = types.NewOrderedMap()
     generalizedLabel.EntityData.Children.Append("value", types.YChild{"Value", nil})
     for i := range generalizedLabel.Value {
+        types.SetYListKey(generalizedLabel.Value[i], i)
         generalizedLabel.EntityData.Children.Append(types.GetSegmentPath(generalizedLabel.Value[i]), types.YChild{"Value", generalizedLabel.Value[i]})
     }
     generalizedLabel.EntityData.Leafs = types.NewOrderedMap()
@@ -2919,6 +2990,7 @@ func (generalizedLabel *RsvpStandby_PsbDetaileds_PsbDetailed_LabelInfo_GenericMe
 type RsvpStandby_PsbDetaileds_PsbDetailed_LabelInfo_GenericMergePointLabel_GeneralizedLabel_Value struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -2929,7 +3001,8 @@ func (value *RsvpStandby_PsbDetaileds_PsbDetailed_LabelInfo_GenericMergePointLab
     value.EntityData.YangName = "value"
     value.EntityData.BundleName = "cisco_ios_xr"
     value.EntityData.ParentYangName = "generalized-label"
-    value.EntityData.SegmentPath = "value"
+    value.EntityData.SegmentPath = "value" + types.AddNoKeyToken(value)
+    value.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/psb-detaileds/psb-detailed/label-info/generic-merge-point-label/generalized-label/" + value.EntityData.SegmentPath
     value.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     value.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     value.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2962,6 +3035,7 @@ func (genericOutgoingUpstreamLabel *RsvpStandby_PsbDetaileds_PsbDetailed_LabelIn
     genericOutgoingUpstreamLabel.EntityData.BundleName = "cisco_ios_xr"
     genericOutgoingUpstreamLabel.EntityData.ParentYangName = "label-info"
     genericOutgoingUpstreamLabel.EntityData.SegmentPath = "generic-outgoing-upstream-label"
+    genericOutgoingUpstreamLabel.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/psb-detaileds/psb-detailed/label-info/" + genericOutgoingUpstreamLabel.EntityData.SegmentPath
     genericOutgoingUpstreamLabel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     genericOutgoingUpstreamLabel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     genericOutgoingUpstreamLabel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2993,6 +3067,7 @@ func (generalizedLabel *RsvpStandby_PsbDetaileds_PsbDetailed_LabelInfo_GenericOu
     generalizedLabel.EntityData.BundleName = "cisco_ios_xr"
     generalizedLabel.EntityData.ParentYangName = "generic-outgoing-upstream-label"
     generalizedLabel.EntityData.SegmentPath = "generalized-label"
+    generalizedLabel.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/psb-detaileds/psb-detailed/label-info/generic-outgoing-upstream-label/" + generalizedLabel.EntityData.SegmentPath
     generalizedLabel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     generalizedLabel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     generalizedLabel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3000,6 +3075,7 @@ func (generalizedLabel *RsvpStandby_PsbDetaileds_PsbDetailed_LabelInfo_GenericOu
     generalizedLabel.EntityData.Children = types.NewOrderedMap()
     generalizedLabel.EntityData.Children.Append("value", types.YChild{"Value", nil})
     for i := range generalizedLabel.Value {
+        types.SetYListKey(generalizedLabel.Value[i], i)
         generalizedLabel.EntityData.Children.Append(types.GetSegmentPath(generalizedLabel.Value[i]), types.YChild{"Value", generalizedLabel.Value[i]})
     }
     generalizedLabel.EntityData.Leafs = types.NewOrderedMap()
@@ -3014,6 +3090,7 @@ func (generalizedLabel *RsvpStandby_PsbDetaileds_PsbDetailed_LabelInfo_GenericOu
 type RsvpStandby_PsbDetaileds_PsbDetailed_LabelInfo_GenericOutgoingUpstreamLabel_GeneralizedLabel_Value struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -3024,7 +3101,8 @@ func (value *RsvpStandby_PsbDetaileds_PsbDetailed_LabelInfo_GenericOutgoingUpstr
     value.EntityData.YangName = "value"
     value.EntityData.BundleName = "cisco_ios_xr"
     value.EntityData.ParentYangName = "generalized-label"
-    value.EntityData.SegmentPath = "value"
+    value.EntityData.SegmentPath = "value" + types.AddNoKeyToken(value)
+    value.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/psb-detaileds/psb-detailed/label-info/generic-outgoing-upstream-label/generalized-label/" + value.EntityData.SegmentPath
     value.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     value.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     value.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3057,6 +3135,7 @@ func (genericLocalUpstreamLabel *RsvpStandby_PsbDetaileds_PsbDetailed_LabelInfo_
     genericLocalUpstreamLabel.EntityData.BundleName = "cisco_ios_xr"
     genericLocalUpstreamLabel.EntityData.ParentYangName = "label-info"
     genericLocalUpstreamLabel.EntityData.SegmentPath = "generic-local-upstream-label"
+    genericLocalUpstreamLabel.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/psb-detaileds/psb-detailed/label-info/" + genericLocalUpstreamLabel.EntityData.SegmentPath
     genericLocalUpstreamLabel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     genericLocalUpstreamLabel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     genericLocalUpstreamLabel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3088,6 +3167,7 @@ func (generalizedLabel *RsvpStandby_PsbDetaileds_PsbDetailed_LabelInfo_GenericLo
     generalizedLabel.EntityData.BundleName = "cisco_ios_xr"
     generalizedLabel.EntityData.ParentYangName = "generic-local-upstream-label"
     generalizedLabel.EntityData.SegmentPath = "generalized-label"
+    generalizedLabel.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/psb-detaileds/psb-detailed/label-info/generic-local-upstream-label/" + generalizedLabel.EntityData.SegmentPath
     generalizedLabel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     generalizedLabel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     generalizedLabel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3095,6 +3175,7 @@ func (generalizedLabel *RsvpStandby_PsbDetaileds_PsbDetailed_LabelInfo_GenericLo
     generalizedLabel.EntityData.Children = types.NewOrderedMap()
     generalizedLabel.EntityData.Children.Append("value", types.YChild{"Value", nil})
     for i := range generalizedLabel.Value {
+        types.SetYListKey(generalizedLabel.Value[i], i)
         generalizedLabel.EntityData.Children.Append(types.GetSegmentPath(generalizedLabel.Value[i]), types.YChild{"Value", generalizedLabel.Value[i]})
     }
     generalizedLabel.EntityData.Leafs = types.NewOrderedMap()
@@ -3109,6 +3190,7 @@ func (generalizedLabel *RsvpStandby_PsbDetaileds_PsbDetailed_LabelInfo_GenericLo
 type RsvpStandby_PsbDetaileds_PsbDetailed_LabelInfo_GenericLocalUpstreamLabel_GeneralizedLabel_Value struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -3119,7 +3201,8 @@ func (value *RsvpStandby_PsbDetaileds_PsbDetailed_LabelInfo_GenericLocalUpstream
     value.EntityData.YangName = "value"
     value.EntityData.BundleName = "cisco_ios_xr"
     value.EntityData.ParentYangName = "generalized-label"
-    value.EntityData.SegmentPath = "value"
+    value.EntityData.SegmentPath = "value" + types.AddNoKeyToken(value)
+    value.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/psb-detaileds/psb-detailed/label-info/generic-local-upstream-label/generalized-label/" + value.EntityData.SegmentPath
     value.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     value.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     value.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3152,6 +3235,7 @@ func (genericRecoveryLabel *RsvpStandby_PsbDetaileds_PsbDetailed_LabelInfo_Gener
     genericRecoveryLabel.EntityData.BundleName = "cisco_ios_xr"
     genericRecoveryLabel.EntityData.ParentYangName = "label-info"
     genericRecoveryLabel.EntityData.SegmentPath = "generic-recovery-label"
+    genericRecoveryLabel.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/psb-detaileds/psb-detailed/label-info/" + genericRecoveryLabel.EntityData.SegmentPath
     genericRecoveryLabel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     genericRecoveryLabel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     genericRecoveryLabel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3183,6 +3267,7 @@ func (generalizedLabel *RsvpStandby_PsbDetaileds_PsbDetailed_LabelInfo_GenericRe
     generalizedLabel.EntityData.BundleName = "cisco_ios_xr"
     generalizedLabel.EntityData.ParentYangName = "generic-recovery-label"
     generalizedLabel.EntityData.SegmentPath = "generalized-label"
+    generalizedLabel.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/psb-detaileds/psb-detailed/label-info/generic-recovery-label/" + generalizedLabel.EntityData.SegmentPath
     generalizedLabel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     generalizedLabel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     generalizedLabel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3190,6 +3275,7 @@ func (generalizedLabel *RsvpStandby_PsbDetaileds_PsbDetailed_LabelInfo_GenericRe
     generalizedLabel.EntityData.Children = types.NewOrderedMap()
     generalizedLabel.EntityData.Children.Append("value", types.YChild{"Value", nil})
     for i := range generalizedLabel.Value {
+        types.SetYListKey(generalizedLabel.Value[i], i)
         generalizedLabel.EntityData.Children.Append(types.GetSegmentPath(generalizedLabel.Value[i]), types.YChild{"Value", generalizedLabel.Value[i]})
     }
     generalizedLabel.EntityData.Leafs = types.NewOrderedMap()
@@ -3204,6 +3290,7 @@ func (generalizedLabel *RsvpStandby_PsbDetaileds_PsbDetailed_LabelInfo_GenericRe
 type RsvpStandby_PsbDetaileds_PsbDetailed_LabelInfo_GenericRecoveryLabel_GeneralizedLabel_Value struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -3214,7 +3301,8 @@ func (value *RsvpStandby_PsbDetaileds_PsbDetailed_LabelInfo_GenericRecoveryLabel
     value.EntityData.YangName = "value"
     value.EntityData.BundleName = "cisco_ios_xr"
     value.EntityData.ParentYangName = "generalized-label"
-    value.EntityData.SegmentPath = "value"
+    value.EntityData.SegmentPath = "value" + types.AddNoKeyToken(value)
+    value.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/psb-detaileds/psb-detailed/label-info/generic-recovery-label/generalized-label/" + value.EntityData.SegmentPath
     value.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     value.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     value.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3247,6 +3335,7 @@ func (classType *RsvpStandby_PsbDetaileds_PsbDetailed_ClassType) GetEntityData()
     classType.EntityData.BundleName = "cisco_ios_xr"
     classType.EntityData.ParentYangName = "psb-detailed"
     classType.EntityData.SegmentPath = "class-type"
+    classType.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/psb-detaileds/psb-detailed/" + classType.EntityData.SegmentPath
     classType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     classType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     classType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3266,6 +3355,7 @@ func (classType *RsvpStandby_PsbDetaileds_PsbDetailed_ClassType) GetEntityData()
 type RsvpStandby_PsbDetaileds_PsbDetailed_Pfc struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Output interface. The type is string.
     OutputInterface interface{}
@@ -3282,7 +3372,8 @@ func (pfc *RsvpStandby_PsbDetaileds_PsbDetailed_Pfc) GetEntityData() *types.Comm
     pfc.EntityData.YangName = "pfc"
     pfc.EntityData.BundleName = "cisco_ios_xr"
     pfc.EntityData.ParentYangName = "psb-detailed"
-    pfc.EntityData.SegmentPath = "pfc"
+    pfc.EntityData.SegmentPath = "pfc" + types.AddNoKeyToken(pfc)
+    pfc.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/psb-detaileds/psb-detailed/" + pfc.EntityData.SegmentPath
     pfc.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pfc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pfc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3320,6 +3411,7 @@ func (policyFlags *RsvpStandby_PsbDetaileds_PsbDetailed_Pfc_PolicyFlags) GetEnti
     policyFlags.EntityData.BundleName = "cisco_ios_xr"
     policyFlags.EntityData.ParentYangName = "pfc"
     policyFlags.EntityData.SegmentPath = "policy-flags"
+    policyFlags.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/psb-detaileds/psb-detailed/pfc/" + policyFlags.EntityData.SegmentPath
     policyFlags.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     policyFlags.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policyFlags.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3360,6 +3452,7 @@ func (policyQueryFlags *RsvpStandby_PsbDetaileds_PsbDetailed_Pfc_PolicyQueryFlag
     policyQueryFlags.EntityData.BundleName = "cisco_ios_xr"
     policyQueryFlags.EntityData.ParentYangName = "pfc"
     policyQueryFlags.EntityData.SegmentPath = "policy-query-flags"
+    policyQueryFlags.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/psb-detaileds/psb-detailed/pfc/" + policyQueryFlags.EntityData.SegmentPath
     policyQueryFlags.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     policyQueryFlags.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policyQueryFlags.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3381,6 +3474,7 @@ func (policyQueryFlags *RsvpStandby_PsbDetaileds_PsbDetailed_Pfc_PolicyQueryFlag
 type RsvpStandby_PsbDetaileds_PsbDetailed_InEro struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // EROType. The type is RsvpMgmtEroSubobj.
     EroType interface{}
@@ -3397,7 +3491,8 @@ func (inEro *RsvpStandby_PsbDetaileds_PsbDetailed_InEro) GetEntityData() *types.
     inEro.EntityData.YangName = "in-ero"
     inEro.EntityData.BundleName = "cisco_ios_xr"
     inEro.EntityData.ParentYangName = "psb-detailed"
-    inEro.EntityData.SegmentPath = "in-ero"
+    inEro.EntityData.SegmentPath = "in-ero" + types.AddNoKeyToken(inEro)
+    inEro.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/psb-detaileds/psb-detailed/" + inEro.EntityData.SegmentPath
     inEro.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     inEro.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inEro.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3436,6 +3531,7 @@ func (ipv4eroSubObject *RsvpStandby_PsbDetaileds_PsbDetailed_InEro_Ipv4eroSubObj
     ipv4eroSubObject.EntityData.BundleName = "cisco_ios_xr"
     ipv4eroSubObject.EntityData.ParentYangName = "in-ero"
     ipv4eroSubObject.EntityData.SegmentPath = "ipv4ero-sub-object"
+    ipv4eroSubObject.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/psb-detaileds/psb-detailed/in-ero/" + ipv4eroSubObject.EntityData.SegmentPath
     ipv4eroSubObject.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4eroSubObject.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4eroSubObject.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3477,6 +3573,7 @@ func (unnumberedEroSubObject *RsvpStandby_PsbDetaileds_PsbDetailed_InEro_Unnumbe
     unnumberedEroSubObject.EntityData.BundleName = "cisco_ios_xr"
     unnumberedEroSubObject.EntityData.ParentYangName = "in-ero"
     unnumberedEroSubObject.EntityData.SegmentPath = "unnumbered-ero-sub-object"
+    unnumberedEroSubObject.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/psb-detaileds/psb-detailed/in-ero/" + unnumberedEroSubObject.EntityData.SegmentPath
     unnumberedEroSubObject.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     unnumberedEroSubObject.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unnumberedEroSubObject.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3498,6 +3595,7 @@ func (unnumberedEroSubObject *RsvpStandby_PsbDetaileds_PsbDetailed_InEro_Unnumbe
 type RsvpStandby_PsbDetaileds_PsbDetailed_OutEro struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // EROType. The type is RsvpMgmtEroSubobj.
     EroType interface{}
@@ -3514,7 +3612,8 @@ func (outEro *RsvpStandby_PsbDetaileds_PsbDetailed_OutEro) GetEntityData() *type
     outEro.EntityData.YangName = "out-ero"
     outEro.EntityData.BundleName = "cisco_ios_xr"
     outEro.EntityData.ParentYangName = "psb-detailed"
-    outEro.EntityData.SegmentPath = "out-ero"
+    outEro.EntityData.SegmentPath = "out-ero" + types.AddNoKeyToken(outEro)
+    outEro.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/psb-detaileds/psb-detailed/" + outEro.EntityData.SegmentPath
     outEro.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     outEro.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outEro.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3553,6 +3652,7 @@ func (ipv4eroSubObject *RsvpStandby_PsbDetaileds_PsbDetailed_OutEro_Ipv4eroSubOb
     ipv4eroSubObject.EntityData.BundleName = "cisco_ios_xr"
     ipv4eroSubObject.EntityData.ParentYangName = "out-ero"
     ipv4eroSubObject.EntityData.SegmentPath = "ipv4ero-sub-object"
+    ipv4eroSubObject.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/psb-detaileds/psb-detailed/out-ero/" + ipv4eroSubObject.EntityData.SegmentPath
     ipv4eroSubObject.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4eroSubObject.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4eroSubObject.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3594,6 +3694,7 @@ func (unnumberedEroSubObject *RsvpStandby_PsbDetaileds_PsbDetailed_OutEro_Unnumb
     unnumberedEroSubObject.EntityData.BundleName = "cisco_ios_xr"
     unnumberedEroSubObject.EntityData.ParentYangName = "out-ero"
     unnumberedEroSubObject.EntityData.SegmentPath = "unnumbered-ero-sub-object"
+    unnumberedEroSubObject.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/psb-detaileds/psb-detailed/out-ero/" + unnumberedEroSubObject.EntityData.SegmentPath
     unnumberedEroSubObject.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     unnumberedEroSubObject.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unnumberedEroSubObject.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3628,6 +3729,7 @@ func (controllerDetaileds *RsvpStandby_ControllerDetaileds) GetEntityData() *typ
     controllerDetaileds.EntityData.BundleName = "cisco_ios_xr"
     controllerDetaileds.EntityData.ParentYangName = "rsvp-standby"
     controllerDetaileds.EntityData.SegmentPath = "controller-detaileds"
+    controllerDetaileds.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/" + controllerDetaileds.EntityData.SegmentPath
     controllerDetaileds.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     controllerDetaileds.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     controllerDetaileds.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3649,6 +3751,7 @@ func (controllerDetaileds *RsvpStandby_ControllerDetaileds) GetEntityData() *typ
 type RsvpStandby_ControllerDetaileds_ControllerDetailed struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Controller Name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -3754,6 +3857,7 @@ func (controllerDetailed *RsvpStandby_ControllerDetaileds_ControllerDetailed) Ge
     controllerDetailed.EntityData.BundleName = "cisco_ios_xr"
     controllerDetailed.EntityData.ParentYangName = "controller-detaileds"
     controllerDetailed.EntityData.SegmentPath = "controller-detailed" + types.AddKeyToken(controllerDetailed.ControllerName, "controller-name")
+    controllerDetailed.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/controller-detaileds/" + controllerDetailed.EntityData.SegmentPath
     controllerDetailed.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     controllerDetailed.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     controllerDetailed.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3763,6 +3867,7 @@ func (controllerDetailed *RsvpStandby_ControllerDetaileds_ControllerDetailed) Ge
     controllerDetailed.EntityData.Children.Append("flags", types.YChild{"Flags", &controllerDetailed.Flags})
     controllerDetailed.EntityData.Children.Append("neighbor-array", types.YChild{"NeighborArray", nil})
     for i := range controllerDetailed.NeighborArray {
+        types.SetYListKey(controllerDetailed.NeighborArray[i], i)
         controllerDetailed.EntityData.Children.Append(types.GetSegmentPath(controllerDetailed.NeighborArray[i]), types.YChild{"NeighborArray", controllerDetailed.NeighborArray[i]})
     }
     controllerDetailed.EntityData.Leafs = types.NewOrderedMap()
@@ -3818,6 +3923,7 @@ func (bandwidthInformation *RsvpStandby_ControllerDetaileds_ControllerDetailed_B
     bandwidthInformation.EntityData.BundleName = "cisco_ios_xr"
     bandwidthInformation.EntityData.ParentYangName = "controller-detailed"
     bandwidthInformation.EntityData.SegmentPath = "bandwidth-information"
+    bandwidthInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/controller-detaileds/controller-detailed/" + bandwidthInformation.EntityData.SegmentPath
     bandwidthInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bandwidthInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bandwidthInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3870,6 +3976,7 @@ func (preStandardDsteInterface *RsvpStandby_ControllerDetaileds_ControllerDetail
     preStandardDsteInterface.EntityData.BundleName = "cisco_ios_xr"
     preStandardDsteInterface.EntityData.ParentYangName = "bandwidth-information"
     preStandardDsteInterface.EntityData.SegmentPath = "pre-standard-dste-interface"
+    preStandardDsteInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/controller-detaileds/controller-detailed/bandwidth-information/" + preStandardDsteInterface.EntityData.SegmentPath
     preStandardDsteInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     preStandardDsteInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     preStandardDsteInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3933,6 +4040,7 @@ func (standardDsteInterface *RsvpStandby_ControllerDetaileds_ControllerDetailed_
     standardDsteInterface.EntityData.BundleName = "cisco_ios_xr"
     standardDsteInterface.EntityData.ParentYangName = "bandwidth-information"
     standardDsteInterface.EntityData.SegmentPath = "standard-dste-interface"
+    standardDsteInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/controller-detaileds/controller-detailed/bandwidth-information/" + standardDsteInterface.EntityData.SegmentPath
     standardDsteInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     standardDsteInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     standardDsteInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4002,6 +4110,7 @@ func (flags *RsvpStandby_ControllerDetaileds_ControllerDetailed_Flags) GetEntity
     flags.EntityData.BundleName = "cisco_ios_xr"
     flags.EntityData.ParentYangName = "controller-detailed"
     flags.EntityData.SegmentPath = "flags"
+    flags.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/controller-detaileds/controller-detailed/" + flags.EntityData.SegmentPath
     flags.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     flags.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     flags.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4031,6 +4140,7 @@ func (flags *RsvpStandby_ControllerDetaileds_ControllerDetailed_Flags) GetEntity
 type RsvpStandby_ControllerDetaileds_ControllerDetailed_NeighborArray struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Is neighbor capable of Refresh Reduction. The type is bool.
     IsNeighborRefreshReductionCapable interface{}
@@ -4059,7 +4169,8 @@ func (neighborArray *RsvpStandby_ControllerDetaileds_ControllerDetailed_Neighbor
     neighborArray.EntityData.YangName = "neighbor-array"
     neighborArray.EntityData.BundleName = "cisco_ios_xr"
     neighborArray.EntityData.ParentYangName = "controller-detailed"
-    neighborArray.EntityData.SegmentPath = "neighbor-array"
+    neighborArray.EntityData.SegmentPath = "neighbor-array" + types.AddNoKeyToken(neighborArray)
+    neighborArray.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/controller-detaileds/controller-detailed/" + neighborArray.EntityData.SegmentPath
     neighborArray.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighborArray.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborArray.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4068,6 +4179,7 @@ func (neighborArray *RsvpStandby_ControllerDetaileds_ControllerDetailed_Neighbor
     neighborArray.EntityData.Children.Append("expiry-time", types.YChild{"ExpiryTime", &neighborArray.ExpiryTime})
     neighborArray.EntityData.Children.Append("neighbor-message-id", types.YChild{"NeighborMessageId", nil})
     for i := range neighborArray.NeighborMessageId {
+        types.SetYListKey(neighborArray.NeighborMessageId[i], i)
         neighborArray.EntityData.Children.Append(types.GetSegmentPath(neighborArray.NeighborMessageId[i]), types.YChild{"NeighborMessageId", neighborArray.NeighborMessageId[i]})
     }
     neighborArray.EntityData.Leafs = types.NewOrderedMap()
@@ -4102,6 +4214,7 @@ func (expiryTime *RsvpStandby_ControllerDetaileds_ControllerDetailed_NeighborArr
     expiryTime.EntityData.BundleName = "cisco_ios_xr"
     expiryTime.EntityData.ParentYangName = "neighbor-array"
     expiryTime.EntityData.SegmentPath = "expiry-time"
+    expiryTime.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/controller-detaileds/controller-detailed/neighbor-array/" + expiryTime.EntityData.SegmentPath
     expiryTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     expiryTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     expiryTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4121,6 +4234,7 @@ func (expiryTime *RsvpStandby_ControllerDetaileds_ControllerDetailed_NeighborArr
 type RsvpStandby_ControllerDetaileds_ControllerDetailed_NeighborArray_NeighborMessageId struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Message ID. The type is interface{} with range: 0..4294967295.
     MessageId interface{}
@@ -4131,7 +4245,8 @@ func (neighborMessageId *RsvpStandby_ControllerDetaileds_ControllerDetailed_Neig
     neighborMessageId.EntityData.YangName = "neighbor-message-id"
     neighborMessageId.EntityData.BundleName = "cisco_ios_xr"
     neighborMessageId.EntityData.ParentYangName = "neighbor-array"
-    neighborMessageId.EntityData.SegmentPath = "neighbor-message-id"
+    neighborMessageId.EntityData.SegmentPath = "neighbor-message-id" + types.AddNoKeyToken(neighborMessageId)
+    neighborMessageId.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/controller-detaileds/controller-detailed/neighbor-array/" + neighborMessageId.EntityData.SegmentPath
     neighborMessageId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighborMessageId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborMessageId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4164,6 +4279,7 @@ func (frrSummary *RsvpStandby_FrrSummary) GetEntityData() *types.CommonEntityDat
     frrSummary.EntityData.BundleName = "cisco_ios_xr"
     frrSummary.EntityData.ParentYangName = "rsvp-standby"
     frrSummary.EntityData.SegmentPath = "frr-summary"
+    frrSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/" + frrSummary.EntityData.SegmentPath
     frrSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     frrSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     frrSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4208,6 +4324,7 @@ func (pathStates *RsvpStandby_FrrSummary_PathStates) GetEntityData() *types.Comm
     pathStates.EntityData.BundleName = "cisco_ios_xr"
     pathStates.EntityData.ParentYangName = "frr-summary"
     pathStates.EntityData.SegmentPath = "path-states"
+    pathStates.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/frr-summary/" + pathStates.EntityData.SegmentPath
     pathStates.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pathStates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pathStates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4254,6 +4371,7 @@ func (reservationStates *RsvpStandby_FrrSummary_ReservationStates) GetEntityData
     reservationStates.EntityData.BundleName = "cisco_ios_xr"
     reservationStates.EntityData.ParentYangName = "frr-summary"
     reservationStates.EntityData.SegmentPath = "reservation-states"
+    reservationStates.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/frr-summary/" + reservationStates.EntityData.SegmentPath
     reservationStates.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     reservationStates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     reservationStates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4288,6 +4406,7 @@ func (rsbDetaileds *RsvpStandby_RsbDetaileds) GetEntityData() *types.CommonEntit
     rsbDetaileds.EntityData.BundleName = "cisco_ios_xr"
     rsbDetaileds.EntityData.ParentYangName = "rsvp-standby"
     rsbDetaileds.EntityData.SegmentPath = "rsb-detaileds"
+    rsbDetaileds.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/" + rsbDetaileds.EntityData.SegmentPath
     rsbDetaileds.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rsbDetaileds.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rsbDetaileds.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4295,6 +4414,7 @@ func (rsbDetaileds *RsvpStandby_RsbDetaileds) GetEntityData() *types.CommonEntit
     rsbDetaileds.EntityData.Children = types.NewOrderedMap()
     rsbDetaileds.EntityData.Children.Append("rsb-detailed", types.YChild{"RsbDetailed", nil})
     for i := range rsbDetaileds.RsbDetailed {
+        types.SetYListKey(rsbDetaileds.RsbDetailed[i], i)
         rsbDetaileds.EntityData.Children.Append(types.GetSegmentPath(rsbDetaileds.RsbDetailed[i]), types.YChild{"RsbDetailed", rsbDetaileds.RsbDetailed[i]})
     }
     rsbDetaileds.EntityData.Leafs = types.NewOrderedMap()
@@ -4310,6 +4430,7 @@ func (rsbDetaileds *RsvpStandby_RsbDetaileds) GetEntityData() *types.CommonEntit
 type RsvpStandby_RsbDetaileds_RsbDetailed struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Destination Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -4402,7 +4523,8 @@ func (rsbDetailed *RsvpStandby_RsbDetaileds_RsbDetailed) GetEntityData() *types.
     rsbDetailed.EntityData.YangName = "rsb-detailed"
     rsbDetailed.EntityData.BundleName = "cisco_ios_xr"
     rsbDetailed.EntityData.ParentYangName = "rsb-detaileds"
-    rsbDetailed.EntityData.SegmentPath = "rsb-detailed"
+    rsbDetailed.EntityData.SegmentPath = "rsb-detailed" + types.AddNoKeyToken(rsbDetailed)
+    rsbDetailed.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/rsb-detaileds/" + rsbDetailed.EntityData.SegmentPath
     rsbDetailed.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rsbDetailed.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rsbDetailed.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4483,6 +4605,7 @@ func (flowSpec *RsvpStandby_RsbDetaileds_RsbDetailed_FlowSpec) GetEntityData() *
     flowSpec.EntityData.BundleName = "cisco_ios_xr"
     flowSpec.EntityData.ParentYangName = "rsb-detailed"
     flowSpec.EntityData.SegmentPath = "flow-spec"
+    flowSpec.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/rsb-detaileds/rsb-detailed/" + flowSpec.EntityData.SegmentPath
     flowSpec.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     flowSpec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     flowSpec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4522,6 +4645,7 @@ func (genericFlowSpec *RsvpStandby_RsbDetaileds_RsbDetailed_GenericFlowSpec) Get
     genericFlowSpec.EntityData.BundleName = "cisco_ios_xr"
     genericFlowSpec.EntityData.ParentYangName = "rsb-detailed"
     genericFlowSpec.EntityData.SegmentPath = "generic-flow-spec"
+    genericFlowSpec.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/rsb-detaileds/rsb-detailed/" + genericFlowSpec.EntityData.SegmentPath
     genericFlowSpec.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     genericFlowSpec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     genericFlowSpec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4563,6 +4687,7 @@ func (g709otnFlowSpec *RsvpStandby_RsbDetaileds_RsbDetailed_GenericFlowSpec_G709
     g709otnFlowSpec.EntityData.BundleName = "cisco_ios_xr"
     g709otnFlowSpec.EntityData.ParentYangName = "generic-flow-spec"
     g709otnFlowSpec.EntityData.SegmentPath = "g709otn-flow-spec"
+    g709otnFlowSpec.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/rsb-detaileds/rsb-detailed/generic-flow-spec/" + g709otnFlowSpec.EntityData.SegmentPath
     g709otnFlowSpec.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     g709otnFlowSpec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     g709otnFlowSpec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4595,6 +4720,7 @@ func (session *RsvpStandby_RsbDetaileds_RsbDetailed_Session) GetEntityData() *ty
     session.EntityData.BundleName = "cisco_ios_xr"
     session.EntityData.ParentYangName = "rsb-detailed"
     session.EntityData.SegmentPath = "session"
+    session.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/rsb-detaileds/rsb-detailed/" + session.EntityData.SegmentPath
     session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4636,6 +4762,7 @@ func (rsvpSession *RsvpStandby_RsbDetaileds_RsbDetailed_Session_RsvpSession) Get
     rsvpSession.EntityData.BundleName = "cisco_ios_xr"
     rsvpSession.EntityData.ParentYangName = "session"
     rsvpSession.EntityData.SegmentPath = "rsvp-session"
+    rsvpSession.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/rsb-detaileds/rsb-detailed/session/" + rsvpSession.EntityData.SegmentPath
     rsvpSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rsvpSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rsvpSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4677,6 +4804,7 @@ func (ipv4 *RsvpStandby_RsbDetaileds_RsbDetailed_Session_RsvpSession_Ipv4) GetEn
     ipv4.EntityData.BundleName = "cisco_ios_xr"
     ipv4.EntityData.ParentYangName = "rsvp-session"
     ipv4.EntityData.SegmentPath = "ipv4"
+    ipv4.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/rsb-detaileds/rsb-detailed/session/rsvp-session/" + ipv4.EntityData.SegmentPath
     ipv4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4716,6 +4844,7 @@ func (ipv4LspSession *RsvpStandby_RsbDetaileds_RsbDetailed_Session_RsvpSession_I
     ipv4LspSession.EntityData.BundleName = "cisco_ios_xr"
     ipv4LspSession.EntityData.ParentYangName = "rsvp-session"
     ipv4LspSession.EntityData.SegmentPath = "ipv4-lsp-session"
+    ipv4LspSession.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/rsb-detaileds/rsb-detailed/session/rsvp-session/" + ipv4LspSession.EntityData.SegmentPath
     ipv4LspSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4LspSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4LspSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4755,6 +4884,7 @@ func (ipv4UniSession *RsvpStandby_RsbDetaileds_RsbDetailed_Session_RsvpSession_I
     ipv4UniSession.EntityData.BundleName = "cisco_ios_xr"
     ipv4UniSession.EntityData.ParentYangName = "rsvp-session"
     ipv4UniSession.EntityData.SegmentPath = "ipv4-uni-session"
+    ipv4UniSession.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/rsb-detaileds/rsb-detailed/session/rsvp-session/" + ipv4UniSession.EntityData.SegmentPath
     ipv4UniSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4UniSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4UniSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4794,6 +4924,7 @@ func (ipv4P2mpLspSession *RsvpStandby_RsbDetaileds_RsbDetailed_Session_RsvpSessi
     ipv4P2mpLspSession.EntityData.BundleName = "cisco_ios_xr"
     ipv4P2mpLspSession.EntityData.ParentYangName = "rsvp-session"
     ipv4P2mpLspSession.EntityData.SegmentPath = "ipv4-p2mp-lsp-session"
+    ipv4P2mpLspSession.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/rsb-detaileds/rsb-detailed/session/rsvp-session/" + ipv4P2mpLspSession.EntityData.SegmentPath
     ipv4P2mpLspSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4P2mpLspSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4P2mpLspSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4826,6 +4957,7 @@ func (s2lSubLsp *RsvpStandby_RsbDetaileds_RsbDetailed_S2lSubLsp) GetEntityData()
     s2lSubLsp.EntityData.BundleName = "cisco_ios_xr"
     s2lSubLsp.EntityData.ParentYangName = "rsb-detailed"
     s2lSubLsp.EntityData.SegmentPath = "s2l-sub-lsp"
+    s2lSubLsp.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/rsb-detaileds/rsb-detailed/" + s2lSubLsp.EntityData.SegmentPath
     s2lSubLsp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     s2lSubLsp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     s2lSubLsp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4856,6 +4988,7 @@ func (style *RsvpStandby_RsbDetaileds_RsbDetailed_Style) GetEntityData() *types.
     style.EntityData.BundleName = "cisco_ios_xr"
     style.EntityData.ParentYangName = "rsb-detailed"
     style.EntityData.SegmentPath = "style"
+    style.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/rsb-detaileds/rsb-detailed/" + style.EntityData.SegmentPath
     style.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     style.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     style.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4885,6 +5018,7 @@ func (filter *RsvpStandby_RsbDetaileds_RsbDetailed_Filter) GetEntityData() *type
     filter.EntityData.BundleName = "cisco_ios_xr"
     filter.EntityData.ParentYangName = "rsb-detailed"
     filter.EntityData.SegmentPath = "filter"
+    filter.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/rsb-detaileds/rsb-detailed/" + filter.EntityData.SegmentPath
     filter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     filter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     filter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4920,6 +5054,7 @@ func (rsvpFilter *RsvpStandby_RsbDetaileds_RsbDetailed_Filter_RsvpFilter) GetEnt
     rsvpFilter.EntityData.BundleName = "cisco_ios_xr"
     rsvpFilter.EntityData.ParentYangName = "filter"
     rsvpFilter.EntityData.SegmentPath = "rsvp-filter"
+    rsvpFilter.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/rsb-detaileds/rsb-detailed/filter/" + rsvpFilter.EntityData.SegmentPath
     rsvpFilter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rsvpFilter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rsvpFilter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4955,6 +5090,7 @@ func (udpIpv4Session *RsvpStandby_RsbDetaileds_RsbDetailed_Filter_RsvpFilter_Udp
     udpIpv4Session.EntityData.BundleName = "cisco_ios_xr"
     udpIpv4Session.EntityData.ParentYangName = "rsvp-filter"
     udpIpv4Session.EntityData.SegmentPath = "udp-ipv4-session"
+    udpIpv4Session.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/rsb-detaileds/rsb-detailed/filter/rsvp-filter/" + udpIpv4Session.EntityData.SegmentPath
     udpIpv4Session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     udpIpv4Session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     udpIpv4Session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4997,6 +5133,7 @@ func (p2mpIpv4Session *RsvpStandby_RsbDetaileds_RsbDetailed_Filter_RsvpFilter_P2
     p2mpIpv4Session.EntityData.BundleName = "cisco_ios_xr"
     p2mpIpv4Session.EntityData.ParentYangName = "rsvp-filter"
     p2mpIpv4Session.EntityData.SegmentPath = "p2mp-ipv4-session"
+    p2mpIpv4Session.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/rsb-detaileds/rsb-detailed/filter/rsvp-filter/" + p2mpIpv4Session.EntityData.SegmentPath
     p2mpIpv4Session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     p2mpIpv4Session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     p2mpIpv4Session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5041,6 +5178,7 @@ func (rsbFlags *RsvpStandby_RsbDetaileds_RsbDetailed_RsbFlags) GetEntityData() *
     rsbFlags.EntityData.BundleName = "cisco_ios_xr"
     rsbFlags.EntityData.ParentYangName = "rsb-detailed"
     rsbFlags.EntityData.SegmentPath = "rsb-flags"
+    rsbFlags.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/rsb-detaileds/rsb-detailed/" + rsbFlags.EntityData.SegmentPath
     rsbFlags.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rsbFlags.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rsbFlags.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5079,6 +5217,7 @@ func (hop *RsvpStandby_RsbDetaileds_RsbDetailed_Hop) GetEntityData() *types.Comm
     hop.EntityData.BundleName = "cisco_ios_xr"
     hop.EntityData.ParentYangName = "rsb-detailed"
     hop.EntityData.SegmentPath = "hop"
+    hop.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/rsb-detaileds/rsb-detailed/" + hop.EntityData.SegmentPath
     hop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5121,6 +5260,7 @@ func (policySources *RsvpStandby_RsbDetaileds_RsbDetailed_PolicySources) GetEnti
     policySources.EntityData.BundleName = "cisco_ios_xr"
     policySources.EntityData.ParentYangName = "rsb-detailed"
     policySources.EntityData.SegmentPath = "policy-sources"
+    policySources.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/rsb-detaileds/rsb-detailed/" + policySources.EntityData.SegmentPath
     policySources.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     policySources.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policySources.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5174,6 +5314,7 @@ func (header *RsvpStandby_RsbDetaileds_RsbDetailed_Header) GetEntityData() *type
     header.EntityData.BundleName = "cisco_ios_xr"
     header.EntityData.ParentYangName = "rsb-detailed"
     header.EntityData.SegmentPath = "header"
+    header.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/rsb-detaileds/rsb-detailed/" + header.EntityData.SegmentPath
     header.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     header.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     header.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5215,6 +5356,7 @@ func (policyFlags *RsvpStandby_RsbDetaileds_RsbDetailed_PolicyFlags) GetEntityDa
     policyFlags.EntityData.BundleName = "cisco_ios_xr"
     policyFlags.EntityData.ParentYangName = "rsb-detailed"
     policyFlags.EntityData.SegmentPath = "policy-flags"
+    policyFlags.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/rsb-detaileds/rsb-detailed/" + policyFlags.EntityData.SegmentPath
     policyFlags.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     policyFlags.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policyFlags.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5251,6 +5393,7 @@ func (expiryTime *RsvpStandby_RsbDetaileds_RsbDetailed_ExpiryTime) GetEntityData
     expiryTime.EntityData.BundleName = "cisco_ios_xr"
     expiryTime.EntityData.ParentYangName = "rsb-detailed"
     expiryTime.EntityData.SegmentPath = "expiry-time"
+    expiryTime.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/rsb-detaileds/rsb-detailed/" + expiryTime.EntityData.SegmentPath
     expiryTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     expiryTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     expiryTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5290,6 +5433,7 @@ func (policyQueryFlags *RsvpStandby_RsbDetaileds_RsbDetailed_PolicyQueryFlags) G
     policyQueryFlags.EntityData.BundleName = "cisco_ios_xr"
     policyQueryFlags.EntityData.ParentYangName = "rsb-detailed"
     policyQueryFlags.EntityData.SegmentPath = "policy-query-flags"
+    policyQueryFlags.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/rsb-detaileds/rsb-detailed/" + policyQueryFlags.EntityData.SegmentPath
     policyQueryFlags.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     policyQueryFlags.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policyQueryFlags.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5362,6 +5506,7 @@ func (labelInfo *RsvpStandby_RsbDetaileds_RsbDetailed_LabelInfo) GetEntityData()
     labelInfo.EntityData.BundleName = "cisco_ios_xr"
     labelInfo.EntityData.ParentYangName = "rsb-detailed"
     labelInfo.EntityData.SegmentPath = "label-info"
+    labelInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/rsb-detaileds/rsb-detailed/" + labelInfo.EntityData.SegmentPath
     labelInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labelInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5407,6 +5552,7 @@ func (genericLocalDownstreamLabel *RsvpStandby_RsbDetaileds_RsbDetailed_LabelInf
     genericLocalDownstreamLabel.EntityData.BundleName = "cisco_ios_xr"
     genericLocalDownstreamLabel.EntityData.ParentYangName = "label-info"
     genericLocalDownstreamLabel.EntityData.SegmentPath = "generic-local-downstream-label"
+    genericLocalDownstreamLabel.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/rsb-detaileds/rsb-detailed/label-info/" + genericLocalDownstreamLabel.EntityData.SegmentPath
     genericLocalDownstreamLabel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     genericLocalDownstreamLabel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     genericLocalDownstreamLabel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5438,6 +5584,7 @@ func (generalizedLabel *RsvpStandby_RsbDetaileds_RsbDetailed_LabelInfo_GenericLo
     generalizedLabel.EntityData.BundleName = "cisco_ios_xr"
     generalizedLabel.EntityData.ParentYangName = "generic-local-downstream-label"
     generalizedLabel.EntityData.SegmentPath = "generalized-label"
+    generalizedLabel.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/rsb-detaileds/rsb-detailed/label-info/generic-local-downstream-label/" + generalizedLabel.EntityData.SegmentPath
     generalizedLabel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     generalizedLabel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     generalizedLabel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5445,6 +5592,7 @@ func (generalizedLabel *RsvpStandby_RsbDetaileds_RsbDetailed_LabelInfo_GenericLo
     generalizedLabel.EntityData.Children = types.NewOrderedMap()
     generalizedLabel.EntityData.Children.Append("value", types.YChild{"Value", nil})
     for i := range generalizedLabel.Value {
+        types.SetYListKey(generalizedLabel.Value[i], i)
         generalizedLabel.EntityData.Children.Append(types.GetSegmentPath(generalizedLabel.Value[i]), types.YChild{"Value", generalizedLabel.Value[i]})
     }
     generalizedLabel.EntityData.Leafs = types.NewOrderedMap()
@@ -5459,6 +5607,7 @@ func (generalizedLabel *RsvpStandby_RsbDetaileds_RsbDetailed_LabelInfo_GenericLo
 type RsvpStandby_RsbDetaileds_RsbDetailed_LabelInfo_GenericLocalDownstreamLabel_GeneralizedLabel_Value struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -5469,7 +5618,8 @@ func (value *RsvpStandby_RsbDetaileds_RsbDetailed_LabelInfo_GenericLocalDownstre
     value.EntityData.YangName = "value"
     value.EntityData.BundleName = "cisco_ios_xr"
     value.EntityData.ParentYangName = "generalized-label"
-    value.EntityData.SegmentPath = "value"
+    value.EntityData.SegmentPath = "value" + types.AddNoKeyToken(value)
+    value.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/rsb-detaileds/rsb-detailed/label-info/generic-local-downstream-label/generalized-label/" + value.EntityData.SegmentPath
     value.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     value.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     value.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5502,6 +5652,7 @@ func (genericOutgoingDownstreamLabel *RsvpStandby_RsbDetaileds_RsbDetailed_Label
     genericOutgoingDownstreamLabel.EntityData.BundleName = "cisco_ios_xr"
     genericOutgoingDownstreamLabel.EntityData.ParentYangName = "label-info"
     genericOutgoingDownstreamLabel.EntityData.SegmentPath = "generic-outgoing-downstream-label"
+    genericOutgoingDownstreamLabel.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/rsb-detaileds/rsb-detailed/label-info/" + genericOutgoingDownstreamLabel.EntityData.SegmentPath
     genericOutgoingDownstreamLabel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     genericOutgoingDownstreamLabel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     genericOutgoingDownstreamLabel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5533,6 +5684,7 @@ func (generalizedLabel *RsvpStandby_RsbDetaileds_RsbDetailed_LabelInfo_GenericOu
     generalizedLabel.EntityData.BundleName = "cisco_ios_xr"
     generalizedLabel.EntityData.ParentYangName = "generic-outgoing-downstream-label"
     generalizedLabel.EntityData.SegmentPath = "generalized-label"
+    generalizedLabel.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/rsb-detaileds/rsb-detailed/label-info/generic-outgoing-downstream-label/" + generalizedLabel.EntityData.SegmentPath
     generalizedLabel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     generalizedLabel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     generalizedLabel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5540,6 +5692,7 @@ func (generalizedLabel *RsvpStandby_RsbDetaileds_RsbDetailed_LabelInfo_GenericOu
     generalizedLabel.EntityData.Children = types.NewOrderedMap()
     generalizedLabel.EntityData.Children.Append("value", types.YChild{"Value", nil})
     for i := range generalizedLabel.Value {
+        types.SetYListKey(generalizedLabel.Value[i], i)
         generalizedLabel.EntityData.Children.Append(types.GetSegmentPath(generalizedLabel.Value[i]), types.YChild{"Value", generalizedLabel.Value[i]})
     }
     generalizedLabel.EntityData.Leafs = types.NewOrderedMap()
@@ -5554,6 +5707,7 @@ func (generalizedLabel *RsvpStandby_RsbDetaileds_RsbDetailed_LabelInfo_GenericOu
 type RsvpStandby_RsbDetaileds_RsbDetailed_LabelInfo_GenericOutgoingDownstreamLabel_GeneralizedLabel_Value struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -5564,7 +5718,8 @@ func (value *RsvpStandby_RsbDetaileds_RsbDetailed_LabelInfo_GenericOutgoingDowns
     value.EntityData.YangName = "value"
     value.EntityData.BundleName = "cisco_ios_xr"
     value.EntityData.ParentYangName = "generalized-label"
-    value.EntityData.SegmentPath = "value"
+    value.EntityData.SegmentPath = "value" + types.AddNoKeyToken(value)
+    value.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/rsb-detaileds/rsb-detailed/label-info/generic-outgoing-downstream-label/generalized-label/" + value.EntityData.SegmentPath
     value.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     value.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     value.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5597,6 +5752,7 @@ func (genericMergePointLabel *RsvpStandby_RsbDetaileds_RsbDetailed_LabelInfo_Gen
     genericMergePointLabel.EntityData.BundleName = "cisco_ios_xr"
     genericMergePointLabel.EntityData.ParentYangName = "label-info"
     genericMergePointLabel.EntityData.SegmentPath = "generic-merge-point-label"
+    genericMergePointLabel.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/rsb-detaileds/rsb-detailed/label-info/" + genericMergePointLabel.EntityData.SegmentPath
     genericMergePointLabel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     genericMergePointLabel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     genericMergePointLabel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5628,6 +5784,7 @@ func (generalizedLabel *RsvpStandby_RsbDetaileds_RsbDetailed_LabelInfo_GenericMe
     generalizedLabel.EntityData.BundleName = "cisco_ios_xr"
     generalizedLabel.EntityData.ParentYangName = "generic-merge-point-label"
     generalizedLabel.EntityData.SegmentPath = "generalized-label"
+    generalizedLabel.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/rsb-detaileds/rsb-detailed/label-info/generic-merge-point-label/" + generalizedLabel.EntityData.SegmentPath
     generalizedLabel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     generalizedLabel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     generalizedLabel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5635,6 +5792,7 @@ func (generalizedLabel *RsvpStandby_RsbDetaileds_RsbDetailed_LabelInfo_GenericMe
     generalizedLabel.EntityData.Children = types.NewOrderedMap()
     generalizedLabel.EntityData.Children.Append("value", types.YChild{"Value", nil})
     for i := range generalizedLabel.Value {
+        types.SetYListKey(generalizedLabel.Value[i], i)
         generalizedLabel.EntityData.Children.Append(types.GetSegmentPath(generalizedLabel.Value[i]), types.YChild{"Value", generalizedLabel.Value[i]})
     }
     generalizedLabel.EntityData.Leafs = types.NewOrderedMap()
@@ -5649,6 +5807,7 @@ func (generalizedLabel *RsvpStandby_RsbDetaileds_RsbDetailed_LabelInfo_GenericMe
 type RsvpStandby_RsbDetaileds_RsbDetailed_LabelInfo_GenericMergePointLabel_GeneralizedLabel_Value struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -5659,7 +5818,8 @@ func (value *RsvpStandby_RsbDetaileds_RsbDetailed_LabelInfo_GenericMergePointLab
     value.EntityData.YangName = "value"
     value.EntityData.BundleName = "cisco_ios_xr"
     value.EntityData.ParentYangName = "generalized-label"
-    value.EntityData.SegmentPath = "value"
+    value.EntityData.SegmentPath = "value" + types.AddNoKeyToken(value)
+    value.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/rsb-detaileds/rsb-detailed/label-info/generic-merge-point-label/generalized-label/" + value.EntityData.SegmentPath
     value.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     value.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     value.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5692,6 +5852,7 @@ func (genericOutgoingUpstreamLabel *RsvpStandby_RsbDetaileds_RsbDetailed_LabelIn
     genericOutgoingUpstreamLabel.EntityData.BundleName = "cisco_ios_xr"
     genericOutgoingUpstreamLabel.EntityData.ParentYangName = "label-info"
     genericOutgoingUpstreamLabel.EntityData.SegmentPath = "generic-outgoing-upstream-label"
+    genericOutgoingUpstreamLabel.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/rsb-detaileds/rsb-detailed/label-info/" + genericOutgoingUpstreamLabel.EntityData.SegmentPath
     genericOutgoingUpstreamLabel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     genericOutgoingUpstreamLabel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     genericOutgoingUpstreamLabel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5723,6 +5884,7 @@ func (generalizedLabel *RsvpStandby_RsbDetaileds_RsbDetailed_LabelInfo_GenericOu
     generalizedLabel.EntityData.BundleName = "cisco_ios_xr"
     generalizedLabel.EntityData.ParentYangName = "generic-outgoing-upstream-label"
     generalizedLabel.EntityData.SegmentPath = "generalized-label"
+    generalizedLabel.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/rsb-detaileds/rsb-detailed/label-info/generic-outgoing-upstream-label/" + generalizedLabel.EntityData.SegmentPath
     generalizedLabel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     generalizedLabel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     generalizedLabel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5730,6 +5892,7 @@ func (generalizedLabel *RsvpStandby_RsbDetaileds_RsbDetailed_LabelInfo_GenericOu
     generalizedLabel.EntityData.Children = types.NewOrderedMap()
     generalizedLabel.EntityData.Children.Append("value", types.YChild{"Value", nil})
     for i := range generalizedLabel.Value {
+        types.SetYListKey(generalizedLabel.Value[i], i)
         generalizedLabel.EntityData.Children.Append(types.GetSegmentPath(generalizedLabel.Value[i]), types.YChild{"Value", generalizedLabel.Value[i]})
     }
     generalizedLabel.EntityData.Leafs = types.NewOrderedMap()
@@ -5744,6 +5907,7 @@ func (generalizedLabel *RsvpStandby_RsbDetaileds_RsbDetailed_LabelInfo_GenericOu
 type RsvpStandby_RsbDetaileds_RsbDetailed_LabelInfo_GenericOutgoingUpstreamLabel_GeneralizedLabel_Value struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -5754,7 +5918,8 @@ func (value *RsvpStandby_RsbDetaileds_RsbDetailed_LabelInfo_GenericOutgoingUpstr
     value.EntityData.YangName = "value"
     value.EntityData.BundleName = "cisco_ios_xr"
     value.EntityData.ParentYangName = "generalized-label"
-    value.EntityData.SegmentPath = "value"
+    value.EntityData.SegmentPath = "value" + types.AddNoKeyToken(value)
+    value.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/rsb-detaileds/rsb-detailed/label-info/generic-outgoing-upstream-label/generalized-label/" + value.EntityData.SegmentPath
     value.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     value.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     value.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5787,6 +5952,7 @@ func (genericLocalUpstreamLabel *RsvpStandby_RsbDetaileds_RsbDetailed_LabelInfo_
     genericLocalUpstreamLabel.EntityData.BundleName = "cisco_ios_xr"
     genericLocalUpstreamLabel.EntityData.ParentYangName = "label-info"
     genericLocalUpstreamLabel.EntityData.SegmentPath = "generic-local-upstream-label"
+    genericLocalUpstreamLabel.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/rsb-detaileds/rsb-detailed/label-info/" + genericLocalUpstreamLabel.EntityData.SegmentPath
     genericLocalUpstreamLabel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     genericLocalUpstreamLabel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     genericLocalUpstreamLabel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5818,6 +5984,7 @@ func (generalizedLabel *RsvpStandby_RsbDetaileds_RsbDetailed_LabelInfo_GenericLo
     generalizedLabel.EntityData.BundleName = "cisco_ios_xr"
     generalizedLabel.EntityData.ParentYangName = "generic-local-upstream-label"
     generalizedLabel.EntityData.SegmentPath = "generalized-label"
+    generalizedLabel.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/rsb-detaileds/rsb-detailed/label-info/generic-local-upstream-label/" + generalizedLabel.EntityData.SegmentPath
     generalizedLabel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     generalizedLabel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     generalizedLabel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5825,6 +5992,7 @@ func (generalizedLabel *RsvpStandby_RsbDetaileds_RsbDetailed_LabelInfo_GenericLo
     generalizedLabel.EntityData.Children = types.NewOrderedMap()
     generalizedLabel.EntityData.Children.Append("value", types.YChild{"Value", nil})
     for i := range generalizedLabel.Value {
+        types.SetYListKey(generalizedLabel.Value[i], i)
         generalizedLabel.EntityData.Children.Append(types.GetSegmentPath(generalizedLabel.Value[i]), types.YChild{"Value", generalizedLabel.Value[i]})
     }
     generalizedLabel.EntityData.Leafs = types.NewOrderedMap()
@@ -5839,6 +6007,7 @@ func (generalizedLabel *RsvpStandby_RsbDetaileds_RsbDetailed_LabelInfo_GenericLo
 type RsvpStandby_RsbDetaileds_RsbDetailed_LabelInfo_GenericLocalUpstreamLabel_GeneralizedLabel_Value struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -5849,7 +6018,8 @@ func (value *RsvpStandby_RsbDetaileds_RsbDetailed_LabelInfo_GenericLocalUpstream
     value.EntityData.YangName = "value"
     value.EntityData.BundleName = "cisco_ios_xr"
     value.EntityData.ParentYangName = "generalized-label"
-    value.EntityData.SegmentPath = "value"
+    value.EntityData.SegmentPath = "value" + types.AddNoKeyToken(value)
+    value.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/rsb-detaileds/rsb-detailed/label-info/generic-local-upstream-label/generalized-label/" + value.EntityData.SegmentPath
     value.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     value.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     value.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5882,6 +6052,7 @@ func (genericRecoveryLabel *RsvpStandby_RsbDetaileds_RsbDetailed_LabelInfo_Gener
     genericRecoveryLabel.EntityData.BundleName = "cisco_ios_xr"
     genericRecoveryLabel.EntityData.ParentYangName = "label-info"
     genericRecoveryLabel.EntityData.SegmentPath = "generic-recovery-label"
+    genericRecoveryLabel.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/rsb-detaileds/rsb-detailed/label-info/" + genericRecoveryLabel.EntityData.SegmentPath
     genericRecoveryLabel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     genericRecoveryLabel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     genericRecoveryLabel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5913,6 +6084,7 @@ func (generalizedLabel *RsvpStandby_RsbDetaileds_RsbDetailed_LabelInfo_GenericRe
     generalizedLabel.EntityData.BundleName = "cisco_ios_xr"
     generalizedLabel.EntityData.ParentYangName = "generic-recovery-label"
     generalizedLabel.EntityData.SegmentPath = "generalized-label"
+    generalizedLabel.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/rsb-detaileds/rsb-detailed/label-info/generic-recovery-label/" + generalizedLabel.EntityData.SegmentPath
     generalizedLabel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     generalizedLabel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     generalizedLabel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5920,6 +6092,7 @@ func (generalizedLabel *RsvpStandby_RsbDetaileds_RsbDetailed_LabelInfo_GenericRe
     generalizedLabel.EntityData.Children = types.NewOrderedMap()
     generalizedLabel.EntityData.Children.Append("value", types.YChild{"Value", nil})
     for i := range generalizedLabel.Value {
+        types.SetYListKey(generalizedLabel.Value[i], i)
         generalizedLabel.EntityData.Children.Append(types.GetSegmentPath(generalizedLabel.Value[i]), types.YChild{"Value", generalizedLabel.Value[i]})
     }
     generalizedLabel.EntityData.Leafs = types.NewOrderedMap()
@@ -5934,6 +6107,7 @@ func (generalizedLabel *RsvpStandby_RsbDetaileds_RsbDetailed_LabelInfo_GenericRe
 type RsvpStandby_RsbDetaileds_RsbDetailed_LabelInfo_GenericRecoveryLabel_GeneralizedLabel_Value struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -5944,7 +6118,8 @@ func (value *RsvpStandby_RsbDetaileds_RsbDetailed_LabelInfo_GenericRecoveryLabel
     value.EntityData.YangName = "value"
     value.EntityData.BundleName = "cisco_ios_xr"
     value.EntityData.ParentYangName = "generalized-label"
-    value.EntityData.SegmentPath = "value"
+    value.EntityData.SegmentPath = "value" + types.AddNoKeyToken(value)
+    value.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/rsb-detaileds/rsb-detailed/label-info/generic-recovery-label/generalized-label/" + value.EntityData.SegmentPath
     value.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     value.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     value.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5976,6 +6151,7 @@ func (interfaceSummaries *RsvpStandby_InterfaceSummaries) GetEntityData() *types
     interfaceSummaries.EntityData.BundleName = "cisco_ios_xr"
     interfaceSummaries.EntityData.ParentYangName = "rsvp-standby"
     interfaceSummaries.EntityData.SegmentPath = "interface-summaries"
+    interfaceSummaries.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/" + interfaceSummaries.EntityData.SegmentPath
     interfaceSummaries.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceSummaries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceSummaries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5997,6 +6173,7 @@ func (interfaceSummaries *RsvpStandby_InterfaceSummaries) GetEntityData() *types
 type RsvpStandby_InterfaceSummaries_InterfaceSummary struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface Name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -6031,6 +6208,7 @@ func (interfaceSummary *RsvpStandby_InterfaceSummaries_InterfaceSummary) GetEnti
     interfaceSummary.EntityData.BundleName = "cisco_ios_xr"
     interfaceSummary.EntityData.ParentYangName = "interface-summaries"
     interfaceSummary.EntityData.SegmentPath = "interface-summary" + types.AddKeyToken(interfaceSummary.InterfaceName, "interface-name")
+    interfaceSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/interface-summaries/" + interfaceSummary.EntityData.SegmentPath
     interfaceSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6072,6 +6250,7 @@ func (bandwidthInformation *RsvpStandby_InterfaceSummaries_InterfaceSummary_Band
     bandwidthInformation.EntityData.BundleName = "cisco_ios_xr"
     bandwidthInformation.EntityData.ParentYangName = "interface-summary"
     bandwidthInformation.EntityData.SegmentPath = "bandwidth-information"
+    bandwidthInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/interface-summaries/interface-summary/" + bandwidthInformation.EntityData.SegmentPath
     bandwidthInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bandwidthInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bandwidthInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6124,6 +6303,7 @@ func (preStandardDsteInterface *RsvpStandby_InterfaceSummaries_InterfaceSummary_
     preStandardDsteInterface.EntityData.BundleName = "cisco_ios_xr"
     preStandardDsteInterface.EntityData.ParentYangName = "bandwidth-information"
     preStandardDsteInterface.EntityData.SegmentPath = "pre-standard-dste-interface"
+    preStandardDsteInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/interface-summaries/interface-summary/bandwidth-information/" + preStandardDsteInterface.EntityData.SegmentPath
     preStandardDsteInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     preStandardDsteInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     preStandardDsteInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6187,6 +6367,7 @@ func (standardDsteInterface *RsvpStandby_InterfaceSummaries_InterfaceSummary_Ban
     standardDsteInterface.EntityData.BundleName = "cisco_ios_xr"
     standardDsteInterface.EntityData.ParentYangName = "bandwidth-information"
     standardDsteInterface.EntityData.SegmentPath = "standard-dste-interface"
+    standardDsteInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/interface-summaries/interface-summary/bandwidth-information/" + standardDsteInterface.EntityData.SegmentPath
     standardDsteInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     standardDsteInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     standardDsteInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6224,6 +6405,7 @@ func (helloInstanceBriefs *RsvpStandby_HelloInstanceBriefs) GetEntityData() *typ
     helloInstanceBriefs.EntityData.BundleName = "cisco_ios_xr"
     helloInstanceBriefs.EntityData.ParentYangName = "rsvp-standby"
     helloInstanceBriefs.EntityData.SegmentPath = "hello-instance-briefs"
+    helloInstanceBriefs.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/" + helloInstanceBriefs.EntityData.SegmentPath
     helloInstanceBriefs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     helloInstanceBriefs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     helloInstanceBriefs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6245,6 +6427,7 @@ func (helloInstanceBriefs *RsvpStandby_HelloInstanceBriefs) GetEntityData() *typ
 type RsvpStandby_HelloInstanceBriefs_HelloInstanceBrief struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Source Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -6283,6 +6466,7 @@ func (helloInstanceBrief *RsvpStandby_HelloInstanceBriefs_HelloInstanceBrief) Ge
     helloInstanceBrief.EntityData.BundleName = "cisco_ios_xr"
     helloInstanceBrief.EntityData.ParentYangName = "hello-instance-briefs"
     helloInstanceBrief.EntityData.SegmentPath = "hello-instance-brief" + types.AddKeyToken(helloInstanceBrief.SourceAddress, "source-address") + types.AddKeyToken(helloInstanceBrief.DestinationAddress, "destination-address")
+    helloInstanceBrief.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/hello-instance-briefs/" + helloInstanceBrief.EntityData.SegmentPath
     helloInstanceBrief.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     helloInstanceBrief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     helloInstanceBrief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6321,6 +6505,7 @@ func (authenticationDetails *RsvpStandby_AuthenticationDetails) GetEntityData() 
     authenticationDetails.EntityData.BundleName = "cisco_ios_xr"
     authenticationDetails.EntityData.ParentYangName = "rsvp-standby"
     authenticationDetails.EntityData.SegmentPath = "authentication-details"
+    authenticationDetails.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/" + authenticationDetails.EntityData.SegmentPath
     authenticationDetails.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     authenticationDetails.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     authenticationDetails.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6342,6 +6527,7 @@ func (authenticationDetails *RsvpStandby_AuthenticationDetails) GetEntityData() 
 type RsvpStandby_AuthenticationDetails_AuthenticationDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Source Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -6389,6 +6575,7 @@ func (authenticationDetail *RsvpStandby_AuthenticationDetails_AuthenticationDeta
     authenticationDetail.EntityData.BundleName = "cisco_ios_xr"
     authenticationDetail.EntityData.ParentYangName = "authentication-details"
     authenticationDetail.EntityData.SegmentPath = "authentication-detail" + types.AddKeyToken(authenticationDetail.SourceAddress, "source-address") + types.AddKeyToken(authenticationDetail.DestinationAddress, "destination-address") + types.AddKeyToken(authenticationDetail.ModeId, "mode-id") + types.AddKeyToken(authenticationDetail.InterfaceName, "interface-name")
+    authenticationDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/authentication-details/" + authenticationDetail.EntityData.SegmentPath
     authenticationDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     authenticationDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     authenticationDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6452,6 +6639,7 @@ func (authCompact *RsvpStandby_AuthenticationDetails_AuthenticationDetail_AuthCo
     authCompact.EntityData.BundleName = "cisco_ios_xr"
     authCompact.EntityData.ParentYangName = "authentication-detail"
     authCompact.EntityData.SegmentPath = "auth-compact"
+    authCompact.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/authentication-details/authentication-detail/" + authCompact.EntityData.SegmentPath
     authCompact.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     authCompact.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     authCompact.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6494,6 +6682,7 @@ func (directionInfo *RsvpStandby_AuthenticationDetails_AuthenticationDetail_Dire
     directionInfo.EntityData.BundleName = "cisco_ios_xr"
     directionInfo.EntityData.ParentYangName = "authentication-detail"
     directionInfo.EntityData.SegmentPath = "direction-info"
+    directionInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/authentication-details/authentication-detail/" + directionInfo.EntityData.SegmentPath
     directionInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     directionInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     directionInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6529,6 +6718,7 @@ func (sendInfo *RsvpStandby_AuthenticationDetails_AuthenticationDetail_Direction
     sendInfo.EntityData.BundleName = "cisco_ios_xr"
     sendInfo.EntityData.ParentYangName = "direction-info"
     sendInfo.EntityData.SegmentPath = "send-info"
+    sendInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/authentication-details/authentication-detail/direction-info/" + sendInfo.EntityData.SegmentPath
     sendInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sendInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sendInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6569,6 +6759,7 @@ func (counters *RsvpStandby_AuthenticationDetails_AuthenticationDetail_Direction
     counters.EntityData.BundleName = "cisco_ios_xr"
     counters.EntityData.ParentYangName = "send-info"
     counters.EntityData.SegmentPath = "counters"
+    counters.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/authentication-details/authentication-detail/direction-info/send-info/" + counters.EntityData.SegmentPath
     counters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     counters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     counters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6615,6 +6806,7 @@ func (receiveInfo *RsvpStandby_AuthenticationDetails_AuthenticationDetail_Direct
     receiveInfo.EntityData.BundleName = "cisco_ios_xr"
     receiveInfo.EntityData.ParentYangName = "direction-info"
     receiveInfo.EntityData.SegmentPath = "receive-info"
+    receiveInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/authentication-details/authentication-detail/direction-info/" + receiveInfo.EntityData.SegmentPath
     receiveInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     receiveInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receiveInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6623,6 +6815,7 @@ func (receiveInfo *RsvpStandby_AuthenticationDetails_AuthenticationDetail_Direct
     receiveInfo.EntityData.Children.Append("counters", types.YChild{"Counters", &receiveInfo.Counters})
     receiveInfo.EntityData.Children.Append("sequence-window", types.YChild{"SequenceWindow", nil})
     for i := range receiveInfo.SequenceWindow {
+        types.SetYListKey(receiveInfo.SequenceWindow[i], i)
         receiveInfo.EntityData.Children.Append(types.GetSegmentPath(receiveInfo.SequenceWindow[i]), types.YChild{"SequenceWindow", receiveInfo.SequenceWindow[i]})
     }
     receiveInfo.EntityData.Leafs = types.NewOrderedMap()
@@ -6708,6 +6901,7 @@ func (counters *RsvpStandby_AuthenticationDetails_AuthenticationDetail_Direction
     counters.EntityData.BundleName = "cisco_ios_xr"
     counters.EntityData.ParentYangName = "receive-info"
     counters.EntityData.SegmentPath = "counters"
+    counters.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/authentication-details/authentication-detail/direction-info/receive-info/" + counters.EntityData.SegmentPath
     counters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     counters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     counters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6741,6 +6935,7 @@ func (counters *RsvpStandby_AuthenticationDetails_AuthenticationDetail_Direction
 type RsvpStandby_AuthenticationDetails_AuthenticationDetail_DirectionInfo_ReceiveInfo_SequenceWindow struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..18446744073709551615.
     Entry interface{}
@@ -6751,7 +6946,8 @@ func (sequenceWindow *RsvpStandby_AuthenticationDetails_AuthenticationDetail_Dir
     sequenceWindow.EntityData.YangName = "sequence-window"
     sequenceWindow.EntityData.BundleName = "cisco_ios_xr"
     sequenceWindow.EntityData.ParentYangName = "receive-info"
-    sequenceWindow.EntityData.SegmentPath = "sequence-window"
+    sequenceWindow.EntityData.SegmentPath = "sequence-window" + types.AddNoKeyToken(sequenceWindow)
+    sequenceWindow.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/authentication-details/authentication-detail/direction-info/receive-info/" + sequenceWindow.EntityData.SegmentPath
     sequenceWindow.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sequenceWindow.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sequenceWindow.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6783,6 +6979,7 @@ func (rsbBriefs *RsvpStandby_RsbBriefs) GetEntityData() *types.CommonEntityData 
     rsbBriefs.EntityData.BundleName = "cisco_ios_xr"
     rsbBriefs.EntityData.ParentYangName = "rsvp-standby"
     rsbBriefs.EntityData.SegmentPath = "rsb-briefs"
+    rsbBriefs.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/" + rsbBriefs.EntityData.SegmentPath
     rsbBriefs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rsbBriefs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rsbBriefs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6790,6 +6987,7 @@ func (rsbBriefs *RsvpStandby_RsbBriefs) GetEntityData() *types.CommonEntityData 
     rsbBriefs.EntityData.Children = types.NewOrderedMap()
     rsbBriefs.EntityData.Children.Append("rsb-brief", types.YChild{"RsbBrief", nil})
     for i := range rsbBriefs.RsbBrief {
+        types.SetYListKey(rsbBriefs.RsbBrief[i], i)
         rsbBriefs.EntityData.Children.Append(types.GetSegmentPath(rsbBriefs.RsbBrief[i]), types.YChild{"RsbBrief", rsbBriefs.RsbBrief[i]})
     }
     rsbBriefs.EntityData.Leafs = types.NewOrderedMap()
@@ -6804,6 +7002,7 @@ func (rsbBriefs *RsvpStandby_RsbBriefs) GetEntityData() *types.CommonEntityData 
 type RsvpStandby_RsbBriefs_RsbBrief struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Destination Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -6869,7 +7068,8 @@ func (rsbBrief *RsvpStandby_RsbBriefs_RsbBrief) GetEntityData() *types.CommonEnt
     rsbBrief.EntityData.YangName = "rsb-brief"
     rsbBrief.EntityData.BundleName = "cisco_ios_xr"
     rsbBrief.EntityData.ParentYangName = "rsb-briefs"
-    rsbBrief.EntityData.SegmentPath = "rsb-brief"
+    rsbBrief.EntityData.SegmentPath = "rsb-brief" + types.AddNoKeyToken(rsbBrief)
+    rsbBrief.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/rsb-briefs/" + rsbBrief.EntityData.SegmentPath
     rsbBrief.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rsbBrief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rsbBrief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6916,6 +7116,7 @@ func (session *RsvpStandby_RsbBriefs_RsbBrief_Session) GetEntityData() *types.Co
     session.EntityData.BundleName = "cisco_ios_xr"
     session.EntityData.ParentYangName = "rsb-brief"
     session.EntityData.SegmentPath = "session"
+    session.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/rsb-briefs/rsb-brief/" + session.EntityData.SegmentPath
     session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6957,6 +7158,7 @@ func (rsvpSession *RsvpStandby_RsbBriefs_RsbBrief_Session_RsvpSession) GetEntity
     rsvpSession.EntityData.BundleName = "cisco_ios_xr"
     rsvpSession.EntityData.ParentYangName = "session"
     rsvpSession.EntityData.SegmentPath = "rsvp-session"
+    rsvpSession.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/rsb-briefs/rsb-brief/session/" + rsvpSession.EntityData.SegmentPath
     rsvpSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rsvpSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rsvpSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6998,6 +7200,7 @@ func (ipv4 *RsvpStandby_RsbBriefs_RsbBrief_Session_RsvpSession_Ipv4) GetEntityDa
     ipv4.EntityData.BundleName = "cisco_ios_xr"
     ipv4.EntityData.ParentYangName = "rsvp-session"
     ipv4.EntityData.SegmentPath = "ipv4"
+    ipv4.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/rsb-briefs/rsb-brief/session/rsvp-session/" + ipv4.EntityData.SegmentPath
     ipv4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7037,6 +7240,7 @@ func (ipv4LspSession *RsvpStandby_RsbBriefs_RsbBrief_Session_RsvpSession_Ipv4Lsp
     ipv4LspSession.EntityData.BundleName = "cisco_ios_xr"
     ipv4LspSession.EntityData.ParentYangName = "rsvp-session"
     ipv4LspSession.EntityData.SegmentPath = "ipv4-lsp-session"
+    ipv4LspSession.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/rsb-briefs/rsb-brief/session/rsvp-session/" + ipv4LspSession.EntityData.SegmentPath
     ipv4LspSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4LspSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4LspSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7076,6 +7280,7 @@ func (ipv4UniSession *RsvpStandby_RsbBriefs_RsbBrief_Session_RsvpSession_Ipv4Uni
     ipv4UniSession.EntityData.BundleName = "cisco_ios_xr"
     ipv4UniSession.EntityData.ParentYangName = "rsvp-session"
     ipv4UniSession.EntityData.SegmentPath = "ipv4-uni-session"
+    ipv4UniSession.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/rsb-briefs/rsb-brief/session/rsvp-session/" + ipv4UniSession.EntityData.SegmentPath
     ipv4UniSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4UniSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4UniSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7115,6 +7320,7 @@ func (ipv4P2mpLspSession *RsvpStandby_RsbBriefs_RsbBrief_Session_RsvpSession_Ipv
     ipv4P2mpLspSession.EntityData.BundleName = "cisco_ios_xr"
     ipv4P2mpLspSession.EntityData.ParentYangName = "rsvp-session"
     ipv4P2mpLspSession.EntityData.SegmentPath = "ipv4-p2mp-lsp-session"
+    ipv4P2mpLspSession.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/rsb-briefs/rsb-brief/session/rsvp-session/" + ipv4P2mpLspSession.EntityData.SegmentPath
     ipv4P2mpLspSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4P2mpLspSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4P2mpLspSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7147,6 +7353,7 @@ func (s2lSubLsp *RsvpStandby_RsbBriefs_RsbBrief_S2lSubLsp) GetEntityData() *type
     s2lSubLsp.EntityData.BundleName = "cisco_ios_xr"
     s2lSubLsp.EntityData.ParentYangName = "rsb-brief"
     s2lSubLsp.EntityData.SegmentPath = "s2l-sub-lsp"
+    s2lSubLsp.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/rsb-briefs/rsb-brief/" + s2lSubLsp.EntityData.SegmentPath
     s2lSubLsp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     s2lSubLsp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     s2lSubLsp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7201,6 +7408,7 @@ func (flowSpec *RsvpStandby_RsbBriefs_RsbBrief_FlowSpec) GetEntityData() *types.
     flowSpec.EntityData.BundleName = "cisco_ios_xr"
     flowSpec.EntityData.ParentYangName = "rsb-brief"
     flowSpec.EntityData.SegmentPath = "flow-spec"
+    flowSpec.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/rsb-briefs/rsb-brief/" + flowSpec.EntityData.SegmentPath
     flowSpec.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     flowSpec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     flowSpec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7240,6 +7448,7 @@ func (genericFlowSpec *RsvpStandby_RsbBriefs_RsbBrief_GenericFlowSpec) GetEntity
     genericFlowSpec.EntityData.BundleName = "cisco_ios_xr"
     genericFlowSpec.EntityData.ParentYangName = "rsb-brief"
     genericFlowSpec.EntityData.SegmentPath = "generic-flow-spec"
+    genericFlowSpec.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/rsb-briefs/rsb-brief/" + genericFlowSpec.EntityData.SegmentPath
     genericFlowSpec.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     genericFlowSpec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     genericFlowSpec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7281,6 +7490,7 @@ func (g709otnFlowSpec *RsvpStandby_RsbBriefs_RsbBrief_GenericFlowSpec_G709otnFlo
     g709otnFlowSpec.EntityData.BundleName = "cisco_ios_xr"
     g709otnFlowSpec.EntityData.ParentYangName = "generic-flow-spec"
     g709otnFlowSpec.EntityData.SegmentPath = "g709otn-flow-spec"
+    g709otnFlowSpec.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/rsb-briefs/rsb-brief/generic-flow-spec/" + g709otnFlowSpec.EntityData.SegmentPath
     g709otnFlowSpec.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     g709otnFlowSpec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     g709otnFlowSpec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7314,6 +7524,7 @@ func (style *RsvpStandby_RsbBriefs_RsbBrief_Style) GetEntityData() *types.Common
     style.EntityData.BundleName = "cisco_ios_xr"
     style.EntityData.ParentYangName = "rsb-brief"
     style.EntityData.SegmentPath = "style"
+    style.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/rsb-briefs/rsb-brief/" + style.EntityData.SegmentPath
     style.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     style.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     style.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7343,6 +7554,7 @@ func (filter *RsvpStandby_RsbBriefs_RsbBrief_Filter) GetEntityData() *types.Comm
     filter.EntityData.BundleName = "cisco_ios_xr"
     filter.EntityData.ParentYangName = "rsb-brief"
     filter.EntityData.SegmentPath = "filter"
+    filter.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/rsb-briefs/rsb-brief/" + filter.EntityData.SegmentPath
     filter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     filter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     filter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7378,6 +7590,7 @@ func (rsvpFilter *RsvpStandby_RsbBriefs_RsbBrief_Filter_RsvpFilter) GetEntityDat
     rsvpFilter.EntityData.BundleName = "cisco_ios_xr"
     rsvpFilter.EntityData.ParentYangName = "filter"
     rsvpFilter.EntityData.SegmentPath = "rsvp-filter"
+    rsvpFilter.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/rsb-briefs/rsb-brief/filter/" + rsvpFilter.EntityData.SegmentPath
     rsvpFilter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rsvpFilter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rsvpFilter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7413,6 +7626,7 @@ func (udpIpv4Session *RsvpStandby_RsbBriefs_RsbBrief_Filter_RsvpFilter_UdpIpv4Se
     udpIpv4Session.EntityData.BundleName = "cisco_ios_xr"
     udpIpv4Session.EntityData.ParentYangName = "rsvp-filter"
     udpIpv4Session.EntityData.SegmentPath = "udp-ipv4-session"
+    udpIpv4Session.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/rsb-briefs/rsb-brief/filter/rsvp-filter/" + udpIpv4Session.EntityData.SegmentPath
     udpIpv4Session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     udpIpv4Session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     udpIpv4Session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7455,6 +7669,7 @@ func (p2mpIpv4Session *RsvpStandby_RsbBriefs_RsbBrief_Filter_RsvpFilter_P2mpIpv4
     p2mpIpv4Session.EntityData.BundleName = "cisco_ios_xr"
     p2mpIpv4Session.EntityData.ParentYangName = "rsvp-filter"
     p2mpIpv4Session.EntityData.SegmentPath = "p2mp-ipv4-session"
+    p2mpIpv4Session.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/rsb-briefs/rsb-brief/filter/rsvp-filter/" + p2mpIpv4Session.EntityData.SegmentPath
     p2mpIpv4Session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     p2mpIpv4Session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     p2mpIpv4Session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7511,6 +7726,7 @@ func (counters *RsvpStandby_Counters) GetEntityData() *types.CommonEntityData {
     counters.EntityData.BundleName = "cisco_ios_xr"
     counters.EntityData.ParentYangName = "rsvp-standby"
     counters.EntityData.SegmentPath = "counters"
+    counters.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/" + counters.EntityData.SegmentPath
     counters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     counters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     counters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7549,6 +7765,7 @@ func (interfaceMessages *RsvpStandby_Counters_InterfaceMessages) GetEntityData()
     interfaceMessages.EntityData.BundleName = "cisco_ios_xr"
     interfaceMessages.EntityData.ParentYangName = "counters"
     interfaceMessages.EntityData.SegmentPath = "interface-messages"
+    interfaceMessages.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/counters/" + interfaceMessages.EntityData.SegmentPath
     interfaceMessages.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceMessages.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceMessages.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7570,6 +7787,7 @@ func (interfaceMessages *RsvpStandby_Counters_InterfaceMessages) GetEntityData()
 type RsvpStandby_Counters_InterfaceMessages_InterfaceMessage struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface Name. 'None' is used internally where
     // the true interface is unknown (e.g. for routed packets). The type is string
@@ -7607,6 +7825,7 @@ func (interfaceMessage *RsvpStandby_Counters_InterfaceMessages_InterfaceMessage)
     interfaceMessage.EntityData.BundleName = "cisco_ios_xr"
     interfaceMessage.EntityData.ParentYangName = "interface-messages"
     interfaceMessage.EntityData.SegmentPath = "interface-message" + types.AddKeyToken(interfaceMessage.InterfaceName, "interface-name")
+    interfaceMessage.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/counters/interface-messages/" + interfaceMessage.EntityData.SegmentPath
     interfaceMessage.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceMessage.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceMessage.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7689,6 +7908,7 @@ func (receivedMessages *RsvpStandby_Counters_InterfaceMessages_InterfaceMessage_
     receivedMessages.EntityData.BundleName = "cisco_ios_xr"
     receivedMessages.EntityData.ParentYangName = "interface-message"
     receivedMessages.EntityData.SegmentPath = "received-messages"
+    receivedMessages.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/counters/interface-messages/interface-message/" + receivedMessages.EntityData.SegmentPath
     receivedMessages.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     receivedMessages.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivedMessages.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7776,6 +7996,7 @@ func (transmittedMessages *RsvpStandby_Counters_InterfaceMessages_InterfaceMessa
     transmittedMessages.EntityData.BundleName = "cisco_ios_xr"
     transmittedMessages.EntityData.ParentYangName = "interface-message"
     transmittedMessages.EntityData.SegmentPath = "transmitted-messages"
+    transmittedMessages.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/counters/interface-messages/interface-message/" + transmittedMessages.EntityData.SegmentPath
     transmittedMessages.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     transmittedMessages.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transmittedMessages.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7863,6 +8084,7 @@ func (bundleReceivedMessages *RsvpStandby_Counters_InterfaceMessages_InterfaceMe
     bundleReceivedMessages.EntityData.BundleName = "cisco_ios_xr"
     bundleReceivedMessages.EntityData.ParentYangName = "interface-message"
     bundleReceivedMessages.EntityData.SegmentPath = "bundle-received-messages"
+    bundleReceivedMessages.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/counters/interface-messages/interface-message/" + bundleReceivedMessages.EntityData.SegmentPath
     bundleReceivedMessages.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundleReceivedMessages.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundleReceivedMessages.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7950,6 +8172,7 @@ func (bundleTransmittedMessages *RsvpStandby_Counters_InterfaceMessages_Interfac
     bundleTransmittedMessages.EntityData.BundleName = "cisco_ios_xr"
     bundleTransmittedMessages.EntityData.ParentYangName = "interface-message"
     bundleTransmittedMessages.EntityData.SegmentPath = "bundle-transmitted-messages"
+    bundleTransmittedMessages.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/counters/interface-messages/interface-message/" + bundleTransmittedMessages.EntityData.SegmentPath
     bundleTransmittedMessages.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundleTransmittedMessages.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundleTransmittedMessages.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8013,6 +8236,7 @@ func (messageSummary *RsvpStandby_Counters_MessageSummary) GetEntityData() *type
     messageSummary.EntityData.BundleName = "cisco_ios_xr"
     messageSummary.EntityData.ParentYangName = "counters"
     messageSummary.EntityData.SegmentPath = "message-summary"
+    messageSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/counters/" + messageSummary.EntityData.SegmentPath
     messageSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     messageSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     messageSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8094,6 +8318,7 @@ func (receivedMessages *RsvpStandby_Counters_MessageSummary_ReceivedMessages) Ge
     receivedMessages.EntityData.BundleName = "cisco_ios_xr"
     receivedMessages.EntityData.ParentYangName = "message-summary"
     receivedMessages.EntityData.SegmentPath = "received-messages"
+    receivedMessages.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/counters/message-summary/" + receivedMessages.EntityData.SegmentPath
     receivedMessages.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     receivedMessages.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivedMessages.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8181,6 +8406,7 @@ func (transmittedMessages *RsvpStandby_Counters_MessageSummary_TransmittedMessag
     transmittedMessages.EntityData.BundleName = "cisco_ios_xr"
     transmittedMessages.EntityData.ParentYangName = "message-summary"
     transmittedMessages.EntityData.SegmentPath = "transmitted-messages"
+    transmittedMessages.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/counters/message-summary/" + transmittedMessages.EntityData.SegmentPath
     transmittedMessages.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     transmittedMessages.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transmittedMessages.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8268,6 +8494,7 @@ func (bundleReceivedMessages *RsvpStandby_Counters_MessageSummary_BundleReceived
     bundleReceivedMessages.EntityData.BundleName = "cisco_ios_xr"
     bundleReceivedMessages.EntityData.ParentYangName = "message-summary"
     bundleReceivedMessages.EntityData.SegmentPath = "bundle-received-messages"
+    bundleReceivedMessages.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/counters/message-summary/" + bundleReceivedMessages.EntityData.SegmentPath
     bundleReceivedMessages.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundleReceivedMessages.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundleReceivedMessages.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8355,6 +8582,7 @@ func (bundleTransmittedMessages *RsvpStandby_Counters_MessageSummary_BundleTrans
     bundleTransmittedMessages.EntityData.BundleName = "cisco_ios_xr"
     bundleTransmittedMessages.EntityData.ParentYangName = "message-summary"
     bundleTransmittedMessages.EntityData.SegmentPath = "bundle-transmitted-messages"
+    bundleTransmittedMessages.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/counters/message-summary/" + bundleTransmittedMessages.EntityData.SegmentPath
     bundleTransmittedMessages.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundleTransmittedMessages.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundleTransmittedMessages.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8399,6 +8627,7 @@ func (prefixFiltering *RsvpStandby_Counters_PrefixFiltering) GetEntityData() *ty
     prefixFiltering.EntityData.BundleName = "cisco_ios_xr"
     prefixFiltering.EntityData.ParentYangName = "counters"
     prefixFiltering.EntityData.SegmentPath = "prefix-filtering"
+    prefixFiltering.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/counters/" + prefixFiltering.EntityData.SegmentPath
     prefixFiltering.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefixFiltering.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefixFiltering.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8430,6 +8659,7 @@ func (accesses *RsvpStandby_Counters_PrefixFiltering_Accesses) GetEntityData() *
     accesses.EntityData.BundleName = "cisco_ios_xr"
     accesses.EntityData.ParentYangName = "prefix-filtering"
     accesses.EntityData.SegmentPath = "accesses"
+    accesses.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/counters/prefix-filtering/" + accesses.EntityData.SegmentPath
     accesses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     accesses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accesses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8452,6 +8682,7 @@ func (accesses *RsvpStandby_Counters_PrefixFiltering_Accesses) GetEntityData() *
 type RsvpStandby_Counters_PrefixFiltering_Accesses_Access struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. AccessList Name. The type is string with length:
     // 1..65.
@@ -8476,6 +8707,7 @@ func (access *RsvpStandby_Counters_PrefixFiltering_Accesses_Access) GetEntityDat
     access.EntityData.BundleName = "cisco_ios_xr"
     access.EntityData.ParentYangName = "accesses"
     access.EntityData.SegmentPath = "access" + types.AddKeyToken(access.AccessListName, "access-list-name")
+    access.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/counters/prefix-filtering/accesses/" + access.EntityData.SegmentPath
     access.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     access.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     access.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8520,6 +8752,7 @@ func (forwarded *RsvpStandby_Counters_PrefixFiltering_Accesses_Access_Forwarded)
     forwarded.EntityData.BundleName = "cisco_ios_xr"
     forwarded.EntityData.ParentYangName = "access"
     forwarded.EntityData.SegmentPath = "forwarded"
+    forwarded.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/counters/prefix-filtering/accesses/access/" + forwarded.EntityData.SegmentPath
     forwarded.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     forwarded.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     forwarded.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8563,6 +8796,7 @@ func (locallyDestined *RsvpStandby_Counters_PrefixFiltering_Accesses_Access_Loca
     locallyDestined.EntityData.BundleName = "cisco_ios_xr"
     locallyDestined.EntityData.ParentYangName = "access"
     locallyDestined.EntityData.SegmentPath = "locally-destined"
+    locallyDestined.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/counters/prefix-filtering/accesses/access/" + locallyDestined.EntityData.SegmentPath
     locallyDestined.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     locallyDestined.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     locallyDestined.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8606,6 +8840,7 @@ func (dropped *RsvpStandby_Counters_PrefixFiltering_Accesses_Access_Dropped) Get
     dropped.EntityData.BundleName = "cisco_ios_xr"
     dropped.EntityData.ParentYangName = "access"
     dropped.EntityData.SegmentPath = "dropped"
+    dropped.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/counters/prefix-filtering/accesses/access/" + dropped.EntityData.SegmentPath
     dropped.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dropped.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dropped.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8649,6 +8884,7 @@ func (total *RsvpStandby_Counters_PrefixFiltering_Accesses_Access_Total) GetEnti
     total.EntityData.BundleName = "cisco_ios_xr"
     total.EntityData.ParentYangName = "access"
     total.EntityData.SegmentPath = "total"
+    total.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/counters/prefix-filtering/accesses/access/" + total.EntityData.SegmentPath
     total.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     total.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     total.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8684,6 +8920,7 @@ func (interfaces *RsvpStandby_Counters_PrefixFiltering_Interfaces) GetEntityData
     interfaces.EntityData.BundleName = "cisco_ios_xr"
     interfaces.EntityData.ParentYangName = "prefix-filtering"
     interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/counters/prefix-filtering/" + interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8730,6 +8967,7 @@ func (summary *RsvpStandby_Counters_PrefixFiltering_Interfaces_Summary) GetEntit
     summary.EntityData.BundleName = "cisco_ios_xr"
     summary.EntityData.ParentYangName = "interfaces"
     summary.EntityData.SegmentPath = "summary"
+    summary.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/counters/prefix-filtering/interfaces/" + summary.EntityData.SegmentPath
     summary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     summary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     summary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8775,6 +9013,7 @@ func (forwarded *RsvpStandby_Counters_PrefixFiltering_Interfaces_Summary_Forward
     forwarded.EntityData.BundleName = "cisco_ios_xr"
     forwarded.EntityData.ParentYangName = "summary"
     forwarded.EntityData.SegmentPath = "forwarded"
+    forwarded.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/counters/prefix-filtering/interfaces/summary/" + forwarded.EntityData.SegmentPath
     forwarded.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     forwarded.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     forwarded.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8818,6 +9057,7 @@ func (locallyDestined *RsvpStandby_Counters_PrefixFiltering_Interfaces_Summary_L
     locallyDestined.EntityData.BundleName = "cisco_ios_xr"
     locallyDestined.EntityData.ParentYangName = "summary"
     locallyDestined.EntityData.SegmentPath = "locally-destined"
+    locallyDestined.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/counters/prefix-filtering/interfaces/summary/" + locallyDestined.EntityData.SegmentPath
     locallyDestined.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     locallyDestined.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     locallyDestined.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8861,6 +9101,7 @@ func (dropped *RsvpStandby_Counters_PrefixFiltering_Interfaces_Summary_Dropped) 
     dropped.EntityData.BundleName = "cisco_ios_xr"
     dropped.EntityData.ParentYangName = "summary"
     dropped.EntityData.SegmentPath = "dropped"
+    dropped.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/counters/prefix-filtering/interfaces/summary/" + dropped.EntityData.SegmentPath
     dropped.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dropped.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dropped.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8905,6 +9146,7 @@ func (defaultActionDropped *RsvpStandby_Counters_PrefixFiltering_Interfaces_Summ
     defaultActionDropped.EntityData.BundleName = "cisco_ios_xr"
     defaultActionDropped.EntityData.ParentYangName = "summary"
     defaultActionDropped.EntityData.SegmentPath = "default-action-dropped"
+    defaultActionDropped.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/counters/prefix-filtering/interfaces/summary/" + defaultActionDropped.EntityData.SegmentPath
     defaultActionDropped.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     defaultActionDropped.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     defaultActionDropped.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8949,6 +9191,7 @@ func (defaultActionProcessed *RsvpStandby_Counters_PrefixFiltering_Interfaces_Su
     defaultActionProcessed.EntityData.BundleName = "cisco_ios_xr"
     defaultActionProcessed.EntityData.ParentYangName = "summary"
     defaultActionProcessed.EntityData.SegmentPath = "default-action-processed"
+    defaultActionProcessed.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/counters/prefix-filtering/interfaces/summary/" + defaultActionProcessed.EntityData.SegmentPath
     defaultActionProcessed.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     defaultActionProcessed.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     defaultActionProcessed.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8992,6 +9235,7 @@ func (total *RsvpStandby_Counters_PrefixFiltering_Interfaces_Summary_Total) GetE
     total.EntityData.BundleName = "cisco_ios_xr"
     total.EntityData.ParentYangName = "summary"
     total.EntityData.SegmentPath = "total"
+    total.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/counters/prefix-filtering/interfaces/summary/" + total.EntityData.SegmentPath
     total.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     total.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     total.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9026,6 +9270,7 @@ func (interfaces *RsvpStandby_Counters_PrefixFiltering_Interfaces_Interfaces) Ge
     interfaces.EntityData.BundleName = "cisco_ios_xr"
     interfaces.EntityData.ParentYangName = "interfaces"
     interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/counters/prefix-filtering/interfaces/" + interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9048,6 +9293,7 @@ func (interfaces *RsvpStandby_Counters_PrefixFiltering_Interfaces_Interfaces) Ge
 type RsvpStandby_Counters_PrefixFiltering_Interfaces_Interfaces_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface Name. 'None' is used internally where
     // the true interface is unknown (e.g. for routed packets). The type is string
@@ -9079,6 +9325,7 @@ func (self *RsvpStandby_Counters_PrefixFiltering_Interfaces_Interfaces_Interface
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/counters/prefix-filtering/interfaces/interfaces/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9125,6 +9372,7 @@ func (forwarded *RsvpStandby_Counters_PrefixFiltering_Interfaces_Interfaces_Inte
     forwarded.EntityData.BundleName = "cisco_ios_xr"
     forwarded.EntityData.ParentYangName = "interface"
     forwarded.EntityData.SegmentPath = "forwarded"
+    forwarded.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/counters/prefix-filtering/interfaces/interfaces/interface/" + forwarded.EntityData.SegmentPath
     forwarded.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     forwarded.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     forwarded.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9168,6 +9416,7 @@ func (locallyDestined *RsvpStandby_Counters_PrefixFiltering_Interfaces_Interface
     locallyDestined.EntityData.BundleName = "cisco_ios_xr"
     locallyDestined.EntityData.ParentYangName = "interface"
     locallyDestined.EntityData.SegmentPath = "locally-destined"
+    locallyDestined.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/counters/prefix-filtering/interfaces/interfaces/interface/" + locallyDestined.EntityData.SegmentPath
     locallyDestined.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     locallyDestined.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     locallyDestined.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9211,6 +9460,7 @@ func (dropped *RsvpStandby_Counters_PrefixFiltering_Interfaces_Interfaces_Interf
     dropped.EntityData.BundleName = "cisco_ios_xr"
     dropped.EntityData.ParentYangName = "interface"
     dropped.EntityData.SegmentPath = "dropped"
+    dropped.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/counters/prefix-filtering/interfaces/interfaces/interface/" + dropped.EntityData.SegmentPath
     dropped.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dropped.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dropped.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9255,6 +9505,7 @@ func (defaultActionDropped *RsvpStandby_Counters_PrefixFiltering_Interfaces_Inte
     defaultActionDropped.EntityData.BundleName = "cisco_ios_xr"
     defaultActionDropped.EntityData.ParentYangName = "interface"
     defaultActionDropped.EntityData.SegmentPath = "default-action-dropped"
+    defaultActionDropped.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/counters/prefix-filtering/interfaces/interfaces/interface/" + defaultActionDropped.EntityData.SegmentPath
     defaultActionDropped.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     defaultActionDropped.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     defaultActionDropped.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9299,6 +9550,7 @@ func (defaultActionProcessed *RsvpStandby_Counters_PrefixFiltering_Interfaces_In
     defaultActionProcessed.EntityData.BundleName = "cisco_ios_xr"
     defaultActionProcessed.EntityData.ParentYangName = "interface"
     defaultActionProcessed.EntityData.SegmentPath = "default-action-processed"
+    defaultActionProcessed.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/counters/prefix-filtering/interfaces/interfaces/interface/" + defaultActionProcessed.EntityData.SegmentPath
     defaultActionProcessed.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     defaultActionProcessed.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     defaultActionProcessed.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9342,6 +9594,7 @@ func (total *RsvpStandby_Counters_PrefixFiltering_Interfaces_Interfaces_Interfac
     total.EntityData.BundleName = "cisco_ios_xr"
     total.EntityData.ParentYangName = "interface"
     total.EntityData.SegmentPath = "total"
+    total.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/counters/prefix-filtering/interfaces/interfaces/interface/" + total.EntityData.SegmentPath
     total.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     total.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     total.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9374,6 +9627,7 @@ func (outOfResource *RsvpStandby_Counters_OutOfResource) GetEntityData() *types.
     outOfResource.EntityData.BundleName = "cisco_ios_xr"
     outOfResource.EntityData.ParentYangName = "counters"
     outOfResource.EntityData.SegmentPath = "out-of-resource"
+    outOfResource.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/counters/" + outOfResource.EntityData.SegmentPath
     outOfResource.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     outOfResource.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outOfResource.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9406,6 +9660,7 @@ func (interfaces *RsvpStandby_Counters_OutOfResource_Interfaces) GetEntityData()
     interfaces.EntityData.BundleName = "cisco_ios_xr"
     interfaces.EntityData.ParentYangName = "out-of-resource"
     interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/counters/out-of-resource/" + interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9438,6 +9693,7 @@ func (summary *RsvpStandby_Counters_OutOfResource_Interfaces_Summary) GetEntityD
     summary.EntityData.BundleName = "cisco_ios_xr"
     summary.EntityData.ParentYangName = "interfaces"
     summary.EntityData.SegmentPath = "summary"
+    summary.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/counters/out-of-resource/interfaces/" + summary.EntityData.SegmentPath
     summary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     summary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     summary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9469,6 +9725,7 @@ func (interfaces *RsvpStandby_Counters_OutOfResource_Interfaces_Interfaces) GetE
     interfaces.EntityData.BundleName = "cisco_ios_xr"
     interfaces.EntityData.ParentYangName = "interfaces"
     interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/counters/out-of-resource/interfaces/" + interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9491,6 +9748,7 @@ func (interfaces *RsvpStandby_Counters_OutOfResource_Interfaces_Interfaces) GetE
 type RsvpStandby_Counters_OutOfResource_Interfaces_Interfaces_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface Name. 'None' is used internally where
     // the true interface is unknown (e.g. for routed packets). The type is string
@@ -9508,6 +9766,7 @@ func (self *RsvpStandby_Counters_OutOfResource_Interfaces_Interfaces_Interface) 
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/counters/out-of-resource/interfaces/interfaces/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9539,6 +9798,7 @@ func (interfaceEvents *RsvpStandby_Counters_InterfaceEvents) GetEntityData() *ty
     interfaceEvents.EntityData.BundleName = "cisco_ios_xr"
     interfaceEvents.EntityData.ParentYangName = "counters"
     interfaceEvents.EntityData.SegmentPath = "interface-events"
+    interfaceEvents.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/counters/" + interfaceEvents.EntityData.SegmentPath
     interfaceEvents.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceEvents.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceEvents.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9560,6 +9820,7 @@ func (interfaceEvents *RsvpStandby_Counters_InterfaceEvents) GetEntityData() *ty
 type RsvpStandby_Counters_InterfaceEvents_InterfaceEvent struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface Name. 'None' is used internally where
     // the true interface is unknown (e.g. for routed packets). The type is string
@@ -9585,6 +9846,7 @@ func (interfaceEvent *RsvpStandby_Counters_InterfaceEvents_InterfaceEvent) GetEn
     interfaceEvent.EntityData.BundleName = "cisco_ios_xr"
     interfaceEvent.EntityData.ParentYangName = "interface-events"
     interfaceEvent.EntityData.SegmentPath = "interface-event" + types.AddKeyToken(interfaceEvent.InterfaceName, "interface-name")
+    interfaceEvent.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/counters/interface-events/" + interfaceEvent.EntityData.SegmentPath
     interfaceEvent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceEvent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceEvent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9640,6 +9902,7 @@ func (nsr *RsvpStandby_Counters_Nsr) GetEntityData() *types.CommonEntityData {
     nsr.EntityData.BundleName = "cisco_ios_xr"
     nsr.EntityData.ParentYangName = "counters"
     nsr.EntityData.SegmentPath = "nsr"
+    nsr.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/counters/" + nsr.EntityData.SegmentPath
     nsr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nsr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nsr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9698,6 +9961,7 @@ func (issu *RsvpStandby_Counters_Issu) GetEntityData() *types.CommonEntityData {
     issu.EntityData.BundleName = "cisco_ios_xr"
     issu.EntityData.ParentYangName = "counters"
     issu.EntityData.SegmentPath = "issu"
+    issu.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/counters/" + issu.EntityData.SegmentPath
     issu.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     issu.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     issu.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9753,6 +10017,7 @@ func (database *RsvpStandby_Counters_Database) GetEntityData() *types.CommonEnti
     database.EntityData.BundleName = "cisco_ios_xr"
     database.EntityData.ParentYangName = "counters"
     database.EntityData.SegmentPath = "database"
+    database.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/counters/" + database.EntityData.SegmentPath
     database.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     database.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     database.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9788,6 +10053,7 @@ func (eventSyncs *RsvpStandby_Counters_EventSyncs) GetEntityData() *types.Common
     eventSyncs.EntityData.BundleName = "cisco_ios_xr"
     eventSyncs.EntityData.ParentYangName = "counters"
     eventSyncs.EntityData.SegmentPath = "event-syncs"
+    eventSyncs.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/counters/" + eventSyncs.EntityData.SegmentPath
     eventSyncs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eventSyncs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eventSyncs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9809,6 +10075,7 @@ func (eventSyncs *RsvpStandby_Counters_EventSyncs) GetEntityData() *types.Common
 type RsvpStandby_Counters_EventSyncs_EventSync struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface Name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -9833,6 +10100,7 @@ func (eventSync *RsvpStandby_Counters_EventSyncs_EventSync) GetEntityData() *typ
     eventSync.EntityData.BundleName = "cisco_ios_xr"
     eventSync.EntityData.ParentYangName = "event-syncs"
     eventSync.EntityData.SegmentPath = "event-sync" + types.AddKeyToken(eventSync.InterfaceName, "interface-name")
+    eventSync.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/counters/event-syncs/" + eventSync.EntityData.SegmentPath
     eventSync.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eventSync.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eventSync.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9867,6 +10135,7 @@ func (interfaceDetaileds *RsvpStandby_InterfaceDetaileds) GetEntityData() *types
     interfaceDetaileds.EntityData.BundleName = "cisco_ios_xr"
     interfaceDetaileds.EntityData.ParentYangName = "rsvp-standby"
     interfaceDetaileds.EntityData.SegmentPath = "interface-detaileds"
+    interfaceDetaileds.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/" + interfaceDetaileds.EntityData.SegmentPath
     interfaceDetaileds.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceDetaileds.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceDetaileds.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9888,6 +10157,7 @@ func (interfaceDetaileds *RsvpStandby_InterfaceDetaileds) GetEntityData() *types
 type RsvpStandby_InterfaceDetaileds_InterfaceDetailed struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface Name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -9993,6 +10263,7 @@ func (interfaceDetailed *RsvpStandby_InterfaceDetaileds_InterfaceDetailed) GetEn
     interfaceDetailed.EntityData.BundleName = "cisco_ios_xr"
     interfaceDetailed.EntityData.ParentYangName = "interface-detaileds"
     interfaceDetailed.EntityData.SegmentPath = "interface-detailed" + types.AddKeyToken(interfaceDetailed.InterfaceName, "interface-name")
+    interfaceDetailed.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/interface-detaileds/" + interfaceDetailed.EntityData.SegmentPath
     interfaceDetailed.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceDetailed.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceDetailed.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10002,6 +10273,7 @@ func (interfaceDetailed *RsvpStandby_InterfaceDetaileds_InterfaceDetailed) GetEn
     interfaceDetailed.EntityData.Children.Append("flags", types.YChild{"Flags", &interfaceDetailed.Flags})
     interfaceDetailed.EntityData.Children.Append("neighbor-array", types.YChild{"NeighborArray", nil})
     for i := range interfaceDetailed.NeighborArray {
+        types.SetYListKey(interfaceDetailed.NeighborArray[i], i)
         interfaceDetailed.EntityData.Children.Append(types.GetSegmentPath(interfaceDetailed.NeighborArray[i]), types.YChild{"NeighborArray", interfaceDetailed.NeighborArray[i]})
     }
     interfaceDetailed.EntityData.Leafs = types.NewOrderedMap()
@@ -10057,6 +10329,7 @@ func (bandwidthInformation *RsvpStandby_InterfaceDetaileds_InterfaceDetailed_Ban
     bandwidthInformation.EntityData.BundleName = "cisco_ios_xr"
     bandwidthInformation.EntityData.ParentYangName = "interface-detailed"
     bandwidthInformation.EntityData.SegmentPath = "bandwidth-information"
+    bandwidthInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/interface-detaileds/interface-detailed/" + bandwidthInformation.EntityData.SegmentPath
     bandwidthInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bandwidthInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bandwidthInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10109,6 +10382,7 @@ func (preStandardDsteInterface *RsvpStandby_InterfaceDetaileds_InterfaceDetailed
     preStandardDsteInterface.EntityData.BundleName = "cisco_ios_xr"
     preStandardDsteInterface.EntityData.ParentYangName = "bandwidth-information"
     preStandardDsteInterface.EntityData.SegmentPath = "pre-standard-dste-interface"
+    preStandardDsteInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/interface-detaileds/interface-detailed/bandwidth-information/" + preStandardDsteInterface.EntityData.SegmentPath
     preStandardDsteInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     preStandardDsteInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     preStandardDsteInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10172,6 +10446,7 @@ func (standardDsteInterface *RsvpStandby_InterfaceDetaileds_InterfaceDetailed_Ba
     standardDsteInterface.EntityData.BundleName = "cisco_ios_xr"
     standardDsteInterface.EntityData.ParentYangName = "bandwidth-information"
     standardDsteInterface.EntityData.SegmentPath = "standard-dste-interface"
+    standardDsteInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/interface-detaileds/interface-detailed/bandwidth-information/" + standardDsteInterface.EntityData.SegmentPath
     standardDsteInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     standardDsteInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     standardDsteInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10241,6 +10516,7 @@ func (flags *RsvpStandby_InterfaceDetaileds_InterfaceDetailed_Flags) GetEntityDa
     flags.EntityData.BundleName = "cisco_ios_xr"
     flags.EntityData.ParentYangName = "interface-detailed"
     flags.EntityData.SegmentPath = "flags"
+    flags.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/interface-detaileds/interface-detailed/" + flags.EntityData.SegmentPath
     flags.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     flags.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     flags.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10270,6 +10546,7 @@ func (flags *RsvpStandby_InterfaceDetaileds_InterfaceDetailed_Flags) GetEntityDa
 type RsvpStandby_InterfaceDetaileds_InterfaceDetailed_NeighborArray struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Is neighbor capable of Refresh Reduction. The type is bool.
     IsNeighborRefreshReductionCapable interface{}
@@ -10298,7 +10575,8 @@ func (neighborArray *RsvpStandby_InterfaceDetaileds_InterfaceDetailed_NeighborAr
     neighborArray.EntityData.YangName = "neighbor-array"
     neighborArray.EntityData.BundleName = "cisco_ios_xr"
     neighborArray.EntityData.ParentYangName = "interface-detailed"
-    neighborArray.EntityData.SegmentPath = "neighbor-array"
+    neighborArray.EntityData.SegmentPath = "neighbor-array" + types.AddNoKeyToken(neighborArray)
+    neighborArray.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/interface-detaileds/interface-detailed/" + neighborArray.EntityData.SegmentPath
     neighborArray.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighborArray.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborArray.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10307,6 +10585,7 @@ func (neighborArray *RsvpStandby_InterfaceDetaileds_InterfaceDetailed_NeighborAr
     neighborArray.EntityData.Children.Append("expiry-time", types.YChild{"ExpiryTime", &neighborArray.ExpiryTime})
     neighborArray.EntityData.Children.Append("neighbor-message-id", types.YChild{"NeighborMessageId", nil})
     for i := range neighborArray.NeighborMessageId {
+        types.SetYListKey(neighborArray.NeighborMessageId[i], i)
         neighborArray.EntityData.Children.Append(types.GetSegmentPath(neighborArray.NeighborMessageId[i]), types.YChild{"NeighborMessageId", neighborArray.NeighborMessageId[i]})
     }
     neighborArray.EntityData.Leafs = types.NewOrderedMap()
@@ -10341,6 +10620,7 @@ func (expiryTime *RsvpStandby_InterfaceDetaileds_InterfaceDetailed_NeighborArray
     expiryTime.EntityData.BundleName = "cisco_ios_xr"
     expiryTime.EntityData.ParentYangName = "neighbor-array"
     expiryTime.EntityData.SegmentPath = "expiry-time"
+    expiryTime.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/interface-detaileds/interface-detailed/neighbor-array/" + expiryTime.EntityData.SegmentPath
     expiryTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     expiryTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     expiryTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10360,6 +10640,7 @@ func (expiryTime *RsvpStandby_InterfaceDetaileds_InterfaceDetailed_NeighborArray
 type RsvpStandby_InterfaceDetaileds_InterfaceDetailed_NeighborArray_NeighborMessageId struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Message ID. The type is interface{} with range: 0..4294967295.
     MessageId interface{}
@@ -10370,7 +10651,8 @@ func (neighborMessageId *RsvpStandby_InterfaceDetaileds_InterfaceDetailed_Neighb
     neighborMessageId.EntityData.YangName = "neighbor-message-id"
     neighborMessageId.EntityData.BundleName = "cisco_ios_xr"
     neighborMessageId.EntityData.ParentYangName = "neighbor-array"
-    neighborMessageId.EntityData.SegmentPath = "neighbor-message-id"
+    neighborMessageId.EntityData.SegmentPath = "neighbor-message-id" + types.AddNoKeyToken(neighborMessageId)
+    neighborMessageId.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/interface-detaileds/interface-detailed/neighbor-array/" + neighborMessageId.EntityData.SegmentPath
     neighborMessageId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighborMessageId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborMessageId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10402,6 +10684,7 @@ func (controllerBriefs *RsvpStandby_ControllerBriefs) GetEntityData() *types.Com
     controllerBriefs.EntityData.BundleName = "cisco_ios_xr"
     controllerBriefs.EntityData.ParentYangName = "rsvp-standby"
     controllerBriefs.EntityData.SegmentPath = "controller-briefs"
+    controllerBriefs.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/" + controllerBriefs.EntityData.SegmentPath
     controllerBriefs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     controllerBriefs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     controllerBriefs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10423,6 +10706,7 @@ func (controllerBriefs *RsvpStandby_ControllerBriefs) GetEntityData() *types.Com
 type RsvpStandby_ControllerBriefs_ControllerBrief struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Controller Name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -10441,6 +10725,7 @@ func (controllerBrief *RsvpStandby_ControllerBriefs_ControllerBrief) GetEntityDa
     controllerBrief.EntityData.BundleName = "cisco_ios_xr"
     controllerBrief.EntityData.ParentYangName = "controller-briefs"
     controllerBrief.EntityData.SegmentPath = "controller-brief" + types.AddKeyToken(controllerBrief.ControllerName, "controller-name")
+    controllerBrief.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/controller-briefs/" + controllerBrief.EntityData.SegmentPath
     controllerBrief.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     controllerBrief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     controllerBrief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10478,6 +10763,7 @@ func (bandwidthInformation *RsvpStandby_ControllerBriefs_ControllerBrief_Bandwid
     bandwidthInformation.EntityData.BundleName = "cisco_ios_xr"
     bandwidthInformation.EntityData.ParentYangName = "controller-brief"
     bandwidthInformation.EntityData.SegmentPath = "bandwidth-information"
+    bandwidthInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/controller-briefs/controller-brief/" + bandwidthInformation.EntityData.SegmentPath
     bandwidthInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bandwidthInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bandwidthInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10530,6 +10816,7 @@ func (preStandardDsteInterface *RsvpStandby_ControllerBriefs_ControllerBrief_Ban
     preStandardDsteInterface.EntityData.BundleName = "cisco_ios_xr"
     preStandardDsteInterface.EntityData.ParentYangName = "bandwidth-information"
     preStandardDsteInterface.EntityData.SegmentPath = "pre-standard-dste-interface"
+    preStandardDsteInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/controller-briefs/controller-brief/bandwidth-information/" + preStandardDsteInterface.EntityData.SegmentPath
     preStandardDsteInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     preStandardDsteInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     preStandardDsteInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10593,6 +10880,7 @@ func (standardDsteInterface *RsvpStandby_ControllerBriefs_ControllerBrief_Bandwi
     standardDsteInterface.EntityData.BundleName = "cisco_ios_xr"
     standardDsteInterface.EntityData.ParentYangName = "bandwidth-information"
     standardDsteInterface.EntityData.SegmentPath = "standard-dste-interface"
+    standardDsteInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/controller-briefs/controller-brief/bandwidth-information/" + standardDsteInterface.EntityData.SegmentPath
     standardDsteInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     standardDsteInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     standardDsteInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10665,6 +10953,7 @@ func (gracefulRestart *RsvpStandby_GracefulRestart) GetEntityData() *types.Commo
     gracefulRestart.EntityData.BundleName = "cisco_ios_xr"
     gracefulRestart.EntityData.ParentYangName = "rsvp-standby"
     gracefulRestart.EntityData.SegmentPath = "graceful-restart"
+    gracefulRestart.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/" + gracefulRestart.EntityData.SegmentPath
     gracefulRestart.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     gracefulRestart.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     gracefulRestart.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10674,6 +10963,7 @@ func (gracefulRestart *RsvpStandby_GracefulRestart) GetEntityData() *types.Commo
     gracefulRestart.EntityData.Children.Append("recovery-timer-exp-time", types.YChild{"RecoveryTimerExpTime", &gracefulRestart.RecoveryTimerExpTime})
     gracefulRestart.EntityData.Children.Append("local-node-address", types.YChild{"LocalNodeAddress", nil})
     for i := range gracefulRestart.LocalNodeAddress {
+        types.SetYListKey(gracefulRestart.LocalNodeAddress[i], i)
         gracefulRestart.EntityData.Children.Append(types.GetSegmentPath(gracefulRestart.LocalNodeAddress[i]), types.YChild{"LocalNodeAddress", gracefulRestart.LocalNodeAddress[i]})
     }
     gracefulRestart.EntityData.Leafs = types.NewOrderedMap()
@@ -10712,6 +11002,7 @@ func (recoveryTimeLeft *RsvpStandby_GracefulRestart_RecoveryTimeLeft) GetEntityD
     recoveryTimeLeft.EntityData.BundleName = "cisco_ios_xr"
     recoveryTimeLeft.EntityData.ParentYangName = "graceful-restart"
     recoveryTimeLeft.EntityData.SegmentPath = "recovery-time-left"
+    recoveryTimeLeft.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/graceful-restart/" + recoveryTimeLeft.EntityData.SegmentPath
     recoveryTimeLeft.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     recoveryTimeLeft.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     recoveryTimeLeft.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10747,6 +11038,7 @@ func (recoveryTimerExpTime *RsvpStandby_GracefulRestart_RecoveryTimerExpTime) Ge
     recoveryTimerExpTime.EntityData.BundleName = "cisco_ios_xr"
     recoveryTimerExpTime.EntityData.ParentYangName = "graceful-restart"
     recoveryTimerExpTime.EntityData.SegmentPath = "recovery-timer-exp-time"
+    recoveryTimerExpTime.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/graceful-restart/" + recoveryTimerExpTime.EntityData.SegmentPath
     recoveryTimerExpTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     recoveryTimerExpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     recoveryTimerExpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10766,6 +11058,7 @@ func (recoveryTimerExpTime *RsvpStandby_GracefulRestart_RecoveryTimerExpTime) Ge
 type RsvpStandby_GracefulRestart_LocalNodeAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Local node address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -10780,7 +11073,8 @@ func (localNodeAddress *RsvpStandby_GracefulRestart_LocalNodeAddress) GetEntityD
     localNodeAddress.EntityData.YangName = "local-node-address"
     localNodeAddress.EntityData.BundleName = "cisco_ios_xr"
     localNodeAddress.EntityData.ParentYangName = "graceful-restart"
-    localNodeAddress.EntityData.SegmentPath = "local-node-address"
+    localNodeAddress.EntityData.SegmentPath = "local-node-address" + types.AddNoKeyToken(localNodeAddress)
+    localNodeAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/graceful-restart/" + localNodeAddress.EntityData.SegmentPath
     localNodeAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     localNodeAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     localNodeAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10813,6 +11107,7 @@ func (helloInterfaceInstanceBriefs *RsvpStandby_HelloInterfaceInstanceBriefs) Ge
     helloInterfaceInstanceBriefs.EntityData.BundleName = "cisco_ios_xr"
     helloInterfaceInstanceBriefs.EntityData.ParentYangName = "rsvp-standby"
     helloInterfaceInstanceBriefs.EntityData.SegmentPath = "hello-interface-instance-briefs"
+    helloInterfaceInstanceBriefs.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/" + helloInterfaceInstanceBriefs.EntityData.SegmentPath
     helloInterfaceInstanceBriefs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     helloInterfaceInstanceBriefs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     helloInterfaceInstanceBriefs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10835,6 +11130,7 @@ func (helloInterfaceInstanceBriefs *RsvpStandby_HelloInterfaceInstanceBriefs) Ge
 type RsvpStandby_HelloInterfaceInstanceBriefs_HelloInterfaceInstanceBrief struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Source Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -10866,6 +11162,7 @@ func (helloInterfaceInstanceBrief *RsvpStandby_HelloInterfaceInstanceBriefs_Hell
     helloInterfaceInstanceBrief.EntityData.BundleName = "cisco_ios_xr"
     helloInterfaceInstanceBrief.EntityData.ParentYangName = "hello-interface-instance-briefs"
     helloInterfaceInstanceBrief.EntityData.SegmentPath = "hello-interface-instance-brief" + types.AddKeyToken(helloInterfaceInstanceBrief.SourceAddress, "source-address") + types.AddKeyToken(helloInterfaceInstanceBrief.DestinationAddress, "destination-address")
+    helloInterfaceInstanceBrief.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/hello-interface-instance-briefs/" + helloInterfaceInstanceBrief.EntityData.SegmentPath
     helloInterfaceInstanceBrief.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     helloInterfaceInstanceBrief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     helloInterfaceInstanceBrief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10903,6 +11200,7 @@ func (helloInterfaceInstanceDetails *RsvpStandby_HelloInterfaceInstanceDetails) 
     helloInterfaceInstanceDetails.EntityData.BundleName = "cisco_ios_xr"
     helloInterfaceInstanceDetails.EntityData.ParentYangName = "rsvp-standby"
     helloInterfaceInstanceDetails.EntityData.SegmentPath = "hello-interface-instance-details"
+    helloInterfaceInstanceDetails.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/" + helloInterfaceInstanceDetails.EntityData.SegmentPath
     helloInterfaceInstanceDetails.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     helloInterfaceInstanceDetails.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     helloInterfaceInstanceDetails.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10925,6 +11223,7 @@ func (helloInterfaceInstanceDetails *RsvpStandby_HelloInterfaceInstanceDetails) 
 type RsvpStandby_HelloInterfaceInstanceDetails_HelloInterfaceInstanceDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Source Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -10977,6 +11276,7 @@ func (helloInterfaceInstanceDetail *RsvpStandby_HelloInterfaceInstanceDetails_He
     helloInterfaceInstanceDetail.EntityData.BundleName = "cisco_ios_xr"
     helloInterfaceInstanceDetail.EntityData.ParentYangName = "hello-interface-instance-details"
     helloInterfaceInstanceDetail.EntityData.SegmentPath = "hello-interface-instance-detail" + types.AddKeyToken(helloInterfaceInstanceDetail.SourceAddress, "source-address") + types.AddKeyToken(helloInterfaceInstanceDetail.DestinationAddress, "destination-address")
+    helloInterfaceInstanceDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/hello-interface-instance-details/" + helloInterfaceInstanceDetail.EntityData.SegmentPath
     helloInterfaceInstanceDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     helloInterfaceInstanceDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     helloInterfaceInstanceDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11022,6 +11322,7 @@ func (lastMessageSentTime *RsvpStandby_HelloInterfaceInstanceDetails_HelloInterf
     lastMessageSentTime.EntityData.BundleName = "cisco_ios_xr"
     lastMessageSentTime.EntityData.ParentYangName = "hello-interface-instance-detail"
     lastMessageSentTime.EntityData.SegmentPath = "last-message-sent-time"
+    lastMessageSentTime.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/hello-interface-instance-details/hello-interface-instance-detail/" + lastMessageSentTime.EntityData.SegmentPath
     lastMessageSentTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastMessageSentTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastMessageSentTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11053,6 +11354,7 @@ func (interfaceNeighborDetails *RsvpStandby_InterfaceNeighborDetails) GetEntityD
     interfaceNeighborDetails.EntityData.BundleName = "cisco_ios_xr"
     interfaceNeighborDetails.EntityData.ParentYangName = "rsvp-standby"
     interfaceNeighborDetails.EntityData.SegmentPath = "interface-neighbor-details"
+    interfaceNeighborDetails.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/" + interfaceNeighborDetails.EntityData.SegmentPath
     interfaceNeighborDetails.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceNeighborDetails.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceNeighborDetails.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11074,6 +11376,7 @@ func (interfaceNeighborDetails *RsvpStandby_InterfaceNeighborDetails) GetEntityD
 type RsvpStandby_InterfaceNeighborDetails_InterfaceNeighborDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Address of global neighbor. The type is string
     // with pattern:
@@ -11095,6 +11398,7 @@ func (interfaceNeighborDetail *RsvpStandby_InterfaceNeighborDetails_InterfaceNei
     interfaceNeighborDetail.EntityData.BundleName = "cisco_ios_xr"
     interfaceNeighborDetail.EntityData.ParentYangName = "interface-neighbor-details"
     interfaceNeighborDetail.EntityData.SegmentPath = "interface-neighbor-detail" + types.AddKeyToken(interfaceNeighborDetail.NeighborAddress, "neighbor-address")
+    interfaceNeighborDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/interface-neighbor-details/" + interfaceNeighborDetail.EntityData.SegmentPath
     interfaceNeighborDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceNeighborDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceNeighborDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11102,6 +11406,7 @@ func (interfaceNeighborDetail *RsvpStandby_InterfaceNeighborDetails_InterfaceNei
     interfaceNeighborDetail.EntityData.Children = types.NewOrderedMap()
     interfaceNeighborDetail.EntityData.Children.Append("interface-neighbor-list-detail", types.YChild{"InterfaceNeighborListDetail", nil})
     for i := range interfaceNeighborDetail.InterfaceNeighborListDetail {
+        types.SetYListKey(interfaceNeighborDetail.InterfaceNeighborListDetail[i], i)
         interfaceNeighborDetail.EntityData.Children.Append(types.GetSegmentPath(interfaceNeighborDetail.InterfaceNeighborListDetail[i]), types.YChild{"InterfaceNeighborListDetail", interfaceNeighborDetail.InterfaceNeighborListDetail[i]})
     }
     interfaceNeighborDetail.EntityData.Leafs = types.NewOrderedMap()
@@ -11118,6 +11423,7 @@ func (interfaceNeighborDetail *RsvpStandby_InterfaceNeighborDetails_InterfaceNei
 type RsvpStandby_InterfaceNeighborDetails_InterfaceNeighborDetail_InterfaceNeighborListDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Interface Neighbor address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -11147,7 +11453,8 @@ func (interfaceNeighborListDetail *RsvpStandby_InterfaceNeighborDetails_Interfac
     interfaceNeighborListDetail.EntityData.YangName = "interface-neighbor-list-detail"
     interfaceNeighborListDetail.EntityData.BundleName = "cisco_ios_xr"
     interfaceNeighborListDetail.EntityData.ParentYangName = "interface-neighbor-detail"
-    interfaceNeighborListDetail.EntityData.SegmentPath = "interface-neighbor-list-detail"
+    interfaceNeighborListDetail.EntityData.SegmentPath = "interface-neighbor-list-detail" + types.AddNoKeyToken(interfaceNeighborListDetail)
+    interfaceNeighborListDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/interface-neighbor-details/interface-neighbor-detail/" + interfaceNeighborListDetail.EntityData.SegmentPath
     interfaceNeighborListDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceNeighborListDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceNeighborListDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11182,6 +11489,7 @@ func (nsr *RsvpStandby_Nsr) GetEntityData() *types.CommonEntityData {
     nsr.EntityData.BundleName = "cisco_ios_xr"
     nsr.EntityData.ParentYangName = "rsvp-standby"
     nsr.EntityData.SegmentPath = "nsr"
+    nsr.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/" + nsr.EntityData.SegmentPath
     nsr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nsr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nsr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11217,6 +11525,7 @@ func (status *RsvpStandby_Nsr_Status) GetEntityData() *types.CommonEntityData {
     status.EntityData.BundleName = "cisco_ios_xr"
     status.EntityData.ParentYangName = "nsr"
     status.EntityData.SegmentPath = "status"
+    status.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/nsr/" + status.EntityData.SegmentPath
     status.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     status.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     status.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11267,6 +11576,7 @@ func (idtStatus *RsvpStandby_Nsr_Status_IdtStatus) GetEntityData() *types.Common
     idtStatus.EntityData.BundleName = "cisco_ios_xr"
     idtStatus.EntityData.ParentYangName = "status"
     idtStatus.EntityData.SegmentPath = "idt-status"
+    idtStatus.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/nsr/status/" + idtStatus.EntityData.SegmentPath
     idtStatus.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     idtStatus.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     idtStatus.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11320,6 +11630,7 @@ func (previousIdtStatus *RsvpStandby_Nsr_Status_PreviousIdtStatus) GetEntityData
     previousIdtStatus.EntityData.BundleName = "cisco_ios_xr"
     previousIdtStatus.EntityData.ParentYangName = "status"
     previousIdtStatus.EntityData.SegmentPath = "previous-idt-status"
+    previousIdtStatus.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/nsr/status/" + previousIdtStatus.EntityData.SegmentPath
     previousIdtStatus.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     previousIdtStatus.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     previousIdtStatus.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11366,6 +11677,7 @@ func (summary *RsvpStandby_Summary) GetEntityData() *types.CommonEntityData {
     summary.EntityData.BundleName = "cisco_ios_xr"
     summary.EntityData.ParentYangName = "rsvp-standby"
     summary.EntityData.SegmentPath = "summary"
+    summary.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/" + summary.EntityData.SegmentPath
     summary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     summary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     summary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11405,6 +11717,7 @@ func (issuStatus *RsvpStandby_Summary_IssuStatus) GetEntityData() *types.CommonE
     issuStatus.EntityData.BundleName = "cisco_ios_xr"
     issuStatus.EntityData.ParentYangName = "summary"
     issuStatus.EntityData.SegmentPath = "issu-status"
+    issuStatus.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/summary/" + issuStatus.EntityData.SegmentPath
     issuStatus.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     issuStatus.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     issuStatus.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11455,6 +11768,7 @@ func (idtStatus *RsvpStandby_Summary_IssuStatus_IdtStatus) GetEntityData() *type
     idtStatus.EntityData.BundleName = "cisco_ios_xr"
     idtStatus.EntityData.ParentYangName = "issu-status"
     idtStatus.EntityData.SegmentPath = "idt-status"
+    idtStatus.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/summary/issu-status/" + idtStatus.EntityData.SegmentPath
     idtStatus.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     idtStatus.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     idtStatus.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11508,6 +11822,7 @@ func (previousIdtStatus *RsvpStandby_Summary_IssuStatus_PreviousIdtStatus) GetEn
     previousIdtStatus.EntityData.BundleName = "cisco_ios_xr"
     previousIdtStatus.EntityData.ParentYangName = "issu-status"
     previousIdtStatus.EntityData.SegmentPath = "previous-idt-status"
+    previousIdtStatus.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/summary/issu-status/" + previousIdtStatus.EntityData.SegmentPath
     previousIdtStatus.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     previousIdtStatus.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     previousIdtStatus.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11548,6 +11863,7 @@ func (nsrStatus *RsvpStandby_Summary_NsrStatus) GetEntityData() *types.CommonEnt
     nsrStatus.EntityData.BundleName = "cisco_ios_xr"
     nsrStatus.EntityData.ParentYangName = "summary"
     nsrStatus.EntityData.SegmentPath = "nsr-status"
+    nsrStatus.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/summary/" + nsrStatus.EntityData.SegmentPath
     nsrStatus.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nsrStatus.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nsrStatus.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11598,6 +11914,7 @@ func (idtStatus *RsvpStandby_Summary_NsrStatus_IdtStatus) GetEntityData() *types
     idtStatus.EntityData.BundleName = "cisco_ios_xr"
     idtStatus.EntityData.ParentYangName = "nsr-status"
     idtStatus.EntityData.SegmentPath = "idt-status"
+    idtStatus.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/summary/nsr-status/" + idtStatus.EntityData.SegmentPath
     idtStatus.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     idtStatus.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     idtStatus.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11651,6 +11968,7 @@ func (previousIdtStatus *RsvpStandby_Summary_NsrStatus_PreviousIdtStatus) GetEnt
     previousIdtStatus.EntityData.BundleName = "cisco_ios_xr"
     previousIdtStatus.EntityData.ParentYangName = "nsr-status"
     previousIdtStatus.EntityData.SegmentPath = "previous-idt-status"
+    previousIdtStatus.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/summary/nsr-status/" + previousIdtStatus.EntityData.SegmentPath
     previousIdtStatus.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     previousIdtStatus.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     previousIdtStatus.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11704,6 +12022,7 @@ func (databaseCounters *RsvpStandby_Summary_DatabaseCounters) GetEntityData() *t
     databaseCounters.EntityData.BundleName = "cisco_ios_xr"
     databaseCounters.EntityData.ParentYangName = "summary"
     databaseCounters.EntityData.SegmentPath = "database-counters"
+    databaseCounters.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/summary/" + databaseCounters.EntityData.SegmentPath
     databaseCounters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     databaseCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     databaseCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11740,6 +12059,7 @@ func (frrs *RsvpStandby_Frrs) GetEntityData() *types.CommonEntityData {
     frrs.EntityData.BundleName = "cisco_ios_xr"
     frrs.EntityData.ParentYangName = "rsvp-standby"
     frrs.EntityData.SegmentPath = "frrs"
+    frrs.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/" + frrs.EntityData.SegmentPath
     frrs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     frrs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     frrs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11747,6 +12067,7 @@ func (frrs *RsvpStandby_Frrs) GetEntityData() *types.CommonEntityData {
     frrs.EntityData.Children = types.NewOrderedMap()
     frrs.EntityData.Children.Append("frr", types.YChild{"Frr", nil})
     for i := range frrs.Frr {
+        types.SetYListKey(frrs.Frr[i], i)
         frrs.EntityData.Children.Append(types.GetSegmentPath(frrs.Frr[i]), types.YChild{"Frr", frrs.Frr[i]})
     }
     frrs.EntityData.Leafs = types.NewOrderedMap()
@@ -11761,6 +12082,7 @@ func (frrs *RsvpStandby_Frrs) GetEntityData() *types.CommonEntityData {
 type RsvpStandby_Frrs_Frr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Destination Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -11817,7 +12139,8 @@ func (frr *RsvpStandby_Frrs_Frr) GetEntityData() *types.CommonEntityData {
     frr.EntityData.YangName = "frr"
     frr.EntityData.BundleName = "cisco_ios_xr"
     frr.EntityData.ParentYangName = "frrs"
-    frr.EntityData.SegmentPath = "frr"
+    frr.EntityData.SegmentPath = "frr" + types.AddNoKeyToken(frr)
+    frr.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/frrs/" + frr.EntityData.SegmentPath
     frr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     frr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     frr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11861,6 +12184,7 @@ func (session *RsvpStandby_Frrs_Frr_Session) GetEntityData() *types.CommonEntity
     session.EntityData.BundleName = "cisco_ios_xr"
     session.EntityData.ParentYangName = "frr"
     session.EntityData.SegmentPath = "session"
+    session.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/frrs/frr/" + session.EntityData.SegmentPath
     session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11902,6 +12226,7 @@ func (rsvpSession *RsvpStandby_Frrs_Frr_Session_RsvpSession) GetEntityData() *ty
     rsvpSession.EntityData.BundleName = "cisco_ios_xr"
     rsvpSession.EntityData.ParentYangName = "session"
     rsvpSession.EntityData.SegmentPath = "rsvp-session"
+    rsvpSession.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/frrs/frr/session/" + rsvpSession.EntityData.SegmentPath
     rsvpSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rsvpSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rsvpSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11943,6 +12268,7 @@ func (ipv4 *RsvpStandby_Frrs_Frr_Session_RsvpSession_Ipv4) GetEntityData() *type
     ipv4.EntityData.BundleName = "cisco_ios_xr"
     ipv4.EntityData.ParentYangName = "rsvp-session"
     ipv4.EntityData.SegmentPath = "ipv4"
+    ipv4.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/frrs/frr/session/rsvp-session/" + ipv4.EntityData.SegmentPath
     ipv4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11982,6 +12308,7 @@ func (ipv4LspSession *RsvpStandby_Frrs_Frr_Session_RsvpSession_Ipv4LspSession) G
     ipv4LspSession.EntityData.BundleName = "cisco_ios_xr"
     ipv4LspSession.EntityData.ParentYangName = "rsvp-session"
     ipv4LspSession.EntityData.SegmentPath = "ipv4-lsp-session"
+    ipv4LspSession.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/frrs/frr/session/rsvp-session/" + ipv4LspSession.EntityData.SegmentPath
     ipv4LspSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4LspSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4LspSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12021,6 +12348,7 @@ func (ipv4UniSession *RsvpStandby_Frrs_Frr_Session_RsvpSession_Ipv4UniSession) G
     ipv4UniSession.EntityData.BundleName = "cisco_ios_xr"
     ipv4UniSession.EntityData.ParentYangName = "rsvp-session"
     ipv4UniSession.EntityData.SegmentPath = "ipv4-uni-session"
+    ipv4UniSession.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/frrs/frr/session/rsvp-session/" + ipv4UniSession.EntityData.SegmentPath
     ipv4UniSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4UniSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4UniSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12060,6 +12388,7 @@ func (ipv4P2mpLspSession *RsvpStandby_Frrs_Frr_Session_RsvpSession_Ipv4P2mpLspSe
     ipv4P2mpLspSession.EntityData.BundleName = "cisco_ios_xr"
     ipv4P2mpLspSession.EntityData.ParentYangName = "rsvp-session"
     ipv4P2mpLspSession.EntityData.SegmentPath = "ipv4-p2mp-lsp-session"
+    ipv4P2mpLspSession.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/frrs/frr/session/rsvp-session/" + ipv4P2mpLspSession.EntityData.SegmentPath
     ipv4P2mpLspSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4P2mpLspSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4P2mpLspSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12092,6 +12421,7 @@ func (s2lSubLsp *RsvpStandby_Frrs_Frr_S2lSubLsp) GetEntityData() *types.CommonEn
     s2lSubLsp.EntityData.BundleName = "cisco_ios_xr"
     s2lSubLsp.EntityData.ParentYangName = "frr"
     s2lSubLsp.EntityData.SegmentPath = "s2l-sub-lsp"
+    s2lSubLsp.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/frrs/frr/" + s2lSubLsp.EntityData.SegmentPath
     s2lSubLsp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     s2lSubLsp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     s2lSubLsp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12122,6 +12452,7 @@ func (requestBriefs *RsvpStandby_RequestBriefs) GetEntityData() *types.CommonEnt
     requestBriefs.EntityData.BundleName = "cisco_ios_xr"
     requestBriefs.EntityData.ParentYangName = "rsvp-standby"
     requestBriefs.EntityData.SegmentPath = "request-briefs"
+    requestBriefs.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/" + requestBriefs.EntityData.SegmentPath
     requestBriefs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     requestBriefs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     requestBriefs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12129,6 +12460,7 @@ func (requestBriefs *RsvpStandby_RequestBriefs) GetEntityData() *types.CommonEnt
     requestBriefs.EntityData.Children = types.NewOrderedMap()
     requestBriefs.EntityData.Children.Append("request-brief", types.YChild{"RequestBrief", nil})
     for i := range requestBriefs.RequestBrief {
+        types.SetYListKey(requestBriefs.RequestBrief[i], i)
         requestBriefs.EntityData.Children.Append(types.GetSegmentPath(requestBriefs.RequestBrief[i]), types.YChild{"RequestBrief", requestBriefs.RequestBrief[i]})
     }
     requestBriefs.EntityData.Leafs = types.NewOrderedMap()
@@ -12143,6 +12475,7 @@ func (requestBriefs *RsvpStandby_RequestBriefs) GetEntityData() *types.CommonEnt
 type RsvpStandby_RequestBriefs_RequestBrief struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Destination Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -12208,7 +12541,8 @@ func (requestBrief *RsvpStandby_RequestBriefs_RequestBrief) GetEntityData() *typ
     requestBrief.EntityData.YangName = "request-brief"
     requestBrief.EntityData.BundleName = "cisco_ios_xr"
     requestBrief.EntityData.ParentYangName = "request-briefs"
-    requestBrief.EntityData.SegmentPath = "request-brief"
+    requestBrief.EntityData.SegmentPath = "request-brief" + types.AddNoKeyToken(requestBrief)
+    requestBrief.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/request-briefs/" + requestBrief.EntityData.SegmentPath
     requestBrief.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     requestBrief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     requestBrief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12255,6 +12589,7 @@ func (session *RsvpStandby_RequestBriefs_RequestBrief_Session) GetEntityData() *
     session.EntityData.BundleName = "cisco_ios_xr"
     session.EntityData.ParentYangName = "request-brief"
     session.EntityData.SegmentPath = "session"
+    session.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/request-briefs/request-brief/" + session.EntityData.SegmentPath
     session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12296,6 +12631,7 @@ func (rsvpSession *RsvpStandby_RequestBriefs_RequestBrief_Session_RsvpSession) G
     rsvpSession.EntityData.BundleName = "cisco_ios_xr"
     rsvpSession.EntityData.ParentYangName = "session"
     rsvpSession.EntityData.SegmentPath = "rsvp-session"
+    rsvpSession.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/request-briefs/request-brief/session/" + rsvpSession.EntityData.SegmentPath
     rsvpSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rsvpSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rsvpSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12337,6 +12673,7 @@ func (ipv4 *RsvpStandby_RequestBriefs_RequestBrief_Session_RsvpSession_Ipv4) Get
     ipv4.EntityData.BundleName = "cisco_ios_xr"
     ipv4.EntityData.ParentYangName = "rsvp-session"
     ipv4.EntityData.SegmentPath = "ipv4"
+    ipv4.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/request-briefs/request-brief/session/rsvp-session/" + ipv4.EntityData.SegmentPath
     ipv4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12376,6 +12713,7 @@ func (ipv4LspSession *RsvpStandby_RequestBriefs_RequestBrief_Session_RsvpSession
     ipv4LspSession.EntityData.BundleName = "cisco_ios_xr"
     ipv4LspSession.EntityData.ParentYangName = "rsvp-session"
     ipv4LspSession.EntityData.SegmentPath = "ipv4-lsp-session"
+    ipv4LspSession.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/request-briefs/request-brief/session/rsvp-session/" + ipv4LspSession.EntityData.SegmentPath
     ipv4LspSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4LspSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4LspSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12415,6 +12753,7 @@ func (ipv4UniSession *RsvpStandby_RequestBriefs_RequestBrief_Session_RsvpSession
     ipv4UniSession.EntityData.BundleName = "cisco_ios_xr"
     ipv4UniSession.EntityData.ParentYangName = "rsvp-session"
     ipv4UniSession.EntityData.SegmentPath = "ipv4-uni-session"
+    ipv4UniSession.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/request-briefs/request-brief/session/rsvp-session/" + ipv4UniSession.EntityData.SegmentPath
     ipv4UniSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4UniSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4UniSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12454,6 +12793,7 @@ func (ipv4P2mpLspSession *RsvpStandby_RequestBriefs_RequestBrief_Session_RsvpSes
     ipv4P2mpLspSession.EntityData.BundleName = "cisco_ios_xr"
     ipv4P2mpLspSession.EntityData.ParentYangName = "rsvp-session"
     ipv4P2mpLspSession.EntityData.SegmentPath = "ipv4-p2mp-lsp-session"
+    ipv4P2mpLspSession.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/request-briefs/request-brief/session/rsvp-session/" + ipv4P2mpLspSession.EntityData.SegmentPath
     ipv4P2mpLspSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4P2mpLspSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4P2mpLspSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12486,6 +12826,7 @@ func (s2lSubLsp *RsvpStandby_RequestBriefs_RequestBrief_S2lSubLsp) GetEntityData
     s2lSubLsp.EntityData.BundleName = "cisco_ios_xr"
     s2lSubLsp.EntityData.ParentYangName = "request-brief"
     s2lSubLsp.EntityData.SegmentPath = "s2l-sub-lsp"
+    s2lSubLsp.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/request-briefs/request-brief/" + s2lSubLsp.EntityData.SegmentPath
     s2lSubLsp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     s2lSubLsp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     s2lSubLsp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12540,6 +12881,7 @@ func (flowSpec *RsvpStandby_RequestBriefs_RequestBrief_FlowSpec) GetEntityData()
     flowSpec.EntityData.BundleName = "cisco_ios_xr"
     flowSpec.EntityData.ParentYangName = "request-brief"
     flowSpec.EntityData.SegmentPath = "flow-spec"
+    flowSpec.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/request-briefs/request-brief/" + flowSpec.EntityData.SegmentPath
     flowSpec.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     flowSpec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     flowSpec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12579,6 +12921,7 @@ func (genericFlowSpec *RsvpStandby_RequestBriefs_RequestBrief_GenericFlowSpec) G
     genericFlowSpec.EntityData.BundleName = "cisco_ios_xr"
     genericFlowSpec.EntityData.ParentYangName = "request-brief"
     genericFlowSpec.EntityData.SegmentPath = "generic-flow-spec"
+    genericFlowSpec.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/request-briefs/request-brief/" + genericFlowSpec.EntityData.SegmentPath
     genericFlowSpec.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     genericFlowSpec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     genericFlowSpec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12620,6 +12963,7 @@ func (g709otnFlowSpec *RsvpStandby_RequestBriefs_RequestBrief_GenericFlowSpec_G7
     g709otnFlowSpec.EntityData.BundleName = "cisco_ios_xr"
     g709otnFlowSpec.EntityData.ParentYangName = "generic-flow-spec"
     g709otnFlowSpec.EntityData.SegmentPath = "g709otn-flow-spec"
+    g709otnFlowSpec.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/request-briefs/request-brief/generic-flow-spec/" + g709otnFlowSpec.EntityData.SegmentPath
     g709otnFlowSpec.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     g709otnFlowSpec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     g709otnFlowSpec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12652,6 +12996,7 @@ func (filter *RsvpStandby_RequestBriefs_RequestBrief_Filter) GetEntityData() *ty
     filter.EntityData.BundleName = "cisco_ios_xr"
     filter.EntityData.ParentYangName = "request-brief"
     filter.EntityData.SegmentPath = "filter"
+    filter.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/request-briefs/request-brief/" + filter.EntityData.SegmentPath
     filter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     filter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     filter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12687,6 +13032,7 @@ func (rsvpFilter *RsvpStandby_RequestBriefs_RequestBrief_Filter_RsvpFilter) GetE
     rsvpFilter.EntityData.BundleName = "cisco_ios_xr"
     rsvpFilter.EntityData.ParentYangName = "filter"
     rsvpFilter.EntityData.SegmentPath = "rsvp-filter"
+    rsvpFilter.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/request-briefs/request-brief/filter/" + rsvpFilter.EntityData.SegmentPath
     rsvpFilter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rsvpFilter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rsvpFilter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12722,6 +13068,7 @@ func (udpIpv4Session *RsvpStandby_RequestBriefs_RequestBrief_Filter_RsvpFilter_U
     udpIpv4Session.EntityData.BundleName = "cisco_ios_xr"
     udpIpv4Session.EntityData.ParentYangName = "rsvp-filter"
     udpIpv4Session.EntityData.SegmentPath = "udp-ipv4-session"
+    udpIpv4Session.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/request-briefs/request-brief/filter/rsvp-filter/" + udpIpv4Session.EntityData.SegmentPath
     udpIpv4Session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     udpIpv4Session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     udpIpv4Session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12764,6 +13111,7 @@ func (p2mpIpv4Session *RsvpStandby_RequestBriefs_RequestBrief_Filter_RsvpFilter_
     p2mpIpv4Session.EntityData.BundleName = "cisco_ios_xr"
     p2mpIpv4Session.EntityData.ParentYangName = "rsvp-filter"
     p2mpIpv4Session.EntityData.SegmentPath = "p2mp-ipv4-session"
+    p2mpIpv4Session.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/request-briefs/request-brief/filter/rsvp-filter/" + p2mpIpv4Session.EntityData.SegmentPath
     p2mpIpv4Session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     p2mpIpv4Session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     p2mpIpv4Session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12797,6 +13145,7 @@ func (style *RsvpStandby_RequestBriefs_RequestBrief_Style) GetEntityData() *type
     style.EntityData.BundleName = "cisco_ios_xr"
     style.EntityData.ParentYangName = "request-brief"
     style.EntityData.SegmentPath = "style"
+    style.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/request-briefs/request-brief/" + style.EntityData.SegmentPath
     style.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     style.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     style.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12827,6 +13176,7 @@ func (requestDetails *RsvpStandby_RequestDetails) GetEntityData() *types.CommonE
     requestDetails.EntityData.BundleName = "cisco_ios_xr"
     requestDetails.EntityData.ParentYangName = "rsvp-standby"
     requestDetails.EntityData.SegmentPath = "request-details"
+    requestDetails.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/" + requestDetails.EntityData.SegmentPath
     requestDetails.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     requestDetails.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     requestDetails.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12834,6 +13184,7 @@ func (requestDetails *RsvpStandby_RequestDetails) GetEntityData() *types.CommonE
     requestDetails.EntityData.Children = types.NewOrderedMap()
     requestDetails.EntityData.Children.Append("request-detail", types.YChild{"RequestDetail", nil})
     for i := range requestDetails.RequestDetail {
+        types.SetYListKey(requestDetails.RequestDetail[i], i)
         requestDetails.EntityData.Children.Append(types.GetSegmentPath(requestDetails.RequestDetail[i]), types.YChild{"RequestDetail", requestDetails.RequestDetail[i]})
     }
     requestDetails.EntityData.Leafs = types.NewOrderedMap()
@@ -12848,6 +13199,7 @@ func (requestDetails *RsvpStandby_RequestDetails) GetEntityData() *types.CommonE
 type RsvpStandby_RequestDetails_RequestDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Destination Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -12939,7 +13291,8 @@ func (requestDetail *RsvpStandby_RequestDetails_RequestDetail) GetEntityData() *
     requestDetail.EntityData.YangName = "request-detail"
     requestDetail.EntityData.BundleName = "cisco_ios_xr"
     requestDetail.EntityData.ParentYangName = "request-details"
-    requestDetail.EntityData.SegmentPath = "request-detail"
+    requestDetail.EntityData.SegmentPath = "request-detail" + types.AddNoKeyToken(requestDetail)
+    requestDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/request-details/" + requestDetail.EntityData.SegmentPath
     requestDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     requestDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     requestDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12959,10 +13312,12 @@ func (requestDetail *RsvpStandby_RequestDetails_RequestDetail) GetEntityData() *
     requestDetail.EntityData.Children.Append("policy-query-flags", types.YChild{"PolicyQueryFlags", &requestDetail.PolicyQueryFlags})
     requestDetail.EntityData.Children.Append("psb-key", types.YChild{"PsbKey", nil})
     for i := range requestDetail.PsbKey {
+        types.SetYListKey(requestDetail.PsbKey[i], i)
         requestDetail.EntityData.Children.Append(types.GetSegmentPath(requestDetail.PsbKey[i]), types.YChild{"PsbKey", requestDetail.PsbKey[i]})
     }
     requestDetail.EntityData.Children.Append("rsb-key", types.YChild{"RsbKey", nil})
     for i := range requestDetail.RsbKey {
+        types.SetYListKey(requestDetail.RsbKey[i], i)
         requestDetail.EntityData.Children.Append(types.GetSegmentPath(requestDetail.RsbKey[i]), types.YChild{"RsbKey", requestDetail.RsbKey[i]})
     }
     requestDetail.EntityData.Leafs = types.NewOrderedMap()
@@ -13000,6 +13355,7 @@ func (session *RsvpStandby_RequestDetails_RequestDetail_Session) GetEntityData()
     session.EntityData.BundleName = "cisco_ios_xr"
     session.EntityData.ParentYangName = "request-detail"
     session.EntityData.SegmentPath = "session"
+    session.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/request-details/request-detail/" + session.EntityData.SegmentPath
     session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13041,6 +13397,7 @@ func (rsvpSession *RsvpStandby_RequestDetails_RequestDetail_Session_RsvpSession)
     rsvpSession.EntityData.BundleName = "cisco_ios_xr"
     rsvpSession.EntityData.ParentYangName = "session"
     rsvpSession.EntityData.SegmentPath = "rsvp-session"
+    rsvpSession.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/request-details/request-detail/session/" + rsvpSession.EntityData.SegmentPath
     rsvpSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rsvpSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rsvpSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13082,6 +13439,7 @@ func (ipv4 *RsvpStandby_RequestDetails_RequestDetail_Session_RsvpSession_Ipv4) G
     ipv4.EntityData.BundleName = "cisco_ios_xr"
     ipv4.EntityData.ParentYangName = "rsvp-session"
     ipv4.EntityData.SegmentPath = "ipv4"
+    ipv4.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/request-details/request-detail/session/rsvp-session/" + ipv4.EntityData.SegmentPath
     ipv4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13121,6 +13479,7 @@ func (ipv4LspSession *RsvpStandby_RequestDetails_RequestDetail_Session_RsvpSessi
     ipv4LspSession.EntityData.BundleName = "cisco_ios_xr"
     ipv4LspSession.EntityData.ParentYangName = "rsvp-session"
     ipv4LspSession.EntityData.SegmentPath = "ipv4-lsp-session"
+    ipv4LspSession.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/request-details/request-detail/session/rsvp-session/" + ipv4LspSession.EntityData.SegmentPath
     ipv4LspSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4LspSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4LspSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13160,6 +13519,7 @@ func (ipv4UniSession *RsvpStandby_RequestDetails_RequestDetail_Session_RsvpSessi
     ipv4UniSession.EntityData.BundleName = "cisco_ios_xr"
     ipv4UniSession.EntityData.ParentYangName = "rsvp-session"
     ipv4UniSession.EntityData.SegmentPath = "ipv4-uni-session"
+    ipv4UniSession.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/request-details/request-detail/session/rsvp-session/" + ipv4UniSession.EntityData.SegmentPath
     ipv4UniSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4UniSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4UniSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13199,6 +13559,7 @@ func (ipv4P2mpLspSession *RsvpStandby_RequestDetails_RequestDetail_Session_RsvpS
     ipv4P2mpLspSession.EntityData.BundleName = "cisco_ios_xr"
     ipv4P2mpLspSession.EntityData.ParentYangName = "rsvp-session"
     ipv4P2mpLspSession.EntityData.SegmentPath = "ipv4-p2mp-lsp-session"
+    ipv4P2mpLspSession.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/request-details/request-detail/session/rsvp-session/" + ipv4P2mpLspSession.EntityData.SegmentPath
     ipv4P2mpLspSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4P2mpLspSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4P2mpLspSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13231,6 +13592,7 @@ func (s2lSubLsp *RsvpStandby_RequestDetails_RequestDetail_S2lSubLsp) GetEntityDa
     s2lSubLsp.EntityData.BundleName = "cisco_ios_xr"
     s2lSubLsp.EntityData.ParentYangName = "request-detail"
     s2lSubLsp.EntityData.SegmentPath = "s2l-sub-lsp"
+    s2lSubLsp.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/request-details/request-detail/" + s2lSubLsp.EntityData.SegmentPath
     s2lSubLsp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     s2lSubLsp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     s2lSubLsp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13285,6 +13647,7 @@ func (flowSpec *RsvpStandby_RequestDetails_RequestDetail_FlowSpec) GetEntityData
     flowSpec.EntityData.BundleName = "cisco_ios_xr"
     flowSpec.EntityData.ParentYangName = "request-detail"
     flowSpec.EntityData.SegmentPath = "flow-spec"
+    flowSpec.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/request-details/request-detail/" + flowSpec.EntityData.SegmentPath
     flowSpec.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     flowSpec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     flowSpec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13324,6 +13687,7 @@ func (genericFlowSpec *RsvpStandby_RequestDetails_RequestDetail_GenericFlowSpec)
     genericFlowSpec.EntityData.BundleName = "cisco_ios_xr"
     genericFlowSpec.EntityData.ParentYangName = "request-detail"
     genericFlowSpec.EntityData.SegmentPath = "generic-flow-spec"
+    genericFlowSpec.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/request-details/request-detail/" + genericFlowSpec.EntityData.SegmentPath
     genericFlowSpec.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     genericFlowSpec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     genericFlowSpec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13365,6 +13729,7 @@ func (g709otnFlowSpec *RsvpStandby_RequestDetails_RequestDetail_GenericFlowSpec_
     g709otnFlowSpec.EntityData.BundleName = "cisco_ios_xr"
     g709otnFlowSpec.EntityData.ParentYangName = "generic-flow-spec"
     g709otnFlowSpec.EntityData.SegmentPath = "g709otn-flow-spec"
+    g709otnFlowSpec.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/request-details/request-detail/generic-flow-spec/" + g709otnFlowSpec.EntityData.SegmentPath
     g709otnFlowSpec.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     g709otnFlowSpec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     g709otnFlowSpec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13397,6 +13762,7 @@ func (filter *RsvpStandby_RequestDetails_RequestDetail_Filter) GetEntityData() *
     filter.EntityData.BundleName = "cisco_ios_xr"
     filter.EntityData.ParentYangName = "request-detail"
     filter.EntityData.SegmentPath = "filter"
+    filter.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/request-details/request-detail/" + filter.EntityData.SegmentPath
     filter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     filter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     filter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13432,6 +13798,7 @@ func (rsvpFilter *RsvpStandby_RequestDetails_RequestDetail_Filter_RsvpFilter) Ge
     rsvpFilter.EntityData.BundleName = "cisco_ios_xr"
     rsvpFilter.EntityData.ParentYangName = "filter"
     rsvpFilter.EntityData.SegmentPath = "rsvp-filter"
+    rsvpFilter.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/request-details/request-detail/filter/" + rsvpFilter.EntityData.SegmentPath
     rsvpFilter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rsvpFilter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rsvpFilter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13467,6 +13834,7 @@ func (udpIpv4Session *RsvpStandby_RequestDetails_RequestDetail_Filter_RsvpFilter
     udpIpv4Session.EntityData.BundleName = "cisco_ios_xr"
     udpIpv4Session.EntityData.ParentYangName = "rsvp-filter"
     udpIpv4Session.EntityData.SegmentPath = "udp-ipv4-session"
+    udpIpv4Session.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/request-details/request-detail/filter/rsvp-filter/" + udpIpv4Session.EntityData.SegmentPath
     udpIpv4Session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     udpIpv4Session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     udpIpv4Session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13509,6 +13877,7 @@ func (p2mpIpv4Session *RsvpStandby_RequestDetails_RequestDetail_Filter_RsvpFilte
     p2mpIpv4Session.EntityData.BundleName = "cisco_ios_xr"
     p2mpIpv4Session.EntityData.ParentYangName = "rsvp-filter"
     p2mpIpv4Session.EntityData.SegmentPath = "p2mp-ipv4-session"
+    p2mpIpv4Session.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/request-details/request-detail/filter/rsvp-filter/" + p2mpIpv4Session.EntityData.SegmentPath
     p2mpIpv4Session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     p2mpIpv4Session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     p2mpIpv4Session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13542,6 +13911,7 @@ func (style *RsvpStandby_RequestDetails_RequestDetail_Style) GetEntityData() *ty
     style.EntityData.BundleName = "cisco_ios_xr"
     style.EntityData.ParentYangName = "request-detail"
     style.EntityData.SegmentPath = "style"
+    style.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/request-details/request-detail/" + style.EntityData.SegmentPath
     style.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     style.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     style.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13604,6 +13974,7 @@ func (reqFlags *RsvpStandby_RequestDetails_RequestDetail_ReqFlags) GetEntityData
     reqFlags.EntityData.BundleName = "cisco_ios_xr"
     reqFlags.EntityData.ParentYangName = "request-detail"
     reqFlags.EntityData.SegmentPath = "req-flags"
+    reqFlags.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/request-details/request-detail/" + reqFlags.EntityData.SegmentPath
     reqFlags.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     reqFlags.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     reqFlags.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13649,6 +14020,7 @@ func (hop *RsvpStandby_RequestDetails_RequestDetail_Hop) GetEntityData() *types.
     hop.EntityData.BundleName = "cisco_ios_xr"
     hop.EntityData.ParentYangName = "request-detail"
     hop.EntityData.SegmentPath = "hop"
+    hop.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/request-details/request-detail/" + hop.EntityData.SegmentPath
     hop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13699,6 +14071,7 @@ func (header *RsvpStandby_RequestDetails_RequestDetail_Header) GetEntityData() *
     header.EntityData.BundleName = "cisco_ios_xr"
     header.EntityData.ParentYangName = "request-detail"
     header.EntityData.SegmentPath = "header"
+    header.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/request-details/request-detail/" + header.EntityData.SegmentPath
     header.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     header.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     header.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13746,6 +14119,7 @@ func (policySources *RsvpStandby_RequestDetails_RequestDetail_PolicySources) Get
     policySources.EntityData.BundleName = "cisco_ios_xr"
     policySources.EntityData.ParentYangName = "request-detail"
     policySources.EntityData.SegmentPath = "policy-sources"
+    policySources.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/request-details/request-detail/" + policySources.EntityData.SegmentPath
     policySources.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     policySources.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policySources.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13785,6 +14159,7 @@ func (policyFlags *RsvpStandby_RequestDetails_RequestDetail_PolicyFlags) GetEnti
     policyFlags.EntityData.BundleName = "cisco_ios_xr"
     policyFlags.EntityData.ParentYangName = "request-detail"
     policyFlags.EntityData.SegmentPath = "policy-flags"
+    policyFlags.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/request-details/request-detail/" + policyFlags.EntityData.SegmentPath
     policyFlags.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     policyFlags.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policyFlags.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13825,6 +14200,7 @@ func (policyQueryFlags *RsvpStandby_RequestDetails_RequestDetail_PolicyQueryFlag
     policyQueryFlags.EntityData.BundleName = "cisco_ios_xr"
     policyQueryFlags.EntityData.ParentYangName = "request-detail"
     policyQueryFlags.EntityData.SegmentPath = "policy-query-flags"
+    policyQueryFlags.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/request-details/request-detail/" + policyQueryFlags.EntityData.SegmentPath
     policyQueryFlags.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     policyQueryFlags.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policyQueryFlags.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13846,6 +14222,7 @@ func (policyQueryFlags *RsvpStandby_RequestDetails_RequestDetail_PolicyQueryFlag
 type RsvpStandby_RequestDetails_RequestDetail_PsbKey struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Point-to-multipoint ID. The type is interface{} with range: 0..4294967295.
     P2mpId interface{}
@@ -13897,7 +14274,8 @@ func (psbKey *RsvpStandby_RequestDetails_RequestDetail_PsbKey) GetEntityData() *
     psbKey.EntityData.YangName = "psb-key"
     psbKey.EntityData.BundleName = "cisco_ios_xr"
     psbKey.EntityData.ParentYangName = "request-detail"
-    psbKey.EntityData.SegmentPath = "psb-key"
+    psbKey.EntityData.SegmentPath = "psb-key" + types.AddNoKeyToken(psbKey)
+    psbKey.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/request-details/request-detail/" + psbKey.EntityData.SegmentPath
     psbKey.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     psbKey.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     psbKey.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13926,6 +14304,7 @@ func (psbKey *RsvpStandby_RequestDetails_RequestDetail_PsbKey) GetEntityData() *
 type RsvpStandby_RequestDetails_RequestDetail_RsbKey struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Point-to-multipoint ID. The type is interface{} with range: 0..4294967295.
     P2mpId interface{}
@@ -13977,7 +14356,8 @@ func (rsbKey *RsvpStandby_RequestDetails_RequestDetail_RsbKey) GetEntityData() *
     rsbKey.EntityData.YangName = "rsb-key"
     rsbKey.EntityData.BundleName = "cisco_ios_xr"
     rsbKey.EntityData.ParentYangName = "request-detail"
-    rsbKey.EntityData.SegmentPath = "rsb-key"
+    rsbKey.EntityData.SegmentPath = "rsb-key" + types.AddNoKeyToken(rsbKey)
+    rsbKey.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/request-details/request-detail/" + rsbKey.EntityData.SegmentPath
     rsbKey.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rsbKey.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rsbKey.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14019,6 +14399,7 @@ func (interfaceBriefs *RsvpStandby_InterfaceBriefs) GetEntityData() *types.Commo
     interfaceBriefs.EntityData.BundleName = "cisco_ios_xr"
     interfaceBriefs.EntityData.ParentYangName = "rsvp-standby"
     interfaceBriefs.EntityData.SegmentPath = "interface-briefs"
+    interfaceBriefs.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/" + interfaceBriefs.EntityData.SegmentPath
     interfaceBriefs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceBriefs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceBriefs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14040,6 +14421,7 @@ func (interfaceBriefs *RsvpStandby_InterfaceBriefs) GetEntityData() *types.Commo
 type RsvpStandby_InterfaceBriefs_InterfaceBrief struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface Name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -14058,6 +14440,7 @@ func (interfaceBrief *RsvpStandby_InterfaceBriefs_InterfaceBrief) GetEntityData(
     interfaceBrief.EntityData.BundleName = "cisco_ios_xr"
     interfaceBrief.EntityData.ParentYangName = "interface-briefs"
     interfaceBrief.EntityData.SegmentPath = "interface-brief" + types.AddKeyToken(interfaceBrief.InterfaceName, "interface-name")
+    interfaceBrief.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/interface-briefs/" + interfaceBrief.EntityData.SegmentPath
     interfaceBrief.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceBrief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceBrief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14095,6 +14478,7 @@ func (bandwidthInformation *RsvpStandby_InterfaceBriefs_InterfaceBrief_Bandwidth
     bandwidthInformation.EntityData.BundleName = "cisco_ios_xr"
     bandwidthInformation.EntityData.ParentYangName = "interface-brief"
     bandwidthInformation.EntityData.SegmentPath = "bandwidth-information"
+    bandwidthInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/interface-briefs/interface-brief/" + bandwidthInformation.EntityData.SegmentPath
     bandwidthInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bandwidthInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bandwidthInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14147,6 +14531,7 @@ func (preStandardDsteInterface *RsvpStandby_InterfaceBriefs_InterfaceBrief_Bandw
     preStandardDsteInterface.EntityData.BundleName = "cisco_ios_xr"
     preStandardDsteInterface.EntityData.ParentYangName = "bandwidth-information"
     preStandardDsteInterface.EntityData.SegmentPath = "pre-standard-dste-interface"
+    preStandardDsteInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/interface-briefs/interface-brief/bandwidth-information/" + preStandardDsteInterface.EntityData.SegmentPath
     preStandardDsteInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     preStandardDsteInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     preStandardDsteInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14210,6 +14595,7 @@ func (standardDsteInterface *RsvpStandby_InterfaceBriefs_InterfaceBrief_Bandwidt
     standardDsteInterface.EntityData.BundleName = "cisco_ios_xr"
     standardDsteInterface.EntityData.ParentYangName = "bandwidth-information"
     standardDsteInterface.EntityData.SegmentPath = "standard-dste-interface"
+    standardDsteInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/interface-briefs/interface-brief/bandwidth-information/" + standardDsteInterface.EntityData.SegmentPath
     standardDsteInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     standardDsteInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     standardDsteInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14247,6 +14633,7 @@ func (sessionDetaileds *RsvpStandby_SessionDetaileds) GetEntityData() *types.Com
     sessionDetaileds.EntityData.BundleName = "cisco_ios_xr"
     sessionDetaileds.EntityData.ParentYangName = "rsvp-standby"
     sessionDetaileds.EntityData.SegmentPath = "session-detaileds"
+    sessionDetaileds.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/" + sessionDetaileds.EntityData.SegmentPath
     sessionDetaileds.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sessionDetaileds.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionDetaileds.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14254,6 +14641,7 @@ func (sessionDetaileds *RsvpStandby_SessionDetaileds) GetEntityData() *types.Com
     sessionDetaileds.EntityData.Children = types.NewOrderedMap()
     sessionDetaileds.EntityData.Children.Append("session-detailed", types.YChild{"SessionDetailed", nil})
     for i := range sessionDetaileds.SessionDetailed {
+        types.SetYListKey(sessionDetaileds.SessionDetailed[i], i)
         sessionDetaileds.EntityData.Children.Append(types.GetSegmentPath(sessionDetaileds.SessionDetailed[i]), types.YChild{"SessionDetailed", sessionDetaileds.SessionDetailed[i]})
     }
     sessionDetaileds.EntityData.Leafs = types.NewOrderedMap()
@@ -14268,6 +14656,7 @@ func (sessionDetaileds *RsvpStandby_SessionDetaileds) GetEntityData() *types.Com
 type RsvpStandby_SessionDetaileds_SessionDetailed struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Destination Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -14308,7 +14697,8 @@ func (sessionDetailed *RsvpStandby_SessionDetaileds_SessionDetailed) GetEntityDa
     sessionDetailed.EntityData.YangName = "session-detailed"
     sessionDetailed.EntityData.BundleName = "cisco_ios_xr"
     sessionDetailed.EntityData.ParentYangName = "session-detaileds"
-    sessionDetailed.EntityData.SegmentPath = "session-detailed"
+    sessionDetailed.EntityData.SegmentPath = "session-detailed" + types.AddNoKeyToken(sessionDetailed)
+    sessionDetailed.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/session-detaileds/" + sessionDetailed.EntityData.SegmentPath
     sessionDetailed.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sessionDetailed.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionDetailed.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14318,6 +14708,7 @@ func (sessionDetailed *RsvpStandby_SessionDetaileds_SessionDetailed) GetEntityDa
     sessionDetailed.EntityData.Children.Append("s2l-sub-lsp", types.YChild{"S2lSubLsp", &sessionDetailed.S2lSubLsp})
     sessionDetailed.EntityData.Children.Append("psb-rsb-info", types.YChild{"PsbRsbInfo", nil})
     for i := range sessionDetailed.PsbRsbInfo {
+        types.SetYListKey(sessionDetailed.PsbRsbInfo[i], i)
         sessionDetailed.EntityData.Children.Append(types.GetSegmentPath(sessionDetailed.PsbRsbInfo[i]), types.YChild{"PsbRsbInfo", sessionDetailed.PsbRsbInfo[i]})
     }
     sessionDetailed.EntityData.Leafs = types.NewOrderedMap()
@@ -14366,6 +14757,7 @@ func (compact *RsvpStandby_SessionDetaileds_SessionDetailed_Compact) GetEntityDa
     compact.EntityData.BundleName = "cisco_ios_xr"
     compact.EntityData.ParentYangName = "session-detailed"
     compact.EntityData.SegmentPath = "compact"
+    compact.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/session-detaileds/session-detailed/" + compact.EntityData.SegmentPath
     compact.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     compact.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     compact.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14399,6 +14791,7 @@ func (session *RsvpStandby_SessionDetaileds_SessionDetailed_Compact_Session) Get
     session.EntityData.BundleName = "cisco_ios_xr"
     session.EntityData.ParentYangName = "compact"
     session.EntityData.SegmentPath = "session"
+    session.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/session-detaileds/session-detailed/compact/" + session.EntityData.SegmentPath
     session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14440,6 +14833,7 @@ func (rsvpSession *RsvpStandby_SessionDetaileds_SessionDetailed_Compact_Session_
     rsvpSession.EntityData.BundleName = "cisco_ios_xr"
     rsvpSession.EntityData.ParentYangName = "session"
     rsvpSession.EntityData.SegmentPath = "rsvp-session"
+    rsvpSession.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/session-detaileds/session-detailed/compact/session/" + rsvpSession.EntityData.SegmentPath
     rsvpSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rsvpSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rsvpSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14481,6 +14875,7 @@ func (ipv4 *RsvpStandby_SessionDetaileds_SessionDetailed_Compact_Session_RsvpSes
     ipv4.EntityData.BundleName = "cisco_ios_xr"
     ipv4.EntityData.ParentYangName = "rsvp-session"
     ipv4.EntityData.SegmentPath = "ipv4"
+    ipv4.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/session-detaileds/session-detailed/compact/session/rsvp-session/" + ipv4.EntityData.SegmentPath
     ipv4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14520,6 +14915,7 @@ func (ipv4LspSession *RsvpStandby_SessionDetaileds_SessionDetailed_Compact_Sessi
     ipv4LspSession.EntityData.BundleName = "cisco_ios_xr"
     ipv4LspSession.EntityData.ParentYangName = "rsvp-session"
     ipv4LspSession.EntityData.SegmentPath = "ipv4-lsp-session"
+    ipv4LspSession.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/session-detaileds/session-detailed/compact/session/rsvp-session/" + ipv4LspSession.EntityData.SegmentPath
     ipv4LspSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4LspSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4LspSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14559,6 +14955,7 @@ func (ipv4UniSession *RsvpStandby_SessionDetaileds_SessionDetailed_Compact_Sessi
     ipv4UniSession.EntityData.BundleName = "cisco_ios_xr"
     ipv4UniSession.EntityData.ParentYangName = "rsvp-session"
     ipv4UniSession.EntityData.SegmentPath = "ipv4-uni-session"
+    ipv4UniSession.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/session-detaileds/session-detailed/compact/session/rsvp-session/" + ipv4UniSession.EntityData.SegmentPath
     ipv4UniSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4UniSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4UniSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14598,6 +14995,7 @@ func (ipv4P2mpLspSession *RsvpStandby_SessionDetaileds_SessionDetailed_Compact_S
     ipv4P2mpLspSession.EntityData.BundleName = "cisco_ios_xr"
     ipv4P2mpLspSession.EntityData.ParentYangName = "rsvp-session"
     ipv4P2mpLspSession.EntityData.SegmentPath = "ipv4-p2mp-lsp-session"
+    ipv4P2mpLspSession.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/session-detaileds/session-detailed/compact/session/rsvp-session/" + ipv4P2mpLspSession.EntityData.SegmentPath
     ipv4P2mpLspSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4P2mpLspSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4P2mpLspSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14630,6 +15028,7 @@ func (s2lSubLsp *RsvpStandby_SessionDetaileds_SessionDetailed_S2lSubLsp) GetEnti
     s2lSubLsp.EntityData.BundleName = "cisco_ios_xr"
     s2lSubLsp.EntityData.ParentYangName = "session-detailed"
     s2lSubLsp.EntityData.SegmentPath = "s2l-sub-lsp"
+    s2lSubLsp.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/session-detaileds/session-detailed/" + s2lSubLsp.EntityData.SegmentPath
     s2lSubLsp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     s2lSubLsp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     s2lSubLsp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14648,6 +15047,7 @@ func (s2lSubLsp *RsvpStandby_SessionDetaileds_SessionDetailed_S2lSubLsp) GetEnti
 type RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Path Info. The type is slice of
     // RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo.
@@ -14663,7 +15063,8 @@ func (psbRsbInfo *RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo) GetEn
     psbRsbInfo.EntityData.YangName = "psb-rsb-info"
     psbRsbInfo.EntityData.BundleName = "cisco_ios_xr"
     psbRsbInfo.EntityData.ParentYangName = "session-detailed"
-    psbRsbInfo.EntityData.SegmentPath = "psb-rsb-info"
+    psbRsbInfo.EntityData.SegmentPath = "psb-rsb-info" + types.AddNoKeyToken(psbRsbInfo)
+    psbRsbInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/session-detaileds/session-detailed/" + psbRsbInfo.EntityData.SegmentPath
     psbRsbInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     psbRsbInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     psbRsbInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14671,10 +15072,12 @@ func (psbRsbInfo *RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo) GetEn
     psbRsbInfo.EntityData.Children = types.NewOrderedMap()
     psbRsbInfo.EntityData.Children.Append("psb-info", types.YChild{"PsbInfo", nil})
     for i := range psbRsbInfo.PsbInfo {
+        types.SetYListKey(psbRsbInfo.PsbInfo[i], i)
         psbRsbInfo.EntityData.Children.Append(types.GetSegmentPath(psbRsbInfo.PsbInfo[i]), types.YChild{"PsbInfo", psbRsbInfo.PsbInfo[i]})
     }
     psbRsbInfo.EntityData.Children.Append("rsb-info", types.YChild{"RsbInfo", nil})
     for i := range psbRsbInfo.RsbInfo {
+        types.SetYListKey(psbRsbInfo.RsbInfo[i], i)
         psbRsbInfo.EntityData.Children.Append(types.GetSegmentPath(psbRsbInfo.RsbInfo[i]), types.YChild{"RsbInfo", psbRsbInfo.RsbInfo[i]})
     }
     psbRsbInfo.EntityData.Leafs = types.NewOrderedMap()
@@ -14689,6 +15092,7 @@ func (psbRsbInfo *RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo) GetEn
 type RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Entry validity. The type is bool.
     IsValid interface{}
@@ -14770,7 +15174,8 @@ func (psbInfo *RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo) 
     psbInfo.EntityData.YangName = "psb-info"
     psbInfo.EntityData.BundleName = "cisco_ios_xr"
     psbInfo.EntityData.ParentYangName = "psb-rsb-info"
-    psbInfo.EntityData.SegmentPath = "psb-info"
+    psbInfo.EntityData.SegmentPath = "psb-info" + types.AddNoKeyToken(psbInfo)
+    psbInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/session-detaileds/session-detailed/psb-rsb-info/" + psbInfo.EntityData.SegmentPath
     psbInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     psbInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     psbInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14784,10 +15189,12 @@ func (psbInfo *RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo) 
     psbInfo.EntityData.Children.Append("reverse-lsp", types.YChild{"ReverseLsp", &psbInfo.ReverseLsp})
     psbInfo.EntityData.Children.Append("ero", types.YChild{"Ero", nil})
     for i := range psbInfo.Ero {
+        types.SetYListKey(psbInfo.Ero[i], i)
         psbInfo.EntityData.Children.Append(types.GetSegmentPath(psbInfo.Ero[i]), types.YChild{"Ero", psbInfo.Ero[i]})
     }
     psbInfo.EntityData.Children.Append("rro", types.YChild{"Rro", nil})
     for i := range psbInfo.Rro {
+        types.SetYListKey(psbInfo.Rro[i], i)
         psbInfo.EntityData.Children.Append(types.GetSegmentPath(psbInfo.Rro[i]), types.YChild{"Rro", psbInfo.Rro[i]})
     }
     psbInfo.EntityData.Leafs = types.NewOrderedMap()
@@ -14830,6 +15237,7 @@ func (genericInLabel *RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_Ps
     genericInLabel.EntityData.BundleName = "cisco_ios_xr"
     genericInLabel.EntityData.ParentYangName = "psb-info"
     genericInLabel.EntityData.SegmentPath = "generic-in-label"
+    genericInLabel.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/session-detaileds/session-detailed/psb-rsb-info/psb-info/" + genericInLabel.EntityData.SegmentPath
     genericInLabel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     genericInLabel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     genericInLabel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14861,6 +15269,7 @@ func (generalizedLabel *RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_
     generalizedLabel.EntityData.BundleName = "cisco_ios_xr"
     generalizedLabel.EntityData.ParentYangName = "generic-in-label"
     generalizedLabel.EntityData.SegmentPath = "generalized-label"
+    generalizedLabel.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/session-detaileds/session-detailed/psb-rsb-info/psb-info/generic-in-label/" + generalizedLabel.EntityData.SegmentPath
     generalizedLabel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     generalizedLabel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     generalizedLabel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14868,6 +15277,7 @@ func (generalizedLabel *RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_
     generalizedLabel.EntityData.Children = types.NewOrderedMap()
     generalizedLabel.EntityData.Children.Append("value", types.YChild{"Value", nil})
     for i := range generalizedLabel.Value {
+        types.SetYListKey(generalizedLabel.Value[i], i)
         generalizedLabel.EntityData.Children.Append(types.GetSegmentPath(generalizedLabel.Value[i]), types.YChild{"Value", generalizedLabel.Value[i]})
     }
     generalizedLabel.EntityData.Leafs = types.NewOrderedMap()
@@ -14882,6 +15292,7 @@ func (generalizedLabel *RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_
 type RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_GenericInLabel_GeneralizedLabel_Value struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -14892,7 +15303,8 @@ func (value *RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_Gen
     value.EntityData.YangName = "value"
     value.EntityData.BundleName = "cisco_ios_xr"
     value.EntityData.ParentYangName = "generalized-label"
-    value.EntityData.SegmentPath = "value"
+    value.EntityData.SegmentPath = "value" + types.AddNoKeyToken(value)
+    value.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/session-detaileds/session-detailed/psb-rsb-info/psb-info/generic-in-label/generalized-label/" + value.EntityData.SegmentPath
     value.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     value.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     value.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14937,6 +15349,7 @@ func (trafficSpec *RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbIn
     trafficSpec.EntityData.BundleName = "cisco_ios_xr"
     trafficSpec.EntityData.ParentYangName = "psb-info"
     trafficSpec.EntityData.SegmentPath = "traffic-spec"
+    trafficSpec.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/session-detaileds/session-detailed/psb-rsb-info/psb-info/" + trafficSpec.EntityData.SegmentPath
     trafficSpec.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trafficSpec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trafficSpec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14976,6 +15389,7 @@ func (genericTrafficSpec *RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInf
     genericTrafficSpec.EntityData.BundleName = "cisco_ios_xr"
     genericTrafficSpec.EntityData.ParentYangName = "psb-info"
     genericTrafficSpec.EntityData.SegmentPath = "generic-traffic-spec"
+    genericTrafficSpec.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/session-detaileds/session-detailed/psb-rsb-info/psb-info/" + genericTrafficSpec.EntityData.SegmentPath
     genericTrafficSpec.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     genericTrafficSpec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     genericTrafficSpec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15018,6 +15432,7 @@ func (g709otnTspec *RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbI
     g709otnTspec.EntityData.BundleName = "cisco_ios_xr"
     g709otnTspec.EntityData.ParentYangName = "generic-traffic-spec"
     g709otnTspec.EntityData.SegmentPath = "g709otn-tspec"
+    g709otnTspec.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/session-detaileds/session-detailed/psb-rsb-info/psb-info/generic-traffic-spec/" + g709otnTspec.EntityData.SegmentPath
     g709otnTspec.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     g709otnTspec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     g709otnTspec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15065,6 +15480,7 @@ func (intsrvTspec *RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbIn
     intsrvTspec.EntityData.BundleName = "cisco_ios_xr"
     intsrvTspec.EntityData.ParentYangName = "generic-traffic-spec"
     intsrvTspec.EntityData.SegmentPath = "intsrv-tspec"
+    intsrvTspec.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/session-detaileds/session-detailed/psb-rsb-info/psb-info/generic-traffic-spec/" + intsrvTspec.EntityData.SegmentPath
     intsrvTspec.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     intsrvTspec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     intsrvTspec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15110,6 +15526,7 @@ func (association *RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbIn
     association.EntityData.BundleName = "cisco_ios_xr"
     association.EntityData.ParentYangName = "psb-info"
     association.EntityData.SegmentPath = "association"
+    association.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/session-detaileds/session-detailed/psb-rsb-info/psb-info/" + association.EntityData.SegmentPath
     association.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     association.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     association.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15150,6 +15567,7 @@ func (ipv4 *RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_Asso
     ipv4.EntityData.BundleName = "cisco_ios_xr"
     ipv4.EntityData.ParentYangName = "association"
     ipv4.EntityData.SegmentPath = "ipv4"
+    ipv4.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/session-detaileds/session-detailed/psb-rsb-info/psb-info/association/" + ipv4.EntityData.SegmentPath
     ipv4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15188,6 +15606,7 @@ func (ipv6 *RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_Asso
     ipv6.EntityData.BundleName = "cisco_ios_xr"
     ipv6.EntityData.ParentYangName = "association"
     ipv6.EntityData.SegmentPath = "ipv6"
+    ipv6.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/session-detaileds/session-detailed/psb-rsb-info/psb-info/association/" + ipv6.EntityData.SegmentPath
     ipv6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15234,6 +15653,7 @@ func (extendedIpv4 *RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbI
     extendedIpv4.EntityData.BundleName = "cisco_ios_xr"
     extendedIpv4.EntityData.ParentYangName = "association"
     extendedIpv4.EntityData.SegmentPath = "extended-ipv4"
+    extendedIpv4.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/session-detaileds/session-detailed/psb-rsb-info/psb-info/association/" + extendedIpv4.EntityData.SegmentPath
     extendedIpv4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     extendedIpv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     extendedIpv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15241,6 +15661,7 @@ func (extendedIpv4 *RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbI
     extendedIpv4.EntityData.Children = types.NewOrderedMap()
     extendedIpv4.EntityData.Children.Append("extended-id", types.YChild{"ExtendedId", nil})
     for i := range extendedIpv4.ExtendedId {
+        types.SetYListKey(extendedIpv4.ExtendedId[i], i)
         extendedIpv4.EntityData.Children.Append(types.GetSegmentPath(extendedIpv4.ExtendedId[i]), types.YChild{"ExtendedId", extendedIpv4.ExtendedId[i]})
     }
     extendedIpv4.EntityData.Leafs = types.NewOrderedMap()
@@ -15259,6 +15680,7 @@ func (extendedIpv4 *RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbI
 type RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_Association_ExtendedIpv4_ExtendedId struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -15269,7 +15691,8 @@ func (extendedId *RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInf
     extendedId.EntityData.YangName = "extended-id"
     extendedId.EntityData.BundleName = "cisco_ios_xr"
     extendedId.EntityData.ParentYangName = "extended-ipv4"
-    extendedId.EntityData.SegmentPath = "extended-id"
+    extendedId.EntityData.SegmentPath = "extended-id" + types.AddNoKeyToken(extendedId)
+    extendedId.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/session-detaileds/session-detailed/psb-rsb-info/psb-info/association/extended-ipv4/" + extendedId.EntityData.SegmentPath
     extendedId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     extendedId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     extendedId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15314,6 +15737,7 @@ func (extendedIpv6 *RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbI
     extendedIpv6.EntityData.BundleName = "cisco_ios_xr"
     extendedIpv6.EntityData.ParentYangName = "association"
     extendedIpv6.EntityData.SegmentPath = "extended-ipv6"
+    extendedIpv6.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/session-detaileds/session-detailed/psb-rsb-info/psb-info/association/" + extendedIpv6.EntityData.SegmentPath
     extendedIpv6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     extendedIpv6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     extendedIpv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15321,6 +15745,7 @@ func (extendedIpv6 *RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbI
     extendedIpv6.EntityData.Children = types.NewOrderedMap()
     extendedIpv6.EntityData.Children.Append("extended-id", types.YChild{"ExtendedId", nil})
     for i := range extendedIpv6.ExtendedId {
+        types.SetYListKey(extendedIpv6.ExtendedId[i], i)
         extendedIpv6.EntityData.Children.Append(types.GetSegmentPath(extendedIpv6.ExtendedId[i]), types.YChild{"ExtendedId", extendedIpv6.ExtendedId[i]})
     }
     extendedIpv6.EntityData.Leafs = types.NewOrderedMap()
@@ -15339,6 +15764,7 @@ func (extendedIpv6 *RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbI
 type RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_Association_ExtendedIpv6_ExtendedId struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -15349,7 +15775,8 @@ func (extendedId *RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInf
     extendedId.EntityData.YangName = "extended-id"
     extendedId.EntityData.BundleName = "cisco_ios_xr"
     extendedId.EntityData.ParentYangName = "extended-ipv6"
-    extendedId.EntityData.SegmentPath = "extended-id"
+    extendedId.EntityData.SegmentPath = "extended-id" + types.AddNoKeyToken(extendedId)
+    extendedId.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/session-detaileds/session-detailed/psb-rsb-info/psb-info/association/extended-ipv6/" + extendedId.EntityData.SegmentPath
     extendedId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     extendedId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     extendedId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15394,6 +15821,7 @@ func (protection *RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInf
     protection.EntityData.BundleName = "cisco_ios_xr"
     protection.EntityData.ParentYangName = "psb-info"
     protection.EntityData.SegmentPath = "protection"
+    protection.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/session-detaileds/session-detailed/psb-rsb-info/psb-info/" + protection.EntityData.SegmentPath
     protection.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protection.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protection.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15440,6 +15868,7 @@ func (lspFlags *RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_
     lspFlags.EntityData.BundleName = "cisco_ios_xr"
     lspFlags.EntityData.ParentYangName = "protection"
     lspFlags.EntityData.SegmentPath = "lsp-flags"
+    lspFlags.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/session-detaileds/session-detailed/psb-rsb-info/psb-info/protection/" + lspFlags.EntityData.SegmentPath
     lspFlags.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lspFlags.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspFlags.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15495,6 +15924,7 @@ func (linkFlags *RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo
     linkFlags.EntityData.BundleName = "cisco_ios_xr"
     linkFlags.EntityData.ParentYangName = "protection"
     linkFlags.EntityData.SegmentPath = "link-flags"
+    linkFlags.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/session-detaileds/session-detailed/psb-rsb-info/psb-info/protection/" + linkFlags.EntityData.SegmentPath
     linkFlags.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     linkFlags.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     linkFlags.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15539,6 +15969,7 @@ func (reverseLsp *RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInf
     reverseLsp.EntityData.BundleName = "cisco_ios_xr"
     reverseLsp.EntityData.ParentYangName = "psb-info"
     reverseLsp.EntityData.SegmentPath = "reverse-lsp"
+    reverseLsp.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/session-detaileds/session-detailed/psb-rsb-info/psb-info/" + reverseLsp.EntityData.SegmentPath
     reverseLsp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     reverseLsp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     reverseLsp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15547,10 +15978,12 @@ func (reverseLsp *RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInf
     reverseLsp.EntityData.Children.Append("generic-traffic-spec", types.YChild{"GenericTrafficSpec", &reverseLsp.GenericTrafficSpec})
     reverseLsp.EntityData.Children.Append("ero", types.YChild{"Ero", nil})
     for i := range reverseLsp.Ero {
+        types.SetYListKey(reverseLsp.Ero[i], i)
         reverseLsp.EntityData.Children.Append(types.GetSegmentPath(reverseLsp.Ero[i]), types.YChild{"Ero", reverseLsp.Ero[i]})
     }
     reverseLsp.EntityData.Children.Append("unsup-sub-object", types.YChild{"UnsupSubObject", nil})
     for i := range reverseLsp.UnsupSubObject {
+        types.SetYListKey(reverseLsp.UnsupSubObject[i], i)
         reverseLsp.EntityData.Children.Append(types.GetSegmentPath(reverseLsp.UnsupSubObject[i]), types.YChild{"UnsupSubObject", reverseLsp.UnsupSubObject[i]})
     }
     reverseLsp.EntityData.Leafs = types.NewOrderedMap()
@@ -15582,6 +16015,7 @@ func (genericTrafficSpec *RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInf
     genericTrafficSpec.EntityData.BundleName = "cisco_ios_xr"
     genericTrafficSpec.EntityData.ParentYangName = "reverse-lsp"
     genericTrafficSpec.EntityData.SegmentPath = "generic-traffic-spec"
+    genericTrafficSpec.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/session-detaileds/session-detailed/psb-rsb-info/psb-info/reverse-lsp/" + genericTrafficSpec.EntityData.SegmentPath
     genericTrafficSpec.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     genericTrafficSpec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     genericTrafficSpec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15624,6 +16058,7 @@ func (g709otnTspec *RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbI
     g709otnTspec.EntityData.BundleName = "cisco_ios_xr"
     g709otnTspec.EntityData.ParentYangName = "generic-traffic-spec"
     g709otnTspec.EntityData.SegmentPath = "g709otn-tspec"
+    g709otnTspec.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/session-detaileds/session-detailed/psb-rsb-info/psb-info/reverse-lsp/generic-traffic-spec/" + g709otnTspec.EntityData.SegmentPath
     g709otnTspec.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     g709otnTspec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     g709otnTspec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15671,6 +16106,7 @@ func (intsrvTspec *RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbIn
     intsrvTspec.EntityData.BundleName = "cisco_ios_xr"
     intsrvTspec.EntityData.ParentYangName = "generic-traffic-spec"
     intsrvTspec.EntityData.SegmentPath = "intsrv-tspec"
+    intsrvTspec.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/session-detaileds/session-detailed/psb-rsb-info/psb-info/reverse-lsp/generic-traffic-spec/" + intsrvTspec.EntityData.SegmentPath
     intsrvTspec.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     intsrvTspec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     intsrvTspec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15693,6 +16129,7 @@ func (intsrvTspec *RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbIn
 type RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_ReverseLsp_Ero struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // EROType. The type is RsvpMgmtEroSubobj.
     EroType interface{}
@@ -15709,7 +16146,8 @@ func (ero *RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_Rever
     ero.EntityData.YangName = "ero"
     ero.EntityData.BundleName = "cisco_ios_xr"
     ero.EntityData.ParentYangName = "reverse-lsp"
-    ero.EntityData.SegmentPath = "ero"
+    ero.EntityData.SegmentPath = "ero" + types.AddNoKeyToken(ero)
+    ero.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/session-detaileds/session-detailed/psb-rsb-info/psb-info/reverse-lsp/" + ero.EntityData.SegmentPath
     ero.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ero.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ero.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15748,6 +16186,7 @@ func (ipv4eroSubObject *RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_
     ipv4eroSubObject.EntityData.BundleName = "cisco_ios_xr"
     ipv4eroSubObject.EntityData.ParentYangName = "ero"
     ipv4eroSubObject.EntityData.SegmentPath = "ipv4ero-sub-object"
+    ipv4eroSubObject.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/session-detaileds/session-detailed/psb-rsb-info/psb-info/reverse-lsp/ero/" + ipv4eroSubObject.EntityData.SegmentPath
     ipv4eroSubObject.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4eroSubObject.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4eroSubObject.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15789,6 +16228,7 @@ func (unnumberedEroSubObject *RsvpStandby_SessionDetaileds_SessionDetailed_PsbRs
     unnumberedEroSubObject.EntityData.BundleName = "cisco_ios_xr"
     unnumberedEroSubObject.EntityData.ParentYangName = "ero"
     unnumberedEroSubObject.EntityData.SegmentPath = "unnumbered-ero-sub-object"
+    unnumberedEroSubObject.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/session-detaileds/session-detailed/psb-rsb-info/psb-info/reverse-lsp/ero/" + unnumberedEroSubObject.EntityData.SegmentPath
     unnumberedEroSubObject.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     unnumberedEroSubObject.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unnumberedEroSubObject.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15810,6 +16250,7 @@ func (unnumberedEroSubObject *RsvpStandby_SessionDetaileds_SessionDetailed_PsbRs
 type RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_ReverseLsp_UnsupSubObject struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // rsvp mgmt rev lsp unsupported subobj. The type is slice of
     // RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_ReverseLsp_UnsupSubObject_RsvpMgmtRevLspUnsupportedSubobj.
@@ -15821,7 +16262,8 @@ func (unsupSubObject *RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_Ps
     unsupSubObject.EntityData.YangName = "unsup-sub-object"
     unsupSubObject.EntityData.BundleName = "cisco_ios_xr"
     unsupSubObject.EntityData.ParentYangName = "reverse-lsp"
-    unsupSubObject.EntityData.SegmentPath = "unsup-sub-object"
+    unsupSubObject.EntityData.SegmentPath = "unsup-sub-object" + types.AddNoKeyToken(unsupSubObject)
+    unsupSubObject.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/session-detaileds/session-detailed/psb-rsb-info/psb-info/reverse-lsp/" + unsupSubObject.EntityData.SegmentPath
     unsupSubObject.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     unsupSubObject.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unsupSubObject.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15829,6 +16271,7 @@ func (unsupSubObject *RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_Ps
     unsupSubObject.EntityData.Children = types.NewOrderedMap()
     unsupSubObject.EntityData.Children.Append("rsvp-mgmt-rev-lsp-unsupported-subobj", types.YChild{"RsvpMgmtRevLspUnsupportedSubobj", nil})
     for i := range unsupSubObject.RsvpMgmtRevLspUnsupportedSubobj {
+        types.SetYListKey(unsupSubObject.RsvpMgmtRevLspUnsupportedSubobj[i], i)
         unsupSubObject.EntityData.Children.Append(types.GetSegmentPath(unsupSubObject.RsvpMgmtRevLspUnsupportedSubobj[i]), types.YChild{"RsvpMgmtRevLspUnsupportedSubobj", unsupSubObject.RsvpMgmtRevLspUnsupportedSubobj[i]})
     }
     unsupSubObject.EntityData.Leafs = types.NewOrderedMap()
@@ -15843,6 +16286,7 @@ func (unsupSubObject *RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_Ps
 type RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_ReverseLsp_UnsupSubObject_RsvpMgmtRevLspUnsupportedSubobj struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..255.
     Entry interface{}
@@ -15853,7 +16297,8 @@ func (rsvpMgmtRevLspUnsupportedSubobj *RsvpStandby_SessionDetaileds_SessionDetai
     rsvpMgmtRevLspUnsupportedSubobj.EntityData.YangName = "rsvp-mgmt-rev-lsp-unsupported-subobj"
     rsvpMgmtRevLspUnsupportedSubobj.EntityData.BundleName = "cisco_ios_xr"
     rsvpMgmtRevLspUnsupportedSubobj.EntityData.ParentYangName = "unsup-sub-object"
-    rsvpMgmtRevLspUnsupportedSubobj.EntityData.SegmentPath = "rsvp-mgmt-rev-lsp-unsupported-subobj"
+    rsvpMgmtRevLspUnsupportedSubobj.EntityData.SegmentPath = "rsvp-mgmt-rev-lsp-unsupported-subobj" + types.AddNoKeyToken(rsvpMgmtRevLspUnsupportedSubobj)
+    rsvpMgmtRevLspUnsupportedSubobj.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/session-detaileds/session-detailed/psb-rsb-info/psb-info/reverse-lsp/unsup-sub-object/" + rsvpMgmtRevLspUnsupportedSubobj.EntityData.SegmentPath
     rsvpMgmtRevLspUnsupportedSubobj.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rsvpMgmtRevLspUnsupportedSubobj.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rsvpMgmtRevLspUnsupportedSubobj.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15872,6 +16317,7 @@ func (rsvpMgmtRevLspUnsupportedSubobj *RsvpStandby_SessionDetaileds_SessionDetai
 type RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_Ero struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // EROType. The type is RsvpMgmtEroSubobj.
     EroType interface{}
@@ -15888,7 +16334,8 @@ func (ero *RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_Ero) 
     ero.EntityData.YangName = "ero"
     ero.EntityData.BundleName = "cisco_ios_xr"
     ero.EntityData.ParentYangName = "psb-info"
-    ero.EntityData.SegmentPath = "ero"
+    ero.EntityData.SegmentPath = "ero" + types.AddNoKeyToken(ero)
+    ero.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/session-detaileds/session-detailed/psb-rsb-info/psb-info/" + ero.EntityData.SegmentPath
     ero.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ero.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ero.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15927,6 +16374,7 @@ func (ipv4eroSubObject *RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_
     ipv4eroSubObject.EntityData.BundleName = "cisco_ios_xr"
     ipv4eroSubObject.EntityData.ParentYangName = "ero"
     ipv4eroSubObject.EntityData.SegmentPath = "ipv4ero-sub-object"
+    ipv4eroSubObject.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/session-detaileds/session-detailed/psb-rsb-info/psb-info/ero/" + ipv4eroSubObject.EntityData.SegmentPath
     ipv4eroSubObject.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4eroSubObject.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4eroSubObject.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15968,6 +16416,7 @@ func (unnumberedEroSubObject *RsvpStandby_SessionDetaileds_SessionDetailed_PsbRs
     unnumberedEroSubObject.EntityData.BundleName = "cisco_ios_xr"
     unnumberedEroSubObject.EntityData.ParentYangName = "ero"
     unnumberedEroSubObject.EntityData.SegmentPath = "unnumbered-ero-sub-object"
+    unnumberedEroSubObject.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/session-detaileds/session-detailed/psb-rsb-info/psb-info/ero/" + unnumberedEroSubObject.EntityData.SegmentPath
     unnumberedEroSubObject.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     unnumberedEroSubObject.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unnumberedEroSubObject.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15989,6 +16438,7 @@ func (unnumberedEroSubObject *RsvpStandby_SessionDetaileds_SessionDetailed_PsbRs
 type RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_Rro struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // RROType. The type is RsvpMgmtRroSubobj.
     RroType interface{}
@@ -16011,7 +16461,8 @@ func (rro *RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_Rro) 
     rro.EntityData.YangName = "rro"
     rro.EntityData.BundleName = "cisco_ios_xr"
     rro.EntityData.ParentYangName = "psb-info"
-    rro.EntityData.SegmentPath = "rro"
+    rro.EntityData.SegmentPath = "rro" + types.AddNoKeyToken(rro)
+    rro.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/session-detaileds/session-detailed/psb-rsb-info/psb-info/" + rro.EntityData.SegmentPath
     rro.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rro.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rro.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16049,6 +16500,7 @@ func (ipv4rroSubObject *RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_
     ipv4rroSubObject.EntityData.BundleName = "cisco_ios_xr"
     ipv4rroSubObject.EntityData.ParentYangName = "rro"
     ipv4rroSubObject.EntityData.SegmentPath = "ipv4rro-sub-object"
+    ipv4rroSubObject.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/session-detaileds/session-detailed/psb-rsb-info/psb-info/rro/" + ipv4rroSubObject.EntityData.SegmentPath
     ipv4rroSubObject.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4rroSubObject.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4rroSubObject.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16091,6 +16543,7 @@ func (flags *RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_Rro
     flags.EntityData.BundleName = "cisco_ios_xr"
     flags.EntityData.ParentYangName = "ipv4rro-sub-object"
     flags.EntityData.SegmentPath = "flags"
+    flags.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/session-detaileds/session-detailed/psb-rsb-info/psb-info/rro/ipv4rro-sub-object/" + flags.EntityData.SegmentPath
     flags.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     flags.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     flags.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16135,6 +16588,7 @@ func (labelRroSubObject *RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo
     labelRroSubObject.EntityData.BundleName = "cisco_ios_xr"
     labelRroSubObject.EntityData.ParentYangName = "rro"
     labelRroSubObject.EntityData.SegmentPath = "label-rro-sub-object"
+    labelRroSubObject.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/session-detaileds/session-detailed/psb-rsb-info/psb-info/rro/" + labelRroSubObject.EntityData.SegmentPath
     labelRroSubObject.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labelRroSubObject.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelRroSubObject.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16143,6 +16597,7 @@ func (labelRroSubObject *RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo
     labelRroSubObject.EntityData.Children.Append("flags", types.YChild{"Flags", &labelRroSubObject.Flags})
     labelRroSubObject.EntityData.Children.Append("variable-length-label", types.YChild{"VariableLengthLabel", nil})
     for i := range labelRroSubObject.VariableLengthLabel {
+        types.SetYListKey(labelRroSubObject.VariableLengthLabel[i], i)
         labelRroSubObject.EntityData.Children.Append(types.GetSegmentPath(labelRroSubObject.VariableLengthLabel[i]), types.YChild{"VariableLengthLabel", labelRroSubObject.VariableLengthLabel[i]})
     }
     labelRroSubObject.EntityData.Leafs = types.NewOrderedMap()
@@ -16170,6 +16625,7 @@ func (flags *RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_Rro
     flags.EntityData.BundleName = "cisco_ios_xr"
     flags.EntityData.ParentYangName = "label-rro-sub-object"
     flags.EntityData.SegmentPath = "flags"
+    flags.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/session-detaileds/session-detailed/psb-rsb-info/psb-info/rro/label-rro-sub-object/" + flags.EntityData.SegmentPath
     flags.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     flags.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     flags.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16188,6 +16644,7 @@ func (flags *RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_Rro
 type RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_Rro_LabelRroSubObject_VariableLengthLabel struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -16198,7 +16655,8 @@ func (variableLengthLabel *RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbIn
     variableLengthLabel.EntityData.YangName = "variable-length-label"
     variableLengthLabel.EntityData.BundleName = "cisco_ios_xr"
     variableLengthLabel.EntityData.ParentYangName = "label-rro-sub-object"
-    variableLengthLabel.EntityData.SegmentPath = "variable-length-label"
+    variableLengthLabel.EntityData.SegmentPath = "variable-length-label" + types.AddNoKeyToken(variableLengthLabel)
+    variableLengthLabel.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/session-detaileds/session-detailed/psb-rsb-info/psb-info/rro/label-rro-sub-object/" + variableLengthLabel.EntityData.SegmentPath
     variableLengthLabel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     variableLengthLabel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     variableLengthLabel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16235,6 +16693,7 @@ func (unnumberedRroSubObject *RsvpStandby_SessionDetaileds_SessionDetailed_PsbRs
     unnumberedRroSubObject.EntityData.BundleName = "cisco_ios_xr"
     unnumberedRroSubObject.EntityData.ParentYangName = "rro"
     unnumberedRroSubObject.EntityData.SegmentPath = "unnumbered-rro-sub-object"
+    unnumberedRroSubObject.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/session-detaileds/session-detailed/psb-rsb-info/psb-info/rro/" + unnumberedRroSubObject.EntityData.SegmentPath
     unnumberedRroSubObject.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     unnumberedRroSubObject.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unnumberedRroSubObject.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16278,6 +16737,7 @@ func (flags *RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_Rro
     flags.EntityData.BundleName = "cisco_ios_xr"
     flags.EntityData.ParentYangName = "unnumbered-rro-sub-object"
     flags.EntityData.SegmentPath = "flags"
+    flags.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/session-detaileds/session-detailed/psb-rsb-info/psb-info/rro/unnumbered-rro-sub-object/" + flags.EntityData.SegmentPath
     flags.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     flags.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     flags.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16312,6 +16772,7 @@ func (srlgRroSubObject *RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_
     srlgRroSubObject.EntityData.BundleName = "cisco_ios_xr"
     srlgRroSubObject.EntityData.ParentYangName = "rro"
     srlgRroSubObject.EntityData.SegmentPath = "srlg-rro-sub-object"
+    srlgRroSubObject.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/session-detaileds/session-detailed/psb-rsb-info/psb-info/rro/" + srlgRroSubObject.EntityData.SegmentPath
     srlgRroSubObject.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     srlgRroSubObject.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     srlgRroSubObject.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16319,6 +16780,7 @@ func (srlgRroSubObject *RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_
     srlgRroSubObject.EntityData.Children = types.NewOrderedMap()
     srlgRroSubObject.EntityData.Children.Append("srl-gs", types.YChild{"SrlGs", nil})
     for i := range srlgRroSubObject.SrlGs {
+        types.SetYListKey(srlgRroSubObject.SrlGs[i], i)
         srlgRroSubObject.EntityData.Children.Append(types.GetSegmentPath(srlgRroSubObject.SrlGs[i]), types.YChild{"SrlGs", srlgRroSubObject.SrlGs[i]})
     }
     srlgRroSubObject.EntityData.Leafs = types.NewOrderedMap()
@@ -16333,6 +16795,7 @@ func (srlgRroSubObject *RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_
 type RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_Rro_SrlgRroSubObject_SrlGs struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -16343,7 +16806,8 @@ func (srlGs *RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_Rro
     srlGs.EntityData.YangName = "srl-gs"
     srlGs.EntityData.BundleName = "cisco_ios_xr"
     srlGs.EntityData.ParentYangName = "srlg-rro-sub-object"
-    srlGs.EntityData.SegmentPath = "srl-gs"
+    srlGs.EntityData.SegmentPath = "srl-gs" + types.AddNoKeyToken(srlGs)
+    srlGs.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/session-detaileds/session-detailed/psb-rsb-info/psb-info/rro/srlg-rro-sub-object/" + srlGs.EntityData.SegmentPath
     srlGs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     srlGs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     srlGs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16362,6 +16826,7 @@ func (srlGs *RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_Rro
 type RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_RsbInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Entry validity. The type is bool.
     IsValid interface{}
@@ -16409,7 +16874,8 @@ func (rsbInfo *RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_RsbInfo) 
     rsbInfo.EntityData.YangName = "rsb-info"
     rsbInfo.EntityData.BundleName = "cisco_ios_xr"
     rsbInfo.EntityData.ParentYangName = "psb-rsb-info"
-    rsbInfo.EntityData.SegmentPath = "rsb-info"
+    rsbInfo.EntityData.SegmentPath = "rsb-info" + types.AddNoKeyToken(rsbInfo)
+    rsbInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/session-detaileds/session-detailed/psb-rsb-info/" + rsbInfo.EntityData.SegmentPath
     rsbInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rsbInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rsbInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16420,6 +16886,7 @@ func (rsbInfo *RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_RsbInfo) 
     rsbInfo.EntityData.Children.Append("generic-flow-spec", types.YChild{"GenericFlowSpec", &rsbInfo.GenericFlowSpec})
     rsbInfo.EntityData.Children.Append("rro", types.YChild{"Rro", nil})
     for i := range rsbInfo.Rro {
+        types.SetYListKey(rsbInfo.Rro[i], i)
         rsbInfo.EntityData.Children.Append(types.GetSegmentPath(rsbInfo.Rro[i]), types.YChild{"Rro", rsbInfo.Rro[i]})
     }
     rsbInfo.EntityData.Leafs = types.NewOrderedMap()
@@ -16456,6 +16923,7 @@ func (genericOutLabel *RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_R
     genericOutLabel.EntityData.BundleName = "cisco_ios_xr"
     genericOutLabel.EntityData.ParentYangName = "rsb-info"
     genericOutLabel.EntityData.SegmentPath = "generic-out-label"
+    genericOutLabel.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/session-detaileds/session-detailed/psb-rsb-info/rsb-info/" + genericOutLabel.EntityData.SegmentPath
     genericOutLabel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     genericOutLabel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     genericOutLabel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16487,6 +16955,7 @@ func (generalizedLabel *RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_
     generalizedLabel.EntityData.BundleName = "cisco_ios_xr"
     generalizedLabel.EntityData.ParentYangName = "generic-out-label"
     generalizedLabel.EntityData.SegmentPath = "generalized-label"
+    generalizedLabel.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/session-detaileds/session-detailed/psb-rsb-info/rsb-info/generic-out-label/" + generalizedLabel.EntityData.SegmentPath
     generalizedLabel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     generalizedLabel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     generalizedLabel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16494,6 +16963,7 @@ func (generalizedLabel *RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_
     generalizedLabel.EntityData.Children = types.NewOrderedMap()
     generalizedLabel.EntityData.Children.Append("value", types.YChild{"Value", nil})
     for i := range generalizedLabel.Value {
+        types.SetYListKey(generalizedLabel.Value[i], i)
         generalizedLabel.EntityData.Children.Append(types.GetSegmentPath(generalizedLabel.Value[i]), types.YChild{"Value", generalizedLabel.Value[i]})
     }
     generalizedLabel.EntityData.Leafs = types.NewOrderedMap()
@@ -16508,6 +16978,7 @@ func (generalizedLabel *RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_
 type RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_RsbInfo_GenericOutLabel_GeneralizedLabel_Value struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -16518,7 +16989,8 @@ func (value *RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_RsbInfo_Gen
     value.EntityData.YangName = "value"
     value.EntityData.BundleName = "cisco_ios_xr"
     value.EntityData.ParentYangName = "generalized-label"
-    value.EntityData.SegmentPath = "value"
+    value.EntityData.SegmentPath = "value" + types.AddNoKeyToken(value)
+    value.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/session-detaileds/session-detailed/psb-rsb-info/rsb-info/generic-out-label/generalized-label/" + value.EntityData.SegmentPath
     value.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     value.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     value.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16573,6 +17045,7 @@ func (flowSpec *RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_RsbInfo_
     flowSpec.EntityData.BundleName = "cisco_ios_xr"
     flowSpec.EntityData.ParentYangName = "rsb-info"
     flowSpec.EntityData.SegmentPath = "flow-spec"
+    flowSpec.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/session-detaileds/session-detailed/psb-rsb-info/rsb-info/" + flowSpec.EntityData.SegmentPath
     flowSpec.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     flowSpec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     flowSpec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16612,6 +17085,7 @@ func (genericFlowSpec *RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_R
     genericFlowSpec.EntityData.BundleName = "cisco_ios_xr"
     genericFlowSpec.EntityData.ParentYangName = "rsb-info"
     genericFlowSpec.EntityData.SegmentPath = "generic-flow-spec"
+    genericFlowSpec.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/session-detaileds/session-detailed/psb-rsb-info/rsb-info/" + genericFlowSpec.EntityData.SegmentPath
     genericFlowSpec.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     genericFlowSpec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     genericFlowSpec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16653,6 +17127,7 @@ func (g709otnFlowSpec *RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_R
     g709otnFlowSpec.EntityData.BundleName = "cisco_ios_xr"
     g709otnFlowSpec.EntityData.ParentYangName = "generic-flow-spec"
     g709otnFlowSpec.EntityData.SegmentPath = "g709otn-flow-spec"
+    g709otnFlowSpec.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/session-detaileds/session-detailed/psb-rsb-info/rsb-info/generic-flow-spec/" + g709otnFlowSpec.EntityData.SegmentPath
     g709otnFlowSpec.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     g709otnFlowSpec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     g709otnFlowSpec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16674,6 +17149,7 @@ func (g709otnFlowSpec *RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_R
 type RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_RsbInfo_Rro struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // RROType. The type is RsvpMgmtRroSubobj.
     RroType interface{}
@@ -16696,7 +17172,8 @@ func (rro *RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_RsbInfo_Rro) 
     rro.EntityData.YangName = "rro"
     rro.EntityData.BundleName = "cisco_ios_xr"
     rro.EntityData.ParentYangName = "rsb-info"
-    rro.EntityData.SegmentPath = "rro"
+    rro.EntityData.SegmentPath = "rro" + types.AddNoKeyToken(rro)
+    rro.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/session-detaileds/session-detailed/psb-rsb-info/rsb-info/" + rro.EntityData.SegmentPath
     rro.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rro.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rro.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16734,6 +17211,7 @@ func (ipv4rroSubObject *RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_
     ipv4rroSubObject.EntityData.BundleName = "cisco_ios_xr"
     ipv4rroSubObject.EntityData.ParentYangName = "rro"
     ipv4rroSubObject.EntityData.SegmentPath = "ipv4rro-sub-object"
+    ipv4rroSubObject.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/session-detaileds/session-detailed/psb-rsb-info/rsb-info/rro/" + ipv4rroSubObject.EntityData.SegmentPath
     ipv4rroSubObject.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4rroSubObject.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4rroSubObject.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16776,6 +17254,7 @@ func (flags *RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_RsbInfo_Rro
     flags.EntityData.BundleName = "cisco_ios_xr"
     flags.EntityData.ParentYangName = "ipv4rro-sub-object"
     flags.EntityData.SegmentPath = "flags"
+    flags.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/session-detaileds/session-detailed/psb-rsb-info/rsb-info/rro/ipv4rro-sub-object/" + flags.EntityData.SegmentPath
     flags.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     flags.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     flags.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16820,6 +17299,7 @@ func (labelRroSubObject *RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo
     labelRroSubObject.EntityData.BundleName = "cisco_ios_xr"
     labelRroSubObject.EntityData.ParentYangName = "rro"
     labelRroSubObject.EntityData.SegmentPath = "label-rro-sub-object"
+    labelRroSubObject.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/session-detaileds/session-detailed/psb-rsb-info/rsb-info/rro/" + labelRroSubObject.EntityData.SegmentPath
     labelRroSubObject.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labelRroSubObject.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelRroSubObject.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16828,6 +17308,7 @@ func (labelRroSubObject *RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo
     labelRroSubObject.EntityData.Children.Append("flags", types.YChild{"Flags", &labelRroSubObject.Flags})
     labelRroSubObject.EntityData.Children.Append("variable-length-label", types.YChild{"VariableLengthLabel", nil})
     for i := range labelRroSubObject.VariableLengthLabel {
+        types.SetYListKey(labelRroSubObject.VariableLengthLabel[i], i)
         labelRroSubObject.EntityData.Children.Append(types.GetSegmentPath(labelRroSubObject.VariableLengthLabel[i]), types.YChild{"VariableLengthLabel", labelRroSubObject.VariableLengthLabel[i]})
     }
     labelRroSubObject.EntityData.Leafs = types.NewOrderedMap()
@@ -16855,6 +17336,7 @@ func (flags *RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_RsbInfo_Rro
     flags.EntityData.BundleName = "cisco_ios_xr"
     flags.EntityData.ParentYangName = "label-rro-sub-object"
     flags.EntityData.SegmentPath = "flags"
+    flags.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/session-detaileds/session-detailed/psb-rsb-info/rsb-info/rro/label-rro-sub-object/" + flags.EntityData.SegmentPath
     flags.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     flags.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     flags.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16873,6 +17355,7 @@ func (flags *RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_RsbInfo_Rro
 type RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_RsbInfo_Rro_LabelRroSubObject_VariableLengthLabel struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -16883,7 +17366,8 @@ func (variableLengthLabel *RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbIn
     variableLengthLabel.EntityData.YangName = "variable-length-label"
     variableLengthLabel.EntityData.BundleName = "cisco_ios_xr"
     variableLengthLabel.EntityData.ParentYangName = "label-rro-sub-object"
-    variableLengthLabel.EntityData.SegmentPath = "variable-length-label"
+    variableLengthLabel.EntityData.SegmentPath = "variable-length-label" + types.AddNoKeyToken(variableLengthLabel)
+    variableLengthLabel.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/session-detaileds/session-detailed/psb-rsb-info/rsb-info/rro/label-rro-sub-object/" + variableLengthLabel.EntityData.SegmentPath
     variableLengthLabel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     variableLengthLabel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     variableLengthLabel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16920,6 +17404,7 @@ func (unnumberedRroSubObject *RsvpStandby_SessionDetaileds_SessionDetailed_PsbRs
     unnumberedRroSubObject.EntityData.BundleName = "cisco_ios_xr"
     unnumberedRroSubObject.EntityData.ParentYangName = "rro"
     unnumberedRroSubObject.EntityData.SegmentPath = "unnumbered-rro-sub-object"
+    unnumberedRroSubObject.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/session-detaileds/session-detailed/psb-rsb-info/rsb-info/rro/" + unnumberedRroSubObject.EntityData.SegmentPath
     unnumberedRroSubObject.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     unnumberedRroSubObject.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unnumberedRroSubObject.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16963,6 +17448,7 @@ func (flags *RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_RsbInfo_Rro
     flags.EntityData.BundleName = "cisco_ios_xr"
     flags.EntityData.ParentYangName = "unnumbered-rro-sub-object"
     flags.EntityData.SegmentPath = "flags"
+    flags.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/session-detaileds/session-detailed/psb-rsb-info/rsb-info/rro/unnumbered-rro-sub-object/" + flags.EntityData.SegmentPath
     flags.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     flags.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     flags.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16997,6 +17483,7 @@ func (srlgRroSubObject *RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_
     srlgRroSubObject.EntityData.BundleName = "cisco_ios_xr"
     srlgRroSubObject.EntityData.ParentYangName = "rro"
     srlgRroSubObject.EntityData.SegmentPath = "srlg-rro-sub-object"
+    srlgRroSubObject.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/session-detaileds/session-detailed/psb-rsb-info/rsb-info/rro/" + srlgRroSubObject.EntityData.SegmentPath
     srlgRroSubObject.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     srlgRroSubObject.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     srlgRroSubObject.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17004,6 +17491,7 @@ func (srlgRroSubObject *RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_
     srlgRroSubObject.EntityData.Children = types.NewOrderedMap()
     srlgRroSubObject.EntityData.Children.Append("srl-gs", types.YChild{"SrlGs", nil})
     for i := range srlgRroSubObject.SrlGs {
+        types.SetYListKey(srlgRroSubObject.SrlGs[i], i)
         srlgRroSubObject.EntityData.Children.Append(types.GetSegmentPath(srlgRroSubObject.SrlGs[i]), types.YChild{"SrlGs", srlgRroSubObject.SrlGs[i]})
     }
     srlgRroSubObject.EntityData.Leafs = types.NewOrderedMap()
@@ -17018,6 +17506,7 @@ func (srlgRroSubObject *RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_
 type RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_RsbInfo_Rro_SrlgRroSubObject_SrlGs struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -17028,7 +17517,8 @@ func (srlGs *RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_RsbInfo_Rro
     srlGs.EntityData.YangName = "srl-gs"
     srlGs.EntityData.BundleName = "cisco_ios_xr"
     srlGs.EntityData.ParentYangName = "srlg-rro-sub-object"
-    srlGs.EntityData.SegmentPath = "srl-gs"
+    srlGs.EntityData.SegmentPath = "srl-gs" + types.AddNoKeyToken(srlGs)
+    srlGs.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/session-detaileds/session-detailed/psb-rsb-info/rsb-info/rro/srlg-rro-sub-object/" + srlGs.EntityData.SegmentPath
     srlGs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     srlGs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     srlGs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17059,6 +17549,7 @@ func (helloInstanceDetails *RsvpStandby_HelloInstanceDetails) GetEntityData() *t
     helloInstanceDetails.EntityData.BundleName = "cisco_ios_xr"
     helloInstanceDetails.EntityData.ParentYangName = "rsvp-standby"
     helloInstanceDetails.EntityData.SegmentPath = "hello-instance-details"
+    helloInstanceDetails.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/" + helloInstanceDetails.EntityData.SegmentPath
     helloInstanceDetails.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     helloInstanceDetails.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     helloInstanceDetails.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17080,6 +17571,7 @@ func (helloInstanceDetails *RsvpStandby_HelloInstanceDetails) GetEntityData() *t
 type RsvpStandby_HelloInstanceDetails_HelloInstanceDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Source Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -17175,6 +17667,7 @@ func (helloInstanceDetail *RsvpStandby_HelloInstanceDetails_HelloInstanceDetail)
     helloInstanceDetail.EntityData.BundleName = "cisco_ios_xr"
     helloInstanceDetail.EntityData.ParentYangName = "hello-instance-details"
     helloInstanceDetail.EntityData.SegmentPath = "hello-instance-detail" + types.AddKeyToken(helloInstanceDetail.SourceAddress, "source-address") + types.AddKeyToken(helloInstanceDetail.DestinationAddress, "destination-address")
+    helloInstanceDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/hello-instance-details/" + helloInstanceDetail.EntityData.SegmentPath
     helloInstanceDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     helloInstanceDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     helloInstanceDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17232,6 +17725,7 @@ func (upTime *RsvpStandby_HelloInstanceDetails_HelloInstanceDetail_UpTime) GetEn
     upTime.EntityData.BundleName = "cisco_ios_xr"
     upTime.EntityData.ParentYangName = "hello-instance-detail"
     upTime.EntityData.SegmentPath = "up-time"
+    upTime.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/hello-instance-details/hello-instance-detail/" + upTime.EntityData.SegmentPath
     upTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     upTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     upTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17267,6 +17761,7 @@ func (communicationLostTime *RsvpStandby_HelloInstanceDetails_HelloInstanceDetai
     communicationLostTime.EntityData.BundleName = "cisco_ios_xr"
     communicationLostTime.EntityData.ParentYangName = "hello-instance-detail"
     communicationLostTime.EntityData.SegmentPath = "communication-lost-time"
+    communicationLostTime.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/hello-instance-details/hello-instance-detail/" + communicationLostTime.EntityData.SegmentPath
     communicationLostTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     communicationLostTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     communicationLostTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17298,6 +17793,7 @@ func (globalNeighborDetails *RsvpStandby_GlobalNeighborDetails) GetEntityData() 
     globalNeighborDetails.EntityData.BundleName = "cisco_ios_xr"
     globalNeighborDetails.EntityData.ParentYangName = "rsvp-standby"
     globalNeighborDetails.EntityData.SegmentPath = "global-neighbor-details"
+    globalNeighborDetails.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/" + globalNeighborDetails.EntityData.SegmentPath
     globalNeighborDetails.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     globalNeighborDetails.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     globalNeighborDetails.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17319,6 +17815,7 @@ func (globalNeighborDetails *RsvpStandby_GlobalNeighborDetails) GetEntityData() 
 type RsvpStandby_GlobalNeighborDetails_GlobalNeighborDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Address of global neighbor. The type is string
     // with pattern:
@@ -17410,6 +17907,7 @@ func (globalNeighborDetail *RsvpStandby_GlobalNeighborDetails_GlobalNeighborDeta
     globalNeighborDetail.EntityData.BundleName = "cisco_ios_xr"
     globalNeighborDetail.EntityData.ParentYangName = "global-neighbor-details"
     globalNeighborDetail.EntityData.SegmentPath = "global-neighbor-detail" + types.AddKeyToken(globalNeighborDetail.NeighborAddress, "neighbor-address")
+    globalNeighborDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/global-neighbor-details/" + globalNeighborDetail.EntityData.SegmentPath
     globalNeighborDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     globalNeighborDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     globalNeighborDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17422,30 +17920,37 @@ func (globalNeighborDetail *RsvpStandby_GlobalNeighborDetails_GlobalNeighborDeta
     globalNeighborDetail.EntityData.Children.Append("recovery-timer-exp-time", types.YChild{"RecoveryTimerExpTime", &globalNeighborDetail.RecoveryTimerExpTime})
     globalNeighborDetail.EntityData.Children.Append("local-node-address", types.YChild{"LocalNodeAddress", nil})
     for i := range globalNeighborDetail.LocalNodeAddress {
+        types.SetYListKey(globalNeighborDetail.LocalNodeAddress[i], i)
         globalNeighborDetail.EntityData.Children.Append(types.GetSegmentPath(globalNeighborDetail.LocalNodeAddress[i]), types.YChild{"LocalNodeAddress", globalNeighborDetail.LocalNodeAddress[i]})
     }
     globalNeighborDetail.EntityData.Children.Append("interface-neighbor", types.YChild{"InterfaceNeighbor", nil})
     for i := range globalNeighborDetail.InterfaceNeighbor {
+        types.SetYListKey(globalNeighborDetail.InterfaceNeighbor[i], i)
         globalNeighborDetail.EntityData.Children.Append(types.GetSegmentPath(globalNeighborDetail.InterfaceNeighbor[i]), types.YChild{"InterfaceNeighbor", globalNeighborDetail.InterfaceNeighbor[i]})
     }
     globalNeighborDetail.EntityData.Children.Append("neighbor-hello-state", types.YChild{"NeighborHelloState", nil})
     for i := range globalNeighborDetail.NeighborHelloState {
+        types.SetYListKey(globalNeighborDetail.NeighborHelloState[i], i)
         globalNeighborDetail.EntityData.Children.Append(types.GetSegmentPath(globalNeighborDetail.NeighborHelloState[i]), types.YChild{"NeighborHelloState", globalNeighborDetail.NeighborHelloState[i]})
     }
     globalNeighborDetail.EntityData.Children.Append("lost-communication-reason", types.YChild{"LostCommunicationReason", nil})
     for i := range globalNeighborDetail.LostCommunicationReason {
+        types.SetYListKey(globalNeighborDetail.LostCommunicationReason[i], i)
         globalNeighborDetail.EntityData.Children.Append(types.GetSegmentPath(globalNeighborDetail.LostCommunicationReason[i]), types.YChild{"LostCommunicationReason", globalNeighborDetail.LostCommunicationReason[i]})
     }
     globalNeighborDetail.EntityData.Children.Append("lost-communication-total", types.YChild{"LostCommunicationTotal", nil})
     for i := range globalNeighborDetail.LostCommunicationTotal {
+        types.SetYListKey(globalNeighborDetail.LostCommunicationTotal[i], i)
         globalNeighborDetail.EntityData.Children.Append(types.GetSegmentPath(globalNeighborDetail.LostCommunicationTotal[i]), types.YChild{"LostCommunicationTotal", globalNeighborDetail.LostCommunicationTotal[i]})
     }
     globalNeighborDetail.EntityData.Children.Append("up-time", types.YChild{"UpTime", nil})
     for i := range globalNeighborDetail.UpTime {
+        types.SetYListKey(globalNeighborDetail.UpTime[i], i)
         globalNeighborDetail.EntityData.Children.Append(types.GetSegmentPath(globalNeighborDetail.UpTime[i]), types.YChild{"UpTime", globalNeighborDetail.UpTime[i]})
     }
     globalNeighborDetail.EntityData.Children.Append("lost-communication-time", types.YChild{"LostCommunicationTime", nil})
     for i := range globalNeighborDetail.LostCommunicationTime {
+        types.SetYListKey(globalNeighborDetail.LostCommunicationTime[i], i)
         globalNeighborDetail.EntityData.Children.Append(types.GetSegmentPath(globalNeighborDetail.LostCommunicationTime[i]), types.YChild{"LostCommunicationTime", globalNeighborDetail.LostCommunicationTime[i]})
     }
     globalNeighborDetail.EntityData.Leafs = types.NewOrderedMap()
@@ -17485,6 +17990,7 @@ func (globalNeighborFlags *RsvpStandby_GlobalNeighborDetails_GlobalNeighborDetai
     globalNeighborFlags.EntityData.BundleName = "cisco_ios_xr"
     globalNeighborFlags.EntityData.ParentYangName = "global-neighbor-detail"
     globalNeighborFlags.EntityData.SegmentPath = "global-neighbor-flags"
+    globalNeighborFlags.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/global-neighbor-details/global-neighbor-detail/" + globalNeighborFlags.EntityData.SegmentPath
     globalNeighborFlags.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     globalNeighborFlags.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     globalNeighborFlags.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17520,6 +18026,7 @@ func (restartTimeLeft *RsvpStandby_GlobalNeighborDetails_GlobalNeighborDetail_Re
     restartTimeLeft.EntityData.BundleName = "cisco_ios_xr"
     restartTimeLeft.EntityData.ParentYangName = "global-neighbor-detail"
     restartTimeLeft.EntityData.SegmentPath = "restart-time-left"
+    restartTimeLeft.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/global-neighbor-details/global-neighbor-detail/" + restartTimeLeft.EntityData.SegmentPath
     restartTimeLeft.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     restartTimeLeft.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     restartTimeLeft.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17555,6 +18062,7 @@ func (restartTimerExpiryTime *RsvpStandby_GlobalNeighborDetails_GlobalNeighborDe
     restartTimerExpiryTime.EntityData.BundleName = "cisco_ios_xr"
     restartTimerExpiryTime.EntityData.ParentYangName = "global-neighbor-detail"
     restartTimerExpiryTime.EntityData.SegmentPath = "restart-timer-expiry-time"
+    restartTimerExpiryTime.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/global-neighbor-details/global-neighbor-detail/" + restartTimerExpiryTime.EntityData.SegmentPath
     restartTimerExpiryTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     restartTimerExpiryTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     restartTimerExpiryTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17590,6 +18098,7 @@ func (recoveryTimeLeft *RsvpStandby_GlobalNeighborDetails_GlobalNeighborDetail_R
     recoveryTimeLeft.EntityData.BundleName = "cisco_ios_xr"
     recoveryTimeLeft.EntityData.ParentYangName = "global-neighbor-detail"
     recoveryTimeLeft.EntityData.SegmentPath = "recovery-time-left"
+    recoveryTimeLeft.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/global-neighbor-details/global-neighbor-detail/" + recoveryTimeLeft.EntityData.SegmentPath
     recoveryTimeLeft.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     recoveryTimeLeft.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     recoveryTimeLeft.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17625,6 +18134,7 @@ func (recoveryTimerExpTime *RsvpStandby_GlobalNeighborDetails_GlobalNeighborDeta
     recoveryTimerExpTime.EntityData.BundleName = "cisco_ios_xr"
     recoveryTimerExpTime.EntityData.ParentYangName = "global-neighbor-detail"
     recoveryTimerExpTime.EntityData.SegmentPath = "recovery-timer-exp-time"
+    recoveryTimerExpTime.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/global-neighbor-details/global-neighbor-detail/" + recoveryTimerExpTime.EntityData.SegmentPath
     recoveryTimerExpTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     recoveryTimerExpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     recoveryTimerExpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17644,6 +18154,7 @@ func (recoveryTimerExpTime *RsvpStandby_GlobalNeighborDetails_GlobalNeighborDeta
 type RsvpStandby_GlobalNeighborDetails_GlobalNeighborDetail_LocalNodeAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -17655,7 +18166,8 @@ func (localNodeAddress *RsvpStandby_GlobalNeighborDetails_GlobalNeighborDetail_L
     localNodeAddress.EntityData.YangName = "local-node-address"
     localNodeAddress.EntityData.BundleName = "cisco_ios_xr"
     localNodeAddress.EntityData.ParentYangName = "global-neighbor-detail"
-    localNodeAddress.EntityData.SegmentPath = "local-node-address"
+    localNodeAddress.EntityData.SegmentPath = "local-node-address" + types.AddNoKeyToken(localNodeAddress)
+    localNodeAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/global-neighbor-details/global-neighbor-detail/" + localNodeAddress.EntityData.SegmentPath
     localNodeAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     localNodeAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     localNodeAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17674,6 +18186,7 @@ func (localNodeAddress *RsvpStandby_GlobalNeighborDetails_GlobalNeighborDetail_L
 type RsvpStandby_GlobalNeighborDetails_GlobalNeighborDetail_InterfaceNeighbor struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -17685,7 +18198,8 @@ func (interfaceNeighbor *RsvpStandby_GlobalNeighborDetails_GlobalNeighborDetail_
     interfaceNeighbor.EntityData.YangName = "interface-neighbor"
     interfaceNeighbor.EntityData.BundleName = "cisco_ios_xr"
     interfaceNeighbor.EntityData.ParentYangName = "global-neighbor-detail"
-    interfaceNeighbor.EntityData.SegmentPath = "interface-neighbor"
+    interfaceNeighbor.EntityData.SegmentPath = "interface-neighbor" + types.AddNoKeyToken(interfaceNeighbor)
+    interfaceNeighbor.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/global-neighbor-details/global-neighbor-detail/" + interfaceNeighbor.EntityData.SegmentPath
     interfaceNeighbor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceNeighbor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceNeighbor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17704,6 +18218,7 @@ func (interfaceNeighbor *RsvpStandby_GlobalNeighborDetails_GlobalNeighborDetail_
 type RsvpStandby_GlobalNeighborDetails_GlobalNeighborDetail_NeighborHelloState struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is RsvpMgmtHelloState.
     Entry interface{}
@@ -17714,7 +18229,8 @@ func (neighborHelloState *RsvpStandby_GlobalNeighborDetails_GlobalNeighborDetail
     neighborHelloState.EntityData.YangName = "neighbor-hello-state"
     neighborHelloState.EntityData.BundleName = "cisco_ios_xr"
     neighborHelloState.EntityData.ParentYangName = "global-neighbor-detail"
-    neighborHelloState.EntityData.SegmentPath = "neighbor-hello-state"
+    neighborHelloState.EntityData.SegmentPath = "neighbor-hello-state" + types.AddNoKeyToken(neighborHelloState)
+    neighborHelloState.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/global-neighbor-details/global-neighbor-detail/" + neighborHelloState.EntityData.SegmentPath
     neighborHelloState.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighborHelloState.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborHelloState.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17733,6 +18249,7 @@ func (neighborHelloState *RsvpStandby_GlobalNeighborDetails_GlobalNeighborDetail
 type RsvpStandby_GlobalNeighborDetails_GlobalNeighborDetail_LostCommunicationReason struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is RsvpMgmtHelloDownReason.
     Entry interface{}
@@ -17743,7 +18260,8 @@ func (lostCommunicationReason *RsvpStandby_GlobalNeighborDetails_GlobalNeighborD
     lostCommunicationReason.EntityData.YangName = "lost-communication-reason"
     lostCommunicationReason.EntityData.BundleName = "cisco_ios_xr"
     lostCommunicationReason.EntityData.ParentYangName = "global-neighbor-detail"
-    lostCommunicationReason.EntityData.SegmentPath = "lost-communication-reason"
+    lostCommunicationReason.EntityData.SegmentPath = "lost-communication-reason" + types.AddNoKeyToken(lostCommunicationReason)
+    lostCommunicationReason.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/global-neighbor-details/global-neighbor-detail/" + lostCommunicationReason.EntityData.SegmentPath
     lostCommunicationReason.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lostCommunicationReason.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lostCommunicationReason.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17762,6 +18280,7 @@ func (lostCommunicationReason *RsvpStandby_GlobalNeighborDetails_GlobalNeighborD
 type RsvpStandby_GlobalNeighborDetails_GlobalNeighborDetail_LostCommunicationTotal struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..65535.
     Entry interface{}
@@ -17772,7 +18291,8 @@ func (lostCommunicationTotal *RsvpStandby_GlobalNeighborDetails_GlobalNeighborDe
     lostCommunicationTotal.EntityData.YangName = "lost-communication-total"
     lostCommunicationTotal.EntityData.BundleName = "cisco_ios_xr"
     lostCommunicationTotal.EntityData.ParentYangName = "global-neighbor-detail"
-    lostCommunicationTotal.EntityData.SegmentPath = "lost-communication-total"
+    lostCommunicationTotal.EntityData.SegmentPath = "lost-communication-total" + types.AddNoKeyToken(lostCommunicationTotal)
+    lostCommunicationTotal.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/global-neighbor-details/global-neighbor-detail/" + lostCommunicationTotal.EntityData.SegmentPath
     lostCommunicationTotal.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lostCommunicationTotal.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lostCommunicationTotal.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17791,6 +18311,7 @@ func (lostCommunicationTotal *RsvpStandby_GlobalNeighborDetails_GlobalNeighborDe
 type RsvpStandby_GlobalNeighborDetails_GlobalNeighborDetail_UpTime struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Time Value in Seconds. The type is interface{} with range:
     // -2147483648..2147483647. Units are second.
@@ -17806,7 +18327,8 @@ func (upTime *RsvpStandby_GlobalNeighborDetails_GlobalNeighborDetail_UpTime) Get
     upTime.EntityData.YangName = "up-time"
     upTime.EntityData.BundleName = "cisco_ios_xr"
     upTime.EntityData.ParentYangName = "global-neighbor-detail"
-    upTime.EntityData.SegmentPath = "up-time"
+    upTime.EntityData.SegmentPath = "up-time" + types.AddNoKeyToken(upTime)
+    upTime.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/global-neighbor-details/global-neighbor-detail/" + upTime.EntityData.SegmentPath
     upTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     upTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     upTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17826,6 +18348,7 @@ func (upTime *RsvpStandby_GlobalNeighborDetails_GlobalNeighborDetail_UpTime) Get
 type RsvpStandby_GlobalNeighborDetails_GlobalNeighborDetail_LostCommunicationTime struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Time Value in Seconds. The type is interface{} with range:
     // -2147483648..2147483647. Units are second.
@@ -17841,7 +18364,8 @@ func (lostCommunicationTime *RsvpStandby_GlobalNeighborDetails_GlobalNeighborDet
     lostCommunicationTime.EntityData.YangName = "lost-communication-time"
     lostCommunicationTime.EntityData.BundleName = "cisco_ios_xr"
     lostCommunicationTime.EntityData.ParentYangName = "global-neighbor-detail"
-    lostCommunicationTime.EntityData.SegmentPath = "lost-communication-time"
+    lostCommunicationTime.EntityData.SegmentPath = "lost-communication-time" + types.AddNoKeyToken(lostCommunicationTime)
+    lostCommunicationTime.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/global-neighbor-details/global-neighbor-detail/" + lostCommunicationTime.EntityData.SegmentPath
     lostCommunicationTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lostCommunicationTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lostCommunicationTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17873,6 +18397,7 @@ func (psbBriefs *RsvpStandby_PsbBriefs) GetEntityData() *types.CommonEntityData 
     psbBriefs.EntityData.BundleName = "cisco_ios_xr"
     psbBriefs.EntityData.ParentYangName = "rsvp-standby"
     psbBriefs.EntityData.SegmentPath = "psb-briefs"
+    psbBriefs.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/" + psbBriefs.EntityData.SegmentPath
     psbBriefs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     psbBriefs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     psbBriefs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17880,6 +18405,7 @@ func (psbBriefs *RsvpStandby_PsbBriefs) GetEntityData() *types.CommonEntityData 
     psbBriefs.EntityData.Children = types.NewOrderedMap()
     psbBriefs.EntityData.Children.Append("psb-brief", types.YChild{"PsbBrief", nil})
     for i := range psbBriefs.PsbBrief {
+        types.SetYListKey(psbBriefs.PsbBrief[i], i)
         psbBriefs.EntityData.Children.Append(types.GetSegmentPath(psbBriefs.PsbBrief[i]), types.YChild{"PsbBrief", psbBriefs.PsbBrief[i]})
     }
     psbBriefs.EntityData.Leafs = types.NewOrderedMap()
@@ -17894,6 +18420,7 @@ func (psbBriefs *RsvpStandby_PsbBriefs) GetEntityData() *types.CommonEntityData 
 type RsvpStandby_PsbBriefs_PsbBrief struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Destination Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -17959,7 +18486,8 @@ func (psbBrief *RsvpStandby_PsbBriefs_PsbBrief) GetEntityData() *types.CommonEnt
     psbBrief.EntityData.YangName = "psb-brief"
     psbBrief.EntityData.BundleName = "cisco_ios_xr"
     psbBrief.EntityData.ParentYangName = "psb-briefs"
-    psbBrief.EntityData.SegmentPath = "psb-brief"
+    psbBrief.EntityData.SegmentPath = "psb-brief" + types.AddNoKeyToken(psbBrief)
+    psbBrief.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/psb-briefs/" + psbBrief.EntityData.SegmentPath
     psbBrief.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     psbBrief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     psbBrief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18006,6 +18534,7 @@ func (session *RsvpStandby_PsbBriefs_PsbBrief_Session) GetEntityData() *types.Co
     session.EntityData.BundleName = "cisco_ios_xr"
     session.EntityData.ParentYangName = "psb-brief"
     session.EntityData.SegmentPath = "session"
+    session.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/psb-briefs/psb-brief/" + session.EntityData.SegmentPath
     session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18047,6 +18576,7 @@ func (rsvpSession *RsvpStandby_PsbBriefs_PsbBrief_Session_RsvpSession) GetEntity
     rsvpSession.EntityData.BundleName = "cisco_ios_xr"
     rsvpSession.EntityData.ParentYangName = "session"
     rsvpSession.EntityData.SegmentPath = "rsvp-session"
+    rsvpSession.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/psb-briefs/psb-brief/session/" + rsvpSession.EntityData.SegmentPath
     rsvpSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rsvpSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rsvpSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18088,6 +18618,7 @@ func (ipv4 *RsvpStandby_PsbBriefs_PsbBrief_Session_RsvpSession_Ipv4) GetEntityDa
     ipv4.EntityData.BundleName = "cisco_ios_xr"
     ipv4.EntityData.ParentYangName = "rsvp-session"
     ipv4.EntityData.SegmentPath = "ipv4"
+    ipv4.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/psb-briefs/psb-brief/session/rsvp-session/" + ipv4.EntityData.SegmentPath
     ipv4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18127,6 +18658,7 @@ func (ipv4LspSession *RsvpStandby_PsbBriefs_PsbBrief_Session_RsvpSession_Ipv4Lsp
     ipv4LspSession.EntityData.BundleName = "cisco_ios_xr"
     ipv4LspSession.EntityData.ParentYangName = "rsvp-session"
     ipv4LspSession.EntityData.SegmentPath = "ipv4-lsp-session"
+    ipv4LspSession.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/psb-briefs/psb-brief/session/rsvp-session/" + ipv4LspSession.EntityData.SegmentPath
     ipv4LspSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4LspSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4LspSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18166,6 +18698,7 @@ func (ipv4UniSession *RsvpStandby_PsbBriefs_PsbBrief_Session_RsvpSession_Ipv4Uni
     ipv4UniSession.EntityData.BundleName = "cisco_ios_xr"
     ipv4UniSession.EntityData.ParentYangName = "rsvp-session"
     ipv4UniSession.EntityData.SegmentPath = "ipv4-uni-session"
+    ipv4UniSession.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/psb-briefs/psb-brief/session/rsvp-session/" + ipv4UniSession.EntityData.SegmentPath
     ipv4UniSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4UniSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4UniSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18205,6 +18738,7 @@ func (ipv4P2mpLspSession *RsvpStandby_PsbBriefs_PsbBrief_Session_RsvpSession_Ipv
     ipv4P2mpLspSession.EntityData.BundleName = "cisco_ios_xr"
     ipv4P2mpLspSession.EntityData.ParentYangName = "rsvp-session"
     ipv4P2mpLspSession.EntityData.SegmentPath = "ipv4-p2mp-lsp-session"
+    ipv4P2mpLspSession.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/psb-briefs/psb-brief/session/rsvp-session/" + ipv4P2mpLspSession.EntityData.SegmentPath
     ipv4P2mpLspSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4P2mpLspSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4P2mpLspSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18237,6 +18771,7 @@ func (s2lSubLsp *RsvpStandby_PsbBriefs_PsbBrief_S2lSubLsp) GetEntityData() *type
     s2lSubLsp.EntityData.BundleName = "cisco_ios_xr"
     s2lSubLsp.EntityData.ParentYangName = "psb-brief"
     s2lSubLsp.EntityData.SegmentPath = "s2l-sub-lsp"
+    s2lSubLsp.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/psb-briefs/psb-brief/" + s2lSubLsp.EntityData.SegmentPath
     s2lSubLsp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     s2lSubLsp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     s2lSubLsp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18266,6 +18801,7 @@ func (template *RsvpStandby_PsbBriefs_PsbBrief_Template) GetEntityData() *types.
     template.EntityData.BundleName = "cisco_ios_xr"
     template.EntityData.ParentYangName = "psb-brief"
     template.EntityData.SegmentPath = "template"
+    template.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/psb-briefs/psb-brief/" + template.EntityData.SegmentPath
     template.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     template.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     template.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18301,6 +18837,7 @@ func (rsvpFilter *RsvpStandby_PsbBriefs_PsbBrief_Template_RsvpFilter) GetEntityD
     rsvpFilter.EntityData.BundleName = "cisco_ios_xr"
     rsvpFilter.EntityData.ParentYangName = "template"
     rsvpFilter.EntityData.SegmentPath = "rsvp-filter"
+    rsvpFilter.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/psb-briefs/psb-brief/template/" + rsvpFilter.EntityData.SegmentPath
     rsvpFilter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rsvpFilter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rsvpFilter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18336,6 +18873,7 @@ func (udpIpv4Session *RsvpStandby_PsbBriefs_PsbBrief_Template_RsvpFilter_UdpIpv4
     udpIpv4Session.EntityData.BundleName = "cisco_ios_xr"
     udpIpv4Session.EntityData.ParentYangName = "rsvp-filter"
     udpIpv4Session.EntityData.SegmentPath = "udp-ipv4-session"
+    udpIpv4Session.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/psb-briefs/psb-brief/template/rsvp-filter/" + udpIpv4Session.EntityData.SegmentPath
     udpIpv4Session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     udpIpv4Session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     udpIpv4Session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18378,6 +18916,7 @@ func (p2mpIpv4Session *RsvpStandby_PsbBriefs_PsbBrief_Template_RsvpFilter_P2mpIp
     p2mpIpv4Session.EntityData.BundleName = "cisco_ios_xr"
     p2mpIpv4Session.EntityData.ParentYangName = "rsvp-filter"
     p2mpIpv4Session.EntityData.SegmentPath = "p2mp-ipv4-session"
+    p2mpIpv4Session.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/psb-briefs/psb-brief/template/rsvp-filter/" + p2mpIpv4Session.EntityData.SegmentPath
     p2mpIpv4Session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     p2mpIpv4Session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     p2mpIpv4Session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18416,6 +18955,7 @@ func (sessionAttribute *RsvpStandby_PsbBriefs_PsbBrief_SessionAttribute) GetEnti
     sessionAttribute.EntityData.BundleName = "cisco_ios_xr"
     sessionAttribute.EntityData.ParentYangName = "psb-brief"
     sessionAttribute.EntityData.SegmentPath = "session-attribute"
+    sessionAttribute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/psb-briefs/psb-brief/" + sessionAttribute.EntityData.SegmentPath
     sessionAttribute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sessionAttribute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionAttribute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18459,6 +18999,7 @@ func (sessAttributeFlags *RsvpStandby_PsbBriefs_PsbBrief_SessionAttribute_SessAt
     sessAttributeFlags.EntityData.BundleName = "cisco_ios_xr"
     sessAttributeFlags.EntityData.ParentYangName = "session-attribute"
     sessAttributeFlags.EntityData.SegmentPath = "sess-attribute-flags"
+    sessAttributeFlags.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/psb-briefs/psb-brief/session-attribute/" + sessAttributeFlags.EntityData.SegmentPath
     sessAttributeFlags.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sessAttributeFlags.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessAttributeFlags.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18507,6 +19048,7 @@ func (trafficSpec *RsvpStandby_PsbBriefs_PsbBrief_TrafficSpec) GetEntityData() *
     trafficSpec.EntityData.BundleName = "cisco_ios_xr"
     trafficSpec.EntityData.ParentYangName = "psb-brief"
     trafficSpec.EntityData.SegmentPath = "traffic-spec"
+    trafficSpec.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/psb-briefs/psb-brief/" + trafficSpec.EntityData.SegmentPath
     trafficSpec.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trafficSpec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trafficSpec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18546,6 +19088,7 @@ func (genericTrafficSpec *RsvpStandby_PsbBriefs_PsbBrief_GenericTrafficSpec) Get
     genericTrafficSpec.EntityData.BundleName = "cisco_ios_xr"
     genericTrafficSpec.EntityData.ParentYangName = "psb-brief"
     genericTrafficSpec.EntityData.SegmentPath = "generic-traffic-spec"
+    genericTrafficSpec.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/psb-briefs/psb-brief/" + genericTrafficSpec.EntityData.SegmentPath
     genericTrafficSpec.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     genericTrafficSpec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     genericTrafficSpec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18588,6 +19131,7 @@ func (g709otnTspec *RsvpStandby_PsbBriefs_PsbBrief_GenericTrafficSpec_G709otnTsp
     g709otnTspec.EntityData.BundleName = "cisco_ios_xr"
     g709otnTspec.EntityData.ParentYangName = "generic-traffic-spec"
     g709otnTspec.EntityData.SegmentPath = "g709otn-tspec"
+    g709otnTspec.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/psb-briefs/psb-brief/generic-traffic-spec/" + g709otnTspec.EntityData.SegmentPath
     g709otnTspec.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     g709otnTspec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     g709otnTspec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18635,6 +19179,7 @@ func (intsrvTspec *RsvpStandby_PsbBriefs_PsbBrief_GenericTrafficSpec_IntsrvTspec
     intsrvTspec.EntityData.BundleName = "cisco_ios_xr"
     intsrvTspec.EntityData.ParentYangName = "generic-traffic-spec"
     intsrvTspec.EntityData.SegmentPath = "intsrv-tspec"
+    intsrvTspec.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/psb-briefs/psb-brief/generic-traffic-spec/" + intsrvTspec.EntityData.SegmentPath
     intsrvTspec.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     intsrvTspec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     intsrvTspec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18669,6 +19214,7 @@ func (globalNeighborBriefs *RsvpStandby_GlobalNeighborBriefs) GetEntityData() *t
     globalNeighborBriefs.EntityData.BundleName = "cisco_ios_xr"
     globalNeighborBriefs.EntityData.ParentYangName = "rsvp-standby"
     globalNeighborBriefs.EntityData.SegmentPath = "global-neighbor-briefs"
+    globalNeighborBriefs.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/" + globalNeighborBriefs.EntityData.SegmentPath
     globalNeighborBriefs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     globalNeighborBriefs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     globalNeighborBriefs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18690,6 +19236,7 @@ func (globalNeighborBriefs *RsvpStandby_GlobalNeighborBriefs) GetEntityData() *t
 type RsvpStandby_GlobalNeighborBriefs_GlobalNeighborBrief struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Address of global neighbor. The type is string
     // with pattern:
@@ -18740,6 +19287,7 @@ func (globalNeighborBrief *RsvpStandby_GlobalNeighborBriefs_GlobalNeighborBrief)
     globalNeighborBrief.EntityData.BundleName = "cisco_ios_xr"
     globalNeighborBrief.EntityData.ParentYangName = "global-neighbor-briefs"
     globalNeighborBrief.EntityData.SegmentPath = "global-neighbor-brief" + types.AddKeyToken(globalNeighborBrief.NeighborAddress, "neighbor-address")
+    globalNeighborBrief.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/global-neighbor-briefs/" + globalNeighborBrief.EntityData.SegmentPath
     globalNeighborBrief.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     globalNeighborBrief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     globalNeighborBrief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18748,26 +19296,32 @@ func (globalNeighborBrief *RsvpStandby_GlobalNeighborBriefs_GlobalNeighborBrief)
     globalNeighborBrief.EntityData.Children.Append("global-neighbor-flags", types.YChild{"GlobalNeighborFlags", &globalNeighborBrief.GlobalNeighborFlags})
     globalNeighborBrief.EntityData.Children.Append("local-node-address", types.YChild{"LocalNodeAddress", nil})
     for i := range globalNeighborBrief.LocalNodeAddress {
+        types.SetYListKey(globalNeighborBrief.LocalNodeAddress[i], i)
         globalNeighborBrief.EntityData.Children.Append(types.GetSegmentPath(globalNeighborBrief.LocalNodeAddress[i]), types.YChild{"LocalNodeAddress", globalNeighborBrief.LocalNodeAddress[i]})
     }
     globalNeighborBrief.EntityData.Children.Append("neighbor-hello-state", types.YChild{"NeighborHelloState", nil})
     for i := range globalNeighborBrief.NeighborHelloState {
+        types.SetYListKey(globalNeighborBrief.NeighborHelloState[i], i)
         globalNeighborBrief.EntityData.Children.Append(types.GetSegmentPath(globalNeighborBrief.NeighborHelloState[i]), types.YChild{"NeighborHelloState", globalNeighborBrief.NeighborHelloState[i]})
     }
     globalNeighborBrief.EntityData.Children.Append("lost-communication-reason", types.YChild{"LostCommunicationReason", nil})
     for i := range globalNeighborBrief.LostCommunicationReason {
+        types.SetYListKey(globalNeighborBrief.LostCommunicationReason[i], i)
         globalNeighborBrief.EntityData.Children.Append(types.GetSegmentPath(globalNeighborBrief.LostCommunicationReason[i]), types.YChild{"LostCommunicationReason", globalNeighborBrief.LostCommunicationReason[i]})
     }
     globalNeighborBrief.EntityData.Children.Append("lost-communication-total", types.YChild{"LostCommunicationTotal", nil})
     for i := range globalNeighborBrief.LostCommunicationTotal {
+        types.SetYListKey(globalNeighborBrief.LostCommunicationTotal[i], i)
         globalNeighborBrief.EntityData.Children.Append(types.GetSegmentPath(globalNeighborBrief.LostCommunicationTotal[i]), types.YChild{"LostCommunicationTotal", globalNeighborBrief.LostCommunicationTotal[i]})
     }
     globalNeighborBrief.EntityData.Children.Append("up-time", types.YChild{"UpTime", nil})
     for i := range globalNeighborBrief.UpTime {
+        types.SetYListKey(globalNeighborBrief.UpTime[i], i)
         globalNeighborBrief.EntityData.Children.Append(types.GetSegmentPath(globalNeighborBrief.UpTime[i]), types.YChild{"UpTime", globalNeighborBrief.UpTime[i]})
     }
     globalNeighborBrief.EntityData.Children.Append("lost-communication-time", types.YChild{"LostCommunicationTime", nil})
     for i := range globalNeighborBrief.LostCommunicationTime {
+        types.SetYListKey(globalNeighborBrief.LostCommunicationTime[i], i)
         globalNeighborBrief.EntityData.Children.Append(types.GetSegmentPath(globalNeighborBrief.LostCommunicationTime[i]), types.YChild{"LostCommunicationTime", globalNeighborBrief.LostCommunicationTime[i]})
     }
     globalNeighborBrief.EntityData.Leafs = types.NewOrderedMap()
@@ -18800,6 +19354,7 @@ func (globalNeighborFlags *RsvpStandby_GlobalNeighborBriefs_GlobalNeighborBrief_
     globalNeighborFlags.EntityData.BundleName = "cisco_ios_xr"
     globalNeighborFlags.EntityData.ParentYangName = "global-neighbor-brief"
     globalNeighborFlags.EntityData.SegmentPath = "global-neighbor-flags"
+    globalNeighborFlags.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/global-neighbor-briefs/global-neighbor-brief/" + globalNeighborFlags.EntityData.SegmentPath
     globalNeighborFlags.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     globalNeighborFlags.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     globalNeighborFlags.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18819,6 +19374,7 @@ func (globalNeighborFlags *RsvpStandby_GlobalNeighborBriefs_GlobalNeighborBrief_
 type RsvpStandby_GlobalNeighborBriefs_GlobalNeighborBrief_LocalNodeAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -18830,7 +19386,8 @@ func (localNodeAddress *RsvpStandby_GlobalNeighborBriefs_GlobalNeighborBrief_Loc
     localNodeAddress.EntityData.YangName = "local-node-address"
     localNodeAddress.EntityData.BundleName = "cisco_ios_xr"
     localNodeAddress.EntityData.ParentYangName = "global-neighbor-brief"
-    localNodeAddress.EntityData.SegmentPath = "local-node-address"
+    localNodeAddress.EntityData.SegmentPath = "local-node-address" + types.AddNoKeyToken(localNodeAddress)
+    localNodeAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/global-neighbor-briefs/global-neighbor-brief/" + localNodeAddress.EntityData.SegmentPath
     localNodeAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     localNodeAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     localNodeAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18849,6 +19406,7 @@ func (localNodeAddress *RsvpStandby_GlobalNeighborBriefs_GlobalNeighborBrief_Loc
 type RsvpStandby_GlobalNeighborBriefs_GlobalNeighborBrief_NeighborHelloState struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is RsvpMgmtHelloState.
     Entry interface{}
@@ -18859,7 +19417,8 @@ func (neighborHelloState *RsvpStandby_GlobalNeighborBriefs_GlobalNeighborBrief_N
     neighborHelloState.EntityData.YangName = "neighbor-hello-state"
     neighborHelloState.EntityData.BundleName = "cisco_ios_xr"
     neighborHelloState.EntityData.ParentYangName = "global-neighbor-brief"
-    neighborHelloState.EntityData.SegmentPath = "neighbor-hello-state"
+    neighborHelloState.EntityData.SegmentPath = "neighbor-hello-state" + types.AddNoKeyToken(neighborHelloState)
+    neighborHelloState.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/global-neighbor-briefs/global-neighbor-brief/" + neighborHelloState.EntityData.SegmentPath
     neighborHelloState.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighborHelloState.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborHelloState.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18878,6 +19437,7 @@ func (neighborHelloState *RsvpStandby_GlobalNeighborBriefs_GlobalNeighborBrief_N
 type RsvpStandby_GlobalNeighborBriefs_GlobalNeighborBrief_LostCommunicationReason struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is RsvpMgmtHelloDownReason.
     Entry interface{}
@@ -18888,7 +19448,8 @@ func (lostCommunicationReason *RsvpStandby_GlobalNeighborBriefs_GlobalNeighborBr
     lostCommunicationReason.EntityData.YangName = "lost-communication-reason"
     lostCommunicationReason.EntityData.BundleName = "cisco_ios_xr"
     lostCommunicationReason.EntityData.ParentYangName = "global-neighbor-brief"
-    lostCommunicationReason.EntityData.SegmentPath = "lost-communication-reason"
+    lostCommunicationReason.EntityData.SegmentPath = "lost-communication-reason" + types.AddNoKeyToken(lostCommunicationReason)
+    lostCommunicationReason.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/global-neighbor-briefs/global-neighbor-brief/" + lostCommunicationReason.EntityData.SegmentPath
     lostCommunicationReason.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lostCommunicationReason.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lostCommunicationReason.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18907,6 +19468,7 @@ func (lostCommunicationReason *RsvpStandby_GlobalNeighborBriefs_GlobalNeighborBr
 type RsvpStandby_GlobalNeighborBriefs_GlobalNeighborBrief_LostCommunicationTotal struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..65535.
     Entry interface{}
@@ -18917,7 +19479,8 @@ func (lostCommunicationTotal *RsvpStandby_GlobalNeighborBriefs_GlobalNeighborBri
     lostCommunicationTotal.EntityData.YangName = "lost-communication-total"
     lostCommunicationTotal.EntityData.BundleName = "cisco_ios_xr"
     lostCommunicationTotal.EntityData.ParentYangName = "global-neighbor-brief"
-    lostCommunicationTotal.EntityData.SegmentPath = "lost-communication-total"
+    lostCommunicationTotal.EntityData.SegmentPath = "lost-communication-total" + types.AddNoKeyToken(lostCommunicationTotal)
+    lostCommunicationTotal.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/global-neighbor-briefs/global-neighbor-brief/" + lostCommunicationTotal.EntityData.SegmentPath
     lostCommunicationTotal.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lostCommunicationTotal.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lostCommunicationTotal.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18936,6 +19499,7 @@ func (lostCommunicationTotal *RsvpStandby_GlobalNeighborBriefs_GlobalNeighborBri
 type RsvpStandby_GlobalNeighborBriefs_GlobalNeighborBrief_UpTime struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Time Value in Seconds. The type is interface{} with range:
     // -2147483648..2147483647. Units are second.
@@ -18951,7 +19515,8 @@ func (upTime *RsvpStandby_GlobalNeighborBriefs_GlobalNeighborBrief_UpTime) GetEn
     upTime.EntityData.YangName = "up-time"
     upTime.EntityData.BundleName = "cisco_ios_xr"
     upTime.EntityData.ParentYangName = "global-neighbor-brief"
-    upTime.EntityData.SegmentPath = "up-time"
+    upTime.EntityData.SegmentPath = "up-time" + types.AddNoKeyToken(upTime)
+    upTime.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/global-neighbor-briefs/global-neighbor-brief/" + upTime.EntityData.SegmentPath
     upTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     upTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     upTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18971,6 +19536,7 @@ func (upTime *RsvpStandby_GlobalNeighborBriefs_GlobalNeighborBrief_UpTime) GetEn
 type RsvpStandby_GlobalNeighborBriefs_GlobalNeighborBrief_LostCommunicationTime struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Time Value in Seconds. The type is interface{} with range:
     // -2147483648..2147483647. Units are second.
@@ -18986,7 +19552,8 @@ func (lostCommunicationTime *RsvpStandby_GlobalNeighborBriefs_GlobalNeighborBrie
     lostCommunicationTime.EntityData.YangName = "lost-communication-time"
     lostCommunicationTime.EntityData.BundleName = "cisco_ios_xr"
     lostCommunicationTime.EntityData.ParentYangName = "global-neighbor-brief"
-    lostCommunicationTime.EntityData.SegmentPath = "lost-communication-time"
+    lostCommunicationTime.EntityData.SegmentPath = "lost-communication-time" + types.AddNoKeyToken(lostCommunicationTime)
+    lostCommunicationTime.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/global-neighbor-briefs/global-neighbor-brief/" + lostCommunicationTime.EntityData.SegmentPath
     lostCommunicationTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lostCommunicationTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lostCommunicationTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19116,6 +19683,7 @@ func (rsvp *Rsvp) GetEntityData() *types.CommonEntityData {
     rsvp.EntityData.BundleName = "cisco_ios_xr"
     rsvp.EntityData.ParentYangName = "Cisco-IOS-XR-ip-rsvp-oper"
     rsvp.EntityData.SegmentPath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp"
+    rsvp.EntityData.AbsolutePath = rsvp.EntityData.SegmentPath
     rsvp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rsvp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rsvp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19178,6 +19746,7 @@ func (issu *Rsvp_Issu) GetEntityData() *types.CommonEntityData {
     issu.EntityData.BundleName = "cisco_ios_xr"
     issu.EntityData.ParentYangName = "rsvp"
     issu.EntityData.SegmentPath = "issu"
+    issu.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/" + issu.EntityData.SegmentPath
     issu.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     issu.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     issu.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19213,6 +19782,7 @@ func (status *Rsvp_Issu_Status) GetEntityData() *types.CommonEntityData {
     status.EntityData.BundleName = "cisco_ios_xr"
     status.EntityData.ParentYangName = "issu"
     status.EntityData.SegmentPath = "status"
+    status.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/issu/" + status.EntityData.SegmentPath
     status.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     status.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     status.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19263,6 +19833,7 @@ func (idtStatus *Rsvp_Issu_Status_IdtStatus) GetEntityData() *types.CommonEntity
     idtStatus.EntityData.BundleName = "cisco_ios_xr"
     idtStatus.EntityData.ParentYangName = "status"
     idtStatus.EntityData.SegmentPath = "idt-status"
+    idtStatus.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/issu/status/" + idtStatus.EntityData.SegmentPath
     idtStatus.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     idtStatus.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     idtStatus.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19316,6 +19887,7 @@ func (previousIdtStatus *Rsvp_Issu_Status_PreviousIdtStatus) GetEntityData() *ty
     previousIdtStatus.EntityData.BundleName = "cisco_ios_xr"
     previousIdtStatus.EntityData.ParentYangName = "status"
     previousIdtStatus.EntityData.SegmentPath = "previous-idt-status"
+    previousIdtStatus.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/issu/status/" + previousIdtStatus.EntityData.SegmentPath
     previousIdtStatus.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     previousIdtStatus.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     previousIdtStatus.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19372,6 +19944,7 @@ func (bwPoolInfo *Rsvp_BwPoolInfo) GetEntityData() *types.CommonEntityData {
     bwPoolInfo.EntityData.BundleName = "cisco_ios_xr"
     bwPoolInfo.EntityData.ParentYangName = "rsvp"
     bwPoolInfo.EntityData.SegmentPath = "bw-pool-info"
+    bwPoolInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/" + bwPoolInfo.EntityData.SegmentPath
     bwPoolInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bwPoolInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bwPoolInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19407,6 +19980,7 @@ func (pxsbDetails *Rsvp_PxsbDetails) GetEntityData() *types.CommonEntityData {
     pxsbDetails.EntityData.BundleName = "cisco_ios_xr"
     pxsbDetails.EntityData.ParentYangName = "rsvp"
     pxsbDetails.EntityData.SegmentPath = "pxsb-details"
+    pxsbDetails.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/" + pxsbDetails.EntityData.SegmentPath
     pxsbDetails.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pxsbDetails.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pxsbDetails.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19414,6 +19988,7 @@ func (pxsbDetails *Rsvp_PxsbDetails) GetEntityData() *types.CommonEntityData {
     pxsbDetails.EntityData.Children = types.NewOrderedMap()
     pxsbDetails.EntityData.Children.Append("pxsb-detail", types.YChild{"PxsbDetail", nil})
     for i := range pxsbDetails.PxsbDetail {
+        types.SetYListKey(pxsbDetails.PxsbDetail[i], i)
         pxsbDetails.EntityData.Children.Append(types.GetSegmentPath(pxsbDetails.PxsbDetail[i]), types.YChild{"PxsbDetail", pxsbDetails.PxsbDetail[i]})
     }
     pxsbDetails.EntityData.Leafs = types.NewOrderedMap()
@@ -19428,6 +20003,7 @@ func (pxsbDetails *Rsvp_PxsbDetails) GetEntityData() *types.CommonEntityData {
 type Rsvp_PxsbDetails_PxsbDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Destination Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -19499,7 +20075,8 @@ func (pxsbDetail *Rsvp_PxsbDetails_PxsbDetail) GetEntityData() *types.CommonEnti
     pxsbDetail.EntityData.YangName = "pxsb-detail"
     pxsbDetail.EntityData.BundleName = "cisco_ios_xr"
     pxsbDetail.EntityData.ParentYangName = "pxsb-details"
-    pxsbDetail.EntityData.SegmentPath = "pxsb-detail"
+    pxsbDetail.EntityData.SegmentPath = "pxsb-detail" + types.AddNoKeyToken(pxsbDetail)
+    pxsbDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/pxsb-details/" + pxsbDetail.EntityData.SegmentPath
     pxsbDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pxsbDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pxsbDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19548,6 +20125,7 @@ func (session *Rsvp_PxsbDetails_PxsbDetail_Session) GetEntityData() *types.Commo
     session.EntityData.BundleName = "cisco_ios_xr"
     session.EntityData.ParentYangName = "pxsb-detail"
     session.EntityData.SegmentPath = "session"
+    session.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/pxsb-details/pxsb-detail/" + session.EntityData.SegmentPath
     session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19589,6 +20167,7 @@ func (rsvpSession *Rsvp_PxsbDetails_PxsbDetail_Session_RsvpSession) GetEntityDat
     rsvpSession.EntityData.BundleName = "cisco_ios_xr"
     rsvpSession.EntityData.ParentYangName = "session"
     rsvpSession.EntityData.SegmentPath = "rsvp-session"
+    rsvpSession.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/pxsb-details/pxsb-detail/session/" + rsvpSession.EntityData.SegmentPath
     rsvpSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rsvpSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rsvpSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19630,6 +20209,7 @@ func (ipv4 *Rsvp_PxsbDetails_PxsbDetail_Session_RsvpSession_Ipv4) GetEntityData(
     ipv4.EntityData.BundleName = "cisco_ios_xr"
     ipv4.EntityData.ParentYangName = "rsvp-session"
     ipv4.EntityData.SegmentPath = "ipv4"
+    ipv4.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/pxsb-details/pxsb-detail/session/rsvp-session/" + ipv4.EntityData.SegmentPath
     ipv4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19669,6 +20249,7 @@ func (ipv4LspSession *Rsvp_PxsbDetails_PxsbDetail_Session_RsvpSession_Ipv4LspSes
     ipv4LspSession.EntityData.BundleName = "cisco_ios_xr"
     ipv4LspSession.EntityData.ParentYangName = "rsvp-session"
     ipv4LspSession.EntityData.SegmentPath = "ipv4-lsp-session"
+    ipv4LspSession.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/pxsb-details/pxsb-detail/session/rsvp-session/" + ipv4LspSession.EntityData.SegmentPath
     ipv4LspSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4LspSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4LspSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19708,6 +20289,7 @@ func (ipv4UniSession *Rsvp_PxsbDetails_PxsbDetail_Session_RsvpSession_Ipv4UniSes
     ipv4UniSession.EntityData.BundleName = "cisco_ios_xr"
     ipv4UniSession.EntityData.ParentYangName = "rsvp-session"
     ipv4UniSession.EntityData.SegmentPath = "ipv4-uni-session"
+    ipv4UniSession.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/pxsb-details/pxsb-detail/session/rsvp-session/" + ipv4UniSession.EntityData.SegmentPath
     ipv4UniSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4UniSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4UniSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19747,6 +20329,7 @@ func (ipv4P2mpLspSession *Rsvp_PxsbDetails_PxsbDetail_Session_RsvpSession_Ipv4P2
     ipv4P2mpLspSession.EntityData.BundleName = "cisco_ios_xr"
     ipv4P2mpLspSession.EntityData.ParentYangName = "rsvp-session"
     ipv4P2mpLspSession.EntityData.SegmentPath = "ipv4-p2mp-lsp-session"
+    ipv4P2mpLspSession.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/pxsb-details/pxsb-detail/session/rsvp-session/" + ipv4P2mpLspSession.EntityData.SegmentPath
     ipv4P2mpLspSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4P2mpLspSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4P2mpLspSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19779,6 +20362,7 @@ func (s2lSubLsp *Rsvp_PxsbDetails_PxsbDetail_S2lSubLsp) GetEntityData() *types.C
     s2lSubLsp.EntityData.BundleName = "cisco_ios_xr"
     s2lSubLsp.EntityData.ParentYangName = "pxsb-detail"
     s2lSubLsp.EntityData.SegmentPath = "s2l-sub-lsp"
+    s2lSubLsp.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/pxsb-details/pxsb-detail/" + s2lSubLsp.EntityData.SegmentPath
     s2lSubLsp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     s2lSubLsp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     s2lSubLsp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19808,6 +20392,7 @@ func (template *Rsvp_PxsbDetails_PxsbDetail_Template) GetEntityData() *types.Com
     template.EntityData.BundleName = "cisco_ios_xr"
     template.EntityData.ParentYangName = "pxsb-detail"
     template.EntityData.SegmentPath = "template"
+    template.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/pxsb-details/pxsb-detail/" + template.EntityData.SegmentPath
     template.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     template.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     template.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19843,6 +20428,7 @@ func (rsvpFilter *Rsvp_PxsbDetails_PxsbDetail_Template_RsvpFilter) GetEntityData
     rsvpFilter.EntityData.BundleName = "cisco_ios_xr"
     rsvpFilter.EntityData.ParentYangName = "template"
     rsvpFilter.EntityData.SegmentPath = "rsvp-filter"
+    rsvpFilter.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/pxsb-details/pxsb-detail/template/" + rsvpFilter.EntityData.SegmentPath
     rsvpFilter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rsvpFilter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rsvpFilter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19878,6 +20464,7 @@ func (udpIpv4Session *Rsvp_PxsbDetails_PxsbDetail_Template_RsvpFilter_UdpIpv4Ses
     udpIpv4Session.EntityData.BundleName = "cisco_ios_xr"
     udpIpv4Session.EntityData.ParentYangName = "rsvp-filter"
     udpIpv4Session.EntityData.SegmentPath = "udp-ipv4-session"
+    udpIpv4Session.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/pxsb-details/pxsb-detail/template/rsvp-filter/" + udpIpv4Session.EntityData.SegmentPath
     udpIpv4Session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     udpIpv4Session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     udpIpv4Session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19920,6 +20507,7 @@ func (p2mpIpv4Session *Rsvp_PxsbDetails_PxsbDetail_Template_RsvpFilter_P2mpIpv4S
     p2mpIpv4Session.EntityData.BundleName = "cisco_ios_xr"
     p2mpIpv4Session.EntityData.ParentYangName = "rsvp-filter"
     p2mpIpv4Session.EntityData.SegmentPath = "p2mp-ipv4-session"
+    p2mpIpv4Session.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/pxsb-details/pxsb-detail/template/rsvp-filter/" + p2mpIpv4Session.EntityData.SegmentPath
     p2mpIpv4Session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     p2mpIpv4Session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     p2mpIpv4Session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19967,6 +20555,7 @@ func (trafficSpec *Rsvp_PxsbDetails_PxsbDetail_TrafficSpec) GetEntityData() *typ
     trafficSpec.EntityData.BundleName = "cisco_ios_xr"
     trafficSpec.EntityData.ParentYangName = "pxsb-detail"
     trafficSpec.EntityData.SegmentPath = "traffic-spec"
+    trafficSpec.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/pxsb-details/pxsb-detail/" + trafficSpec.EntityData.SegmentPath
     trafficSpec.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trafficSpec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trafficSpec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20006,6 +20595,7 @@ func (genericTrafficSpec *Rsvp_PxsbDetails_PxsbDetail_GenericTrafficSpec) GetEnt
     genericTrafficSpec.EntityData.BundleName = "cisco_ios_xr"
     genericTrafficSpec.EntityData.ParentYangName = "pxsb-detail"
     genericTrafficSpec.EntityData.SegmentPath = "generic-traffic-spec"
+    genericTrafficSpec.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/pxsb-details/pxsb-detail/" + genericTrafficSpec.EntityData.SegmentPath
     genericTrafficSpec.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     genericTrafficSpec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     genericTrafficSpec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20048,6 +20638,7 @@ func (g709otnTspec *Rsvp_PxsbDetails_PxsbDetail_GenericTrafficSpec_G709otnTspec)
     g709otnTspec.EntityData.BundleName = "cisco_ios_xr"
     g709otnTspec.EntityData.ParentYangName = "generic-traffic-spec"
     g709otnTspec.EntityData.SegmentPath = "g709otn-tspec"
+    g709otnTspec.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/pxsb-details/pxsb-detail/generic-traffic-spec/" + g709otnTspec.EntityData.SegmentPath
     g709otnTspec.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     g709otnTspec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     g709otnTspec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20095,6 +20686,7 @@ func (intsrvTspec *Rsvp_PxsbDetails_PxsbDetail_GenericTrafficSpec_IntsrvTspec) G
     intsrvTspec.EntityData.BundleName = "cisco_ios_xr"
     intsrvTspec.EntityData.ParentYangName = "generic-traffic-spec"
     intsrvTspec.EntityData.SegmentPath = "intsrv-tspec"
+    intsrvTspec.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/pxsb-details/pxsb-detail/generic-traffic-spec/" + intsrvTspec.EntityData.SegmentPath
     intsrvTspec.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     intsrvTspec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     intsrvTspec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20133,6 +20725,7 @@ func (hop *Rsvp_PxsbDetails_PxsbDetail_Hop) GetEntityData() *types.CommonEntityD
     hop.EntityData.BundleName = "cisco_ios_xr"
     hop.EntityData.ParentYangName = "pxsb-detail"
     hop.EntityData.SegmentPath = "hop"
+    hop.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/pxsb-details/pxsb-detail/" + hop.EntityData.SegmentPath
     hop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20183,6 +20776,7 @@ func (rsvpHeader *Rsvp_PxsbDetails_PxsbDetail_RsvpHeader) GetEntityData() *types
     rsvpHeader.EntityData.BundleName = "cisco_ios_xr"
     rsvpHeader.EntityData.ParentYangName = "pxsb-detail"
     rsvpHeader.EntityData.SegmentPath = "rsvp-header"
+    rsvpHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/pxsb-details/pxsb-detail/" + rsvpHeader.EntityData.SegmentPath
     rsvpHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rsvpHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rsvpHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20218,6 +20812,7 @@ func (rxsbDetails *Rsvp_RxsbDetails) GetEntityData() *types.CommonEntityData {
     rxsbDetails.EntityData.BundleName = "cisco_ios_xr"
     rxsbDetails.EntityData.ParentYangName = "rsvp"
     rxsbDetails.EntityData.SegmentPath = "rxsb-details"
+    rxsbDetails.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/" + rxsbDetails.EntityData.SegmentPath
     rxsbDetails.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rxsbDetails.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rxsbDetails.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20225,6 +20820,7 @@ func (rxsbDetails *Rsvp_RxsbDetails) GetEntityData() *types.CommonEntityData {
     rxsbDetails.EntityData.Children = types.NewOrderedMap()
     rxsbDetails.EntityData.Children.Append("rxsb-detail", types.YChild{"RxsbDetail", nil})
     for i := range rxsbDetails.RxsbDetail {
+        types.SetYListKey(rxsbDetails.RxsbDetail[i], i)
         rxsbDetails.EntityData.Children.Append(types.GetSegmentPath(rxsbDetails.RxsbDetail[i]), types.YChild{"RxsbDetail", rxsbDetails.RxsbDetail[i]})
     }
     rxsbDetails.EntityData.Leafs = types.NewOrderedMap()
@@ -20239,6 +20835,7 @@ func (rxsbDetails *Rsvp_RxsbDetails) GetEntityData() *types.CommonEntityData {
 type Rsvp_RxsbDetails_RxsbDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Destination Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -20313,7 +20910,8 @@ func (rxsbDetail *Rsvp_RxsbDetails_RxsbDetail) GetEntityData() *types.CommonEnti
     rxsbDetail.EntityData.YangName = "rxsb-detail"
     rxsbDetail.EntityData.BundleName = "cisco_ios_xr"
     rxsbDetail.EntityData.ParentYangName = "rxsb-details"
-    rxsbDetail.EntityData.SegmentPath = "rxsb-detail"
+    rxsbDetail.EntityData.SegmentPath = "rxsb-detail" + types.AddNoKeyToken(rxsbDetail)
+    rxsbDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/rxsb-details/" + rxsbDetail.EntityData.SegmentPath
     rxsbDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rxsbDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rxsbDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20363,6 +20961,7 @@ func (session *Rsvp_RxsbDetails_RxsbDetail_Session) GetEntityData() *types.Commo
     session.EntityData.BundleName = "cisco_ios_xr"
     session.EntityData.ParentYangName = "rxsb-detail"
     session.EntityData.SegmentPath = "session"
+    session.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/rxsb-details/rxsb-detail/" + session.EntityData.SegmentPath
     session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20404,6 +21003,7 @@ func (rsvpSession *Rsvp_RxsbDetails_RxsbDetail_Session_RsvpSession) GetEntityDat
     rsvpSession.EntityData.BundleName = "cisco_ios_xr"
     rsvpSession.EntityData.ParentYangName = "session"
     rsvpSession.EntityData.SegmentPath = "rsvp-session"
+    rsvpSession.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/rxsb-details/rxsb-detail/session/" + rsvpSession.EntityData.SegmentPath
     rsvpSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rsvpSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rsvpSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20445,6 +21045,7 @@ func (ipv4 *Rsvp_RxsbDetails_RxsbDetail_Session_RsvpSession_Ipv4) GetEntityData(
     ipv4.EntityData.BundleName = "cisco_ios_xr"
     ipv4.EntityData.ParentYangName = "rsvp-session"
     ipv4.EntityData.SegmentPath = "ipv4"
+    ipv4.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/rxsb-details/rxsb-detail/session/rsvp-session/" + ipv4.EntityData.SegmentPath
     ipv4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20484,6 +21085,7 @@ func (ipv4LspSession *Rsvp_RxsbDetails_RxsbDetail_Session_RsvpSession_Ipv4LspSes
     ipv4LspSession.EntityData.BundleName = "cisco_ios_xr"
     ipv4LspSession.EntityData.ParentYangName = "rsvp-session"
     ipv4LspSession.EntityData.SegmentPath = "ipv4-lsp-session"
+    ipv4LspSession.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/rxsb-details/rxsb-detail/session/rsvp-session/" + ipv4LspSession.EntityData.SegmentPath
     ipv4LspSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4LspSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4LspSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20523,6 +21125,7 @@ func (ipv4UniSession *Rsvp_RxsbDetails_RxsbDetail_Session_RsvpSession_Ipv4UniSes
     ipv4UniSession.EntityData.BundleName = "cisco_ios_xr"
     ipv4UniSession.EntityData.ParentYangName = "rsvp-session"
     ipv4UniSession.EntityData.SegmentPath = "ipv4-uni-session"
+    ipv4UniSession.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/rxsb-details/rxsb-detail/session/rsvp-session/" + ipv4UniSession.EntityData.SegmentPath
     ipv4UniSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4UniSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4UniSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20562,6 +21165,7 @@ func (ipv4P2mpLspSession *Rsvp_RxsbDetails_RxsbDetail_Session_RsvpSession_Ipv4P2
     ipv4P2mpLspSession.EntityData.BundleName = "cisco_ios_xr"
     ipv4P2mpLspSession.EntityData.ParentYangName = "rsvp-session"
     ipv4P2mpLspSession.EntityData.SegmentPath = "ipv4-p2mp-lsp-session"
+    ipv4P2mpLspSession.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/rxsb-details/rxsb-detail/session/rsvp-session/" + ipv4P2mpLspSession.EntityData.SegmentPath
     ipv4P2mpLspSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4P2mpLspSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4P2mpLspSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20594,6 +21198,7 @@ func (s2lSubLsp *Rsvp_RxsbDetails_RxsbDetail_S2lSubLsp) GetEntityData() *types.C
     s2lSubLsp.EntityData.BundleName = "cisco_ios_xr"
     s2lSubLsp.EntityData.ParentYangName = "rxsb-detail"
     s2lSubLsp.EntityData.SegmentPath = "s2l-sub-lsp"
+    s2lSubLsp.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/rxsb-details/rxsb-detail/" + s2lSubLsp.EntityData.SegmentPath
     s2lSubLsp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     s2lSubLsp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     s2lSubLsp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20624,6 +21229,7 @@ func (style *Rsvp_RxsbDetails_RxsbDetail_Style) GetEntityData() *types.CommonEnt
     style.EntityData.BundleName = "cisco_ios_xr"
     style.EntityData.ParentYangName = "rxsb-detail"
     style.EntityData.SegmentPath = "style"
+    style.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/rxsb-details/rxsb-detail/" + style.EntityData.SegmentPath
     style.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     style.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     style.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20653,6 +21259,7 @@ func (filter *Rsvp_RxsbDetails_RxsbDetail_Filter) GetEntityData() *types.CommonE
     filter.EntityData.BundleName = "cisco_ios_xr"
     filter.EntityData.ParentYangName = "rxsb-detail"
     filter.EntityData.SegmentPath = "filter"
+    filter.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/rxsb-details/rxsb-detail/" + filter.EntityData.SegmentPath
     filter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     filter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     filter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20688,6 +21295,7 @@ func (rsvpFilter *Rsvp_RxsbDetails_RxsbDetail_Filter_RsvpFilter) GetEntityData()
     rsvpFilter.EntityData.BundleName = "cisco_ios_xr"
     rsvpFilter.EntityData.ParentYangName = "filter"
     rsvpFilter.EntityData.SegmentPath = "rsvp-filter"
+    rsvpFilter.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/rxsb-details/rxsb-detail/filter/" + rsvpFilter.EntityData.SegmentPath
     rsvpFilter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rsvpFilter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rsvpFilter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20723,6 +21331,7 @@ func (udpIpv4Session *Rsvp_RxsbDetails_RxsbDetail_Filter_RsvpFilter_UdpIpv4Sessi
     udpIpv4Session.EntityData.BundleName = "cisco_ios_xr"
     udpIpv4Session.EntityData.ParentYangName = "rsvp-filter"
     udpIpv4Session.EntityData.SegmentPath = "udp-ipv4-session"
+    udpIpv4Session.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/rxsb-details/rxsb-detail/filter/rsvp-filter/" + udpIpv4Session.EntityData.SegmentPath
     udpIpv4Session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     udpIpv4Session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     udpIpv4Session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20765,6 +21374,7 @@ func (p2mpIpv4Session *Rsvp_RxsbDetails_RxsbDetail_Filter_RsvpFilter_P2mpIpv4Ses
     p2mpIpv4Session.EntityData.BundleName = "cisco_ios_xr"
     p2mpIpv4Session.EntityData.ParentYangName = "rsvp-filter"
     p2mpIpv4Session.EntityData.SegmentPath = "p2mp-ipv4-session"
+    p2mpIpv4Session.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/rxsb-details/rxsb-detail/filter/rsvp-filter/" + p2mpIpv4Session.EntityData.SegmentPath
     p2mpIpv4Session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     p2mpIpv4Session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     p2mpIpv4Session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20822,6 +21432,7 @@ func (flowSpec *Rsvp_RxsbDetails_RxsbDetail_FlowSpec) GetEntityData() *types.Com
     flowSpec.EntityData.BundleName = "cisco_ios_xr"
     flowSpec.EntityData.ParentYangName = "rxsb-detail"
     flowSpec.EntityData.SegmentPath = "flow-spec"
+    flowSpec.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/rxsb-details/rxsb-detail/" + flowSpec.EntityData.SegmentPath
     flowSpec.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     flowSpec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     flowSpec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20861,6 +21472,7 @@ func (genericFlowSpec *Rsvp_RxsbDetails_RxsbDetail_GenericFlowSpec) GetEntityDat
     genericFlowSpec.EntityData.BundleName = "cisco_ios_xr"
     genericFlowSpec.EntityData.ParentYangName = "rxsb-detail"
     genericFlowSpec.EntityData.SegmentPath = "generic-flow-spec"
+    genericFlowSpec.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/rxsb-details/rxsb-detail/" + genericFlowSpec.EntityData.SegmentPath
     genericFlowSpec.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     genericFlowSpec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     genericFlowSpec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20902,6 +21514,7 @@ func (g709otnFlowSpec *Rsvp_RxsbDetails_RxsbDetail_GenericFlowSpec_G709otnFlowSp
     g709otnFlowSpec.EntityData.BundleName = "cisco_ios_xr"
     g709otnFlowSpec.EntityData.ParentYangName = "generic-flow-spec"
     g709otnFlowSpec.EntityData.SegmentPath = "g709otn-flow-spec"
+    g709otnFlowSpec.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/rxsb-details/rxsb-detail/generic-flow-spec/" + g709otnFlowSpec.EntityData.SegmentPath
     g709otnFlowSpec.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     g709otnFlowSpec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     g709otnFlowSpec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20939,6 +21552,7 @@ func (hop *Rsvp_RxsbDetails_RxsbDetail_Hop) GetEntityData() *types.CommonEntityD
     hop.EntityData.BundleName = "cisco_ios_xr"
     hop.EntityData.ParentYangName = "rxsb-detail"
     hop.EntityData.SegmentPath = "hop"
+    hop.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/rxsb-details/rxsb-detail/" + hop.EntityData.SegmentPath
     hop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20989,6 +21603,7 @@ func (rsvpHeader *Rsvp_RxsbDetails_RxsbDetail_RsvpHeader) GetEntityData() *types
     rsvpHeader.EntityData.BundleName = "cisco_ios_xr"
     rsvpHeader.EntityData.ParentYangName = "rxsb-detail"
     rsvpHeader.EntityData.SegmentPath = "rsvp-header"
+    rsvpHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/rxsb-details/rxsb-detail/" + rsvpHeader.EntityData.SegmentPath
     rsvpHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rsvpHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rsvpHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21025,6 +21640,7 @@ func (interfaceNeighborBriefs *Rsvp_InterfaceNeighborBriefs) GetEntityData() *ty
     interfaceNeighborBriefs.EntityData.BundleName = "cisco_ios_xr"
     interfaceNeighborBriefs.EntityData.ParentYangName = "rsvp"
     interfaceNeighborBriefs.EntityData.SegmentPath = "interface-neighbor-briefs"
+    interfaceNeighborBriefs.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/" + interfaceNeighborBriefs.EntityData.SegmentPath
     interfaceNeighborBriefs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceNeighborBriefs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceNeighborBriefs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21046,6 +21662,7 @@ func (interfaceNeighborBriefs *Rsvp_InterfaceNeighborBriefs) GetEntityData() *ty
 type Rsvp_InterfaceNeighborBriefs_InterfaceNeighborBrief struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Address of global neighbor. The type is string
     // with pattern:
@@ -21067,6 +21684,7 @@ func (interfaceNeighborBrief *Rsvp_InterfaceNeighborBriefs_InterfaceNeighborBrie
     interfaceNeighborBrief.EntityData.BundleName = "cisco_ios_xr"
     interfaceNeighborBrief.EntityData.ParentYangName = "interface-neighbor-briefs"
     interfaceNeighborBrief.EntityData.SegmentPath = "interface-neighbor-brief" + types.AddKeyToken(interfaceNeighborBrief.NeighborAddress, "neighbor-address")
+    interfaceNeighborBrief.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/interface-neighbor-briefs/" + interfaceNeighborBrief.EntityData.SegmentPath
     interfaceNeighborBrief.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceNeighborBrief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceNeighborBrief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21074,6 +21692,7 @@ func (interfaceNeighborBrief *Rsvp_InterfaceNeighborBriefs_InterfaceNeighborBrie
     interfaceNeighborBrief.EntityData.Children = types.NewOrderedMap()
     interfaceNeighborBrief.EntityData.Children.Append("interface-neighbor-list-compact", types.YChild{"InterfaceNeighborListCompact", nil})
     for i := range interfaceNeighborBrief.InterfaceNeighborListCompact {
+        types.SetYListKey(interfaceNeighborBrief.InterfaceNeighborListCompact[i], i)
         interfaceNeighborBrief.EntityData.Children.Append(types.GetSegmentPath(interfaceNeighborBrief.InterfaceNeighborListCompact[i]), types.YChild{"InterfaceNeighborListCompact", interfaceNeighborBrief.InterfaceNeighborListCompact[i]})
     }
     interfaceNeighborBrief.EntityData.Leafs = types.NewOrderedMap()
@@ -21090,6 +21709,7 @@ func (interfaceNeighborBrief *Rsvp_InterfaceNeighborBriefs_InterfaceNeighborBrie
 type Rsvp_InterfaceNeighborBriefs_InterfaceNeighborBrief_InterfaceNeighborListCompact struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Interface Neighbor address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -21105,7 +21725,8 @@ func (interfaceNeighborListCompact *Rsvp_InterfaceNeighborBriefs_InterfaceNeighb
     interfaceNeighborListCompact.EntityData.YangName = "interface-neighbor-list-compact"
     interfaceNeighborListCompact.EntityData.BundleName = "cisco_ios_xr"
     interfaceNeighborListCompact.EntityData.ParentYangName = "interface-neighbor-brief"
-    interfaceNeighborListCompact.EntityData.SegmentPath = "interface-neighbor-list-compact"
+    interfaceNeighborListCompact.EntityData.SegmentPath = "interface-neighbor-list-compact" + types.AddNoKeyToken(interfaceNeighborListCompact)
+    interfaceNeighborListCompact.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/interface-neighbor-briefs/interface-neighbor-brief/" + interfaceNeighborListCompact.EntityData.SegmentPath
     interfaceNeighborListCompact.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceNeighborListCompact.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceNeighborListCompact.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21138,6 +21759,7 @@ func (controllerSummaries *Rsvp_ControllerSummaries) GetEntityData() *types.Comm
     controllerSummaries.EntityData.BundleName = "cisco_ios_xr"
     controllerSummaries.EntityData.ParentYangName = "rsvp"
     controllerSummaries.EntityData.SegmentPath = "controller-summaries"
+    controllerSummaries.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/" + controllerSummaries.EntityData.SegmentPath
     controllerSummaries.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     controllerSummaries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     controllerSummaries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21159,6 +21781,7 @@ func (controllerSummaries *Rsvp_ControllerSummaries) GetEntityData() *types.Comm
 type Rsvp_ControllerSummaries_ControllerSummary struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Controller Name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -21193,6 +21816,7 @@ func (controllerSummary *Rsvp_ControllerSummaries_ControllerSummary) GetEntityDa
     controllerSummary.EntityData.BundleName = "cisco_ios_xr"
     controllerSummary.EntityData.ParentYangName = "controller-summaries"
     controllerSummary.EntityData.SegmentPath = "controller-summary" + types.AddKeyToken(controllerSummary.ControllerName, "controller-name")
+    controllerSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/controller-summaries/" + controllerSummary.EntityData.SegmentPath
     controllerSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     controllerSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     controllerSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21234,6 +21858,7 @@ func (bandwidthInformation *Rsvp_ControllerSummaries_ControllerSummary_Bandwidth
     bandwidthInformation.EntityData.BundleName = "cisco_ios_xr"
     bandwidthInformation.EntityData.ParentYangName = "controller-summary"
     bandwidthInformation.EntityData.SegmentPath = "bandwidth-information"
+    bandwidthInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/controller-summaries/controller-summary/" + bandwidthInformation.EntityData.SegmentPath
     bandwidthInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bandwidthInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bandwidthInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21286,6 +21911,7 @@ func (preStandardDsteInterface *Rsvp_ControllerSummaries_ControllerSummary_Bandw
     preStandardDsteInterface.EntityData.BundleName = "cisco_ios_xr"
     preStandardDsteInterface.EntityData.ParentYangName = "bandwidth-information"
     preStandardDsteInterface.EntityData.SegmentPath = "pre-standard-dste-interface"
+    preStandardDsteInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/controller-summaries/controller-summary/bandwidth-information/" + preStandardDsteInterface.EntityData.SegmentPath
     preStandardDsteInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     preStandardDsteInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     preStandardDsteInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21349,6 +21975,7 @@ func (standardDsteInterface *Rsvp_ControllerSummaries_ControllerSummary_Bandwidt
     standardDsteInterface.EntityData.BundleName = "cisco_ios_xr"
     standardDsteInterface.EntityData.ParentYangName = "bandwidth-information"
     standardDsteInterface.EntityData.SegmentPath = "standard-dste-interface"
+    standardDsteInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/controller-summaries/controller-summary/bandwidth-information/" + standardDsteInterface.EntityData.SegmentPath
     standardDsteInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     standardDsteInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     standardDsteInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21386,6 +22013,7 @@ func (authenticationBriefs *Rsvp_AuthenticationBriefs) GetEntityData() *types.Co
     authenticationBriefs.EntityData.BundleName = "cisco_ios_xr"
     authenticationBriefs.EntityData.ParentYangName = "rsvp"
     authenticationBriefs.EntityData.SegmentPath = "authentication-briefs"
+    authenticationBriefs.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/" + authenticationBriefs.EntityData.SegmentPath
     authenticationBriefs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     authenticationBriefs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     authenticationBriefs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21407,6 +22035,7 @@ func (authenticationBriefs *Rsvp_AuthenticationBriefs) GetEntityData() *types.Co
 type Rsvp_AuthenticationBriefs_AuthenticationBrief struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Source Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -21458,6 +22087,7 @@ func (authenticationBrief *Rsvp_AuthenticationBriefs_AuthenticationBrief) GetEnt
     authenticationBrief.EntityData.BundleName = "cisco_ios_xr"
     authenticationBrief.EntityData.ParentYangName = "authentication-briefs"
     authenticationBrief.EntityData.SegmentPath = "authentication-brief" + types.AddKeyToken(authenticationBrief.SourceAddress, "source-address") + types.AddKeyToken(authenticationBrief.DestinationAddress, "destination-address") + types.AddKeyToken(authenticationBrief.ModeId, "mode-id") + types.AddKeyToken(authenticationBrief.InterfaceName, "interface-name")
+    authenticationBrief.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/authentication-briefs/" + authenticationBrief.EntityData.SegmentPath
     authenticationBrief.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     authenticationBrief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     authenticationBrief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21499,6 +22129,7 @@ func (sessionBriefs *Rsvp_SessionBriefs) GetEntityData() *types.CommonEntityData
     sessionBriefs.EntityData.BundleName = "cisco_ios_xr"
     sessionBriefs.EntityData.ParentYangName = "rsvp"
     sessionBriefs.EntityData.SegmentPath = "session-briefs"
+    sessionBriefs.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/" + sessionBriefs.EntityData.SegmentPath
     sessionBriefs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sessionBriefs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionBriefs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21506,6 +22137,7 @@ func (sessionBriefs *Rsvp_SessionBriefs) GetEntityData() *types.CommonEntityData
     sessionBriefs.EntityData.Children = types.NewOrderedMap()
     sessionBriefs.EntityData.Children.Append("session-brief", types.YChild{"SessionBrief", nil})
     for i := range sessionBriefs.SessionBrief {
+        types.SetYListKey(sessionBriefs.SessionBrief[i], i)
         sessionBriefs.EntityData.Children.Append(types.GetSegmentPath(sessionBriefs.SessionBrief[i]), types.YChild{"SessionBrief", sessionBriefs.SessionBrief[i]})
     }
     sessionBriefs.EntityData.Leafs = types.NewOrderedMap()
@@ -21520,6 +22152,7 @@ func (sessionBriefs *Rsvp_SessionBriefs) GetEntityData() *types.CommonEntityData
 type Rsvp_SessionBriefs_SessionBrief struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Destination Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -21569,7 +22202,8 @@ func (sessionBrief *Rsvp_SessionBriefs_SessionBrief) GetEntityData() *types.Comm
     sessionBrief.EntityData.YangName = "session-brief"
     sessionBrief.EntityData.BundleName = "cisco_ios_xr"
     sessionBrief.EntityData.ParentYangName = "session-briefs"
-    sessionBrief.EntityData.SegmentPath = "session-brief"
+    sessionBrief.EntityData.SegmentPath = "session-brief" + types.AddNoKeyToken(sessionBrief)
+    sessionBrief.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/session-briefs/" + sessionBrief.EntityData.SegmentPath
     sessionBrief.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sessionBrief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionBrief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21610,6 +22244,7 @@ func (session *Rsvp_SessionBriefs_SessionBrief_Session) GetEntityData() *types.C
     session.EntityData.BundleName = "cisco_ios_xr"
     session.EntityData.ParentYangName = "session-brief"
     session.EntityData.SegmentPath = "session"
+    session.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/session-briefs/session-brief/" + session.EntityData.SegmentPath
     session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21651,6 +22286,7 @@ func (rsvpSession *Rsvp_SessionBriefs_SessionBrief_Session_RsvpSession) GetEntit
     rsvpSession.EntityData.BundleName = "cisco_ios_xr"
     rsvpSession.EntityData.ParentYangName = "session"
     rsvpSession.EntityData.SegmentPath = "rsvp-session"
+    rsvpSession.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/session-briefs/session-brief/session/" + rsvpSession.EntityData.SegmentPath
     rsvpSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rsvpSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rsvpSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21692,6 +22328,7 @@ func (ipv4 *Rsvp_SessionBriefs_SessionBrief_Session_RsvpSession_Ipv4) GetEntityD
     ipv4.EntityData.BundleName = "cisco_ios_xr"
     ipv4.EntityData.ParentYangName = "rsvp-session"
     ipv4.EntityData.SegmentPath = "ipv4"
+    ipv4.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/session-briefs/session-brief/session/rsvp-session/" + ipv4.EntityData.SegmentPath
     ipv4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21731,6 +22368,7 @@ func (ipv4LspSession *Rsvp_SessionBriefs_SessionBrief_Session_RsvpSession_Ipv4Ls
     ipv4LspSession.EntityData.BundleName = "cisco_ios_xr"
     ipv4LspSession.EntityData.ParentYangName = "rsvp-session"
     ipv4LspSession.EntityData.SegmentPath = "ipv4-lsp-session"
+    ipv4LspSession.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/session-briefs/session-brief/session/rsvp-session/" + ipv4LspSession.EntityData.SegmentPath
     ipv4LspSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4LspSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4LspSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21770,6 +22408,7 @@ func (ipv4UniSession *Rsvp_SessionBriefs_SessionBrief_Session_RsvpSession_Ipv4Un
     ipv4UniSession.EntityData.BundleName = "cisco_ios_xr"
     ipv4UniSession.EntityData.ParentYangName = "rsvp-session"
     ipv4UniSession.EntityData.SegmentPath = "ipv4-uni-session"
+    ipv4UniSession.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/session-briefs/session-brief/session/rsvp-session/" + ipv4UniSession.EntityData.SegmentPath
     ipv4UniSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4UniSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4UniSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21809,6 +22448,7 @@ func (ipv4P2mpLspSession *Rsvp_SessionBriefs_SessionBrief_Session_RsvpSession_Ip
     ipv4P2mpLspSession.EntityData.BundleName = "cisco_ios_xr"
     ipv4P2mpLspSession.EntityData.ParentYangName = "rsvp-session"
     ipv4P2mpLspSession.EntityData.SegmentPath = "ipv4-p2mp-lsp-session"
+    ipv4P2mpLspSession.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/session-briefs/session-brief/session/rsvp-session/" + ipv4P2mpLspSession.EntityData.SegmentPath
     ipv4P2mpLspSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4P2mpLspSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4P2mpLspSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21841,6 +22481,7 @@ func (psbDetaileds *Rsvp_PsbDetaileds) GetEntityData() *types.CommonEntityData {
     psbDetaileds.EntityData.BundleName = "cisco_ios_xr"
     psbDetaileds.EntityData.ParentYangName = "rsvp"
     psbDetaileds.EntityData.SegmentPath = "psb-detaileds"
+    psbDetaileds.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/" + psbDetaileds.EntityData.SegmentPath
     psbDetaileds.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     psbDetaileds.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     psbDetaileds.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21848,6 +22489,7 @@ func (psbDetaileds *Rsvp_PsbDetaileds) GetEntityData() *types.CommonEntityData {
     psbDetaileds.EntityData.Children = types.NewOrderedMap()
     psbDetaileds.EntityData.Children.Append("psb-detailed", types.YChild{"PsbDetailed", nil})
     for i := range psbDetaileds.PsbDetailed {
+        types.SetYListKey(psbDetaileds.PsbDetailed[i], i)
         psbDetaileds.EntityData.Children.Append(types.GetSegmentPath(psbDetaileds.PsbDetailed[i]), types.YChild{"PsbDetailed", psbDetaileds.PsbDetailed[i]})
     }
     psbDetaileds.EntityData.Leafs = types.NewOrderedMap()
@@ -21862,6 +22504,7 @@ func (psbDetaileds *Rsvp_PsbDetaileds) GetEntityData() *types.CommonEntityData {
 type Rsvp_PsbDetaileds_PsbDetailed struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Destination Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -21975,7 +22618,8 @@ func (psbDetailed *Rsvp_PsbDetaileds_PsbDetailed) GetEntityData() *types.CommonE
     psbDetailed.EntityData.YangName = "psb-detailed"
     psbDetailed.EntityData.BundleName = "cisco_ios_xr"
     psbDetailed.EntityData.ParentYangName = "psb-detaileds"
-    psbDetailed.EntityData.SegmentPath = "psb-detailed"
+    psbDetailed.EntityData.SegmentPath = "psb-detailed" + types.AddNoKeyToken(psbDetailed)
+    psbDetailed.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/psb-detaileds/" + psbDetailed.EntityData.SegmentPath
     psbDetailed.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     psbDetailed.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     psbDetailed.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21998,14 +22642,17 @@ func (psbDetailed *Rsvp_PsbDetaileds_PsbDetailed) GetEntityData() *types.CommonE
     psbDetailed.EntityData.Children.Append("class-type", types.YChild{"ClassType", &psbDetailed.ClassType})
     psbDetailed.EntityData.Children.Append("pfc", types.YChild{"Pfc", nil})
     for i := range psbDetailed.Pfc {
+        types.SetYListKey(psbDetailed.Pfc[i], i)
         psbDetailed.EntityData.Children.Append(types.GetSegmentPath(psbDetailed.Pfc[i]), types.YChild{"Pfc", psbDetailed.Pfc[i]})
     }
     psbDetailed.EntityData.Children.Append("in-ero", types.YChild{"InEro", nil})
     for i := range psbDetailed.InEro {
+        types.SetYListKey(psbDetailed.InEro[i], i)
         psbDetailed.EntityData.Children.Append(types.GetSegmentPath(psbDetailed.InEro[i]), types.YChild{"InEro", psbDetailed.InEro[i]})
     }
     psbDetailed.EntityData.Children.Append("out-ero", types.YChild{"OutEro", nil})
     for i := range psbDetailed.OutEro {
+        types.SetYListKey(psbDetailed.OutEro[i], i)
         psbDetailed.EntityData.Children.Append(types.GetSegmentPath(psbDetailed.OutEro[i]), types.YChild{"OutEro", psbDetailed.OutEro[i]})
     }
     psbDetailed.EntityData.Leafs = types.NewOrderedMap()
@@ -22046,6 +22693,7 @@ func (session *Rsvp_PsbDetaileds_PsbDetailed_Session) GetEntityData() *types.Com
     session.EntityData.BundleName = "cisco_ios_xr"
     session.EntityData.ParentYangName = "psb-detailed"
     session.EntityData.SegmentPath = "session"
+    session.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/psb-detaileds/psb-detailed/" + session.EntityData.SegmentPath
     session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22087,6 +22735,7 @@ func (rsvpSession *Rsvp_PsbDetaileds_PsbDetailed_Session_RsvpSession) GetEntityD
     rsvpSession.EntityData.BundleName = "cisco_ios_xr"
     rsvpSession.EntityData.ParentYangName = "session"
     rsvpSession.EntityData.SegmentPath = "rsvp-session"
+    rsvpSession.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/psb-detaileds/psb-detailed/session/" + rsvpSession.EntityData.SegmentPath
     rsvpSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rsvpSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rsvpSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22128,6 +22777,7 @@ func (ipv4 *Rsvp_PsbDetaileds_PsbDetailed_Session_RsvpSession_Ipv4) GetEntityDat
     ipv4.EntityData.BundleName = "cisco_ios_xr"
     ipv4.EntityData.ParentYangName = "rsvp-session"
     ipv4.EntityData.SegmentPath = "ipv4"
+    ipv4.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/psb-detaileds/psb-detailed/session/rsvp-session/" + ipv4.EntityData.SegmentPath
     ipv4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22167,6 +22817,7 @@ func (ipv4LspSession *Rsvp_PsbDetaileds_PsbDetailed_Session_RsvpSession_Ipv4LspS
     ipv4LspSession.EntityData.BundleName = "cisco_ios_xr"
     ipv4LspSession.EntityData.ParentYangName = "rsvp-session"
     ipv4LspSession.EntityData.SegmentPath = "ipv4-lsp-session"
+    ipv4LspSession.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/psb-detaileds/psb-detailed/session/rsvp-session/" + ipv4LspSession.EntityData.SegmentPath
     ipv4LspSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4LspSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4LspSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22206,6 +22857,7 @@ func (ipv4UniSession *Rsvp_PsbDetaileds_PsbDetailed_Session_RsvpSession_Ipv4UniS
     ipv4UniSession.EntityData.BundleName = "cisco_ios_xr"
     ipv4UniSession.EntityData.ParentYangName = "rsvp-session"
     ipv4UniSession.EntityData.SegmentPath = "ipv4-uni-session"
+    ipv4UniSession.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/psb-detaileds/psb-detailed/session/rsvp-session/" + ipv4UniSession.EntityData.SegmentPath
     ipv4UniSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4UniSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4UniSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22245,6 +22897,7 @@ func (ipv4P2mpLspSession *Rsvp_PsbDetaileds_PsbDetailed_Session_RsvpSession_Ipv4
     ipv4P2mpLspSession.EntityData.BundleName = "cisco_ios_xr"
     ipv4P2mpLspSession.EntityData.ParentYangName = "rsvp-session"
     ipv4P2mpLspSession.EntityData.SegmentPath = "ipv4-p2mp-lsp-session"
+    ipv4P2mpLspSession.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/psb-detaileds/psb-detailed/session/rsvp-session/" + ipv4P2mpLspSession.EntityData.SegmentPath
     ipv4P2mpLspSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4P2mpLspSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4P2mpLspSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22277,6 +22930,7 @@ func (s2lSubLsp *Rsvp_PsbDetaileds_PsbDetailed_S2lSubLsp) GetEntityData() *types
     s2lSubLsp.EntityData.BundleName = "cisco_ios_xr"
     s2lSubLsp.EntityData.ParentYangName = "psb-detailed"
     s2lSubLsp.EntityData.SegmentPath = "s2l-sub-lsp"
+    s2lSubLsp.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/psb-detaileds/psb-detailed/" + s2lSubLsp.EntityData.SegmentPath
     s2lSubLsp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     s2lSubLsp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     s2lSubLsp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22306,6 +22960,7 @@ func (template *Rsvp_PsbDetaileds_PsbDetailed_Template) GetEntityData() *types.C
     template.EntityData.BundleName = "cisco_ios_xr"
     template.EntityData.ParentYangName = "psb-detailed"
     template.EntityData.SegmentPath = "template"
+    template.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/psb-detaileds/psb-detailed/" + template.EntityData.SegmentPath
     template.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     template.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     template.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22341,6 +22996,7 @@ func (rsvpFilter *Rsvp_PsbDetaileds_PsbDetailed_Template_RsvpFilter) GetEntityDa
     rsvpFilter.EntityData.BundleName = "cisco_ios_xr"
     rsvpFilter.EntityData.ParentYangName = "template"
     rsvpFilter.EntityData.SegmentPath = "rsvp-filter"
+    rsvpFilter.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/psb-detaileds/psb-detailed/template/" + rsvpFilter.EntityData.SegmentPath
     rsvpFilter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rsvpFilter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rsvpFilter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22376,6 +23032,7 @@ func (udpIpv4Session *Rsvp_PsbDetaileds_PsbDetailed_Template_RsvpFilter_UdpIpv4S
     udpIpv4Session.EntityData.BundleName = "cisco_ios_xr"
     udpIpv4Session.EntityData.ParentYangName = "rsvp-filter"
     udpIpv4Session.EntityData.SegmentPath = "udp-ipv4-session"
+    udpIpv4Session.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/psb-detaileds/psb-detailed/template/rsvp-filter/" + udpIpv4Session.EntityData.SegmentPath
     udpIpv4Session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     udpIpv4Session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     udpIpv4Session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22418,6 +23075,7 @@ func (p2mpIpv4Session *Rsvp_PsbDetaileds_PsbDetailed_Template_RsvpFilter_P2mpIpv
     p2mpIpv4Session.EntityData.BundleName = "cisco_ios_xr"
     p2mpIpv4Session.EntityData.ParentYangName = "rsvp-filter"
     p2mpIpv4Session.EntityData.SegmentPath = "p2mp-ipv4-session"
+    p2mpIpv4Session.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/psb-detaileds/psb-detailed/template/rsvp-filter/" + p2mpIpv4Session.EntityData.SegmentPath
     p2mpIpv4Session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     p2mpIpv4Session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     p2mpIpv4Session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22456,6 +23114,7 @@ func (sessionAttribute *Rsvp_PsbDetaileds_PsbDetailed_SessionAttribute) GetEntit
     sessionAttribute.EntityData.BundleName = "cisco_ios_xr"
     sessionAttribute.EntityData.ParentYangName = "psb-detailed"
     sessionAttribute.EntityData.SegmentPath = "session-attribute"
+    sessionAttribute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/psb-detaileds/psb-detailed/" + sessionAttribute.EntityData.SegmentPath
     sessionAttribute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sessionAttribute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionAttribute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22499,6 +23158,7 @@ func (sessAttributeFlags *Rsvp_PsbDetaileds_PsbDetailed_SessionAttribute_SessAtt
     sessAttributeFlags.EntityData.BundleName = "cisco_ios_xr"
     sessAttributeFlags.EntityData.ParentYangName = "session-attribute"
     sessAttributeFlags.EntityData.SegmentPath = "sess-attribute-flags"
+    sessAttributeFlags.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/psb-detaileds/psb-detailed/session-attribute/" + sessAttributeFlags.EntityData.SegmentPath
     sessAttributeFlags.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sessAttributeFlags.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessAttributeFlags.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22547,6 +23207,7 @@ func (trafficSpec *Rsvp_PsbDetaileds_PsbDetailed_TrafficSpec) GetEntityData() *t
     trafficSpec.EntityData.BundleName = "cisco_ios_xr"
     trafficSpec.EntityData.ParentYangName = "psb-detailed"
     trafficSpec.EntityData.SegmentPath = "traffic-spec"
+    trafficSpec.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/psb-detaileds/psb-detailed/" + trafficSpec.EntityData.SegmentPath
     trafficSpec.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trafficSpec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trafficSpec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22586,6 +23247,7 @@ func (genericTrafficSpec *Rsvp_PsbDetaileds_PsbDetailed_GenericTrafficSpec) GetE
     genericTrafficSpec.EntityData.BundleName = "cisco_ios_xr"
     genericTrafficSpec.EntityData.ParentYangName = "psb-detailed"
     genericTrafficSpec.EntityData.SegmentPath = "generic-traffic-spec"
+    genericTrafficSpec.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/psb-detaileds/psb-detailed/" + genericTrafficSpec.EntityData.SegmentPath
     genericTrafficSpec.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     genericTrafficSpec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     genericTrafficSpec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22628,6 +23290,7 @@ func (g709otnTspec *Rsvp_PsbDetaileds_PsbDetailed_GenericTrafficSpec_G709otnTspe
     g709otnTspec.EntityData.BundleName = "cisco_ios_xr"
     g709otnTspec.EntityData.ParentYangName = "generic-traffic-spec"
     g709otnTspec.EntityData.SegmentPath = "g709otn-tspec"
+    g709otnTspec.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/psb-detaileds/psb-detailed/generic-traffic-spec/" + g709otnTspec.EntityData.SegmentPath
     g709otnTspec.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     g709otnTspec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     g709otnTspec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22675,6 +23338,7 @@ func (intsrvTspec *Rsvp_PsbDetaileds_PsbDetailed_GenericTrafficSpec_IntsrvTspec)
     intsrvTspec.EntityData.BundleName = "cisco_ios_xr"
     intsrvTspec.EntityData.ParentYangName = "generic-traffic-spec"
     intsrvTspec.EntityData.SegmentPath = "intsrv-tspec"
+    intsrvTspec.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/psb-detaileds/psb-detailed/generic-traffic-spec/" + intsrvTspec.EntityData.SegmentPath
     intsrvTspec.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     intsrvTspec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     intsrvTspec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22723,6 +23387,7 @@ func (pathFlags *Rsvp_PsbDetaileds_PsbDetailed_PathFlags) GetEntityData() *types
     pathFlags.EntityData.BundleName = "cisco_ios_xr"
     pathFlags.EntityData.ParentYangName = "psb-detailed"
     pathFlags.EntityData.SegmentPath = "path-flags"
+    pathFlags.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/psb-detaileds/psb-detailed/" + pathFlags.EntityData.SegmentPath
     pathFlags.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pathFlags.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pathFlags.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22762,6 +23427,7 @@ func (hop *Rsvp_PsbDetaileds_PsbDetailed_Hop) GetEntityData() *types.CommonEntit
     hop.EntityData.BundleName = "cisco_ios_xr"
     hop.EntityData.ParentYangName = "psb-detailed"
     hop.EntityData.SegmentPath = "hop"
+    hop.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/psb-detaileds/psb-detailed/" + hop.EntityData.SegmentPath
     hop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22804,6 +23470,7 @@ func (policySourceInfo *Rsvp_PsbDetaileds_PsbDetailed_PolicySourceInfo) GetEntit
     policySourceInfo.EntityData.BundleName = "cisco_ios_xr"
     policySourceInfo.EntityData.ParentYangName = "psb-detailed"
     policySourceInfo.EntityData.SegmentPath = "policy-source-info"
+    policySourceInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/psb-detaileds/psb-detailed/" + policySourceInfo.EntityData.SegmentPath
     policySourceInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     policySourceInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policySourceInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22857,6 +23524,7 @@ func (header *Rsvp_PsbDetaileds_PsbDetailed_Header) GetEntityData() *types.Commo
     header.EntityData.BundleName = "cisco_ios_xr"
     header.EntityData.ParentYangName = "psb-detailed"
     header.EntityData.SegmentPath = "header"
+    header.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/psb-detaileds/psb-detailed/" + header.EntityData.SegmentPath
     header.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     header.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     header.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22897,6 +23565,7 @@ func (expiryTime *Rsvp_PsbDetaileds_PsbDetailed_ExpiryTime) GetEntityData() *typ
     expiryTime.EntityData.BundleName = "cisco_ios_xr"
     expiryTime.EntityData.ParentYangName = "psb-detailed"
     expiryTime.EntityData.SegmentPath = "expiry-time"
+    expiryTime.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/psb-detaileds/psb-detailed/" + expiryTime.EntityData.SegmentPath
     expiryTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     expiryTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     expiryTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22933,6 +23602,7 @@ func (policyFlags *Rsvp_PsbDetaileds_PsbDetailed_PolicyFlags) GetEntityData() *t
     policyFlags.EntityData.BundleName = "cisco_ios_xr"
     policyFlags.EntityData.ParentYangName = "psb-detailed"
     policyFlags.EntityData.SegmentPath = "policy-flags"
+    policyFlags.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/psb-detaileds/psb-detailed/" + policyFlags.EntityData.SegmentPath
     policyFlags.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     policyFlags.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policyFlags.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22973,6 +23643,7 @@ func (policyQueryFlags *Rsvp_PsbDetaileds_PsbDetailed_PolicyQueryFlags) GetEntit
     policyQueryFlags.EntityData.BundleName = "cisco_ios_xr"
     policyQueryFlags.EntityData.ParentYangName = "psb-detailed"
     policyQueryFlags.EntityData.SegmentPath = "policy-query-flags"
+    policyQueryFlags.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/psb-detaileds/psb-detailed/" + policyQueryFlags.EntityData.SegmentPath
     policyQueryFlags.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     policyQueryFlags.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policyQueryFlags.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23045,6 +23716,7 @@ func (labelInfo *Rsvp_PsbDetaileds_PsbDetailed_LabelInfo) GetEntityData() *types
     labelInfo.EntityData.BundleName = "cisco_ios_xr"
     labelInfo.EntityData.ParentYangName = "psb-detailed"
     labelInfo.EntityData.SegmentPath = "label-info"
+    labelInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/psb-detaileds/psb-detailed/" + labelInfo.EntityData.SegmentPath
     labelInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labelInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23090,6 +23762,7 @@ func (genericLocalDownstreamLabel *Rsvp_PsbDetaileds_PsbDetailed_LabelInfo_Gener
     genericLocalDownstreamLabel.EntityData.BundleName = "cisco_ios_xr"
     genericLocalDownstreamLabel.EntityData.ParentYangName = "label-info"
     genericLocalDownstreamLabel.EntityData.SegmentPath = "generic-local-downstream-label"
+    genericLocalDownstreamLabel.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/psb-detaileds/psb-detailed/label-info/" + genericLocalDownstreamLabel.EntityData.SegmentPath
     genericLocalDownstreamLabel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     genericLocalDownstreamLabel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     genericLocalDownstreamLabel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23121,6 +23794,7 @@ func (generalizedLabel *Rsvp_PsbDetaileds_PsbDetailed_LabelInfo_GenericLocalDown
     generalizedLabel.EntityData.BundleName = "cisco_ios_xr"
     generalizedLabel.EntityData.ParentYangName = "generic-local-downstream-label"
     generalizedLabel.EntityData.SegmentPath = "generalized-label"
+    generalizedLabel.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/psb-detaileds/psb-detailed/label-info/generic-local-downstream-label/" + generalizedLabel.EntityData.SegmentPath
     generalizedLabel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     generalizedLabel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     generalizedLabel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23128,6 +23802,7 @@ func (generalizedLabel *Rsvp_PsbDetaileds_PsbDetailed_LabelInfo_GenericLocalDown
     generalizedLabel.EntityData.Children = types.NewOrderedMap()
     generalizedLabel.EntityData.Children.Append("value", types.YChild{"Value", nil})
     for i := range generalizedLabel.Value {
+        types.SetYListKey(generalizedLabel.Value[i], i)
         generalizedLabel.EntityData.Children.Append(types.GetSegmentPath(generalizedLabel.Value[i]), types.YChild{"Value", generalizedLabel.Value[i]})
     }
     generalizedLabel.EntityData.Leafs = types.NewOrderedMap()
@@ -23142,6 +23817,7 @@ func (generalizedLabel *Rsvp_PsbDetaileds_PsbDetailed_LabelInfo_GenericLocalDown
 type Rsvp_PsbDetaileds_PsbDetailed_LabelInfo_GenericLocalDownstreamLabel_GeneralizedLabel_Value struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -23152,7 +23828,8 @@ func (value *Rsvp_PsbDetaileds_PsbDetailed_LabelInfo_GenericLocalDownstreamLabel
     value.EntityData.YangName = "value"
     value.EntityData.BundleName = "cisco_ios_xr"
     value.EntityData.ParentYangName = "generalized-label"
-    value.EntityData.SegmentPath = "value"
+    value.EntityData.SegmentPath = "value" + types.AddNoKeyToken(value)
+    value.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/psb-detaileds/psb-detailed/label-info/generic-local-downstream-label/generalized-label/" + value.EntityData.SegmentPath
     value.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     value.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     value.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23185,6 +23862,7 @@ func (genericOutgoingDownstreamLabel *Rsvp_PsbDetaileds_PsbDetailed_LabelInfo_Ge
     genericOutgoingDownstreamLabel.EntityData.BundleName = "cisco_ios_xr"
     genericOutgoingDownstreamLabel.EntityData.ParentYangName = "label-info"
     genericOutgoingDownstreamLabel.EntityData.SegmentPath = "generic-outgoing-downstream-label"
+    genericOutgoingDownstreamLabel.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/psb-detaileds/psb-detailed/label-info/" + genericOutgoingDownstreamLabel.EntityData.SegmentPath
     genericOutgoingDownstreamLabel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     genericOutgoingDownstreamLabel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     genericOutgoingDownstreamLabel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23216,6 +23894,7 @@ func (generalizedLabel *Rsvp_PsbDetaileds_PsbDetailed_LabelInfo_GenericOutgoingD
     generalizedLabel.EntityData.BundleName = "cisco_ios_xr"
     generalizedLabel.EntityData.ParentYangName = "generic-outgoing-downstream-label"
     generalizedLabel.EntityData.SegmentPath = "generalized-label"
+    generalizedLabel.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/psb-detaileds/psb-detailed/label-info/generic-outgoing-downstream-label/" + generalizedLabel.EntityData.SegmentPath
     generalizedLabel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     generalizedLabel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     generalizedLabel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23223,6 +23902,7 @@ func (generalizedLabel *Rsvp_PsbDetaileds_PsbDetailed_LabelInfo_GenericOutgoingD
     generalizedLabel.EntityData.Children = types.NewOrderedMap()
     generalizedLabel.EntityData.Children.Append("value", types.YChild{"Value", nil})
     for i := range generalizedLabel.Value {
+        types.SetYListKey(generalizedLabel.Value[i], i)
         generalizedLabel.EntityData.Children.Append(types.GetSegmentPath(generalizedLabel.Value[i]), types.YChild{"Value", generalizedLabel.Value[i]})
     }
     generalizedLabel.EntityData.Leafs = types.NewOrderedMap()
@@ -23237,6 +23917,7 @@ func (generalizedLabel *Rsvp_PsbDetaileds_PsbDetailed_LabelInfo_GenericOutgoingD
 type Rsvp_PsbDetaileds_PsbDetailed_LabelInfo_GenericOutgoingDownstreamLabel_GeneralizedLabel_Value struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -23247,7 +23928,8 @@ func (value *Rsvp_PsbDetaileds_PsbDetailed_LabelInfo_GenericOutgoingDownstreamLa
     value.EntityData.YangName = "value"
     value.EntityData.BundleName = "cisco_ios_xr"
     value.EntityData.ParentYangName = "generalized-label"
-    value.EntityData.SegmentPath = "value"
+    value.EntityData.SegmentPath = "value" + types.AddNoKeyToken(value)
+    value.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/psb-detaileds/psb-detailed/label-info/generic-outgoing-downstream-label/generalized-label/" + value.EntityData.SegmentPath
     value.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     value.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     value.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23280,6 +23962,7 @@ func (genericMergePointLabel *Rsvp_PsbDetaileds_PsbDetailed_LabelInfo_GenericMer
     genericMergePointLabel.EntityData.BundleName = "cisco_ios_xr"
     genericMergePointLabel.EntityData.ParentYangName = "label-info"
     genericMergePointLabel.EntityData.SegmentPath = "generic-merge-point-label"
+    genericMergePointLabel.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/psb-detaileds/psb-detailed/label-info/" + genericMergePointLabel.EntityData.SegmentPath
     genericMergePointLabel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     genericMergePointLabel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     genericMergePointLabel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23311,6 +23994,7 @@ func (generalizedLabel *Rsvp_PsbDetaileds_PsbDetailed_LabelInfo_GenericMergePoin
     generalizedLabel.EntityData.BundleName = "cisco_ios_xr"
     generalizedLabel.EntityData.ParentYangName = "generic-merge-point-label"
     generalizedLabel.EntityData.SegmentPath = "generalized-label"
+    generalizedLabel.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/psb-detaileds/psb-detailed/label-info/generic-merge-point-label/" + generalizedLabel.EntityData.SegmentPath
     generalizedLabel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     generalizedLabel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     generalizedLabel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23318,6 +24002,7 @@ func (generalizedLabel *Rsvp_PsbDetaileds_PsbDetailed_LabelInfo_GenericMergePoin
     generalizedLabel.EntityData.Children = types.NewOrderedMap()
     generalizedLabel.EntityData.Children.Append("value", types.YChild{"Value", nil})
     for i := range generalizedLabel.Value {
+        types.SetYListKey(generalizedLabel.Value[i], i)
         generalizedLabel.EntityData.Children.Append(types.GetSegmentPath(generalizedLabel.Value[i]), types.YChild{"Value", generalizedLabel.Value[i]})
     }
     generalizedLabel.EntityData.Leafs = types.NewOrderedMap()
@@ -23332,6 +24017,7 @@ func (generalizedLabel *Rsvp_PsbDetaileds_PsbDetailed_LabelInfo_GenericMergePoin
 type Rsvp_PsbDetaileds_PsbDetailed_LabelInfo_GenericMergePointLabel_GeneralizedLabel_Value struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -23342,7 +24028,8 @@ func (value *Rsvp_PsbDetaileds_PsbDetailed_LabelInfo_GenericMergePointLabel_Gene
     value.EntityData.YangName = "value"
     value.EntityData.BundleName = "cisco_ios_xr"
     value.EntityData.ParentYangName = "generalized-label"
-    value.EntityData.SegmentPath = "value"
+    value.EntityData.SegmentPath = "value" + types.AddNoKeyToken(value)
+    value.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/psb-detaileds/psb-detailed/label-info/generic-merge-point-label/generalized-label/" + value.EntityData.SegmentPath
     value.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     value.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     value.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23375,6 +24062,7 @@ func (genericOutgoingUpstreamLabel *Rsvp_PsbDetaileds_PsbDetailed_LabelInfo_Gene
     genericOutgoingUpstreamLabel.EntityData.BundleName = "cisco_ios_xr"
     genericOutgoingUpstreamLabel.EntityData.ParentYangName = "label-info"
     genericOutgoingUpstreamLabel.EntityData.SegmentPath = "generic-outgoing-upstream-label"
+    genericOutgoingUpstreamLabel.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/psb-detaileds/psb-detailed/label-info/" + genericOutgoingUpstreamLabel.EntityData.SegmentPath
     genericOutgoingUpstreamLabel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     genericOutgoingUpstreamLabel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     genericOutgoingUpstreamLabel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23406,6 +24094,7 @@ func (generalizedLabel *Rsvp_PsbDetaileds_PsbDetailed_LabelInfo_GenericOutgoingU
     generalizedLabel.EntityData.BundleName = "cisco_ios_xr"
     generalizedLabel.EntityData.ParentYangName = "generic-outgoing-upstream-label"
     generalizedLabel.EntityData.SegmentPath = "generalized-label"
+    generalizedLabel.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/psb-detaileds/psb-detailed/label-info/generic-outgoing-upstream-label/" + generalizedLabel.EntityData.SegmentPath
     generalizedLabel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     generalizedLabel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     generalizedLabel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23413,6 +24102,7 @@ func (generalizedLabel *Rsvp_PsbDetaileds_PsbDetailed_LabelInfo_GenericOutgoingU
     generalizedLabel.EntityData.Children = types.NewOrderedMap()
     generalizedLabel.EntityData.Children.Append("value", types.YChild{"Value", nil})
     for i := range generalizedLabel.Value {
+        types.SetYListKey(generalizedLabel.Value[i], i)
         generalizedLabel.EntityData.Children.Append(types.GetSegmentPath(generalizedLabel.Value[i]), types.YChild{"Value", generalizedLabel.Value[i]})
     }
     generalizedLabel.EntityData.Leafs = types.NewOrderedMap()
@@ -23427,6 +24117,7 @@ func (generalizedLabel *Rsvp_PsbDetaileds_PsbDetailed_LabelInfo_GenericOutgoingU
 type Rsvp_PsbDetaileds_PsbDetailed_LabelInfo_GenericOutgoingUpstreamLabel_GeneralizedLabel_Value struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -23437,7 +24128,8 @@ func (value *Rsvp_PsbDetaileds_PsbDetailed_LabelInfo_GenericOutgoingUpstreamLabe
     value.EntityData.YangName = "value"
     value.EntityData.BundleName = "cisco_ios_xr"
     value.EntityData.ParentYangName = "generalized-label"
-    value.EntityData.SegmentPath = "value"
+    value.EntityData.SegmentPath = "value" + types.AddNoKeyToken(value)
+    value.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/psb-detaileds/psb-detailed/label-info/generic-outgoing-upstream-label/generalized-label/" + value.EntityData.SegmentPath
     value.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     value.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     value.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23470,6 +24162,7 @@ func (genericLocalUpstreamLabel *Rsvp_PsbDetaileds_PsbDetailed_LabelInfo_Generic
     genericLocalUpstreamLabel.EntityData.BundleName = "cisco_ios_xr"
     genericLocalUpstreamLabel.EntityData.ParentYangName = "label-info"
     genericLocalUpstreamLabel.EntityData.SegmentPath = "generic-local-upstream-label"
+    genericLocalUpstreamLabel.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/psb-detaileds/psb-detailed/label-info/" + genericLocalUpstreamLabel.EntityData.SegmentPath
     genericLocalUpstreamLabel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     genericLocalUpstreamLabel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     genericLocalUpstreamLabel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23501,6 +24194,7 @@ func (generalizedLabel *Rsvp_PsbDetaileds_PsbDetailed_LabelInfo_GenericLocalUpst
     generalizedLabel.EntityData.BundleName = "cisco_ios_xr"
     generalizedLabel.EntityData.ParentYangName = "generic-local-upstream-label"
     generalizedLabel.EntityData.SegmentPath = "generalized-label"
+    generalizedLabel.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/psb-detaileds/psb-detailed/label-info/generic-local-upstream-label/" + generalizedLabel.EntityData.SegmentPath
     generalizedLabel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     generalizedLabel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     generalizedLabel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23508,6 +24202,7 @@ func (generalizedLabel *Rsvp_PsbDetaileds_PsbDetailed_LabelInfo_GenericLocalUpst
     generalizedLabel.EntityData.Children = types.NewOrderedMap()
     generalizedLabel.EntityData.Children.Append("value", types.YChild{"Value", nil})
     for i := range generalizedLabel.Value {
+        types.SetYListKey(generalizedLabel.Value[i], i)
         generalizedLabel.EntityData.Children.Append(types.GetSegmentPath(generalizedLabel.Value[i]), types.YChild{"Value", generalizedLabel.Value[i]})
     }
     generalizedLabel.EntityData.Leafs = types.NewOrderedMap()
@@ -23522,6 +24217,7 @@ func (generalizedLabel *Rsvp_PsbDetaileds_PsbDetailed_LabelInfo_GenericLocalUpst
 type Rsvp_PsbDetaileds_PsbDetailed_LabelInfo_GenericLocalUpstreamLabel_GeneralizedLabel_Value struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -23532,7 +24228,8 @@ func (value *Rsvp_PsbDetaileds_PsbDetailed_LabelInfo_GenericLocalUpstreamLabel_G
     value.EntityData.YangName = "value"
     value.EntityData.BundleName = "cisco_ios_xr"
     value.EntityData.ParentYangName = "generalized-label"
-    value.EntityData.SegmentPath = "value"
+    value.EntityData.SegmentPath = "value" + types.AddNoKeyToken(value)
+    value.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/psb-detaileds/psb-detailed/label-info/generic-local-upstream-label/generalized-label/" + value.EntityData.SegmentPath
     value.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     value.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     value.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23565,6 +24262,7 @@ func (genericRecoveryLabel *Rsvp_PsbDetaileds_PsbDetailed_LabelInfo_GenericRecov
     genericRecoveryLabel.EntityData.BundleName = "cisco_ios_xr"
     genericRecoveryLabel.EntityData.ParentYangName = "label-info"
     genericRecoveryLabel.EntityData.SegmentPath = "generic-recovery-label"
+    genericRecoveryLabel.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/psb-detaileds/psb-detailed/label-info/" + genericRecoveryLabel.EntityData.SegmentPath
     genericRecoveryLabel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     genericRecoveryLabel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     genericRecoveryLabel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23596,6 +24294,7 @@ func (generalizedLabel *Rsvp_PsbDetaileds_PsbDetailed_LabelInfo_GenericRecoveryL
     generalizedLabel.EntityData.BundleName = "cisco_ios_xr"
     generalizedLabel.EntityData.ParentYangName = "generic-recovery-label"
     generalizedLabel.EntityData.SegmentPath = "generalized-label"
+    generalizedLabel.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/psb-detaileds/psb-detailed/label-info/generic-recovery-label/" + generalizedLabel.EntityData.SegmentPath
     generalizedLabel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     generalizedLabel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     generalizedLabel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23603,6 +24302,7 @@ func (generalizedLabel *Rsvp_PsbDetaileds_PsbDetailed_LabelInfo_GenericRecoveryL
     generalizedLabel.EntityData.Children = types.NewOrderedMap()
     generalizedLabel.EntityData.Children.Append("value", types.YChild{"Value", nil})
     for i := range generalizedLabel.Value {
+        types.SetYListKey(generalizedLabel.Value[i], i)
         generalizedLabel.EntityData.Children.Append(types.GetSegmentPath(generalizedLabel.Value[i]), types.YChild{"Value", generalizedLabel.Value[i]})
     }
     generalizedLabel.EntityData.Leafs = types.NewOrderedMap()
@@ -23617,6 +24317,7 @@ func (generalizedLabel *Rsvp_PsbDetaileds_PsbDetailed_LabelInfo_GenericRecoveryL
 type Rsvp_PsbDetaileds_PsbDetailed_LabelInfo_GenericRecoveryLabel_GeneralizedLabel_Value struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -23627,7 +24328,8 @@ func (value *Rsvp_PsbDetaileds_PsbDetailed_LabelInfo_GenericRecoveryLabel_Genera
     value.EntityData.YangName = "value"
     value.EntityData.BundleName = "cisco_ios_xr"
     value.EntityData.ParentYangName = "generalized-label"
-    value.EntityData.SegmentPath = "value"
+    value.EntityData.SegmentPath = "value" + types.AddNoKeyToken(value)
+    value.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/psb-detaileds/psb-detailed/label-info/generic-recovery-label/generalized-label/" + value.EntityData.SegmentPath
     value.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     value.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     value.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23660,6 +24362,7 @@ func (classType *Rsvp_PsbDetaileds_PsbDetailed_ClassType) GetEntityData() *types
     classType.EntityData.BundleName = "cisco_ios_xr"
     classType.EntityData.ParentYangName = "psb-detailed"
     classType.EntityData.SegmentPath = "class-type"
+    classType.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/psb-detaileds/psb-detailed/" + classType.EntityData.SegmentPath
     classType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     classType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     classType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23679,6 +24382,7 @@ func (classType *Rsvp_PsbDetaileds_PsbDetailed_ClassType) GetEntityData() *types
 type Rsvp_PsbDetaileds_PsbDetailed_Pfc struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Output interface. The type is string.
     OutputInterface interface{}
@@ -23695,7 +24399,8 @@ func (pfc *Rsvp_PsbDetaileds_PsbDetailed_Pfc) GetEntityData() *types.CommonEntit
     pfc.EntityData.YangName = "pfc"
     pfc.EntityData.BundleName = "cisco_ios_xr"
     pfc.EntityData.ParentYangName = "psb-detailed"
-    pfc.EntityData.SegmentPath = "pfc"
+    pfc.EntityData.SegmentPath = "pfc" + types.AddNoKeyToken(pfc)
+    pfc.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/psb-detaileds/psb-detailed/" + pfc.EntityData.SegmentPath
     pfc.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pfc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pfc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23733,6 +24438,7 @@ func (policyFlags *Rsvp_PsbDetaileds_PsbDetailed_Pfc_PolicyFlags) GetEntityData(
     policyFlags.EntityData.BundleName = "cisco_ios_xr"
     policyFlags.EntityData.ParentYangName = "pfc"
     policyFlags.EntityData.SegmentPath = "policy-flags"
+    policyFlags.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/psb-detaileds/psb-detailed/pfc/" + policyFlags.EntityData.SegmentPath
     policyFlags.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     policyFlags.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policyFlags.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23773,6 +24479,7 @@ func (policyQueryFlags *Rsvp_PsbDetaileds_PsbDetailed_Pfc_PolicyQueryFlags) GetE
     policyQueryFlags.EntityData.BundleName = "cisco_ios_xr"
     policyQueryFlags.EntityData.ParentYangName = "pfc"
     policyQueryFlags.EntityData.SegmentPath = "policy-query-flags"
+    policyQueryFlags.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/psb-detaileds/psb-detailed/pfc/" + policyQueryFlags.EntityData.SegmentPath
     policyQueryFlags.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     policyQueryFlags.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policyQueryFlags.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23794,6 +24501,7 @@ func (policyQueryFlags *Rsvp_PsbDetaileds_PsbDetailed_Pfc_PolicyQueryFlags) GetE
 type Rsvp_PsbDetaileds_PsbDetailed_InEro struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // EROType. The type is RsvpMgmtEroSubobj.
     EroType interface{}
@@ -23810,7 +24518,8 @@ func (inEro *Rsvp_PsbDetaileds_PsbDetailed_InEro) GetEntityData() *types.CommonE
     inEro.EntityData.YangName = "in-ero"
     inEro.EntityData.BundleName = "cisco_ios_xr"
     inEro.EntityData.ParentYangName = "psb-detailed"
-    inEro.EntityData.SegmentPath = "in-ero"
+    inEro.EntityData.SegmentPath = "in-ero" + types.AddNoKeyToken(inEro)
+    inEro.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/psb-detaileds/psb-detailed/" + inEro.EntityData.SegmentPath
     inEro.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     inEro.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inEro.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23849,6 +24558,7 @@ func (ipv4eroSubObject *Rsvp_PsbDetaileds_PsbDetailed_InEro_Ipv4eroSubObject) Ge
     ipv4eroSubObject.EntityData.BundleName = "cisco_ios_xr"
     ipv4eroSubObject.EntityData.ParentYangName = "in-ero"
     ipv4eroSubObject.EntityData.SegmentPath = "ipv4ero-sub-object"
+    ipv4eroSubObject.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/psb-detaileds/psb-detailed/in-ero/" + ipv4eroSubObject.EntityData.SegmentPath
     ipv4eroSubObject.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4eroSubObject.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4eroSubObject.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23890,6 +24600,7 @@ func (unnumberedEroSubObject *Rsvp_PsbDetaileds_PsbDetailed_InEro_UnnumberedEroS
     unnumberedEroSubObject.EntityData.BundleName = "cisco_ios_xr"
     unnumberedEroSubObject.EntityData.ParentYangName = "in-ero"
     unnumberedEroSubObject.EntityData.SegmentPath = "unnumbered-ero-sub-object"
+    unnumberedEroSubObject.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/psb-detaileds/psb-detailed/in-ero/" + unnumberedEroSubObject.EntityData.SegmentPath
     unnumberedEroSubObject.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     unnumberedEroSubObject.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unnumberedEroSubObject.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23911,6 +24622,7 @@ func (unnumberedEroSubObject *Rsvp_PsbDetaileds_PsbDetailed_InEro_UnnumberedEroS
 type Rsvp_PsbDetaileds_PsbDetailed_OutEro struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // EROType. The type is RsvpMgmtEroSubobj.
     EroType interface{}
@@ -23927,7 +24639,8 @@ func (outEro *Rsvp_PsbDetaileds_PsbDetailed_OutEro) GetEntityData() *types.Commo
     outEro.EntityData.YangName = "out-ero"
     outEro.EntityData.BundleName = "cisco_ios_xr"
     outEro.EntityData.ParentYangName = "psb-detailed"
-    outEro.EntityData.SegmentPath = "out-ero"
+    outEro.EntityData.SegmentPath = "out-ero" + types.AddNoKeyToken(outEro)
+    outEro.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/psb-detaileds/psb-detailed/" + outEro.EntityData.SegmentPath
     outEro.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     outEro.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outEro.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23966,6 +24679,7 @@ func (ipv4eroSubObject *Rsvp_PsbDetaileds_PsbDetailed_OutEro_Ipv4eroSubObject) G
     ipv4eroSubObject.EntityData.BundleName = "cisco_ios_xr"
     ipv4eroSubObject.EntityData.ParentYangName = "out-ero"
     ipv4eroSubObject.EntityData.SegmentPath = "ipv4ero-sub-object"
+    ipv4eroSubObject.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/psb-detaileds/psb-detailed/out-ero/" + ipv4eroSubObject.EntityData.SegmentPath
     ipv4eroSubObject.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4eroSubObject.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4eroSubObject.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24007,6 +24721,7 @@ func (unnumberedEroSubObject *Rsvp_PsbDetaileds_PsbDetailed_OutEro_UnnumberedEro
     unnumberedEroSubObject.EntityData.BundleName = "cisco_ios_xr"
     unnumberedEroSubObject.EntityData.ParentYangName = "out-ero"
     unnumberedEroSubObject.EntityData.SegmentPath = "unnumbered-ero-sub-object"
+    unnumberedEroSubObject.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/psb-detaileds/psb-detailed/out-ero/" + unnumberedEroSubObject.EntityData.SegmentPath
     unnumberedEroSubObject.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     unnumberedEroSubObject.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unnumberedEroSubObject.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24041,6 +24756,7 @@ func (controllerDetaileds *Rsvp_ControllerDetaileds) GetEntityData() *types.Comm
     controllerDetaileds.EntityData.BundleName = "cisco_ios_xr"
     controllerDetaileds.EntityData.ParentYangName = "rsvp"
     controllerDetaileds.EntityData.SegmentPath = "controller-detaileds"
+    controllerDetaileds.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/" + controllerDetaileds.EntityData.SegmentPath
     controllerDetaileds.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     controllerDetaileds.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     controllerDetaileds.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24062,6 +24778,7 @@ func (controllerDetaileds *Rsvp_ControllerDetaileds) GetEntityData() *types.Comm
 type Rsvp_ControllerDetaileds_ControllerDetailed struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Controller Name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -24167,6 +24884,7 @@ func (controllerDetailed *Rsvp_ControllerDetaileds_ControllerDetailed) GetEntity
     controllerDetailed.EntityData.BundleName = "cisco_ios_xr"
     controllerDetailed.EntityData.ParentYangName = "controller-detaileds"
     controllerDetailed.EntityData.SegmentPath = "controller-detailed" + types.AddKeyToken(controllerDetailed.ControllerName, "controller-name")
+    controllerDetailed.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/controller-detaileds/" + controllerDetailed.EntityData.SegmentPath
     controllerDetailed.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     controllerDetailed.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     controllerDetailed.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24176,6 +24894,7 @@ func (controllerDetailed *Rsvp_ControllerDetaileds_ControllerDetailed) GetEntity
     controllerDetailed.EntityData.Children.Append("flags", types.YChild{"Flags", &controllerDetailed.Flags})
     controllerDetailed.EntityData.Children.Append("neighbor-array", types.YChild{"NeighborArray", nil})
     for i := range controllerDetailed.NeighborArray {
+        types.SetYListKey(controllerDetailed.NeighborArray[i], i)
         controllerDetailed.EntityData.Children.Append(types.GetSegmentPath(controllerDetailed.NeighborArray[i]), types.YChild{"NeighborArray", controllerDetailed.NeighborArray[i]})
     }
     controllerDetailed.EntityData.Leafs = types.NewOrderedMap()
@@ -24231,6 +24950,7 @@ func (bandwidthInformation *Rsvp_ControllerDetaileds_ControllerDetailed_Bandwidt
     bandwidthInformation.EntityData.BundleName = "cisco_ios_xr"
     bandwidthInformation.EntityData.ParentYangName = "controller-detailed"
     bandwidthInformation.EntityData.SegmentPath = "bandwidth-information"
+    bandwidthInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/controller-detaileds/controller-detailed/" + bandwidthInformation.EntityData.SegmentPath
     bandwidthInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bandwidthInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bandwidthInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24283,6 +25003,7 @@ func (preStandardDsteInterface *Rsvp_ControllerDetaileds_ControllerDetailed_Band
     preStandardDsteInterface.EntityData.BundleName = "cisco_ios_xr"
     preStandardDsteInterface.EntityData.ParentYangName = "bandwidth-information"
     preStandardDsteInterface.EntityData.SegmentPath = "pre-standard-dste-interface"
+    preStandardDsteInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/controller-detaileds/controller-detailed/bandwidth-information/" + preStandardDsteInterface.EntityData.SegmentPath
     preStandardDsteInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     preStandardDsteInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     preStandardDsteInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24346,6 +25067,7 @@ func (standardDsteInterface *Rsvp_ControllerDetaileds_ControllerDetailed_Bandwid
     standardDsteInterface.EntityData.BundleName = "cisco_ios_xr"
     standardDsteInterface.EntityData.ParentYangName = "bandwidth-information"
     standardDsteInterface.EntityData.SegmentPath = "standard-dste-interface"
+    standardDsteInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/controller-detaileds/controller-detailed/bandwidth-information/" + standardDsteInterface.EntityData.SegmentPath
     standardDsteInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     standardDsteInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     standardDsteInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24415,6 +25137,7 @@ func (flags *Rsvp_ControllerDetaileds_ControllerDetailed_Flags) GetEntityData() 
     flags.EntityData.BundleName = "cisco_ios_xr"
     flags.EntityData.ParentYangName = "controller-detailed"
     flags.EntityData.SegmentPath = "flags"
+    flags.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/controller-detaileds/controller-detailed/" + flags.EntityData.SegmentPath
     flags.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     flags.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     flags.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24444,6 +25167,7 @@ func (flags *Rsvp_ControllerDetaileds_ControllerDetailed_Flags) GetEntityData() 
 type Rsvp_ControllerDetaileds_ControllerDetailed_NeighborArray struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Is neighbor capable of Refresh Reduction. The type is bool.
     IsNeighborRefreshReductionCapable interface{}
@@ -24472,7 +25196,8 @@ func (neighborArray *Rsvp_ControllerDetaileds_ControllerDetailed_NeighborArray) 
     neighborArray.EntityData.YangName = "neighbor-array"
     neighborArray.EntityData.BundleName = "cisco_ios_xr"
     neighborArray.EntityData.ParentYangName = "controller-detailed"
-    neighborArray.EntityData.SegmentPath = "neighbor-array"
+    neighborArray.EntityData.SegmentPath = "neighbor-array" + types.AddNoKeyToken(neighborArray)
+    neighborArray.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/controller-detaileds/controller-detailed/" + neighborArray.EntityData.SegmentPath
     neighborArray.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighborArray.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborArray.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24481,6 +25206,7 @@ func (neighborArray *Rsvp_ControllerDetaileds_ControllerDetailed_NeighborArray) 
     neighborArray.EntityData.Children.Append("expiry-time", types.YChild{"ExpiryTime", &neighborArray.ExpiryTime})
     neighborArray.EntityData.Children.Append("neighbor-message-id", types.YChild{"NeighborMessageId", nil})
     for i := range neighborArray.NeighborMessageId {
+        types.SetYListKey(neighborArray.NeighborMessageId[i], i)
         neighborArray.EntityData.Children.Append(types.GetSegmentPath(neighborArray.NeighborMessageId[i]), types.YChild{"NeighborMessageId", neighborArray.NeighborMessageId[i]})
     }
     neighborArray.EntityData.Leafs = types.NewOrderedMap()
@@ -24515,6 +25241,7 @@ func (expiryTime *Rsvp_ControllerDetaileds_ControllerDetailed_NeighborArray_Expi
     expiryTime.EntityData.BundleName = "cisco_ios_xr"
     expiryTime.EntityData.ParentYangName = "neighbor-array"
     expiryTime.EntityData.SegmentPath = "expiry-time"
+    expiryTime.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/controller-detaileds/controller-detailed/neighbor-array/" + expiryTime.EntityData.SegmentPath
     expiryTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     expiryTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     expiryTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24534,6 +25261,7 @@ func (expiryTime *Rsvp_ControllerDetaileds_ControllerDetailed_NeighborArray_Expi
 type Rsvp_ControllerDetaileds_ControllerDetailed_NeighborArray_NeighborMessageId struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Message ID. The type is interface{} with range: 0..4294967295.
     MessageId interface{}
@@ -24544,7 +25272,8 @@ func (neighborMessageId *Rsvp_ControllerDetaileds_ControllerDetailed_NeighborArr
     neighborMessageId.EntityData.YangName = "neighbor-message-id"
     neighborMessageId.EntityData.BundleName = "cisco_ios_xr"
     neighborMessageId.EntityData.ParentYangName = "neighbor-array"
-    neighborMessageId.EntityData.SegmentPath = "neighbor-message-id"
+    neighborMessageId.EntityData.SegmentPath = "neighbor-message-id" + types.AddNoKeyToken(neighborMessageId)
+    neighborMessageId.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/controller-detaileds/controller-detailed/neighbor-array/" + neighborMessageId.EntityData.SegmentPath
     neighborMessageId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighborMessageId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborMessageId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24577,6 +25306,7 @@ func (frrSummary *Rsvp_FrrSummary) GetEntityData() *types.CommonEntityData {
     frrSummary.EntityData.BundleName = "cisco_ios_xr"
     frrSummary.EntityData.ParentYangName = "rsvp"
     frrSummary.EntityData.SegmentPath = "frr-summary"
+    frrSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/" + frrSummary.EntityData.SegmentPath
     frrSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     frrSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     frrSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24621,6 +25351,7 @@ func (pathStates *Rsvp_FrrSummary_PathStates) GetEntityData() *types.CommonEntit
     pathStates.EntityData.BundleName = "cisco_ios_xr"
     pathStates.EntityData.ParentYangName = "frr-summary"
     pathStates.EntityData.SegmentPath = "path-states"
+    pathStates.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/frr-summary/" + pathStates.EntityData.SegmentPath
     pathStates.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pathStates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pathStates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24667,6 +25398,7 @@ func (reservationStates *Rsvp_FrrSummary_ReservationStates) GetEntityData() *typ
     reservationStates.EntityData.BundleName = "cisco_ios_xr"
     reservationStates.EntityData.ParentYangName = "frr-summary"
     reservationStates.EntityData.SegmentPath = "reservation-states"
+    reservationStates.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/frr-summary/" + reservationStates.EntityData.SegmentPath
     reservationStates.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     reservationStates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     reservationStates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24701,6 +25433,7 @@ func (rsbDetaileds *Rsvp_RsbDetaileds) GetEntityData() *types.CommonEntityData {
     rsbDetaileds.EntityData.BundleName = "cisco_ios_xr"
     rsbDetaileds.EntityData.ParentYangName = "rsvp"
     rsbDetaileds.EntityData.SegmentPath = "rsb-detaileds"
+    rsbDetaileds.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/" + rsbDetaileds.EntityData.SegmentPath
     rsbDetaileds.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rsbDetaileds.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rsbDetaileds.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24708,6 +25441,7 @@ func (rsbDetaileds *Rsvp_RsbDetaileds) GetEntityData() *types.CommonEntityData {
     rsbDetaileds.EntityData.Children = types.NewOrderedMap()
     rsbDetaileds.EntityData.Children.Append("rsb-detailed", types.YChild{"RsbDetailed", nil})
     for i := range rsbDetaileds.RsbDetailed {
+        types.SetYListKey(rsbDetaileds.RsbDetailed[i], i)
         rsbDetaileds.EntityData.Children.Append(types.GetSegmentPath(rsbDetaileds.RsbDetailed[i]), types.YChild{"RsbDetailed", rsbDetaileds.RsbDetailed[i]})
     }
     rsbDetaileds.EntityData.Leafs = types.NewOrderedMap()
@@ -24723,6 +25457,7 @@ func (rsbDetaileds *Rsvp_RsbDetaileds) GetEntityData() *types.CommonEntityData {
 type Rsvp_RsbDetaileds_RsbDetailed struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Destination Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -24815,7 +25550,8 @@ func (rsbDetailed *Rsvp_RsbDetaileds_RsbDetailed) GetEntityData() *types.CommonE
     rsbDetailed.EntityData.YangName = "rsb-detailed"
     rsbDetailed.EntityData.BundleName = "cisco_ios_xr"
     rsbDetailed.EntityData.ParentYangName = "rsb-detaileds"
-    rsbDetailed.EntityData.SegmentPath = "rsb-detailed"
+    rsbDetailed.EntityData.SegmentPath = "rsb-detailed" + types.AddNoKeyToken(rsbDetailed)
+    rsbDetailed.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/rsb-detaileds/" + rsbDetailed.EntityData.SegmentPath
     rsbDetailed.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rsbDetailed.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rsbDetailed.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24896,6 +25632,7 @@ func (flowSpec *Rsvp_RsbDetaileds_RsbDetailed_FlowSpec) GetEntityData() *types.C
     flowSpec.EntityData.BundleName = "cisco_ios_xr"
     flowSpec.EntityData.ParentYangName = "rsb-detailed"
     flowSpec.EntityData.SegmentPath = "flow-spec"
+    flowSpec.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/rsb-detaileds/rsb-detailed/" + flowSpec.EntityData.SegmentPath
     flowSpec.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     flowSpec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     flowSpec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24935,6 +25672,7 @@ func (genericFlowSpec *Rsvp_RsbDetaileds_RsbDetailed_GenericFlowSpec) GetEntityD
     genericFlowSpec.EntityData.BundleName = "cisco_ios_xr"
     genericFlowSpec.EntityData.ParentYangName = "rsb-detailed"
     genericFlowSpec.EntityData.SegmentPath = "generic-flow-spec"
+    genericFlowSpec.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/rsb-detaileds/rsb-detailed/" + genericFlowSpec.EntityData.SegmentPath
     genericFlowSpec.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     genericFlowSpec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     genericFlowSpec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24976,6 +25714,7 @@ func (g709otnFlowSpec *Rsvp_RsbDetaileds_RsbDetailed_GenericFlowSpec_G709otnFlow
     g709otnFlowSpec.EntityData.BundleName = "cisco_ios_xr"
     g709otnFlowSpec.EntityData.ParentYangName = "generic-flow-spec"
     g709otnFlowSpec.EntityData.SegmentPath = "g709otn-flow-spec"
+    g709otnFlowSpec.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/rsb-detaileds/rsb-detailed/generic-flow-spec/" + g709otnFlowSpec.EntityData.SegmentPath
     g709otnFlowSpec.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     g709otnFlowSpec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     g709otnFlowSpec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25008,6 +25747,7 @@ func (session *Rsvp_RsbDetaileds_RsbDetailed_Session) GetEntityData() *types.Com
     session.EntityData.BundleName = "cisco_ios_xr"
     session.EntityData.ParentYangName = "rsb-detailed"
     session.EntityData.SegmentPath = "session"
+    session.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/rsb-detaileds/rsb-detailed/" + session.EntityData.SegmentPath
     session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25049,6 +25789,7 @@ func (rsvpSession *Rsvp_RsbDetaileds_RsbDetailed_Session_RsvpSession) GetEntityD
     rsvpSession.EntityData.BundleName = "cisco_ios_xr"
     rsvpSession.EntityData.ParentYangName = "session"
     rsvpSession.EntityData.SegmentPath = "rsvp-session"
+    rsvpSession.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/rsb-detaileds/rsb-detailed/session/" + rsvpSession.EntityData.SegmentPath
     rsvpSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rsvpSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rsvpSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25090,6 +25831,7 @@ func (ipv4 *Rsvp_RsbDetaileds_RsbDetailed_Session_RsvpSession_Ipv4) GetEntityDat
     ipv4.EntityData.BundleName = "cisco_ios_xr"
     ipv4.EntityData.ParentYangName = "rsvp-session"
     ipv4.EntityData.SegmentPath = "ipv4"
+    ipv4.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/rsb-detaileds/rsb-detailed/session/rsvp-session/" + ipv4.EntityData.SegmentPath
     ipv4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25129,6 +25871,7 @@ func (ipv4LspSession *Rsvp_RsbDetaileds_RsbDetailed_Session_RsvpSession_Ipv4LspS
     ipv4LspSession.EntityData.BundleName = "cisco_ios_xr"
     ipv4LspSession.EntityData.ParentYangName = "rsvp-session"
     ipv4LspSession.EntityData.SegmentPath = "ipv4-lsp-session"
+    ipv4LspSession.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/rsb-detaileds/rsb-detailed/session/rsvp-session/" + ipv4LspSession.EntityData.SegmentPath
     ipv4LspSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4LspSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4LspSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25168,6 +25911,7 @@ func (ipv4UniSession *Rsvp_RsbDetaileds_RsbDetailed_Session_RsvpSession_Ipv4UniS
     ipv4UniSession.EntityData.BundleName = "cisco_ios_xr"
     ipv4UniSession.EntityData.ParentYangName = "rsvp-session"
     ipv4UniSession.EntityData.SegmentPath = "ipv4-uni-session"
+    ipv4UniSession.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/rsb-detaileds/rsb-detailed/session/rsvp-session/" + ipv4UniSession.EntityData.SegmentPath
     ipv4UniSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4UniSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4UniSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25207,6 +25951,7 @@ func (ipv4P2mpLspSession *Rsvp_RsbDetaileds_RsbDetailed_Session_RsvpSession_Ipv4
     ipv4P2mpLspSession.EntityData.BundleName = "cisco_ios_xr"
     ipv4P2mpLspSession.EntityData.ParentYangName = "rsvp-session"
     ipv4P2mpLspSession.EntityData.SegmentPath = "ipv4-p2mp-lsp-session"
+    ipv4P2mpLspSession.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/rsb-detaileds/rsb-detailed/session/rsvp-session/" + ipv4P2mpLspSession.EntityData.SegmentPath
     ipv4P2mpLspSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4P2mpLspSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4P2mpLspSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25239,6 +25984,7 @@ func (s2lSubLsp *Rsvp_RsbDetaileds_RsbDetailed_S2lSubLsp) GetEntityData() *types
     s2lSubLsp.EntityData.BundleName = "cisco_ios_xr"
     s2lSubLsp.EntityData.ParentYangName = "rsb-detailed"
     s2lSubLsp.EntityData.SegmentPath = "s2l-sub-lsp"
+    s2lSubLsp.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/rsb-detaileds/rsb-detailed/" + s2lSubLsp.EntityData.SegmentPath
     s2lSubLsp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     s2lSubLsp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     s2lSubLsp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25269,6 +26015,7 @@ func (style *Rsvp_RsbDetaileds_RsbDetailed_Style) GetEntityData() *types.CommonE
     style.EntityData.BundleName = "cisco_ios_xr"
     style.EntityData.ParentYangName = "rsb-detailed"
     style.EntityData.SegmentPath = "style"
+    style.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/rsb-detaileds/rsb-detailed/" + style.EntityData.SegmentPath
     style.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     style.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     style.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25298,6 +26045,7 @@ func (filter *Rsvp_RsbDetaileds_RsbDetailed_Filter) GetEntityData() *types.Commo
     filter.EntityData.BundleName = "cisco_ios_xr"
     filter.EntityData.ParentYangName = "rsb-detailed"
     filter.EntityData.SegmentPath = "filter"
+    filter.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/rsb-detaileds/rsb-detailed/" + filter.EntityData.SegmentPath
     filter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     filter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     filter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25333,6 +26081,7 @@ func (rsvpFilter *Rsvp_RsbDetaileds_RsbDetailed_Filter_RsvpFilter) GetEntityData
     rsvpFilter.EntityData.BundleName = "cisco_ios_xr"
     rsvpFilter.EntityData.ParentYangName = "filter"
     rsvpFilter.EntityData.SegmentPath = "rsvp-filter"
+    rsvpFilter.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/rsb-detaileds/rsb-detailed/filter/" + rsvpFilter.EntityData.SegmentPath
     rsvpFilter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rsvpFilter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rsvpFilter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25368,6 +26117,7 @@ func (udpIpv4Session *Rsvp_RsbDetaileds_RsbDetailed_Filter_RsvpFilter_UdpIpv4Ses
     udpIpv4Session.EntityData.BundleName = "cisco_ios_xr"
     udpIpv4Session.EntityData.ParentYangName = "rsvp-filter"
     udpIpv4Session.EntityData.SegmentPath = "udp-ipv4-session"
+    udpIpv4Session.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/rsb-detaileds/rsb-detailed/filter/rsvp-filter/" + udpIpv4Session.EntityData.SegmentPath
     udpIpv4Session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     udpIpv4Session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     udpIpv4Session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25410,6 +26160,7 @@ func (p2mpIpv4Session *Rsvp_RsbDetaileds_RsbDetailed_Filter_RsvpFilter_P2mpIpv4S
     p2mpIpv4Session.EntityData.BundleName = "cisco_ios_xr"
     p2mpIpv4Session.EntityData.ParentYangName = "rsvp-filter"
     p2mpIpv4Session.EntityData.SegmentPath = "p2mp-ipv4-session"
+    p2mpIpv4Session.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/rsb-detaileds/rsb-detailed/filter/rsvp-filter/" + p2mpIpv4Session.EntityData.SegmentPath
     p2mpIpv4Session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     p2mpIpv4Session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     p2mpIpv4Session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25454,6 +26205,7 @@ func (rsbFlags *Rsvp_RsbDetaileds_RsbDetailed_RsbFlags) GetEntityData() *types.C
     rsbFlags.EntityData.BundleName = "cisco_ios_xr"
     rsbFlags.EntityData.ParentYangName = "rsb-detailed"
     rsbFlags.EntityData.SegmentPath = "rsb-flags"
+    rsbFlags.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/rsb-detaileds/rsb-detailed/" + rsbFlags.EntityData.SegmentPath
     rsbFlags.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rsbFlags.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rsbFlags.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25492,6 +26244,7 @@ func (hop *Rsvp_RsbDetaileds_RsbDetailed_Hop) GetEntityData() *types.CommonEntit
     hop.EntityData.BundleName = "cisco_ios_xr"
     hop.EntityData.ParentYangName = "rsb-detailed"
     hop.EntityData.SegmentPath = "hop"
+    hop.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/rsb-detaileds/rsb-detailed/" + hop.EntityData.SegmentPath
     hop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25534,6 +26287,7 @@ func (policySources *Rsvp_RsbDetaileds_RsbDetailed_PolicySources) GetEntityData(
     policySources.EntityData.BundleName = "cisco_ios_xr"
     policySources.EntityData.ParentYangName = "rsb-detailed"
     policySources.EntityData.SegmentPath = "policy-sources"
+    policySources.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/rsb-detaileds/rsb-detailed/" + policySources.EntityData.SegmentPath
     policySources.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     policySources.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policySources.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25587,6 +26341,7 @@ func (header *Rsvp_RsbDetaileds_RsbDetailed_Header) GetEntityData() *types.Commo
     header.EntityData.BundleName = "cisco_ios_xr"
     header.EntityData.ParentYangName = "rsb-detailed"
     header.EntityData.SegmentPath = "header"
+    header.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/rsb-detaileds/rsb-detailed/" + header.EntityData.SegmentPath
     header.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     header.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     header.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25628,6 +26383,7 @@ func (policyFlags *Rsvp_RsbDetaileds_RsbDetailed_PolicyFlags) GetEntityData() *t
     policyFlags.EntityData.BundleName = "cisco_ios_xr"
     policyFlags.EntityData.ParentYangName = "rsb-detailed"
     policyFlags.EntityData.SegmentPath = "policy-flags"
+    policyFlags.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/rsb-detaileds/rsb-detailed/" + policyFlags.EntityData.SegmentPath
     policyFlags.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     policyFlags.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policyFlags.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25664,6 +26420,7 @@ func (expiryTime *Rsvp_RsbDetaileds_RsbDetailed_ExpiryTime) GetEntityData() *typ
     expiryTime.EntityData.BundleName = "cisco_ios_xr"
     expiryTime.EntityData.ParentYangName = "rsb-detailed"
     expiryTime.EntityData.SegmentPath = "expiry-time"
+    expiryTime.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/rsb-detaileds/rsb-detailed/" + expiryTime.EntityData.SegmentPath
     expiryTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     expiryTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     expiryTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25703,6 +26460,7 @@ func (policyQueryFlags *Rsvp_RsbDetaileds_RsbDetailed_PolicyQueryFlags) GetEntit
     policyQueryFlags.EntityData.BundleName = "cisco_ios_xr"
     policyQueryFlags.EntityData.ParentYangName = "rsb-detailed"
     policyQueryFlags.EntityData.SegmentPath = "policy-query-flags"
+    policyQueryFlags.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/rsb-detaileds/rsb-detailed/" + policyQueryFlags.EntityData.SegmentPath
     policyQueryFlags.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     policyQueryFlags.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policyQueryFlags.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25775,6 +26533,7 @@ func (labelInfo *Rsvp_RsbDetaileds_RsbDetailed_LabelInfo) GetEntityData() *types
     labelInfo.EntityData.BundleName = "cisco_ios_xr"
     labelInfo.EntityData.ParentYangName = "rsb-detailed"
     labelInfo.EntityData.SegmentPath = "label-info"
+    labelInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/rsb-detaileds/rsb-detailed/" + labelInfo.EntityData.SegmentPath
     labelInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labelInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25820,6 +26579,7 @@ func (genericLocalDownstreamLabel *Rsvp_RsbDetaileds_RsbDetailed_LabelInfo_Gener
     genericLocalDownstreamLabel.EntityData.BundleName = "cisco_ios_xr"
     genericLocalDownstreamLabel.EntityData.ParentYangName = "label-info"
     genericLocalDownstreamLabel.EntityData.SegmentPath = "generic-local-downstream-label"
+    genericLocalDownstreamLabel.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/rsb-detaileds/rsb-detailed/label-info/" + genericLocalDownstreamLabel.EntityData.SegmentPath
     genericLocalDownstreamLabel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     genericLocalDownstreamLabel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     genericLocalDownstreamLabel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25851,6 +26611,7 @@ func (generalizedLabel *Rsvp_RsbDetaileds_RsbDetailed_LabelInfo_GenericLocalDown
     generalizedLabel.EntityData.BundleName = "cisco_ios_xr"
     generalizedLabel.EntityData.ParentYangName = "generic-local-downstream-label"
     generalizedLabel.EntityData.SegmentPath = "generalized-label"
+    generalizedLabel.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/rsb-detaileds/rsb-detailed/label-info/generic-local-downstream-label/" + generalizedLabel.EntityData.SegmentPath
     generalizedLabel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     generalizedLabel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     generalizedLabel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25858,6 +26619,7 @@ func (generalizedLabel *Rsvp_RsbDetaileds_RsbDetailed_LabelInfo_GenericLocalDown
     generalizedLabel.EntityData.Children = types.NewOrderedMap()
     generalizedLabel.EntityData.Children.Append("value", types.YChild{"Value", nil})
     for i := range generalizedLabel.Value {
+        types.SetYListKey(generalizedLabel.Value[i], i)
         generalizedLabel.EntityData.Children.Append(types.GetSegmentPath(generalizedLabel.Value[i]), types.YChild{"Value", generalizedLabel.Value[i]})
     }
     generalizedLabel.EntityData.Leafs = types.NewOrderedMap()
@@ -25872,6 +26634,7 @@ func (generalizedLabel *Rsvp_RsbDetaileds_RsbDetailed_LabelInfo_GenericLocalDown
 type Rsvp_RsbDetaileds_RsbDetailed_LabelInfo_GenericLocalDownstreamLabel_GeneralizedLabel_Value struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -25882,7 +26645,8 @@ func (value *Rsvp_RsbDetaileds_RsbDetailed_LabelInfo_GenericLocalDownstreamLabel
     value.EntityData.YangName = "value"
     value.EntityData.BundleName = "cisco_ios_xr"
     value.EntityData.ParentYangName = "generalized-label"
-    value.EntityData.SegmentPath = "value"
+    value.EntityData.SegmentPath = "value" + types.AddNoKeyToken(value)
+    value.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/rsb-detaileds/rsb-detailed/label-info/generic-local-downstream-label/generalized-label/" + value.EntityData.SegmentPath
     value.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     value.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     value.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25915,6 +26679,7 @@ func (genericOutgoingDownstreamLabel *Rsvp_RsbDetaileds_RsbDetailed_LabelInfo_Ge
     genericOutgoingDownstreamLabel.EntityData.BundleName = "cisco_ios_xr"
     genericOutgoingDownstreamLabel.EntityData.ParentYangName = "label-info"
     genericOutgoingDownstreamLabel.EntityData.SegmentPath = "generic-outgoing-downstream-label"
+    genericOutgoingDownstreamLabel.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/rsb-detaileds/rsb-detailed/label-info/" + genericOutgoingDownstreamLabel.EntityData.SegmentPath
     genericOutgoingDownstreamLabel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     genericOutgoingDownstreamLabel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     genericOutgoingDownstreamLabel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25946,6 +26711,7 @@ func (generalizedLabel *Rsvp_RsbDetaileds_RsbDetailed_LabelInfo_GenericOutgoingD
     generalizedLabel.EntityData.BundleName = "cisco_ios_xr"
     generalizedLabel.EntityData.ParentYangName = "generic-outgoing-downstream-label"
     generalizedLabel.EntityData.SegmentPath = "generalized-label"
+    generalizedLabel.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/rsb-detaileds/rsb-detailed/label-info/generic-outgoing-downstream-label/" + generalizedLabel.EntityData.SegmentPath
     generalizedLabel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     generalizedLabel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     generalizedLabel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25953,6 +26719,7 @@ func (generalizedLabel *Rsvp_RsbDetaileds_RsbDetailed_LabelInfo_GenericOutgoingD
     generalizedLabel.EntityData.Children = types.NewOrderedMap()
     generalizedLabel.EntityData.Children.Append("value", types.YChild{"Value", nil})
     for i := range generalizedLabel.Value {
+        types.SetYListKey(generalizedLabel.Value[i], i)
         generalizedLabel.EntityData.Children.Append(types.GetSegmentPath(generalizedLabel.Value[i]), types.YChild{"Value", generalizedLabel.Value[i]})
     }
     generalizedLabel.EntityData.Leafs = types.NewOrderedMap()
@@ -25967,6 +26734,7 @@ func (generalizedLabel *Rsvp_RsbDetaileds_RsbDetailed_LabelInfo_GenericOutgoingD
 type Rsvp_RsbDetaileds_RsbDetailed_LabelInfo_GenericOutgoingDownstreamLabel_GeneralizedLabel_Value struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -25977,7 +26745,8 @@ func (value *Rsvp_RsbDetaileds_RsbDetailed_LabelInfo_GenericOutgoingDownstreamLa
     value.EntityData.YangName = "value"
     value.EntityData.BundleName = "cisco_ios_xr"
     value.EntityData.ParentYangName = "generalized-label"
-    value.EntityData.SegmentPath = "value"
+    value.EntityData.SegmentPath = "value" + types.AddNoKeyToken(value)
+    value.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/rsb-detaileds/rsb-detailed/label-info/generic-outgoing-downstream-label/generalized-label/" + value.EntityData.SegmentPath
     value.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     value.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     value.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26010,6 +26779,7 @@ func (genericMergePointLabel *Rsvp_RsbDetaileds_RsbDetailed_LabelInfo_GenericMer
     genericMergePointLabel.EntityData.BundleName = "cisco_ios_xr"
     genericMergePointLabel.EntityData.ParentYangName = "label-info"
     genericMergePointLabel.EntityData.SegmentPath = "generic-merge-point-label"
+    genericMergePointLabel.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/rsb-detaileds/rsb-detailed/label-info/" + genericMergePointLabel.EntityData.SegmentPath
     genericMergePointLabel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     genericMergePointLabel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     genericMergePointLabel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26041,6 +26811,7 @@ func (generalizedLabel *Rsvp_RsbDetaileds_RsbDetailed_LabelInfo_GenericMergePoin
     generalizedLabel.EntityData.BundleName = "cisco_ios_xr"
     generalizedLabel.EntityData.ParentYangName = "generic-merge-point-label"
     generalizedLabel.EntityData.SegmentPath = "generalized-label"
+    generalizedLabel.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/rsb-detaileds/rsb-detailed/label-info/generic-merge-point-label/" + generalizedLabel.EntityData.SegmentPath
     generalizedLabel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     generalizedLabel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     generalizedLabel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26048,6 +26819,7 @@ func (generalizedLabel *Rsvp_RsbDetaileds_RsbDetailed_LabelInfo_GenericMergePoin
     generalizedLabel.EntityData.Children = types.NewOrderedMap()
     generalizedLabel.EntityData.Children.Append("value", types.YChild{"Value", nil})
     for i := range generalizedLabel.Value {
+        types.SetYListKey(generalizedLabel.Value[i], i)
         generalizedLabel.EntityData.Children.Append(types.GetSegmentPath(generalizedLabel.Value[i]), types.YChild{"Value", generalizedLabel.Value[i]})
     }
     generalizedLabel.EntityData.Leafs = types.NewOrderedMap()
@@ -26062,6 +26834,7 @@ func (generalizedLabel *Rsvp_RsbDetaileds_RsbDetailed_LabelInfo_GenericMergePoin
 type Rsvp_RsbDetaileds_RsbDetailed_LabelInfo_GenericMergePointLabel_GeneralizedLabel_Value struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -26072,7 +26845,8 @@ func (value *Rsvp_RsbDetaileds_RsbDetailed_LabelInfo_GenericMergePointLabel_Gene
     value.EntityData.YangName = "value"
     value.EntityData.BundleName = "cisco_ios_xr"
     value.EntityData.ParentYangName = "generalized-label"
-    value.EntityData.SegmentPath = "value"
+    value.EntityData.SegmentPath = "value" + types.AddNoKeyToken(value)
+    value.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/rsb-detaileds/rsb-detailed/label-info/generic-merge-point-label/generalized-label/" + value.EntityData.SegmentPath
     value.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     value.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     value.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26105,6 +26879,7 @@ func (genericOutgoingUpstreamLabel *Rsvp_RsbDetaileds_RsbDetailed_LabelInfo_Gene
     genericOutgoingUpstreamLabel.EntityData.BundleName = "cisco_ios_xr"
     genericOutgoingUpstreamLabel.EntityData.ParentYangName = "label-info"
     genericOutgoingUpstreamLabel.EntityData.SegmentPath = "generic-outgoing-upstream-label"
+    genericOutgoingUpstreamLabel.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/rsb-detaileds/rsb-detailed/label-info/" + genericOutgoingUpstreamLabel.EntityData.SegmentPath
     genericOutgoingUpstreamLabel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     genericOutgoingUpstreamLabel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     genericOutgoingUpstreamLabel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26136,6 +26911,7 @@ func (generalizedLabel *Rsvp_RsbDetaileds_RsbDetailed_LabelInfo_GenericOutgoingU
     generalizedLabel.EntityData.BundleName = "cisco_ios_xr"
     generalizedLabel.EntityData.ParentYangName = "generic-outgoing-upstream-label"
     generalizedLabel.EntityData.SegmentPath = "generalized-label"
+    generalizedLabel.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/rsb-detaileds/rsb-detailed/label-info/generic-outgoing-upstream-label/" + generalizedLabel.EntityData.SegmentPath
     generalizedLabel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     generalizedLabel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     generalizedLabel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26143,6 +26919,7 @@ func (generalizedLabel *Rsvp_RsbDetaileds_RsbDetailed_LabelInfo_GenericOutgoingU
     generalizedLabel.EntityData.Children = types.NewOrderedMap()
     generalizedLabel.EntityData.Children.Append("value", types.YChild{"Value", nil})
     for i := range generalizedLabel.Value {
+        types.SetYListKey(generalizedLabel.Value[i], i)
         generalizedLabel.EntityData.Children.Append(types.GetSegmentPath(generalizedLabel.Value[i]), types.YChild{"Value", generalizedLabel.Value[i]})
     }
     generalizedLabel.EntityData.Leafs = types.NewOrderedMap()
@@ -26157,6 +26934,7 @@ func (generalizedLabel *Rsvp_RsbDetaileds_RsbDetailed_LabelInfo_GenericOutgoingU
 type Rsvp_RsbDetaileds_RsbDetailed_LabelInfo_GenericOutgoingUpstreamLabel_GeneralizedLabel_Value struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -26167,7 +26945,8 @@ func (value *Rsvp_RsbDetaileds_RsbDetailed_LabelInfo_GenericOutgoingUpstreamLabe
     value.EntityData.YangName = "value"
     value.EntityData.BundleName = "cisco_ios_xr"
     value.EntityData.ParentYangName = "generalized-label"
-    value.EntityData.SegmentPath = "value"
+    value.EntityData.SegmentPath = "value" + types.AddNoKeyToken(value)
+    value.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/rsb-detaileds/rsb-detailed/label-info/generic-outgoing-upstream-label/generalized-label/" + value.EntityData.SegmentPath
     value.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     value.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     value.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26200,6 +26979,7 @@ func (genericLocalUpstreamLabel *Rsvp_RsbDetaileds_RsbDetailed_LabelInfo_Generic
     genericLocalUpstreamLabel.EntityData.BundleName = "cisco_ios_xr"
     genericLocalUpstreamLabel.EntityData.ParentYangName = "label-info"
     genericLocalUpstreamLabel.EntityData.SegmentPath = "generic-local-upstream-label"
+    genericLocalUpstreamLabel.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/rsb-detaileds/rsb-detailed/label-info/" + genericLocalUpstreamLabel.EntityData.SegmentPath
     genericLocalUpstreamLabel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     genericLocalUpstreamLabel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     genericLocalUpstreamLabel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26231,6 +27011,7 @@ func (generalizedLabel *Rsvp_RsbDetaileds_RsbDetailed_LabelInfo_GenericLocalUpst
     generalizedLabel.EntityData.BundleName = "cisco_ios_xr"
     generalizedLabel.EntityData.ParentYangName = "generic-local-upstream-label"
     generalizedLabel.EntityData.SegmentPath = "generalized-label"
+    generalizedLabel.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/rsb-detaileds/rsb-detailed/label-info/generic-local-upstream-label/" + generalizedLabel.EntityData.SegmentPath
     generalizedLabel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     generalizedLabel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     generalizedLabel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26238,6 +27019,7 @@ func (generalizedLabel *Rsvp_RsbDetaileds_RsbDetailed_LabelInfo_GenericLocalUpst
     generalizedLabel.EntityData.Children = types.NewOrderedMap()
     generalizedLabel.EntityData.Children.Append("value", types.YChild{"Value", nil})
     for i := range generalizedLabel.Value {
+        types.SetYListKey(generalizedLabel.Value[i], i)
         generalizedLabel.EntityData.Children.Append(types.GetSegmentPath(generalizedLabel.Value[i]), types.YChild{"Value", generalizedLabel.Value[i]})
     }
     generalizedLabel.EntityData.Leafs = types.NewOrderedMap()
@@ -26252,6 +27034,7 @@ func (generalizedLabel *Rsvp_RsbDetaileds_RsbDetailed_LabelInfo_GenericLocalUpst
 type Rsvp_RsbDetaileds_RsbDetailed_LabelInfo_GenericLocalUpstreamLabel_GeneralizedLabel_Value struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -26262,7 +27045,8 @@ func (value *Rsvp_RsbDetaileds_RsbDetailed_LabelInfo_GenericLocalUpstreamLabel_G
     value.EntityData.YangName = "value"
     value.EntityData.BundleName = "cisco_ios_xr"
     value.EntityData.ParentYangName = "generalized-label"
-    value.EntityData.SegmentPath = "value"
+    value.EntityData.SegmentPath = "value" + types.AddNoKeyToken(value)
+    value.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/rsb-detaileds/rsb-detailed/label-info/generic-local-upstream-label/generalized-label/" + value.EntityData.SegmentPath
     value.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     value.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     value.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26295,6 +27079,7 @@ func (genericRecoveryLabel *Rsvp_RsbDetaileds_RsbDetailed_LabelInfo_GenericRecov
     genericRecoveryLabel.EntityData.BundleName = "cisco_ios_xr"
     genericRecoveryLabel.EntityData.ParentYangName = "label-info"
     genericRecoveryLabel.EntityData.SegmentPath = "generic-recovery-label"
+    genericRecoveryLabel.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/rsb-detaileds/rsb-detailed/label-info/" + genericRecoveryLabel.EntityData.SegmentPath
     genericRecoveryLabel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     genericRecoveryLabel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     genericRecoveryLabel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26326,6 +27111,7 @@ func (generalizedLabel *Rsvp_RsbDetaileds_RsbDetailed_LabelInfo_GenericRecoveryL
     generalizedLabel.EntityData.BundleName = "cisco_ios_xr"
     generalizedLabel.EntityData.ParentYangName = "generic-recovery-label"
     generalizedLabel.EntityData.SegmentPath = "generalized-label"
+    generalizedLabel.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/rsb-detaileds/rsb-detailed/label-info/generic-recovery-label/" + generalizedLabel.EntityData.SegmentPath
     generalizedLabel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     generalizedLabel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     generalizedLabel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26333,6 +27119,7 @@ func (generalizedLabel *Rsvp_RsbDetaileds_RsbDetailed_LabelInfo_GenericRecoveryL
     generalizedLabel.EntityData.Children = types.NewOrderedMap()
     generalizedLabel.EntityData.Children.Append("value", types.YChild{"Value", nil})
     for i := range generalizedLabel.Value {
+        types.SetYListKey(generalizedLabel.Value[i], i)
         generalizedLabel.EntityData.Children.Append(types.GetSegmentPath(generalizedLabel.Value[i]), types.YChild{"Value", generalizedLabel.Value[i]})
     }
     generalizedLabel.EntityData.Leafs = types.NewOrderedMap()
@@ -26347,6 +27134,7 @@ func (generalizedLabel *Rsvp_RsbDetaileds_RsbDetailed_LabelInfo_GenericRecoveryL
 type Rsvp_RsbDetaileds_RsbDetailed_LabelInfo_GenericRecoveryLabel_GeneralizedLabel_Value struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -26357,7 +27145,8 @@ func (value *Rsvp_RsbDetaileds_RsbDetailed_LabelInfo_GenericRecoveryLabel_Genera
     value.EntityData.YangName = "value"
     value.EntityData.BundleName = "cisco_ios_xr"
     value.EntityData.ParentYangName = "generalized-label"
-    value.EntityData.SegmentPath = "value"
+    value.EntityData.SegmentPath = "value" + types.AddNoKeyToken(value)
+    value.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/rsb-detaileds/rsb-detailed/label-info/generic-recovery-label/generalized-label/" + value.EntityData.SegmentPath
     value.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     value.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     value.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26389,6 +27178,7 @@ func (interfaceSummaries *Rsvp_InterfaceSummaries) GetEntityData() *types.Common
     interfaceSummaries.EntityData.BundleName = "cisco_ios_xr"
     interfaceSummaries.EntityData.ParentYangName = "rsvp"
     interfaceSummaries.EntityData.SegmentPath = "interface-summaries"
+    interfaceSummaries.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/" + interfaceSummaries.EntityData.SegmentPath
     interfaceSummaries.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceSummaries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceSummaries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26410,6 +27200,7 @@ func (interfaceSummaries *Rsvp_InterfaceSummaries) GetEntityData() *types.Common
 type Rsvp_InterfaceSummaries_InterfaceSummary struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface Name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -26444,6 +27235,7 @@ func (interfaceSummary *Rsvp_InterfaceSummaries_InterfaceSummary) GetEntityData(
     interfaceSummary.EntityData.BundleName = "cisco_ios_xr"
     interfaceSummary.EntityData.ParentYangName = "interface-summaries"
     interfaceSummary.EntityData.SegmentPath = "interface-summary" + types.AddKeyToken(interfaceSummary.InterfaceName, "interface-name")
+    interfaceSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/interface-summaries/" + interfaceSummary.EntityData.SegmentPath
     interfaceSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26485,6 +27277,7 @@ func (bandwidthInformation *Rsvp_InterfaceSummaries_InterfaceSummary_BandwidthIn
     bandwidthInformation.EntityData.BundleName = "cisco_ios_xr"
     bandwidthInformation.EntityData.ParentYangName = "interface-summary"
     bandwidthInformation.EntityData.SegmentPath = "bandwidth-information"
+    bandwidthInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/interface-summaries/interface-summary/" + bandwidthInformation.EntityData.SegmentPath
     bandwidthInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bandwidthInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bandwidthInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26537,6 +27330,7 @@ func (preStandardDsteInterface *Rsvp_InterfaceSummaries_InterfaceSummary_Bandwid
     preStandardDsteInterface.EntityData.BundleName = "cisco_ios_xr"
     preStandardDsteInterface.EntityData.ParentYangName = "bandwidth-information"
     preStandardDsteInterface.EntityData.SegmentPath = "pre-standard-dste-interface"
+    preStandardDsteInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/interface-summaries/interface-summary/bandwidth-information/" + preStandardDsteInterface.EntityData.SegmentPath
     preStandardDsteInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     preStandardDsteInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     preStandardDsteInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26600,6 +27394,7 @@ func (standardDsteInterface *Rsvp_InterfaceSummaries_InterfaceSummary_BandwidthI
     standardDsteInterface.EntityData.BundleName = "cisco_ios_xr"
     standardDsteInterface.EntityData.ParentYangName = "bandwidth-information"
     standardDsteInterface.EntityData.SegmentPath = "standard-dste-interface"
+    standardDsteInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/interface-summaries/interface-summary/bandwidth-information/" + standardDsteInterface.EntityData.SegmentPath
     standardDsteInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     standardDsteInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     standardDsteInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26637,6 +27432,7 @@ func (helloInstanceBriefs *Rsvp_HelloInstanceBriefs) GetEntityData() *types.Comm
     helloInstanceBriefs.EntityData.BundleName = "cisco_ios_xr"
     helloInstanceBriefs.EntityData.ParentYangName = "rsvp"
     helloInstanceBriefs.EntityData.SegmentPath = "hello-instance-briefs"
+    helloInstanceBriefs.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/" + helloInstanceBriefs.EntityData.SegmentPath
     helloInstanceBriefs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     helloInstanceBriefs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     helloInstanceBriefs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26658,6 +27454,7 @@ func (helloInstanceBriefs *Rsvp_HelloInstanceBriefs) GetEntityData() *types.Comm
 type Rsvp_HelloInstanceBriefs_HelloInstanceBrief struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Source Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -26696,6 +27493,7 @@ func (helloInstanceBrief *Rsvp_HelloInstanceBriefs_HelloInstanceBrief) GetEntity
     helloInstanceBrief.EntityData.BundleName = "cisco_ios_xr"
     helloInstanceBrief.EntityData.ParentYangName = "hello-instance-briefs"
     helloInstanceBrief.EntityData.SegmentPath = "hello-instance-brief" + types.AddKeyToken(helloInstanceBrief.SourceAddress, "source-address") + types.AddKeyToken(helloInstanceBrief.DestinationAddress, "destination-address")
+    helloInstanceBrief.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/hello-instance-briefs/" + helloInstanceBrief.EntityData.SegmentPath
     helloInstanceBrief.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     helloInstanceBrief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     helloInstanceBrief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26734,6 +27532,7 @@ func (authenticationDetails *Rsvp_AuthenticationDetails) GetEntityData() *types.
     authenticationDetails.EntityData.BundleName = "cisco_ios_xr"
     authenticationDetails.EntityData.ParentYangName = "rsvp"
     authenticationDetails.EntityData.SegmentPath = "authentication-details"
+    authenticationDetails.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/" + authenticationDetails.EntityData.SegmentPath
     authenticationDetails.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     authenticationDetails.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     authenticationDetails.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26755,6 +27554,7 @@ func (authenticationDetails *Rsvp_AuthenticationDetails) GetEntityData() *types.
 type Rsvp_AuthenticationDetails_AuthenticationDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Source Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -26802,6 +27602,7 @@ func (authenticationDetail *Rsvp_AuthenticationDetails_AuthenticationDetail) Get
     authenticationDetail.EntityData.BundleName = "cisco_ios_xr"
     authenticationDetail.EntityData.ParentYangName = "authentication-details"
     authenticationDetail.EntityData.SegmentPath = "authentication-detail" + types.AddKeyToken(authenticationDetail.SourceAddress, "source-address") + types.AddKeyToken(authenticationDetail.DestinationAddress, "destination-address") + types.AddKeyToken(authenticationDetail.ModeId, "mode-id") + types.AddKeyToken(authenticationDetail.InterfaceName, "interface-name")
+    authenticationDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/authentication-details/" + authenticationDetail.EntityData.SegmentPath
     authenticationDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     authenticationDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     authenticationDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26865,6 +27666,7 @@ func (authCompact *Rsvp_AuthenticationDetails_AuthenticationDetail_AuthCompact) 
     authCompact.EntityData.BundleName = "cisco_ios_xr"
     authCompact.EntityData.ParentYangName = "authentication-detail"
     authCompact.EntityData.SegmentPath = "auth-compact"
+    authCompact.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/authentication-details/authentication-detail/" + authCompact.EntityData.SegmentPath
     authCompact.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     authCompact.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     authCompact.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26907,6 +27709,7 @@ func (directionInfo *Rsvp_AuthenticationDetails_AuthenticationDetail_DirectionIn
     directionInfo.EntityData.BundleName = "cisco_ios_xr"
     directionInfo.EntityData.ParentYangName = "authentication-detail"
     directionInfo.EntityData.SegmentPath = "direction-info"
+    directionInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/authentication-details/authentication-detail/" + directionInfo.EntityData.SegmentPath
     directionInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     directionInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     directionInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26942,6 +27745,7 @@ func (sendInfo *Rsvp_AuthenticationDetails_AuthenticationDetail_DirectionInfo_Se
     sendInfo.EntityData.BundleName = "cisco_ios_xr"
     sendInfo.EntityData.ParentYangName = "direction-info"
     sendInfo.EntityData.SegmentPath = "send-info"
+    sendInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/authentication-details/authentication-detail/direction-info/" + sendInfo.EntityData.SegmentPath
     sendInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sendInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sendInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26982,6 +27786,7 @@ func (counters *Rsvp_AuthenticationDetails_AuthenticationDetail_DirectionInfo_Se
     counters.EntityData.BundleName = "cisco_ios_xr"
     counters.EntityData.ParentYangName = "send-info"
     counters.EntityData.SegmentPath = "counters"
+    counters.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/authentication-details/authentication-detail/direction-info/send-info/" + counters.EntityData.SegmentPath
     counters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     counters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     counters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27028,6 +27833,7 @@ func (receiveInfo *Rsvp_AuthenticationDetails_AuthenticationDetail_DirectionInfo
     receiveInfo.EntityData.BundleName = "cisco_ios_xr"
     receiveInfo.EntityData.ParentYangName = "direction-info"
     receiveInfo.EntityData.SegmentPath = "receive-info"
+    receiveInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/authentication-details/authentication-detail/direction-info/" + receiveInfo.EntityData.SegmentPath
     receiveInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     receiveInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receiveInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27036,6 +27842,7 @@ func (receiveInfo *Rsvp_AuthenticationDetails_AuthenticationDetail_DirectionInfo
     receiveInfo.EntityData.Children.Append("counters", types.YChild{"Counters", &receiveInfo.Counters})
     receiveInfo.EntityData.Children.Append("sequence-window", types.YChild{"SequenceWindow", nil})
     for i := range receiveInfo.SequenceWindow {
+        types.SetYListKey(receiveInfo.SequenceWindow[i], i)
         receiveInfo.EntityData.Children.Append(types.GetSegmentPath(receiveInfo.SequenceWindow[i]), types.YChild{"SequenceWindow", receiveInfo.SequenceWindow[i]})
     }
     receiveInfo.EntityData.Leafs = types.NewOrderedMap()
@@ -27121,6 +27928,7 @@ func (counters *Rsvp_AuthenticationDetails_AuthenticationDetail_DirectionInfo_Re
     counters.EntityData.BundleName = "cisco_ios_xr"
     counters.EntityData.ParentYangName = "receive-info"
     counters.EntityData.SegmentPath = "counters"
+    counters.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/authentication-details/authentication-detail/direction-info/receive-info/" + counters.EntityData.SegmentPath
     counters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     counters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     counters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27154,6 +27962,7 @@ func (counters *Rsvp_AuthenticationDetails_AuthenticationDetail_DirectionInfo_Re
 type Rsvp_AuthenticationDetails_AuthenticationDetail_DirectionInfo_ReceiveInfo_SequenceWindow struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..18446744073709551615.
     Entry interface{}
@@ -27164,7 +27973,8 @@ func (sequenceWindow *Rsvp_AuthenticationDetails_AuthenticationDetail_DirectionI
     sequenceWindow.EntityData.YangName = "sequence-window"
     sequenceWindow.EntityData.BundleName = "cisco_ios_xr"
     sequenceWindow.EntityData.ParentYangName = "receive-info"
-    sequenceWindow.EntityData.SegmentPath = "sequence-window"
+    sequenceWindow.EntityData.SegmentPath = "sequence-window" + types.AddNoKeyToken(sequenceWindow)
+    sequenceWindow.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/authentication-details/authentication-detail/direction-info/receive-info/" + sequenceWindow.EntityData.SegmentPath
     sequenceWindow.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sequenceWindow.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sequenceWindow.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27196,6 +28006,7 @@ func (rsbBriefs *Rsvp_RsbBriefs) GetEntityData() *types.CommonEntityData {
     rsbBriefs.EntityData.BundleName = "cisco_ios_xr"
     rsbBriefs.EntityData.ParentYangName = "rsvp"
     rsbBriefs.EntityData.SegmentPath = "rsb-briefs"
+    rsbBriefs.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/" + rsbBriefs.EntityData.SegmentPath
     rsbBriefs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rsbBriefs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rsbBriefs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27203,6 +28014,7 @@ func (rsbBriefs *Rsvp_RsbBriefs) GetEntityData() *types.CommonEntityData {
     rsbBriefs.EntityData.Children = types.NewOrderedMap()
     rsbBriefs.EntityData.Children.Append("rsb-brief", types.YChild{"RsbBrief", nil})
     for i := range rsbBriefs.RsbBrief {
+        types.SetYListKey(rsbBriefs.RsbBrief[i], i)
         rsbBriefs.EntityData.Children.Append(types.GetSegmentPath(rsbBriefs.RsbBrief[i]), types.YChild{"RsbBrief", rsbBriefs.RsbBrief[i]})
     }
     rsbBriefs.EntityData.Leafs = types.NewOrderedMap()
@@ -27217,6 +28029,7 @@ func (rsbBriefs *Rsvp_RsbBriefs) GetEntityData() *types.CommonEntityData {
 type Rsvp_RsbBriefs_RsbBrief struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Destination Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -27282,7 +28095,8 @@ func (rsbBrief *Rsvp_RsbBriefs_RsbBrief) GetEntityData() *types.CommonEntityData
     rsbBrief.EntityData.YangName = "rsb-brief"
     rsbBrief.EntityData.BundleName = "cisco_ios_xr"
     rsbBrief.EntityData.ParentYangName = "rsb-briefs"
-    rsbBrief.EntityData.SegmentPath = "rsb-brief"
+    rsbBrief.EntityData.SegmentPath = "rsb-brief" + types.AddNoKeyToken(rsbBrief)
+    rsbBrief.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/rsb-briefs/" + rsbBrief.EntityData.SegmentPath
     rsbBrief.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rsbBrief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rsbBrief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27329,6 +28143,7 @@ func (session *Rsvp_RsbBriefs_RsbBrief_Session) GetEntityData() *types.CommonEnt
     session.EntityData.BundleName = "cisco_ios_xr"
     session.EntityData.ParentYangName = "rsb-brief"
     session.EntityData.SegmentPath = "session"
+    session.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/rsb-briefs/rsb-brief/" + session.EntityData.SegmentPath
     session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27370,6 +28185,7 @@ func (rsvpSession *Rsvp_RsbBriefs_RsbBrief_Session_RsvpSession) GetEntityData() 
     rsvpSession.EntityData.BundleName = "cisco_ios_xr"
     rsvpSession.EntityData.ParentYangName = "session"
     rsvpSession.EntityData.SegmentPath = "rsvp-session"
+    rsvpSession.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/rsb-briefs/rsb-brief/session/" + rsvpSession.EntityData.SegmentPath
     rsvpSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rsvpSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rsvpSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27411,6 +28227,7 @@ func (ipv4 *Rsvp_RsbBriefs_RsbBrief_Session_RsvpSession_Ipv4) GetEntityData() *t
     ipv4.EntityData.BundleName = "cisco_ios_xr"
     ipv4.EntityData.ParentYangName = "rsvp-session"
     ipv4.EntityData.SegmentPath = "ipv4"
+    ipv4.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/rsb-briefs/rsb-brief/session/rsvp-session/" + ipv4.EntityData.SegmentPath
     ipv4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27450,6 +28267,7 @@ func (ipv4LspSession *Rsvp_RsbBriefs_RsbBrief_Session_RsvpSession_Ipv4LspSession
     ipv4LspSession.EntityData.BundleName = "cisco_ios_xr"
     ipv4LspSession.EntityData.ParentYangName = "rsvp-session"
     ipv4LspSession.EntityData.SegmentPath = "ipv4-lsp-session"
+    ipv4LspSession.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/rsb-briefs/rsb-brief/session/rsvp-session/" + ipv4LspSession.EntityData.SegmentPath
     ipv4LspSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4LspSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4LspSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27489,6 +28307,7 @@ func (ipv4UniSession *Rsvp_RsbBriefs_RsbBrief_Session_RsvpSession_Ipv4UniSession
     ipv4UniSession.EntityData.BundleName = "cisco_ios_xr"
     ipv4UniSession.EntityData.ParentYangName = "rsvp-session"
     ipv4UniSession.EntityData.SegmentPath = "ipv4-uni-session"
+    ipv4UniSession.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/rsb-briefs/rsb-brief/session/rsvp-session/" + ipv4UniSession.EntityData.SegmentPath
     ipv4UniSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4UniSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4UniSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27528,6 +28347,7 @@ func (ipv4P2mpLspSession *Rsvp_RsbBriefs_RsbBrief_Session_RsvpSession_Ipv4P2mpLs
     ipv4P2mpLspSession.EntityData.BundleName = "cisco_ios_xr"
     ipv4P2mpLspSession.EntityData.ParentYangName = "rsvp-session"
     ipv4P2mpLspSession.EntityData.SegmentPath = "ipv4-p2mp-lsp-session"
+    ipv4P2mpLspSession.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/rsb-briefs/rsb-brief/session/rsvp-session/" + ipv4P2mpLspSession.EntityData.SegmentPath
     ipv4P2mpLspSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4P2mpLspSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4P2mpLspSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27560,6 +28380,7 @@ func (s2lSubLsp *Rsvp_RsbBriefs_RsbBrief_S2lSubLsp) GetEntityData() *types.Commo
     s2lSubLsp.EntityData.BundleName = "cisco_ios_xr"
     s2lSubLsp.EntityData.ParentYangName = "rsb-brief"
     s2lSubLsp.EntityData.SegmentPath = "s2l-sub-lsp"
+    s2lSubLsp.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/rsb-briefs/rsb-brief/" + s2lSubLsp.EntityData.SegmentPath
     s2lSubLsp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     s2lSubLsp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     s2lSubLsp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27614,6 +28435,7 @@ func (flowSpec *Rsvp_RsbBriefs_RsbBrief_FlowSpec) GetEntityData() *types.CommonE
     flowSpec.EntityData.BundleName = "cisco_ios_xr"
     flowSpec.EntityData.ParentYangName = "rsb-brief"
     flowSpec.EntityData.SegmentPath = "flow-spec"
+    flowSpec.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/rsb-briefs/rsb-brief/" + flowSpec.EntityData.SegmentPath
     flowSpec.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     flowSpec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     flowSpec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27653,6 +28475,7 @@ func (genericFlowSpec *Rsvp_RsbBriefs_RsbBrief_GenericFlowSpec) GetEntityData() 
     genericFlowSpec.EntityData.BundleName = "cisco_ios_xr"
     genericFlowSpec.EntityData.ParentYangName = "rsb-brief"
     genericFlowSpec.EntityData.SegmentPath = "generic-flow-spec"
+    genericFlowSpec.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/rsb-briefs/rsb-brief/" + genericFlowSpec.EntityData.SegmentPath
     genericFlowSpec.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     genericFlowSpec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     genericFlowSpec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27694,6 +28517,7 @@ func (g709otnFlowSpec *Rsvp_RsbBriefs_RsbBrief_GenericFlowSpec_G709otnFlowSpec) 
     g709otnFlowSpec.EntityData.BundleName = "cisco_ios_xr"
     g709otnFlowSpec.EntityData.ParentYangName = "generic-flow-spec"
     g709otnFlowSpec.EntityData.SegmentPath = "g709otn-flow-spec"
+    g709otnFlowSpec.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/rsb-briefs/rsb-brief/generic-flow-spec/" + g709otnFlowSpec.EntityData.SegmentPath
     g709otnFlowSpec.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     g709otnFlowSpec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     g709otnFlowSpec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27727,6 +28551,7 @@ func (style *Rsvp_RsbBriefs_RsbBrief_Style) GetEntityData() *types.CommonEntityD
     style.EntityData.BundleName = "cisco_ios_xr"
     style.EntityData.ParentYangName = "rsb-brief"
     style.EntityData.SegmentPath = "style"
+    style.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/rsb-briefs/rsb-brief/" + style.EntityData.SegmentPath
     style.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     style.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     style.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27756,6 +28581,7 @@ func (filter *Rsvp_RsbBriefs_RsbBrief_Filter) GetEntityData() *types.CommonEntit
     filter.EntityData.BundleName = "cisco_ios_xr"
     filter.EntityData.ParentYangName = "rsb-brief"
     filter.EntityData.SegmentPath = "filter"
+    filter.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/rsb-briefs/rsb-brief/" + filter.EntityData.SegmentPath
     filter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     filter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     filter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27791,6 +28617,7 @@ func (rsvpFilter *Rsvp_RsbBriefs_RsbBrief_Filter_RsvpFilter) GetEntityData() *ty
     rsvpFilter.EntityData.BundleName = "cisco_ios_xr"
     rsvpFilter.EntityData.ParentYangName = "filter"
     rsvpFilter.EntityData.SegmentPath = "rsvp-filter"
+    rsvpFilter.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/rsb-briefs/rsb-brief/filter/" + rsvpFilter.EntityData.SegmentPath
     rsvpFilter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rsvpFilter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rsvpFilter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27826,6 +28653,7 @@ func (udpIpv4Session *Rsvp_RsbBriefs_RsbBrief_Filter_RsvpFilter_UdpIpv4Session) 
     udpIpv4Session.EntityData.BundleName = "cisco_ios_xr"
     udpIpv4Session.EntityData.ParentYangName = "rsvp-filter"
     udpIpv4Session.EntityData.SegmentPath = "udp-ipv4-session"
+    udpIpv4Session.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/rsb-briefs/rsb-brief/filter/rsvp-filter/" + udpIpv4Session.EntityData.SegmentPath
     udpIpv4Session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     udpIpv4Session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     udpIpv4Session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27868,6 +28696,7 @@ func (p2mpIpv4Session *Rsvp_RsbBriefs_RsbBrief_Filter_RsvpFilter_P2mpIpv4Session
     p2mpIpv4Session.EntityData.BundleName = "cisco_ios_xr"
     p2mpIpv4Session.EntityData.ParentYangName = "rsvp-filter"
     p2mpIpv4Session.EntityData.SegmentPath = "p2mp-ipv4-session"
+    p2mpIpv4Session.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/rsb-briefs/rsb-brief/filter/rsvp-filter/" + p2mpIpv4Session.EntityData.SegmentPath
     p2mpIpv4Session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     p2mpIpv4Session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     p2mpIpv4Session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27924,6 +28753,7 @@ func (counters *Rsvp_Counters) GetEntityData() *types.CommonEntityData {
     counters.EntityData.BundleName = "cisco_ios_xr"
     counters.EntityData.ParentYangName = "rsvp"
     counters.EntityData.SegmentPath = "counters"
+    counters.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/" + counters.EntityData.SegmentPath
     counters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     counters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     counters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27962,6 +28792,7 @@ func (interfaceMessages *Rsvp_Counters_InterfaceMessages) GetEntityData() *types
     interfaceMessages.EntityData.BundleName = "cisco_ios_xr"
     interfaceMessages.EntityData.ParentYangName = "counters"
     interfaceMessages.EntityData.SegmentPath = "interface-messages"
+    interfaceMessages.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/" + interfaceMessages.EntityData.SegmentPath
     interfaceMessages.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceMessages.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceMessages.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27983,6 +28814,7 @@ func (interfaceMessages *Rsvp_Counters_InterfaceMessages) GetEntityData() *types
 type Rsvp_Counters_InterfaceMessages_InterfaceMessage struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface Name. 'None' is used internally where
     // the true interface is unknown (e.g. for routed packets). The type is string
@@ -28020,6 +28852,7 @@ func (interfaceMessage *Rsvp_Counters_InterfaceMessages_InterfaceMessage) GetEnt
     interfaceMessage.EntityData.BundleName = "cisco_ios_xr"
     interfaceMessage.EntityData.ParentYangName = "interface-messages"
     interfaceMessage.EntityData.SegmentPath = "interface-message" + types.AddKeyToken(interfaceMessage.InterfaceName, "interface-name")
+    interfaceMessage.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/" + interfaceMessage.EntityData.SegmentPath
     interfaceMessage.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceMessage.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceMessage.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28102,6 +28935,7 @@ func (receivedMessages *Rsvp_Counters_InterfaceMessages_InterfaceMessage_Receive
     receivedMessages.EntityData.BundleName = "cisco_ios_xr"
     receivedMessages.EntityData.ParentYangName = "interface-message"
     receivedMessages.EntityData.SegmentPath = "received-messages"
+    receivedMessages.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message/" + receivedMessages.EntityData.SegmentPath
     receivedMessages.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     receivedMessages.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivedMessages.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28189,6 +29023,7 @@ func (transmittedMessages *Rsvp_Counters_InterfaceMessages_InterfaceMessage_Tran
     transmittedMessages.EntityData.BundleName = "cisco_ios_xr"
     transmittedMessages.EntityData.ParentYangName = "interface-message"
     transmittedMessages.EntityData.SegmentPath = "transmitted-messages"
+    transmittedMessages.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message/" + transmittedMessages.EntityData.SegmentPath
     transmittedMessages.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     transmittedMessages.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transmittedMessages.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28276,6 +29111,7 @@ func (bundleReceivedMessages *Rsvp_Counters_InterfaceMessages_InterfaceMessage_B
     bundleReceivedMessages.EntityData.BundleName = "cisco_ios_xr"
     bundleReceivedMessages.EntityData.ParentYangName = "interface-message"
     bundleReceivedMessages.EntityData.SegmentPath = "bundle-received-messages"
+    bundleReceivedMessages.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message/" + bundleReceivedMessages.EntityData.SegmentPath
     bundleReceivedMessages.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundleReceivedMessages.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundleReceivedMessages.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28363,6 +29199,7 @@ func (bundleTransmittedMessages *Rsvp_Counters_InterfaceMessages_InterfaceMessag
     bundleTransmittedMessages.EntityData.BundleName = "cisco_ios_xr"
     bundleTransmittedMessages.EntityData.ParentYangName = "interface-message"
     bundleTransmittedMessages.EntityData.SegmentPath = "bundle-transmitted-messages"
+    bundleTransmittedMessages.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message/" + bundleTransmittedMessages.EntityData.SegmentPath
     bundleTransmittedMessages.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundleTransmittedMessages.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundleTransmittedMessages.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28426,6 +29263,7 @@ func (messageSummary *Rsvp_Counters_MessageSummary) GetEntityData() *types.Commo
     messageSummary.EntityData.BundleName = "cisco_ios_xr"
     messageSummary.EntityData.ParentYangName = "counters"
     messageSummary.EntityData.SegmentPath = "message-summary"
+    messageSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/" + messageSummary.EntityData.SegmentPath
     messageSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     messageSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     messageSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28507,6 +29345,7 @@ func (receivedMessages *Rsvp_Counters_MessageSummary_ReceivedMessages) GetEntity
     receivedMessages.EntityData.BundleName = "cisco_ios_xr"
     receivedMessages.EntityData.ParentYangName = "message-summary"
     receivedMessages.EntityData.SegmentPath = "received-messages"
+    receivedMessages.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/message-summary/" + receivedMessages.EntityData.SegmentPath
     receivedMessages.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     receivedMessages.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivedMessages.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28594,6 +29433,7 @@ func (transmittedMessages *Rsvp_Counters_MessageSummary_TransmittedMessages) Get
     transmittedMessages.EntityData.BundleName = "cisco_ios_xr"
     transmittedMessages.EntityData.ParentYangName = "message-summary"
     transmittedMessages.EntityData.SegmentPath = "transmitted-messages"
+    transmittedMessages.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/message-summary/" + transmittedMessages.EntityData.SegmentPath
     transmittedMessages.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     transmittedMessages.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transmittedMessages.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28681,6 +29521,7 @@ func (bundleReceivedMessages *Rsvp_Counters_MessageSummary_BundleReceivedMessage
     bundleReceivedMessages.EntityData.BundleName = "cisco_ios_xr"
     bundleReceivedMessages.EntityData.ParentYangName = "message-summary"
     bundleReceivedMessages.EntityData.SegmentPath = "bundle-received-messages"
+    bundleReceivedMessages.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/message-summary/" + bundleReceivedMessages.EntityData.SegmentPath
     bundleReceivedMessages.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundleReceivedMessages.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundleReceivedMessages.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28768,6 +29609,7 @@ func (bundleTransmittedMessages *Rsvp_Counters_MessageSummary_BundleTransmittedM
     bundleTransmittedMessages.EntityData.BundleName = "cisco_ios_xr"
     bundleTransmittedMessages.EntityData.ParentYangName = "message-summary"
     bundleTransmittedMessages.EntityData.SegmentPath = "bundle-transmitted-messages"
+    bundleTransmittedMessages.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/message-summary/" + bundleTransmittedMessages.EntityData.SegmentPath
     bundleTransmittedMessages.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundleTransmittedMessages.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundleTransmittedMessages.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28812,6 +29654,7 @@ func (prefixFiltering *Rsvp_Counters_PrefixFiltering) GetEntityData() *types.Com
     prefixFiltering.EntityData.BundleName = "cisco_ios_xr"
     prefixFiltering.EntityData.ParentYangName = "counters"
     prefixFiltering.EntityData.SegmentPath = "prefix-filtering"
+    prefixFiltering.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/" + prefixFiltering.EntityData.SegmentPath
     prefixFiltering.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefixFiltering.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefixFiltering.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28843,6 +29686,7 @@ func (accesses *Rsvp_Counters_PrefixFiltering_Accesses) GetEntityData() *types.C
     accesses.EntityData.BundleName = "cisco_ios_xr"
     accesses.EntityData.ParentYangName = "prefix-filtering"
     accesses.EntityData.SegmentPath = "accesses"
+    accesses.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/prefix-filtering/" + accesses.EntityData.SegmentPath
     accesses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     accesses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accesses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28865,6 +29709,7 @@ func (accesses *Rsvp_Counters_PrefixFiltering_Accesses) GetEntityData() *types.C
 type Rsvp_Counters_PrefixFiltering_Accesses_Access struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. AccessList Name. The type is string with length:
     // 1..65.
@@ -28889,6 +29734,7 @@ func (access *Rsvp_Counters_PrefixFiltering_Accesses_Access) GetEntityData() *ty
     access.EntityData.BundleName = "cisco_ios_xr"
     access.EntityData.ParentYangName = "accesses"
     access.EntityData.SegmentPath = "access" + types.AddKeyToken(access.AccessListName, "access-list-name")
+    access.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/prefix-filtering/accesses/" + access.EntityData.SegmentPath
     access.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     access.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     access.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28933,6 +29779,7 @@ func (forwarded *Rsvp_Counters_PrefixFiltering_Accesses_Access_Forwarded) GetEnt
     forwarded.EntityData.BundleName = "cisco_ios_xr"
     forwarded.EntityData.ParentYangName = "access"
     forwarded.EntityData.SegmentPath = "forwarded"
+    forwarded.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/prefix-filtering/accesses/access/" + forwarded.EntityData.SegmentPath
     forwarded.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     forwarded.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     forwarded.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28976,6 +29823,7 @@ func (locallyDestined *Rsvp_Counters_PrefixFiltering_Accesses_Access_LocallyDest
     locallyDestined.EntityData.BundleName = "cisco_ios_xr"
     locallyDestined.EntityData.ParentYangName = "access"
     locallyDestined.EntityData.SegmentPath = "locally-destined"
+    locallyDestined.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/prefix-filtering/accesses/access/" + locallyDestined.EntityData.SegmentPath
     locallyDestined.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     locallyDestined.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     locallyDestined.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29019,6 +29867,7 @@ func (dropped *Rsvp_Counters_PrefixFiltering_Accesses_Access_Dropped) GetEntityD
     dropped.EntityData.BundleName = "cisco_ios_xr"
     dropped.EntityData.ParentYangName = "access"
     dropped.EntityData.SegmentPath = "dropped"
+    dropped.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/prefix-filtering/accesses/access/" + dropped.EntityData.SegmentPath
     dropped.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dropped.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dropped.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29062,6 +29911,7 @@ func (total *Rsvp_Counters_PrefixFiltering_Accesses_Access_Total) GetEntityData(
     total.EntityData.BundleName = "cisco_ios_xr"
     total.EntityData.ParentYangName = "access"
     total.EntityData.SegmentPath = "total"
+    total.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/prefix-filtering/accesses/access/" + total.EntityData.SegmentPath
     total.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     total.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     total.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29097,6 +29947,7 @@ func (interfaces *Rsvp_Counters_PrefixFiltering_Interfaces) GetEntityData() *typ
     interfaces.EntityData.BundleName = "cisco_ios_xr"
     interfaces.EntityData.ParentYangName = "prefix-filtering"
     interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/prefix-filtering/" + interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29143,6 +29994,7 @@ func (summary *Rsvp_Counters_PrefixFiltering_Interfaces_Summary) GetEntityData()
     summary.EntityData.BundleName = "cisco_ios_xr"
     summary.EntityData.ParentYangName = "interfaces"
     summary.EntityData.SegmentPath = "summary"
+    summary.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/prefix-filtering/interfaces/" + summary.EntityData.SegmentPath
     summary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     summary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     summary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29188,6 +30040,7 @@ func (forwarded *Rsvp_Counters_PrefixFiltering_Interfaces_Summary_Forwarded) Get
     forwarded.EntityData.BundleName = "cisco_ios_xr"
     forwarded.EntityData.ParentYangName = "summary"
     forwarded.EntityData.SegmentPath = "forwarded"
+    forwarded.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/prefix-filtering/interfaces/summary/" + forwarded.EntityData.SegmentPath
     forwarded.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     forwarded.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     forwarded.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29231,6 +30084,7 @@ func (locallyDestined *Rsvp_Counters_PrefixFiltering_Interfaces_Summary_LocallyD
     locallyDestined.EntityData.BundleName = "cisco_ios_xr"
     locallyDestined.EntityData.ParentYangName = "summary"
     locallyDestined.EntityData.SegmentPath = "locally-destined"
+    locallyDestined.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/prefix-filtering/interfaces/summary/" + locallyDestined.EntityData.SegmentPath
     locallyDestined.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     locallyDestined.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     locallyDestined.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29274,6 +30128,7 @@ func (dropped *Rsvp_Counters_PrefixFiltering_Interfaces_Summary_Dropped) GetEnti
     dropped.EntityData.BundleName = "cisco_ios_xr"
     dropped.EntityData.ParentYangName = "summary"
     dropped.EntityData.SegmentPath = "dropped"
+    dropped.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/prefix-filtering/interfaces/summary/" + dropped.EntityData.SegmentPath
     dropped.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dropped.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dropped.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29318,6 +30173,7 @@ func (defaultActionDropped *Rsvp_Counters_PrefixFiltering_Interfaces_Summary_Def
     defaultActionDropped.EntityData.BundleName = "cisco_ios_xr"
     defaultActionDropped.EntityData.ParentYangName = "summary"
     defaultActionDropped.EntityData.SegmentPath = "default-action-dropped"
+    defaultActionDropped.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/prefix-filtering/interfaces/summary/" + defaultActionDropped.EntityData.SegmentPath
     defaultActionDropped.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     defaultActionDropped.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     defaultActionDropped.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29362,6 +30218,7 @@ func (defaultActionProcessed *Rsvp_Counters_PrefixFiltering_Interfaces_Summary_D
     defaultActionProcessed.EntityData.BundleName = "cisco_ios_xr"
     defaultActionProcessed.EntityData.ParentYangName = "summary"
     defaultActionProcessed.EntityData.SegmentPath = "default-action-processed"
+    defaultActionProcessed.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/prefix-filtering/interfaces/summary/" + defaultActionProcessed.EntityData.SegmentPath
     defaultActionProcessed.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     defaultActionProcessed.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     defaultActionProcessed.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29405,6 +30262,7 @@ func (total *Rsvp_Counters_PrefixFiltering_Interfaces_Summary_Total) GetEntityDa
     total.EntityData.BundleName = "cisco_ios_xr"
     total.EntityData.ParentYangName = "summary"
     total.EntityData.SegmentPath = "total"
+    total.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/prefix-filtering/interfaces/summary/" + total.EntityData.SegmentPath
     total.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     total.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     total.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29439,6 +30297,7 @@ func (interfaces *Rsvp_Counters_PrefixFiltering_Interfaces_Interfaces) GetEntity
     interfaces.EntityData.BundleName = "cisco_ios_xr"
     interfaces.EntityData.ParentYangName = "interfaces"
     interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/prefix-filtering/interfaces/" + interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29461,6 +30320,7 @@ func (interfaces *Rsvp_Counters_PrefixFiltering_Interfaces_Interfaces) GetEntity
 type Rsvp_Counters_PrefixFiltering_Interfaces_Interfaces_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface Name. 'None' is used internally where
     // the true interface is unknown (e.g. for routed packets). The type is string
@@ -29492,6 +30352,7 @@ func (self *Rsvp_Counters_PrefixFiltering_Interfaces_Interfaces_Interface) GetEn
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/prefix-filtering/interfaces/interfaces/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29538,6 +30399,7 @@ func (forwarded *Rsvp_Counters_PrefixFiltering_Interfaces_Interfaces_Interface_F
     forwarded.EntityData.BundleName = "cisco_ios_xr"
     forwarded.EntityData.ParentYangName = "interface"
     forwarded.EntityData.SegmentPath = "forwarded"
+    forwarded.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/prefix-filtering/interfaces/interfaces/interface/" + forwarded.EntityData.SegmentPath
     forwarded.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     forwarded.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     forwarded.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29581,6 +30443,7 @@ func (locallyDestined *Rsvp_Counters_PrefixFiltering_Interfaces_Interfaces_Inter
     locallyDestined.EntityData.BundleName = "cisco_ios_xr"
     locallyDestined.EntityData.ParentYangName = "interface"
     locallyDestined.EntityData.SegmentPath = "locally-destined"
+    locallyDestined.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/prefix-filtering/interfaces/interfaces/interface/" + locallyDestined.EntityData.SegmentPath
     locallyDestined.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     locallyDestined.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     locallyDestined.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29624,6 +30487,7 @@ func (dropped *Rsvp_Counters_PrefixFiltering_Interfaces_Interfaces_Interface_Dro
     dropped.EntityData.BundleName = "cisco_ios_xr"
     dropped.EntityData.ParentYangName = "interface"
     dropped.EntityData.SegmentPath = "dropped"
+    dropped.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/prefix-filtering/interfaces/interfaces/interface/" + dropped.EntityData.SegmentPath
     dropped.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dropped.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dropped.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29668,6 +30532,7 @@ func (defaultActionDropped *Rsvp_Counters_PrefixFiltering_Interfaces_Interfaces_
     defaultActionDropped.EntityData.BundleName = "cisco_ios_xr"
     defaultActionDropped.EntityData.ParentYangName = "interface"
     defaultActionDropped.EntityData.SegmentPath = "default-action-dropped"
+    defaultActionDropped.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/prefix-filtering/interfaces/interfaces/interface/" + defaultActionDropped.EntityData.SegmentPath
     defaultActionDropped.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     defaultActionDropped.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     defaultActionDropped.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29712,6 +30577,7 @@ func (defaultActionProcessed *Rsvp_Counters_PrefixFiltering_Interfaces_Interface
     defaultActionProcessed.EntityData.BundleName = "cisco_ios_xr"
     defaultActionProcessed.EntityData.ParentYangName = "interface"
     defaultActionProcessed.EntityData.SegmentPath = "default-action-processed"
+    defaultActionProcessed.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/prefix-filtering/interfaces/interfaces/interface/" + defaultActionProcessed.EntityData.SegmentPath
     defaultActionProcessed.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     defaultActionProcessed.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     defaultActionProcessed.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29755,6 +30621,7 @@ func (total *Rsvp_Counters_PrefixFiltering_Interfaces_Interfaces_Interface_Total
     total.EntityData.BundleName = "cisco_ios_xr"
     total.EntityData.ParentYangName = "interface"
     total.EntityData.SegmentPath = "total"
+    total.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/prefix-filtering/interfaces/interfaces/interface/" + total.EntityData.SegmentPath
     total.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     total.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     total.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29787,6 +30654,7 @@ func (outOfResource *Rsvp_Counters_OutOfResource) GetEntityData() *types.CommonE
     outOfResource.EntityData.BundleName = "cisco_ios_xr"
     outOfResource.EntityData.ParentYangName = "counters"
     outOfResource.EntityData.SegmentPath = "out-of-resource"
+    outOfResource.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/" + outOfResource.EntityData.SegmentPath
     outOfResource.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     outOfResource.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outOfResource.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29819,6 +30687,7 @@ func (interfaces *Rsvp_Counters_OutOfResource_Interfaces) GetEntityData() *types
     interfaces.EntityData.BundleName = "cisco_ios_xr"
     interfaces.EntityData.ParentYangName = "out-of-resource"
     interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/out-of-resource/" + interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29851,6 +30720,7 @@ func (summary *Rsvp_Counters_OutOfResource_Interfaces_Summary) GetEntityData() *
     summary.EntityData.BundleName = "cisco_ios_xr"
     summary.EntityData.ParentYangName = "interfaces"
     summary.EntityData.SegmentPath = "summary"
+    summary.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/out-of-resource/interfaces/" + summary.EntityData.SegmentPath
     summary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     summary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     summary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29882,6 +30752,7 @@ func (interfaces *Rsvp_Counters_OutOfResource_Interfaces_Interfaces) GetEntityDa
     interfaces.EntityData.BundleName = "cisco_ios_xr"
     interfaces.EntityData.ParentYangName = "interfaces"
     interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/out-of-resource/interfaces/" + interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29904,6 +30775,7 @@ func (interfaces *Rsvp_Counters_OutOfResource_Interfaces_Interfaces) GetEntityDa
 type Rsvp_Counters_OutOfResource_Interfaces_Interfaces_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface Name. 'None' is used internally where
     // the true interface is unknown (e.g. for routed packets). The type is string
@@ -29921,6 +30793,7 @@ func (self *Rsvp_Counters_OutOfResource_Interfaces_Interfaces_Interface) GetEnti
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/out-of-resource/interfaces/interfaces/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29952,6 +30825,7 @@ func (interfaceEvents *Rsvp_Counters_InterfaceEvents) GetEntityData() *types.Com
     interfaceEvents.EntityData.BundleName = "cisco_ios_xr"
     interfaceEvents.EntityData.ParentYangName = "counters"
     interfaceEvents.EntityData.SegmentPath = "interface-events"
+    interfaceEvents.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/" + interfaceEvents.EntityData.SegmentPath
     interfaceEvents.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceEvents.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceEvents.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29973,6 +30847,7 @@ func (interfaceEvents *Rsvp_Counters_InterfaceEvents) GetEntityData() *types.Com
 type Rsvp_Counters_InterfaceEvents_InterfaceEvent struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface Name. 'None' is used internally where
     // the true interface is unknown (e.g. for routed packets). The type is string
@@ -29998,6 +30873,7 @@ func (interfaceEvent *Rsvp_Counters_InterfaceEvents_InterfaceEvent) GetEntityDat
     interfaceEvent.EntityData.BundleName = "cisco_ios_xr"
     interfaceEvent.EntityData.ParentYangName = "interface-events"
     interfaceEvent.EntityData.SegmentPath = "interface-event" + types.AddKeyToken(interfaceEvent.InterfaceName, "interface-name")
+    interfaceEvent.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-events/" + interfaceEvent.EntityData.SegmentPath
     interfaceEvent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceEvent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceEvent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30053,6 +30929,7 @@ func (nsr *Rsvp_Counters_Nsr) GetEntityData() *types.CommonEntityData {
     nsr.EntityData.BundleName = "cisco_ios_xr"
     nsr.EntityData.ParentYangName = "counters"
     nsr.EntityData.SegmentPath = "nsr"
+    nsr.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/" + nsr.EntityData.SegmentPath
     nsr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nsr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nsr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30111,6 +30988,7 @@ func (issu *Rsvp_Counters_Issu) GetEntityData() *types.CommonEntityData {
     issu.EntityData.BundleName = "cisco_ios_xr"
     issu.EntityData.ParentYangName = "counters"
     issu.EntityData.SegmentPath = "issu"
+    issu.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/" + issu.EntityData.SegmentPath
     issu.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     issu.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     issu.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30166,6 +31044,7 @@ func (database *Rsvp_Counters_Database) GetEntityData() *types.CommonEntityData 
     database.EntityData.BundleName = "cisco_ios_xr"
     database.EntityData.ParentYangName = "counters"
     database.EntityData.SegmentPath = "database"
+    database.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/" + database.EntityData.SegmentPath
     database.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     database.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     database.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30201,6 +31080,7 @@ func (eventSyncs *Rsvp_Counters_EventSyncs) GetEntityData() *types.CommonEntityD
     eventSyncs.EntityData.BundleName = "cisco_ios_xr"
     eventSyncs.EntityData.ParentYangName = "counters"
     eventSyncs.EntityData.SegmentPath = "event-syncs"
+    eventSyncs.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/" + eventSyncs.EntityData.SegmentPath
     eventSyncs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eventSyncs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eventSyncs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30222,6 +31102,7 @@ func (eventSyncs *Rsvp_Counters_EventSyncs) GetEntityData() *types.CommonEntityD
 type Rsvp_Counters_EventSyncs_EventSync struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface Name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -30246,6 +31127,7 @@ func (eventSync *Rsvp_Counters_EventSyncs_EventSync) GetEntityData() *types.Comm
     eventSync.EntityData.BundleName = "cisco_ios_xr"
     eventSync.EntityData.ParentYangName = "event-syncs"
     eventSync.EntityData.SegmentPath = "event-sync" + types.AddKeyToken(eventSync.InterfaceName, "interface-name")
+    eventSync.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/event-syncs/" + eventSync.EntityData.SegmentPath
     eventSync.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eventSync.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eventSync.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30280,6 +31162,7 @@ func (interfaceDetaileds *Rsvp_InterfaceDetaileds) GetEntityData() *types.Common
     interfaceDetaileds.EntityData.BundleName = "cisco_ios_xr"
     interfaceDetaileds.EntityData.ParentYangName = "rsvp"
     interfaceDetaileds.EntityData.SegmentPath = "interface-detaileds"
+    interfaceDetaileds.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/" + interfaceDetaileds.EntityData.SegmentPath
     interfaceDetaileds.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceDetaileds.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceDetaileds.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30301,6 +31184,7 @@ func (interfaceDetaileds *Rsvp_InterfaceDetaileds) GetEntityData() *types.Common
 type Rsvp_InterfaceDetaileds_InterfaceDetailed struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface Name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -30406,6 +31290,7 @@ func (interfaceDetailed *Rsvp_InterfaceDetaileds_InterfaceDetailed) GetEntityDat
     interfaceDetailed.EntityData.BundleName = "cisco_ios_xr"
     interfaceDetailed.EntityData.ParentYangName = "interface-detaileds"
     interfaceDetailed.EntityData.SegmentPath = "interface-detailed" + types.AddKeyToken(interfaceDetailed.InterfaceName, "interface-name")
+    interfaceDetailed.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/interface-detaileds/" + interfaceDetailed.EntityData.SegmentPath
     interfaceDetailed.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceDetailed.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceDetailed.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30415,6 +31300,7 @@ func (interfaceDetailed *Rsvp_InterfaceDetaileds_InterfaceDetailed) GetEntityDat
     interfaceDetailed.EntityData.Children.Append("flags", types.YChild{"Flags", &interfaceDetailed.Flags})
     interfaceDetailed.EntityData.Children.Append("neighbor-array", types.YChild{"NeighborArray", nil})
     for i := range interfaceDetailed.NeighborArray {
+        types.SetYListKey(interfaceDetailed.NeighborArray[i], i)
         interfaceDetailed.EntityData.Children.Append(types.GetSegmentPath(interfaceDetailed.NeighborArray[i]), types.YChild{"NeighborArray", interfaceDetailed.NeighborArray[i]})
     }
     interfaceDetailed.EntityData.Leafs = types.NewOrderedMap()
@@ -30470,6 +31356,7 @@ func (bandwidthInformation *Rsvp_InterfaceDetaileds_InterfaceDetailed_BandwidthI
     bandwidthInformation.EntityData.BundleName = "cisco_ios_xr"
     bandwidthInformation.EntityData.ParentYangName = "interface-detailed"
     bandwidthInformation.EntityData.SegmentPath = "bandwidth-information"
+    bandwidthInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/interface-detaileds/interface-detailed/" + bandwidthInformation.EntityData.SegmentPath
     bandwidthInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bandwidthInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bandwidthInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30522,6 +31409,7 @@ func (preStandardDsteInterface *Rsvp_InterfaceDetaileds_InterfaceDetailed_Bandwi
     preStandardDsteInterface.EntityData.BundleName = "cisco_ios_xr"
     preStandardDsteInterface.EntityData.ParentYangName = "bandwidth-information"
     preStandardDsteInterface.EntityData.SegmentPath = "pre-standard-dste-interface"
+    preStandardDsteInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/interface-detaileds/interface-detailed/bandwidth-information/" + preStandardDsteInterface.EntityData.SegmentPath
     preStandardDsteInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     preStandardDsteInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     preStandardDsteInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30585,6 +31473,7 @@ func (standardDsteInterface *Rsvp_InterfaceDetaileds_InterfaceDetailed_Bandwidth
     standardDsteInterface.EntityData.BundleName = "cisco_ios_xr"
     standardDsteInterface.EntityData.ParentYangName = "bandwidth-information"
     standardDsteInterface.EntityData.SegmentPath = "standard-dste-interface"
+    standardDsteInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/interface-detaileds/interface-detailed/bandwidth-information/" + standardDsteInterface.EntityData.SegmentPath
     standardDsteInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     standardDsteInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     standardDsteInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30654,6 +31543,7 @@ func (flags *Rsvp_InterfaceDetaileds_InterfaceDetailed_Flags) GetEntityData() *t
     flags.EntityData.BundleName = "cisco_ios_xr"
     flags.EntityData.ParentYangName = "interface-detailed"
     flags.EntityData.SegmentPath = "flags"
+    flags.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/interface-detaileds/interface-detailed/" + flags.EntityData.SegmentPath
     flags.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     flags.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     flags.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30683,6 +31573,7 @@ func (flags *Rsvp_InterfaceDetaileds_InterfaceDetailed_Flags) GetEntityData() *t
 type Rsvp_InterfaceDetaileds_InterfaceDetailed_NeighborArray struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Is neighbor capable of Refresh Reduction. The type is bool.
     IsNeighborRefreshReductionCapable interface{}
@@ -30711,7 +31602,8 @@ func (neighborArray *Rsvp_InterfaceDetaileds_InterfaceDetailed_NeighborArray) Ge
     neighborArray.EntityData.YangName = "neighbor-array"
     neighborArray.EntityData.BundleName = "cisco_ios_xr"
     neighborArray.EntityData.ParentYangName = "interface-detailed"
-    neighborArray.EntityData.SegmentPath = "neighbor-array"
+    neighborArray.EntityData.SegmentPath = "neighbor-array" + types.AddNoKeyToken(neighborArray)
+    neighborArray.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/interface-detaileds/interface-detailed/" + neighborArray.EntityData.SegmentPath
     neighborArray.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighborArray.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborArray.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30720,6 +31612,7 @@ func (neighborArray *Rsvp_InterfaceDetaileds_InterfaceDetailed_NeighborArray) Ge
     neighborArray.EntityData.Children.Append("expiry-time", types.YChild{"ExpiryTime", &neighborArray.ExpiryTime})
     neighborArray.EntityData.Children.Append("neighbor-message-id", types.YChild{"NeighborMessageId", nil})
     for i := range neighborArray.NeighborMessageId {
+        types.SetYListKey(neighborArray.NeighborMessageId[i], i)
         neighborArray.EntityData.Children.Append(types.GetSegmentPath(neighborArray.NeighborMessageId[i]), types.YChild{"NeighborMessageId", neighborArray.NeighborMessageId[i]})
     }
     neighborArray.EntityData.Leafs = types.NewOrderedMap()
@@ -30754,6 +31647,7 @@ func (expiryTime *Rsvp_InterfaceDetaileds_InterfaceDetailed_NeighborArray_Expiry
     expiryTime.EntityData.BundleName = "cisco_ios_xr"
     expiryTime.EntityData.ParentYangName = "neighbor-array"
     expiryTime.EntityData.SegmentPath = "expiry-time"
+    expiryTime.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/interface-detaileds/interface-detailed/neighbor-array/" + expiryTime.EntityData.SegmentPath
     expiryTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     expiryTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     expiryTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30773,6 +31667,7 @@ func (expiryTime *Rsvp_InterfaceDetaileds_InterfaceDetailed_NeighborArray_Expiry
 type Rsvp_InterfaceDetaileds_InterfaceDetailed_NeighborArray_NeighborMessageId struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Message ID. The type is interface{} with range: 0..4294967295.
     MessageId interface{}
@@ -30783,7 +31678,8 @@ func (neighborMessageId *Rsvp_InterfaceDetaileds_InterfaceDetailed_NeighborArray
     neighborMessageId.EntityData.YangName = "neighbor-message-id"
     neighborMessageId.EntityData.BundleName = "cisco_ios_xr"
     neighborMessageId.EntityData.ParentYangName = "neighbor-array"
-    neighborMessageId.EntityData.SegmentPath = "neighbor-message-id"
+    neighborMessageId.EntityData.SegmentPath = "neighbor-message-id" + types.AddNoKeyToken(neighborMessageId)
+    neighborMessageId.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/interface-detaileds/interface-detailed/neighbor-array/" + neighborMessageId.EntityData.SegmentPath
     neighborMessageId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighborMessageId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborMessageId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30815,6 +31711,7 @@ func (controllerBriefs *Rsvp_ControllerBriefs) GetEntityData() *types.CommonEnti
     controllerBriefs.EntityData.BundleName = "cisco_ios_xr"
     controllerBriefs.EntityData.ParentYangName = "rsvp"
     controllerBriefs.EntityData.SegmentPath = "controller-briefs"
+    controllerBriefs.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/" + controllerBriefs.EntityData.SegmentPath
     controllerBriefs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     controllerBriefs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     controllerBriefs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30836,6 +31733,7 @@ func (controllerBriefs *Rsvp_ControllerBriefs) GetEntityData() *types.CommonEnti
 type Rsvp_ControllerBriefs_ControllerBrief struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Controller Name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -30854,6 +31752,7 @@ func (controllerBrief *Rsvp_ControllerBriefs_ControllerBrief) GetEntityData() *t
     controllerBrief.EntityData.BundleName = "cisco_ios_xr"
     controllerBrief.EntityData.ParentYangName = "controller-briefs"
     controllerBrief.EntityData.SegmentPath = "controller-brief" + types.AddKeyToken(controllerBrief.ControllerName, "controller-name")
+    controllerBrief.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/controller-briefs/" + controllerBrief.EntityData.SegmentPath
     controllerBrief.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     controllerBrief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     controllerBrief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30891,6 +31790,7 @@ func (bandwidthInformation *Rsvp_ControllerBriefs_ControllerBrief_BandwidthInfor
     bandwidthInformation.EntityData.BundleName = "cisco_ios_xr"
     bandwidthInformation.EntityData.ParentYangName = "controller-brief"
     bandwidthInformation.EntityData.SegmentPath = "bandwidth-information"
+    bandwidthInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/controller-briefs/controller-brief/" + bandwidthInformation.EntityData.SegmentPath
     bandwidthInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bandwidthInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bandwidthInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30943,6 +31843,7 @@ func (preStandardDsteInterface *Rsvp_ControllerBriefs_ControllerBrief_BandwidthI
     preStandardDsteInterface.EntityData.BundleName = "cisco_ios_xr"
     preStandardDsteInterface.EntityData.ParentYangName = "bandwidth-information"
     preStandardDsteInterface.EntityData.SegmentPath = "pre-standard-dste-interface"
+    preStandardDsteInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/controller-briefs/controller-brief/bandwidth-information/" + preStandardDsteInterface.EntityData.SegmentPath
     preStandardDsteInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     preStandardDsteInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     preStandardDsteInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31006,6 +31907,7 @@ func (standardDsteInterface *Rsvp_ControllerBriefs_ControllerBrief_BandwidthInfo
     standardDsteInterface.EntityData.BundleName = "cisco_ios_xr"
     standardDsteInterface.EntityData.ParentYangName = "bandwidth-information"
     standardDsteInterface.EntityData.SegmentPath = "standard-dste-interface"
+    standardDsteInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/controller-briefs/controller-brief/bandwidth-information/" + standardDsteInterface.EntityData.SegmentPath
     standardDsteInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     standardDsteInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     standardDsteInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31078,6 +31980,7 @@ func (gracefulRestart *Rsvp_GracefulRestart) GetEntityData() *types.CommonEntity
     gracefulRestart.EntityData.BundleName = "cisco_ios_xr"
     gracefulRestart.EntityData.ParentYangName = "rsvp"
     gracefulRestart.EntityData.SegmentPath = "graceful-restart"
+    gracefulRestart.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/" + gracefulRestart.EntityData.SegmentPath
     gracefulRestart.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     gracefulRestart.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     gracefulRestart.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31087,6 +31990,7 @@ func (gracefulRestart *Rsvp_GracefulRestart) GetEntityData() *types.CommonEntity
     gracefulRestart.EntityData.Children.Append("recovery-timer-exp-time", types.YChild{"RecoveryTimerExpTime", &gracefulRestart.RecoveryTimerExpTime})
     gracefulRestart.EntityData.Children.Append("local-node-address", types.YChild{"LocalNodeAddress", nil})
     for i := range gracefulRestart.LocalNodeAddress {
+        types.SetYListKey(gracefulRestart.LocalNodeAddress[i], i)
         gracefulRestart.EntityData.Children.Append(types.GetSegmentPath(gracefulRestart.LocalNodeAddress[i]), types.YChild{"LocalNodeAddress", gracefulRestart.LocalNodeAddress[i]})
     }
     gracefulRestart.EntityData.Leafs = types.NewOrderedMap()
@@ -31125,6 +32029,7 @@ func (recoveryTimeLeft *Rsvp_GracefulRestart_RecoveryTimeLeft) GetEntityData() *
     recoveryTimeLeft.EntityData.BundleName = "cisco_ios_xr"
     recoveryTimeLeft.EntityData.ParentYangName = "graceful-restart"
     recoveryTimeLeft.EntityData.SegmentPath = "recovery-time-left"
+    recoveryTimeLeft.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/graceful-restart/" + recoveryTimeLeft.EntityData.SegmentPath
     recoveryTimeLeft.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     recoveryTimeLeft.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     recoveryTimeLeft.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31160,6 +32065,7 @@ func (recoveryTimerExpTime *Rsvp_GracefulRestart_RecoveryTimerExpTime) GetEntity
     recoveryTimerExpTime.EntityData.BundleName = "cisco_ios_xr"
     recoveryTimerExpTime.EntityData.ParentYangName = "graceful-restart"
     recoveryTimerExpTime.EntityData.SegmentPath = "recovery-timer-exp-time"
+    recoveryTimerExpTime.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/graceful-restart/" + recoveryTimerExpTime.EntityData.SegmentPath
     recoveryTimerExpTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     recoveryTimerExpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     recoveryTimerExpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31179,6 +32085,7 @@ func (recoveryTimerExpTime *Rsvp_GracefulRestart_RecoveryTimerExpTime) GetEntity
 type Rsvp_GracefulRestart_LocalNodeAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Local node address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -31193,7 +32100,8 @@ func (localNodeAddress *Rsvp_GracefulRestart_LocalNodeAddress) GetEntityData() *
     localNodeAddress.EntityData.YangName = "local-node-address"
     localNodeAddress.EntityData.BundleName = "cisco_ios_xr"
     localNodeAddress.EntityData.ParentYangName = "graceful-restart"
-    localNodeAddress.EntityData.SegmentPath = "local-node-address"
+    localNodeAddress.EntityData.SegmentPath = "local-node-address" + types.AddNoKeyToken(localNodeAddress)
+    localNodeAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/graceful-restart/" + localNodeAddress.EntityData.SegmentPath
     localNodeAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     localNodeAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     localNodeAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31226,6 +32134,7 @@ func (helloInterfaceInstanceBriefs *Rsvp_HelloInterfaceInstanceBriefs) GetEntity
     helloInterfaceInstanceBriefs.EntityData.BundleName = "cisco_ios_xr"
     helloInterfaceInstanceBriefs.EntityData.ParentYangName = "rsvp"
     helloInterfaceInstanceBriefs.EntityData.SegmentPath = "hello-interface-instance-briefs"
+    helloInterfaceInstanceBriefs.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/" + helloInterfaceInstanceBriefs.EntityData.SegmentPath
     helloInterfaceInstanceBriefs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     helloInterfaceInstanceBriefs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     helloInterfaceInstanceBriefs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31248,6 +32157,7 @@ func (helloInterfaceInstanceBriefs *Rsvp_HelloInterfaceInstanceBriefs) GetEntity
 type Rsvp_HelloInterfaceInstanceBriefs_HelloInterfaceInstanceBrief struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Source Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -31279,6 +32189,7 @@ func (helloInterfaceInstanceBrief *Rsvp_HelloInterfaceInstanceBriefs_HelloInterf
     helloInterfaceInstanceBrief.EntityData.BundleName = "cisco_ios_xr"
     helloInterfaceInstanceBrief.EntityData.ParentYangName = "hello-interface-instance-briefs"
     helloInterfaceInstanceBrief.EntityData.SegmentPath = "hello-interface-instance-brief" + types.AddKeyToken(helloInterfaceInstanceBrief.SourceAddress, "source-address") + types.AddKeyToken(helloInterfaceInstanceBrief.DestinationAddress, "destination-address")
+    helloInterfaceInstanceBrief.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/hello-interface-instance-briefs/" + helloInterfaceInstanceBrief.EntityData.SegmentPath
     helloInterfaceInstanceBrief.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     helloInterfaceInstanceBrief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     helloInterfaceInstanceBrief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31315,6 +32226,7 @@ func (helloInterfaceInstanceDetails *Rsvp_HelloInterfaceInstanceDetails) GetEnti
     helloInterfaceInstanceDetails.EntityData.BundleName = "cisco_ios_xr"
     helloInterfaceInstanceDetails.EntityData.ParentYangName = "rsvp"
     helloInterfaceInstanceDetails.EntityData.SegmentPath = "hello-interface-instance-details"
+    helloInterfaceInstanceDetails.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/" + helloInterfaceInstanceDetails.EntityData.SegmentPath
     helloInterfaceInstanceDetails.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     helloInterfaceInstanceDetails.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     helloInterfaceInstanceDetails.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31337,6 +32249,7 @@ func (helloInterfaceInstanceDetails *Rsvp_HelloInterfaceInstanceDetails) GetEnti
 type Rsvp_HelloInterfaceInstanceDetails_HelloInterfaceInstanceDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Source Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -31389,6 +32302,7 @@ func (helloInterfaceInstanceDetail *Rsvp_HelloInterfaceInstanceDetails_HelloInte
     helloInterfaceInstanceDetail.EntityData.BundleName = "cisco_ios_xr"
     helloInterfaceInstanceDetail.EntityData.ParentYangName = "hello-interface-instance-details"
     helloInterfaceInstanceDetail.EntityData.SegmentPath = "hello-interface-instance-detail" + types.AddKeyToken(helloInterfaceInstanceDetail.SourceAddress, "source-address") + types.AddKeyToken(helloInterfaceInstanceDetail.DestinationAddress, "destination-address")
+    helloInterfaceInstanceDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/hello-interface-instance-details/" + helloInterfaceInstanceDetail.EntityData.SegmentPath
     helloInterfaceInstanceDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     helloInterfaceInstanceDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     helloInterfaceInstanceDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31434,6 +32348,7 @@ func (lastMessageSentTime *Rsvp_HelloInterfaceInstanceDetails_HelloInterfaceInst
     lastMessageSentTime.EntityData.BundleName = "cisco_ios_xr"
     lastMessageSentTime.EntityData.ParentYangName = "hello-interface-instance-detail"
     lastMessageSentTime.EntityData.SegmentPath = "last-message-sent-time"
+    lastMessageSentTime.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/hello-interface-instance-details/hello-interface-instance-detail/" + lastMessageSentTime.EntityData.SegmentPath
     lastMessageSentTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastMessageSentTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastMessageSentTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31465,6 +32380,7 @@ func (interfaceNeighborDetails *Rsvp_InterfaceNeighborDetails) GetEntityData() *
     interfaceNeighborDetails.EntityData.BundleName = "cisco_ios_xr"
     interfaceNeighborDetails.EntityData.ParentYangName = "rsvp"
     interfaceNeighborDetails.EntityData.SegmentPath = "interface-neighbor-details"
+    interfaceNeighborDetails.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/" + interfaceNeighborDetails.EntityData.SegmentPath
     interfaceNeighborDetails.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceNeighborDetails.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceNeighborDetails.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31486,6 +32402,7 @@ func (interfaceNeighborDetails *Rsvp_InterfaceNeighborDetails) GetEntityData() *
 type Rsvp_InterfaceNeighborDetails_InterfaceNeighborDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Address of global neighbor. The type is string
     // with pattern:
@@ -31507,6 +32424,7 @@ func (interfaceNeighborDetail *Rsvp_InterfaceNeighborDetails_InterfaceNeighborDe
     interfaceNeighborDetail.EntityData.BundleName = "cisco_ios_xr"
     interfaceNeighborDetail.EntityData.ParentYangName = "interface-neighbor-details"
     interfaceNeighborDetail.EntityData.SegmentPath = "interface-neighbor-detail" + types.AddKeyToken(interfaceNeighborDetail.NeighborAddress, "neighbor-address")
+    interfaceNeighborDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/interface-neighbor-details/" + interfaceNeighborDetail.EntityData.SegmentPath
     interfaceNeighborDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceNeighborDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceNeighborDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31514,6 +32432,7 @@ func (interfaceNeighborDetail *Rsvp_InterfaceNeighborDetails_InterfaceNeighborDe
     interfaceNeighborDetail.EntityData.Children = types.NewOrderedMap()
     interfaceNeighborDetail.EntityData.Children.Append("interface-neighbor-list-detail", types.YChild{"InterfaceNeighborListDetail", nil})
     for i := range interfaceNeighborDetail.InterfaceNeighborListDetail {
+        types.SetYListKey(interfaceNeighborDetail.InterfaceNeighborListDetail[i], i)
         interfaceNeighborDetail.EntityData.Children.Append(types.GetSegmentPath(interfaceNeighborDetail.InterfaceNeighborListDetail[i]), types.YChild{"InterfaceNeighborListDetail", interfaceNeighborDetail.InterfaceNeighborListDetail[i]})
     }
     interfaceNeighborDetail.EntityData.Leafs = types.NewOrderedMap()
@@ -31530,6 +32449,7 @@ func (interfaceNeighborDetail *Rsvp_InterfaceNeighborDetails_InterfaceNeighborDe
 type Rsvp_InterfaceNeighborDetails_InterfaceNeighborDetail_InterfaceNeighborListDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Interface Neighbor address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -31559,7 +32479,8 @@ func (interfaceNeighborListDetail *Rsvp_InterfaceNeighborDetails_InterfaceNeighb
     interfaceNeighborListDetail.EntityData.YangName = "interface-neighbor-list-detail"
     interfaceNeighborListDetail.EntityData.BundleName = "cisco_ios_xr"
     interfaceNeighborListDetail.EntityData.ParentYangName = "interface-neighbor-detail"
-    interfaceNeighborListDetail.EntityData.SegmentPath = "interface-neighbor-list-detail"
+    interfaceNeighborListDetail.EntityData.SegmentPath = "interface-neighbor-list-detail" + types.AddNoKeyToken(interfaceNeighborListDetail)
+    interfaceNeighborListDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/interface-neighbor-details/interface-neighbor-detail/" + interfaceNeighborListDetail.EntityData.SegmentPath
     interfaceNeighborListDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceNeighborListDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceNeighborListDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31594,6 +32515,7 @@ func (nsr *Rsvp_Nsr) GetEntityData() *types.CommonEntityData {
     nsr.EntityData.BundleName = "cisco_ios_xr"
     nsr.EntityData.ParentYangName = "rsvp"
     nsr.EntityData.SegmentPath = "nsr"
+    nsr.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/" + nsr.EntityData.SegmentPath
     nsr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nsr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nsr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31629,6 +32551,7 @@ func (status *Rsvp_Nsr_Status) GetEntityData() *types.CommonEntityData {
     status.EntityData.BundleName = "cisco_ios_xr"
     status.EntityData.ParentYangName = "nsr"
     status.EntityData.SegmentPath = "status"
+    status.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/nsr/" + status.EntityData.SegmentPath
     status.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     status.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     status.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31679,6 +32602,7 @@ func (idtStatus *Rsvp_Nsr_Status_IdtStatus) GetEntityData() *types.CommonEntityD
     idtStatus.EntityData.BundleName = "cisco_ios_xr"
     idtStatus.EntityData.ParentYangName = "status"
     idtStatus.EntityData.SegmentPath = "idt-status"
+    idtStatus.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/nsr/status/" + idtStatus.EntityData.SegmentPath
     idtStatus.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     idtStatus.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     idtStatus.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31732,6 +32656,7 @@ func (previousIdtStatus *Rsvp_Nsr_Status_PreviousIdtStatus) GetEntityData() *typ
     previousIdtStatus.EntityData.BundleName = "cisco_ios_xr"
     previousIdtStatus.EntityData.ParentYangName = "status"
     previousIdtStatus.EntityData.SegmentPath = "previous-idt-status"
+    previousIdtStatus.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/nsr/status/" + previousIdtStatus.EntityData.SegmentPath
     previousIdtStatus.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     previousIdtStatus.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     previousIdtStatus.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31778,6 +32703,7 @@ func (summary *Rsvp_Summary) GetEntityData() *types.CommonEntityData {
     summary.EntityData.BundleName = "cisco_ios_xr"
     summary.EntityData.ParentYangName = "rsvp"
     summary.EntityData.SegmentPath = "summary"
+    summary.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/" + summary.EntityData.SegmentPath
     summary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     summary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     summary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31817,6 +32743,7 @@ func (issuStatus *Rsvp_Summary_IssuStatus) GetEntityData() *types.CommonEntityDa
     issuStatus.EntityData.BundleName = "cisco_ios_xr"
     issuStatus.EntityData.ParentYangName = "summary"
     issuStatus.EntityData.SegmentPath = "issu-status"
+    issuStatus.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/summary/" + issuStatus.EntityData.SegmentPath
     issuStatus.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     issuStatus.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     issuStatus.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31867,6 +32794,7 @@ func (idtStatus *Rsvp_Summary_IssuStatus_IdtStatus) GetEntityData() *types.Commo
     idtStatus.EntityData.BundleName = "cisco_ios_xr"
     idtStatus.EntityData.ParentYangName = "issu-status"
     idtStatus.EntityData.SegmentPath = "idt-status"
+    idtStatus.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/summary/issu-status/" + idtStatus.EntityData.SegmentPath
     idtStatus.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     idtStatus.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     idtStatus.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31920,6 +32848,7 @@ func (previousIdtStatus *Rsvp_Summary_IssuStatus_PreviousIdtStatus) GetEntityDat
     previousIdtStatus.EntityData.BundleName = "cisco_ios_xr"
     previousIdtStatus.EntityData.ParentYangName = "issu-status"
     previousIdtStatus.EntityData.SegmentPath = "previous-idt-status"
+    previousIdtStatus.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/summary/issu-status/" + previousIdtStatus.EntityData.SegmentPath
     previousIdtStatus.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     previousIdtStatus.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     previousIdtStatus.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31960,6 +32889,7 @@ func (nsrStatus *Rsvp_Summary_NsrStatus) GetEntityData() *types.CommonEntityData
     nsrStatus.EntityData.BundleName = "cisco_ios_xr"
     nsrStatus.EntityData.ParentYangName = "summary"
     nsrStatus.EntityData.SegmentPath = "nsr-status"
+    nsrStatus.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/summary/" + nsrStatus.EntityData.SegmentPath
     nsrStatus.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nsrStatus.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nsrStatus.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32010,6 +32940,7 @@ func (idtStatus *Rsvp_Summary_NsrStatus_IdtStatus) GetEntityData() *types.Common
     idtStatus.EntityData.BundleName = "cisco_ios_xr"
     idtStatus.EntityData.ParentYangName = "nsr-status"
     idtStatus.EntityData.SegmentPath = "idt-status"
+    idtStatus.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/summary/nsr-status/" + idtStatus.EntityData.SegmentPath
     idtStatus.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     idtStatus.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     idtStatus.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32063,6 +32994,7 @@ func (previousIdtStatus *Rsvp_Summary_NsrStatus_PreviousIdtStatus) GetEntityData
     previousIdtStatus.EntityData.BundleName = "cisco_ios_xr"
     previousIdtStatus.EntityData.ParentYangName = "nsr-status"
     previousIdtStatus.EntityData.SegmentPath = "previous-idt-status"
+    previousIdtStatus.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/summary/nsr-status/" + previousIdtStatus.EntityData.SegmentPath
     previousIdtStatus.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     previousIdtStatus.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     previousIdtStatus.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32116,6 +33048,7 @@ func (databaseCounters *Rsvp_Summary_DatabaseCounters) GetEntityData() *types.Co
     databaseCounters.EntityData.BundleName = "cisco_ios_xr"
     databaseCounters.EntityData.ParentYangName = "summary"
     databaseCounters.EntityData.SegmentPath = "database-counters"
+    databaseCounters.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/summary/" + databaseCounters.EntityData.SegmentPath
     databaseCounters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     databaseCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     databaseCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32152,6 +33085,7 @@ func (frrs *Rsvp_Frrs) GetEntityData() *types.CommonEntityData {
     frrs.EntityData.BundleName = "cisco_ios_xr"
     frrs.EntityData.ParentYangName = "rsvp"
     frrs.EntityData.SegmentPath = "frrs"
+    frrs.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/" + frrs.EntityData.SegmentPath
     frrs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     frrs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     frrs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32159,6 +33093,7 @@ func (frrs *Rsvp_Frrs) GetEntityData() *types.CommonEntityData {
     frrs.EntityData.Children = types.NewOrderedMap()
     frrs.EntityData.Children.Append("frr", types.YChild{"Frr", nil})
     for i := range frrs.Frr {
+        types.SetYListKey(frrs.Frr[i], i)
         frrs.EntityData.Children.Append(types.GetSegmentPath(frrs.Frr[i]), types.YChild{"Frr", frrs.Frr[i]})
     }
     frrs.EntityData.Leafs = types.NewOrderedMap()
@@ -32173,6 +33108,7 @@ func (frrs *Rsvp_Frrs) GetEntityData() *types.CommonEntityData {
 type Rsvp_Frrs_Frr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Destination Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -32229,7 +33165,8 @@ func (frr *Rsvp_Frrs_Frr) GetEntityData() *types.CommonEntityData {
     frr.EntityData.YangName = "frr"
     frr.EntityData.BundleName = "cisco_ios_xr"
     frr.EntityData.ParentYangName = "frrs"
-    frr.EntityData.SegmentPath = "frr"
+    frr.EntityData.SegmentPath = "frr" + types.AddNoKeyToken(frr)
+    frr.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/frrs/" + frr.EntityData.SegmentPath
     frr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     frr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     frr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32273,6 +33210,7 @@ func (session *Rsvp_Frrs_Frr_Session) GetEntityData() *types.CommonEntityData {
     session.EntityData.BundleName = "cisco_ios_xr"
     session.EntityData.ParentYangName = "frr"
     session.EntityData.SegmentPath = "session"
+    session.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/frrs/frr/" + session.EntityData.SegmentPath
     session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32314,6 +33252,7 @@ func (rsvpSession *Rsvp_Frrs_Frr_Session_RsvpSession) GetEntityData() *types.Com
     rsvpSession.EntityData.BundleName = "cisco_ios_xr"
     rsvpSession.EntityData.ParentYangName = "session"
     rsvpSession.EntityData.SegmentPath = "rsvp-session"
+    rsvpSession.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/frrs/frr/session/" + rsvpSession.EntityData.SegmentPath
     rsvpSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rsvpSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rsvpSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32355,6 +33294,7 @@ func (ipv4 *Rsvp_Frrs_Frr_Session_RsvpSession_Ipv4) GetEntityData() *types.Commo
     ipv4.EntityData.BundleName = "cisco_ios_xr"
     ipv4.EntityData.ParentYangName = "rsvp-session"
     ipv4.EntityData.SegmentPath = "ipv4"
+    ipv4.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/frrs/frr/session/rsvp-session/" + ipv4.EntityData.SegmentPath
     ipv4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32394,6 +33334,7 @@ func (ipv4LspSession *Rsvp_Frrs_Frr_Session_RsvpSession_Ipv4LspSession) GetEntit
     ipv4LspSession.EntityData.BundleName = "cisco_ios_xr"
     ipv4LspSession.EntityData.ParentYangName = "rsvp-session"
     ipv4LspSession.EntityData.SegmentPath = "ipv4-lsp-session"
+    ipv4LspSession.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/frrs/frr/session/rsvp-session/" + ipv4LspSession.EntityData.SegmentPath
     ipv4LspSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4LspSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4LspSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32433,6 +33374,7 @@ func (ipv4UniSession *Rsvp_Frrs_Frr_Session_RsvpSession_Ipv4UniSession) GetEntit
     ipv4UniSession.EntityData.BundleName = "cisco_ios_xr"
     ipv4UniSession.EntityData.ParentYangName = "rsvp-session"
     ipv4UniSession.EntityData.SegmentPath = "ipv4-uni-session"
+    ipv4UniSession.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/frrs/frr/session/rsvp-session/" + ipv4UniSession.EntityData.SegmentPath
     ipv4UniSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4UniSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4UniSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32472,6 +33414,7 @@ func (ipv4P2mpLspSession *Rsvp_Frrs_Frr_Session_RsvpSession_Ipv4P2mpLspSession) 
     ipv4P2mpLspSession.EntityData.BundleName = "cisco_ios_xr"
     ipv4P2mpLspSession.EntityData.ParentYangName = "rsvp-session"
     ipv4P2mpLspSession.EntityData.SegmentPath = "ipv4-p2mp-lsp-session"
+    ipv4P2mpLspSession.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/frrs/frr/session/rsvp-session/" + ipv4P2mpLspSession.EntityData.SegmentPath
     ipv4P2mpLspSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4P2mpLspSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4P2mpLspSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32504,6 +33447,7 @@ func (s2lSubLsp *Rsvp_Frrs_Frr_S2lSubLsp) GetEntityData() *types.CommonEntityDat
     s2lSubLsp.EntityData.BundleName = "cisco_ios_xr"
     s2lSubLsp.EntityData.ParentYangName = "frr"
     s2lSubLsp.EntityData.SegmentPath = "s2l-sub-lsp"
+    s2lSubLsp.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/frrs/frr/" + s2lSubLsp.EntityData.SegmentPath
     s2lSubLsp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     s2lSubLsp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     s2lSubLsp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32534,6 +33478,7 @@ func (requestBriefs *Rsvp_RequestBriefs) GetEntityData() *types.CommonEntityData
     requestBriefs.EntityData.BundleName = "cisco_ios_xr"
     requestBriefs.EntityData.ParentYangName = "rsvp"
     requestBriefs.EntityData.SegmentPath = "request-briefs"
+    requestBriefs.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/" + requestBriefs.EntityData.SegmentPath
     requestBriefs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     requestBriefs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     requestBriefs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32541,6 +33486,7 @@ func (requestBriefs *Rsvp_RequestBriefs) GetEntityData() *types.CommonEntityData
     requestBriefs.EntityData.Children = types.NewOrderedMap()
     requestBriefs.EntityData.Children.Append("request-brief", types.YChild{"RequestBrief", nil})
     for i := range requestBriefs.RequestBrief {
+        types.SetYListKey(requestBriefs.RequestBrief[i], i)
         requestBriefs.EntityData.Children.Append(types.GetSegmentPath(requestBriefs.RequestBrief[i]), types.YChild{"RequestBrief", requestBriefs.RequestBrief[i]})
     }
     requestBriefs.EntityData.Leafs = types.NewOrderedMap()
@@ -32555,6 +33501,7 @@ func (requestBriefs *Rsvp_RequestBriefs) GetEntityData() *types.CommonEntityData
 type Rsvp_RequestBriefs_RequestBrief struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Destination Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -32620,7 +33567,8 @@ func (requestBrief *Rsvp_RequestBriefs_RequestBrief) GetEntityData() *types.Comm
     requestBrief.EntityData.YangName = "request-brief"
     requestBrief.EntityData.BundleName = "cisco_ios_xr"
     requestBrief.EntityData.ParentYangName = "request-briefs"
-    requestBrief.EntityData.SegmentPath = "request-brief"
+    requestBrief.EntityData.SegmentPath = "request-brief" + types.AddNoKeyToken(requestBrief)
+    requestBrief.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/request-briefs/" + requestBrief.EntityData.SegmentPath
     requestBrief.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     requestBrief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     requestBrief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32667,6 +33615,7 @@ func (session *Rsvp_RequestBriefs_RequestBrief_Session) GetEntityData() *types.C
     session.EntityData.BundleName = "cisco_ios_xr"
     session.EntityData.ParentYangName = "request-brief"
     session.EntityData.SegmentPath = "session"
+    session.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/request-briefs/request-brief/" + session.EntityData.SegmentPath
     session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32708,6 +33657,7 @@ func (rsvpSession *Rsvp_RequestBriefs_RequestBrief_Session_RsvpSession) GetEntit
     rsvpSession.EntityData.BundleName = "cisco_ios_xr"
     rsvpSession.EntityData.ParentYangName = "session"
     rsvpSession.EntityData.SegmentPath = "rsvp-session"
+    rsvpSession.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/request-briefs/request-brief/session/" + rsvpSession.EntityData.SegmentPath
     rsvpSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rsvpSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rsvpSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32749,6 +33699,7 @@ func (ipv4 *Rsvp_RequestBriefs_RequestBrief_Session_RsvpSession_Ipv4) GetEntityD
     ipv4.EntityData.BundleName = "cisco_ios_xr"
     ipv4.EntityData.ParentYangName = "rsvp-session"
     ipv4.EntityData.SegmentPath = "ipv4"
+    ipv4.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/request-briefs/request-brief/session/rsvp-session/" + ipv4.EntityData.SegmentPath
     ipv4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32788,6 +33739,7 @@ func (ipv4LspSession *Rsvp_RequestBriefs_RequestBrief_Session_RsvpSession_Ipv4Ls
     ipv4LspSession.EntityData.BundleName = "cisco_ios_xr"
     ipv4LspSession.EntityData.ParentYangName = "rsvp-session"
     ipv4LspSession.EntityData.SegmentPath = "ipv4-lsp-session"
+    ipv4LspSession.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/request-briefs/request-brief/session/rsvp-session/" + ipv4LspSession.EntityData.SegmentPath
     ipv4LspSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4LspSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4LspSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32827,6 +33779,7 @@ func (ipv4UniSession *Rsvp_RequestBriefs_RequestBrief_Session_RsvpSession_Ipv4Un
     ipv4UniSession.EntityData.BundleName = "cisco_ios_xr"
     ipv4UniSession.EntityData.ParentYangName = "rsvp-session"
     ipv4UniSession.EntityData.SegmentPath = "ipv4-uni-session"
+    ipv4UniSession.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/request-briefs/request-brief/session/rsvp-session/" + ipv4UniSession.EntityData.SegmentPath
     ipv4UniSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4UniSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4UniSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32866,6 +33819,7 @@ func (ipv4P2mpLspSession *Rsvp_RequestBriefs_RequestBrief_Session_RsvpSession_Ip
     ipv4P2mpLspSession.EntityData.BundleName = "cisco_ios_xr"
     ipv4P2mpLspSession.EntityData.ParentYangName = "rsvp-session"
     ipv4P2mpLspSession.EntityData.SegmentPath = "ipv4-p2mp-lsp-session"
+    ipv4P2mpLspSession.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/request-briefs/request-brief/session/rsvp-session/" + ipv4P2mpLspSession.EntityData.SegmentPath
     ipv4P2mpLspSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4P2mpLspSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4P2mpLspSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32898,6 +33852,7 @@ func (s2lSubLsp *Rsvp_RequestBriefs_RequestBrief_S2lSubLsp) GetEntityData() *typ
     s2lSubLsp.EntityData.BundleName = "cisco_ios_xr"
     s2lSubLsp.EntityData.ParentYangName = "request-brief"
     s2lSubLsp.EntityData.SegmentPath = "s2l-sub-lsp"
+    s2lSubLsp.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/request-briefs/request-brief/" + s2lSubLsp.EntityData.SegmentPath
     s2lSubLsp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     s2lSubLsp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     s2lSubLsp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32952,6 +33907,7 @@ func (flowSpec *Rsvp_RequestBriefs_RequestBrief_FlowSpec) GetEntityData() *types
     flowSpec.EntityData.BundleName = "cisco_ios_xr"
     flowSpec.EntityData.ParentYangName = "request-brief"
     flowSpec.EntityData.SegmentPath = "flow-spec"
+    flowSpec.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/request-briefs/request-brief/" + flowSpec.EntityData.SegmentPath
     flowSpec.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     flowSpec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     flowSpec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32991,6 +33947,7 @@ func (genericFlowSpec *Rsvp_RequestBriefs_RequestBrief_GenericFlowSpec) GetEntit
     genericFlowSpec.EntityData.BundleName = "cisco_ios_xr"
     genericFlowSpec.EntityData.ParentYangName = "request-brief"
     genericFlowSpec.EntityData.SegmentPath = "generic-flow-spec"
+    genericFlowSpec.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/request-briefs/request-brief/" + genericFlowSpec.EntityData.SegmentPath
     genericFlowSpec.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     genericFlowSpec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     genericFlowSpec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33032,6 +33989,7 @@ func (g709otnFlowSpec *Rsvp_RequestBriefs_RequestBrief_GenericFlowSpec_G709otnFl
     g709otnFlowSpec.EntityData.BundleName = "cisco_ios_xr"
     g709otnFlowSpec.EntityData.ParentYangName = "generic-flow-spec"
     g709otnFlowSpec.EntityData.SegmentPath = "g709otn-flow-spec"
+    g709otnFlowSpec.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/request-briefs/request-brief/generic-flow-spec/" + g709otnFlowSpec.EntityData.SegmentPath
     g709otnFlowSpec.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     g709otnFlowSpec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     g709otnFlowSpec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33064,6 +34022,7 @@ func (filter *Rsvp_RequestBriefs_RequestBrief_Filter) GetEntityData() *types.Com
     filter.EntityData.BundleName = "cisco_ios_xr"
     filter.EntityData.ParentYangName = "request-brief"
     filter.EntityData.SegmentPath = "filter"
+    filter.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/request-briefs/request-brief/" + filter.EntityData.SegmentPath
     filter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     filter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     filter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33099,6 +34058,7 @@ func (rsvpFilter *Rsvp_RequestBriefs_RequestBrief_Filter_RsvpFilter) GetEntityDa
     rsvpFilter.EntityData.BundleName = "cisco_ios_xr"
     rsvpFilter.EntityData.ParentYangName = "filter"
     rsvpFilter.EntityData.SegmentPath = "rsvp-filter"
+    rsvpFilter.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/request-briefs/request-brief/filter/" + rsvpFilter.EntityData.SegmentPath
     rsvpFilter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rsvpFilter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rsvpFilter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33134,6 +34094,7 @@ func (udpIpv4Session *Rsvp_RequestBriefs_RequestBrief_Filter_RsvpFilter_UdpIpv4S
     udpIpv4Session.EntityData.BundleName = "cisco_ios_xr"
     udpIpv4Session.EntityData.ParentYangName = "rsvp-filter"
     udpIpv4Session.EntityData.SegmentPath = "udp-ipv4-session"
+    udpIpv4Session.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/request-briefs/request-brief/filter/rsvp-filter/" + udpIpv4Session.EntityData.SegmentPath
     udpIpv4Session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     udpIpv4Session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     udpIpv4Session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33176,6 +34137,7 @@ func (p2mpIpv4Session *Rsvp_RequestBriefs_RequestBrief_Filter_RsvpFilter_P2mpIpv
     p2mpIpv4Session.EntityData.BundleName = "cisco_ios_xr"
     p2mpIpv4Session.EntityData.ParentYangName = "rsvp-filter"
     p2mpIpv4Session.EntityData.SegmentPath = "p2mp-ipv4-session"
+    p2mpIpv4Session.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/request-briefs/request-brief/filter/rsvp-filter/" + p2mpIpv4Session.EntityData.SegmentPath
     p2mpIpv4Session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     p2mpIpv4Session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     p2mpIpv4Session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33209,6 +34171,7 @@ func (style *Rsvp_RequestBriefs_RequestBrief_Style) GetEntityData() *types.Commo
     style.EntityData.BundleName = "cisco_ios_xr"
     style.EntityData.ParentYangName = "request-brief"
     style.EntityData.SegmentPath = "style"
+    style.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/request-briefs/request-brief/" + style.EntityData.SegmentPath
     style.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     style.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     style.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33239,6 +34202,7 @@ func (requestDetails *Rsvp_RequestDetails) GetEntityData() *types.CommonEntityDa
     requestDetails.EntityData.BundleName = "cisco_ios_xr"
     requestDetails.EntityData.ParentYangName = "rsvp"
     requestDetails.EntityData.SegmentPath = "request-details"
+    requestDetails.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/" + requestDetails.EntityData.SegmentPath
     requestDetails.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     requestDetails.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     requestDetails.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33246,6 +34210,7 @@ func (requestDetails *Rsvp_RequestDetails) GetEntityData() *types.CommonEntityDa
     requestDetails.EntityData.Children = types.NewOrderedMap()
     requestDetails.EntityData.Children.Append("request-detail", types.YChild{"RequestDetail", nil})
     for i := range requestDetails.RequestDetail {
+        types.SetYListKey(requestDetails.RequestDetail[i], i)
         requestDetails.EntityData.Children.Append(types.GetSegmentPath(requestDetails.RequestDetail[i]), types.YChild{"RequestDetail", requestDetails.RequestDetail[i]})
     }
     requestDetails.EntityData.Leafs = types.NewOrderedMap()
@@ -33260,6 +34225,7 @@ func (requestDetails *Rsvp_RequestDetails) GetEntityData() *types.CommonEntityDa
 type Rsvp_RequestDetails_RequestDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Destination Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -33351,7 +34317,8 @@ func (requestDetail *Rsvp_RequestDetails_RequestDetail) GetEntityData() *types.C
     requestDetail.EntityData.YangName = "request-detail"
     requestDetail.EntityData.BundleName = "cisco_ios_xr"
     requestDetail.EntityData.ParentYangName = "request-details"
-    requestDetail.EntityData.SegmentPath = "request-detail"
+    requestDetail.EntityData.SegmentPath = "request-detail" + types.AddNoKeyToken(requestDetail)
+    requestDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/request-details/" + requestDetail.EntityData.SegmentPath
     requestDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     requestDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     requestDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33371,10 +34338,12 @@ func (requestDetail *Rsvp_RequestDetails_RequestDetail) GetEntityData() *types.C
     requestDetail.EntityData.Children.Append("policy-query-flags", types.YChild{"PolicyQueryFlags", &requestDetail.PolicyQueryFlags})
     requestDetail.EntityData.Children.Append("psb-key", types.YChild{"PsbKey", nil})
     for i := range requestDetail.PsbKey {
+        types.SetYListKey(requestDetail.PsbKey[i], i)
         requestDetail.EntityData.Children.Append(types.GetSegmentPath(requestDetail.PsbKey[i]), types.YChild{"PsbKey", requestDetail.PsbKey[i]})
     }
     requestDetail.EntityData.Children.Append("rsb-key", types.YChild{"RsbKey", nil})
     for i := range requestDetail.RsbKey {
+        types.SetYListKey(requestDetail.RsbKey[i], i)
         requestDetail.EntityData.Children.Append(types.GetSegmentPath(requestDetail.RsbKey[i]), types.YChild{"RsbKey", requestDetail.RsbKey[i]})
     }
     requestDetail.EntityData.Leafs = types.NewOrderedMap()
@@ -33412,6 +34381,7 @@ func (session *Rsvp_RequestDetails_RequestDetail_Session) GetEntityData() *types
     session.EntityData.BundleName = "cisco_ios_xr"
     session.EntityData.ParentYangName = "request-detail"
     session.EntityData.SegmentPath = "session"
+    session.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/request-details/request-detail/" + session.EntityData.SegmentPath
     session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33453,6 +34423,7 @@ func (rsvpSession *Rsvp_RequestDetails_RequestDetail_Session_RsvpSession) GetEnt
     rsvpSession.EntityData.BundleName = "cisco_ios_xr"
     rsvpSession.EntityData.ParentYangName = "session"
     rsvpSession.EntityData.SegmentPath = "rsvp-session"
+    rsvpSession.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/request-details/request-detail/session/" + rsvpSession.EntityData.SegmentPath
     rsvpSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rsvpSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rsvpSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33494,6 +34465,7 @@ func (ipv4 *Rsvp_RequestDetails_RequestDetail_Session_RsvpSession_Ipv4) GetEntit
     ipv4.EntityData.BundleName = "cisco_ios_xr"
     ipv4.EntityData.ParentYangName = "rsvp-session"
     ipv4.EntityData.SegmentPath = "ipv4"
+    ipv4.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/request-details/request-detail/session/rsvp-session/" + ipv4.EntityData.SegmentPath
     ipv4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33533,6 +34505,7 @@ func (ipv4LspSession *Rsvp_RequestDetails_RequestDetail_Session_RsvpSession_Ipv4
     ipv4LspSession.EntityData.BundleName = "cisco_ios_xr"
     ipv4LspSession.EntityData.ParentYangName = "rsvp-session"
     ipv4LspSession.EntityData.SegmentPath = "ipv4-lsp-session"
+    ipv4LspSession.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/request-details/request-detail/session/rsvp-session/" + ipv4LspSession.EntityData.SegmentPath
     ipv4LspSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4LspSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4LspSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33572,6 +34545,7 @@ func (ipv4UniSession *Rsvp_RequestDetails_RequestDetail_Session_RsvpSession_Ipv4
     ipv4UniSession.EntityData.BundleName = "cisco_ios_xr"
     ipv4UniSession.EntityData.ParentYangName = "rsvp-session"
     ipv4UniSession.EntityData.SegmentPath = "ipv4-uni-session"
+    ipv4UniSession.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/request-details/request-detail/session/rsvp-session/" + ipv4UniSession.EntityData.SegmentPath
     ipv4UniSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4UniSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4UniSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33611,6 +34585,7 @@ func (ipv4P2mpLspSession *Rsvp_RequestDetails_RequestDetail_Session_RsvpSession_
     ipv4P2mpLspSession.EntityData.BundleName = "cisco_ios_xr"
     ipv4P2mpLspSession.EntityData.ParentYangName = "rsvp-session"
     ipv4P2mpLspSession.EntityData.SegmentPath = "ipv4-p2mp-lsp-session"
+    ipv4P2mpLspSession.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/request-details/request-detail/session/rsvp-session/" + ipv4P2mpLspSession.EntityData.SegmentPath
     ipv4P2mpLspSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4P2mpLspSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4P2mpLspSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33643,6 +34618,7 @@ func (s2lSubLsp *Rsvp_RequestDetails_RequestDetail_S2lSubLsp) GetEntityData() *t
     s2lSubLsp.EntityData.BundleName = "cisco_ios_xr"
     s2lSubLsp.EntityData.ParentYangName = "request-detail"
     s2lSubLsp.EntityData.SegmentPath = "s2l-sub-lsp"
+    s2lSubLsp.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/request-details/request-detail/" + s2lSubLsp.EntityData.SegmentPath
     s2lSubLsp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     s2lSubLsp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     s2lSubLsp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33697,6 +34673,7 @@ func (flowSpec *Rsvp_RequestDetails_RequestDetail_FlowSpec) GetEntityData() *typ
     flowSpec.EntityData.BundleName = "cisco_ios_xr"
     flowSpec.EntityData.ParentYangName = "request-detail"
     flowSpec.EntityData.SegmentPath = "flow-spec"
+    flowSpec.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/request-details/request-detail/" + flowSpec.EntityData.SegmentPath
     flowSpec.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     flowSpec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     flowSpec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33736,6 +34713,7 @@ func (genericFlowSpec *Rsvp_RequestDetails_RequestDetail_GenericFlowSpec) GetEnt
     genericFlowSpec.EntityData.BundleName = "cisco_ios_xr"
     genericFlowSpec.EntityData.ParentYangName = "request-detail"
     genericFlowSpec.EntityData.SegmentPath = "generic-flow-spec"
+    genericFlowSpec.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/request-details/request-detail/" + genericFlowSpec.EntityData.SegmentPath
     genericFlowSpec.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     genericFlowSpec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     genericFlowSpec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33777,6 +34755,7 @@ func (g709otnFlowSpec *Rsvp_RequestDetails_RequestDetail_GenericFlowSpec_G709otn
     g709otnFlowSpec.EntityData.BundleName = "cisco_ios_xr"
     g709otnFlowSpec.EntityData.ParentYangName = "generic-flow-spec"
     g709otnFlowSpec.EntityData.SegmentPath = "g709otn-flow-spec"
+    g709otnFlowSpec.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/request-details/request-detail/generic-flow-spec/" + g709otnFlowSpec.EntityData.SegmentPath
     g709otnFlowSpec.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     g709otnFlowSpec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     g709otnFlowSpec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33809,6 +34788,7 @@ func (filter *Rsvp_RequestDetails_RequestDetail_Filter) GetEntityData() *types.C
     filter.EntityData.BundleName = "cisco_ios_xr"
     filter.EntityData.ParentYangName = "request-detail"
     filter.EntityData.SegmentPath = "filter"
+    filter.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/request-details/request-detail/" + filter.EntityData.SegmentPath
     filter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     filter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     filter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33844,6 +34824,7 @@ func (rsvpFilter *Rsvp_RequestDetails_RequestDetail_Filter_RsvpFilter) GetEntity
     rsvpFilter.EntityData.BundleName = "cisco_ios_xr"
     rsvpFilter.EntityData.ParentYangName = "filter"
     rsvpFilter.EntityData.SegmentPath = "rsvp-filter"
+    rsvpFilter.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/request-details/request-detail/filter/" + rsvpFilter.EntityData.SegmentPath
     rsvpFilter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rsvpFilter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rsvpFilter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33879,6 +34860,7 @@ func (udpIpv4Session *Rsvp_RequestDetails_RequestDetail_Filter_RsvpFilter_UdpIpv
     udpIpv4Session.EntityData.BundleName = "cisco_ios_xr"
     udpIpv4Session.EntityData.ParentYangName = "rsvp-filter"
     udpIpv4Session.EntityData.SegmentPath = "udp-ipv4-session"
+    udpIpv4Session.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/request-details/request-detail/filter/rsvp-filter/" + udpIpv4Session.EntityData.SegmentPath
     udpIpv4Session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     udpIpv4Session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     udpIpv4Session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33921,6 +34903,7 @@ func (p2mpIpv4Session *Rsvp_RequestDetails_RequestDetail_Filter_RsvpFilter_P2mpI
     p2mpIpv4Session.EntityData.BundleName = "cisco_ios_xr"
     p2mpIpv4Session.EntityData.ParentYangName = "rsvp-filter"
     p2mpIpv4Session.EntityData.SegmentPath = "p2mp-ipv4-session"
+    p2mpIpv4Session.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/request-details/request-detail/filter/rsvp-filter/" + p2mpIpv4Session.EntityData.SegmentPath
     p2mpIpv4Session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     p2mpIpv4Session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     p2mpIpv4Session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33954,6 +34937,7 @@ func (style *Rsvp_RequestDetails_RequestDetail_Style) GetEntityData() *types.Com
     style.EntityData.BundleName = "cisco_ios_xr"
     style.EntityData.ParentYangName = "request-detail"
     style.EntityData.SegmentPath = "style"
+    style.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/request-details/request-detail/" + style.EntityData.SegmentPath
     style.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     style.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     style.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34016,6 +35000,7 @@ func (reqFlags *Rsvp_RequestDetails_RequestDetail_ReqFlags) GetEntityData() *typ
     reqFlags.EntityData.BundleName = "cisco_ios_xr"
     reqFlags.EntityData.ParentYangName = "request-detail"
     reqFlags.EntityData.SegmentPath = "req-flags"
+    reqFlags.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/request-details/request-detail/" + reqFlags.EntityData.SegmentPath
     reqFlags.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     reqFlags.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     reqFlags.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34061,6 +35046,7 @@ func (hop *Rsvp_RequestDetails_RequestDetail_Hop) GetEntityData() *types.CommonE
     hop.EntityData.BundleName = "cisco_ios_xr"
     hop.EntityData.ParentYangName = "request-detail"
     hop.EntityData.SegmentPath = "hop"
+    hop.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/request-details/request-detail/" + hop.EntityData.SegmentPath
     hop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34111,6 +35097,7 @@ func (header *Rsvp_RequestDetails_RequestDetail_Header) GetEntityData() *types.C
     header.EntityData.BundleName = "cisco_ios_xr"
     header.EntityData.ParentYangName = "request-detail"
     header.EntityData.SegmentPath = "header"
+    header.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/request-details/request-detail/" + header.EntityData.SegmentPath
     header.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     header.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     header.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34158,6 +35145,7 @@ func (policySources *Rsvp_RequestDetails_RequestDetail_PolicySources) GetEntityD
     policySources.EntityData.BundleName = "cisco_ios_xr"
     policySources.EntityData.ParentYangName = "request-detail"
     policySources.EntityData.SegmentPath = "policy-sources"
+    policySources.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/request-details/request-detail/" + policySources.EntityData.SegmentPath
     policySources.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     policySources.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policySources.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34197,6 +35185,7 @@ func (policyFlags *Rsvp_RequestDetails_RequestDetail_PolicyFlags) GetEntityData(
     policyFlags.EntityData.BundleName = "cisco_ios_xr"
     policyFlags.EntityData.ParentYangName = "request-detail"
     policyFlags.EntityData.SegmentPath = "policy-flags"
+    policyFlags.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/request-details/request-detail/" + policyFlags.EntityData.SegmentPath
     policyFlags.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     policyFlags.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policyFlags.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34237,6 +35226,7 @@ func (policyQueryFlags *Rsvp_RequestDetails_RequestDetail_PolicyQueryFlags) GetE
     policyQueryFlags.EntityData.BundleName = "cisco_ios_xr"
     policyQueryFlags.EntityData.ParentYangName = "request-detail"
     policyQueryFlags.EntityData.SegmentPath = "policy-query-flags"
+    policyQueryFlags.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/request-details/request-detail/" + policyQueryFlags.EntityData.SegmentPath
     policyQueryFlags.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     policyQueryFlags.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policyQueryFlags.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34258,6 +35248,7 @@ func (policyQueryFlags *Rsvp_RequestDetails_RequestDetail_PolicyQueryFlags) GetE
 type Rsvp_RequestDetails_RequestDetail_PsbKey struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Point-to-multipoint ID. The type is interface{} with range: 0..4294967295.
     P2mpId interface{}
@@ -34309,7 +35300,8 @@ func (psbKey *Rsvp_RequestDetails_RequestDetail_PsbKey) GetEntityData() *types.C
     psbKey.EntityData.YangName = "psb-key"
     psbKey.EntityData.BundleName = "cisco_ios_xr"
     psbKey.EntityData.ParentYangName = "request-detail"
-    psbKey.EntityData.SegmentPath = "psb-key"
+    psbKey.EntityData.SegmentPath = "psb-key" + types.AddNoKeyToken(psbKey)
+    psbKey.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/request-details/request-detail/" + psbKey.EntityData.SegmentPath
     psbKey.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     psbKey.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     psbKey.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34338,6 +35330,7 @@ func (psbKey *Rsvp_RequestDetails_RequestDetail_PsbKey) GetEntityData() *types.C
 type Rsvp_RequestDetails_RequestDetail_RsbKey struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Point-to-multipoint ID. The type is interface{} with range: 0..4294967295.
     P2mpId interface{}
@@ -34389,7 +35382,8 @@ func (rsbKey *Rsvp_RequestDetails_RequestDetail_RsbKey) GetEntityData() *types.C
     rsbKey.EntityData.YangName = "rsb-key"
     rsbKey.EntityData.BundleName = "cisco_ios_xr"
     rsbKey.EntityData.ParentYangName = "request-detail"
-    rsbKey.EntityData.SegmentPath = "rsb-key"
+    rsbKey.EntityData.SegmentPath = "rsb-key" + types.AddNoKeyToken(rsbKey)
+    rsbKey.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/request-details/request-detail/" + rsbKey.EntityData.SegmentPath
     rsbKey.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rsbKey.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rsbKey.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34431,6 +35425,7 @@ func (interfaceBriefs *Rsvp_InterfaceBriefs) GetEntityData() *types.CommonEntity
     interfaceBriefs.EntityData.BundleName = "cisco_ios_xr"
     interfaceBriefs.EntityData.ParentYangName = "rsvp"
     interfaceBriefs.EntityData.SegmentPath = "interface-briefs"
+    interfaceBriefs.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/" + interfaceBriefs.EntityData.SegmentPath
     interfaceBriefs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceBriefs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceBriefs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34452,6 +35447,7 @@ func (interfaceBriefs *Rsvp_InterfaceBriefs) GetEntityData() *types.CommonEntity
 type Rsvp_InterfaceBriefs_InterfaceBrief struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface Name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -34470,6 +35466,7 @@ func (interfaceBrief *Rsvp_InterfaceBriefs_InterfaceBrief) GetEntityData() *type
     interfaceBrief.EntityData.BundleName = "cisco_ios_xr"
     interfaceBrief.EntityData.ParentYangName = "interface-briefs"
     interfaceBrief.EntityData.SegmentPath = "interface-brief" + types.AddKeyToken(interfaceBrief.InterfaceName, "interface-name")
+    interfaceBrief.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/interface-briefs/" + interfaceBrief.EntityData.SegmentPath
     interfaceBrief.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceBrief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceBrief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34507,6 +35504,7 @@ func (bandwidthInformation *Rsvp_InterfaceBriefs_InterfaceBrief_BandwidthInforma
     bandwidthInformation.EntityData.BundleName = "cisco_ios_xr"
     bandwidthInformation.EntityData.ParentYangName = "interface-brief"
     bandwidthInformation.EntityData.SegmentPath = "bandwidth-information"
+    bandwidthInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/interface-briefs/interface-brief/" + bandwidthInformation.EntityData.SegmentPath
     bandwidthInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bandwidthInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bandwidthInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34559,6 +35557,7 @@ func (preStandardDsteInterface *Rsvp_InterfaceBriefs_InterfaceBrief_BandwidthInf
     preStandardDsteInterface.EntityData.BundleName = "cisco_ios_xr"
     preStandardDsteInterface.EntityData.ParentYangName = "bandwidth-information"
     preStandardDsteInterface.EntityData.SegmentPath = "pre-standard-dste-interface"
+    preStandardDsteInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/interface-briefs/interface-brief/bandwidth-information/" + preStandardDsteInterface.EntityData.SegmentPath
     preStandardDsteInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     preStandardDsteInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     preStandardDsteInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34622,6 +35621,7 @@ func (standardDsteInterface *Rsvp_InterfaceBriefs_InterfaceBrief_BandwidthInform
     standardDsteInterface.EntityData.BundleName = "cisco_ios_xr"
     standardDsteInterface.EntityData.ParentYangName = "bandwidth-information"
     standardDsteInterface.EntityData.SegmentPath = "standard-dste-interface"
+    standardDsteInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/interface-briefs/interface-brief/bandwidth-information/" + standardDsteInterface.EntityData.SegmentPath
     standardDsteInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     standardDsteInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     standardDsteInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34659,6 +35659,7 @@ func (sessionDetaileds *Rsvp_SessionDetaileds) GetEntityData() *types.CommonEnti
     sessionDetaileds.EntityData.BundleName = "cisco_ios_xr"
     sessionDetaileds.EntityData.ParentYangName = "rsvp"
     sessionDetaileds.EntityData.SegmentPath = "session-detaileds"
+    sessionDetaileds.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/" + sessionDetaileds.EntityData.SegmentPath
     sessionDetaileds.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sessionDetaileds.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionDetaileds.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34666,6 +35667,7 @@ func (sessionDetaileds *Rsvp_SessionDetaileds) GetEntityData() *types.CommonEnti
     sessionDetaileds.EntityData.Children = types.NewOrderedMap()
     sessionDetaileds.EntityData.Children.Append("session-detailed", types.YChild{"SessionDetailed", nil})
     for i := range sessionDetaileds.SessionDetailed {
+        types.SetYListKey(sessionDetaileds.SessionDetailed[i], i)
         sessionDetaileds.EntityData.Children.Append(types.GetSegmentPath(sessionDetaileds.SessionDetailed[i]), types.YChild{"SessionDetailed", sessionDetaileds.SessionDetailed[i]})
     }
     sessionDetaileds.EntityData.Leafs = types.NewOrderedMap()
@@ -34680,6 +35682,7 @@ func (sessionDetaileds *Rsvp_SessionDetaileds) GetEntityData() *types.CommonEnti
 type Rsvp_SessionDetaileds_SessionDetailed struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Destination Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -34720,7 +35723,8 @@ func (sessionDetailed *Rsvp_SessionDetaileds_SessionDetailed) GetEntityData() *t
     sessionDetailed.EntityData.YangName = "session-detailed"
     sessionDetailed.EntityData.BundleName = "cisco_ios_xr"
     sessionDetailed.EntityData.ParentYangName = "session-detaileds"
-    sessionDetailed.EntityData.SegmentPath = "session-detailed"
+    sessionDetailed.EntityData.SegmentPath = "session-detailed" + types.AddNoKeyToken(sessionDetailed)
+    sessionDetailed.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/session-detaileds/" + sessionDetailed.EntityData.SegmentPath
     sessionDetailed.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sessionDetailed.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionDetailed.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34730,6 +35734,7 @@ func (sessionDetailed *Rsvp_SessionDetaileds_SessionDetailed) GetEntityData() *t
     sessionDetailed.EntityData.Children.Append("s2l-sub-lsp", types.YChild{"S2lSubLsp", &sessionDetailed.S2lSubLsp})
     sessionDetailed.EntityData.Children.Append("psb-rsb-info", types.YChild{"PsbRsbInfo", nil})
     for i := range sessionDetailed.PsbRsbInfo {
+        types.SetYListKey(sessionDetailed.PsbRsbInfo[i], i)
         sessionDetailed.EntityData.Children.Append(types.GetSegmentPath(sessionDetailed.PsbRsbInfo[i]), types.YChild{"PsbRsbInfo", sessionDetailed.PsbRsbInfo[i]})
     }
     sessionDetailed.EntityData.Leafs = types.NewOrderedMap()
@@ -34778,6 +35783,7 @@ func (compact *Rsvp_SessionDetaileds_SessionDetailed_Compact) GetEntityData() *t
     compact.EntityData.BundleName = "cisco_ios_xr"
     compact.EntityData.ParentYangName = "session-detailed"
     compact.EntityData.SegmentPath = "compact"
+    compact.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/session-detaileds/session-detailed/" + compact.EntityData.SegmentPath
     compact.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     compact.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     compact.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34811,6 +35817,7 @@ func (session *Rsvp_SessionDetaileds_SessionDetailed_Compact_Session) GetEntityD
     session.EntityData.BundleName = "cisco_ios_xr"
     session.EntityData.ParentYangName = "compact"
     session.EntityData.SegmentPath = "session"
+    session.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/session-detaileds/session-detailed/compact/" + session.EntityData.SegmentPath
     session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34852,6 +35859,7 @@ func (rsvpSession *Rsvp_SessionDetaileds_SessionDetailed_Compact_Session_RsvpSes
     rsvpSession.EntityData.BundleName = "cisco_ios_xr"
     rsvpSession.EntityData.ParentYangName = "session"
     rsvpSession.EntityData.SegmentPath = "rsvp-session"
+    rsvpSession.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/session-detaileds/session-detailed/compact/session/" + rsvpSession.EntityData.SegmentPath
     rsvpSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rsvpSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rsvpSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34893,6 +35901,7 @@ func (ipv4 *Rsvp_SessionDetaileds_SessionDetailed_Compact_Session_RsvpSession_Ip
     ipv4.EntityData.BundleName = "cisco_ios_xr"
     ipv4.EntityData.ParentYangName = "rsvp-session"
     ipv4.EntityData.SegmentPath = "ipv4"
+    ipv4.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/session-detaileds/session-detailed/compact/session/rsvp-session/" + ipv4.EntityData.SegmentPath
     ipv4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34932,6 +35941,7 @@ func (ipv4LspSession *Rsvp_SessionDetaileds_SessionDetailed_Compact_Session_Rsvp
     ipv4LspSession.EntityData.BundleName = "cisco_ios_xr"
     ipv4LspSession.EntityData.ParentYangName = "rsvp-session"
     ipv4LspSession.EntityData.SegmentPath = "ipv4-lsp-session"
+    ipv4LspSession.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/session-detaileds/session-detailed/compact/session/rsvp-session/" + ipv4LspSession.EntityData.SegmentPath
     ipv4LspSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4LspSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4LspSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34971,6 +35981,7 @@ func (ipv4UniSession *Rsvp_SessionDetaileds_SessionDetailed_Compact_Session_Rsvp
     ipv4UniSession.EntityData.BundleName = "cisco_ios_xr"
     ipv4UniSession.EntityData.ParentYangName = "rsvp-session"
     ipv4UniSession.EntityData.SegmentPath = "ipv4-uni-session"
+    ipv4UniSession.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/session-detaileds/session-detailed/compact/session/rsvp-session/" + ipv4UniSession.EntityData.SegmentPath
     ipv4UniSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4UniSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4UniSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35010,6 +36021,7 @@ func (ipv4P2mpLspSession *Rsvp_SessionDetaileds_SessionDetailed_Compact_Session_
     ipv4P2mpLspSession.EntityData.BundleName = "cisco_ios_xr"
     ipv4P2mpLspSession.EntityData.ParentYangName = "rsvp-session"
     ipv4P2mpLspSession.EntityData.SegmentPath = "ipv4-p2mp-lsp-session"
+    ipv4P2mpLspSession.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/session-detaileds/session-detailed/compact/session/rsvp-session/" + ipv4P2mpLspSession.EntityData.SegmentPath
     ipv4P2mpLspSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4P2mpLspSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4P2mpLspSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35042,6 +36054,7 @@ func (s2lSubLsp *Rsvp_SessionDetaileds_SessionDetailed_S2lSubLsp) GetEntityData(
     s2lSubLsp.EntityData.BundleName = "cisco_ios_xr"
     s2lSubLsp.EntityData.ParentYangName = "session-detailed"
     s2lSubLsp.EntityData.SegmentPath = "s2l-sub-lsp"
+    s2lSubLsp.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/session-detaileds/session-detailed/" + s2lSubLsp.EntityData.SegmentPath
     s2lSubLsp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     s2lSubLsp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     s2lSubLsp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35060,6 +36073,7 @@ func (s2lSubLsp *Rsvp_SessionDetaileds_SessionDetailed_S2lSubLsp) GetEntityData(
 type Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Path Info. The type is slice of
     // Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo.
@@ -35075,7 +36089,8 @@ func (psbRsbInfo *Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo) GetEntityDat
     psbRsbInfo.EntityData.YangName = "psb-rsb-info"
     psbRsbInfo.EntityData.BundleName = "cisco_ios_xr"
     psbRsbInfo.EntityData.ParentYangName = "session-detailed"
-    psbRsbInfo.EntityData.SegmentPath = "psb-rsb-info"
+    psbRsbInfo.EntityData.SegmentPath = "psb-rsb-info" + types.AddNoKeyToken(psbRsbInfo)
+    psbRsbInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/session-detaileds/session-detailed/" + psbRsbInfo.EntityData.SegmentPath
     psbRsbInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     psbRsbInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     psbRsbInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35083,10 +36098,12 @@ func (psbRsbInfo *Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo) GetEntityDat
     psbRsbInfo.EntityData.Children = types.NewOrderedMap()
     psbRsbInfo.EntityData.Children.Append("psb-info", types.YChild{"PsbInfo", nil})
     for i := range psbRsbInfo.PsbInfo {
+        types.SetYListKey(psbRsbInfo.PsbInfo[i], i)
         psbRsbInfo.EntityData.Children.Append(types.GetSegmentPath(psbRsbInfo.PsbInfo[i]), types.YChild{"PsbInfo", psbRsbInfo.PsbInfo[i]})
     }
     psbRsbInfo.EntityData.Children.Append("rsb-info", types.YChild{"RsbInfo", nil})
     for i := range psbRsbInfo.RsbInfo {
+        types.SetYListKey(psbRsbInfo.RsbInfo[i], i)
         psbRsbInfo.EntityData.Children.Append(types.GetSegmentPath(psbRsbInfo.RsbInfo[i]), types.YChild{"RsbInfo", psbRsbInfo.RsbInfo[i]})
     }
     psbRsbInfo.EntityData.Leafs = types.NewOrderedMap()
@@ -35101,6 +36118,7 @@ func (psbRsbInfo *Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo) GetEntityDat
 type Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Entry validity. The type is bool.
     IsValid interface{}
@@ -35182,7 +36200,8 @@ func (psbInfo *Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo) GetEnti
     psbInfo.EntityData.YangName = "psb-info"
     psbInfo.EntityData.BundleName = "cisco_ios_xr"
     psbInfo.EntityData.ParentYangName = "psb-rsb-info"
-    psbInfo.EntityData.SegmentPath = "psb-info"
+    psbInfo.EntityData.SegmentPath = "psb-info" + types.AddNoKeyToken(psbInfo)
+    psbInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/session-detaileds/session-detailed/psb-rsb-info/" + psbInfo.EntityData.SegmentPath
     psbInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     psbInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     psbInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35196,10 +36215,12 @@ func (psbInfo *Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo) GetEnti
     psbInfo.EntityData.Children.Append("reverse-lsp", types.YChild{"ReverseLsp", &psbInfo.ReverseLsp})
     psbInfo.EntityData.Children.Append("ero", types.YChild{"Ero", nil})
     for i := range psbInfo.Ero {
+        types.SetYListKey(psbInfo.Ero[i], i)
         psbInfo.EntityData.Children.Append(types.GetSegmentPath(psbInfo.Ero[i]), types.YChild{"Ero", psbInfo.Ero[i]})
     }
     psbInfo.EntityData.Children.Append("rro", types.YChild{"Rro", nil})
     for i := range psbInfo.Rro {
+        types.SetYListKey(psbInfo.Rro[i], i)
         psbInfo.EntityData.Children.Append(types.GetSegmentPath(psbInfo.Rro[i]), types.YChild{"Rro", psbInfo.Rro[i]})
     }
     psbInfo.EntityData.Leafs = types.NewOrderedMap()
@@ -35242,6 +36263,7 @@ func (genericInLabel *Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_G
     genericInLabel.EntityData.BundleName = "cisco_ios_xr"
     genericInLabel.EntityData.ParentYangName = "psb-info"
     genericInLabel.EntityData.SegmentPath = "generic-in-label"
+    genericInLabel.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/session-detaileds/session-detailed/psb-rsb-info/psb-info/" + genericInLabel.EntityData.SegmentPath
     genericInLabel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     genericInLabel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     genericInLabel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35273,6 +36295,7 @@ func (generalizedLabel *Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo
     generalizedLabel.EntityData.BundleName = "cisco_ios_xr"
     generalizedLabel.EntityData.ParentYangName = "generic-in-label"
     generalizedLabel.EntityData.SegmentPath = "generalized-label"
+    generalizedLabel.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/session-detaileds/session-detailed/psb-rsb-info/psb-info/generic-in-label/" + generalizedLabel.EntityData.SegmentPath
     generalizedLabel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     generalizedLabel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     generalizedLabel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35280,6 +36303,7 @@ func (generalizedLabel *Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo
     generalizedLabel.EntityData.Children = types.NewOrderedMap()
     generalizedLabel.EntityData.Children.Append("value", types.YChild{"Value", nil})
     for i := range generalizedLabel.Value {
+        types.SetYListKey(generalizedLabel.Value[i], i)
         generalizedLabel.EntityData.Children.Append(types.GetSegmentPath(generalizedLabel.Value[i]), types.YChild{"Value", generalizedLabel.Value[i]})
     }
     generalizedLabel.EntityData.Leafs = types.NewOrderedMap()
@@ -35294,6 +36318,7 @@ func (generalizedLabel *Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo
 type Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_GenericInLabel_GeneralizedLabel_Value struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -35304,7 +36329,8 @@ func (value *Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_GenericInL
     value.EntityData.YangName = "value"
     value.EntityData.BundleName = "cisco_ios_xr"
     value.EntityData.ParentYangName = "generalized-label"
-    value.EntityData.SegmentPath = "value"
+    value.EntityData.SegmentPath = "value" + types.AddNoKeyToken(value)
+    value.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/session-detaileds/session-detailed/psb-rsb-info/psb-info/generic-in-label/generalized-label/" + value.EntityData.SegmentPath
     value.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     value.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     value.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35349,6 +36375,7 @@ func (trafficSpec *Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_Traf
     trafficSpec.EntityData.BundleName = "cisco_ios_xr"
     trafficSpec.EntityData.ParentYangName = "psb-info"
     trafficSpec.EntityData.SegmentPath = "traffic-spec"
+    trafficSpec.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/session-detaileds/session-detailed/psb-rsb-info/psb-info/" + trafficSpec.EntityData.SegmentPath
     trafficSpec.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trafficSpec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trafficSpec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35388,6 +36415,7 @@ func (genericTrafficSpec *Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbIn
     genericTrafficSpec.EntityData.BundleName = "cisco_ios_xr"
     genericTrafficSpec.EntityData.ParentYangName = "psb-info"
     genericTrafficSpec.EntityData.SegmentPath = "generic-traffic-spec"
+    genericTrafficSpec.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/session-detaileds/session-detailed/psb-rsb-info/psb-info/" + genericTrafficSpec.EntityData.SegmentPath
     genericTrafficSpec.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     genericTrafficSpec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     genericTrafficSpec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35430,6 +36458,7 @@ func (g709otnTspec *Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_Gen
     g709otnTspec.EntityData.BundleName = "cisco_ios_xr"
     g709otnTspec.EntityData.ParentYangName = "generic-traffic-spec"
     g709otnTspec.EntityData.SegmentPath = "g709otn-tspec"
+    g709otnTspec.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/session-detaileds/session-detailed/psb-rsb-info/psb-info/generic-traffic-spec/" + g709otnTspec.EntityData.SegmentPath
     g709otnTspec.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     g709otnTspec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     g709otnTspec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35477,6 +36506,7 @@ func (intsrvTspec *Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_Gene
     intsrvTspec.EntityData.BundleName = "cisco_ios_xr"
     intsrvTspec.EntityData.ParentYangName = "generic-traffic-spec"
     intsrvTspec.EntityData.SegmentPath = "intsrv-tspec"
+    intsrvTspec.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/session-detaileds/session-detailed/psb-rsb-info/psb-info/generic-traffic-spec/" + intsrvTspec.EntityData.SegmentPath
     intsrvTspec.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     intsrvTspec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     intsrvTspec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35522,6 +36552,7 @@ func (association *Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_Asso
     association.EntityData.BundleName = "cisco_ios_xr"
     association.EntityData.ParentYangName = "psb-info"
     association.EntityData.SegmentPath = "association"
+    association.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/session-detaileds/session-detailed/psb-rsb-info/psb-info/" + association.EntityData.SegmentPath
     association.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     association.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     association.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35562,6 +36593,7 @@ func (ipv4 *Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_Association
     ipv4.EntityData.BundleName = "cisco_ios_xr"
     ipv4.EntityData.ParentYangName = "association"
     ipv4.EntityData.SegmentPath = "ipv4"
+    ipv4.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/session-detaileds/session-detailed/psb-rsb-info/psb-info/association/" + ipv4.EntityData.SegmentPath
     ipv4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35600,6 +36632,7 @@ func (ipv6 *Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_Association
     ipv6.EntityData.BundleName = "cisco_ios_xr"
     ipv6.EntityData.ParentYangName = "association"
     ipv6.EntityData.SegmentPath = "ipv6"
+    ipv6.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/session-detaileds/session-detailed/psb-rsb-info/psb-info/association/" + ipv6.EntityData.SegmentPath
     ipv6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35646,6 +36679,7 @@ func (extendedIpv4 *Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_Ass
     extendedIpv4.EntityData.BundleName = "cisco_ios_xr"
     extendedIpv4.EntityData.ParentYangName = "association"
     extendedIpv4.EntityData.SegmentPath = "extended-ipv4"
+    extendedIpv4.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/session-detaileds/session-detailed/psb-rsb-info/psb-info/association/" + extendedIpv4.EntityData.SegmentPath
     extendedIpv4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     extendedIpv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     extendedIpv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35653,6 +36687,7 @@ func (extendedIpv4 *Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_Ass
     extendedIpv4.EntityData.Children = types.NewOrderedMap()
     extendedIpv4.EntityData.Children.Append("extended-id", types.YChild{"ExtendedId", nil})
     for i := range extendedIpv4.ExtendedId {
+        types.SetYListKey(extendedIpv4.ExtendedId[i], i)
         extendedIpv4.EntityData.Children.Append(types.GetSegmentPath(extendedIpv4.ExtendedId[i]), types.YChild{"ExtendedId", extendedIpv4.ExtendedId[i]})
     }
     extendedIpv4.EntityData.Leafs = types.NewOrderedMap()
@@ -35671,6 +36706,7 @@ func (extendedIpv4 *Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_Ass
 type Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_Association_ExtendedIpv4_ExtendedId struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -35681,7 +36717,8 @@ func (extendedId *Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_Assoc
     extendedId.EntityData.YangName = "extended-id"
     extendedId.EntityData.BundleName = "cisco_ios_xr"
     extendedId.EntityData.ParentYangName = "extended-ipv4"
-    extendedId.EntityData.SegmentPath = "extended-id"
+    extendedId.EntityData.SegmentPath = "extended-id" + types.AddNoKeyToken(extendedId)
+    extendedId.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/session-detaileds/session-detailed/psb-rsb-info/psb-info/association/extended-ipv4/" + extendedId.EntityData.SegmentPath
     extendedId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     extendedId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     extendedId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35726,6 +36763,7 @@ func (extendedIpv6 *Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_Ass
     extendedIpv6.EntityData.BundleName = "cisco_ios_xr"
     extendedIpv6.EntityData.ParentYangName = "association"
     extendedIpv6.EntityData.SegmentPath = "extended-ipv6"
+    extendedIpv6.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/session-detaileds/session-detailed/psb-rsb-info/psb-info/association/" + extendedIpv6.EntityData.SegmentPath
     extendedIpv6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     extendedIpv6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     extendedIpv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35733,6 +36771,7 @@ func (extendedIpv6 *Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_Ass
     extendedIpv6.EntityData.Children = types.NewOrderedMap()
     extendedIpv6.EntityData.Children.Append("extended-id", types.YChild{"ExtendedId", nil})
     for i := range extendedIpv6.ExtendedId {
+        types.SetYListKey(extendedIpv6.ExtendedId[i], i)
         extendedIpv6.EntityData.Children.Append(types.GetSegmentPath(extendedIpv6.ExtendedId[i]), types.YChild{"ExtendedId", extendedIpv6.ExtendedId[i]})
     }
     extendedIpv6.EntityData.Leafs = types.NewOrderedMap()
@@ -35751,6 +36790,7 @@ func (extendedIpv6 *Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_Ass
 type Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_Association_ExtendedIpv6_ExtendedId struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -35761,7 +36801,8 @@ func (extendedId *Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_Assoc
     extendedId.EntityData.YangName = "extended-id"
     extendedId.EntityData.BundleName = "cisco_ios_xr"
     extendedId.EntityData.ParentYangName = "extended-ipv6"
-    extendedId.EntityData.SegmentPath = "extended-id"
+    extendedId.EntityData.SegmentPath = "extended-id" + types.AddNoKeyToken(extendedId)
+    extendedId.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/session-detaileds/session-detailed/psb-rsb-info/psb-info/association/extended-ipv6/" + extendedId.EntityData.SegmentPath
     extendedId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     extendedId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     extendedId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35806,6 +36847,7 @@ func (protection *Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_Prote
     protection.EntityData.BundleName = "cisco_ios_xr"
     protection.EntityData.ParentYangName = "psb-info"
     protection.EntityData.SegmentPath = "protection"
+    protection.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/session-detaileds/session-detailed/psb-rsb-info/psb-info/" + protection.EntityData.SegmentPath
     protection.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protection.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protection.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35852,6 +36894,7 @@ func (lspFlags *Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_Protect
     lspFlags.EntityData.BundleName = "cisco_ios_xr"
     lspFlags.EntityData.ParentYangName = "protection"
     lspFlags.EntityData.SegmentPath = "lsp-flags"
+    lspFlags.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/session-detaileds/session-detailed/psb-rsb-info/psb-info/protection/" + lspFlags.EntityData.SegmentPath
     lspFlags.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lspFlags.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspFlags.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35907,6 +36950,7 @@ func (linkFlags *Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_Protec
     linkFlags.EntityData.BundleName = "cisco_ios_xr"
     linkFlags.EntityData.ParentYangName = "protection"
     linkFlags.EntityData.SegmentPath = "link-flags"
+    linkFlags.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/session-detaileds/session-detailed/psb-rsb-info/psb-info/protection/" + linkFlags.EntityData.SegmentPath
     linkFlags.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     linkFlags.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     linkFlags.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35951,6 +36995,7 @@ func (reverseLsp *Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_Rever
     reverseLsp.EntityData.BundleName = "cisco_ios_xr"
     reverseLsp.EntityData.ParentYangName = "psb-info"
     reverseLsp.EntityData.SegmentPath = "reverse-lsp"
+    reverseLsp.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/session-detaileds/session-detailed/psb-rsb-info/psb-info/" + reverseLsp.EntityData.SegmentPath
     reverseLsp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     reverseLsp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     reverseLsp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35959,10 +37004,12 @@ func (reverseLsp *Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_Rever
     reverseLsp.EntityData.Children.Append("generic-traffic-spec", types.YChild{"GenericTrafficSpec", &reverseLsp.GenericTrafficSpec})
     reverseLsp.EntityData.Children.Append("ero", types.YChild{"Ero", nil})
     for i := range reverseLsp.Ero {
+        types.SetYListKey(reverseLsp.Ero[i], i)
         reverseLsp.EntityData.Children.Append(types.GetSegmentPath(reverseLsp.Ero[i]), types.YChild{"Ero", reverseLsp.Ero[i]})
     }
     reverseLsp.EntityData.Children.Append("unsup-sub-object", types.YChild{"UnsupSubObject", nil})
     for i := range reverseLsp.UnsupSubObject {
+        types.SetYListKey(reverseLsp.UnsupSubObject[i], i)
         reverseLsp.EntityData.Children.Append(types.GetSegmentPath(reverseLsp.UnsupSubObject[i]), types.YChild{"UnsupSubObject", reverseLsp.UnsupSubObject[i]})
     }
     reverseLsp.EntityData.Leafs = types.NewOrderedMap()
@@ -35994,6 +37041,7 @@ func (genericTrafficSpec *Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbIn
     genericTrafficSpec.EntityData.BundleName = "cisco_ios_xr"
     genericTrafficSpec.EntityData.ParentYangName = "reverse-lsp"
     genericTrafficSpec.EntityData.SegmentPath = "generic-traffic-spec"
+    genericTrafficSpec.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/session-detaileds/session-detailed/psb-rsb-info/psb-info/reverse-lsp/" + genericTrafficSpec.EntityData.SegmentPath
     genericTrafficSpec.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     genericTrafficSpec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     genericTrafficSpec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36036,6 +37084,7 @@ func (g709otnTspec *Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_Rev
     g709otnTspec.EntityData.BundleName = "cisco_ios_xr"
     g709otnTspec.EntityData.ParentYangName = "generic-traffic-spec"
     g709otnTspec.EntityData.SegmentPath = "g709otn-tspec"
+    g709otnTspec.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/session-detaileds/session-detailed/psb-rsb-info/psb-info/reverse-lsp/generic-traffic-spec/" + g709otnTspec.EntityData.SegmentPath
     g709otnTspec.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     g709otnTspec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     g709otnTspec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36083,6 +37132,7 @@ func (intsrvTspec *Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_Reve
     intsrvTspec.EntityData.BundleName = "cisco_ios_xr"
     intsrvTspec.EntityData.ParentYangName = "generic-traffic-spec"
     intsrvTspec.EntityData.SegmentPath = "intsrv-tspec"
+    intsrvTspec.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/session-detaileds/session-detailed/psb-rsb-info/psb-info/reverse-lsp/generic-traffic-spec/" + intsrvTspec.EntityData.SegmentPath
     intsrvTspec.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     intsrvTspec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     intsrvTspec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36105,6 +37155,7 @@ func (intsrvTspec *Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_Reve
 type Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_ReverseLsp_Ero struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // EROType. The type is RsvpMgmtEroSubobj.
     EroType interface{}
@@ -36121,7 +37172,8 @@ func (ero *Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_ReverseLsp_E
     ero.EntityData.YangName = "ero"
     ero.EntityData.BundleName = "cisco_ios_xr"
     ero.EntityData.ParentYangName = "reverse-lsp"
-    ero.EntityData.SegmentPath = "ero"
+    ero.EntityData.SegmentPath = "ero" + types.AddNoKeyToken(ero)
+    ero.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/session-detaileds/session-detailed/psb-rsb-info/psb-info/reverse-lsp/" + ero.EntityData.SegmentPath
     ero.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ero.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ero.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36160,6 +37212,7 @@ func (ipv4eroSubObject *Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo
     ipv4eroSubObject.EntityData.BundleName = "cisco_ios_xr"
     ipv4eroSubObject.EntityData.ParentYangName = "ero"
     ipv4eroSubObject.EntityData.SegmentPath = "ipv4ero-sub-object"
+    ipv4eroSubObject.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/session-detaileds/session-detailed/psb-rsb-info/psb-info/reverse-lsp/ero/" + ipv4eroSubObject.EntityData.SegmentPath
     ipv4eroSubObject.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4eroSubObject.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4eroSubObject.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36201,6 +37254,7 @@ func (unnumberedEroSubObject *Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_P
     unnumberedEroSubObject.EntityData.BundleName = "cisco_ios_xr"
     unnumberedEroSubObject.EntityData.ParentYangName = "ero"
     unnumberedEroSubObject.EntityData.SegmentPath = "unnumbered-ero-sub-object"
+    unnumberedEroSubObject.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/session-detaileds/session-detailed/psb-rsb-info/psb-info/reverse-lsp/ero/" + unnumberedEroSubObject.EntityData.SegmentPath
     unnumberedEroSubObject.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     unnumberedEroSubObject.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unnumberedEroSubObject.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36222,6 +37276,7 @@ func (unnumberedEroSubObject *Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_P
 type Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_ReverseLsp_UnsupSubObject struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // rsvp mgmt rev lsp unsupported subobj. The type is slice of
     // Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_ReverseLsp_UnsupSubObject_RsvpMgmtRevLspUnsupportedSubobj.
@@ -36233,7 +37288,8 @@ func (unsupSubObject *Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_R
     unsupSubObject.EntityData.YangName = "unsup-sub-object"
     unsupSubObject.EntityData.BundleName = "cisco_ios_xr"
     unsupSubObject.EntityData.ParentYangName = "reverse-lsp"
-    unsupSubObject.EntityData.SegmentPath = "unsup-sub-object"
+    unsupSubObject.EntityData.SegmentPath = "unsup-sub-object" + types.AddNoKeyToken(unsupSubObject)
+    unsupSubObject.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/session-detaileds/session-detailed/psb-rsb-info/psb-info/reverse-lsp/" + unsupSubObject.EntityData.SegmentPath
     unsupSubObject.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     unsupSubObject.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unsupSubObject.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36241,6 +37297,7 @@ func (unsupSubObject *Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_R
     unsupSubObject.EntityData.Children = types.NewOrderedMap()
     unsupSubObject.EntityData.Children.Append("rsvp-mgmt-rev-lsp-unsupported-subobj", types.YChild{"RsvpMgmtRevLspUnsupportedSubobj", nil})
     for i := range unsupSubObject.RsvpMgmtRevLspUnsupportedSubobj {
+        types.SetYListKey(unsupSubObject.RsvpMgmtRevLspUnsupportedSubobj[i], i)
         unsupSubObject.EntityData.Children.Append(types.GetSegmentPath(unsupSubObject.RsvpMgmtRevLspUnsupportedSubobj[i]), types.YChild{"RsvpMgmtRevLspUnsupportedSubobj", unsupSubObject.RsvpMgmtRevLspUnsupportedSubobj[i]})
     }
     unsupSubObject.EntityData.Leafs = types.NewOrderedMap()
@@ -36255,6 +37312,7 @@ func (unsupSubObject *Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_R
 type Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_ReverseLsp_UnsupSubObject_RsvpMgmtRevLspUnsupportedSubobj struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..255.
     Entry interface{}
@@ -36265,7 +37323,8 @@ func (rsvpMgmtRevLspUnsupportedSubobj *Rsvp_SessionDetaileds_SessionDetailed_Psb
     rsvpMgmtRevLspUnsupportedSubobj.EntityData.YangName = "rsvp-mgmt-rev-lsp-unsupported-subobj"
     rsvpMgmtRevLspUnsupportedSubobj.EntityData.BundleName = "cisco_ios_xr"
     rsvpMgmtRevLspUnsupportedSubobj.EntityData.ParentYangName = "unsup-sub-object"
-    rsvpMgmtRevLspUnsupportedSubobj.EntityData.SegmentPath = "rsvp-mgmt-rev-lsp-unsupported-subobj"
+    rsvpMgmtRevLspUnsupportedSubobj.EntityData.SegmentPath = "rsvp-mgmt-rev-lsp-unsupported-subobj" + types.AddNoKeyToken(rsvpMgmtRevLspUnsupportedSubobj)
+    rsvpMgmtRevLspUnsupportedSubobj.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/session-detaileds/session-detailed/psb-rsb-info/psb-info/reverse-lsp/unsup-sub-object/" + rsvpMgmtRevLspUnsupportedSubobj.EntityData.SegmentPath
     rsvpMgmtRevLspUnsupportedSubobj.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rsvpMgmtRevLspUnsupportedSubobj.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rsvpMgmtRevLspUnsupportedSubobj.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36284,6 +37343,7 @@ func (rsvpMgmtRevLspUnsupportedSubobj *Rsvp_SessionDetaileds_SessionDetailed_Psb
 type Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_Ero struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // EROType. The type is RsvpMgmtEroSubobj.
     EroType interface{}
@@ -36300,7 +37360,8 @@ func (ero *Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_Ero) GetEnti
     ero.EntityData.YangName = "ero"
     ero.EntityData.BundleName = "cisco_ios_xr"
     ero.EntityData.ParentYangName = "psb-info"
-    ero.EntityData.SegmentPath = "ero"
+    ero.EntityData.SegmentPath = "ero" + types.AddNoKeyToken(ero)
+    ero.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/session-detaileds/session-detailed/psb-rsb-info/psb-info/" + ero.EntityData.SegmentPath
     ero.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ero.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ero.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36339,6 +37400,7 @@ func (ipv4eroSubObject *Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo
     ipv4eroSubObject.EntityData.BundleName = "cisco_ios_xr"
     ipv4eroSubObject.EntityData.ParentYangName = "ero"
     ipv4eroSubObject.EntityData.SegmentPath = "ipv4ero-sub-object"
+    ipv4eroSubObject.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/session-detaileds/session-detailed/psb-rsb-info/psb-info/ero/" + ipv4eroSubObject.EntityData.SegmentPath
     ipv4eroSubObject.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4eroSubObject.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4eroSubObject.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36380,6 +37442,7 @@ func (unnumberedEroSubObject *Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_P
     unnumberedEroSubObject.EntityData.BundleName = "cisco_ios_xr"
     unnumberedEroSubObject.EntityData.ParentYangName = "ero"
     unnumberedEroSubObject.EntityData.SegmentPath = "unnumbered-ero-sub-object"
+    unnumberedEroSubObject.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/session-detaileds/session-detailed/psb-rsb-info/psb-info/ero/" + unnumberedEroSubObject.EntityData.SegmentPath
     unnumberedEroSubObject.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     unnumberedEroSubObject.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unnumberedEroSubObject.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36401,6 +37464,7 @@ func (unnumberedEroSubObject *Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_P
 type Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_Rro struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // RROType. The type is RsvpMgmtRroSubobj.
     RroType interface{}
@@ -36423,7 +37487,8 @@ func (rro *Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_Rro) GetEnti
     rro.EntityData.YangName = "rro"
     rro.EntityData.BundleName = "cisco_ios_xr"
     rro.EntityData.ParentYangName = "psb-info"
-    rro.EntityData.SegmentPath = "rro"
+    rro.EntityData.SegmentPath = "rro" + types.AddNoKeyToken(rro)
+    rro.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/session-detaileds/session-detailed/psb-rsb-info/psb-info/" + rro.EntityData.SegmentPath
     rro.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rro.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rro.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36461,6 +37526,7 @@ func (ipv4rroSubObject *Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo
     ipv4rroSubObject.EntityData.BundleName = "cisco_ios_xr"
     ipv4rroSubObject.EntityData.ParentYangName = "rro"
     ipv4rroSubObject.EntityData.SegmentPath = "ipv4rro-sub-object"
+    ipv4rroSubObject.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/session-detaileds/session-detailed/psb-rsb-info/psb-info/rro/" + ipv4rroSubObject.EntityData.SegmentPath
     ipv4rroSubObject.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4rroSubObject.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4rroSubObject.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36503,6 +37569,7 @@ func (flags *Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_Rro_Ipv4rr
     flags.EntityData.BundleName = "cisco_ios_xr"
     flags.EntityData.ParentYangName = "ipv4rro-sub-object"
     flags.EntityData.SegmentPath = "flags"
+    flags.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/session-detaileds/session-detailed/psb-rsb-info/psb-info/rro/ipv4rro-sub-object/" + flags.EntityData.SegmentPath
     flags.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     flags.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     flags.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36547,6 +37614,7 @@ func (labelRroSubObject *Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInf
     labelRroSubObject.EntityData.BundleName = "cisco_ios_xr"
     labelRroSubObject.EntityData.ParentYangName = "rro"
     labelRroSubObject.EntityData.SegmentPath = "label-rro-sub-object"
+    labelRroSubObject.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/session-detaileds/session-detailed/psb-rsb-info/psb-info/rro/" + labelRroSubObject.EntityData.SegmentPath
     labelRroSubObject.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labelRroSubObject.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelRroSubObject.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36555,6 +37623,7 @@ func (labelRroSubObject *Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInf
     labelRroSubObject.EntityData.Children.Append("flags", types.YChild{"Flags", &labelRroSubObject.Flags})
     labelRroSubObject.EntityData.Children.Append("variable-length-label", types.YChild{"VariableLengthLabel", nil})
     for i := range labelRroSubObject.VariableLengthLabel {
+        types.SetYListKey(labelRroSubObject.VariableLengthLabel[i], i)
         labelRroSubObject.EntityData.Children.Append(types.GetSegmentPath(labelRroSubObject.VariableLengthLabel[i]), types.YChild{"VariableLengthLabel", labelRroSubObject.VariableLengthLabel[i]})
     }
     labelRroSubObject.EntityData.Leafs = types.NewOrderedMap()
@@ -36582,6 +37651,7 @@ func (flags *Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_Rro_LabelR
     flags.EntityData.BundleName = "cisco_ios_xr"
     flags.EntityData.ParentYangName = "label-rro-sub-object"
     flags.EntityData.SegmentPath = "flags"
+    flags.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/session-detaileds/session-detailed/psb-rsb-info/psb-info/rro/label-rro-sub-object/" + flags.EntityData.SegmentPath
     flags.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     flags.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     flags.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36600,6 +37670,7 @@ func (flags *Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_Rro_LabelR
 type Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_Rro_LabelRroSubObject_VariableLengthLabel struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -36610,7 +37681,8 @@ func (variableLengthLabel *Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbI
     variableLengthLabel.EntityData.YangName = "variable-length-label"
     variableLengthLabel.EntityData.BundleName = "cisco_ios_xr"
     variableLengthLabel.EntityData.ParentYangName = "label-rro-sub-object"
-    variableLengthLabel.EntityData.SegmentPath = "variable-length-label"
+    variableLengthLabel.EntityData.SegmentPath = "variable-length-label" + types.AddNoKeyToken(variableLengthLabel)
+    variableLengthLabel.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/session-detaileds/session-detailed/psb-rsb-info/psb-info/rro/label-rro-sub-object/" + variableLengthLabel.EntityData.SegmentPath
     variableLengthLabel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     variableLengthLabel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     variableLengthLabel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36647,6 +37719,7 @@ func (unnumberedRroSubObject *Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_P
     unnumberedRroSubObject.EntityData.BundleName = "cisco_ios_xr"
     unnumberedRroSubObject.EntityData.ParentYangName = "rro"
     unnumberedRroSubObject.EntityData.SegmentPath = "unnumbered-rro-sub-object"
+    unnumberedRroSubObject.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/session-detaileds/session-detailed/psb-rsb-info/psb-info/rro/" + unnumberedRroSubObject.EntityData.SegmentPath
     unnumberedRroSubObject.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     unnumberedRroSubObject.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unnumberedRroSubObject.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36690,6 +37763,7 @@ func (flags *Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_Rro_Unnumb
     flags.EntityData.BundleName = "cisco_ios_xr"
     flags.EntityData.ParentYangName = "unnumbered-rro-sub-object"
     flags.EntityData.SegmentPath = "flags"
+    flags.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/session-detaileds/session-detailed/psb-rsb-info/psb-info/rro/unnumbered-rro-sub-object/" + flags.EntityData.SegmentPath
     flags.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     flags.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     flags.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36724,6 +37798,7 @@ func (srlgRroSubObject *Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo
     srlgRroSubObject.EntityData.BundleName = "cisco_ios_xr"
     srlgRroSubObject.EntityData.ParentYangName = "rro"
     srlgRroSubObject.EntityData.SegmentPath = "srlg-rro-sub-object"
+    srlgRroSubObject.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/session-detaileds/session-detailed/psb-rsb-info/psb-info/rro/" + srlgRroSubObject.EntityData.SegmentPath
     srlgRroSubObject.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     srlgRroSubObject.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     srlgRroSubObject.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36731,6 +37806,7 @@ func (srlgRroSubObject *Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo
     srlgRroSubObject.EntityData.Children = types.NewOrderedMap()
     srlgRroSubObject.EntityData.Children.Append("srl-gs", types.YChild{"SrlGs", nil})
     for i := range srlgRroSubObject.SrlGs {
+        types.SetYListKey(srlgRroSubObject.SrlGs[i], i)
         srlgRroSubObject.EntityData.Children.Append(types.GetSegmentPath(srlgRroSubObject.SrlGs[i]), types.YChild{"SrlGs", srlgRroSubObject.SrlGs[i]})
     }
     srlgRroSubObject.EntityData.Leafs = types.NewOrderedMap()
@@ -36745,6 +37821,7 @@ func (srlgRroSubObject *Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo
 type Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_Rro_SrlgRroSubObject_SrlGs struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -36755,7 +37832,8 @@ func (srlGs *Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_Rro_SrlgRr
     srlGs.EntityData.YangName = "srl-gs"
     srlGs.EntityData.BundleName = "cisco_ios_xr"
     srlGs.EntityData.ParentYangName = "srlg-rro-sub-object"
-    srlGs.EntityData.SegmentPath = "srl-gs"
+    srlGs.EntityData.SegmentPath = "srl-gs" + types.AddNoKeyToken(srlGs)
+    srlGs.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/session-detaileds/session-detailed/psb-rsb-info/psb-info/rro/srlg-rro-sub-object/" + srlGs.EntityData.SegmentPath
     srlGs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     srlGs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     srlGs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36774,6 +37852,7 @@ func (srlGs *Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_Rro_SrlgRr
 type Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_RsbInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Entry validity. The type is bool.
     IsValid interface{}
@@ -36821,7 +37900,8 @@ func (rsbInfo *Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_RsbInfo) GetEnti
     rsbInfo.EntityData.YangName = "rsb-info"
     rsbInfo.EntityData.BundleName = "cisco_ios_xr"
     rsbInfo.EntityData.ParentYangName = "psb-rsb-info"
-    rsbInfo.EntityData.SegmentPath = "rsb-info"
+    rsbInfo.EntityData.SegmentPath = "rsb-info" + types.AddNoKeyToken(rsbInfo)
+    rsbInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/session-detaileds/session-detailed/psb-rsb-info/" + rsbInfo.EntityData.SegmentPath
     rsbInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rsbInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rsbInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36832,6 +37912,7 @@ func (rsbInfo *Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_RsbInfo) GetEnti
     rsbInfo.EntityData.Children.Append("generic-flow-spec", types.YChild{"GenericFlowSpec", &rsbInfo.GenericFlowSpec})
     rsbInfo.EntityData.Children.Append("rro", types.YChild{"Rro", nil})
     for i := range rsbInfo.Rro {
+        types.SetYListKey(rsbInfo.Rro[i], i)
         rsbInfo.EntityData.Children.Append(types.GetSegmentPath(rsbInfo.Rro[i]), types.YChild{"Rro", rsbInfo.Rro[i]})
     }
     rsbInfo.EntityData.Leafs = types.NewOrderedMap()
@@ -36868,6 +37949,7 @@ func (genericOutLabel *Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_RsbInfo_
     genericOutLabel.EntityData.BundleName = "cisco_ios_xr"
     genericOutLabel.EntityData.ParentYangName = "rsb-info"
     genericOutLabel.EntityData.SegmentPath = "generic-out-label"
+    genericOutLabel.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/session-detaileds/session-detailed/psb-rsb-info/rsb-info/" + genericOutLabel.EntityData.SegmentPath
     genericOutLabel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     genericOutLabel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     genericOutLabel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36899,6 +37981,7 @@ func (generalizedLabel *Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_RsbInfo
     generalizedLabel.EntityData.BundleName = "cisco_ios_xr"
     generalizedLabel.EntityData.ParentYangName = "generic-out-label"
     generalizedLabel.EntityData.SegmentPath = "generalized-label"
+    generalizedLabel.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/session-detaileds/session-detailed/psb-rsb-info/rsb-info/generic-out-label/" + generalizedLabel.EntityData.SegmentPath
     generalizedLabel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     generalizedLabel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     generalizedLabel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36906,6 +37989,7 @@ func (generalizedLabel *Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_RsbInfo
     generalizedLabel.EntityData.Children = types.NewOrderedMap()
     generalizedLabel.EntityData.Children.Append("value", types.YChild{"Value", nil})
     for i := range generalizedLabel.Value {
+        types.SetYListKey(generalizedLabel.Value[i], i)
         generalizedLabel.EntityData.Children.Append(types.GetSegmentPath(generalizedLabel.Value[i]), types.YChild{"Value", generalizedLabel.Value[i]})
     }
     generalizedLabel.EntityData.Leafs = types.NewOrderedMap()
@@ -36920,6 +38004,7 @@ func (generalizedLabel *Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_RsbInfo
 type Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_RsbInfo_GenericOutLabel_GeneralizedLabel_Value struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -36930,7 +38015,8 @@ func (value *Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_RsbInfo_GenericOut
     value.EntityData.YangName = "value"
     value.EntityData.BundleName = "cisco_ios_xr"
     value.EntityData.ParentYangName = "generalized-label"
-    value.EntityData.SegmentPath = "value"
+    value.EntityData.SegmentPath = "value" + types.AddNoKeyToken(value)
+    value.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/session-detaileds/session-detailed/psb-rsb-info/rsb-info/generic-out-label/generalized-label/" + value.EntityData.SegmentPath
     value.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     value.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     value.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36985,6 +38071,7 @@ func (flowSpec *Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_RsbInfo_FlowSpe
     flowSpec.EntityData.BundleName = "cisco_ios_xr"
     flowSpec.EntityData.ParentYangName = "rsb-info"
     flowSpec.EntityData.SegmentPath = "flow-spec"
+    flowSpec.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/session-detaileds/session-detailed/psb-rsb-info/rsb-info/" + flowSpec.EntityData.SegmentPath
     flowSpec.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     flowSpec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     flowSpec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37024,6 +38111,7 @@ func (genericFlowSpec *Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_RsbInfo_
     genericFlowSpec.EntityData.BundleName = "cisco_ios_xr"
     genericFlowSpec.EntityData.ParentYangName = "rsb-info"
     genericFlowSpec.EntityData.SegmentPath = "generic-flow-spec"
+    genericFlowSpec.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/session-detaileds/session-detailed/psb-rsb-info/rsb-info/" + genericFlowSpec.EntityData.SegmentPath
     genericFlowSpec.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     genericFlowSpec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     genericFlowSpec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37065,6 +38153,7 @@ func (g709otnFlowSpec *Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_RsbInfo_
     g709otnFlowSpec.EntityData.BundleName = "cisco_ios_xr"
     g709otnFlowSpec.EntityData.ParentYangName = "generic-flow-spec"
     g709otnFlowSpec.EntityData.SegmentPath = "g709otn-flow-spec"
+    g709otnFlowSpec.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/session-detaileds/session-detailed/psb-rsb-info/rsb-info/generic-flow-spec/" + g709otnFlowSpec.EntityData.SegmentPath
     g709otnFlowSpec.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     g709otnFlowSpec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     g709otnFlowSpec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37086,6 +38175,7 @@ func (g709otnFlowSpec *Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_RsbInfo_
 type Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_RsbInfo_Rro struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // RROType. The type is RsvpMgmtRroSubobj.
     RroType interface{}
@@ -37108,7 +38198,8 @@ func (rro *Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_RsbInfo_Rro) GetEnti
     rro.EntityData.YangName = "rro"
     rro.EntityData.BundleName = "cisco_ios_xr"
     rro.EntityData.ParentYangName = "rsb-info"
-    rro.EntityData.SegmentPath = "rro"
+    rro.EntityData.SegmentPath = "rro" + types.AddNoKeyToken(rro)
+    rro.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/session-detaileds/session-detailed/psb-rsb-info/rsb-info/" + rro.EntityData.SegmentPath
     rro.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rro.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rro.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37146,6 +38237,7 @@ func (ipv4rroSubObject *Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_RsbInfo
     ipv4rroSubObject.EntityData.BundleName = "cisco_ios_xr"
     ipv4rroSubObject.EntityData.ParentYangName = "rro"
     ipv4rroSubObject.EntityData.SegmentPath = "ipv4rro-sub-object"
+    ipv4rroSubObject.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/session-detaileds/session-detailed/psb-rsb-info/rsb-info/rro/" + ipv4rroSubObject.EntityData.SegmentPath
     ipv4rroSubObject.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4rroSubObject.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4rroSubObject.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37188,6 +38280,7 @@ func (flags *Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_RsbInfo_Rro_Ipv4rr
     flags.EntityData.BundleName = "cisco_ios_xr"
     flags.EntityData.ParentYangName = "ipv4rro-sub-object"
     flags.EntityData.SegmentPath = "flags"
+    flags.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/session-detaileds/session-detailed/psb-rsb-info/rsb-info/rro/ipv4rro-sub-object/" + flags.EntityData.SegmentPath
     flags.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     flags.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     flags.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37232,6 +38325,7 @@ func (labelRroSubObject *Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_RsbInf
     labelRroSubObject.EntityData.BundleName = "cisco_ios_xr"
     labelRroSubObject.EntityData.ParentYangName = "rro"
     labelRroSubObject.EntityData.SegmentPath = "label-rro-sub-object"
+    labelRroSubObject.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/session-detaileds/session-detailed/psb-rsb-info/rsb-info/rro/" + labelRroSubObject.EntityData.SegmentPath
     labelRroSubObject.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labelRroSubObject.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelRroSubObject.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37240,6 +38334,7 @@ func (labelRroSubObject *Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_RsbInf
     labelRroSubObject.EntityData.Children.Append("flags", types.YChild{"Flags", &labelRroSubObject.Flags})
     labelRroSubObject.EntityData.Children.Append("variable-length-label", types.YChild{"VariableLengthLabel", nil})
     for i := range labelRroSubObject.VariableLengthLabel {
+        types.SetYListKey(labelRroSubObject.VariableLengthLabel[i], i)
         labelRroSubObject.EntityData.Children.Append(types.GetSegmentPath(labelRroSubObject.VariableLengthLabel[i]), types.YChild{"VariableLengthLabel", labelRroSubObject.VariableLengthLabel[i]})
     }
     labelRroSubObject.EntityData.Leafs = types.NewOrderedMap()
@@ -37267,6 +38362,7 @@ func (flags *Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_RsbInfo_Rro_LabelR
     flags.EntityData.BundleName = "cisco_ios_xr"
     flags.EntityData.ParentYangName = "label-rro-sub-object"
     flags.EntityData.SegmentPath = "flags"
+    flags.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/session-detaileds/session-detailed/psb-rsb-info/rsb-info/rro/label-rro-sub-object/" + flags.EntityData.SegmentPath
     flags.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     flags.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     flags.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37285,6 +38381,7 @@ func (flags *Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_RsbInfo_Rro_LabelR
 type Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_RsbInfo_Rro_LabelRroSubObject_VariableLengthLabel struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -37295,7 +38392,8 @@ func (variableLengthLabel *Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_RsbI
     variableLengthLabel.EntityData.YangName = "variable-length-label"
     variableLengthLabel.EntityData.BundleName = "cisco_ios_xr"
     variableLengthLabel.EntityData.ParentYangName = "label-rro-sub-object"
-    variableLengthLabel.EntityData.SegmentPath = "variable-length-label"
+    variableLengthLabel.EntityData.SegmentPath = "variable-length-label" + types.AddNoKeyToken(variableLengthLabel)
+    variableLengthLabel.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/session-detaileds/session-detailed/psb-rsb-info/rsb-info/rro/label-rro-sub-object/" + variableLengthLabel.EntityData.SegmentPath
     variableLengthLabel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     variableLengthLabel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     variableLengthLabel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37332,6 +38430,7 @@ func (unnumberedRroSubObject *Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_R
     unnumberedRroSubObject.EntityData.BundleName = "cisco_ios_xr"
     unnumberedRroSubObject.EntityData.ParentYangName = "rro"
     unnumberedRroSubObject.EntityData.SegmentPath = "unnumbered-rro-sub-object"
+    unnumberedRroSubObject.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/session-detaileds/session-detailed/psb-rsb-info/rsb-info/rro/" + unnumberedRroSubObject.EntityData.SegmentPath
     unnumberedRroSubObject.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     unnumberedRroSubObject.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unnumberedRroSubObject.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37375,6 +38474,7 @@ func (flags *Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_RsbInfo_Rro_Unnumb
     flags.EntityData.BundleName = "cisco_ios_xr"
     flags.EntityData.ParentYangName = "unnumbered-rro-sub-object"
     flags.EntityData.SegmentPath = "flags"
+    flags.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/session-detaileds/session-detailed/psb-rsb-info/rsb-info/rro/unnumbered-rro-sub-object/" + flags.EntityData.SegmentPath
     flags.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     flags.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     flags.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37409,6 +38509,7 @@ func (srlgRroSubObject *Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_RsbInfo
     srlgRroSubObject.EntityData.BundleName = "cisco_ios_xr"
     srlgRroSubObject.EntityData.ParentYangName = "rro"
     srlgRroSubObject.EntityData.SegmentPath = "srlg-rro-sub-object"
+    srlgRroSubObject.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/session-detaileds/session-detailed/psb-rsb-info/rsb-info/rro/" + srlgRroSubObject.EntityData.SegmentPath
     srlgRroSubObject.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     srlgRroSubObject.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     srlgRroSubObject.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37416,6 +38517,7 @@ func (srlgRroSubObject *Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_RsbInfo
     srlgRroSubObject.EntityData.Children = types.NewOrderedMap()
     srlgRroSubObject.EntityData.Children.Append("srl-gs", types.YChild{"SrlGs", nil})
     for i := range srlgRroSubObject.SrlGs {
+        types.SetYListKey(srlgRroSubObject.SrlGs[i], i)
         srlgRroSubObject.EntityData.Children.Append(types.GetSegmentPath(srlgRroSubObject.SrlGs[i]), types.YChild{"SrlGs", srlgRroSubObject.SrlGs[i]})
     }
     srlgRroSubObject.EntityData.Leafs = types.NewOrderedMap()
@@ -37430,6 +38532,7 @@ func (srlgRroSubObject *Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_RsbInfo
 type Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_RsbInfo_Rro_SrlgRroSubObject_SrlGs struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -37440,7 +38543,8 @@ func (srlGs *Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_RsbInfo_Rro_SrlgRr
     srlGs.EntityData.YangName = "srl-gs"
     srlGs.EntityData.BundleName = "cisco_ios_xr"
     srlGs.EntityData.ParentYangName = "srlg-rro-sub-object"
-    srlGs.EntityData.SegmentPath = "srl-gs"
+    srlGs.EntityData.SegmentPath = "srl-gs" + types.AddNoKeyToken(srlGs)
+    srlGs.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/session-detaileds/session-detailed/psb-rsb-info/rsb-info/rro/srlg-rro-sub-object/" + srlGs.EntityData.SegmentPath
     srlGs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     srlGs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     srlGs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37471,6 +38575,7 @@ func (helloInstanceDetails *Rsvp_HelloInstanceDetails) GetEntityData() *types.Co
     helloInstanceDetails.EntityData.BundleName = "cisco_ios_xr"
     helloInstanceDetails.EntityData.ParentYangName = "rsvp"
     helloInstanceDetails.EntityData.SegmentPath = "hello-instance-details"
+    helloInstanceDetails.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/" + helloInstanceDetails.EntityData.SegmentPath
     helloInstanceDetails.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     helloInstanceDetails.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     helloInstanceDetails.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37492,6 +38597,7 @@ func (helloInstanceDetails *Rsvp_HelloInstanceDetails) GetEntityData() *types.Co
 type Rsvp_HelloInstanceDetails_HelloInstanceDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Source Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -37587,6 +38693,7 @@ func (helloInstanceDetail *Rsvp_HelloInstanceDetails_HelloInstanceDetail) GetEnt
     helloInstanceDetail.EntityData.BundleName = "cisco_ios_xr"
     helloInstanceDetail.EntityData.ParentYangName = "hello-instance-details"
     helloInstanceDetail.EntityData.SegmentPath = "hello-instance-detail" + types.AddKeyToken(helloInstanceDetail.SourceAddress, "source-address") + types.AddKeyToken(helloInstanceDetail.DestinationAddress, "destination-address")
+    helloInstanceDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/hello-instance-details/" + helloInstanceDetail.EntityData.SegmentPath
     helloInstanceDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     helloInstanceDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     helloInstanceDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37644,6 +38751,7 @@ func (upTime *Rsvp_HelloInstanceDetails_HelloInstanceDetail_UpTime) GetEntityDat
     upTime.EntityData.BundleName = "cisco_ios_xr"
     upTime.EntityData.ParentYangName = "hello-instance-detail"
     upTime.EntityData.SegmentPath = "up-time"
+    upTime.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/hello-instance-details/hello-instance-detail/" + upTime.EntityData.SegmentPath
     upTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     upTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     upTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37679,6 +38787,7 @@ func (communicationLostTime *Rsvp_HelloInstanceDetails_HelloInstanceDetail_Commu
     communicationLostTime.EntityData.BundleName = "cisco_ios_xr"
     communicationLostTime.EntityData.ParentYangName = "hello-instance-detail"
     communicationLostTime.EntityData.SegmentPath = "communication-lost-time"
+    communicationLostTime.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/hello-instance-details/hello-instance-detail/" + communicationLostTime.EntityData.SegmentPath
     communicationLostTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     communicationLostTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     communicationLostTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37710,6 +38819,7 @@ func (globalNeighborDetails *Rsvp_GlobalNeighborDetails) GetEntityData() *types.
     globalNeighborDetails.EntityData.BundleName = "cisco_ios_xr"
     globalNeighborDetails.EntityData.ParentYangName = "rsvp"
     globalNeighborDetails.EntityData.SegmentPath = "global-neighbor-details"
+    globalNeighborDetails.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/" + globalNeighborDetails.EntityData.SegmentPath
     globalNeighborDetails.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     globalNeighborDetails.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     globalNeighborDetails.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37731,6 +38841,7 @@ func (globalNeighborDetails *Rsvp_GlobalNeighborDetails) GetEntityData() *types.
 type Rsvp_GlobalNeighborDetails_GlobalNeighborDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Address of global neighbor. The type is string
     // with pattern:
@@ -37822,6 +38933,7 @@ func (globalNeighborDetail *Rsvp_GlobalNeighborDetails_GlobalNeighborDetail) Get
     globalNeighborDetail.EntityData.BundleName = "cisco_ios_xr"
     globalNeighborDetail.EntityData.ParentYangName = "global-neighbor-details"
     globalNeighborDetail.EntityData.SegmentPath = "global-neighbor-detail" + types.AddKeyToken(globalNeighborDetail.NeighborAddress, "neighbor-address")
+    globalNeighborDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/global-neighbor-details/" + globalNeighborDetail.EntityData.SegmentPath
     globalNeighborDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     globalNeighborDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     globalNeighborDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37834,30 +38946,37 @@ func (globalNeighborDetail *Rsvp_GlobalNeighborDetails_GlobalNeighborDetail) Get
     globalNeighborDetail.EntityData.Children.Append("recovery-timer-exp-time", types.YChild{"RecoveryTimerExpTime", &globalNeighborDetail.RecoveryTimerExpTime})
     globalNeighborDetail.EntityData.Children.Append("local-node-address", types.YChild{"LocalNodeAddress", nil})
     for i := range globalNeighborDetail.LocalNodeAddress {
+        types.SetYListKey(globalNeighborDetail.LocalNodeAddress[i], i)
         globalNeighborDetail.EntityData.Children.Append(types.GetSegmentPath(globalNeighborDetail.LocalNodeAddress[i]), types.YChild{"LocalNodeAddress", globalNeighborDetail.LocalNodeAddress[i]})
     }
     globalNeighborDetail.EntityData.Children.Append("interface-neighbor", types.YChild{"InterfaceNeighbor", nil})
     for i := range globalNeighborDetail.InterfaceNeighbor {
+        types.SetYListKey(globalNeighborDetail.InterfaceNeighbor[i], i)
         globalNeighborDetail.EntityData.Children.Append(types.GetSegmentPath(globalNeighborDetail.InterfaceNeighbor[i]), types.YChild{"InterfaceNeighbor", globalNeighborDetail.InterfaceNeighbor[i]})
     }
     globalNeighborDetail.EntityData.Children.Append("neighbor-hello-state", types.YChild{"NeighborHelloState", nil})
     for i := range globalNeighborDetail.NeighborHelloState {
+        types.SetYListKey(globalNeighborDetail.NeighborHelloState[i], i)
         globalNeighborDetail.EntityData.Children.Append(types.GetSegmentPath(globalNeighborDetail.NeighborHelloState[i]), types.YChild{"NeighborHelloState", globalNeighborDetail.NeighborHelloState[i]})
     }
     globalNeighborDetail.EntityData.Children.Append("lost-communication-reason", types.YChild{"LostCommunicationReason", nil})
     for i := range globalNeighborDetail.LostCommunicationReason {
+        types.SetYListKey(globalNeighborDetail.LostCommunicationReason[i], i)
         globalNeighborDetail.EntityData.Children.Append(types.GetSegmentPath(globalNeighborDetail.LostCommunicationReason[i]), types.YChild{"LostCommunicationReason", globalNeighborDetail.LostCommunicationReason[i]})
     }
     globalNeighborDetail.EntityData.Children.Append("lost-communication-total", types.YChild{"LostCommunicationTotal", nil})
     for i := range globalNeighborDetail.LostCommunicationTotal {
+        types.SetYListKey(globalNeighborDetail.LostCommunicationTotal[i], i)
         globalNeighborDetail.EntityData.Children.Append(types.GetSegmentPath(globalNeighborDetail.LostCommunicationTotal[i]), types.YChild{"LostCommunicationTotal", globalNeighborDetail.LostCommunicationTotal[i]})
     }
     globalNeighborDetail.EntityData.Children.Append("up-time", types.YChild{"UpTime", nil})
     for i := range globalNeighborDetail.UpTime {
+        types.SetYListKey(globalNeighborDetail.UpTime[i], i)
         globalNeighborDetail.EntityData.Children.Append(types.GetSegmentPath(globalNeighborDetail.UpTime[i]), types.YChild{"UpTime", globalNeighborDetail.UpTime[i]})
     }
     globalNeighborDetail.EntityData.Children.Append("lost-communication-time", types.YChild{"LostCommunicationTime", nil})
     for i := range globalNeighborDetail.LostCommunicationTime {
+        types.SetYListKey(globalNeighborDetail.LostCommunicationTime[i], i)
         globalNeighborDetail.EntityData.Children.Append(types.GetSegmentPath(globalNeighborDetail.LostCommunicationTime[i]), types.YChild{"LostCommunicationTime", globalNeighborDetail.LostCommunicationTime[i]})
     }
     globalNeighborDetail.EntityData.Leafs = types.NewOrderedMap()
@@ -37897,6 +39016,7 @@ func (globalNeighborFlags *Rsvp_GlobalNeighborDetails_GlobalNeighborDetail_Globa
     globalNeighborFlags.EntityData.BundleName = "cisco_ios_xr"
     globalNeighborFlags.EntityData.ParentYangName = "global-neighbor-detail"
     globalNeighborFlags.EntityData.SegmentPath = "global-neighbor-flags"
+    globalNeighborFlags.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/global-neighbor-details/global-neighbor-detail/" + globalNeighborFlags.EntityData.SegmentPath
     globalNeighborFlags.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     globalNeighborFlags.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     globalNeighborFlags.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37932,6 +39052,7 @@ func (restartTimeLeft *Rsvp_GlobalNeighborDetails_GlobalNeighborDetail_RestartTi
     restartTimeLeft.EntityData.BundleName = "cisco_ios_xr"
     restartTimeLeft.EntityData.ParentYangName = "global-neighbor-detail"
     restartTimeLeft.EntityData.SegmentPath = "restart-time-left"
+    restartTimeLeft.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/global-neighbor-details/global-neighbor-detail/" + restartTimeLeft.EntityData.SegmentPath
     restartTimeLeft.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     restartTimeLeft.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     restartTimeLeft.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37967,6 +39088,7 @@ func (restartTimerExpiryTime *Rsvp_GlobalNeighborDetails_GlobalNeighborDetail_Re
     restartTimerExpiryTime.EntityData.BundleName = "cisco_ios_xr"
     restartTimerExpiryTime.EntityData.ParentYangName = "global-neighbor-detail"
     restartTimerExpiryTime.EntityData.SegmentPath = "restart-timer-expiry-time"
+    restartTimerExpiryTime.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/global-neighbor-details/global-neighbor-detail/" + restartTimerExpiryTime.EntityData.SegmentPath
     restartTimerExpiryTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     restartTimerExpiryTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     restartTimerExpiryTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38002,6 +39124,7 @@ func (recoveryTimeLeft *Rsvp_GlobalNeighborDetails_GlobalNeighborDetail_Recovery
     recoveryTimeLeft.EntityData.BundleName = "cisco_ios_xr"
     recoveryTimeLeft.EntityData.ParentYangName = "global-neighbor-detail"
     recoveryTimeLeft.EntityData.SegmentPath = "recovery-time-left"
+    recoveryTimeLeft.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/global-neighbor-details/global-neighbor-detail/" + recoveryTimeLeft.EntityData.SegmentPath
     recoveryTimeLeft.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     recoveryTimeLeft.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     recoveryTimeLeft.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38037,6 +39160,7 @@ func (recoveryTimerExpTime *Rsvp_GlobalNeighborDetails_GlobalNeighborDetail_Reco
     recoveryTimerExpTime.EntityData.BundleName = "cisco_ios_xr"
     recoveryTimerExpTime.EntityData.ParentYangName = "global-neighbor-detail"
     recoveryTimerExpTime.EntityData.SegmentPath = "recovery-timer-exp-time"
+    recoveryTimerExpTime.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/global-neighbor-details/global-neighbor-detail/" + recoveryTimerExpTime.EntityData.SegmentPath
     recoveryTimerExpTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     recoveryTimerExpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     recoveryTimerExpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38056,6 +39180,7 @@ func (recoveryTimerExpTime *Rsvp_GlobalNeighborDetails_GlobalNeighborDetail_Reco
 type Rsvp_GlobalNeighborDetails_GlobalNeighborDetail_LocalNodeAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -38067,7 +39192,8 @@ func (localNodeAddress *Rsvp_GlobalNeighborDetails_GlobalNeighborDetail_LocalNod
     localNodeAddress.EntityData.YangName = "local-node-address"
     localNodeAddress.EntityData.BundleName = "cisco_ios_xr"
     localNodeAddress.EntityData.ParentYangName = "global-neighbor-detail"
-    localNodeAddress.EntityData.SegmentPath = "local-node-address"
+    localNodeAddress.EntityData.SegmentPath = "local-node-address" + types.AddNoKeyToken(localNodeAddress)
+    localNodeAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/global-neighbor-details/global-neighbor-detail/" + localNodeAddress.EntityData.SegmentPath
     localNodeAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     localNodeAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     localNodeAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38086,6 +39212,7 @@ func (localNodeAddress *Rsvp_GlobalNeighborDetails_GlobalNeighborDetail_LocalNod
 type Rsvp_GlobalNeighborDetails_GlobalNeighborDetail_InterfaceNeighbor struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -38097,7 +39224,8 @@ func (interfaceNeighbor *Rsvp_GlobalNeighborDetails_GlobalNeighborDetail_Interfa
     interfaceNeighbor.EntityData.YangName = "interface-neighbor"
     interfaceNeighbor.EntityData.BundleName = "cisco_ios_xr"
     interfaceNeighbor.EntityData.ParentYangName = "global-neighbor-detail"
-    interfaceNeighbor.EntityData.SegmentPath = "interface-neighbor"
+    interfaceNeighbor.EntityData.SegmentPath = "interface-neighbor" + types.AddNoKeyToken(interfaceNeighbor)
+    interfaceNeighbor.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/global-neighbor-details/global-neighbor-detail/" + interfaceNeighbor.EntityData.SegmentPath
     interfaceNeighbor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceNeighbor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceNeighbor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38116,6 +39244,7 @@ func (interfaceNeighbor *Rsvp_GlobalNeighborDetails_GlobalNeighborDetail_Interfa
 type Rsvp_GlobalNeighborDetails_GlobalNeighborDetail_NeighborHelloState struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is RsvpMgmtHelloState.
     Entry interface{}
@@ -38126,7 +39255,8 @@ func (neighborHelloState *Rsvp_GlobalNeighborDetails_GlobalNeighborDetail_Neighb
     neighborHelloState.EntityData.YangName = "neighbor-hello-state"
     neighborHelloState.EntityData.BundleName = "cisco_ios_xr"
     neighborHelloState.EntityData.ParentYangName = "global-neighbor-detail"
-    neighborHelloState.EntityData.SegmentPath = "neighbor-hello-state"
+    neighborHelloState.EntityData.SegmentPath = "neighbor-hello-state" + types.AddNoKeyToken(neighborHelloState)
+    neighborHelloState.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/global-neighbor-details/global-neighbor-detail/" + neighborHelloState.EntityData.SegmentPath
     neighborHelloState.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighborHelloState.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborHelloState.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38145,6 +39275,7 @@ func (neighborHelloState *Rsvp_GlobalNeighborDetails_GlobalNeighborDetail_Neighb
 type Rsvp_GlobalNeighborDetails_GlobalNeighborDetail_LostCommunicationReason struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is RsvpMgmtHelloDownReason.
     Entry interface{}
@@ -38155,7 +39286,8 @@ func (lostCommunicationReason *Rsvp_GlobalNeighborDetails_GlobalNeighborDetail_L
     lostCommunicationReason.EntityData.YangName = "lost-communication-reason"
     lostCommunicationReason.EntityData.BundleName = "cisco_ios_xr"
     lostCommunicationReason.EntityData.ParentYangName = "global-neighbor-detail"
-    lostCommunicationReason.EntityData.SegmentPath = "lost-communication-reason"
+    lostCommunicationReason.EntityData.SegmentPath = "lost-communication-reason" + types.AddNoKeyToken(lostCommunicationReason)
+    lostCommunicationReason.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/global-neighbor-details/global-neighbor-detail/" + lostCommunicationReason.EntityData.SegmentPath
     lostCommunicationReason.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lostCommunicationReason.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lostCommunicationReason.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38174,6 +39306,7 @@ func (lostCommunicationReason *Rsvp_GlobalNeighborDetails_GlobalNeighborDetail_L
 type Rsvp_GlobalNeighborDetails_GlobalNeighborDetail_LostCommunicationTotal struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..65535.
     Entry interface{}
@@ -38184,7 +39317,8 @@ func (lostCommunicationTotal *Rsvp_GlobalNeighborDetails_GlobalNeighborDetail_Lo
     lostCommunicationTotal.EntityData.YangName = "lost-communication-total"
     lostCommunicationTotal.EntityData.BundleName = "cisco_ios_xr"
     lostCommunicationTotal.EntityData.ParentYangName = "global-neighbor-detail"
-    lostCommunicationTotal.EntityData.SegmentPath = "lost-communication-total"
+    lostCommunicationTotal.EntityData.SegmentPath = "lost-communication-total" + types.AddNoKeyToken(lostCommunicationTotal)
+    lostCommunicationTotal.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/global-neighbor-details/global-neighbor-detail/" + lostCommunicationTotal.EntityData.SegmentPath
     lostCommunicationTotal.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lostCommunicationTotal.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lostCommunicationTotal.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38203,6 +39337,7 @@ func (lostCommunicationTotal *Rsvp_GlobalNeighborDetails_GlobalNeighborDetail_Lo
 type Rsvp_GlobalNeighborDetails_GlobalNeighborDetail_UpTime struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Time Value in Seconds. The type is interface{} with range:
     // -2147483648..2147483647. Units are second.
@@ -38218,7 +39353,8 @@ func (upTime *Rsvp_GlobalNeighborDetails_GlobalNeighborDetail_UpTime) GetEntityD
     upTime.EntityData.YangName = "up-time"
     upTime.EntityData.BundleName = "cisco_ios_xr"
     upTime.EntityData.ParentYangName = "global-neighbor-detail"
-    upTime.EntityData.SegmentPath = "up-time"
+    upTime.EntityData.SegmentPath = "up-time" + types.AddNoKeyToken(upTime)
+    upTime.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/global-neighbor-details/global-neighbor-detail/" + upTime.EntityData.SegmentPath
     upTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     upTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     upTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38238,6 +39374,7 @@ func (upTime *Rsvp_GlobalNeighborDetails_GlobalNeighborDetail_UpTime) GetEntityD
 type Rsvp_GlobalNeighborDetails_GlobalNeighborDetail_LostCommunicationTime struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Time Value in Seconds. The type is interface{} with range:
     // -2147483648..2147483647. Units are second.
@@ -38253,7 +39390,8 @@ func (lostCommunicationTime *Rsvp_GlobalNeighborDetails_GlobalNeighborDetail_Los
     lostCommunicationTime.EntityData.YangName = "lost-communication-time"
     lostCommunicationTime.EntityData.BundleName = "cisco_ios_xr"
     lostCommunicationTime.EntityData.ParentYangName = "global-neighbor-detail"
-    lostCommunicationTime.EntityData.SegmentPath = "lost-communication-time"
+    lostCommunicationTime.EntityData.SegmentPath = "lost-communication-time" + types.AddNoKeyToken(lostCommunicationTime)
+    lostCommunicationTime.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/global-neighbor-details/global-neighbor-detail/" + lostCommunicationTime.EntityData.SegmentPath
     lostCommunicationTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lostCommunicationTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lostCommunicationTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38285,6 +39423,7 @@ func (psbBriefs *Rsvp_PsbBriefs) GetEntityData() *types.CommonEntityData {
     psbBriefs.EntityData.BundleName = "cisco_ios_xr"
     psbBriefs.EntityData.ParentYangName = "rsvp"
     psbBriefs.EntityData.SegmentPath = "psb-briefs"
+    psbBriefs.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/" + psbBriefs.EntityData.SegmentPath
     psbBriefs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     psbBriefs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     psbBriefs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38292,6 +39431,7 @@ func (psbBriefs *Rsvp_PsbBriefs) GetEntityData() *types.CommonEntityData {
     psbBriefs.EntityData.Children = types.NewOrderedMap()
     psbBriefs.EntityData.Children.Append("psb-brief", types.YChild{"PsbBrief", nil})
     for i := range psbBriefs.PsbBrief {
+        types.SetYListKey(psbBriefs.PsbBrief[i], i)
         psbBriefs.EntityData.Children.Append(types.GetSegmentPath(psbBriefs.PsbBrief[i]), types.YChild{"PsbBrief", psbBriefs.PsbBrief[i]})
     }
     psbBriefs.EntityData.Leafs = types.NewOrderedMap()
@@ -38306,6 +39446,7 @@ func (psbBriefs *Rsvp_PsbBriefs) GetEntityData() *types.CommonEntityData {
 type Rsvp_PsbBriefs_PsbBrief struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Destination Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -38371,7 +39512,8 @@ func (psbBrief *Rsvp_PsbBriefs_PsbBrief) GetEntityData() *types.CommonEntityData
     psbBrief.EntityData.YangName = "psb-brief"
     psbBrief.EntityData.BundleName = "cisco_ios_xr"
     psbBrief.EntityData.ParentYangName = "psb-briefs"
-    psbBrief.EntityData.SegmentPath = "psb-brief"
+    psbBrief.EntityData.SegmentPath = "psb-brief" + types.AddNoKeyToken(psbBrief)
+    psbBrief.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/psb-briefs/" + psbBrief.EntityData.SegmentPath
     psbBrief.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     psbBrief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     psbBrief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38418,6 +39560,7 @@ func (session *Rsvp_PsbBriefs_PsbBrief_Session) GetEntityData() *types.CommonEnt
     session.EntityData.BundleName = "cisco_ios_xr"
     session.EntityData.ParentYangName = "psb-brief"
     session.EntityData.SegmentPath = "session"
+    session.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/psb-briefs/psb-brief/" + session.EntityData.SegmentPath
     session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38459,6 +39602,7 @@ func (rsvpSession *Rsvp_PsbBriefs_PsbBrief_Session_RsvpSession) GetEntityData() 
     rsvpSession.EntityData.BundleName = "cisco_ios_xr"
     rsvpSession.EntityData.ParentYangName = "session"
     rsvpSession.EntityData.SegmentPath = "rsvp-session"
+    rsvpSession.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/psb-briefs/psb-brief/session/" + rsvpSession.EntityData.SegmentPath
     rsvpSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rsvpSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rsvpSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38500,6 +39644,7 @@ func (ipv4 *Rsvp_PsbBriefs_PsbBrief_Session_RsvpSession_Ipv4) GetEntityData() *t
     ipv4.EntityData.BundleName = "cisco_ios_xr"
     ipv4.EntityData.ParentYangName = "rsvp-session"
     ipv4.EntityData.SegmentPath = "ipv4"
+    ipv4.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/psb-briefs/psb-brief/session/rsvp-session/" + ipv4.EntityData.SegmentPath
     ipv4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38539,6 +39684,7 @@ func (ipv4LspSession *Rsvp_PsbBriefs_PsbBrief_Session_RsvpSession_Ipv4LspSession
     ipv4LspSession.EntityData.BundleName = "cisco_ios_xr"
     ipv4LspSession.EntityData.ParentYangName = "rsvp-session"
     ipv4LspSession.EntityData.SegmentPath = "ipv4-lsp-session"
+    ipv4LspSession.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/psb-briefs/psb-brief/session/rsvp-session/" + ipv4LspSession.EntityData.SegmentPath
     ipv4LspSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4LspSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4LspSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38578,6 +39724,7 @@ func (ipv4UniSession *Rsvp_PsbBriefs_PsbBrief_Session_RsvpSession_Ipv4UniSession
     ipv4UniSession.EntityData.BundleName = "cisco_ios_xr"
     ipv4UniSession.EntityData.ParentYangName = "rsvp-session"
     ipv4UniSession.EntityData.SegmentPath = "ipv4-uni-session"
+    ipv4UniSession.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/psb-briefs/psb-brief/session/rsvp-session/" + ipv4UniSession.EntityData.SegmentPath
     ipv4UniSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4UniSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4UniSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38617,6 +39764,7 @@ func (ipv4P2mpLspSession *Rsvp_PsbBriefs_PsbBrief_Session_RsvpSession_Ipv4P2mpLs
     ipv4P2mpLspSession.EntityData.BundleName = "cisco_ios_xr"
     ipv4P2mpLspSession.EntityData.ParentYangName = "rsvp-session"
     ipv4P2mpLspSession.EntityData.SegmentPath = "ipv4-p2mp-lsp-session"
+    ipv4P2mpLspSession.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/psb-briefs/psb-brief/session/rsvp-session/" + ipv4P2mpLspSession.EntityData.SegmentPath
     ipv4P2mpLspSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4P2mpLspSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4P2mpLspSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38649,6 +39797,7 @@ func (s2lSubLsp *Rsvp_PsbBriefs_PsbBrief_S2lSubLsp) GetEntityData() *types.Commo
     s2lSubLsp.EntityData.BundleName = "cisco_ios_xr"
     s2lSubLsp.EntityData.ParentYangName = "psb-brief"
     s2lSubLsp.EntityData.SegmentPath = "s2l-sub-lsp"
+    s2lSubLsp.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/psb-briefs/psb-brief/" + s2lSubLsp.EntityData.SegmentPath
     s2lSubLsp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     s2lSubLsp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     s2lSubLsp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38678,6 +39827,7 @@ func (template *Rsvp_PsbBriefs_PsbBrief_Template) GetEntityData() *types.CommonE
     template.EntityData.BundleName = "cisco_ios_xr"
     template.EntityData.ParentYangName = "psb-brief"
     template.EntityData.SegmentPath = "template"
+    template.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/psb-briefs/psb-brief/" + template.EntityData.SegmentPath
     template.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     template.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     template.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38713,6 +39863,7 @@ func (rsvpFilter *Rsvp_PsbBriefs_PsbBrief_Template_RsvpFilter) GetEntityData() *
     rsvpFilter.EntityData.BundleName = "cisco_ios_xr"
     rsvpFilter.EntityData.ParentYangName = "template"
     rsvpFilter.EntityData.SegmentPath = "rsvp-filter"
+    rsvpFilter.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/psb-briefs/psb-brief/template/" + rsvpFilter.EntityData.SegmentPath
     rsvpFilter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rsvpFilter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rsvpFilter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38748,6 +39899,7 @@ func (udpIpv4Session *Rsvp_PsbBriefs_PsbBrief_Template_RsvpFilter_UdpIpv4Session
     udpIpv4Session.EntityData.BundleName = "cisco_ios_xr"
     udpIpv4Session.EntityData.ParentYangName = "rsvp-filter"
     udpIpv4Session.EntityData.SegmentPath = "udp-ipv4-session"
+    udpIpv4Session.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/psb-briefs/psb-brief/template/rsvp-filter/" + udpIpv4Session.EntityData.SegmentPath
     udpIpv4Session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     udpIpv4Session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     udpIpv4Session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38790,6 +39942,7 @@ func (p2mpIpv4Session *Rsvp_PsbBriefs_PsbBrief_Template_RsvpFilter_P2mpIpv4Sessi
     p2mpIpv4Session.EntityData.BundleName = "cisco_ios_xr"
     p2mpIpv4Session.EntityData.ParentYangName = "rsvp-filter"
     p2mpIpv4Session.EntityData.SegmentPath = "p2mp-ipv4-session"
+    p2mpIpv4Session.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/psb-briefs/psb-brief/template/rsvp-filter/" + p2mpIpv4Session.EntityData.SegmentPath
     p2mpIpv4Session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     p2mpIpv4Session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     p2mpIpv4Session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38828,6 +39981,7 @@ func (sessionAttribute *Rsvp_PsbBriefs_PsbBrief_SessionAttribute) GetEntityData(
     sessionAttribute.EntityData.BundleName = "cisco_ios_xr"
     sessionAttribute.EntityData.ParentYangName = "psb-brief"
     sessionAttribute.EntityData.SegmentPath = "session-attribute"
+    sessionAttribute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/psb-briefs/psb-brief/" + sessionAttribute.EntityData.SegmentPath
     sessionAttribute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sessionAttribute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionAttribute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38871,6 +40025,7 @@ func (sessAttributeFlags *Rsvp_PsbBriefs_PsbBrief_SessionAttribute_SessAttribute
     sessAttributeFlags.EntityData.BundleName = "cisco_ios_xr"
     sessAttributeFlags.EntityData.ParentYangName = "session-attribute"
     sessAttributeFlags.EntityData.SegmentPath = "sess-attribute-flags"
+    sessAttributeFlags.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/psb-briefs/psb-brief/session-attribute/" + sessAttributeFlags.EntityData.SegmentPath
     sessAttributeFlags.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sessAttributeFlags.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessAttributeFlags.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38919,6 +40074,7 @@ func (trafficSpec *Rsvp_PsbBriefs_PsbBrief_TrafficSpec) GetEntityData() *types.C
     trafficSpec.EntityData.BundleName = "cisco_ios_xr"
     trafficSpec.EntityData.ParentYangName = "psb-brief"
     trafficSpec.EntityData.SegmentPath = "traffic-spec"
+    trafficSpec.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/psb-briefs/psb-brief/" + trafficSpec.EntityData.SegmentPath
     trafficSpec.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trafficSpec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trafficSpec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38958,6 +40114,7 @@ func (genericTrafficSpec *Rsvp_PsbBriefs_PsbBrief_GenericTrafficSpec) GetEntityD
     genericTrafficSpec.EntityData.BundleName = "cisco_ios_xr"
     genericTrafficSpec.EntityData.ParentYangName = "psb-brief"
     genericTrafficSpec.EntityData.SegmentPath = "generic-traffic-spec"
+    genericTrafficSpec.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/psb-briefs/psb-brief/" + genericTrafficSpec.EntityData.SegmentPath
     genericTrafficSpec.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     genericTrafficSpec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     genericTrafficSpec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -39000,6 +40157,7 @@ func (g709otnTspec *Rsvp_PsbBriefs_PsbBrief_GenericTrafficSpec_G709otnTspec) Get
     g709otnTspec.EntityData.BundleName = "cisco_ios_xr"
     g709otnTspec.EntityData.ParentYangName = "generic-traffic-spec"
     g709otnTspec.EntityData.SegmentPath = "g709otn-tspec"
+    g709otnTspec.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/psb-briefs/psb-brief/generic-traffic-spec/" + g709otnTspec.EntityData.SegmentPath
     g709otnTspec.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     g709otnTspec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     g709otnTspec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -39047,6 +40205,7 @@ func (intsrvTspec *Rsvp_PsbBriefs_PsbBrief_GenericTrafficSpec_IntsrvTspec) GetEn
     intsrvTspec.EntityData.BundleName = "cisco_ios_xr"
     intsrvTspec.EntityData.ParentYangName = "generic-traffic-spec"
     intsrvTspec.EntityData.SegmentPath = "intsrv-tspec"
+    intsrvTspec.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/psb-briefs/psb-brief/generic-traffic-spec/" + intsrvTspec.EntityData.SegmentPath
     intsrvTspec.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     intsrvTspec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     intsrvTspec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -39081,6 +40240,7 @@ func (globalNeighborBriefs *Rsvp_GlobalNeighborBriefs) GetEntityData() *types.Co
     globalNeighborBriefs.EntityData.BundleName = "cisco_ios_xr"
     globalNeighborBriefs.EntityData.ParentYangName = "rsvp"
     globalNeighborBriefs.EntityData.SegmentPath = "global-neighbor-briefs"
+    globalNeighborBriefs.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/" + globalNeighborBriefs.EntityData.SegmentPath
     globalNeighborBriefs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     globalNeighborBriefs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     globalNeighborBriefs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -39102,6 +40262,7 @@ func (globalNeighborBriefs *Rsvp_GlobalNeighborBriefs) GetEntityData() *types.Co
 type Rsvp_GlobalNeighborBriefs_GlobalNeighborBrief struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Address of global neighbor. The type is string
     // with pattern:
@@ -39152,6 +40313,7 @@ func (globalNeighborBrief *Rsvp_GlobalNeighborBriefs_GlobalNeighborBrief) GetEnt
     globalNeighborBrief.EntityData.BundleName = "cisco_ios_xr"
     globalNeighborBrief.EntityData.ParentYangName = "global-neighbor-briefs"
     globalNeighborBrief.EntityData.SegmentPath = "global-neighbor-brief" + types.AddKeyToken(globalNeighborBrief.NeighborAddress, "neighbor-address")
+    globalNeighborBrief.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/global-neighbor-briefs/" + globalNeighborBrief.EntityData.SegmentPath
     globalNeighborBrief.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     globalNeighborBrief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     globalNeighborBrief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -39160,26 +40322,32 @@ func (globalNeighborBrief *Rsvp_GlobalNeighborBriefs_GlobalNeighborBrief) GetEnt
     globalNeighborBrief.EntityData.Children.Append("global-neighbor-flags", types.YChild{"GlobalNeighborFlags", &globalNeighborBrief.GlobalNeighborFlags})
     globalNeighborBrief.EntityData.Children.Append("local-node-address", types.YChild{"LocalNodeAddress", nil})
     for i := range globalNeighborBrief.LocalNodeAddress {
+        types.SetYListKey(globalNeighborBrief.LocalNodeAddress[i], i)
         globalNeighborBrief.EntityData.Children.Append(types.GetSegmentPath(globalNeighborBrief.LocalNodeAddress[i]), types.YChild{"LocalNodeAddress", globalNeighborBrief.LocalNodeAddress[i]})
     }
     globalNeighborBrief.EntityData.Children.Append("neighbor-hello-state", types.YChild{"NeighborHelloState", nil})
     for i := range globalNeighborBrief.NeighborHelloState {
+        types.SetYListKey(globalNeighborBrief.NeighborHelloState[i], i)
         globalNeighborBrief.EntityData.Children.Append(types.GetSegmentPath(globalNeighborBrief.NeighborHelloState[i]), types.YChild{"NeighborHelloState", globalNeighborBrief.NeighborHelloState[i]})
     }
     globalNeighborBrief.EntityData.Children.Append("lost-communication-reason", types.YChild{"LostCommunicationReason", nil})
     for i := range globalNeighborBrief.LostCommunicationReason {
+        types.SetYListKey(globalNeighborBrief.LostCommunicationReason[i], i)
         globalNeighborBrief.EntityData.Children.Append(types.GetSegmentPath(globalNeighborBrief.LostCommunicationReason[i]), types.YChild{"LostCommunicationReason", globalNeighborBrief.LostCommunicationReason[i]})
     }
     globalNeighborBrief.EntityData.Children.Append("lost-communication-total", types.YChild{"LostCommunicationTotal", nil})
     for i := range globalNeighborBrief.LostCommunicationTotal {
+        types.SetYListKey(globalNeighborBrief.LostCommunicationTotal[i], i)
         globalNeighborBrief.EntityData.Children.Append(types.GetSegmentPath(globalNeighborBrief.LostCommunicationTotal[i]), types.YChild{"LostCommunicationTotal", globalNeighborBrief.LostCommunicationTotal[i]})
     }
     globalNeighborBrief.EntityData.Children.Append("up-time", types.YChild{"UpTime", nil})
     for i := range globalNeighborBrief.UpTime {
+        types.SetYListKey(globalNeighborBrief.UpTime[i], i)
         globalNeighborBrief.EntityData.Children.Append(types.GetSegmentPath(globalNeighborBrief.UpTime[i]), types.YChild{"UpTime", globalNeighborBrief.UpTime[i]})
     }
     globalNeighborBrief.EntityData.Children.Append("lost-communication-time", types.YChild{"LostCommunicationTime", nil})
     for i := range globalNeighborBrief.LostCommunicationTime {
+        types.SetYListKey(globalNeighborBrief.LostCommunicationTime[i], i)
         globalNeighborBrief.EntityData.Children.Append(types.GetSegmentPath(globalNeighborBrief.LostCommunicationTime[i]), types.YChild{"LostCommunicationTime", globalNeighborBrief.LostCommunicationTime[i]})
     }
     globalNeighborBrief.EntityData.Leafs = types.NewOrderedMap()
@@ -39212,6 +40380,7 @@ func (globalNeighborFlags *Rsvp_GlobalNeighborBriefs_GlobalNeighborBrief_GlobalN
     globalNeighborFlags.EntityData.BundleName = "cisco_ios_xr"
     globalNeighborFlags.EntityData.ParentYangName = "global-neighbor-brief"
     globalNeighborFlags.EntityData.SegmentPath = "global-neighbor-flags"
+    globalNeighborFlags.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/global-neighbor-briefs/global-neighbor-brief/" + globalNeighborFlags.EntityData.SegmentPath
     globalNeighborFlags.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     globalNeighborFlags.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     globalNeighborFlags.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -39231,6 +40400,7 @@ func (globalNeighborFlags *Rsvp_GlobalNeighborBriefs_GlobalNeighborBrief_GlobalN
 type Rsvp_GlobalNeighborBriefs_GlobalNeighborBrief_LocalNodeAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -39242,7 +40412,8 @@ func (localNodeAddress *Rsvp_GlobalNeighborBriefs_GlobalNeighborBrief_LocalNodeA
     localNodeAddress.EntityData.YangName = "local-node-address"
     localNodeAddress.EntityData.BundleName = "cisco_ios_xr"
     localNodeAddress.EntityData.ParentYangName = "global-neighbor-brief"
-    localNodeAddress.EntityData.SegmentPath = "local-node-address"
+    localNodeAddress.EntityData.SegmentPath = "local-node-address" + types.AddNoKeyToken(localNodeAddress)
+    localNodeAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/global-neighbor-briefs/global-neighbor-brief/" + localNodeAddress.EntityData.SegmentPath
     localNodeAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     localNodeAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     localNodeAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -39261,6 +40432,7 @@ func (localNodeAddress *Rsvp_GlobalNeighborBriefs_GlobalNeighborBrief_LocalNodeA
 type Rsvp_GlobalNeighborBriefs_GlobalNeighborBrief_NeighborHelloState struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is RsvpMgmtHelloState.
     Entry interface{}
@@ -39271,7 +40443,8 @@ func (neighborHelloState *Rsvp_GlobalNeighborBriefs_GlobalNeighborBrief_Neighbor
     neighborHelloState.EntityData.YangName = "neighbor-hello-state"
     neighborHelloState.EntityData.BundleName = "cisco_ios_xr"
     neighborHelloState.EntityData.ParentYangName = "global-neighbor-brief"
-    neighborHelloState.EntityData.SegmentPath = "neighbor-hello-state"
+    neighborHelloState.EntityData.SegmentPath = "neighbor-hello-state" + types.AddNoKeyToken(neighborHelloState)
+    neighborHelloState.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/global-neighbor-briefs/global-neighbor-brief/" + neighborHelloState.EntityData.SegmentPath
     neighborHelloState.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighborHelloState.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborHelloState.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -39290,6 +40463,7 @@ func (neighborHelloState *Rsvp_GlobalNeighborBriefs_GlobalNeighborBrief_Neighbor
 type Rsvp_GlobalNeighborBriefs_GlobalNeighborBrief_LostCommunicationReason struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is RsvpMgmtHelloDownReason.
     Entry interface{}
@@ -39300,7 +40474,8 @@ func (lostCommunicationReason *Rsvp_GlobalNeighborBriefs_GlobalNeighborBrief_Los
     lostCommunicationReason.EntityData.YangName = "lost-communication-reason"
     lostCommunicationReason.EntityData.BundleName = "cisco_ios_xr"
     lostCommunicationReason.EntityData.ParentYangName = "global-neighbor-brief"
-    lostCommunicationReason.EntityData.SegmentPath = "lost-communication-reason"
+    lostCommunicationReason.EntityData.SegmentPath = "lost-communication-reason" + types.AddNoKeyToken(lostCommunicationReason)
+    lostCommunicationReason.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/global-neighbor-briefs/global-neighbor-brief/" + lostCommunicationReason.EntityData.SegmentPath
     lostCommunicationReason.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lostCommunicationReason.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lostCommunicationReason.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -39319,6 +40494,7 @@ func (lostCommunicationReason *Rsvp_GlobalNeighborBriefs_GlobalNeighborBrief_Los
 type Rsvp_GlobalNeighborBriefs_GlobalNeighborBrief_LostCommunicationTotal struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..65535.
     Entry interface{}
@@ -39329,7 +40505,8 @@ func (lostCommunicationTotal *Rsvp_GlobalNeighborBriefs_GlobalNeighborBrief_Lost
     lostCommunicationTotal.EntityData.YangName = "lost-communication-total"
     lostCommunicationTotal.EntityData.BundleName = "cisco_ios_xr"
     lostCommunicationTotal.EntityData.ParentYangName = "global-neighbor-brief"
-    lostCommunicationTotal.EntityData.SegmentPath = "lost-communication-total"
+    lostCommunicationTotal.EntityData.SegmentPath = "lost-communication-total" + types.AddNoKeyToken(lostCommunicationTotal)
+    lostCommunicationTotal.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/global-neighbor-briefs/global-neighbor-brief/" + lostCommunicationTotal.EntityData.SegmentPath
     lostCommunicationTotal.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lostCommunicationTotal.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lostCommunicationTotal.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -39348,6 +40525,7 @@ func (lostCommunicationTotal *Rsvp_GlobalNeighborBriefs_GlobalNeighborBrief_Lost
 type Rsvp_GlobalNeighborBriefs_GlobalNeighborBrief_UpTime struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Time Value in Seconds. The type is interface{} with range:
     // -2147483648..2147483647. Units are second.
@@ -39363,7 +40541,8 @@ func (upTime *Rsvp_GlobalNeighborBriefs_GlobalNeighborBrief_UpTime) GetEntityDat
     upTime.EntityData.YangName = "up-time"
     upTime.EntityData.BundleName = "cisco_ios_xr"
     upTime.EntityData.ParentYangName = "global-neighbor-brief"
-    upTime.EntityData.SegmentPath = "up-time"
+    upTime.EntityData.SegmentPath = "up-time" + types.AddNoKeyToken(upTime)
+    upTime.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/global-neighbor-briefs/global-neighbor-brief/" + upTime.EntityData.SegmentPath
     upTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     upTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     upTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -39383,6 +40562,7 @@ func (upTime *Rsvp_GlobalNeighborBriefs_GlobalNeighborBrief_UpTime) GetEntityDat
 type Rsvp_GlobalNeighborBriefs_GlobalNeighborBrief_LostCommunicationTime struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Time Value in Seconds. The type is interface{} with range:
     // -2147483648..2147483647. Units are second.
@@ -39398,7 +40578,8 @@ func (lostCommunicationTime *Rsvp_GlobalNeighborBriefs_GlobalNeighborBrief_LostC
     lostCommunicationTime.EntityData.YangName = "lost-communication-time"
     lostCommunicationTime.EntityData.BundleName = "cisco_ios_xr"
     lostCommunicationTime.EntityData.ParentYangName = "global-neighbor-brief"
-    lostCommunicationTime.EntityData.SegmentPath = "lost-communication-time"
+    lostCommunicationTime.EntityData.SegmentPath = "lost-communication-time" + types.AddNoKeyToken(lostCommunicationTime)
+    lostCommunicationTime.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-rsvp-oper:rsvp/global-neighbor-briefs/global-neighbor-brief/" + lostCommunicationTime.EntityData.SegmentPath
     lostCommunicationTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lostCommunicationTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lostCommunicationTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

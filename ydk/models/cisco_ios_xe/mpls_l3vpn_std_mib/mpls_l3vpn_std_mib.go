@@ -70,6 +70,7 @@ func (mPLSL3VPNSTDMIB *MPLSL3VPNSTDMIB) GetEntityData() *types.CommonEntityData 
     mPLSL3VPNSTDMIB.EntityData.BundleName = "cisco_ios_xe"
     mPLSL3VPNSTDMIB.EntityData.ParentYangName = "MPLS-L3VPN-STD-MIB"
     mPLSL3VPNSTDMIB.EntityData.SegmentPath = "MPLS-L3VPN-STD-MIB:MPLS-L3VPN-STD-MIB"
+    mPLSL3VPNSTDMIB.EntityData.AbsolutePath = mPLSL3VPNSTDMIB.EntityData.SegmentPath
     mPLSL3VPNSTDMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     mPLSL3VPNSTDMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mPLSL3VPNSTDMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -144,6 +145,7 @@ func (mplsL3VpnScalars *MPLSL3VPNSTDMIB_MplsL3VpnScalars) GetEntityData() *types
     mplsL3VpnScalars.EntityData.BundleName = "cisco_ios_xe"
     mplsL3VpnScalars.EntityData.ParentYangName = "MPLS-L3VPN-STD-MIB"
     mplsL3VpnScalars.EntityData.SegmentPath = "mplsL3VpnScalars"
+    mplsL3VpnScalars.EntityData.AbsolutePath = "MPLS-L3VPN-STD-MIB:MPLS-L3VPN-STD-MIB/" + mplsL3VpnScalars.EntityData.SegmentPath
     mplsL3VpnScalars.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     mplsL3VpnScalars.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mplsL3VpnScalars.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -183,6 +185,7 @@ func (mplsL3VpnIfConfTable *MPLSL3VPNSTDMIB_MplsL3VpnIfConfTable) GetEntityData(
     mplsL3VpnIfConfTable.EntityData.BundleName = "cisco_ios_xe"
     mplsL3VpnIfConfTable.EntityData.ParentYangName = "MPLS-L3VPN-STD-MIB"
     mplsL3VpnIfConfTable.EntityData.SegmentPath = "mplsL3VpnIfConfTable"
+    mplsL3VpnIfConfTable.EntityData.AbsolutePath = "MPLS-L3VPN-STD-MIB:MPLS-L3VPN-STD-MIB/" + mplsL3VpnIfConfTable.EntityData.SegmentPath
     mplsL3VpnIfConfTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     mplsL3VpnIfConfTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mplsL3VpnIfConfTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -207,6 +210,7 @@ func (mplsL3VpnIfConfTable *MPLSL3VPNSTDMIB_MplsL3VpnIfConfTable) GetEntityData(
 type MPLSL3VPNSTDMIB_MplsL3VpnIfConfTable_MplsL3VpnIfConfEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with length: 0..31. Refers to
     // mpls_l3vpn_std_mib.MPLSL3VPNSTDMIB_MplsL3VpnVrfTable_MplsL3VpnVrfEntry_MplsL3VpnVrfName
@@ -254,6 +258,7 @@ func (mplsL3VpnIfConfEntry *MPLSL3VPNSTDMIB_MplsL3VpnIfConfTable_MplsL3VpnIfConf
     mplsL3VpnIfConfEntry.EntityData.BundleName = "cisco_ios_xe"
     mplsL3VpnIfConfEntry.EntityData.ParentYangName = "mplsL3VpnIfConfTable"
     mplsL3VpnIfConfEntry.EntityData.SegmentPath = "mplsL3VpnIfConfEntry" + types.AddKeyToken(mplsL3VpnIfConfEntry.MplsL3VpnVrfName, "mplsL3VpnVrfName") + types.AddKeyToken(mplsL3VpnIfConfEntry.MplsL3VpnIfConfIndex, "mplsL3VpnIfConfIndex")
+    mplsL3VpnIfConfEntry.EntityData.AbsolutePath = "MPLS-L3VPN-STD-MIB:MPLS-L3VPN-STD-MIB/mplsL3VpnIfConfTable/" + mplsL3VpnIfConfEntry.EntityData.SegmentPath
     mplsL3VpnIfConfEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     mplsL3VpnIfConfEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mplsL3VpnIfConfEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -308,6 +313,7 @@ func (mplsL3VpnVrfTable *MPLSL3VPNSTDMIB_MplsL3VpnVrfTable) GetEntityData() *typ
     mplsL3VpnVrfTable.EntityData.BundleName = "cisco_ios_xe"
     mplsL3VpnVrfTable.EntityData.ParentYangName = "MPLS-L3VPN-STD-MIB"
     mplsL3VpnVrfTable.EntityData.SegmentPath = "mplsL3VpnVrfTable"
+    mplsL3VpnVrfTable.EntityData.AbsolutePath = "MPLS-L3VPN-STD-MIB:MPLS-L3VPN-STD-MIB/" + mplsL3VpnVrfTable.EntityData.SegmentPath
     mplsL3VpnVrfTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     mplsL3VpnVrfTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mplsL3VpnVrfTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -332,6 +338,7 @@ func (mplsL3VpnVrfTable *MPLSL3VPNSTDMIB_MplsL3VpnVrfTable) GetEntityData() *typ
 type MPLSL3VPNSTDMIB_MplsL3VpnVrfTable_MplsL3VpnVrfEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The human-readable name of this VPN.  This MAY be
     // equivalent to the [RFC2685] VPN-ID, but may also vary.  If it is set to the
@@ -343,7 +350,7 @@ type MPLSL3VPNSTDMIB_MplsL3VpnVrfTable_MplsL3VpnVrfEntry struct {
 
     // The VPN ID as specified in [RFC2685].  If a VPN ID has not been specified
     // for this VRF, then this variable SHOULD be set to a zero-length OCTET
-    // STRING. The type is string with length: 0 | 7.
+    // STRING. The type is string with length: 0..0 | 7..7.
     MplsL3VpnVrfVpnId interface{}
 
     // The human-readable description of this VRF. The type is string.
@@ -467,6 +474,7 @@ func (mplsL3VpnVrfEntry *MPLSL3VPNSTDMIB_MplsL3VpnVrfTable_MplsL3VpnVrfEntry) Ge
     mplsL3VpnVrfEntry.EntityData.BundleName = "cisco_ios_xe"
     mplsL3VpnVrfEntry.EntityData.ParentYangName = "mplsL3VpnVrfTable"
     mplsL3VpnVrfEntry.EntityData.SegmentPath = "mplsL3VpnVrfEntry" + types.AddKeyToken(mplsL3VpnVrfEntry.MplsL3VpnVrfName, "mplsL3VpnVrfName")
+    mplsL3VpnVrfEntry.EntityData.AbsolutePath = "MPLS-L3VPN-STD-MIB:MPLS-L3VPN-STD-MIB/mplsL3VpnVrfTable/" + mplsL3VpnVrfEntry.EntityData.SegmentPath
     mplsL3VpnVrfEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     mplsL3VpnVrfEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mplsL3VpnVrfEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -543,6 +551,7 @@ func (mplsL3VpnVrfRTTable *MPLSL3VPNSTDMIB_MplsL3VpnVrfRTTable) GetEntityData() 
     mplsL3VpnVrfRTTable.EntityData.BundleName = "cisco_ios_xe"
     mplsL3VpnVrfRTTable.EntityData.ParentYangName = "MPLS-L3VPN-STD-MIB"
     mplsL3VpnVrfRTTable.EntityData.SegmentPath = "mplsL3VpnVrfRTTable"
+    mplsL3VpnVrfRTTable.EntityData.AbsolutePath = "MPLS-L3VPN-STD-MIB:MPLS-L3VPN-STD-MIB/" + mplsL3VpnVrfRTTable.EntityData.SegmentPath
     mplsL3VpnVrfRTTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     mplsL3VpnVrfRTTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mplsL3VpnVrfRTTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -568,6 +577,7 @@ func (mplsL3VpnVrfRTTable *MPLSL3VPNSTDMIB_MplsL3VpnVrfRTTable) GetEntityData() 
 type MPLSL3VPNSTDMIB_MplsL3VpnVrfRTTable_MplsL3VpnVrfRTEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with length: 0..31. Refers to
     // mpls_l3vpn_std_mib.MPLSL3VPNSTDMIB_MplsL3VpnVrfTable_MplsL3VpnVrfEntry_MplsL3VpnVrfName
@@ -605,6 +615,7 @@ func (mplsL3VpnVrfRTEntry *MPLSL3VPNSTDMIB_MplsL3VpnVrfRTTable_MplsL3VpnVrfRTEnt
     mplsL3VpnVrfRTEntry.EntityData.BundleName = "cisco_ios_xe"
     mplsL3VpnVrfRTEntry.EntityData.ParentYangName = "mplsL3VpnVrfRTTable"
     mplsL3VpnVrfRTEntry.EntityData.SegmentPath = "mplsL3VpnVrfRTEntry" + types.AddKeyToken(mplsL3VpnVrfRTEntry.MplsL3VpnVrfName, "mplsL3VpnVrfName") + types.AddKeyToken(mplsL3VpnVrfRTEntry.MplsL3VpnVrfRTIndex, "mplsL3VpnVrfRTIndex") + types.AddKeyToken(mplsL3VpnVrfRTEntry.MplsL3VpnVrfRTType, "mplsL3VpnVrfRTType")
+    mplsL3VpnVrfRTEntry.EntityData.AbsolutePath = "MPLS-L3VPN-STD-MIB:MPLS-L3VPN-STD-MIB/mplsL3VpnVrfRTTable/" + mplsL3VpnVrfRTEntry.EntityData.SegmentPath
     mplsL3VpnVrfRTEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     mplsL3VpnVrfRTEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mplsL3VpnVrfRTEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -654,6 +665,7 @@ func (mplsL3VpnVrfRteTable *MPLSL3VPNSTDMIB_MplsL3VpnVrfRteTable) GetEntityData(
     mplsL3VpnVrfRteTable.EntityData.BundleName = "cisco_ios_xe"
     mplsL3VpnVrfRteTable.EntityData.ParentYangName = "MPLS-L3VPN-STD-MIB"
     mplsL3VpnVrfRteTable.EntityData.SegmentPath = "mplsL3VpnVrfRteTable"
+    mplsL3VpnVrfRteTable.EntityData.AbsolutePath = "MPLS-L3VPN-STD-MIB:MPLS-L3VPN-STD-MIB/" + mplsL3VpnVrfRteTable.EntityData.SegmentPath
     mplsL3VpnVrfRteTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     mplsL3VpnVrfRteTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mplsL3VpnVrfRteTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -686,6 +698,7 @@ func (mplsL3VpnVrfRteTable *MPLSL3VPNSTDMIB_MplsL3VpnVrfRteTable) GetEntityData(
 type MPLSL3VPNSTDMIB_MplsL3VpnVrfRteTable_MplsL3VpnVrfRteEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with length: 0..31. Refers to
     // mpls_l3vpn_std_mib.MPLSL3VPNSTDMIB_MplsL3VpnVrfTable_MplsL3VpnVrfEntry_MplsL3VpnVrfName
@@ -835,6 +848,7 @@ func (mplsL3VpnVrfRteEntry *MPLSL3VPNSTDMIB_MplsL3VpnVrfRteTable_MplsL3VpnVrfRte
     mplsL3VpnVrfRteEntry.EntityData.BundleName = "cisco_ios_xe"
     mplsL3VpnVrfRteEntry.EntityData.ParentYangName = "mplsL3VpnVrfRteTable"
     mplsL3VpnVrfRteEntry.EntityData.SegmentPath = "mplsL3VpnVrfRteEntry" + types.AddKeyToken(mplsL3VpnVrfRteEntry.MplsL3VpnVrfName, "mplsL3VpnVrfName") + types.AddKeyToken(mplsL3VpnVrfRteEntry.MplsL3VpnVrfRteInetCidrDestType, "mplsL3VpnVrfRteInetCidrDestType") + types.AddKeyToken(mplsL3VpnVrfRteEntry.MplsL3VpnVrfRteInetCidrDest, "mplsL3VpnVrfRteInetCidrDest") + types.AddKeyToken(mplsL3VpnVrfRteEntry.MplsL3VpnVrfRteInetCidrPfxLen, "mplsL3VpnVrfRteInetCidrPfxLen") + types.AddKeyToken(mplsL3VpnVrfRteEntry.MplsL3VpnVrfRteInetCidrPolicy, "mplsL3VpnVrfRteInetCidrPolicy") + types.AddKeyToken(mplsL3VpnVrfRteEntry.MplsL3VpnVrfRteInetCidrNHopType, "mplsL3VpnVrfRteInetCidrNHopType") + types.AddKeyToken(mplsL3VpnVrfRteEntry.MplsL3VpnVrfRteInetCidrNextHop, "mplsL3VpnVrfRteInetCidrNextHop")
+    mplsL3VpnVrfRteEntry.EntityData.AbsolutePath = "MPLS-L3VPN-STD-MIB:MPLS-L3VPN-STD-MIB/mplsL3VpnVrfRteTable/" + mplsL3VpnVrfRteEntry.EntityData.SegmentPath
     mplsL3VpnVrfRteEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     mplsL3VpnVrfRteEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mplsL3VpnVrfRteEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

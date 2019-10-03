@@ -39,6 +39,7 @@ func (logmsg *Logmsg) GetEntityData() *types.CommonEntityData {
     logmsg.EntityData.BundleName = "cisco_ios_xr"
     logmsg.EntityData.ParentYangName = "Cisco-IOS-XR-syslog-act"
     logmsg.EntityData.SegmentPath = "Cisco-IOS-XR-syslog-act:logmsg"
+    logmsg.EntityData.AbsolutePath = logmsg.EntityData.SegmentPath
     logmsg.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     logmsg.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     logmsg.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -70,6 +71,7 @@ func (input *Logmsg_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "logmsg"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-syslog-act:logmsg/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

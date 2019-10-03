@@ -59,6 +59,7 @@ func (eXPRESSIONMIB *EXPRESSIONMIB) GetEntityData() *types.CommonEntityData {
     eXPRESSIONMIB.EntityData.BundleName = "cisco_ios_xe"
     eXPRESSIONMIB.EntityData.ParentYangName = "EXPRESSION-MIB"
     eXPRESSIONMIB.EntityData.SegmentPath = "EXPRESSION-MIB:EXPRESSION-MIB"
+    eXPRESSIONMIB.EntityData.AbsolutePath = eXPRESSIONMIB.EntityData.SegmentPath
     eXPRESSIONMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     eXPRESSIONMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     eXPRESSIONMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -88,7 +89,7 @@ type EXPRESSIONMIB_ExpResource struct {
     // accept deltaValue as a value for expObjectSampleType.  Unless explicitly
     // resource limited, a system's value for this object should be 1.  Changing
     // this value will not invalidate an existing setting of expObjectSampleType.
-    // The type is interface{} with range: -1..None | 1..600. Units are seconds.
+    // The type is interface{} with range: -1..-1 | 1..600. Units are seconds.
     ExpResourceDeltaMinimum interface{}
 
     // The maximum number of dynamic instance entries this system will support for
@@ -125,6 +126,7 @@ func (expResource *EXPRESSIONMIB_ExpResource) GetEntityData() *types.CommonEntit
     expResource.EntityData.BundleName = "cisco_ios_xe"
     expResource.EntityData.ParentYangName = "EXPRESSION-MIB"
     expResource.EntityData.SegmentPath = "expResource"
+    expResource.EntityData.AbsolutePath = "EXPRESSION-MIB:EXPRESSION-MIB/" + expResource.EntityData.SegmentPath
     expResource.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     expResource.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     expResource.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -171,6 +173,7 @@ func (expNames *EXPRESSIONMIB_ExpNames) GetEntityData() *types.CommonEntityData 
     expNames.EntityData.BundleName = "cisco_ios_xe"
     expNames.EntityData.ParentYangName = "EXPRESSION-MIB"
     expNames.EntityData.SegmentPath = "expNames"
+    expNames.EntityData.AbsolutePath = "EXPRESSION-MIB:EXPRESSION-MIB/" + expNames.EntityData.SegmentPath
     expNames.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     expNames.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     expNames.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -223,6 +226,7 @@ func (expNameTable *EXPRESSIONMIB_ExpNameTable) GetEntityData() *types.CommonEnt
     expNameTable.EntityData.BundleName = "cisco_ios_xe"
     expNameTable.EntityData.ParentYangName = "EXPRESSION-MIB"
     expNameTable.EntityData.SegmentPath = "expNameTable"
+    expNameTable.EntityData.AbsolutePath = "EXPRESSION-MIB:EXPRESSION-MIB/" + expNameTable.EntityData.SegmentPath
     expNameTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     expNameTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     expNameTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -276,6 +280,7 @@ func (expNameTable *EXPRESSIONMIB_ExpNameTable) GetEntityData() *types.CommonEnt
 type EXPRESSIONMIB_ExpNameTable_ExpNameEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The name of the expression.  Choosing names with
     // useful lexical ordering supports using GetNext or GetBulk to retrieve a
@@ -300,6 +305,7 @@ func (expNameEntry *EXPRESSIONMIB_ExpNameTable_ExpNameEntry) GetEntityData() *ty
     expNameEntry.EntityData.BundleName = "cisco_ios_xe"
     expNameEntry.EntityData.ParentYangName = "expNameTable"
     expNameEntry.EntityData.SegmentPath = "expNameEntry" + types.AddKeyToken(expNameEntry.ExpName, "expName")
+    expNameEntry.EntityData.AbsolutePath = "EXPRESSION-MIB:EXPRESSION-MIB/expNameTable/" + expNameEntry.EntityData.SegmentPath
     expNameEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     expNameEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     expNameEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -335,6 +341,7 @@ func (expExpressionTable *EXPRESSIONMIB_ExpExpressionTable) GetEntityData() *typ
     expExpressionTable.EntityData.BundleName = "cisco_ios_xe"
     expExpressionTable.EntityData.ParentYangName = "EXPRESSION-MIB"
     expExpressionTable.EntityData.SegmentPath = "expExpressionTable"
+    expExpressionTable.EntityData.AbsolutePath = "EXPRESSION-MIB:EXPRESSION-MIB/" + expExpressionTable.EntityData.SegmentPath
     expExpressionTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     expExpressionTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     expExpressionTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -362,6 +369,7 @@ func (expExpressionTable *EXPRESSIONMIB_ExpExpressionTable) GetEntityData() *typ
 type EXPRESSIONMIB_ExpExpressionTable_ExpExpressionEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..4294967295.
     // Refers to
@@ -575,6 +583,7 @@ func (expExpressionEntry *EXPRESSIONMIB_ExpExpressionTable_ExpExpressionEntry) G
     expExpressionEntry.EntityData.BundleName = "cisco_ios_xe"
     expExpressionEntry.EntityData.ParentYangName = "expExpressionTable"
     expExpressionEntry.EntityData.SegmentPath = "expExpressionEntry" + types.AddKeyToken(expExpressionEntry.ExpExpressionIndex, "expExpressionIndex")
+    expExpressionEntry.EntityData.AbsolutePath = "EXPRESSION-MIB:EXPRESSION-MIB/expExpressionTable/" + expExpressionEntry.EntityData.SegmentPath
     expExpressionEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     expExpressionEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     expExpressionEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -679,6 +688,7 @@ func (expObjectTable *EXPRESSIONMIB_ExpObjectTable) GetEntityData() *types.Commo
     expObjectTable.EntityData.BundleName = "cisco_ios_xe"
     expObjectTable.EntityData.ParentYangName = "EXPRESSION-MIB"
     expObjectTable.EntityData.SegmentPath = "expObjectTable"
+    expObjectTable.EntityData.AbsolutePath = "EXPRESSION-MIB:EXPRESSION-MIB/" + expObjectTable.EntityData.SegmentPath
     expObjectTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     expObjectTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     expObjectTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -705,6 +715,7 @@ func (expObjectTable *EXPRESSIONMIB_ExpObjectTable) GetEntityData() *types.Commo
 type EXPRESSIONMIB_ExpObjectTable_ExpObjectEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..4294967295.
     // Refers to
@@ -810,6 +821,7 @@ func (expObjectEntry *EXPRESSIONMIB_ExpObjectTable_ExpObjectEntry) GetEntityData
     expObjectEntry.EntityData.BundleName = "cisco_ios_xe"
     expObjectEntry.EntityData.ParentYangName = "expObjectTable"
     expObjectEntry.EntityData.SegmentPath = "expObjectEntry" + types.AddKeyToken(expObjectEntry.ExpExpressionIndex, "expExpressionIndex") + types.AddKeyToken(expObjectEntry.ExpObjectIndex, "expObjectIndex")
+    expObjectEntry.EntityData.AbsolutePath = "EXPRESSION-MIB:EXPRESSION-MIB/expObjectTable/" + expObjectEntry.EntityData.SegmentPath
     expObjectEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     expObjectEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     expObjectEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -882,6 +894,7 @@ func (expValueTable *EXPRESSIONMIB_ExpValueTable) GetEntityData() *types.CommonE
     expValueTable.EntityData.BundleName = "cisco_ios_xe"
     expValueTable.EntityData.ParentYangName = "EXPRESSION-MIB"
     expValueTable.EntityData.SegmentPath = "expValueTable"
+    expValueTable.EntityData.AbsolutePath = "EXPRESSION-MIB:EXPRESSION-MIB/" + expValueTable.EntityData.SegmentPath
     expValueTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     expValueTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     expValueTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -923,6 +936,7 @@ func (expValueTable *EXPRESSIONMIB_ExpValueTable) GetEntityData() *types.CommonE
 type EXPRESSIONMIB_ExpValueTable_ExpValueEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..4294967295.
     // Refers to
@@ -979,6 +993,7 @@ func (expValueEntry *EXPRESSIONMIB_ExpValueTable_ExpValueEntry) GetEntityData() 
     expValueEntry.EntityData.BundleName = "cisco_ios_xe"
     expValueEntry.EntityData.ParentYangName = "expValueTable"
     expValueEntry.EntityData.SegmentPath = "expValueEntry" + types.AddKeyToken(expValueEntry.ExpExpressionIndex, "expExpressionIndex") + types.AddKeyToken(expValueEntry.ExpValueInstance, "expValueInstance")
+    expValueEntry.EntityData.AbsolutePath = "EXPRESSION-MIB:EXPRESSION-MIB/expValueTable/" + expValueEntry.EntityData.SegmentPath
     expValueEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     expValueEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     expValueEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

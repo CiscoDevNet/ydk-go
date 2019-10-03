@@ -109,6 +109,7 @@ func (dhcpv6 *Dhcpv6) GetEntityData() *types.CommonEntityData {
     dhcpv6.EntityData.BundleName = "cisco_ios_xr"
     dhcpv6.EntityData.ParentYangName = "Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg"
     dhcpv6.EntityData.SegmentPath = "Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:dhcpv6"
+    dhcpv6.EntityData.AbsolutePath = dhcpv6.EntityData.SegmentPath
     dhcpv6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dhcpv6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dhcpv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -162,6 +163,7 @@ func (database *Dhcpv6_Database) GetEntityData() *types.CommonEntityData {
     database.EntityData.BundleName = "cisco_ios_xr"
     database.EntityData.ParentYangName = "dhcpv6"
     database.EntityData.SegmentPath = "database"
+    database.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:dhcpv6/" + database.EntityData.SegmentPath
     database.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     database.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     database.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -195,6 +197,7 @@ func (profiles *Dhcpv6_Profiles) GetEntityData() *types.CommonEntityData {
     profiles.EntityData.BundleName = "cisco_ios_xr"
     profiles.EntityData.ParentYangName = "dhcpv6"
     profiles.EntityData.SegmentPath = "profiles"
+    profiles.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:dhcpv6/" + profiles.EntityData.SegmentPath
     profiles.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     profiles.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     profiles.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -216,6 +219,7 @@ func (profiles *Dhcpv6_Profiles) GetEntityData() *types.CommonEntityData {
 type Dhcpv6_Profiles_Profile struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Profile name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -240,6 +244,7 @@ func (profile *Dhcpv6_Profiles_Profile) GetEntityData() *types.CommonEntityData 
     profile.EntityData.BundleName = "cisco_ios_xr"
     profile.EntityData.ParentYangName = "profiles"
     profile.EntityData.SegmentPath = "profile" + types.AddKeyToken(profile.ProfileName, "profile-name")
+    profile.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:dhcpv6/profiles/" + profile.EntityData.SegmentPath
     profile.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     profile.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     profile.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -264,6 +269,13 @@ type Dhcpv6_Profiles_Profile_Relay struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YPresence bool
+
+    // IPv6 address to be filled in link-address. The type is one of the following
+    // types: string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // or string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    LinkAddress interface{}
 
     // Relay profile Source Interface Name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -292,6 +304,7 @@ func (relay *Dhcpv6_Profiles_Profile_Relay) GetEntityData() *types.CommonEntityD
     relay.EntityData.BundleName = "cisco_ios_xr"
     relay.EntityData.ParentYangName = "profile"
     relay.EntityData.SegmentPath = "relay"
+    relay.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:dhcpv6/profiles/profile/" + relay.EntityData.SegmentPath
     relay.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     relay.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     relay.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -300,6 +313,7 @@ func (relay *Dhcpv6_Profiles_Profile_Relay) GetEntityData() *types.CommonEntityD
     relay.EntityData.Children.Append("helper-addresses", types.YChild{"HelperAddresses", &relay.HelperAddresses})
     relay.EntityData.Children.Append("option", types.YChild{"Option", &relay.Option})
     relay.EntityData.Leafs = types.NewOrderedMap()
+    relay.EntityData.Leafs.Append("link-address", types.YLeaf{"LinkAddress", relay.LinkAddress})
     relay.EntityData.Leafs.Append("src-intf-name", types.YLeaf{"SrcIntfName", relay.SrcIntfName})
     relay.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", relay.Enable})
     relay.EntityData.Leafs.Append("iana-route-add", types.YLeaf{"IanaRouteAdd", relay.IanaRouteAdd})
@@ -327,6 +341,7 @@ func (helperAddresses *Dhcpv6_Profiles_Profile_Relay_HelperAddresses) GetEntityD
     helperAddresses.EntityData.BundleName = "cisco_ios_xr"
     helperAddresses.EntityData.ParentYangName = "relay"
     helperAddresses.EntityData.SegmentPath = "helper-addresses"
+    helperAddresses.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:dhcpv6/profiles/profile/relay/" + helperAddresses.EntityData.SegmentPath
     helperAddresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     helperAddresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     helperAddresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -348,6 +363,7 @@ func (helperAddresses *Dhcpv6_Profiles_Profile_Relay_HelperAddresses) GetEntityD
 type Dhcpv6_Profiles_Profile_Relay_HelperAddresses_HelperAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. VRF name. The type is string with length: 1..32.
     VrfName interface{}
@@ -371,6 +387,7 @@ func (helperAddress *Dhcpv6_Profiles_Profile_Relay_HelperAddresses_HelperAddress
     helperAddress.EntityData.BundleName = "cisco_ios_xr"
     helperAddress.EntityData.ParentYangName = "helper-addresses"
     helperAddress.EntityData.SegmentPath = "helper-address" + types.AddKeyToken(helperAddress.VrfName, "vrf-name") + types.AddKeyToken(helperAddress.HelperAddress, "helper-address")
+    helperAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:dhcpv6/profiles/profile/relay/helper-addresses/" + helperAddress.EntityData.SegmentPath
     helperAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     helperAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     helperAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -403,6 +420,7 @@ func (option *Dhcpv6_Profiles_Profile_Relay_Option) GetEntityData() *types.Commo
     option.EntityData.BundleName = "cisco_ios_xr"
     option.EntityData.ParentYangName = "relay"
     option.EntityData.SegmentPath = "option"
+    option.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:dhcpv6/profiles/profile/relay/" + option.EntityData.SegmentPath
     option.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     option.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     option.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -441,6 +459,7 @@ func (base *Dhcpv6_Profiles_Profile_Base) GetEntityData() *types.CommonEntityDat
     base.EntityData.BundleName = "cisco_ios_xr"
     base.EntityData.ParentYangName = "profile"
     base.EntityData.SegmentPath = "base"
+    base.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:dhcpv6/profiles/profile/" + base.EntityData.SegmentPath
     base.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     base.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     base.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -473,6 +492,7 @@ func (self *Dhcpv6_Profiles_Profile_Base_Default) GetEntityData() *types.CommonE
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "base"
     self.EntityData.SegmentPath = "default"
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:dhcpv6/profiles/profile/base/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -494,6 +514,7 @@ func (self *Dhcpv6_Profiles_Profile_Base_Default) GetEntityData() *types.CommonE
 type Dhcpv6_Profiles_Profile_Base_Default_Profile struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Profile name. The type is string with length:
     // 1..64.
@@ -512,6 +533,7 @@ func (profile *Dhcpv6_Profiles_Profile_Base_Default_Profile) GetEntityData() *ty
     profile.EntityData.BundleName = "cisco_ios_xr"
     profile.EntityData.ParentYangName = "default"
     profile.EntityData.SegmentPath = "profile" + types.AddKeyToken(profile.ProfileName, "profile-name")
+    profile.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:dhcpv6/profiles/profile/base/default/" + profile.EntityData.SegmentPath
     profile.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     profile.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     profile.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -543,6 +565,7 @@ func (match *Dhcpv6_Profiles_Profile_Base_Match) GetEntityData() *types.CommonEn
     match.EntityData.BundleName = "cisco_ios_xr"
     match.EntityData.ParentYangName = "base"
     match.EntityData.SegmentPath = "match"
+    match.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:dhcpv6/profiles/profile/base/" + match.EntityData.SegmentPath
     match.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     match.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     match.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -573,6 +596,7 @@ func (modeClasses *Dhcpv6_Profiles_Profile_Base_Match_ModeClasses) GetEntityData
     modeClasses.EntityData.BundleName = "cisco_ios_xr"
     modeClasses.EntityData.ParentYangName = "match"
     modeClasses.EntityData.SegmentPath = "mode-classes"
+    modeClasses.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:dhcpv6/profiles/profile/base/match/" + modeClasses.EntityData.SegmentPath
     modeClasses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     modeClasses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     modeClasses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -594,6 +618,7 @@ func (modeClasses *Dhcpv6_Profiles_Profile_Base_Match_ModeClasses) GetEntityData
 type Dhcpv6_Profiles_Profile_Base_Match_ModeClasses_ModeClass struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Class name. The type is string with length:
     // 1..128.
@@ -610,6 +635,7 @@ func (modeClass *Dhcpv6_Profiles_Profile_Base_Match_ModeClasses_ModeClass) GetEn
     modeClass.EntityData.BundleName = "cisco_ios_xr"
     modeClass.EntityData.ParentYangName = "mode-classes"
     modeClass.EntityData.SegmentPath = "mode-class" + types.AddKeyToken(modeClass.ClassName, "class-name")
+    modeClass.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:dhcpv6/profiles/profile/base/match/mode-classes/" + modeClass.EntityData.SegmentPath
     modeClass.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     modeClass.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     modeClass.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -632,6 +658,7 @@ func (modeClass *Dhcpv6_Profiles_Profile_Base_Match_ModeClasses_ModeClass) GetEn
 type Dhcpv6_Profiles_Profile_Base_Match_ModeClasses_ModeClass_Profile struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Profile name. The type is string with length:
     // 1..64.
@@ -650,6 +677,7 @@ func (profile *Dhcpv6_Profiles_Profile_Base_Match_ModeClasses_ModeClass_Profile)
     profile.EntityData.BundleName = "cisco_ios_xr"
     profile.EntityData.ParentYangName = "mode-class"
     profile.EntityData.SegmentPath = "profile" + types.AddKeyToken(profile.ProfileName, "profile-name")
+    profile.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:dhcpv6/profiles/profile/base/match/mode-classes/mode-class/" + profile.EntityData.SegmentPath
     profile.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     profile.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     profile.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -720,6 +748,7 @@ func (proxy *Dhcpv6_Profiles_Profile_Proxy) GetEntityData() *types.CommonEntityD
     proxy.EntityData.BundleName = "cisco_ios_xr"
     proxy.EntityData.ParentYangName = "profile"
     proxy.EntityData.SegmentPath = "proxy"
+    proxy.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:dhcpv6/profiles/profile/" + proxy.EntityData.SegmentPath
     proxy.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     proxy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     proxy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -760,6 +789,7 @@ func (interfaces *Dhcpv6_Profiles_Profile_Proxy_Interfaces) GetEntityData() *typ
     interfaces.EntityData.BundleName = "cisco_ios_xr"
     interfaces.EntityData.ParentYangName = "proxy"
     interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:dhcpv6/profiles/profile/proxy/" + interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -781,6 +811,7 @@ func (interfaces *Dhcpv6_Profiles_Profile_Proxy_Interfaces) GetEntityData() *typ
 type Dhcpv6_Profiles_Profile_Proxy_Interfaces_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface to configure. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -796,6 +827,7 @@ func (self *Dhcpv6_Profiles_Profile_Proxy_Interfaces_Interface) GetEntityData() 
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:dhcpv6/profiles/profile/proxy/interfaces/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -826,6 +858,7 @@ func (relay *Dhcpv6_Profiles_Profile_Proxy_Relay) GetEntityData() *types.CommonE
     relay.EntityData.BundleName = "cisco_ios_xr"
     relay.EntityData.ParentYangName = "proxy"
     relay.EntityData.SegmentPath = "relay"
+    relay.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:dhcpv6/profiles/profile/proxy/" + relay.EntityData.SegmentPath
     relay.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     relay.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     relay.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -868,6 +901,7 @@ func (option *Dhcpv6_Profiles_Profile_Proxy_Relay_Option) GetEntityData() *types
     option.EntityData.BundleName = "cisco_ios_xr"
     option.EntityData.ParentYangName = "relay"
     option.EntityData.SegmentPath = "option"
+    option.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:dhcpv6/profiles/profile/proxy/relay/" + option.EntityData.SegmentPath
     option.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     option.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     option.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -901,6 +935,7 @@ func (interfaceId *Dhcpv6_Profiles_Profile_Proxy_Relay_Option_InterfaceId) GetEn
     interfaceId.EntityData.BundleName = "cisco_ios_xr"
     interfaceId.EntityData.ParentYangName = "option"
     interfaceId.EntityData.SegmentPath = "interface-id"
+    interfaceId.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:dhcpv6/profiles/profile/proxy/relay/option/" + interfaceId.EntityData.SegmentPath
     interfaceId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -931,6 +966,7 @@ func (vrfs *Dhcpv6_Profiles_Profile_Proxy_Vrfs) GetEntityData() *types.CommonEnt
     vrfs.EntityData.BundleName = "cisco_ios_xr"
     vrfs.EntityData.ParentYangName = "proxy"
     vrfs.EntityData.SegmentPath = "vrfs"
+    vrfs.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:dhcpv6/profiles/profile/proxy/" + vrfs.EntityData.SegmentPath
     vrfs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -952,6 +988,7 @@ func (vrfs *Dhcpv6_Profiles_Profile_Proxy_Vrfs) GetEntityData() *types.CommonEnt
 type Dhcpv6_Profiles_Profile_Proxy_Vrfs_Vrf struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. VRF name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -967,6 +1004,7 @@ func (vrf *Dhcpv6_Profiles_Profile_Proxy_Vrfs_Vrf) GetEntityData() *types.Common
     vrf.EntityData.BundleName = "cisco_ios_xr"
     vrf.EntityData.ParentYangName = "vrfs"
     vrf.EntityData.SegmentPath = "vrf" + types.AddKeyToken(vrf.VrfName, "vrf-name")
+    vrf.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:dhcpv6/profiles/profile/proxy/vrfs/" + vrf.EntityData.SegmentPath
     vrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -998,6 +1036,7 @@ func (helperAddresses *Dhcpv6_Profiles_Profile_Proxy_Vrfs_Vrf_HelperAddresses) G
     helperAddresses.EntityData.BundleName = "cisco_ios_xr"
     helperAddresses.EntityData.ParentYangName = "vrf"
     helperAddresses.EntityData.SegmentPath = "helper-addresses"
+    helperAddresses.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:dhcpv6/profiles/profile/proxy/vrfs/vrf/" + helperAddresses.EntityData.SegmentPath
     helperAddresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     helperAddresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     helperAddresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1019,6 +1058,7 @@ func (helperAddresses *Dhcpv6_Profiles_Profile_Proxy_Vrfs_Vrf_HelperAddresses) G
 type Dhcpv6_Profiles_Profile_Proxy_Vrfs_Vrf_HelperAddresses_HelperAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. DHCPv6 Helper Address. The type is string with
     // pattern:
@@ -1039,6 +1079,7 @@ func (helperAddress *Dhcpv6_Profiles_Profile_Proxy_Vrfs_Vrf_HelperAddresses_Help
     helperAddress.EntityData.BundleName = "cisco_ios_xr"
     helperAddress.EntityData.ParentYangName = "helper-addresses"
     helperAddress.EntityData.SegmentPath = "helper-address" + types.AddKeyToken(helperAddress.HelperAddress, "helper-address")
+    helperAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:dhcpv6/profiles/profile/proxy/vrfs/vrf/helper-addresses/" + helperAddress.EntityData.SegmentPath
     helperAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     helperAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     helperAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1070,6 +1111,7 @@ func (authentication *Dhcpv6_Profiles_Profile_Proxy_Authentication) GetEntityDat
     authentication.EntityData.BundleName = "cisco_ios_xr"
     authentication.EntityData.ParentYangName = "proxy"
     authentication.EntityData.SegmentPath = "authentication"
+    authentication.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:dhcpv6/profiles/profile/proxy/" + authentication.EntityData.SegmentPath
     authentication.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     authentication.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     authentication.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1099,6 +1141,7 @@ func (classes *Dhcpv6_Profiles_Profile_Proxy_Classes) GetEntityData() *types.Com
     classes.EntityData.BundleName = "cisco_ios_xr"
     classes.EntityData.ParentYangName = "proxy"
     classes.EntityData.SegmentPath = "classes"
+    classes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:dhcpv6/profiles/profile/proxy/" + classes.EntityData.SegmentPath
     classes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     classes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     classes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1120,6 +1163,7 @@ func (classes *Dhcpv6_Profiles_Profile_Proxy_Classes) GetEntityData() *types.Com
 type Dhcpv6_Profiles_Profile_Proxy_Classes_Class struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Class name. The type is string with length:
     // 1..128.
@@ -1142,6 +1186,7 @@ func (class *Dhcpv6_Profiles_Profile_Proxy_Classes_Class) GetEntityData() *types
     class.EntityData.BundleName = "cisco_ios_xr"
     class.EntityData.ParentYangName = "classes"
     class.EntityData.SegmentPath = "class" + types.AddKeyToken(class.ClassName, "class-name")
+    class.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:dhcpv6/profiles/profile/proxy/classes/" + class.EntityData.SegmentPath
     class.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     class.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     class.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1174,6 +1219,7 @@ func (helperAddresses *Dhcpv6_Profiles_Profile_Proxy_Classes_Class_HelperAddress
     helperAddresses.EntityData.BundleName = "cisco_ios_xr"
     helperAddresses.EntityData.ParentYangName = "class"
     helperAddresses.EntityData.SegmentPath = "helper-addresses"
+    helperAddresses.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:dhcpv6/profiles/profile/proxy/classes/class/" + helperAddresses.EntityData.SegmentPath
     helperAddresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     helperAddresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     helperAddresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1195,6 +1241,7 @@ func (helperAddresses *Dhcpv6_Profiles_Profile_Proxy_Classes_Class_HelperAddress
 type Dhcpv6_Profiles_Profile_Proxy_Classes_Class_HelperAddresses_HelperAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. VRF name. The type is string with length: 1..32.
     VrfName interface{}
@@ -1210,6 +1257,7 @@ func (helperAddress *Dhcpv6_Profiles_Profile_Proxy_Classes_Class_HelperAddresses
     helperAddress.EntityData.BundleName = "cisco_ios_xr"
     helperAddress.EntityData.ParentYangName = "helper-addresses"
     helperAddress.EntityData.SegmentPath = "helper-address" + types.AddKeyToken(helperAddress.VrfName, "vrf-name") + types.AddKeyToken(helperAddress.HelperAddress, "helper-address")
+    helperAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:dhcpv6/profiles/profile/proxy/classes/class/helper-addresses/" + helperAddress.EntityData.SegmentPath
     helperAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     helperAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     helperAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1240,6 +1288,7 @@ func (sessions *Dhcpv6_Profiles_Profile_Proxy_Sessions) GetEntityData() *types.C
     sessions.EntityData.BundleName = "cisco_ios_xr"
     sessions.EntityData.ParentYangName = "proxy"
     sessions.EntityData.SegmentPath = "sessions"
+    sessions.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:dhcpv6/profiles/profile/proxy/" + sessions.EntityData.SegmentPath
     sessions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sessions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1269,6 +1318,7 @@ func (mac *Dhcpv6_Profiles_Profile_Proxy_Sessions_Mac) GetEntityData() *types.Co
     mac.EntityData.BundleName = "cisco_ios_xr"
     mac.EntityData.ParentYangName = "sessions"
     mac.EntityData.SegmentPath = "mac"
+    mac.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:dhcpv6/profiles/profile/proxy/sessions/" + mac.EntityData.SegmentPath
     mac.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mac.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mac.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1308,6 +1358,7 @@ func (throttle *Dhcpv6_Profiles_Profile_Proxy_Sessions_Mac_Throttle) GetEntityDa
     throttle.EntityData.BundleName = "cisco_ios_xr"
     throttle.EntityData.ParentYangName = "mac"
     throttle.EntityData.SegmentPath = "throttle"
+    throttle.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:dhcpv6/profiles/profile/proxy/sessions/mac/" + throttle.EntityData.SegmentPath
     throttle.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     throttle.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     throttle.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1384,6 +1435,7 @@ func (server *Dhcpv6_Profiles_Profile_Server) GetEntityData() *types.CommonEntit
     server.EntityData.BundleName = "cisco_ios_xr"
     server.EntityData.ParentYangName = "profile"
     server.EntityData.SegmentPath = "server"
+    server.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:dhcpv6/profiles/profile/" + server.EntityData.SegmentPath
     server.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     server.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     server.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1427,6 +1479,7 @@ func (sessions *Dhcpv6_Profiles_Profile_Server_Sessions) GetEntityData() *types.
     sessions.EntityData.BundleName = "cisco_ios_xr"
     sessions.EntityData.ParentYangName = "server"
     sessions.EntityData.SegmentPath = "sessions"
+    sessions.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:dhcpv6/profiles/profile/server/" + sessions.EntityData.SegmentPath
     sessions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sessions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1456,6 +1509,7 @@ func (mac *Dhcpv6_Profiles_Profile_Server_Sessions_Mac) GetEntityData() *types.C
     mac.EntityData.BundleName = "cisco_ios_xr"
     mac.EntityData.ParentYangName = "sessions"
     mac.EntityData.SegmentPath = "mac"
+    mac.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:dhcpv6/profiles/profile/server/sessions/" + mac.EntityData.SegmentPath
     mac.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mac.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mac.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1495,6 +1549,7 @@ func (throttle *Dhcpv6_Profiles_Profile_Server_Sessions_Mac_Throttle) GetEntityD
     throttle.EntityData.BundleName = "cisco_ios_xr"
     throttle.EntityData.ParentYangName = "mac"
     throttle.EntityData.SegmentPath = "throttle"
+    throttle.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:dhcpv6/profiles/profile/server/sessions/mac/" + throttle.EntityData.SegmentPath
     throttle.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     throttle.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     throttle.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1530,6 +1585,7 @@ func (dnsServers *Dhcpv6_Profiles_Profile_Server_DnsServers) GetEntityData() *ty
     dnsServers.EntityData.BundleName = "cisco_ios_xr"
     dnsServers.EntityData.ParentYangName = "server"
     dnsServers.EntityData.SegmentPath = "dns-servers"
+    dnsServers.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:dhcpv6/profiles/profile/server/" + dnsServers.EntityData.SegmentPath
     dnsServers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dnsServers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dnsServers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1559,6 +1615,7 @@ func (classes *Dhcpv6_Profiles_Profile_Server_Classes) GetEntityData() *types.Co
     classes.EntityData.BundleName = "cisco_ios_xr"
     classes.EntityData.ParentYangName = "server"
     classes.EntityData.SegmentPath = "classes"
+    classes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:dhcpv6/profiles/profile/server/" + classes.EntityData.SegmentPath
     classes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     classes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     classes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1580,6 +1637,7 @@ func (classes *Dhcpv6_Profiles_Profile_Server_Classes) GetEntityData() *types.Co
 type Dhcpv6_Profiles_Profile_Server_Classes_Class struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. class name. The type is string with length:
     // 1..128.
@@ -1610,6 +1668,7 @@ func (class *Dhcpv6_Profiles_Profile_Server_Classes_Class) GetEntityData() *type
     class.EntityData.BundleName = "cisco_ios_xr"
     class.EntityData.ParentYangName = "classes"
     class.EntityData.SegmentPath = "class" + types.AddKeyToken(class.ClassName, "class-name")
+    class.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:dhcpv6/profiles/profile/server/classes/" + class.EntityData.SegmentPath
     class.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     class.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     class.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1649,6 +1708,7 @@ func (dnsServers *Dhcpv6_Profiles_Profile_Server_Classes_Class_DnsServers) GetEn
     dnsServers.EntityData.BundleName = "cisco_ios_xr"
     dnsServers.EntityData.ParentYangName = "class"
     dnsServers.EntityData.SegmentPath = "dns-servers"
+    dnsServers.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:dhcpv6/profiles/profile/server/classes/class/" + dnsServers.EntityData.SegmentPath
     dnsServers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dnsServers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dnsServers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1687,6 +1747,7 @@ func (lease *Dhcpv6_Profiles_Profile_Server_Classes_Class_Lease) GetEntityData()
     lease.EntityData.BundleName = "cisco_ios_xr"
     lease.EntityData.ParentYangName = "class"
     lease.EntityData.SegmentPath = "lease"
+    lease.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:dhcpv6/profiles/profile/server/classes/class/" + lease.EntityData.SegmentPath
     lease.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lease.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lease.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1728,6 +1789,7 @@ func (lease *Dhcpv6_Profiles_Profile_Server_Lease) GetEntityData() *types.Common
     lease.EntityData.BundleName = "cisco_ios_xr"
     lease.EntityData.ParentYangName = "server"
     lease.EntityData.SegmentPath = "lease"
+    lease.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:dhcpv6/profiles/profile/server/" + lease.EntityData.SegmentPath
     lease.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lease.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lease.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1760,6 +1822,7 @@ func (dhcpv6duid *Dhcpv6_Profiles_Profile_Server_Dhcpv6duid) GetEntityData() *ty
     dhcpv6duid.EntityData.BundleName = "cisco_ios_xr"
     dhcpv6duid.EntityData.ParentYangName = "server"
     dhcpv6duid.EntityData.SegmentPath = "dhcpv6duid"
+    dhcpv6duid.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:dhcpv6/profiles/profile/server/" + dhcpv6duid.EntityData.SegmentPath
     dhcpv6duid.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dhcpv6duid.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dhcpv6duid.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1789,6 +1852,7 @@ func (aaaServer *Dhcpv6_Profiles_Profile_Server_AaaServer) GetEntityData() *type
     aaaServer.EntityData.BundleName = "cisco_ios_xr"
     aaaServer.EntityData.ParentYangName = "server"
     aaaServer.EntityData.SegmentPath = "aaa-server"
+    aaaServer.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:dhcpv6/profiles/profile/server/" + aaaServer.EntityData.SegmentPath
     aaaServer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     aaaServer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     aaaServer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1818,6 +1882,7 @@ func (dhcpv6Option *Dhcpv6_Profiles_Profile_Server_AaaServer_Dhcpv6Option) GetEn
     dhcpv6Option.EntityData.BundleName = "cisco_ios_xr"
     dhcpv6Option.EntityData.ParentYangName = "aaa-server"
     dhcpv6Option.EntityData.SegmentPath = "dhcpv6-option"
+    dhcpv6Option.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:dhcpv6/profiles/profile/server/aaa-server/" + dhcpv6Option.EntityData.SegmentPath
     dhcpv6Option.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dhcpv6Option.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dhcpv6Option.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1848,6 +1913,7 @@ func (options *Dhcpv6_Profiles_Profile_Server_Options) GetEntityData() *types.Co
     options.EntityData.BundleName = "cisco_ios_xr"
     options.EntityData.ParentYangName = "server"
     options.EntityData.SegmentPath = "options"
+    options.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:dhcpv6/profiles/profile/server/" + options.EntityData.SegmentPath
     options.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     options.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     options.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1869,6 +1935,7 @@ func (options *Dhcpv6_Profiles_Profile_Server_Options) GetEntityData() *types.Co
 type Dhcpv6_Profiles_Profile_Server_Options_Option struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Set string. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -1895,6 +1962,7 @@ func (option *Dhcpv6_Profiles_Profile_Server_Options_Option) GetEntityData() *ty
     option.EntityData.BundleName = "cisco_ios_xr"
     option.EntityData.ParentYangName = "options"
     option.EntityData.SegmentPath = "option" + types.AddKeyToken(option.Type, "type") + types.AddKeyToken(option.Format, "format") + types.AddKeyToken(option.Value, "value")
+    option.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:dhcpv6/profiles/profile/server/options/" + option.EntityData.SegmentPath
     option.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     option.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     option.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1931,6 +1999,7 @@ func (enterpriseId *Dhcpv6_Profiles_Profile_Server_Options_Option_EnterpriseId) 
     enterpriseId.EntityData.BundleName = "cisco_ios_xr"
     enterpriseId.EntityData.ParentYangName = "option"
     enterpriseId.EntityData.SegmentPath = "enterprise-id"
+    enterpriseId.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:dhcpv6/profiles/profile/server/options/option/" + enterpriseId.EntityData.SegmentPath
     enterpriseId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     enterpriseId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     enterpriseId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1961,6 +2030,7 @@ func (hexEnterpriseId *Dhcpv6_Profiles_Profile_Server_Options_Option_EnterpriseI
     hexEnterpriseId.EntityData.BundleName = "cisco_ios_xr"
     hexEnterpriseId.EntityData.ParentYangName = "enterprise-id"
     hexEnterpriseId.EntityData.SegmentPath = "hex-enterprise-id"
+    hexEnterpriseId.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:dhcpv6/profiles/profile/server/options/option/enterprise-id/" + hexEnterpriseId.EntityData.SegmentPath
     hexEnterpriseId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hexEnterpriseId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hexEnterpriseId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1990,6 +2060,7 @@ func (defaultEnterpriseId *Dhcpv6_Profiles_Profile_Server_Options_Option_Enterpr
     defaultEnterpriseId.EntityData.BundleName = "cisco_ios_xr"
     defaultEnterpriseId.EntityData.ParentYangName = "enterprise-id"
     defaultEnterpriseId.EntityData.SegmentPath = "default-enterprise-id"
+    defaultEnterpriseId.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:dhcpv6/profiles/profile/server/options/option/enterprise-id/" + defaultEnterpriseId.EntityData.SegmentPath
     defaultEnterpriseId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     defaultEnterpriseId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     defaultEnterpriseId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2022,6 +2093,7 @@ func (vendorClass *Dhcpv6_Profiles_Profile_Server_Options_Option_VendorClass) Ge
     vendorClass.EntityData.BundleName = "cisco_ios_xr"
     vendorClass.EntityData.ParentYangName = "option"
     vendorClass.EntityData.SegmentPath = "vendor-class"
+    vendorClass.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:dhcpv6/profiles/profile/server/options/option/" + vendorClass.EntityData.SegmentPath
     vendorClass.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vendorClass.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vendorClass.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2052,6 +2124,7 @@ func (strVendorClass *Dhcpv6_Profiles_Profile_Server_Options_Option_VendorClass_
     strVendorClass.EntityData.BundleName = "cisco_ios_xr"
     strVendorClass.EntityData.ParentYangName = "vendor-class"
     strVendorClass.EntityData.SegmentPath = "str-vendor-class"
+    strVendorClass.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:dhcpv6/profiles/profile/server/options/option/vendor-class/" + strVendorClass.EntityData.SegmentPath
     strVendorClass.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     strVendorClass.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     strVendorClass.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2081,6 +2154,7 @@ func (defaultVendorClass *Dhcpv6_Profiles_Profile_Server_Options_Option_VendorCl
     defaultVendorClass.EntityData.BundleName = "cisco_ios_xr"
     defaultVendorClass.EntityData.ParentYangName = "vendor-class"
     defaultVendorClass.EntityData.SegmentPath = "default-vendor-class"
+    defaultVendorClass.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:dhcpv6/profiles/profile/server/options/option/vendor-class/" + defaultVendorClass.EntityData.SegmentPath
     defaultVendorClass.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     defaultVendorClass.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     defaultVendorClass.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2110,6 +2184,7 @@ func (dhcpv6Options *Dhcpv6_Profiles_Profile_Server_Dhcpv6Options) GetEntityData
     dhcpv6Options.EntityData.BundleName = "cisco_ios_xr"
     dhcpv6Options.EntityData.ParentYangName = "server"
     dhcpv6Options.EntityData.SegmentPath = "dhcpv6-options"
+    dhcpv6Options.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:dhcpv6/profiles/profile/server/" + dhcpv6Options.EntityData.SegmentPath
     dhcpv6Options.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dhcpv6Options.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dhcpv6Options.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2142,6 +2217,7 @@ func (vendorOptions *Dhcpv6_Profiles_Profile_Server_Dhcpv6Options_VendorOptions)
     vendorOptions.EntityData.BundleName = "cisco_ios_xr"
     vendorOptions.EntityData.ParentYangName = "dhcpv6-options"
     vendorOptions.EntityData.SegmentPath = "vendor-options"
+    vendorOptions.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:dhcpv6/profiles/profile/server/dhcpv6-options/" + vendorOptions.EntityData.SegmentPath
     vendorOptions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vendorOptions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vendorOptions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2172,6 +2248,7 @@ func (interfaces *Dhcpv6_Interfaces) GetEntityData() *types.CommonEntityData {
     interfaces.EntityData.BundleName = "cisco_ios_xr"
     interfaces.EntityData.ParentYangName = "dhcpv6"
     interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:dhcpv6/" + interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2193,6 +2270,7 @@ func (interfaces *Dhcpv6_Interfaces) GetEntityData() *types.CommonEntityData {
 type Dhcpv6_Interfaces_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface to configure. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -2220,6 +2298,7 @@ func (self *Dhcpv6_Interfaces_Interface) GetEntityData() *types.CommonEntityData
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:dhcpv6/interfaces/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2254,6 +2333,7 @@ func (pppoe *Dhcpv6_Interfaces_Interface_Pppoe) GetEntityData() *types.CommonEnt
     pppoe.EntityData.BundleName = "cisco_ios_xr"
     pppoe.EntityData.ParentYangName = "interface"
     pppoe.EntityData.SegmentPath = "pppoe"
+    pppoe.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:dhcpv6/interfaces/interface/" + pppoe.EntityData.SegmentPath
     pppoe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pppoe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pppoe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2283,6 +2363,7 @@ func (proxy *Dhcpv6_Interfaces_Interface_Proxy) GetEntityData() *types.CommonEnt
     proxy.EntityData.BundleName = "cisco_ios_xr"
     proxy.EntityData.ParentYangName = "interface"
     proxy.EntityData.SegmentPath = "proxy"
+    proxy.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:dhcpv6/interfaces/interface/" + proxy.EntityData.SegmentPath
     proxy.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     proxy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     proxy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2312,6 +2393,7 @@ func (base *Dhcpv6_Interfaces_Interface_Base) GetEntityData() *types.CommonEntit
     base.EntityData.BundleName = "cisco_ios_xr"
     base.EntityData.ParentYangName = "interface"
     base.EntityData.SegmentPath = "base"
+    base.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:dhcpv6/interfaces/interface/" + base.EntityData.SegmentPath
     base.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     base.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     base.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2341,6 +2423,7 @@ func (server *Dhcpv6_Interfaces_Interface_Server) GetEntityData() *types.CommonE
     server.EntityData.BundleName = "cisco_ios_xr"
     server.EntityData.ParentYangName = "interface"
     server.EntityData.SegmentPath = "server"
+    server.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:dhcpv6/interfaces/interface/" + server.EntityData.SegmentPath
     server.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     server.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     server.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2370,6 +2453,7 @@ func (relay *Dhcpv6_Interfaces_Interface_Relay) GetEntityData() *types.CommonEnt
     relay.EntityData.BundleName = "cisco_ios_xr"
     relay.EntityData.ParentYangName = "interface"
     relay.EntityData.SegmentPath = "relay"
+    relay.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:dhcpv6/interfaces/interface/" + relay.EntityData.SegmentPath
     relay.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     relay.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     relay.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

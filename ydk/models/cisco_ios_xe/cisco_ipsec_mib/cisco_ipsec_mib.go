@@ -192,6 +192,7 @@ func (cISCOIPSECMIB *CISCOIPSECMIB) GetEntityData() *types.CommonEntityData {
     cISCOIPSECMIB.EntityData.BundleName = "cisco_ios_xe"
     cISCOIPSECMIB.EntityData.ParentYangName = "CISCO-IPSEC-MIB"
     cISCOIPSECMIB.EntityData.SegmentPath = "CISCO-IPSEC-MIB:CISCO-IPSEC-MIB"
+    cISCOIPSECMIB.EntityData.AbsolutePath = cISCOIPSECMIB.EntityData.SegmentPath
     cISCOIPSECMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cISCOIPSECMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOIPSECMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -246,6 +247,7 @@ func (cipsIsakmpGroup *CISCOIPSECMIB_CipsIsakmpGroup) GetEntityData() *types.Com
     cipsIsakmpGroup.EntityData.BundleName = "cisco_ios_xe"
     cipsIsakmpGroup.EntityData.ParentYangName = "CISCO-IPSEC-MIB"
     cipsIsakmpGroup.EntityData.SegmentPath = "cipsIsakmpGroup"
+    cipsIsakmpGroup.EntityData.AbsolutePath = "CISCO-IPSEC-MIB:CISCO-IPSEC-MIB/" + cipsIsakmpGroup.EntityData.SegmentPath
     cipsIsakmpGroup.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cipsIsakmpGroup.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cipsIsakmpGroup.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -306,6 +308,7 @@ func (cipsIPsecGlobals *CISCOIPSECMIB_CipsIPsecGlobals) GetEntityData() *types.C
     cipsIPsecGlobals.EntityData.BundleName = "cisco_ios_xe"
     cipsIPsecGlobals.EntityData.ParentYangName = "CISCO-IPSEC-MIB"
     cipsIPsecGlobals.EntityData.SegmentPath = "cipsIPsecGlobals"
+    cipsIPsecGlobals.EntityData.AbsolutePath = "CISCO-IPSEC-MIB:CISCO-IPSEC-MIB/" + cipsIPsecGlobals.EntityData.SegmentPath
     cipsIPsecGlobals.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cipsIPsecGlobals.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cipsIPsecGlobals.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -352,6 +355,7 @@ func (cipsIPsecStatistics *CISCOIPSECMIB_CipsIPsecStatistics) GetEntityData() *t
     cipsIPsecStatistics.EntityData.BundleName = "cisco_ios_xe"
     cipsIPsecStatistics.EntityData.ParentYangName = "CISCO-IPSEC-MIB"
     cipsIPsecStatistics.EntityData.SegmentPath = "cipsIPsecStatistics"
+    cipsIPsecStatistics.EntityData.AbsolutePath = "CISCO-IPSEC-MIB:CISCO-IPSEC-MIB/" + cipsIPsecStatistics.EntityData.SegmentPath
     cipsIPsecStatistics.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cipsIPsecStatistics.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cipsIPsecStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -390,6 +394,7 @@ func (cipsSysCapacityGroup *CISCOIPSECMIB_CipsSysCapacityGroup) GetEntityData() 
     cipsSysCapacityGroup.EntityData.BundleName = "cisco_ios_xe"
     cipsSysCapacityGroup.EntityData.ParentYangName = "CISCO-IPSEC-MIB"
     cipsSysCapacityGroup.EntityData.SegmentPath = "cipsSysCapacityGroup"
+    cipsSysCapacityGroup.EntityData.AbsolutePath = "CISCO-IPSEC-MIB:CISCO-IPSEC-MIB/" + cipsSysCapacityGroup.EntityData.SegmentPath
     cipsSysCapacityGroup.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cipsSysCapacityGroup.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cipsSysCapacityGroup.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -447,6 +452,7 @@ func (cipsTrapCntlGroup *CISCOIPSECMIB_CipsTrapCntlGroup) GetEntityData() *types
     cipsTrapCntlGroup.EntityData.BundleName = "cisco_ios_xe"
     cipsTrapCntlGroup.EntityData.ParentYangName = "CISCO-IPSEC-MIB"
     cipsTrapCntlGroup.EntityData.SegmentPath = "cipsTrapCntlGroup"
+    cipsTrapCntlGroup.EntityData.AbsolutePath = "CISCO-IPSEC-MIB:CISCO-IPSEC-MIB/" + cipsTrapCntlGroup.EntityData.SegmentPath
     cipsTrapCntlGroup.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cipsTrapCntlGroup.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cipsTrapCntlGroup.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -485,6 +491,7 @@ func (cipsIsakmpPolicyTable *CISCOIPSECMIB_CipsIsakmpPolicyTable) GetEntityData(
     cipsIsakmpPolicyTable.EntityData.BundleName = "cisco_ios_xe"
     cipsIsakmpPolicyTable.EntityData.ParentYangName = "CISCO-IPSEC-MIB"
     cipsIsakmpPolicyTable.EntityData.SegmentPath = "cipsIsakmpPolicyTable"
+    cipsIsakmpPolicyTable.EntityData.AbsolutePath = "CISCO-IPSEC-MIB:CISCO-IPSEC-MIB/" + cipsIsakmpPolicyTable.EntityData.SegmentPath
     cipsIsakmpPolicyTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cipsIsakmpPolicyTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cipsIsakmpPolicyTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -508,6 +515,7 @@ func (cipsIsakmpPolicyTable *CISCOIPSECMIB_CipsIsakmpPolicyTable) GetEntityData(
 type CISCOIPSECMIB_CipsIsakmpPolicyTable_CipsIsakmpPolicyEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The priotity of this ISAKMP Policy entry. This is
     // also the index of this table. The type is interface{} with range: 0..65535.
@@ -549,6 +557,7 @@ func (cipsIsakmpPolicyEntry *CISCOIPSECMIB_CipsIsakmpPolicyTable_CipsIsakmpPolic
     cipsIsakmpPolicyEntry.EntityData.BundleName = "cisco_ios_xe"
     cipsIsakmpPolicyEntry.EntityData.ParentYangName = "cipsIsakmpPolicyTable"
     cipsIsakmpPolicyEntry.EntityData.SegmentPath = "cipsIsakmpPolicyEntry" + types.AddKeyToken(cipsIsakmpPolicyEntry.CipsIsakmpPolPriority, "cipsIsakmpPolPriority")
+    cipsIsakmpPolicyEntry.EntityData.AbsolutePath = "CISCO-IPSEC-MIB:CISCO-IPSEC-MIB/cipsIsakmpPolicyTable/" + cipsIsakmpPolicyEntry.EntityData.SegmentPath
     cipsIsakmpPolicyEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cipsIsakmpPolicyEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cipsIsakmpPolicyEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -591,6 +600,7 @@ func (cipsStaticCryptomapSetTable *CISCOIPSECMIB_CipsStaticCryptomapSetTable) Ge
     cipsStaticCryptomapSetTable.EntityData.BundleName = "cisco_ios_xe"
     cipsStaticCryptomapSetTable.EntityData.ParentYangName = "CISCO-IPSEC-MIB"
     cipsStaticCryptomapSetTable.EntityData.SegmentPath = "cipsStaticCryptomapSetTable"
+    cipsStaticCryptomapSetTable.EntityData.AbsolutePath = "CISCO-IPSEC-MIB:CISCO-IPSEC-MIB/" + cipsStaticCryptomapSetTable.EntityData.SegmentPath
     cipsStaticCryptomapSetTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cipsStaticCryptomapSetTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cipsStaticCryptomapSetTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -614,6 +624,7 @@ func (cipsStaticCryptomapSetTable *CISCOIPSECMIB_CipsStaticCryptomapSetTable) Ge
 type CISCOIPSECMIB_CipsStaticCryptomapSetTable_CipsStaticCryptomapSetEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The index of the static cryptomap table. The value
     // of the string is the name string assigned by the  operator in defining the
@@ -661,6 +672,7 @@ func (cipsStaticCryptomapSetEntry *CISCOIPSECMIB_CipsStaticCryptomapSetTable_Cip
     cipsStaticCryptomapSetEntry.EntityData.BundleName = "cisco_ios_xe"
     cipsStaticCryptomapSetEntry.EntityData.ParentYangName = "cipsStaticCryptomapSetTable"
     cipsStaticCryptomapSetEntry.EntityData.SegmentPath = "cipsStaticCryptomapSetEntry" + types.AddKeyToken(cipsStaticCryptomapSetEntry.CipsStaticCryptomapSetName, "cipsStaticCryptomapSetName")
+    cipsStaticCryptomapSetEntry.EntityData.AbsolutePath = "CISCO-IPSEC-MIB:CISCO-IPSEC-MIB/cipsStaticCryptomapSetTable/" + cipsStaticCryptomapSetEntry.EntityData.SegmentPath
     cipsStaticCryptomapSetEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cipsStaticCryptomapSetEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cipsStaticCryptomapSetEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -701,6 +713,7 @@ func (cipsDynamicCryptomapSetTable *CISCOIPSECMIB_CipsDynamicCryptomapSetTable) 
     cipsDynamicCryptomapSetTable.EntityData.BundleName = "cisco_ios_xe"
     cipsDynamicCryptomapSetTable.EntityData.ParentYangName = "CISCO-IPSEC-MIB"
     cipsDynamicCryptomapSetTable.EntityData.SegmentPath = "cipsDynamicCryptomapSetTable"
+    cipsDynamicCryptomapSetTable.EntityData.AbsolutePath = "CISCO-IPSEC-MIB:CISCO-IPSEC-MIB/" + cipsDynamicCryptomapSetTable.EntityData.SegmentPath
     cipsDynamicCryptomapSetTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cipsDynamicCryptomapSetTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cipsDynamicCryptomapSetTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -723,6 +736,7 @@ func (cipsDynamicCryptomapSetTable *CISCOIPSECMIB_CipsDynamicCryptomapSetTable) 
 type CISCOIPSECMIB_CipsDynamicCryptomapSetTable_CipsDynamicCryptomapSetEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The index of the dynamic cryptomap table.  The
     // value of the string is the one assigned  by the operator in defining the
@@ -744,6 +758,7 @@ func (cipsDynamicCryptomapSetEntry *CISCOIPSECMIB_CipsDynamicCryptomapSetTable_C
     cipsDynamicCryptomapSetEntry.EntityData.BundleName = "cisco_ios_xe"
     cipsDynamicCryptomapSetEntry.EntityData.ParentYangName = "cipsDynamicCryptomapSetTable"
     cipsDynamicCryptomapSetEntry.EntityData.SegmentPath = "cipsDynamicCryptomapSetEntry" + types.AddKeyToken(cipsDynamicCryptomapSetEntry.CipsDynamicCryptomapSetName, "cipsDynamicCryptomapSetName")
+    cipsDynamicCryptomapSetEntry.EntityData.AbsolutePath = "CISCO-IPSEC-MIB:CISCO-IPSEC-MIB/cipsDynamicCryptomapSetTable/" + cipsDynamicCryptomapSetEntry.EntityData.SegmentPath
     cipsDynamicCryptomapSetEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cipsDynamicCryptomapSetEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cipsDynamicCryptomapSetEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -781,6 +796,7 @@ func (cipsStaticCryptomapTable *CISCOIPSECMIB_CipsStaticCryptomapTable) GetEntit
     cipsStaticCryptomapTable.EntityData.BundleName = "cisco_ios_xe"
     cipsStaticCryptomapTable.EntityData.ParentYangName = "CISCO-IPSEC-MIB"
     cipsStaticCryptomapTable.EntityData.SegmentPath = "cipsStaticCryptomapTable"
+    cipsStaticCryptomapTable.EntityData.AbsolutePath = "CISCO-IPSEC-MIB:CISCO-IPSEC-MIB/" + cipsStaticCryptomapTable.EntityData.SegmentPath
     cipsStaticCryptomapTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cipsStaticCryptomapTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cipsStaticCryptomapTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -807,6 +823,7 @@ func (cipsStaticCryptomapTable *CISCOIPSECMIB_CipsStaticCryptomapTable) GetEntit
 type CISCOIPSECMIB_CipsStaticCryptomapTable_CipsStaticCryptomapEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string. Refers to
     // cisco_ipsec_mib.CISCOIPSECMIB_CipsStaticCryptomapSetTable_CipsStaticCryptomapSetEntry_CipsStaticCryptomapSetName
@@ -830,7 +847,7 @@ type CISCOIPSECMIB_CipsStaticCryptomapTable_CipsStaticCryptomapEntry struct {
     // The IP address of the current peer associated with  this IPSec policy item.
     // Traffic that is protected by this cryptomap is protected by a tunnel that
     // terminates at the device whose IP address is specified by this object. The
-    // type is string with length: 4 | 16.
+    // type is string with length: 4..4 | 16..16.
     CipsStaticCryptomapPeer interface{}
 
     // The number of peers associated with this cryptomap  entry. The peers other
@@ -847,13 +864,13 @@ type CISCOIPSECMIB_CipsStaticCryptomapTable_CipsStaticCryptomapEntry struct {
     // This object identifies the lifetime of the IPSec Security Associations (SA)
     // created using this IPSec policy entry. If this value is zero, the lifetime
     // assumes the  value specified by the global lifetime parameter. The type is
-    // interface{} with range: 0..None | 120..86400.
+    // interface{} with range: 0..0 | 120..86400.
     CipsStaticCryptomapLifetime interface{}
 
     // This object identifies the lifesize (maximum traffic in bytes that may be
     // carried) of the IPSec SAs created using this IPSec policy entry.  If this
     // value is zero, the lifetime assumes the  value specified by the global
-    // lifesize parameter. The type is interface{} with range: 0..None |
+    // lifesize parameter. The type is interface{} with range: 0..0 |
     // 2560..536870912.
     CipsStaticCryptomapLifesize interface{}
 
@@ -869,6 +886,7 @@ func (cipsStaticCryptomapEntry *CISCOIPSECMIB_CipsStaticCryptomapTable_CipsStati
     cipsStaticCryptomapEntry.EntityData.BundleName = "cisco_ios_xe"
     cipsStaticCryptomapEntry.EntityData.ParentYangName = "cipsStaticCryptomapTable"
     cipsStaticCryptomapEntry.EntityData.SegmentPath = "cipsStaticCryptomapEntry" + types.AddKeyToken(cipsStaticCryptomapEntry.CipsStaticCryptomapSetName, "cipsStaticCryptomapSetName") + types.AddKeyToken(cipsStaticCryptomapEntry.CipsStaticCryptomapPriority, "cipsStaticCryptomapPriority")
+    cipsStaticCryptomapEntry.EntityData.AbsolutePath = "CISCO-IPSEC-MIB:CISCO-IPSEC-MIB/cipsStaticCryptomapTable/" + cipsStaticCryptomapEntry.EntityData.SegmentPath
     cipsStaticCryptomapEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cipsStaticCryptomapEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cipsStaticCryptomapEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -912,6 +930,7 @@ func (cipsCryptomapSetIfTable *CISCOIPSECMIB_CipsCryptomapSetIfTable) GetEntityD
     cipsCryptomapSetIfTable.EntityData.BundleName = "cisco_ios_xe"
     cipsCryptomapSetIfTable.EntityData.ParentYangName = "CISCO-IPSEC-MIB"
     cipsCryptomapSetIfTable.EntityData.SegmentPath = "cipsCryptomapSetIfTable"
+    cipsCryptomapSetIfTable.EntityData.AbsolutePath = "CISCO-IPSEC-MIB:CISCO-IPSEC-MIB/" + cipsCryptomapSetIfTable.EntityData.SegmentPath
     cipsCryptomapSetIfTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cipsCryptomapSetIfTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cipsCryptomapSetIfTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -940,6 +959,7 @@ func (cipsCryptomapSetIfTable *CISCOIPSECMIB_CipsCryptomapSetIfTable) GetEntityD
 type CISCOIPSECMIB_CipsCryptomapSetIfTable_CipsCryptomapSetIfEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -970,6 +990,7 @@ func (cipsCryptomapSetIfEntry *CISCOIPSECMIB_CipsCryptomapSetIfTable_CipsCryptom
     cipsCryptomapSetIfEntry.EntityData.BundleName = "cisco_ios_xe"
     cipsCryptomapSetIfEntry.EntityData.ParentYangName = "cipsCryptomapSetIfTable"
     cipsCryptomapSetIfEntry.EntityData.SegmentPath = "cipsCryptomapSetIfEntry" + types.AddKeyToken(cipsCryptomapSetIfEntry.IfIndex, "ifIndex") + types.AddKeyToken(cipsCryptomapSetIfEntry.CipsStaticCryptomapSetName, "cipsStaticCryptomapSetName")
+    cipsCryptomapSetIfEntry.EntityData.AbsolutePath = "CISCO-IPSEC-MIB:CISCO-IPSEC-MIB/cipsCryptomapSetIfTable/" + cipsCryptomapSetIfEntry.EntityData.SegmentPath
     cipsCryptomapSetIfEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cipsCryptomapSetIfEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cipsCryptomapSetIfEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

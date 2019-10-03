@@ -51,6 +51,7 @@ func (modulesState *ModulesState) GetEntityData() *types.CommonEntityData {
     modulesState.EntityData.BundleName = "ietf"
     modulesState.EntityData.ParentYangName = "ietf-yang-library"
     modulesState.EntityData.SegmentPath = "ietf-yang-library:modules-state"
+    modulesState.EntityData.AbsolutePath = modulesState.EntityData.SegmentPath
     modulesState.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     modulesState.EntityData.NamespaceTable = ietf.GetNamespaces()
     modulesState.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -74,15 +75,16 @@ func (modulesState *ModulesState) GetEntityData() *types.CommonEntityData {
 type ModulesState_Module struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The YANG module or submodule name. The type is
-    // string with pattern: [a-zA-Z_][a-zA-Z0-9\-_.]*.
+    // string with length: 1..18446744073709551615.
     Name interface{}
 
     // This attribute is a key. The YANG module or submodule revision date. A
     // zero-length string is used if no revision statement is present in the YANG
     // module or submodule. The type is one of the following types: string with
-    // pattern: \d{4}-\d{2}-\d{2}, or string with length: 0.
+    // pattern: \d{4}-\d{2}-\d{2}, or string with length: 0..0.
     Revision interface{}
 
     // Contains a URL that represents the YANG schema resource for this module or
@@ -96,8 +98,8 @@ type ModulesState_Module struct {
 
     // List of YANG feature names from this module that are supported by the
     // server, regardless of whether they are defined in the module or any
-    // included submodule. The type is slice of string with pattern:
-    // [a-zA-Z_][a-zA-Z0-9\-_.]*.
+    // included submodule. The type is slice of string with length:
+    // 1..18446744073709551615.
     Feature []interface{}
 
     // Indicates the type of conformance the server is claiming for the YANG
@@ -125,6 +127,7 @@ func (module *ModulesState_Module) GetEntityData() *types.CommonEntityData {
     module.EntityData.BundleName = "ietf"
     module.EntityData.ParentYangName = "modules-state"
     module.EntityData.SegmentPath = "module" + types.AddKeyToken(module.Name, "name") + types.AddKeyToken(module.Revision, "revision")
+    module.EntityData.AbsolutePath = "ietf-yang-library:modules-state/" + module.EntityData.SegmentPath
     module.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     module.EntityData.NamespaceTable = ietf.GetNamespaces()
     module.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -165,15 +168,16 @@ func (module *ModulesState_Module) GetEntityData() *types.CommonEntityData {
 type ModulesState_Module_Deviation struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The YANG module or submodule name. The type is
-    // string with pattern: [a-zA-Z_][a-zA-Z0-9\-_.]*.
+    // string with length: 1..18446744073709551615.
     Name interface{}
 
     // This attribute is a key. The YANG module or submodule revision date. A
     // zero-length string is used if no revision statement is present in the YANG
     // module or submodule. The type is one of the following types: string with
-    // pattern: \d{4}-\d{2}-\d{2}, or string with length: 0.
+    // pattern: \d{4}-\d{2}-\d{2}, or string with length: 0..0.
     Revision interface{}
 }
 
@@ -183,6 +187,7 @@ func (deviation *ModulesState_Module_Deviation) GetEntityData() *types.CommonEnt
     deviation.EntityData.BundleName = "ietf"
     deviation.EntityData.ParentYangName = "module"
     deviation.EntityData.SegmentPath = "deviation" + types.AddKeyToken(deviation.Name, "name") + types.AddKeyToken(deviation.Revision, "revision")
+    deviation.EntityData.AbsolutePath = "ietf-yang-library:modules-state/module/" + deviation.EntityData.SegmentPath
     deviation.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     deviation.EntityData.NamespaceTable = ietf.GetNamespaces()
     deviation.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -203,15 +208,16 @@ func (deviation *ModulesState_Module_Deviation) GetEntityData() *types.CommonEnt
 type ModulesState_Module_Submodule struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The YANG module or submodule name. The type is
-    // string with pattern: [a-zA-Z_][a-zA-Z0-9\-_.]*.
+    // string with length: 1..18446744073709551615.
     Name interface{}
 
     // This attribute is a key. The YANG module or submodule revision date. A
     // zero-length string is used if no revision statement is present in the YANG
     // module or submodule. The type is one of the following types: string with
-    // pattern: \d{4}-\d{2}-\d{2}, or string with length: 0.
+    // pattern: \d{4}-\d{2}-\d{2}, or string with length: 0..0.
     Revision interface{}
 
     // Contains a URL that represents the YANG schema resource for this module or
@@ -226,6 +232,7 @@ func (submodule *ModulesState_Module_Submodule) GetEntityData() *types.CommonEnt
     submodule.EntityData.BundleName = "ietf"
     submodule.EntityData.ParentYangName = "module"
     submodule.EntityData.SegmentPath = "submodule" + types.AddKeyToken(submodule.Name, "name") + types.AddKeyToken(submodule.Revision, "revision")
+    submodule.EntityData.AbsolutePath = "ietf-yang-library:modules-state/module/" + submodule.EntityData.SegmentPath
     submodule.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     submodule.EntityData.NamespaceTable = ietf.GetNamespaces()
     submodule.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()

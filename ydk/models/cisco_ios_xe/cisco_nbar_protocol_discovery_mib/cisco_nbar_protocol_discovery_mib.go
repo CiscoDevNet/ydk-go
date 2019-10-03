@@ -108,6 +108,7 @@ func (cISCONBARPROTOCOLDISCOVERYMIB *CISCONBARPROTOCOLDISCOVERYMIB) GetEntityDat
     cISCONBARPROTOCOLDISCOVERYMIB.EntityData.BundleName = "cisco_ios_xe"
     cISCONBARPROTOCOLDISCOVERYMIB.EntityData.ParentYangName = "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB"
     cISCONBARPROTOCOLDISCOVERYMIB.EntityData.SegmentPath = "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:CISCO-NBAR-PROTOCOL-DISCOVERY-MIB"
+    cISCONBARPROTOCOLDISCOVERYMIB.EntityData.AbsolutePath = cISCONBARPROTOCOLDISCOVERYMIB.EntityData.SegmentPath
     cISCONBARPROTOCOLDISCOVERYMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cISCONBARPROTOCOLDISCOVERYMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCONBARPROTOCOLDISCOVERYMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -145,6 +146,7 @@ func (cnpdNotificationsConfig *CISCONBARPROTOCOLDISCOVERYMIB_CnpdNotificationsCo
     cnpdNotificationsConfig.EntityData.BundleName = "cisco_ios_xe"
     cnpdNotificationsConfig.EntityData.ParentYangName = "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB"
     cnpdNotificationsConfig.EntityData.SegmentPath = "cnpdNotificationsConfig"
+    cnpdNotificationsConfig.EntityData.AbsolutePath = "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:CISCO-NBAR-PROTOCOL-DISCOVERY-MIB/" + cnpdNotificationsConfig.EntityData.SegmentPath
     cnpdNotificationsConfig.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cnpdNotificationsConfig.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cnpdNotificationsConfig.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -177,6 +179,7 @@ func (cnpdStatusTable *CISCONBARPROTOCOLDISCOVERYMIB_CnpdStatusTable) GetEntityD
     cnpdStatusTable.EntityData.BundleName = "cisco_ios_xe"
     cnpdStatusTable.EntityData.ParentYangName = "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB"
     cnpdStatusTable.EntityData.SegmentPath = "cnpdStatusTable"
+    cnpdStatusTable.EntityData.AbsolutePath = "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:CISCO-NBAR-PROTOCOL-DISCOVERY-MIB/" + cnpdStatusTable.EntityData.SegmentPath
     cnpdStatusTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cnpdStatusTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cnpdStatusTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -200,6 +203,7 @@ func (cnpdStatusTable *CISCONBARPROTOCOLDISCOVERYMIB_CnpdStatusTable) GetEntityD
 type CISCONBARPROTOCOLDISCOVERYMIB_CnpdStatusTable_CnpdStatusEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -223,6 +227,7 @@ func (cnpdStatusEntry *CISCONBARPROTOCOLDISCOVERYMIB_CnpdStatusTable_CnpdStatusE
     cnpdStatusEntry.EntityData.BundleName = "cisco_ios_xe"
     cnpdStatusEntry.EntityData.ParentYangName = "cnpdStatusTable"
     cnpdStatusEntry.EntityData.SegmentPath = "cnpdStatusEntry" + types.AddKeyToken(cnpdStatusEntry.IfIndex, "ifIndex")
+    cnpdStatusEntry.EntityData.AbsolutePath = "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:CISCO-NBAR-PROTOCOL-DISCOVERY-MIB/cnpdStatusTable/" + cnpdStatusEntry.EntityData.SegmentPath
     cnpdStatusEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cnpdStatusEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cnpdStatusEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -263,6 +268,7 @@ func (cnpdAllStatsTable *CISCONBARPROTOCOLDISCOVERYMIB_CnpdAllStatsTable) GetEnt
     cnpdAllStatsTable.EntityData.BundleName = "cisco_ios_xe"
     cnpdAllStatsTable.EntityData.ParentYangName = "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB"
     cnpdAllStatsTable.EntityData.SegmentPath = "cnpdAllStatsTable"
+    cnpdAllStatsTable.EntityData.AbsolutePath = "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:CISCO-NBAR-PROTOCOL-DISCOVERY-MIB/" + cnpdAllStatsTable.EntityData.SegmentPath
     cnpdAllStatsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cnpdAllStatsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cnpdAllStatsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -286,6 +292,7 @@ func (cnpdAllStatsTable *CISCONBARPROTOCOLDISCOVERYMIB_CnpdAllStatsTable) GetEnt
 type CISCONBARPROTOCOLDISCOVERYMIB_CnpdAllStatsTable_CnpdAllStatsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -352,6 +359,7 @@ func (cnpdAllStatsEntry *CISCONBARPROTOCOLDISCOVERYMIB_CnpdAllStatsTable_CnpdAll
     cnpdAllStatsEntry.EntityData.BundleName = "cisco_ios_xe"
     cnpdAllStatsEntry.EntityData.ParentYangName = "cnpdAllStatsTable"
     cnpdAllStatsEntry.EntityData.SegmentPath = "cnpdAllStatsEntry" + types.AddKeyToken(cnpdAllStatsEntry.IfIndex, "ifIndex") + types.AddKeyToken(cnpdAllStatsEntry.CnpdAllStatsProtocolsIndex, "cnpdAllStatsProtocolsIndex")
+    cnpdAllStatsEntry.EntityData.AbsolutePath = "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:CISCO-NBAR-PROTOCOL-DISCOVERY-MIB/cnpdAllStatsTable/" + cnpdAllStatsEntry.EntityData.SegmentPath
     cnpdAllStatsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cnpdAllStatsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cnpdAllStatsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -396,6 +404,7 @@ func (cnpdTopNConfigTable *CISCONBARPROTOCOLDISCOVERYMIB_CnpdTopNConfigTable) Ge
     cnpdTopNConfigTable.EntityData.BundleName = "cisco_ios_xe"
     cnpdTopNConfigTable.EntityData.ParentYangName = "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB"
     cnpdTopNConfigTable.EntityData.SegmentPath = "cnpdTopNConfigTable"
+    cnpdTopNConfigTable.EntityData.AbsolutePath = "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:CISCO-NBAR-PROTOCOL-DISCOVERY-MIB/" + cnpdTopNConfigTable.EntityData.SegmentPath
     cnpdTopNConfigTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cnpdTopNConfigTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cnpdTopNConfigTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -418,6 +427,7 @@ func (cnpdTopNConfigTable *CISCONBARPROTOCOLDISCOVERYMIB_CnpdTopNConfigTable) Ge
 type CISCONBARPROTOCOLDISCOVERYMIB_CnpdTopNConfigTable_CnpdTopNConfigEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. A monotonically increasing integer which uniquely
     // identifies a cnpdTopNConfigEntry  in the cnpdTopNConfigTable. The type is
@@ -489,6 +499,7 @@ func (cnpdTopNConfigEntry *CISCONBARPROTOCOLDISCOVERYMIB_CnpdTopNConfigTable_Cnp
     cnpdTopNConfigEntry.EntityData.BundleName = "cisco_ios_xe"
     cnpdTopNConfigEntry.EntityData.ParentYangName = "cnpdTopNConfigTable"
     cnpdTopNConfigEntry.EntityData.SegmentPath = "cnpdTopNConfigEntry" + types.AddKeyToken(cnpdTopNConfigEntry.CnpdTopNConfigIndex, "cnpdTopNConfigIndex")
+    cnpdTopNConfigEntry.EntityData.AbsolutePath = "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:CISCO-NBAR-PROTOCOL-DISCOVERY-MIB/cnpdTopNConfigTable/" + cnpdTopNConfigEntry.EntityData.SegmentPath
     cnpdTopNConfigEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cnpdTopNConfigEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cnpdTopNConfigEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -532,6 +543,7 @@ func (cnpdTopNStatsTable *CISCONBARPROTOCOLDISCOVERYMIB_CnpdTopNStatsTable) GetE
     cnpdTopNStatsTable.EntityData.BundleName = "cisco_ios_xe"
     cnpdTopNStatsTable.EntityData.ParentYangName = "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB"
     cnpdTopNStatsTable.EntityData.SegmentPath = "cnpdTopNStatsTable"
+    cnpdTopNStatsTable.EntityData.AbsolutePath = "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:CISCO-NBAR-PROTOCOL-DISCOVERY-MIB/" + cnpdTopNStatsTable.EntityData.SegmentPath
     cnpdTopNStatsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cnpdTopNStatsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cnpdTopNStatsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -561,6 +573,7 @@ func (cnpdTopNStatsTable *CISCONBARPROTOCOLDISCOVERYMIB_CnpdTopNStatsTable) GetE
 type CISCONBARPROTOCOLDISCOVERYMIB_CnpdTopNStatsTable_CnpdTopNStatsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..50. Refers to
     // cisco_nbar_protocol_discovery_mib.CISCONBARPROTOCOLDISCOVERYMIB_CnpdTopNConfigTable_CnpdTopNConfigEntry_CnpdTopNConfigIndex
@@ -595,6 +608,7 @@ func (cnpdTopNStatsEntry *CISCONBARPROTOCOLDISCOVERYMIB_CnpdTopNStatsTable_CnpdT
     cnpdTopNStatsEntry.EntityData.BundleName = "cisco_ios_xe"
     cnpdTopNStatsEntry.EntityData.ParentYangName = "cnpdTopNStatsTable"
     cnpdTopNStatsEntry.EntityData.SegmentPath = "cnpdTopNStatsEntry" + types.AddKeyToken(cnpdTopNStatsEntry.CnpdTopNConfigIndex, "cnpdTopNConfigIndex") + types.AddKeyToken(cnpdTopNStatsEntry.CnpdTopNStatsIndex, "cnpdTopNStatsIndex")
+    cnpdTopNStatsEntry.EntityData.AbsolutePath = "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:CISCO-NBAR-PROTOCOL-DISCOVERY-MIB/cnpdTopNStatsTable/" + cnpdTopNStatsEntry.EntityData.SegmentPath
     cnpdTopNStatsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cnpdTopNStatsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cnpdTopNStatsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -644,6 +658,7 @@ func (cnpdThresholdConfigTable *CISCONBARPROTOCOLDISCOVERYMIB_CnpdThresholdConfi
     cnpdThresholdConfigTable.EntityData.BundleName = "cisco_ios_xe"
     cnpdThresholdConfigTable.EntityData.ParentYangName = "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB"
     cnpdThresholdConfigTable.EntityData.SegmentPath = "cnpdThresholdConfigTable"
+    cnpdThresholdConfigTable.EntityData.AbsolutePath = "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:CISCO-NBAR-PROTOCOL-DISCOVERY-MIB/" + cnpdThresholdConfigTable.EntityData.SegmentPath
     cnpdThresholdConfigTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cnpdThresholdConfigTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cnpdThresholdConfigTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -685,6 +700,7 @@ func (cnpdThresholdConfigTable *CISCONBARPROTOCOLDISCOVERYMIB_CnpdThresholdConfi
 type CISCONBARPROTOCOLDISCOVERYMIB_CnpdThresholdConfigTable_CnpdThresholdConfigEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. A monotonically increasing integer which  uniquely
     // identifies an entry in the  cnpdThresholdConfigTable. The type is
@@ -808,6 +824,7 @@ func (cnpdThresholdConfigEntry *CISCONBARPROTOCOLDISCOVERYMIB_CnpdThresholdConfi
     cnpdThresholdConfigEntry.EntityData.BundleName = "cisco_ios_xe"
     cnpdThresholdConfigEntry.EntityData.ParentYangName = "cnpdThresholdConfigTable"
     cnpdThresholdConfigEntry.EntityData.SegmentPath = "cnpdThresholdConfigEntry" + types.AddKeyToken(cnpdThresholdConfigEntry.CnpdThresholdConfigIndex, "cnpdThresholdConfigIndex")
+    cnpdThresholdConfigEntry.EntityData.AbsolutePath = "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:CISCO-NBAR-PROTOCOL-DISCOVERY-MIB/cnpdThresholdConfigTable/" + cnpdThresholdConfigEntry.EntityData.SegmentPath
     cnpdThresholdConfigEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cnpdThresholdConfigEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cnpdThresholdConfigEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -874,6 +891,7 @@ func (cnpdThresholdHistoryTable *CISCONBARPROTOCOLDISCOVERYMIB_CnpdThresholdHist
     cnpdThresholdHistoryTable.EntityData.BundleName = "cisco_ios_xe"
     cnpdThresholdHistoryTable.EntityData.ParentYangName = "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB"
     cnpdThresholdHistoryTable.EntityData.SegmentPath = "cnpdThresholdHistoryTable"
+    cnpdThresholdHistoryTable.EntityData.AbsolutePath = "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:CISCO-NBAR-PROTOCOL-DISCOVERY-MIB/" + cnpdThresholdHistoryTable.EntityData.SegmentPath
     cnpdThresholdHistoryTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cnpdThresholdHistoryTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cnpdThresholdHistoryTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -901,6 +919,7 @@ func (cnpdThresholdHistoryTable *CISCONBARPROTOCOLDISCOVERYMIB_CnpdThresholdHist
 type CISCONBARPROTOCOLDISCOVERYMIB_CnpdThresholdHistoryTable_CnpdThresholdHistoryEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. A monotonically increasing integer which uniquely
     // identifies this  cnpdThresholdHistoryEntry in the  cnpdThresholdHistory
@@ -941,6 +960,7 @@ func (cnpdThresholdHistoryEntry *CISCONBARPROTOCOLDISCOVERYMIB_CnpdThresholdHist
     cnpdThresholdHistoryEntry.EntityData.BundleName = "cisco_ios_xe"
     cnpdThresholdHistoryEntry.EntityData.ParentYangName = "cnpdThresholdHistoryTable"
     cnpdThresholdHistoryEntry.EntityData.SegmentPath = "cnpdThresholdHistoryEntry" + types.AddKeyToken(cnpdThresholdHistoryEntry.CnpdThresholdHistoryIndex, "cnpdThresholdHistoryIndex")
+    cnpdThresholdHistoryEntry.EntityData.AbsolutePath = "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:CISCO-NBAR-PROTOCOL-DISCOVERY-MIB/cnpdThresholdHistoryTable/" + cnpdThresholdHistoryEntry.EntityData.SegmentPath
     cnpdThresholdHistoryEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cnpdThresholdHistoryEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cnpdThresholdHistoryEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -989,6 +1009,7 @@ func (cnpdSupportedProtocolsTable *CISCONBARPROTOCOLDISCOVERYMIB_CnpdSupportedPr
     cnpdSupportedProtocolsTable.EntityData.BundleName = "cisco_ios_xe"
     cnpdSupportedProtocolsTable.EntityData.ParentYangName = "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB"
     cnpdSupportedProtocolsTable.EntityData.SegmentPath = "cnpdSupportedProtocolsTable"
+    cnpdSupportedProtocolsTable.EntityData.AbsolutePath = "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:CISCO-NBAR-PROTOCOL-DISCOVERY-MIB/" + cnpdSupportedProtocolsTable.EntityData.SegmentPath
     cnpdSupportedProtocolsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cnpdSupportedProtocolsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cnpdSupportedProtocolsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1011,6 +1032,7 @@ func (cnpdSupportedProtocolsTable *CISCONBARPROTOCOLDISCOVERYMIB_CnpdSupportedPr
 type CISCONBARPROTOCOLDISCOVERYMIB_CnpdSupportedProtocolsTable_CnpdSupportedProtocolsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. A unique identifier of a row in this table.  Thus
     // it also represents a unique identifier for a protocol or application which
@@ -1028,6 +1050,7 @@ func (cnpdSupportedProtocolsEntry *CISCONBARPROTOCOLDISCOVERYMIB_CnpdSupportedPr
     cnpdSupportedProtocolsEntry.EntityData.BundleName = "cisco_ios_xe"
     cnpdSupportedProtocolsEntry.EntityData.ParentYangName = "cnpdSupportedProtocolsTable"
     cnpdSupportedProtocolsEntry.EntityData.SegmentPath = "cnpdSupportedProtocolsEntry" + types.AddKeyToken(cnpdSupportedProtocolsEntry.CnpdSupportedProtocolsIndex, "cnpdSupportedProtocolsIndex")
+    cnpdSupportedProtocolsEntry.EntityData.AbsolutePath = "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:CISCO-NBAR-PROTOCOL-DISCOVERY-MIB/cnpdSupportedProtocolsTable/" + cnpdSupportedProtocolsEntry.EntityData.SegmentPath
     cnpdSupportedProtocolsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cnpdSupportedProtocolsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cnpdSupportedProtocolsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

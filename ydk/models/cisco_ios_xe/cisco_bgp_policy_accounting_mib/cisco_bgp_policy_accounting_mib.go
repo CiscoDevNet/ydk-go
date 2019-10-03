@@ -32,6 +32,7 @@ func (cISCOBGPPOLICYACCOUNTINGMIB *CISCOBGPPOLICYACCOUNTINGMIB) GetEntityData() 
     cISCOBGPPOLICYACCOUNTINGMIB.EntityData.BundleName = "cisco_ios_xe"
     cISCOBGPPOLICYACCOUNTINGMIB.EntityData.ParentYangName = "CISCO-BGP-POLICY-ACCOUNTING-MIB"
     cISCOBGPPOLICYACCOUNTINGMIB.EntityData.SegmentPath = "CISCO-BGP-POLICY-ACCOUNTING-MIB:CISCO-BGP-POLICY-ACCOUNTING-MIB"
+    cISCOBGPPOLICYACCOUNTINGMIB.EntityData.AbsolutePath = cISCOBGPPOLICYACCOUNTINGMIB.EntityData.SegmentPath
     cISCOBGPPOLICYACCOUNTINGMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cISCOBGPPOLICYACCOUNTINGMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOBGPPOLICYACCOUNTINGMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -72,6 +73,7 @@ func (cbpAcctTable *CISCOBGPPOLICYACCOUNTINGMIB_CbpAcctTable) GetEntityData() *t
     cbpAcctTable.EntityData.BundleName = "cisco_ios_xe"
     cbpAcctTable.EntityData.ParentYangName = "CISCO-BGP-POLICY-ACCOUNTING-MIB"
     cbpAcctTable.EntityData.SegmentPath = "cbpAcctTable"
+    cbpAcctTable.EntityData.AbsolutePath = "CISCO-BGP-POLICY-ACCOUNTING-MIB:CISCO-BGP-POLICY-ACCOUNTING-MIB/" + cbpAcctTable.EntityData.SegmentPath
     cbpAcctTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cbpAcctTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cbpAcctTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -105,6 +107,7 @@ func (cbpAcctTable *CISCOBGPPOLICYACCOUNTINGMIB_CbpAcctTable) GetEntityData() *t
 type CISCOBGPPOLICYACCOUNTINGMIB_CbpAcctTable_CbpAcctEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -141,6 +144,7 @@ func (cbpAcctEntry *CISCOBGPPOLICYACCOUNTINGMIB_CbpAcctTable_CbpAcctEntry) GetEn
     cbpAcctEntry.EntityData.BundleName = "cisco_ios_xe"
     cbpAcctEntry.EntityData.ParentYangName = "cbpAcctTable"
     cbpAcctEntry.EntityData.SegmentPath = "cbpAcctEntry" + types.AddKeyToken(cbpAcctEntry.IfIndex, "ifIndex") + types.AddKeyToken(cbpAcctEntry.CbpAcctTrafficIndex, "cbpAcctTrafficIndex")
+    cbpAcctEntry.EntityData.AbsolutePath = "CISCO-BGP-POLICY-ACCOUNTING-MIB:CISCO-BGP-POLICY-ACCOUNTING-MIB/cbpAcctTable/" + cbpAcctEntry.EntityData.SegmentPath
     cbpAcctEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cbpAcctEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cbpAcctEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

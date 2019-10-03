@@ -8,7 +8,7 @@ function run_cmd {
     print_msg "Running command: $@"
     $@
     local status=$?
-    if [ $status -ne 0 ]; then
+    if [[ $status -ne 0 ]]; then
         MSG_COLOR=$RED
         print_msg "Exiting '$@' with status=$status"
         exit $status

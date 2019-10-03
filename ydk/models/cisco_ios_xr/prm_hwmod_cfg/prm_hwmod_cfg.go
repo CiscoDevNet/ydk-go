@@ -54,6 +54,7 @@ func (hardwareModule *HardwareModule) GetEntityData() *types.CommonEntityData {
     hardwareModule.EntityData.BundleName = "cisco_ios_xr"
     hardwareModule.EntityData.ParentYangName = "Cisco-IOS-XR-prm-hwmod-cfg"
     hardwareModule.EntityData.SegmentPath = "Cisco-IOS-XR-prm-hwmod-cfg:hardware-module"
+    hardwareModule.EntityData.AbsolutePath = hardwareModule.EntityData.SegmentPath
     hardwareModule.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hardwareModule.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hardwareModule.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -84,6 +85,7 @@ func (loadbalancing *HardwareModule_Loadbalancing) GetEntityData() *types.Common
     loadbalancing.EntityData.BundleName = "cisco_ios_xr"
     loadbalancing.EntityData.ParentYangName = "hardware-module"
     loadbalancing.EntityData.SegmentPath = "loadbalancing"
+    loadbalancing.EntityData.AbsolutePath = "Cisco-IOS-XR-prm-hwmod-cfg:hardware-module/" + loadbalancing.EntityData.SegmentPath
     loadbalancing.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     loadbalancing.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     loadbalancing.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -113,6 +115,7 @@ func (bgp3107 *HardwareModule_Loadbalancing_Bgp3107) GetEntityData() *types.Comm
     bgp3107.EntityData.BundleName = "cisco_ios_xr"
     bgp3107.EntityData.ParentYangName = "loadbalancing"
     bgp3107.EntityData.SegmentPath = "bgp3107"
+    bgp3107.EntityData.AbsolutePath = "Cisco-IOS-XR-prm-hwmod-cfg:hardware-module/loadbalancing/" + bgp3107.EntityData.SegmentPath
     bgp3107.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bgp3107.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bgp3107.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -142,6 +145,7 @@ func (ecmp *HardwareModule_Loadbalancing_Bgp3107_Ecmp) GetEntityData() *types.Co
     ecmp.EntityData.BundleName = "cisco_ios_xr"
     ecmp.EntityData.ParentYangName = "bgp3107"
     ecmp.EntityData.SegmentPath = "ecmp"
+    ecmp.EntityData.AbsolutePath = "Cisco-IOS-XR-prm-hwmod-cfg:hardware-module/loadbalancing/bgp3107/" + ecmp.EntityData.SegmentPath
     ecmp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ecmp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ecmp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

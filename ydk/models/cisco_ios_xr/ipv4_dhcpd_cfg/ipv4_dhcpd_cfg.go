@@ -241,8 +241,14 @@ const (
     // Not a Format String
     Ipv4dhcpdFmt_no_format Ipv4dhcpdFmt = "no-format"
 
-    // Format String
-    Ipv4dhcpdFmt_format Ipv4dhcpdFmt = "format"
+    // Hex Format String
+    Ipv4dhcpdFmt_hex Ipv4dhcpdFmt = "hex"
+
+    // Ascii Format String
+    Ipv4dhcpdFmt_ascii Ipv4dhcpdFmt = "ascii"
+
+    // Extended Format String
+    Ipv4dhcpdFmt_extended Ipv4dhcpdFmt = "extended"
 )
 
 // Ipv4dhcpdRelayInfoOptionvpnMode represents Ipv4dhcpd relay info optionvpn mode
@@ -372,6 +378,7 @@ func (ipv4Dhcpd *Ipv4Dhcpd) GetEntityData() *types.CommonEntityData {
     ipv4Dhcpd.EntityData.BundleName = "cisco_ios_xr"
     ipv4Dhcpd.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-dhcpd-cfg"
     ipv4Dhcpd.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd"
+    ipv4Dhcpd.EntityData.AbsolutePath = ipv4Dhcpd.EntityData.SegmentPath
     ipv4Dhcpd.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4Dhcpd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4Dhcpd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -410,6 +417,7 @@ func (vrfs *Ipv4Dhcpd_Vrfs) GetEntityData() *types.CommonEntityData {
     vrfs.EntityData.BundleName = "cisco_ios_xr"
     vrfs.EntityData.ParentYangName = "ipv4-dhcpd"
     vrfs.EntityData.SegmentPath = "vrfs"
+    vrfs.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/" + vrfs.EntityData.SegmentPath
     vrfs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -431,6 +439,7 @@ func (vrfs *Ipv4Dhcpd_Vrfs) GetEntityData() *types.CommonEntityData {
 type Ipv4Dhcpd_Vrfs_Vrf struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. VRF Name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -446,6 +455,7 @@ func (vrf *Ipv4Dhcpd_Vrfs_Vrf) GetEntityData() *types.CommonEntityData {
     vrf.EntityData.BundleName = "cisco_ios_xr"
     vrf.EntityData.ParentYangName = "vrfs"
     vrf.EntityData.SegmentPath = "vrf" + types.AddKeyToken(vrf.VrfName, "vrf-name")
+    vrf.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/vrfs/" + vrf.EntityData.SegmentPath
     vrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -481,6 +491,7 @@ func (profile *Ipv4Dhcpd_Vrfs_Vrf_Profile) GetEntityData() *types.CommonEntityDa
     profile.EntityData.BundleName = "cisco_ios_xr"
     profile.EntityData.ParentYangName = "vrf"
     profile.EntityData.SegmentPath = "profile"
+    profile.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/vrfs/vrf/" + profile.EntityData.SegmentPath
     profile.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     profile.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     profile.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -511,6 +522,7 @@ func (profiles *Ipv4Dhcpd_Profiles) GetEntityData() *types.CommonEntityData {
     profiles.EntityData.BundleName = "cisco_ios_xr"
     profiles.EntityData.ParentYangName = "ipv4-dhcpd"
     profiles.EntityData.SegmentPath = "profiles"
+    profiles.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/" + profiles.EntityData.SegmentPath
     profiles.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     profiles.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     profiles.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -532,6 +544,7 @@ func (profiles *Ipv4Dhcpd_Profiles) GetEntityData() *types.CommonEntityData {
 type Ipv4Dhcpd_Profiles_Profile struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Profile Name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -547,6 +560,7 @@ func (profile *Ipv4Dhcpd_Profiles_Profile) GetEntityData() *types.CommonEntityDa
     profile.EntityData.BundleName = "cisco_ios_xr"
     profile.EntityData.ParentYangName = "profiles"
     profile.EntityData.SegmentPath = "profile" + types.AddKeyToken(profile.ProfileName, "profile-name")
+    profile.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/" + profile.EntityData.SegmentPath
     profile.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     profile.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     profile.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -578,6 +592,7 @@ func (modes *Ipv4Dhcpd_Profiles_Profile_Modes) GetEntityData() *types.CommonEnti
     modes.EntityData.BundleName = "cisco_ios_xr"
     modes.EntityData.ParentYangName = "profile"
     modes.EntityData.SegmentPath = "modes"
+    modes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/" + modes.EntityData.SegmentPath
     modes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     modes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     modes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -599,6 +614,7 @@ func (modes *Ipv4Dhcpd_Profiles_Profile_Modes) GetEntityData() *types.CommonEnti
 type Ipv4Dhcpd_Profiles_Profile_Modes_Mode struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. DHCP IPV4 Profile mode. The type is Ipv4dhcpdMode.
     Mode interface{}
@@ -628,6 +644,7 @@ func (mode *Ipv4Dhcpd_Profiles_Profile_Modes_Mode) GetEntityData() *types.Common
     mode.EntityData.BundleName = "cisco_ios_xr"
     mode.EntityData.ParentYangName = "modes"
     mode.EntityData.SegmentPath = "mode" + types.AddKeyToken(mode.Mode, "mode")
+    mode.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/" + mode.EntityData.SegmentPath
     mode.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -666,6 +683,7 @@ func (snoop *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Snoop) GetEntityData() *types
     snoop.EntityData.BundleName = "cisco_ios_xr"
     snoop.EntityData.ParentYangName = "mode"
     snoop.EntityData.SegmentPath = "snoop"
+    snoop.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/" + snoop.EntityData.SegmentPath
     snoop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     snoop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     snoop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -707,6 +725,7 @@ func (relayInformationOption *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Snoop_RelayI
     relayInformationOption.EntityData.BundleName = "cisco_ios_xr"
     relayInformationOption.EntityData.ParentYangName = "snoop"
     relayInformationOption.EntityData.SegmentPath = "relay-information-option"
+    relayInformationOption.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/snoop/" + relayInformationOption.EntityData.SegmentPath
     relayInformationOption.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     relayInformationOption.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     relayInformationOption.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -742,6 +761,7 @@ func (remoteId *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Snoop_RelayInformationOpti
     remoteId.EntityData.BundleName = "cisco_ios_xr"
     remoteId.EntityData.ParentYangName = "relay-information-option"
     remoteId.EntityData.SegmentPath = "remote-id"
+    remoteId.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/snoop/relay-information-option/" + remoteId.EntityData.SegmentPath
     remoteId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -788,6 +808,7 @@ func (base *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Base) GetEntityData() *types.C
     base.EntityData.BundleName = "cisco_ios_xr"
     base.EntityData.ParentYangName = "mode"
     base.EntityData.SegmentPath = "base"
+    base.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/" + base.EntityData.SegmentPath
     base.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     base.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     base.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -824,6 +845,7 @@ func (defaultProfile *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Base_DefaultProfile)
     defaultProfile.EntityData.BundleName = "cisco_ios_xr"
     defaultProfile.EntityData.ParentYangName = "base"
     defaultProfile.EntityData.SegmentPath = "default-profile"
+    defaultProfile.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/base/" + defaultProfile.EntityData.SegmentPath
     defaultProfile.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     defaultProfile.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     defaultProfile.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -857,6 +879,7 @@ func (match *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Base_Match) GetEntityData() *
     match.EntityData.BundleName = "cisco_ios_xr"
     match.EntityData.ParentYangName = "base"
     match.EntityData.SegmentPath = "match"
+    match.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/base/" + match.EntityData.SegmentPath
     match.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     match.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     match.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -888,6 +911,7 @@ func (optionFilters *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Base_Match_OptionFilt
     optionFilters.EntityData.BundleName = "cisco_ios_xr"
     optionFilters.EntityData.ParentYangName = "match"
     optionFilters.EntityData.SegmentPath = "option-filters"
+    optionFilters.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/base/match/" + optionFilters.EntityData.SegmentPath
     optionFilters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     optionFilters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     optionFilters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -909,6 +933,7 @@ func (optionFilters *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Base_Match_OptionFilt
 type Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Base_Match_OptionFilters_OptionFilter struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Match option 60. The type is interface{} with
     // range: 0..4294967295.
@@ -932,6 +957,7 @@ func (optionFilter *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Base_Match_OptionFilte
     optionFilter.EntityData.BundleName = "cisco_ios_xr"
     optionFilter.EntityData.ParentYangName = "option-filters"
     optionFilter.EntityData.SegmentPath = "option-filter" + types.AddKeyToken(optionFilter.Matchoption, "matchoption") + types.AddKeyToken(optionFilter.Pattern, "pattern") + types.AddKeyToken(optionFilter.Format, "format")
+    optionFilter.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/base/match/option-filters/" + optionFilter.EntityData.SegmentPath
     optionFilter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     optionFilter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     optionFilter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -965,6 +991,7 @@ func (defOptions *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Base_Match_DefOptions) G
     defOptions.EntityData.BundleName = "cisco_ios_xr"
     defOptions.EntityData.ParentYangName = "match"
     defOptions.EntityData.SegmentPath = "def-options"
+    defOptions.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/base/match/" + defOptions.EntityData.SegmentPath
     defOptions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     defOptions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     defOptions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -986,6 +1013,7 @@ func (defOptions *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Base_Match_DefOptions) G
 type Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Base_Match_DefOptions_DefOption struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Match option 60. The type is interface{} with
     // range: 0..4294967295.
@@ -1001,6 +1029,7 @@ func (defOption *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Base_Match_DefOptions_Def
     defOption.EntityData.BundleName = "cisco_ios_xr"
     defOption.EntityData.ParentYangName = "def-options"
     defOption.EntityData.SegmentPath = "def-option" + types.AddKeyToken(defOption.DefMatchoption, "def-matchoption")
+    defOption.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/base/match/def-options/" + defOption.EntityData.SegmentPath
     defOption.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     defOption.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     defOption.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1036,6 +1065,7 @@ func (baseRelayOpt *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Base_BaseRelayOpt) Get
     baseRelayOpt.EntityData.BundleName = "cisco_ios_xr"
     baseRelayOpt.EntityData.ParentYangName = "base"
     baseRelayOpt.EntityData.SegmentPath = "base-relay-opt"
+    baseRelayOpt.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/base/" + baseRelayOpt.EntityData.SegmentPath
     baseRelayOpt.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     baseRelayOpt.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     baseRelayOpt.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1066,6 +1096,7 @@ func (baseMatch *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Base_BaseMatch) GetEntity
     baseMatch.EntityData.BundleName = "cisco_ios_xr"
     baseMatch.EntityData.ParentYangName = "base"
     baseMatch.EntityData.SegmentPath = "base-match"
+    baseMatch.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/base/" + baseMatch.EntityData.SegmentPath
     baseMatch.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     baseMatch.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     baseMatch.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1096,6 +1127,7 @@ func (options *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Base_BaseMatch_Options) Get
     options.EntityData.BundleName = "cisco_ios_xr"
     options.EntityData.ParentYangName = "base-match"
     options.EntityData.SegmentPath = "options"
+    options.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/base/base-match/" + options.EntityData.SegmentPath
     options.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     options.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     options.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1117,6 +1149,7 @@ func (options *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Base_BaseMatch_Options) Get
 type Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Base_BaseMatch_Options_Option struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. none. The type is interface{} with range:
     // 0..4294967295.
@@ -1140,6 +1173,7 @@ func (option *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Base_BaseMatch_Options_Optio
     option.EntityData.BundleName = "cisco_ios_xr"
     option.EntityData.ParentYangName = "options"
     option.EntityData.SegmentPath = "option" + types.AddKeyToken(option.Opt60, "opt60") + types.AddKeyToken(option.Opt60HexStr, "opt60-hex-str") + types.AddKeyToken(option.Format, "format")
+    option.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/base/base-match/options/" + option.EntityData.SegmentPath
     option.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     option.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     option.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1175,6 +1209,7 @@ func (optionProfile *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Base_BaseMatch_Option
     optionProfile.EntityData.BundleName = "cisco_ios_xr"
     optionProfile.EntityData.ParentYangName = "option"
     optionProfile.EntityData.SegmentPath = "option-profile"
+    optionProfile.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/base/base-match/options/option/" + optionProfile.EntityData.SegmentPath
     optionProfile.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     optionProfile.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     optionProfile.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1243,6 +1278,9 @@ type Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Server struct {
     // default routers.
     DefaultRouters Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Server_DefaultRouters
 
+    // Delete binding on receiving discover.
+    DeleteBindingOnDiscover Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Server_DeleteBindingOnDiscover
+
     // NetBIOS name servers.
     NetBiosNameServers Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Server_NetBiosNameServers
 
@@ -1283,6 +1321,7 @@ func (server *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Server) GetEntityData() *typ
     server.EntityData.BundleName = "cisco_ios_xr"
     server.EntityData.ParentYangName = "mode"
     server.EntityData.SegmentPath = "server"
+    server.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/" + server.EntityData.SegmentPath
     server.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     server.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     server.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1293,6 +1332,7 @@ func (server *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Server) GetEntityData() *typ
     server.EntityData.Children.Append("requested-ip-address", types.YChild{"RequestedIpAddress", &server.RequestedIpAddress})
     server.EntityData.Children.Append("aaa-server", types.YChild{"AaaServer", &server.AaaServer})
     server.EntityData.Children.Append("default-routers", types.YChild{"DefaultRouters", &server.DefaultRouters})
+    server.EntityData.Children.Append("delete-binding-on-discover", types.YChild{"DeleteBindingOnDiscover", &server.DeleteBindingOnDiscover})
     server.EntityData.Children.Append("net-bios-name-servers", types.YChild{"NetBiosNameServers", &server.NetBiosNameServers})
     server.EntityData.Children.Append("match", types.YChild{"Match", &server.Match})
     server.EntityData.Children.Append("broadcast-flag", types.YChild{"BroadcastFlag", &server.BroadcastFlag})
@@ -1336,6 +1376,7 @@ func (serverIdCheck *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Server_ServerIdCheck)
     serverIdCheck.EntityData.BundleName = "cisco_ios_xr"
     serverIdCheck.EntityData.ParentYangName = "server"
     serverIdCheck.EntityData.SegmentPath = "server-id-check"
+    serverIdCheck.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/server/" + serverIdCheck.EntityData.SegmentPath
     serverIdCheck.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     serverIdCheck.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     serverIdCheck.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1369,6 +1410,7 @@ func (leaseLimit *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Server_LeaseLimit) GetEn
     leaseLimit.EntityData.BundleName = "cisco_ios_xr"
     leaseLimit.EntityData.ParentYangName = "server"
     leaseLimit.EntityData.SegmentPath = "lease-limit"
+    leaseLimit.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/server/" + leaseLimit.EntityData.SegmentPath
     leaseLimit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     leaseLimit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     leaseLimit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1399,6 +1441,7 @@ func (requestedIpAddress *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Server_Requested
     requestedIpAddress.EntityData.BundleName = "cisco_ios_xr"
     requestedIpAddress.EntityData.ParentYangName = "server"
     requestedIpAddress.EntityData.SegmentPath = "requested-ip-address"
+    requestedIpAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/server/" + requestedIpAddress.EntityData.SegmentPath
     requestedIpAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     requestedIpAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     requestedIpAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1428,6 +1471,7 @@ func (aaaServer *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Server_AaaServer) GetEnti
     aaaServer.EntityData.BundleName = "cisco_ios_xr"
     aaaServer.EntityData.ParentYangName = "server"
     aaaServer.EntityData.SegmentPath = "aaa-server"
+    aaaServer.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/server/" + aaaServer.EntityData.SegmentPath
     aaaServer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     aaaServer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     aaaServer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1457,6 +1501,7 @@ func (dhcpOption *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Server_AaaServer_DhcpOpt
     dhcpOption.EntityData.BundleName = "cisco_ios_xr"
     dhcpOption.EntityData.ParentYangName = "aaa-server"
     dhcpOption.EntityData.SegmentPath = "dhcp-option"
+    dhcpOption.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/server/aaa-server/" + dhcpOption.EntityData.SegmentPath
     dhcpOption.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dhcpOption.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dhcpOption.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1487,6 +1532,7 @@ func (defaultRouters *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Server_DefaultRouter
     defaultRouters.EntityData.BundleName = "cisco_ios_xr"
     defaultRouters.EntityData.ParentYangName = "server"
     defaultRouters.EntityData.SegmentPath = "default-routers"
+    defaultRouters.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/server/" + defaultRouters.EntityData.SegmentPath
     defaultRouters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     defaultRouters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     defaultRouters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1498,6 +1544,36 @@ func (defaultRouters *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Server_DefaultRouter
     defaultRouters.EntityData.YListKeys = []string {}
 
     return &(defaultRouters.EntityData)
+}
+
+// Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Server_DeleteBindingOnDiscover
+// Delete binding on receiving discover
+type Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Server_DeleteBindingOnDiscover struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Disable delete binding on discover. The type is interface{}.
+    Disable interface{}
+}
+
+func (deleteBindingOnDiscover *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Server_DeleteBindingOnDiscover) GetEntityData() *types.CommonEntityData {
+    deleteBindingOnDiscover.EntityData.YFilter = deleteBindingOnDiscover.YFilter
+    deleteBindingOnDiscover.EntityData.YangName = "delete-binding-on-discover"
+    deleteBindingOnDiscover.EntityData.BundleName = "cisco_ios_xr"
+    deleteBindingOnDiscover.EntityData.ParentYangName = "server"
+    deleteBindingOnDiscover.EntityData.SegmentPath = "delete-binding-on-discover"
+    deleteBindingOnDiscover.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/server/" + deleteBindingOnDiscover.EntityData.SegmentPath
+    deleteBindingOnDiscover.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    deleteBindingOnDiscover.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    deleteBindingOnDiscover.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    deleteBindingOnDiscover.EntityData.Children = types.NewOrderedMap()
+    deleteBindingOnDiscover.EntityData.Leafs = types.NewOrderedMap()
+    deleteBindingOnDiscover.EntityData.Leafs.Append("disable", types.YLeaf{"Disable", deleteBindingOnDiscover.Disable})
+
+    deleteBindingOnDiscover.EntityData.YListKeys = []string {}
+
+    return &(deleteBindingOnDiscover.EntityData)
 }
 
 // Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Server_NetBiosNameServers
@@ -1517,6 +1593,7 @@ func (netBiosNameServers *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Server_NetBiosNa
     netBiosNameServers.EntityData.BundleName = "cisco_ios_xr"
     netBiosNameServers.EntityData.ParentYangName = "server"
     netBiosNameServers.EntityData.SegmentPath = "net-bios-name-servers"
+    netBiosNameServers.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/server/" + netBiosNameServers.EntityData.SegmentPath
     netBiosNameServers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     netBiosNameServers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     netBiosNameServers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1549,6 +1626,7 @@ func (match *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Server_Match) GetEntityData()
     match.EntityData.BundleName = "cisco_ios_xr"
     match.EntityData.ParentYangName = "server"
     match.EntityData.SegmentPath = "match"
+    match.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/server/" + match.EntityData.SegmentPath
     match.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     match.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     match.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1580,6 +1658,7 @@ func (optionDefaults *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Server_Match_OptionD
     optionDefaults.EntityData.BundleName = "cisco_ios_xr"
     optionDefaults.EntityData.ParentYangName = "match"
     optionDefaults.EntityData.SegmentPath = "option-defaults"
+    optionDefaults.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/server/match/" + optionDefaults.EntityData.SegmentPath
     optionDefaults.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     optionDefaults.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     optionDefaults.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1601,6 +1680,7 @@ func (optionDefaults *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Server_Match_OptionD
 type Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Server_Match_OptionDefaults_OptionDefault struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Match option 60. The type is Matchoption.
     Matchoption interface{}
@@ -1615,6 +1695,7 @@ func (optionDefault *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Server_Match_OptionDe
     optionDefault.EntityData.BundleName = "cisco_ios_xr"
     optionDefault.EntityData.ParentYangName = "option-defaults"
     optionDefault.EntityData.SegmentPath = "option-default" + types.AddKeyToken(optionDefault.Matchoption, "matchoption")
+    optionDefault.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/server/match/option-defaults/" + optionDefault.EntityData.SegmentPath
     optionDefault.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     optionDefault.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     optionDefault.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1646,6 +1727,7 @@ func (options *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Server_Match_Options) GetEn
     options.EntityData.BundleName = "cisco_ios_xr"
     options.EntityData.ParentYangName = "match"
     options.EntityData.SegmentPath = "options"
+    options.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/server/match/" + options.EntityData.SegmentPath
     options.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     options.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     options.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1667,6 +1749,7 @@ func (options *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Server_Match_Options) GetEn
 type Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Server_Match_Options_Option struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Match option 60. The type is Matchoption.
     Matchoption interface{}
@@ -1689,6 +1772,7 @@ func (option *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Server_Match_Options_Option)
     option.EntityData.BundleName = "cisco_ios_xr"
     option.EntityData.ParentYangName = "options"
     option.EntityData.SegmentPath = "option" + types.AddKeyToken(option.Matchoption, "matchoption") + types.AddKeyToken(option.Pattern, "pattern") + types.AddKeyToken(option.Format, "format")
+    option.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/server/match/options/" + option.EntityData.SegmentPath
     option.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     option.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     option.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1721,6 +1805,7 @@ func (broadcastFlag *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Server_BroadcastFlag)
     broadcastFlag.EntityData.BundleName = "cisco_ios_xr"
     broadcastFlag.EntityData.ParentYangName = "server"
     broadcastFlag.EntityData.SegmentPath = "broadcast-flag"
+    broadcastFlag.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/server/" + broadcastFlag.EntityData.SegmentPath
     broadcastFlag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     broadcastFlag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     broadcastFlag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1750,6 +1835,7 @@ func (session *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Server_Session) GetEntityDa
     session.EntityData.BundleName = "cisco_ios_xr"
     session.EntityData.ParentYangName = "server"
     session.EntityData.SegmentPath = "session"
+    session.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/server/" + session.EntityData.SegmentPath
     session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1780,6 +1866,7 @@ func (throttleType *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Server_Session_Throttl
     throttleType.EntityData.BundleName = "cisco_ios_xr"
     throttleType.EntityData.ParentYangName = "session"
     throttleType.EntityData.SegmentPath = "throttle-type"
+    throttleType.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/server/session/" + throttleType.EntityData.SegmentPath
     throttleType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     throttleType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     throttleType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1819,6 +1906,7 @@ func (macThrottle *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Server_Session_Throttle
     macThrottle.EntityData.BundleName = "cisco_ios_xr"
     macThrottle.EntityData.ParentYangName = "throttle-type"
     macThrottle.EntityData.SegmentPath = "mac-throttle"
+    macThrottle.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/server/session/throttle-type/" + macThrottle.EntityData.SegmentPath
     macThrottle.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     macThrottle.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     macThrottle.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1851,6 +1939,7 @@ func (classes *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Server_Classes) GetEntityDa
     classes.EntityData.BundleName = "cisco_ios_xr"
     classes.EntityData.ParentYangName = "server"
     classes.EntityData.SegmentPath = "classes"
+    classes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/server/" + classes.EntityData.SegmentPath
     classes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     classes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     classes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1872,6 +1961,7 @@ func (classes *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Server_Classes) GetEntityDa
 type Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Server_Classes_Class struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. class name. The type is string with length:
     // 1..128.
@@ -1928,6 +2018,7 @@ func (class *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Server_Classes_Class) GetEnti
     class.EntityData.BundleName = "cisco_ios_xr"
     class.EntityData.ParentYangName = "classes"
     class.EntityData.SegmentPath = "class" + types.AddKeyToken(class.ClassName, "class-name")
+    class.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/server/classes/" + class.EntityData.SegmentPath
     class.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     class.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     class.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1971,6 +2062,7 @@ func (defaultRouters *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Server_Classes_Class
     defaultRouters.EntityData.BundleName = "cisco_ios_xr"
     defaultRouters.EntityData.ParentYangName = "class"
     defaultRouters.EntityData.SegmentPath = "default-routers"
+    defaultRouters.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/server/classes/class/" + defaultRouters.EntityData.SegmentPath
     defaultRouters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     defaultRouters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     defaultRouters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2001,6 +2093,7 @@ func (netBiosNameServers *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Server_Classes_C
     netBiosNameServers.EntityData.BundleName = "cisco_ios_xr"
     netBiosNameServers.EntityData.ParentYangName = "class"
     netBiosNameServers.EntityData.SegmentPath = "net-bios-name-servers"
+    netBiosNameServers.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/server/classes/class/" + netBiosNameServers.EntityData.SegmentPath
     netBiosNameServers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     netBiosNameServers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     netBiosNameServers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2037,6 +2130,7 @@ func (classMatch *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Server_Classes_Class_Cla
     classMatch.EntityData.BundleName = "cisco_ios_xr"
     classMatch.EntityData.ParentYangName = "class"
     classMatch.EntityData.SegmentPath = "class-match"
+    classMatch.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/server/classes/class/" + classMatch.EntityData.SegmentPath
     classMatch.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     classMatch.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     classMatch.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2069,6 +2163,7 @@ func (classOptions *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Server_Classes_Class_C
     classOptions.EntityData.BundleName = "cisco_ios_xr"
     classOptions.EntityData.ParentYangName = "class-match"
     classOptions.EntityData.SegmentPath = "class-options"
+    classOptions.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/server/classes/class/class-match/" + classOptions.EntityData.SegmentPath
     classOptions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     classOptions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     classOptions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2090,6 +2185,7 @@ func (classOptions *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Server_Classes_Class_C
 type Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Server_Classes_Class_ClassMatch_ClassOptions_ClassOption struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Match options. The type is Matchoption.
     Matchoption interface{}
@@ -2107,6 +2203,7 @@ func (classOption *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Server_Classes_Class_Cl
     classOption.EntityData.BundleName = "cisco_ios_xr"
     classOption.EntityData.ParentYangName = "class-options"
     classOption.EntityData.SegmentPath = "class-option" + types.AddKeyToken(classOption.Matchoption, "matchoption")
+    classOption.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/server/classes/class/class-match/class-options/" + classOption.EntityData.SegmentPath
     classOption.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     classOption.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     classOption.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2147,6 +2244,7 @@ func (lease *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Server_Classes_Class_Lease) G
     lease.EntityData.BundleName = "cisco_ios_xr"
     lease.EntityData.ParentYangName = "class"
     lease.EntityData.SegmentPath = "lease"
+    lease.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/server/classes/class/" + lease.EntityData.SegmentPath
     lease.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lease.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lease.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2191,6 +2289,7 @@ func (netbiosNodeType *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Server_Classes_Clas
     netbiosNodeType.EntityData.BundleName = "cisco_ios_xr"
     netbiosNodeType.EntityData.ParentYangName = "class"
     netbiosNodeType.EntityData.SegmentPath = "netbios-node-type"
+    netbiosNodeType.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/server/classes/class/" + netbiosNodeType.EntityData.SegmentPath
     netbiosNodeType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     netbiosNodeType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     netbiosNodeType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2225,6 +2324,7 @@ func (dnsServers *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Server_Classes_Class_Dns
     dnsServers.EntityData.BundleName = "cisco_ios_xr"
     dnsServers.EntityData.ParentYangName = "class"
     dnsServers.EntityData.SegmentPath = "dns-servers"
+    dnsServers.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/server/classes/class/" + dnsServers.EntityData.SegmentPath
     dnsServers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dnsServers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dnsServers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2255,6 +2355,7 @@ func (optionCodes *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Server_Classes_Class_Op
     optionCodes.EntityData.BundleName = "cisco_ios_xr"
     optionCodes.EntityData.ParentYangName = "class"
     optionCodes.EntityData.SegmentPath = "option-codes"
+    optionCodes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/server/classes/class/" + optionCodes.EntityData.SegmentPath
     optionCodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     optionCodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     optionCodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2276,6 +2377,7 @@ func (optionCodes *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Server_Classes_Class_Op
 type Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Server_Classes_Class_OptionCodes_OptionCode struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. DHCP option code. The type is interface{} with
     // range: 0..255.
@@ -2301,6 +2403,7 @@ func (optionCode *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Server_Classes_Class_Opt
     optionCode.EntityData.BundleName = "cisco_ios_xr"
     optionCode.EntityData.ParentYangName = "option-codes"
     optionCode.EntityData.SegmentPath = "option-code" + types.AddKeyToken(optionCode.OptionCode, "option-code")
+    optionCode.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/server/classes/class/option-codes/" + optionCode.EntityData.SegmentPath
     optionCode.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     optionCode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     optionCode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2336,6 +2439,7 @@ func (relay *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Server_Relay) GetEntityData()
     relay.EntityData.BundleName = "cisco_ios_xr"
     relay.EntityData.ParentYangName = "server"
     relay.EntityData.SegmentPath = "relay"
+    relay.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/server/" + relay.EntityData.SegmentPath
     relay.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     relay.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     relay.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2374,6 +2478,7 @@ func (lease *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Server_Lease) GetEntityData()
     lease.EntityData.BundleName = "cisco_ios_xr"
     lease.EntityData.ParentYangName = "server"
     lease.EntityData.SegmentPath = "lease"
+    lease.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/server/" + lease.EntityData.SegmentPath
     lease.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lease.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lease.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2418,6 +2523,7 @@ func (netbiosNodeType *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Server_NetbiosNodeT
     netbiosNodeType.EntityData.BundleName = "cisco_ios_xr"
     netbiosNodeType.EntityData.ParentYangName = "server"
     netbiosNodeType.EntityData.SegmentPath = "netbios-node-type"
+    netbiosNodeType.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/server/" + netbiosNodeType.EntityData.SegmentPath
     netbiosNodeType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     netbiosNodeType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     netbiosNodeType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2452,6 +2558,7 @@ func (dnsServers *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Server_DnsServers) GetEn
     dnsServers.EntityData.BundleName = "cisco_ios_xr"
     dnsServers.EntityData.ParentYangName = "server"
     dnsServers.EntityData.SegmentPath = "dns-servers"
+    dnsServers.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/server/" + dnsServers.EntityData.SegmentPath
     dnsServers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dnsServers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dnsServers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2482,6 +2589,7 @@ func (dhcpToAaa *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Server_DhcpToAaa) GetEnti
     dhcpToAaa.EntityData.BundleName = "cisco_ios_xr"
     dhcpToAaa.EntityData.ParentYangName = "server"
     dhcpToAaa.EntityData.SegmentPath = "dhcp-to-aaa"
+    dhcpToAaa.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/server/" + dhcpToAaa.EntityData.SegmentPath
     dhcpToAaa.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dhcpToAaa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dhcpToAaa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2511,6 +2619,7 @@ func (option *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Server_DhcpToAaa_Option) Get
     option.EntityData.BundleName = "cisco_ios_xr"
     option.EntityData.ParentYangName = "dhcp-to-aaa"
     option.EntityData.SegmentPath = "option"
+    option.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/server/dhcp-to-aaa/" + option.EntityData.SegmentPath
     option.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     option.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     option.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2543,6 +2652,7 @@ func (list *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Server_DhcpToAaa_Option_List) 
     list.EntityData.BundleName = "cisco_ios_xr"
     list.EntityData.ParentYangName = "option"
     list.EntityData.SegmentPath = "list"
+    list.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/server/dhcp-to-aaa/option/" + list.EntityData.SegmentPath
     list.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     list.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     list.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2574,6 +2684,7 @@ func (optionCodes *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Server_OptionCodes) Get
     optionCodes.EntityData.BundleName = "cisco_ios_xr"
     optionCodes.EntityData.ParentYangName = "server"
     optionCodes.EntityData.SegmentPath = "option-codes"
+    optionCodes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/server/" + optionCodes.EntityData.SegmentPath
     optionCodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     optionCodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     optionCodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2595,6 +2706,7 @@ func (optionCodes *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Server_OptionCodes) Get
 type Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Server_OptionCodes_OptionCode struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. DHCP option code. The type is interface{} with
     // range: 0..255.
@@ -2620,6 +2732,7 @@ func (optionCode *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Server_OptionCodes_Optio
     optionCode.EntityData.BundleName = "cisco_ios_xr"
     optionCode.EntityData.ParentYangName = "option-codes"
     optionCode.EntityData.SegmentPath = "option-code" + types.AddKeyToken(optionCode.OptionCode, "option-code")
+    optionCode.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/server/option-codes/" + optionCode.EntityData.SegmentPath
     optionCode.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     optionCode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     optionCode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2666,6 +2779,7 @@ func (relay *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Relay) GetEntityData() *types
     relay.EntityData.BundleName = "cisco_ios_xr"
     relay.EntityData.ParentYangName = "mode"
     relay.EntityData.SegmentPath = "relay"
+    relay.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/" + relay.EntityData.SegmentPath
     relay.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     relay.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     relay.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2702,6 +2816,7 @@ func (giAddrPolicy *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Relay_GiAddrPolicy) Ge
     giAddrPolicy.EntityData.BundleName = "cisco_ios_xr"
     giAddrPolicy.EntityData.ParentYangName = "relay"
     giAddrPolicy.EntityData.SegmentPath = "gi-addr-policy"
+    giAddrPolicy.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/relay/" + giAddrPolicy.EntityData.SegmentPath
     giAddrPolicy.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     giAddrPolicy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     giAddrPolicy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2732,6 +2847,7 @@ func (vrfs *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Relay_Vrfs) GetEntityData() *t
     vrfs.EntityData.BundleName = "cisco_ios_xr"
     vrfs.EntityData.ParentYangName = "relay"
     vrfs.EntityData.SegmentPath = "vrfs"
+    vrfs.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/relay/" + vrfs.EntityData.SegmentPath
     vrfs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2753,6 +2869,7 @@ func (vrfs *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Relay_Vrfs) GetEntityData() *t
 type Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Relay_Vrfs_Vrf struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. VRF Name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -2768,6 +2885,7 @@ func (vrf *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Relay_Vrfs_Vrf) GetEntityData()
     vrf.EntityData.BundleName = "cisco_ios_xr"
     vrf.EntityData.ParentYangName = "vrfs"
     vrf.EntityData.SegmentPath = "vrf" + types.AddKeyToken(vrf.VrfName, "vrf-name")
+    vrf.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/relay/vrfs/" + vrf.EntityData.SegmentPath
     vrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2799,6 +2917,7 @@ func (helperAddresses *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Relay_Vrfs_Vrf_Help
     helperAddresses.EntityData.BundleName = "cisco_ios_xr"
     helperAddresses.EntityData.ParentYangName = "vrf"
     helperAddresses.EntityData.SegmentPath = "helper-addresses"
+    helperAddresses.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/relay/vrfs/vrf/" + helperAddresses.EntityData.SegmentPath
     helperAddresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     helperAddresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     helperAddresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2820,6 +2939,7 @@ func (helperAddresses *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Relay_Vrfs_Vrf_Help
 type Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Relay_Vrfs_Vrf_HelperAddresses_HelperAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IPV4 Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -2839,6 +2959,7 @@ func (helperAddress *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Relay_Vrfs_Vrf_Helper
     helperAddress.EntityData.BundleName = "cisco_ios_xr"
     helperAddress.EntityData.ParentYangName = "helper-addresses"
     helperAddress.EntityData.SegmentPath = "helper-address" + types.AddKeyToken(helperAddress.IpAddress, "ip-address")
+    helperAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/relay/vrfs/vrf/helper-addresses/" + helperAddress.EntityData.SegmentPath
     helperAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     helperAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     helperAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2891,6 +3012,7 @@ func (relayInformationOption *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Relay_RelayI
     relayInformationOption.EntityData.BundleName = "cisco_ios_xr"
     relayInformationOption.EntityData.ParentYangName = "relay"
     relayInformationOption.EntityData.SegmentPath = "relay-information-option"
+    relayInformationOption.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/relay/" + relayInformationOption.EntityData.SegmentPath
     relayInformationOption.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     relayInformationOption.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     relayInformationOption.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2929,6 +3051,7 @@ func (broadcastPolicy *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Relay_BroadcastPoli
     broadcastPolicy.EntityData.BundleName = "cisco_ios_xr"
     broadcastPolicy.EntityData.ParentYangName = "relay"
     broadcastPolicy.EntityData.SegmentPath = "broadcast-policy"
+    broadcastPolicy.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/relay/" + broadcastPolicy.EntityData.SegmentPath
     broadcastPolicy.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     broadcastPolicy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     broadcastPolicy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3003,6 +3126,7 @@ func (proxy *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Proxy) GetEntityData() *types
     proxy.EntityData.BundleName = "cisco_ios_xr"
     proxy.EntityData.ParentYangName = "mode"
     proxy.EntityData.SegmentPath = "proxy"
+    proxy.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/" + proxy.EntityData.SegmentPath
     proxy.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     proxy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     proxy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3049,6 +3173,7 @@ func (giaddr *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Proxy_Giaddr) GetEntityData(
     giaddr.EntityData.BundleName = "cisco_ios_xr"
     giaddr.EntityData.ParentYangName = "proxy"
     giaddr.EntityData.SegmentPath = "giaddr"
+    giaddr.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/proxy/" + giaddr.EntityData.SegmentPath
     giaddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     giaddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     giaddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3079,6 +3204,7 @@ func (classes *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Proxy_Classes) GetEntityDat
     classes.EntityData.BundleName = "cisco_ios_xr"
     classes.EntityData.ParentYangName = "proxy"
     classes.EntityData.SegmentPath = "classes"
+    classes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/proxy/" + classes.EntityData.SegmentPath
     classes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     classes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     classes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3100,6 +3226,7 @@ func (classes *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Proxy_Classes) GetEntityDat
 type Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Proxy_Classes_Class struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Class name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -3122,6 +3249,7 @@ func (class *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Proxy_Classes_Class) GetEntit
     class.EntityData.BundleName = "cisco_ios_xr"
     class.EntityData.ParentYangName = "classes"
     class.EntityData.SegmentPath = "class" + types.AddKeyToken(class.ClassName, "class-name")
+    class.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/proxy/classes/" + class.EntityData.SegmentPath
     class.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     class.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     class.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3157,6 +3285,7 @@ func (match *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Proxy_Classes_Class_Match) Ge
     match.EntityData.BundleName = "cisco_ios_xr"
     match.EntityData.ParentYangName = "class"
     match.EntityData.SegmentPath = "match"
+    match.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/proxy/classes/class/" + match.EntityData.SegmentPath
     match.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     match.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     match.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3193,6 +3322,7 @@ func (option *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Proxy_Classes_Class_Match_Op
     option.EntityData.BundleName = "cisco_ios_xr"
     option.EntityData.ParentYangName = "match"
     option.EntityData.SegmentPath = "option"
+    option.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/proxy/classes/class/match/" + option.EntityData.SegmentPath
     option.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     option.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     option.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3225,6 +3355,7 @@ func (vrfs *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Proxy_Classes_Class_Vrfs) GetE
     vrfs.EntityData.BundleName = "cisco_ios_xr"
     vrfs.EntityData.ParentYangName = "class"
     vrfs.EntityData.SegmentPath = "vrfs"
+    vrfs.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/proxy/classes/class/" + vrfs.EntityData.SegmentPath
     vrfs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3246,6 +3377,7 @@ func (vrfs *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Proxy_Classes_Class_Vrfs) GetE
 type Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Proxy_Classes_Class_Vrfs_Vrf struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. VRF name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -3261,6 +3393,7 @@ func (vrf *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Proxy_Classes_Class_Vrfs_Vrf) G
     vrf.EntityData.BundleName = "cisco_ios_xr"
     vrf.EntityData.ParentYangName = "vrfs"
     vrf.EntityData.SegmentPath = "vrf" + types.AddKeyToken(vrf.VrfName, "vrf-name")
+    vrf.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/proxy/classes/class/vrfs/" + vrf.EntityData.SegmentPath
     vrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3292,6 +3425,7 @@ func (helperAddresses *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Proxy_Classes_Class
     helperAddresses.EntityData.BundleName = "cisco_ios_xr"
     helperAddresses.EntityData.ParentYangName = "vrf"
     helperAddresses.EntityData.SegmentPath = "helper-addresses"
+    helperAddresses.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/proxy/classes/class/vrfs/vrf/" + helperAddresses.EntityData.SegmentPath
     helperAddresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     helperAddresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     helperAddresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3313,6 +3447,7 @@ func (helperAddresses *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Proxy_Classes_Class
 type Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Proxy_Classes_Class_Vrfs_Vrf_HelperAddresses_HelperAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IPv4 address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -3330,6 +3465,7 @@ func (helperAddress *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Proxy_Classes_Class_V
     helperAddress.EntityData.BundleName = "cisco_ios_xr"
     helperAddress.EntityData.ParentYangName = "helper-addresses"
     helperAddress.EntityData.SegmentPath = "helper-address" + types.AddKeyToken(helperAddress.ServerAddress, "server-address")
+    helperAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/proxy/classes/class/vrfs/vrf/helper-addresses/" + helperAddress.EntityData.SegmentPath
     helperAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     helperAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     helperAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3366,6 +3502,7 @@ func (authUsername *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Proxy_AuthUsername) Ge
     authUsername.EntityData.BundleName = "cisco_ios_xr"
     authUsername.EntityData.ParentYangName = "proxy"
     authUsername.EntityData.SegmentPath = "auth-username"
+    authUsername.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/proxy/" + authUsername.EntityData.SegmentPath
     authUsername.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     authUsername.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     authUsername.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3430,6 +3567,7 @@ func (relayInformation *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Proxy_RelayInforma
     relayInformation.EntityData.BundleName = "cisco_ios_xr"
     relayInformation.EntityData.ParentYangName = "proxy"
     relayInformation.EntityData.SegmentPath = "relay-information"
+    relayInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/proxy/" + relayInformation.EntityData.SegmentPath
     relayInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     relayInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     relayInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3470,6 +3608,7 @@ func (dhcpToAaa *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Proxy_DhcpToAaa) GetEntit
     dhcpToAaa.EntityData.BundleName = "cisco_ios_xr"
     dhcpToAaa.EntityData.ParentYangName = "proxy"
     dhcpToAaa.EntityData.SegmentPath = "dhcp-to-aaa"
+    dhcpToAaa.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/proxy/" + dhcpToAaa.EntityData.SegmentPath
     dhcpToAaa.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dhcpToAaa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dhcpToAaa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3499,6 +3638,7 @@ func (option *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Proxy_DhcpToAaa_Option) GetE
     option.EntityData.BundleName = "cisco_ios_xr"
     option.EntityData.ParentYangName = "dhcp-to-aaa"
     option.EntityData.SegmentPath = "option"
+    option.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/proxy/dhcp-to-aaa/" + option.EntityData.SegmentPath
     option.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     option.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     option.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3531,6 +3671,7 @@ func (list *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Proxy_DhcpToAaa_Option_List) G
     list.EntityData.BundleName = "cisco_ios_xr"
     list.EntityData.ParentYangName = "option"
     list.EntityData.SegmentPath = "list"
+    list.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/proxy/dhcp-to-aaa/option/" + list.EntityData.SegmentPath
     list.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     list.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     list.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3562,6 +3703,7 @@ func (vrfs *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Proxy_Vrfs) GetEntityData() *t
     vrfs.EntityData.BundleName = "cisco_ios_xr"
     vrfs.EntityData.ParentYangName = "proxy"
     vrfs.EntityData.SegmentPath = "vrfs"
+    vrfs.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/proxy/" + vrfs.EntityData.SegmentPath
     vrfs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3583,6 +3725,7 @@ func (vrfs *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Proxy_Vrfs) GetEntityData() *t
 type Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Proxy_Vrfs_Vrf struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. VRF name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -3598,6 +3741,7 @@ func (vrf *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Proxy_Vrfs_Vrf) GetEntityData()
     vrf.EntityData.BundleName = "cisco_ios_xr"
     vrf.EntityData.ParentYangName = "vrfs"
     vrf.EntityData.SegmentPath = "vrf" + types.AddKeyToken(vrf.VrfName, "vrf-name")
+    vrf.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/proxy/vrfs/" + vrf.EntityData.SegmentPath
     vrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3629,6 +3773,7 @@ func (helperAddresses *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Proxy_Vrfs_Vrf_Help
     helperAddresses.EntityData.BundleName = "cisco_ios_xr"
     helperAddresses.EntityData.ParentYangName = "vrf"
     helperAddresses.EntityData.SegmentPath = "helper-addresses"
+    helperAddresses.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/proxy/vrfs/vrf/" + helperAddresses.EntityData.SegmentPath
     helperAddresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     helperAddresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     helperAddresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3650,6 +3795,7 @@ func (helperAddresses *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Proxy_Vrfs_Vrf_Help
 type Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Proxy_Vrfs_Vrf_HelperAddresses_HelperAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IPv4 address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -3667,6 +3813,7 @@ func (helperAddress *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Proxy_Vrfs_Vrf_Helper
     helperAddress.EntityData.BundleName = "cisco_ios_xr"
     helperAddress.EntityData.ParentYangName = "helper-addresses"
     helperAddress.EntityData.SegmentPath = "helper-address" + types.AddKeyToken(helperAddress.ServerAddress, "server-address")
+    helperAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/proxy/vrfs/vrf/helper-addresses/" + helperAddress.EntityData.SegmentPath
     helperAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     helperAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     helperAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3697,6 +3844,7 @@ func (sessions *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Proxy_Sessions) GetEntityD
     sessions.EntityData.BundleName = "cisco_ios_xr"
     sessions.EntityData.ParentYangName = "proxy"
     sessions.EntityData.SegmentPath = "sessions"
+    sessions.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/proxy/" + sessions.EntityData.SegmentPath
     sessions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sessions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3727,6 +3875,7 @@ func (proxyThrottleType *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Proxy_Sessions_Pr
     proxyThrottleType.EntityData.BundleName = "cisco_ios_xr"
     proxyThrottleType.EntityData.ParentYangName = "sessions"
     proxyThrottleType.EntityData.SegmentPath = "proxy-throttle-type"
+    proxyThrottleType.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/proxy/sessions/" + proxyThrottleType.EntityData.SegmentPath
     proxyThrottleType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     proxyThrottleType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     proxyThrottleType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3766,6 +3915,7 @@ func (proxyMacThrottle *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Proxy_Sessions_Pro
     proxyMacThrottle.EntityData.BundleName = "cisco_ios_xr"
     proxyMacThrottle.EntityData.ParentYangName = "proxy-throttle-type"
     proxyMacThrottle.EntityData.SegmentPath = "proxy-mac-throttle"
+    proxyMacThrottle.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/proxy/sessions/proxy-throttle-type/" + proxyMacThrottle.EntityData.SegmentPath
     proxyMacThrottle.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     proxyMacThrottle.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     proxyMacThrottle.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3804,6 +3954,7 @@ func (limitLease *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Proxy_LimitLease) GetEnt
     limitLease.EntityData.BundleName = "cisco_ios_xr"
     limitLease.EntityData.ParentYangName = "proxy"
     limitLease.EntityData.SegmentPath = "limit-lease"
+    limitLease.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/proxy/" + limitLease.EntityData.SegmentPath
     limitLease.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     limitLease.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     limitLease.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3839,6 +3990,7 @@ func (leaseProxy *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Proxy_LeaseProxy) GetEnt
     leaseProxy.EntityData.BundleName = "cisco_ios_xr"
     leaseProxy.EntityData.ParentYangName = "proxy"
     leaseProxy.EntityData.SegmentPath = "lease-proxy"
+    leaseProxy.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/proxy/" + leaseProxy.EntityData.SegmentPath
     leaseProxy.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     leaseProxy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     leaseProxy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3872,6 +4024,7 @@ func (broadcastFlag *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Proxy_BroadcastFlag) 
     broadcastFlag.EntityData.BundleName = "cisco_ios_xr"
     broadcastFlag.EntityData.ParentYangName = "proxy"
     broadcastFlag.EntityData.SegmentPath = "broadcast-flag"
+    broadcastFlag.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/proxy/" + broadcastFlag.EntityData.SegmentPath
     broadcastFlag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     broadcastFlag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     broadcastFlag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3904,6 +4057,7 @@ func (match *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Proxy_Match) GetEntityData() 
     match.EntityData.BundleName = "cisco_ios_xr"
     match.EntityData.ParentYangName = "proxy"
     match.EntityData.SegmentPath = "match"
+    match.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/proxy/" + match.EntityData.SegmentPath
     match.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     match.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     match.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3935,6 +4089,7 @@ func (defOptions *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Proxy_Match_DefOptions) 
     defOptions.EntityData.BundleName = "cisco_ios_xr"
     defOptions.EntityData.ParentYangName = "match"
     defOptions.EntityData.SegmentPath = "def-options"
+    defOptions.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/proxy/match/" + defOptions.EntityData.SegmentPath
     defOptions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     defOptions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     defOptions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3956,6 +4111,7 @@ func (defOptions *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Proxy_Match_DefOptions) 
 type Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Proxy_Match_DefOptions_DefOption struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Match option 60. The type is interface{} with
     // range: 0..4294967295.
@@ -3971,6 +4127,7 @@ func (defOption *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Proxy_Match_DefOptions_De
     defOption.EntityData.BundleName = "cisco_ios_xr"
     defOption.EntityData.ParentYangName = "def-options"
     defOption.EntityData.SegmentPath = "def-option" + types.AddKeyToken(defOption.DefMatchoption, "def-matchoption")
+    defOption.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/proxy/match/def-options/" + defOption.EntityData.SegmentPath
     defOption.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     defOption.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     defOption.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4002,6 +4159,7 @@ func (optionFilters *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Proxy_Match_OptionFil
     optionFilters.EntityData.BundleName = "cisco_ios_xr"
     optionFilters.EntityData.ParentYangName = "match"
     optionFilters.EntityData.SegmentPath = "option-filters"
+    optionFilters.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/proxy/match/" + optionFilters.EntityData.SegmentPath
     optionFilters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     optionFilters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     optionFilters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4023,6 +4181,7 @@ func (optionFilters *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Proxy_Match_OptionFil
 type Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Proxy_Match_OptionFilters_OptionFilter struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Match option 60. The type is interface{} with
     // range: 0..4294967295.
@@ -4046,6 +4205,7 @@ func (optionFilter *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Proxy_Match_OptionFilt
     optionFilter.EntityData.BundleName = "cisco_ios_xr"
     optionFilter.EntityData.ParentYangName = "option-filters"
     optionFilter.EntityData.SegmentPath = "option-filter" + types.AddKeyToken(optionFilter.Matchoption, "matchoption") + types.AddKeyToken(optionFilter.Pattern, "pattern") + types.AddKeyToken(optionFilter.Format, "format")
+    optionFilter.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/proxy/match/option-filters/" + optionFilter.EntityData.SegmentPath
     optionFilter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     optionFilter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     optionFilter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4096,6 +4256,7 @@ func (database *Ipv4Dhcpd_Database) GetEntityData() *types.CommonEntityData {
     database.EntityData.BundleName = "cisco_ios_xr"
     database.EntityData.ParentYangName = "ipv4-dhcpd"
     database.EntityData.SegmentPath = "database"
+    database.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/" + database.EntityData.SegmentPath
     database.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     database.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     database.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4129,6 +4290,7 @@ func (interfaces *Ipv4Dhcpd_Interfaces) GetEntityData() *types.CommonEntityData 
     interfaces.EntityData.BundleName = "cisco_ios_xr"
     interfaces.EntityData.ParentYangName = "ipv4-dhcpd"
     interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/" + interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4150,6 +4312,7 @@ func (interfaces *Ipv4Dhcpd_Interfaces) GetEntityData() *types.CommonEntityData 
 type Ipv4Dhcpd_Interfaces_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface Name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -4183,6 +4346,7 @@ func (self *Ipv4Dhcpd_Interfaces_Interface) GetEntityData() *types.CommonEntityD
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/interfaces/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4222,6 +4386,7 @@ func (proxyInterface *Ipv4Dhcpd_Interfaces_Interface_ProxyInterface) GetEntityDa
     proxyInterface.EntityData.BundleName = "cisco_ios_xr"
     proxyInterface.EntityData.ParentYangName = "interface"
     proxyInterface.EntityData.SegmentPath = "proxy-interface"
+    proxyInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/interfaces/interface/" + proxyInterface.EntityData.SegmentPath
     proxyInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     proxyInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     proxyInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4306,6 +4471,7 @@ func (dhcpCircuitId *Ipv4Dhcpd_Interfaces_Interface_ProxyInterface_DhcpCircuitId
     dhcpCircuitId.EntityData.BundleName = "cisco_ios_xr"
     dhcpCircuitId.EntityData.ParentYangName = "proxy-interface"
     dhcpCircuitId.EntityData.SegmentPath = "dhcp-circuit-id"
+    dhcpCircuitId.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/interfaces/interface/proxy-interface/" + dhcpCircuitId.EntityData.SegmentPath
     dhcpCircuitId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dhcpCircuitId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dhcpCircuitId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4355,6 +4521,7 @@ func (baseInterface *Ipv4Dhcpd_Interfaces_Interface_BaseInterface) GetEntityData
     baseInterface.EntityData.BundleName = "cisco_ios_xr"
     baseInterface.EntityData.ParentYangName = "interface"
     baseInterface.EntityData.SegmentPath = "base-interface"
+    baseInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/interfaces/interface/" + baseInterface.EntityData.SegmentPath
     baseInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     baseInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     baseInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4439,6 +4606,7 @@ func (baseDhcpCircuitId *Ipv4Dhcpd_Interfaces_Interface_BaseInterface_BaseDhcpCi
     baseDhcpCircuitId.EntityData.BundleName = "cisco_ios_xr"
     baseDhcpCircuitId.EntityData.ParentYangName = "base-interface"
     baseDhcpCircuitId.EntityData.SegmentPath = "base-dhcp-circuit-id"
+    baseDhcpCircuitId.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/interfaces/interface/base-interface/" + baseDhcpCircuitId.EntityData.SegmentPath
     baseDhcpCircuitId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     baseDhcpCircuitId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     baseDhcpCircuitId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4485,6 +4653,7 @@ func (relayInterface *Ipv4Dhcpd_Interfaces_Interface_RelayInterface) GetEntityDa
     relayInterface.EntityData.BundleName = "cisco_ios_xr"
     relayInterface.EntityData.ParentYangName = "interface"
     relayInterface.EntityData.SegmentPath = "relay-interface"
+    relayInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/interfaces/interface/" + relayInterface.EntityData.SegmentPath
     relayInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     relayInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     relayInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4568,6 +4737,7 @@ func (relayDhcpCircuitId *Ipv4Dhcpd_Interfaces_Interface_RelayInterface_RelayDhc
     relayDhcpCircuitId.EntityData.BundleName = "cisco_ios_xr"
     relayDhcpCircuitId.EntityData.ParentYangName = "relay-interface"
     relayDhcpCircuitId.EntityData.SegmentPath = "relay-dhcp-circuit-id"
+    relayDhcpCircuitId.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/interfaces/interface/relay-interface/" + relayDhcpCircuitId.EntityData.SegmentPath
     relayDhcpCircuitId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     relayDhcpCircuitId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     relayDhcpCircuitId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4615,6 +4785,7 @@ func (staticMode *Ipv4Dhcpd_Interfaces_Interface_StaticMode) GetEntityData() *ty
     staticMode.EntityData.BundleName = "cisco_ios_xr"
     staticMode.EntityData.ParentYangName = "interface"
     staticMode.EntityData.SegmentPath = "static-mode"
+    staticMode.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/interfaces/interface/" + staticMode.EntityData.SegmentPath
     staticMode.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     staticMode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     staticMode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4646,6 +4817,7 @@ func (statics *Ipv4Dhcpd_Interfaces_Interface_StaticMode_Statics) GetEntityData(
     statics.EntityData.BundleName = "cisco_ios_xr"
     statics.EntityData.ParentYangName = "static-mode"
     statics.EntityData.SegmentPath = "statics"
+    statics.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/interfaces/interface/static-mode/" + statics.EntityData.SegmentPath
     statics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4668,6 +4840,7 @@ func (statics *Ipv4Dhcpd_Interfaces_Interface_StaticMode_Statics) GetEntityData(
 type Ipv4Dhcpd_Interfaces_Interface_StaticMode_Statics_Static struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. MACAddress. The type is string with pattern:
     // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
@@ -4693,6 +4866,7 @@ func (static *Ipv4Dhcpd_Interfaces_Interface_StaticMode_Statics_Static) GetEntit
     static.EntityData.BundleName = "cisco_ios_xr"
     static.EntityData.ParentYangName = "statics"
     static.EntityData.SegmentPath = "static" + types.AddKeyToken(static.MacAddress, "mac-address") + types.AddKeyToken(static.ClientId, "client-id") + types.AddKeyToken(static.Layer, "layer")
+    static.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/interfaces/interface/static-mode/statics/" + static.EntityData.SegmentPath
     static.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     static.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     static.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4730,6 +4904,7 @@ func (profile *Ipv4Dhcpd_Interfaces_Interface_Profile) GetEntityData() *types.Co
     profile.EntityData.BundleName = "cisco_ios_xr"
     profile.EntityData.ParentYangName = "interface"
     profile.EntityData.SegmentPath = "profile"
+    profile.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/interfaces/interface/" + profile.EntityData.SegmentPath
     profile.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     profile.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     profile.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4763,6 +4938,7 @@ func (serverInterface *Ipv4Dhcpd_Interfaces_Interface_ServerInterface) GetEntity
     serverInterface.EntityData.BundleName = "cisco_ios_xr"
     serverInterface.EntityData.ParentYangName = "interface"
     serverInterface.EntityData.SegmentPath = "server-interface"
+    serverInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/interfaces/interface/" + serverInterface.EntityData.SegmentPath
     serverInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     serverInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     serverInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4847,6 +5023,7 @@ func (serverDhcpCircuitId *Ipv4Dhcpd_Interfaces_Interface_ServerInterface_Server
     serverDhcpCircuitId.EntityData.BundleName = "cisco_ios_xr"
     serverDhcpCircuitId.EntityData.ParentYangName = "server-interface"
     serverDhcpCircuitId.EntityData.SegmentPath = "server-dhcp-circuit-id"
+    serverDhcpCircuitId.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/interfaces/interface/server-interface/" + serverDhcpCircuitId.EntityData.SegmentPath
     serverDhcpCircuitId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     serverDhcpCircuitId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     serverDhcpCircuitId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4893,6 +5070,7 @@ func (snoopInterface *Ipv4Dhcpd_Interfaces_Interface_SnoopInterface) GetEntityDa
     snoopInterface.EntityData.BundleName = "cisco_ios_xr"
     snoopInterface.EntityData.ParentYangName = "interface"
     snoopInterface.EntityData.SegmentPath = "snoop-interface"
+    snoopInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/interfaces/interface/" + snoopInterface.EntityData.SegmentPath
     snoopInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     snoopInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     snoopInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4926,6 +5104,7 @@ func (snoopCircuitId *Ipv4Dhcpd_Interfaces_Interface_SnoopInterface_SnoopCircuit
     snoopCircuitId.EntityData.BundleName = "cisco_ios_xr"
     snoopCircuitId.EntityData.ParentYangName = "snoop-interface"
     snoopCircuitId.EntityData.SegmentPath = "snoop-circuit-id"
+    snoopCircuitId.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/interfaces/interface/snoop-interface/" + snoopCircuitId.EntityData.SegmentPath
     snoopCircuitId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     snoopCircuitId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     snoopCircuitId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4965,6 +5144,7 @@ func (duplicateMacAllowed *Ipv4Dhcpd_DuplicateMacAllowed) GetEntityData() *types
     duplicateMacAllowed.EntityData.BundleName = "cisco_ios_xr"
     duplicateMacAllowed.EntityData.ParentYangName = "ipv4-dhcpd"
     duplicateMacAllowed.EntityData.SegmentPath = "duplicate-mac-allowed"
+    duplicateMacAllowed.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/" + duplicateMacAllowed.EntityData.SegmentPath
     duplicateMacAllowed.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     duplicateMacAllowed.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     duplicateMacAllowed.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5001,6 +5181,7 @@ func (rateLimit *Ipv4Dhcpd_RateLimit) GetEntityData() *types.CommonEntityData {
     rateLimit.EntityData.BundleName = "cisco_ios_xr"
     rateLimit.EntityData.ParentYangName = "ipv4-dhcpd"
     rateLimit.EntityData.SegmentPath = "rate-limit"
+    rateLimit.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/" + rateLimit.EntityData.SegmentPath
     rateLimit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rateLimit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rateLimit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

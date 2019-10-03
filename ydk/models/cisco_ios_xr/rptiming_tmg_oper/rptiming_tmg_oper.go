@@ -40,6 +40,7 @@ func (timingCard *TimingCard) GetEntityData() *types.CommonEntityData {
     timingCard.EntityData.BundleName = "cisco_ios_xr"
     timingCard.EntityData.ParentYangName = "Cisco-IOS-XR-rptiming-tmg-oper"
     timingCard.EntityData.SegmentPath = "Cisco-IOS-XR-rptiming-tmg-oper:timing-card"
+    timingCard.EntityData.AbsolutePath = timingCard.EntityData.SegmentPath
     timingCard.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     timingCard.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     timingCard.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -70,6 +71,7 @@ func (nodes *TimingCard_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.BundleName = "cisco_ios_xr"
     nodes.EntityData.ParentYangName = "timing-card"
     nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.AbsolutePath = "Cisco-IOS-XR-rptiming-tmg-oper:timing-card/" + nodes.EntityData.SegmentPath
     nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -91,6 +93,7 @@ func (nodes *TimingCard_Nodes) GetEntityData() *types.CommonEntityData {
 type TimingCard_Nodes_Node struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Node Name. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -109,6 +112,7 @@ func (node *TimingCard_Nodes_Node) GetEntityData() *types.CommonEntityData {
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
     node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeName, "node-name")
+    node.EntityData.AbsolutePath = "Cisco-IOS-XR-rptiming-tmg-oper:timing-card/nodes/" + node.EntityData.SegmentPath
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -435,6 +439,7 @@ func (inputClock *TimingCard_Nodes_Node_InputClock) GetEntityData() *types.Commo
     inputClock.EntityData.BundleName = "cisco_ios_xr"
     inputClock.EntityData.ParentYangName = "node"
     inputClock.EntityData.SegmentPath = "input-clock"
+    inputClock.EntityData.AbsolutePath = "Cisco-IOS-XR-rptiming-tmg-oper:timing-card/nodes/node/" + inputClock.EntityData.SegmentPath
     inputClock.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     inputClock.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inputClock.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -814,6 +819,7 @@ func (pll *TimingCard_Nodes_Node_Pll) GetEntityData() *types.CommonEntityData {
     pll.EntityData.BundleName = "cisco_ios_xr"
     pll.EntityData.ParentYangName = "node"
     pll.EntityData.SegmentPath = "pll"
+    pll.EntityData.AbsolutePath = "Cisco-IOS-XR-rptiming-tmg-oper:timing-card/nodes/node/" + pll.EntityData.SegmentPath
     pll.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pll.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pll.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

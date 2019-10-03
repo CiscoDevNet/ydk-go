@@ -69,6 +69,7 @@ func (macsecPlatform *MacsecPlatform) GetEntityData() *types.CommonEntityData {
     macsecPlatform.EntityData.BundleName = "cisco_ios_xr"
     macsecPlatform.EntityData.ParentYangName = "Cisco-IOS-XR-crypto-macsec-pl-oper"
     macsecPlatform.EntityData.SegmentPath = "Cisco-IOS-XR-crypto-macsec-pl-oper:macsec-platform"
+    macsecPlatform.EntityData.AbsolutePath = macsecPlatform.EntityData.SegmentPath
     macsecPlatform.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     macsecPlatform.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     macsecPlatform.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -99,6 +100,7 @@ func (nodes *MacsecPlatform_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.BundleName = "cisco_ios_xr"
     nodes.EntityData.ParentYangName = "macsec-platform"
     nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-macsec-pl-oper:macsec-platform/" + nodes.EntityData.SegmentPath
     nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -120,6 +122,7 @@ func (nodes *MacsecPlatform_Nodes) GetEntityData() *types.CommonEntityData {
 type MacsecPlatform_Nodes_Node struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Node. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -135,6 +138,7 @@ func (node *MacsecPlatform_Nodes_Node) GetEntityData() *types.CommonEntityData {
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
     node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeName, "node-name")
+    node.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-macsec-pl-oper:macsec-platform/nodes/" + node.EntityData.SegmentPath
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -166,6 +170,7 @@ func (interfaces *MacsecPlatform_Nodes_Node_Interfaces) GetEntityData() *types.C
     interfaces.EntityData.BundleName = "cisco_ios_xr"
     interfaces.EntityData.ParentYangName = "node"
     interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-macsec-pl-oper:macsec-platform/nodes/node/" + interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -187,6 +192,7 @@ func (interfaces *MacsecPlatform_Nodes_Node_Interfaces) GetEntityData() *types.C
 type MacsecPlatform_Nodes_Node_Interfaces_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Value. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -211,6 +217,7 @@ func (self *MacsecPlatform_Nodes_Node_Interfaces_Interface) GetEntityData() *typ
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.Name, "name")
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-macsec-pl-oper:macsec-platform/nodes/node/interfaces/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -244,6 +251,7 @@ func (hwStatistics *MacsecPlatform_Nodes_Node_Interfaces_Interface_HwStatistics)
     hwStatistics.EntityData.BundleName = "cisco_ios_xr"
     hwStatistics.EntityData.ParentYangName = "interface"
     hwStatistics.EntityData.SegmentPath = "hw-statistics"
+    hwStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-macsec-pl-oper:macsec-platform/nodes/node/interfaces/interface/" + hwStatistics.EntityData.SegmentPath
     hwStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hwStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hwStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -282,6 +290,7 @@ func (ext *MacsecPlatform_Nodes_Node_Interfaces_Interface_HwStatistics_Ext) GetE
     ext.EntityData.BundleName = "cisco_ios_xr"
     ext.EntityData.ParentYangName = "hw-statistics"
     ext.EntityData.SegmentPath = "ext"
+    ext.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-macsec-pl-oper:macsec-platform/nodes/node/interfaces/interface/hw-statistics/" + ext.EntityData.SegmentPath
     ext.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ext.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ext.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -323,6 +332,7 @@ func (msfpgaStats *MacsecPlatform_Nodes_Node_Interfaces_Interface_HwStatistics_E
     msfpgaStats.EntityData.BundleName = "cisco_ios_xr"
     msfpgaStats.EntityData.ParentYangName = "ext"
     msfpgaStats.EntityData.SegmentPath = "msfpga-stats"
+    msfpgaStats.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-macsec-pl-oper:macsec-platform/nodes/node/interfaces/interface/hw-statistics/ext/" + msfpgaStats.EntityData.SegmentPath
     msfpgaStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     msfpgaStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     msfpgaStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -368,6 +378,7 @@ func (txSaStats *MacsecPlatform_Nodes_Node_Interfaces_Interface_HwStatistics_Ext
     txSaStats.EntityData.BundleName = "cisco_ios_xr"
     txSaStats.EntityData.ParentYangName = "msfpga-stats"
     txSaStats.EntityData.SegmentPath = "tx-sa-stats"
+    txSaStats.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-macsec-pl-oper:macsec-platform/nodes/node/interfaces/interface/hw-statistics/ext/msfpga-stats/" + txSaStats.EntityData.SegmentPath
     txSaStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     txSaStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     txSaStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -435,6 +446,7 @@ func (rxSaStats *MacsecPlatform_Nodes_Node_Interfaces_Interface_HwStatistics_Ext
     rxSaStats.EntityData.BundleName = "cisco_ios_xr"
     rxSaStats.EntityData.ParentYangName = "msfpga-stats"
     rxSaStats.EntityData.SegmentPath = "rx-sa-stats"
+    rxSaStats.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-macsec-pl-oper:macsec-platform/nodes/node/interfaces/interface/hw-statistics/ext/msfpga-stats/" + rxSaStats.EntityData.SegmentPath
     rxSaStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rxSaStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rxSaStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -482,6 +494,7 @@ func (txInterfaceMacsecStats *MacsecPlatform_Nodes_Node_Interfaces_Interface_HwS
     txInterfaceMacsecStats.EntityData.BundleName = "cisco_ios_xr"
     txInterfaceMacsecStats.EntityData.ParentYangName = "msfpga-stats"
     txInterfaceMacsecStats.EntityData.SegmentPath = "tx-interface-macsec-stats"
+    txInterfaceMacsecStats.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-macsec-pl-oper:macsec-platform/nodes/node/interfaces/interface/hw-statistics/ext/msfpga-stats/" + txInterfaceMacsecStats.EntityData.SegmentPath
     txInterfaceMacsecStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     txInterfaceMacsecStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     txInterfaceMacsecStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -541,6 +554,7 @@ func (rxInterfaceMacsecStats *MacsecPlatform_Nodes_Node_Interfaces_Interface_HwS
     rxInterfaceMacsecStats.EntityData.BundleName = "cisco_ios_xr"
     rxInterfaceMacsecStats.EntityData.ParentYangName = "msfpga-stats"
     rxInterfaceMacsecStats.EntityData.SegmentPath = "rx-interface-macsec-stats"
+    rxInterfaceMacsecStats.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-macsec-pl-oper:macsec-platform/nodes/node/interfaces/interface/hw-statistics/ext/msfpga-stats/" + rxInterfaceMacsecStats.EntityData.SegmentPath
     rxInterfaceMacsecStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rxInterfaceMacsecStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rxInterfaceMacsecStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -580,6 +594,7 @@ func (xlfpgaStats *MacsecPlatform_Nodes_Node_Interfaces_Interface_HwStatistics_E
     xlfpgaStats.EntityData.BundleName = "cisco_ios_xr"
     xlfpgaStats.EntityData.ParentYangName = "ext"
     xlfpgaStats.EntityData.SegmentPath = "xlfpga-stats"
+    xlfpgaStats.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-macsec-pl-oper:macsec-platform/nodes/node/interfaces/interface/hw-statistics/ext/" + xlfpgaStats.EntityData.SegmentPath
     xlfpgaStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     xlfpgaStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     xlfpgaStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -646,6 +661,7 @@ func (macsecTxStats *MacsecPlatform_Nodes_Node_Interfaces_Interface_HwStatistics
     macsecTxStats.EntityData.BundleName = "cisco_ios_xr"
     macsecTxStats.EntityData.ParentYangName = "xlfpga-stats"
     macsecTxStats.EntityData.SegmentPath = "macsec-tx-stats"
+    macsecTxStats.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-macsec-pl-oper:macsec-platform/nodes/node/interfaces/interface/hw-statistics/ext/xlfpga-stats/" + macsecTxStats.EntityData.SegmentPath
     macsecTxStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     macsecTxStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     macsecTxStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -755,6 +771,7 @@ func (macsecRxStats *MacsecPlatform_Nodes_Node_Interfaces_Interface_HwStatistics
     macsecRxStats.EntityData.BundleName = "cisco_ios_xr"
     macsecRxStats.EntityData.ParentYangName = "xlfpga-stats"
     macsecRxStats.EntityData.SegmentPath = "macsec-rx-stats"
+    macsecRxStats.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-macsec-pl-oper:macsec-platform/nodes/node/interfaces/interface/hw-statistics/ext/xlfpga-stats/" + macsecRxStats.EntityData.SegmentPath
     macsecRxStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     macsecRxStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     macsecRxStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -762,6 +779,7 @@ func (macsecRxStats *MacsecPlatform_Nodes_Node_Interfaces_Interface_HwStatistics
     macsecRxStats.EntityData.Children = types.NewOrderedMap()
     macsecRxStats.EntityData.Children.Append("rx-sa-stat", types.YChild{"RxSaStat", nil})
     for i := range macsecRxStats.RxSaStat {
+        types.SetYListKey(macsecRxStats.RxSaStat[i], i)
         macsecRxStats.EntityData.Children.Append(types.GetSegmentPath(macsecRxStats.RxSaStat[i]), types.YChild{"RxSaStat", macsecRxStats.RxSaStat[i]})
     }
     macsecRxStats.EntityData.Leafs = types.NewOrderedMap()
@@ -794,6 +812,7 @@ func (macsecRxStats *MacsecPlatform_Nodes_Node_Interfaces_Interface_HwStatistics
 type MacsecPlatform_Nodes_Node_Interfaces_Interface_HwStatistics_Ext_XlfpgaStats_MacsecRxStats_RxSaStat struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Current Rx AN. The type is interface{} with range: 0..18446744073709551615.
     An interface{}
@@ -824,7 +843,8 @@ func (rxSaStat *MacsecPlatform_Nodes_Node_Interfaces_Interface_HwStatistics_Ext_
     rxSaStat.EntityData.YangName = "rx-sa-stat"
     rxSaStat.EntityData.BundleName = "cisco_ios_xr"
     rxSaStat.EntityData.ParentYangName = "macsec-rx-stats"
-    rxSaStat.EntityData.SegmentPath = "rx-sa-stat"
+    rxSaStat.EntityData.SegmentPath = "rx-sa-stat" + types.AddNoKeyToken(rxSaStat)
+    rxSaStat.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-macsec-pl-oper:macsec-platform/nodes/node/interfaces/interface/hw-statistics/ext/xlfpga-stats/macsec-rx-stats/" + rxSaStat.EntityData.SegmentPath
     rxSaStat.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rxSaStat.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rxSaStat.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -880,6 +900,7 @@ func (es200Stats *MacsecPlatform_Nodes_Node_Interfaces_Interface_HwStatistics_Ex
     es200Stats.EntityData.BundleName = "cisco_ios_xr"
     es200Stats.EntityData.ParentYangName = "ext"
     es200Stats.EntityData.SegmentPath = "es200-stats"
+    es200Stats.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-macsec-pl-oper:macsec-platform/nodes/node/interfaces/interface/hw-statistics/ext/" + es200Stats.EntityData.SegmentPath
     es200Stats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     es200Stats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     es200Stats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -925,6 +946,7 @@ func (txSaStats *MacsecPlatform_Nodes_Node_Interfaces_Interface_HwStatistics_Ext
     txSaStats.EntityData.BundleName = "cisco_ios_xr"
     txSaStats.EntityData.ParentYangName = "es200-stats"
     txSaStats.EntityData.SegmentPath = "tx-sa-stats"
+    txSaStats.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-macsec-pl-oper:macsec-platform/nodes/node/interfaces/interface/hw-statistics/ext/es200-stats/" + txSaStats.EntityData.SegmentPath
     txSaStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     txSaStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     txSaStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -993,6 +1015,7 @@ func (rxSaStats *MacsecPlatform_Nodes_Node_Interfaces_Interface_HwStatistics_Ext
     rxSaStats.EntityData.BundleName = "cisco_ios_xr"
     rxSaStats.EntityData.ParentYangName = "es200-stats"
     rxSaStats.EntityData.SegmentPath = "rx-sa-stats"
+    rxSaStats.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-macsec-pl-oper:macsec-platform/nodes/node/interfaces/interface/hw-statistics/ext/es200-stats/" + rxSaStats.EntityData.SegmentPath
     rxSaStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rxSaStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rxSaStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1032,6 +1055,7 @@ func (txScMacsecStats *MacsecPlatform_Nodes_Node_Interfaces_Interface_HwStatisti
     txScMacsecStats.EntityData.BundleName = "cisco_ios_xr"
     txScMacsecStats.EntityData.ParentYangName = "es200-stats"
     txScMacsecStats.EntityData.SegmentPath = "tx-sc-macsec-stats"
+    txScMacsecStats.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-macsec-pl-oper:macsec-platform/nodes/node/interfaces/interface/hw-statistics/ext/es200-stats/" + txScMacsecStats.EntityData.SegmentPath
     txScMacsecStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     txScMacsecStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     txScMacsecStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1062,6 +1086,7 @@ func (rxScMacsecStats *MacsecPlatform_Nodes_Node_Interfaces_Interface_HwStatisti
     rxScMacsecStats.EntityData.BundleName = "cisco_ios_xr"
     rxScMacsecStats.EntityData.ParentYangName = "es200-stats"
     rxScMacsecStats.EntityData.SegmentPath = "rx-sc-macsec-stats"
+    rxScMacsecStats.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-macsec-pl-oper:macsec-platform/nodes/node/interfaces/interface/hw-statistics/ext/es200-stats/" + rxScMacsecStats.EntityData.SegmentPath
     rxScMacsecStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rxScMacsecStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rxScMacsecStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1160,6 +1185,7 @@ func (txInterfaceMacsecStats *MacsecPlatform_Nodes_Node_Interfaces_Interface_HwS
     txInterfaceMacsecStats.EntityData.BundleName = "cisco_ios_xr"
     txInterfaceMacsecStats.EntityData.ParentYangName = "es200-stats"
     txInterfaceMacsecStats.EntityData.SegmentPath = "tx-interface-macsec-stats"
+    txInterfaceMacsecStats.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-macsec-pl-oper:macsec-platform/nodes/node/interfaces/interface/hw-statistics/ext/es200-stats/" + txInterfaceMacsecStats.EntityData.SegmentPath
     txInterfaceMacsecStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     txInterfaceMacsecStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     txInterfaceMacsecStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1208,21 +1234,21 @@ type MacsecPlatform_Nodes_Node_Interfaces_Interface_HwStatistics_Ext_Es200Stats_
     // with range: 0..18446744073709551615.
     InPktNoTag interface{}
 
-    // ingress packet untagged & validateFrames is  !strict. The type is
+    // ingress packet untagged & validateFrames is !strict. The type is
     // interface{} with range: 0..18446744073709551615.
     InPktsUntagged interface{}
 
-    // ingress frames received with an invalid MACSec tag or ICV                  
-    // added with next one gives InPktsSCIMiss. The type is interface{} with
-    // range: 0..18446744073709551615.
+    // ingress frames received with an invalid MACSec tag or ICV added with next
+    // one gives InPktsSCIMiss. The type is interface{} with range:
+    // 0..18446744073709551615.
     InPktBadTag interface{}
 
-    // correctly tagged ingress frames for which no valid SC found &              
+    // correctly tagged ingress frames for which no valid SC found &
     // validateFrames is strict. The type is interface{} with range:
     // 0..18446744073709551615.
     InPktNoSci interface{}
 
-    // correctly tagged ingress frames for which no valid SC found &              
+    // correctly tagged ingress frames for which no valid SC found &
     // validateFrames is !strict. The type is interface{} with range:
     // 0..18446744073709551615.
     InPktsUnknownSci interface{}
@@ -1294,6 +1320,7 @@ func (rxInterfaceMacsecStats *MacsecPlatform_Nodes_Node_Interfaces_Interface_HwS
     rxInterfaceMacsecStats.EntityData.BundleName = "cisco_ios_xr"
     rxInterfaceMacsecStats.EntityData.ParentYangName = "es200-stats"
     rxInterfaceMacsecStats.EntityData.SegmentPath = "rx-interface-macsec-stats"
+    rxInterfaceMacsecStats.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-macsec-pl-oper:macsec-platform/nodes/node/interfaces/interface/hw-statistics/ext/es200-stats/" + rxInterfaceMacsecStats.EntityData.SegmentPath
     rxInterfaceMacsecStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rxInterfaceMacsecStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rxInterfaceMacsecStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1369,6 +1396,7 @@ func (txPortStats *MacsecPlatform_Nodes_Node_Interfaces_Interface_HwStatistics_E
     txPortStats.EntityData.BundleName = "cisco_ios_xr"
     txPortStats.EntityData.ParentYangName = "es200-stats"
     txPortStats.EntityData.SegmentPath = "tx-port-stats"
+    txPortStats.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-macsec-pl-oper:macsec-platform/nodes/node/interfaces/interface/hw-statistics/ext/es200-stats/" + txPortStats.EntityData.SegmentPath
     txPortStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     txPortStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     txPortStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1429,6 +1457,7 @@ func (rxPortStats *MacsecPlatform_Nodes_Node_Interfaces_Interface_HwStatistics_E
     rxPortStats.EntityData.BundleName = "cisco_ios_xr"
     rxPortStats.EntityData.ParentYangName = "es200-stats"
     rxPortStats.EntityData.SegmentPath = "rx-port-stats"
+    rxPortStats.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-macsec-pl-oper:macsec-platform/nodes/node/interfaces/interface/hw-statistics/ext/es200-stats/" + rxPortStats.EntityData.SegmentPath
     rxPortStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rxPortStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rxPortStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1465,6 +1494,7 @@ func (hwSas *MacsecPlatform_Nodes_Node_Interfaces_Interface_HwSas) GetEntityData
     hwSas.EntityData.BundleName = "cisco_ios_xr"
     hwSas.EntityData.ParentYangName = "interface"
     hwSas.EntityData.SegmentPath = "hw-sas"
+    hwSas.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-macsec-pl-oper:macsec-platform/nodes/node/interfaces/interface/" + hwSas.EntityData.SegmentPath
     hwSas.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hwSas.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hwSas.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1486,6 +1516,7 @@ func (hwSas *MacsecPlatform_Nodes_Node_Interfaces_Interface_HwSas) GetEntityData
 type MacsecPlatform_Nodes_Node_Interfaces_Interface_HwSas_HwSa struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. SA ID. The type is interface{} with range:
     // 0..4294967295.
@@ -1501,6 +1532,7 @@ func (hwSa *MacsecPlatform_Nodes_Node_Interfaces_Interface_HwSas_HwSa) GetEntity
     hwSa.EntityData.BundleName = "cisco_ios_xr"
     hwSa.EntityData.ParentYangName = "hw-sas"
     hwSa.EntityData.SegmentPath = "hw-sa" + types.AddKeyToken(hwSa.SaId, "sa-id")
+    hwSa.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-macsec-pl-oper:macsec-platform/nodes/node/interfaces/interface/hw-sas/" + hwSa.EntityData.SegmentPath
     hwSa.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hwSa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hwSa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1540,6 +1572,7 @@ func (ext *MacsecPlatform_Nodes_Node_Interfaces_Interface_HwSas_HwSa_Ext) GetEnt
     ext.EntityData.BundleName = "cisco_ios_xr"
     ext.EntityData.ParentYangName = "hw-sa"
     ext.EntityData.SegmentPath = "ext"
+    ext.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-macsec-pl-oper:macsec-platform/nodes/node/interfaces/interface/hw-sas/hw-sa/" + ext.EntityData.SegmentPath
     ext.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ext.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ext.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1575,6 +1608,7 @@ func (msfpgaSa *MacsecPlatform_Nodes_Node_Interfaces_Interface_HwSas_HwSa_Ext_Ms
     msfpgaSa.EntityData.BundleName = "cisco_ios_xr"
     msfpgaSa.EntityData.ParentYangName = "ext"
     msfpgaSa.EntityData.SegmentPath = "msfpga-sa"
+    msfpgaSa.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-macsec-pl-oper:macsec-platform/nodes/node/interfaces/interface/hw-sas/hw-sa/ext/" + msfpgaSa.EntityData.SegmentPath
     msfpgaSa.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     msfpgaSa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     msfpgaSa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1645,6 +1679,7 @@ func (txSa *MacsecPlatform_Nodes_Node_Interfaces_Interface_HwSas_HwSa_Ext_Msfpga
     txSa.EntityData.BundleName = "cisco_ios_xr"
     txSa.EntityData.ParentYangName = "msfpga-sa"
     txSa.EntityData.SegmentPath = "tx-sa"
+    txSa.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-macsec-pl-oper:macsec-platform/nodes/node/interfaces/interface/hw-sas/hw-sa/ext/msfpga-sa/" + txSa.EntityData.SegmentPath
     txSa.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     txSa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     txSa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1727,6 +1762,7 @@ func (rxSa *MacsecPlatform_Nodes_Node_Interfaces_Interface_HwSas_HwSa_Ext_Msfpga
     rxSa.EntityData.BundleName = "cisco_ios_xr"
     rxSa.EntityData.ParentYangName = "msfpga-sa"
     rxSa.EntityData.SegmentPath = "rx-sa"
+    rxSa.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-macsec-pl-oper:macsec-platform/nodes/node/interfaces/interface/hw-sas/hw-sa/ext/msfpga-sa/" + rxSa.EntityData.SegmentPath
     rxSa.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rxSa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rxSa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1772,6 +1808,7 @@ func (xlfpgaSa *MacsecPlatform_Nodes_Node_Interfaces_Interface_HwSas_HwSa_Ext_Xl
     xlfpgaSa.EntityData.BundleName = "cisco_ios_xr"
     xlfpgaSa.EntityData.ParentYangName = "ext"
     xlfpgaSa.EntityData.SegmentPath = "xlfpga-sa"
+    xlfpgaSa.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-macsec-pl-oper:macsec-platform/nodes/node/interfaces/interface/hw-sas/hw-sa/ext/" + xlfpgaSa.EntityData.SegmentPath
     xlfpgaSa.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     xlfpgaSa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     xlfpgaSa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1843,6 +1880,7 @@ func (txSa *MacsecPlatform_Nodes_Node_Interfaces_Interface_HwSas_HwSa_Ext_Xlfpga
     txSa.EntityData.BundleName = "cisco_ios_xr"
     txSa.EntityData.ParentYangName = "xlfpga-sa"
     txSa.EntityData.SegmentPath = "tx-sa"
+    txSa.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-macsec-pl-oper:macsec-platform/nodes/node/interfaces/interface/hw-sas/hw-sa/ext/xlfpga-sa/" + txSa.EntityData.SegmentPath
     txSa.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     txSa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     txSa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1955,6 +1993,7 @@ func (rxSa *MacsecPlatform_Nodes_Node_Interfaces_Interface_HwSas_HwSa_Ext_Xlfpga
     rxSa.EntityData.BundleName = "cisco_ios_xr"
     rxSa.EntityData.ParentYangName = "xlfpga-sa"
     rxSa.EntityData.SegmentPath = "rx-sa"
+    rxSa.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-macsec-pl-oper:macsec-platform/nodes/node/interfaces/interface/hw-sas/hw-sa/ext/xlfpga-sa/" + rxSa.EntityData.SegmentPath
     rxSa.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rxSa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rxSa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2009,6 +2048,7 @@ func (es200Sa *MacsecPlatform_Nodes_Node_Interfaces_Interface_HwSas_HwSa_Ext_Es2
     es200Sa.EntityData.BundleName = "cisco_ios_xr"
     es200Sa.EntityData.ParentYangName = "ext"
     es200Sa.EntityData.SegmentPath = "es200-sa"
+    es200Sa.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-macsec-pl-oper:macsec-platform/nodes/node/interfaces/interface/hw-sas/hw-sa/ext/" + es200Sa.EntityData.SegmentPath
     es200Sa.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     es200Sa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     es200Sa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2017,6 +2057,7 @@ func (es200Sa *MacsecPlatform_Nodes_Node_Interfaces_Interface_HwSas_HwSa_Ext_Es2
     es200Sa.EntityData.Children.Append("tx-sa", types.YChild{"TxSa", &es200Sa.TxSa})
     es200Sa.EntityData.Children.Append("rx-sa", types.YChild{"RxSa", nil})
     for i := range es200Sa.RxSa {
+        types.SetYListKey(es200Sa.RxSa[i], i)
         es200Sa.EntityData.Children.Append(types.GetSegmentPath(es200Sa.RxSa[i]), types.YChild{"RxSa", es200Sa.RxSa[i]})
     }
     es200Sa.EntityData.Leafs = types.NewOrderedMap()
@@ -2061,6 +2102,9 @@ type MacsecPlatform_Nodes_Node_Interfaces_Interface_HwSas_HwSa_Ext_Es200Sa_TxSa 
     // 0..18446744073709551615.
     MaxPktNumber interface{}
 
+    // Confidentiality Offset. The type is interface{} with range: 0..65535.
+    ConfOffset interface{}
+
     // Xform Params.
     XformParams MacsecPlatform_Nodes_Node_Interfaces_Interface_HwSas_HwSa_Ext_Es200Sa_TxSa_XformParams
 }
@@ -2071,6 +2115,7 @@ func (txSa *MacsecPlatform_Nodes_Node_Interfaces_Interface_HwSas_HwSa_Ext_Es200S
     txSa.EntityData.BundleName = "cisco_ios_xr"
     txSa.EntityData.ParentYangName = "es200-sa"
     txSa.EntityData.SegmentPath = "tx-sa"
+    txSa.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-macsec-pl-oper:macsec-platform/nodes/node/interfaces/interface/hw-sas/hw-sa/ext/es200-sa/" + txSa.EntityData.SegmentPath
     txSa.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     txSa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     txSa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2087,6 +2132,7 @@ func (txSa *MacsecPlatform_Nodes_Node_Interfaces_Interface_HwSas_HwSa_Ext_Es200S
     txSa.EntityData.Leafs.Append("initial-pkt-number", types.YLeaf{"InitialPktNumber", txSa.InitialPktNumber})
     txSa.EntityData.Leafs.Append("current-pkt-number", types.YLeaf{"CurrentPktNumber", txSa.CurrentPktNumber})
     txSa.EntityData.Leafs.Append("max-pkt-number", types.YLeaf{"MaxPktNumber", txSa.MaxPktNumber})
+    txSa.EntityData.Leafs.Append("conf-offset", types.YLeaf{"ConfOffset", txSa.ConfOffset})
 
     txSa.EntityData.YListKeys = []string {}
 
@@ -2119,8 +2165,8 @@ type MacsecPlatform_Nodes_Node_Interfaces_Interface_HwSas_HwSa_Ext_Es200Sa_TxSa_
     // TRUE if Seq Num is 64-bit, FALSE if it is 32-bit. The type is bool.
     IsSeqNum64Bit interface{}
 
-    // TRUE to generate the authKey, so authKey in this struct not used           
-    // APM_FALSE to use provided authKey. The type is bool.
+    // TRUE to generate the authKey, so authKey in this struct not used APM_FALSE
+    // to use provided authKey. The type is bool.
     BgenAuthKey interface{}
 }
 
@@ -2130,6 +2176,7 @@ func (xformParams *MacsecPlatform_Nodes_Node_Interfaces_Interface_HwSas_HwSa_Ext
     xformParams.EntityData.BundleName = "cisco_ios_xr"
     xformParams.EntityData.ParentYangName = "tx-sa"
     xformParams.EntityData.SegmentPath = "xform-params"
+    xformParams.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-macsec-pl-oper:macsec-platform/nodes/node/interfaces/interface/hw-sas/hw-sa/ext/es200-sa/tx-sa/" + xformParams.EntityData.SegmentPath
     xformParams.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     xformParams.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     xformParams.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2154,6 +2201,7 @@ func (xformParams *MacsecPlatform_Nodes_Node_Interfaces_Interface_HwSas_HwSa_Ext
 type MacsecPlatform_Nodes_Node_Interfaces_Interface_HwSas_HwSa_Ext_Es200Sa_RxSa struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Is structure valid. The type is bool.
     IsValid interface{}
@@ -2201,6 +2249,9 @@ type MacsecPlatform_Nodes_Node_Interfaces_Interface_HwSas_HwSa_Ext_Es200Sa_RxSa 
     // octets validated. The type is interface{} with range: 0..255.
     InOctetsValidated interface{}
 
+    // Confidentiality Offset. The type is interface{} with range: 0..65535.
+    ConfOffset interface{}
+
     // Xform Params.
     XformParams MacsecPlatform_Nodes_Node_Interfaces_Interface_HwSas_HwSa_Ext_Es200Sa_RxSa_XformParams
 }
@@ -2210,7 +2261,8 @@ func (rxSa *MacsecPlatform_Nodes_Node_Interfaces_Interface_HwSas_HwSa_Ext_Es200S
     rxSa.EntityData.YangName = "rx-sa"
     rxSa.EntityData.BundleName = "cisco_ios_xr"
     rxSa.EntityData.ParentYangName = "es200-sa"
-    rxSa.EntityData.SegmentPath = "rx-sa"
+    rxSa.EntityData.SegmentPath = "rx-sa" + types.AddNoKeyToken(rxSa)
+    rxSa.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-macsec-pl-oper:macsec-platform/nodes/node/interfaces/interface/hw-sas/hw-sa/ext/es200-sa/" + rxSa.EntityData.SegmentPath
     rxSa.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rxSa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rxSa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2231,6 +2283,7 @@ func (rxSa *MacsecPlatform_Nodes_Node_Interfaces_Interface_HwSas_HwSa_Ext_Es200S
     rxSa.EntityData.Leafs.Append("in-pkts-unused-sa", types.YLeaf{"InPktsUnusedSa", rxSa.InPktsUnusedSa})
     rxSa.EntityData.Leafs.Append("in-octets-decrypted-validated1", types.YLeaf{"InOctetsDecryptedValidated1", rxSa.InOctetsDecryptedValidated1})
     rxSa.EntityData.Leafs.Append("in-octets-validated", types.YLeaf{"InOctetsValidated", rxSa.InOctetsValidated})
+    rxSa.EntityData.Leafs.Append("conf-offset", types.YLeaf{"ConfOffset", rxSa.ConfOffset})
 
     rxSa.EntityData.YListKeys = []string {}
 
@@ -2263,8 +2316,8 @@ type MacsecPlatform_Nodes_Node_Interfaces_Interface_HwSas_HwSa_Ext_Es200Sa_RxSa_
     // TRUE if Seq Num is 64-bit, FALSE if it is 32-bit. The type is bool.
     IsSeqNum64Bit interface{}
 
-    // TRUE to generate the authKey, so authKey in this struct not used           
-    // APM_FALSE to use provided authKey. The type is bool.
+    // TRUE to generate the authKey, so authKey in this struct not used APM_FALSE
+    // to use provided authKey. The type is bool.
     BgenAuthKey interface{}
 }
 
@@ -2274,6 +2327,7 @@ func (xformParams *MacsecPlatform_Nodes_Node_Interfaces_Interface_HwSas_HwSa_Ext
     xformParams.EntityData.BundleName = "cisco_ios_xr"
     xformParams.EntityData.ParentYangName = "rx-sa"
     xformParams.EntityData.SegmentPath = "xform-params"
+    xformParams.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-macsec-pl-oper:macsec-platform/nodes/node/interfaces/interface/hw-sas/hw-sa/ext/es200-sa/rx-sa/" + xformParams.EntityData.SegmentPath
     xformParams.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     xformParams.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     xformParams.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2310,6 +2364,7 @@ func (hwFlowS *MacsecPlatform_Nodes_Node_Interfaces_Interface_HwFlowS) GetEntity
     hwFlowS.EntityData.BundleName = "cisco_ios_xr"
     hwFlowS.EntityData.ParentYangName = "interface"
     hwFlowS.EntityData.SegmentPath = "hw-flow-s"
+    hwFlowS.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-macsec-pl-oper:macsec-platform/nodes/node/interfaces/interface/" + hwFlowS.EntityData.SegmentPath
     hwFlowS.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hwFlowS.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hwFlowS.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2331,6 +2386,7 @@ func (hwFlowS *MacsecPlatform_Nodes_Node_Interfaces_Interface_HwFlowS) GetEntity
 type MacsecPlatform_Nodes_Node_Interfaces_Interface_HwFlowS_HwFlow struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. FLOW ID. The type is interface{} with range:
     // 0..4294967295.
@@ -2346,6 +2402,7 @@ func (hwFlow *MacsecPlatform_Nodes_Node_Interfaces_Interface_HwFlowS_HwFlow) Get
     hwFlow.EntityData.BundleName = "cisco_ios_xr"
     hwFlow.EntityData.ParentYangName = "hw-flow-s"
     hwFlow.EntityData.SegmentPath = "hw-flow" + types.AddKeyToken(hwFlow.FlowId, "flow-id")
+    hwFlow.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-macsec-pl-oper:macsec-platform/nodes/node/interfaces/interface/hw-flow-s/" + hwFlow.EntityData.SegmentPath
     hwFlow.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hwFlow.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hwFlow.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2382,6 +2439,7 @@ func (ext *MacsecPlatform_Nodes_Node_Interfaces_Interface_HwFlowS_HwFlow_Ext) Ge
     ext.EntityData.BundleName = "cisco_ios_xr"
     ext.EntityData.ParentYangName = "hw-flow"
     ext.EntityData.SegmentPath = "ext"
+    ext.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-macsec-pl-oper:macsec-platform/nodes/node/interfaces/interface/hw-flow-s/hw-flow/" + ext.EntityData.SegmentPath
     ext.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ext.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ext.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2416,6 +2474,7 @@ func (msfpgaFlow *MacsecPlatform_Nodes_Node_Interfaces_Interface_HwFlowS_HwFlow_
     msfpgaFlow.EntityData.BundleName = "cisco_ios_xr"
     msfpgaFlow.EntityData.ParentYangName = "ext"
     msfpgaFlow.EntityData.SegmentPath = "msfpga-flow"
+    msfpgaFlow.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-macsec-pl-oper:macsec-platform/nodes/node/interfaces/interface/hw-flow-s/hw-flow/ext/" + msfpgaFlow.EntityData.SegmentPath
     msfpgaFlow.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     msfpgaFlow.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     msfpgaFlow.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2554,6 +2613,7 @@ func (txFlow *MacsecPlatform_Nodes_Node_Interfaces_Interface_HwFlowS_HwFlow_Ext_
     txFlow.EntityData.BundleName = "cisco_ios_xr"
     txFlow.EntityData.ParentYangName = "msfpga-flow"
     txFlow.EntityData.SegmentPath = "tx-flow"
+    txFlow.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-macsec-pl-oper:macsec-platform/nodes/node/interfaces/interface/hw-flow-s/hw-flow/ext/msfpga-flow/" + txFlow.EntityData.SegmentPath
     txFlow.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     txFlow.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     txFlow.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2727,6 +2787,7 @@ func (rxFlow *MacsecPlatform_Nodes_Node_Interfaces_Interface_HwFlowS_HwFlow_Ext_
     rxFlow.EntityData.BundleName = "cisco_ios_xr"
     rxFlow.EntityData.ParentYangName = "msfpga-flow"
     rxFlow.EntityData.SegmentPath = "rx-flow"
+    rxFlow.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-macsec-pl-oper:macsec-platform/nodes/node/interfaces/interface/hw-flow-s/hw-flow/ext/msfpga-flow/" + rxFlow.EntityData.SegmentPath
     rxFlow.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rxFlow.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rxFlow.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2795,6 +2856,7 @@ func (es200Flow *MacsecPlatform_Nodes_Node_Interfaces_Interface_HwFlowS_HwFlow_E
     es200Flow.EntityData.BundleName = "cisco_ios_xr"
     es200Flow.EntityData.ParentYangName = "ext"
     es200Flow.EntityData.SegmentPath = "es200-flow"
+    es200Flow.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-macsec-pl-oper:macsec-platform/nodes/node/interfaces/interface/hw-flow-s/hw-flow/ext/" + es200Flow.EntityData.SegmentPath
     es200Flow.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     es200Flow.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     es200Flow.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2821,29 +2883,28 @@ type MacsecPlatform_Nodes_Node_Interfaces_Interface_HwFlowS_HwFlow_Ext_Es200Flow
     // Is Flow Enabled. The type is bool.
     IsFlowEnabled interface{}
 
-    // Parsed EtherType to match could be 0 if Ethertype should'nt                
-    // be matched can be 0x88E5 for MACSec tag. The type is interface{} with
-    // range: 0..65535.
+    // Parsed EtherType to match could be 0 if Ethertype should'nt be matched can
+    // be 0x88E5 for MACSec tag. The type is interface{} with range: 0..65535.
     Ethertype interface{}
 
-    // VLAN ID for outer tag use this when             only one tag should be
-    // matched. The type is interface{} with range: 0..65535.
+    // VLAN ID for outer tag use this when only one tag should be matched. The
+    // type is interface{} with range: 0..65535.
     OuterVlanId interface{}
 
-    // VLAN User Priority for outer tag  use            this when only one tag
-    // should be matched. The type is interface{} with range: 0..255.
+    // VLAN User Priority for outer tag  use this when only one tag should be
+    // matched. The type is interface{} with range: 0..255.
     OuterVlanUserPri interface{}
 
-    // VLAN ID for inner tag used when two              VLAN Tags should be
-    // matched. The type is interface{} with range: 0..65535.
+    // VLAN ID for inner tag used when two VLAN Tags should be matched. The type
+    // is interface{} with range: 0..65535.
     InnerVlanId interface{}
 
-    // VLAN User priority for inner tag use            when matching two VLAN
-    // tags. The type is interface{} with range: 0..255.
+    // VLAN User priority for inner tag use when matching two VLAN tags. The type
+    // is interface{} with range: 0..255.
     InnerVlanUserPri interface{}
 
-    // SCI to be matched value required for            ingress only, pass NULL for
-    // egress. The type is interface{} with range: 0..18446744073709551615.
+    // SCI to be matched value required for ingress only, pass NULL for egress.
+    // The type is interface{} with range: 0..18446744073709551615.
     Psci interface{}
 
     // priority for match 0-15(highest) . The type is interface{} with range:
@@ -2874,9 +2935,8 @@ type MacsecPlatform_Nodes_Node_Interfaces_Interface_HwFlowS_HwFlow_Ext_Es200Flow
     // 0..255.
     TciC interface{}
 
-    // TCI bits will be checked only when this          bit is enabled. All the
-    // values of TCI bits       are mandatory when TCI check is used. The type is
-    // bool.
+    // TCI bits will be checked only when this bit is enabled. All the values of
+    // TCI bits are mandatory when TCI check is used. The type is bool.
     TciChk interface{}
 
     // Type of packet. See ethMscCfyEPktType_e. The type is string.
@@ -2921,20 +2981,19 @@ type MacsecPlatform_Nodes_Node_Interfaces_Interface_HwFlowS_HwFlow_Ext_Es200Flow
     // botton of stack . The type is interface{} with range: 0..255.
     Mpls2Bos interface{}
 
-    // Plain bits to compare. Max values:               untagged pkt - 40 bits
-    // after EthType             1 VLAN tag - 24 bits after parsed EthType       
-    // 2 VLAN tags- 8 bits after parsed EthType         1 MPLS tag - 32 bits after
-    // 1st tag               2 MPLS tags- 8 bits following after 2nd          or
-    // atmost 5th MPLS tag                           PBB - 16 bits after C-SA     
-    // PBB with VLAN tag - 16 bits of VLAN tag . The type is interface{} with
-    // range: 0..18446744073709551615. Units are bit.
+    // Plain bits to compare. Max values: untagged pkt - 40 bits after EthType 1
+    // VLAN tag - 24 bits after parsed EthType 2 VLAN tags- 8 bits after parsed
+    // EthType 1 MPLS tag - 32 bits after 1st tag 2 MPLS tags- 8 bits following
+    // after 2nd or atmost 5th MPLS tag PBB - 16 bits after C-SA PBB with VLAN tag
+    // - 16 bits of VLAN tag . The type is interface{} with range:
+    // 0..18446744073709551615. Units are bit.
     PlainBits interface{}
 
     // No. of bits used in plainBits. The type is interface{} with range: 0..255.
     PlainBitsSize interface{}
 
-    // Force the pkt as control pkt irrepective         of the results of control
-    // packet detector. The type is bool.
+    // Force the pkt as control pkt irrepective of the results of control packet
+    // detector. The type is bool.
     ForceCtrl interface{}
 
     // Drop the packet. The type is bool.
@@ -2964,6 +3023,7 @@ func (txFlow *MacsecPlatform_Nodes_Node_Interfaces_Interface_HwFlowS_HwFlow_Ext_
     txFlow.EntityData.BundleName = "cisco_ios_xr"
     txFlow.EntityData.ParentYangName = "es200-flow"
     txFlow.EntityData.SegmentPath = "tx-flow"
+    txFlow.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-macsec-pl-oper:macsec-platform/nodes/node/interfaces/interface/hw-flow-s/hw-flow/ext/es200-flow/" + txFlow.EntityData.SegmentPath
     txFlow.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     txFlow.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     txFlow.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3027,29 +3087,28 @@ type MacsecPlatform_Nodes_Node_Interfaces_Interface_HwFlowS_HwFlow_Ext_Es200Flow
     // Is Flow Enabled. The type is bool.
     IsFlowEnabled interface{}
 
-    // Parsed EtherType to match could be 0 if Ethertype should'nt                
-    // be matched can be 0x88E5 for MACSec tag. The type is interface{} with
-    // range: 0..65535.
+    // Parsed EtherType to match could be 0 if Ethertype should'nt be matched can
+    // be 0x88E5 for MACSec tag. The type is interface{} with range: 0..65535.
     Ethertype interface{}
 
-    // VLAN ID for outer tag use this when             only one tag should be
-    // matched. The type is interface{} with range: 0..65535.
+    // VLAN ID for outer tag use this when only one tag should be matched. The
+    // type is interface{} with range: 0..65535.
     OuterVlanId interface{}
 
-    // VLAN User Priority for outer tag  use            this when only one tag
-    // should be matched. The type is interface{} with range: 0..255.
+    // VLAN User Priority for outer tag  use this when only one tag should be
+    // matched. The type is interface{} with range: 0..255.
     OuterVlanUserPri interface{}
 
-    // VLAN ID for inner tag used when two              VLAN Tags should be
-    // matched. The type is interface{} with range: 0..65535.
+    // VLAN ID for inner tag used when two VLAN Tags should be matched. The type
+    // is interface{} with range: 0..65535.
     InnerVlanId interface{}
 
-    // VLAN User priority for inner tag use            when matching two VLAN
-    // tags. The type is interface{} with range: 0..255.
+    // VLAN User priority for inner tag use when matching two VLAN tags. The type
+    // is interface{} with range: 0..255.
     InnerVlanUserPri interface{}
 
-    // SCI to be matched value required for            ingress only, pass NULL for
-    // egress. The type is interface{} with range: 0..18446744073709551615.
+    // SCI to be matched value required for ingress only, pass NULL for egress.
+    // The type is interface{} with range: 0..18446744073709551615.
     Psci interface{}
 
     // priority for match 0-15(highest) . The type is interface{} with range:
@@ -3080,9 +3139,8 @@ type MacsecPlatform_Nodes_Node_Interfaces_Interface_HwFlowS_HwFlow_Ext_Es200Flow
     // 0..255.
     TciC interface{}
 
-    // TCI bits will be checked only when this          bit is enabled. All the
-    // values of TCI bits       are mandatory when TCI check is used. The type is
-    // bool.
+    // TCI bits will be checked only when this bit is enabled. All the values of
+    // TCI bits are mandatory when TCI check is used. The type is bool.
     TciChk interface{}
 
     // Type of packet. See ethMscCfyEPktType_e. The type is string.
@@ -3127,20 +3185,19 @@ type MacsecPlatform_Nodes_Node_Interfaces_Interface_HwFlowS_HwFlow_Ext_Es200Flow
     // botton of stack . The type is interface{} with range: 0..255.
     Mpls2Bos interface{}
 
-    // Plain bits to compare. Max values:               untagged pkt - 40 bits
-    // after EthType             1 VLAN tag - 24 bits after parsed EthType       
-    // 2 VLAN tags- 8 bits after parsed EthType         1 MPLS tag - 32 bits after
-    // 1st tag               2 MPLS tags- 8 bits following after 2nd          or
-    // atmost 5th MPLS tag                           PBB - 16 bits after C-SA     
-    // PBB with VLAN tag - 16 bits of VLAN tag . The type is interface{} with
-    // range: 0..18446744073709551615. Units are bit.
+    // Plain bits to compare. Max values: untagged pkt - 40 bits after EthType 1
+    // VLAN tag - 24 bits after parsed EthType 2 VLAN tags- 8 bits after parsed
+    // EthType 1 MPLS tag - 32 bits after 1st tag 2 MPLS tags- 8 bits following
+    // after 2nd or atmost 5th MPLS tag PBB - 16 bits after C-SA PBB with VLAN tag
+    // - 16 bits of VLAN tag . The type is interface{} with range:
+    // 0..18446744073709551615. Units are bit.
     PlainBits interface{}
 
     // No. of bits used in plainBits. The type is interface{} with range: 0..255.
     PlainBitsSize interface{}
 
-    // Force the pkt as control pkt irrepective         of the results of control
-    // packet detector. The type is bool.
+    // Force the pkt as control pkt irrepective of the results of control packet
+    // detector. The type is bool.
     ForceCtrl interface{}
 
     // Drop the packet. The type is bool.
@@ -3170,6 +3227,7 @@ func (rxFlow *MacsecPlatform_Nodes_Node_Interfaces_Interface_HwFlowS_HwFlow_Ext_
     rxFlow.EntityData.BundleName = "cisco_ios_xr"
     rxFlow.EntityData.ParentYangName = "es200-flow"
     rxFlow.EntityData.SegmentPath = "rx-flow"
+    rxFlow.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-macsec-pl-oper:macsec-platform/nodes/node/interfaces/interface/hw-flow-s/hw-flow/ext/es200-flow/" + rxFlow.EntityData.SegmentPath
     rxFlow.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rxFlow.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rxFlow.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3237,6 +3295,7 @@ func (swStatistics *MacsecPlatform_Nodes_Node_Interfaces_Interface_SwStatistics)
     swStatistics.EntityData.BundleName = "cisco_ios_xr"
     swStatistics.EntityData.ParentYangName = "interface"
     swStatistics.EntityData.SegmentPath = "sw-statistics"
+    swStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-macsec-pl-oper:macsec-platform/nodes/node/interfaces/interface/" + swStatistics.EntityData.SegmentPath
     swStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     swStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     swStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3275,6 +3334,7 @@ func (ext *MacsecPlatform_Nodes_Node_Interfaces_Interface_SwStatistics_Ext) GetE
     ext.EntityData.BundleName = "cisco_ios_xr"
     ext.EntityData.ParentYangName = "sw-statistics"
     ext.EntityData.SegmentPath = "ext"
+    ext.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-macsec-pl-oper:macsec-platform/nodes/node/interfaces/interface/sw-statistics/" + ext.EntityData.SegmentPath
     ext.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ext.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ext.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3316,6 +3376,7 @@ func (msfpgaStats *MacsecPlatform_Nodes_Node_Interfaces_Interface_SwStatistics_E
     msfpgaStats.EntityData.BundleName = "cisco_ios_xr"
     msfpgaStats.EntityData.ParentYangName = "ext"
     msfpgaStats.EntityData.SegmentPath = "msfpga-stats"
+    msfpgaStats.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-macsec-pl-oper:macsec-platform/nodes/node/interfaces/interface/sw-statistics/ext/" + msfpgaStats.EntityData.SegmentPath
     msfpgaStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     msfpgaStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     msfpgaStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3361,6 +3422,7 @@ func (txSaStats *MacsecPlatform_Nodes_Node_Interfaces_Interface_SwStatistics_Ext
     txSaStats.EntityData.BundleName = "cisco_ios_xr"
     txSaStats.EntityData.ParentYangName = "msfpga-stats"
     txSaStats.EntityData.SegmentPath = "tx-sa-stats"
+    txSaStats.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-macsec-pl-oper:macsec-platform/nodes/node/interfaces/interface/sw-statistics/ext/msfpga-stats/" + txSaStats.EntityData.SegmentPath
     txSaStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     txSaStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     txSaStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3428,6 +3490,7 @@ func (rxSaStats *MacsecPlatform_Nodes_Node_Interfaces_Interface_SwStatistics_Ext
     rxSaStats.EntityData.BundleName = "cisco_ios_xr"
     rxSaStats.EntityData.ParentYangName = "msfpga-stats"
     rxSaStats.EntityData.SegmentPath = "rx-sa-stats"
+    rxSaStats.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-macsec-pl-oper:macsec-platform/nodes/node/interfaces/interface/sw-statistics/ext/msfpga-stats/" + rxSaStats.EntityData.SegmentPath
     rxSaStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rxSaStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rxSaStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3475,6 +3538,7 @@ func (txInterfaceMacsecStats *MacsecPlatform_Nodes_Node_Interfaces_Interface_SwS
     txInterfaceMacsecStats.EntityData.BundleName = "cisco_ios_xr"
     txInterfaceMacsecStats.EntityData.ParentYangName = "msfpga-stats"
     txInterfaceMacsecStats.EntityData.SegmentPath = "tx-interface-macsec-stats"
+    txInterfaceMacsecStats.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-macsec-pl-oper:macsec-platform/nodes/node/interfaces/interface/sw-statistics/ext/msfpga-stats/" + txInterfaceMacsecStats.EntityData.SegmentPath
     txInterfaceMacsecStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     txInterfaceMacsecStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     txInterfaceMacsecStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3534,6 +3598,7 @@ func (rxInterfaceMacsecStats *MacsecPlatform_Nodes_Node_Interfaces_Interface_SwS
     rxInterfaceMacsecStats.EntityData.BundleName = "cisco_ios_xr"
     rxInterfaceMacsecStats.EntityData.ParentYangName = "msfpga-stats"
     rxInterfaceMacsecStats.EntityData.SegmentPath = "rx-interface-macsec-stats"
+    rxInterfaceMacsecStats.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-macsec-pl-oper:macsec-platform/nodes/node/interfaces/interface/sw-statistics/ext/msfpga-stats/" + rxInterfaceMacsecStats.EntityData.SegmentPath
     rxInterfaceMacsecStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rxInterfaceMacsecStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rxInterfaceMacsecStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3573,6 +3638,7 @@ func (xlfpgaStats *MacsecPlatform_Nodes_Node_Interfaces_Interface_SwStatistics_E
     xlfpgaStats.EntityData.BundleName = "cisco_ios_xr"
     xlfpgaStats.EntityData.ParentYangName = "ext"
     xlfpgaStats.EntityData.SegmentPath = "xlfpga-stats"
+    xlfpgaStats.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-macsec-pl-oper:macsec-platform/nodes/node/interfaces/interface/sw-statistics/ext/" + xlfpgaStats.EntityData.SegmentPath
     xlfpgaStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     xlfpgaStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     xlfpgaStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3639,6 +3705,7 @@ func (macsecTxStats *MacsecPlatform_Nodes_Node_Interfaces_Interface_SwStatistics
     macsecTxStats.EntityData.BundleName = "cisco_ios_xr"
     macsecTxStats.EntityData.ParentYangName = "xlfpga-stats"
     macsecTxStats.EntityData.SegmentPath = "macsec-tx-stats"
+    macsecTxStats.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-macsec-pl-oper:macsec-platform/nodes/node/interfaces/interface/sw-statistics/ext/xlfpga-stats/" + macsecTxStats.EntityData.SegmentPath
     macsecTxStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     macsecTxStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     macsecTxStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3748,6 +3815,7 @@ func (macsecRxStats *MacsecPlatform_Nodes_Node_Interfaces_Interface_SwStatistics
     macsecRxStats.EntityData.BundleName = "cisco_ios_xr"
     macsecRxStats.EntityData.ParentYangName = "xlfpga-stats"
     macsecRxStats.EntityData.SegmentPath = "macsec-rx-stats"
+    macsecRxStats.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-macsec-pl-oper:macsec-platform/nodes/node/interfaces/interface/sw-statistics/ext/xlfpga-stats/" + macsecRxStats.EntityData.SegmentPath
     macsecRxStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     macsecRxStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     macsecRxStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3755,6 +3823,7 @@ func (macsecRxStats *MacsecPlatform_Nodes_Node_Interfaces_Interface_SwStatistics
     macsecRxStats.EntityData.Children = types.NewOrderedMap()
     macsecRxStats.EntityData.Children.Append("rx-sa-stat", types.YChild{"RxSaStat", nil})
     for i := range macsecRxStats.RxSaStat {
+        types.SetYListKey(macsecRxStats.RxSaStat[i], i)
         macsecRxStats.EntityData.Children.Append(types.GetSegmentPath(macsecRxStats.RxSaStat[i]), types.YChild{"RxSaStat", macsecRxStats.RxSaStat[i]})
     }
     macsecRxStats.EntityData.Leafs = types.NewOrderedMap()
@@ -3787,6 +3856,7 @@ func (macsecRxStats *MacsecPlatform_Nodes_Node_Interfaces_Interface_SwStatistics
 type MacsecPlatform_Nodes_Node_Interfaces_Interface_SwStatistics_Ext_XlfpgaStats_MacsecRxStats_RxSaStat struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Current Rx AN. The type is interface{} with range: 0..18446744073709551615.
     An interface{}
@@ -3817,7 +3887,8 @@ func (rxSaStat *MacsecPlatform_Nodes_Node_Interfaces_Interface_SwStatistics_Ext_
     rxSaStat.EntityData.YangName = "rx-sa-stat"
     rxSaStat.EntityData.BundleName = "cisco_ios_xr"
     rxSaStat.EntityData.ParentYangName = "macsec-rx-stats"
-    rxSaStat.EntityData.SegmentPath = "rx-sa-stat"
+    rxSaStat.EntityData.SegmentPath = "rx-sa-stat" + types.AddNoKeyToken(rxSaStat)
+    rxSaStat.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-macsec-pl-oper:macsec-platform/nodes/node/interfaces/interface/sw-statistics/ext/xlfpga-stats/macsec-rx-stats/" + rxSaStat.EntityData.SegmentPath
     rxSaStat.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rxSaStat.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rxSaStat.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3873,6 +3944,7 @@ func (es200Stats *MacsecPlatform_Nodes_Node_Interfaces_Interface_SwStatistics_Ex
     es200Stats.EntityData.BundleName = "cisco_ios_xr"
     es200Stats.EntityData.ParentYangName = "ext"
     es200Stats.EntityData.SegmentPath = "es200-stats"
+    es200Stats.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-macsec-pl-oper:macsec-platform/nodes/node/interfaces/interface/sw-statistics/ext/" + es200Stats.EntityData.SegmentPath
     es200Stats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     es200Stats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     es200Stats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3918,6 +3990,7 @@ func (txSaStats *MacsecPlatform_Nodes_Node_Interfaces_Interface_SwStatistics_Ext
     txSaStats.EntityData.BundleName = "cisco_ios_xr"
     txSaStats.EntityData.ParentYangName = "es200-stats"
     txSaStats.EntityData.SegmentPath = "tx-sa-stats"
+    txSaStats.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-macsec-pl-oper:macsec-platform/nodes/node/interfaces/interface/sw-statistics/ext/es200-stats/" + txSaStats.EntityData.SegmentPath
     txSaStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     txSaStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     txSaStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3986,6 +4059,7 @@ func (rxSaStats *MacsecPlatform_Nodes_Node_Interfaces_Interface_SwStatistics_Ext
     rxSaStats.EntityData.BundleName = "cisco_ios_xr"
     rxSaStats.EntityData.ParentYangName = "es200-stats"
     rxSaStats.EntityData.SegmentPath = "rx-sa-stats"
+    rxSaStats.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-macsec-pl-oper:macsec-platform/nodes/node/interfaces/interface/sw-statistics/ext/es200-stats/" + rxSaStats.EntityData.SegmentPath
     rxSaStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rxSaStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rxSaStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4025,6 +4099,7 @@ func (txScMacsecStats *MacsecPlatform_Nodes_Node_Interfaces_Interface_SwStatisti
     txScMacsecStats.EntityData.BundleName = "cisco_ios_xr"
     txScMacsecStats.EntityData.ParentYangName = "es200-stats"
     txScMacsecStats.EntityData.SegmentPath = "tx-sc-macsec-stats"
+    txScMacsecStats.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-macsec-pl-oper:macsec-platform/nodes/node/interfaces/interface/sw-statistics/ext/es200-stats/" + txScMacsecStats.EntityData.SegmentPath
     txScMacsecStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     txScMacsecStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     txScMacsecStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4055,6 +4130,7 @@ func (rxScMacsecStats *MacsecPlatform_Nodes_Node_Interfaces_Interface_SwStatisti
     rxScMacsecStats.EntityData.BundleName = "cisco_ios_xr"
     rxScMacsecStats.EntityData.ParentYangName = "es200-stats"
     rxScMacsecStats.EntityData.SegmentPath = "rx-sc-macsec-stats"
+    rxScMacsecStats.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-macsec-pl-oper:macsec-platform/nodes/node/interfaces/interface/sw-statistics/ext/es200-stats/" + rxScMacsecStats.EntityData.SegmentPath
     rxScMacsecStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rxScMacsecStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rxScMacsecStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4153,6 +4229,7 @@ func (txInterfaceMacsecStats *MacsecPlatform_Nodes_Node_Interfaces_Interface_SwS
     txInterfaceMacsecStats.EntityData.BundleName = "cisco_ios_xr"
     txInterfaceMacsecStats.EntityData.ParentYangName = "es200-stats"
     txInterfaceMacsecStats.EntityData.SegmentPath = "tx-interface-macsec-stats"
+    txInterfaceMacsecStats.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-macsec-pl-oper:macsec-platform/nodes/node/interfaces/interface/sw-statistics/ext/es200-stats/" + txInterfaceMacsecStats.EntityData.SegmentPath
     txInterfaceMacsecStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     txInterfaceMacsecStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     txInterfaceMacsecStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4201,21 +4278,21 @@ type MacsecPlatform_Nodes_Node_Interfaces_Interface_SwStatistics_Ext_Es200Stats_
     // with range: 0..18446744073709551615.
     InPktNoTag interface{}
 
-    // ingress packet untagged & validateFrames is  !strict. The type is
+    // ingress packet untagged & validateFrames is !strict. The type is
     // interface{} with range: 0..18446744073709551615.
     InPktsUntagged interface{}
 
-    // ingress frames received with an invalid MACSec tag or ICV                  
-    // added with next one gives InPktsSCIMiss. The type is interface{} with
-    // range: 0..18446744073709551615.
+    // ingress frames received with an invalid MACSec tag or ICV added with next
+    // one gives InPktsSCIMiss. The type is interface{} with range:
+    // 0..18446744073709551615.
     InPktBadTag interface{}
 
-    // correctly tagged ingress frames for which no valid SC found &              
+    // correctly tagged ingress frames for which no valid SC found &
     // validateFrames is strict. The type is interface{} with range:
     // 0..18446744073709551615.
     InPktNoSci interface{}
 
-    // correctly tagged ingress frames for which no valid SC found &              
+    // correctly tagged ingress frames for which no valid SC found &
     // validateFrames is !strict. The type is interface{} with range:
     // 0..18446744073709551615.
     InPktsUnknownSci interface{}
@@ -4287,6 +4364,7 @@ func (rxInterfaceMacsecStats *MacsecPlatform_Nodes_Node_Interfaces_Interface_SwS
     rxInterfaceMacsecStats.EntityData.BundleName = "cisco_ios_xr"
     rxInterfaceMacsecStats.EntityData.ParentYangName = "es200-stats"
     rxInterfaceMacsecStats.EntityData.SegmentPath = "rx-interface-macsec-stats"
+    rxInterfaceMacsecStats.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-macsec-pl-oper:macsec-platform/nodes/node/interfaces/interface/sw-statistics/ext/es200-stats/" + rxInterfaceMacsecStats.EntityData.SegmentPath
     rxInterfaceMacsecStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rxInterfaceMacsecStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rxInterfaceMacsecStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4362,6 +4440,7 @@ func (txPortStats *MacsecPlatform_Nodes_Node_Interfaces_Interface_SwStatistics_E
     txPortStats.EntityData.BundleName = "cisco_ios_xr"
     txPortStats.EntityData.ParentYangName = "es200-stats"
     txPortStats.EntityData.SegmentPath = "tx-port-stats"
+    txPortStats.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-macsec-pl-oper:macsec-platform/nodes/node/interfaces/interface/sw-statistics/ext/es200-stats/" + txPortStats.EntityData.SegmentPath
     txPortStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     txPortStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     txPortStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4422,6 +4501,7 @@ func (rxPortStats *MacsecPlatform_Nodes_Node_Interfaces_Interface_SwStatistics_E
     rxPortStats.EntityData.BundleName = "cisco_ios_xr"
     rxPortStats.EntityData.ParentYangName = "es200-stats"
     rxPortStats.EntityData.SegmentPath = "rx-port-stats"
+    rxPortStats.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-macsec-pl-oper:macsec-platform/nodes/node/interfaces/interface/sw-statistics/ext/es200-stats/" + rxPortStats.EntityData.SegmentPath
     rxPortStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rxPortStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rxPortStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

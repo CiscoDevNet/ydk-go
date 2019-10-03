@@ -43,6 +43,7 @@ func (sysdbConnections *SysdbConnections) GetEntityData() *types.CommonEntityDat
     sysdbConnections.EntityData.BundleName = "cisco_ios_xr"
     sysdbConnections.EntityData.ParentYangName = "Cisco-IOS-XR-sysdb-oper"
     sysdbConnections.EntityData.SegmentPath = "Cisco-IOS-XR-sysdb-oper:sysdb-connections"
+    sysdbConnections.EntityData.AbsolutePath = sysdbConnections.EntityData.SegmentPath
     sysdbConnections.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sysdbConnections.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sysdbConnections.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -73,6 +74,7 @@ func (nodes *SysdbConnections_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.BundleName = "cisco_ios_xr"
     nodes.EntityData.ParentYangName = "sysdb-connections"
     nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.AbsolutePath = "Cisco-IOS-XR-sysdb-oper:sysdb-connections/" + nodes.EntityData.SegmentPath
     nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -94,6 +96,7 @@ func (nodes *SysdbConnections_Nodes) GetEntityData() *types.CommonEntityData {
 type SysdbConnections_Nodes_Node struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Node name. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -109,6 +112,7 @@ func (node *SysdbConnections_Nodes_Node) GetEntityData() *types.CommonEntityData
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
     node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeName, "node-name")
+    node.EntityData.AbsolutePath = "Cisco-IOS-XR-sysdb-oper:sysdb-connections/nodes/" + node.EntityData.SegmentPath
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -148,6 +152,7 @@ func (sysdb *Sysdb) GetEntityData() *types.CommonEntityData {
     sysdb.EntityData.BundleName = "cisco_ios_xr"
     sysdb.EntityData.ParentYangName = "Cisco-IOS-XR-sysdb-oper"
     sysdb.EntityData.SegmentPath = "Cisco-IOS-XR-sysdb-oper:sysdb"
+    sysdb.EntityData.AbsolutePath = sysdb.EntityData.SegmentPath
     sysdb.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sysdb.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sysdb.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

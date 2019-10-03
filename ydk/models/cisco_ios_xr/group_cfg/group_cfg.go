@@ -1,6 +1,6 @@
-// This module contains IOS-XR group YANG data 
-// for flexible cli groups 
-//     
+// This module contains IOS-XR group YANG data
+// for flexible cli groups
+// 
 // Copyright (c) 2013-2016 by Cisco Systems, Inc.
 // All rights reserved.
 package group_cfg
@@ -38,6 +38,7 @@ func (groups *Groups) GetEntityData() *types.CommonEntityData {
     groups.EntityData.BundleName = "cisco_ios_xr"
     groups.EntityData.ParentYangName = "Cisco-IOS-XR-group-cfg"
     groups.EntityData.SegmentPath = "Cisco-IOS-XR-group-cfg:groups"
+    groups.EntityData.AbsolutePath = groups.EntityData.SegmentPath
     groups.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     groups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     groups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -59,6 +60,7 @@ func (groups *Groups) GetEntityData() *types.CommonEntityData {
 type Groups_Group struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Group name. The type is string with length: 0..32.
     GroupName interface{}
@@ -70,6 +72,7 @@ func (group *Groups_Group) GetEntityData() *types.CommonEntityData {
     group.EntityData.BundleName = "cisco_ios_xr"
     group.EntityData.ParentYangName = "groups"
     group.EntityData.SegmentPath = "group" + types.AddKeyToken(group.GroupName, "group-name")
+    group.EntityData.AbsolutePath = "Cisco-IOS-XR-group-cfg:groups/" + group.EntityData.SegmentPath
     group.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     group.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     group.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -99,6 +102,7 @@ func (applyGroups *ApplyGroups) GetEntityData() *types.CommonEntityData {
     applyGroups.EntityData.BundleName = "cisco_ios_xr"
     applyGroups.EntityData.ParentYangName = "Cisco-IOS-XR-group-cfg"
     applyGroups.EntityData.SegmentPath = "Cisco-IOS-XR-group-cfg:apply-groups"
+    applyGroups.EntityData.AbsolutePath = applyGroups.EntityData.SegmentPath
     applyGroups.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     applyGroups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     applyGroups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

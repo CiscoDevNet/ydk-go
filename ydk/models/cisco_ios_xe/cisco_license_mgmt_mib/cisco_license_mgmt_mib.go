@@ -427,6 +427,7 @@ func (cISCOLICENSEMGMTMIB *CISCOLICENSEMGMTMIB) GetEntityData() *types.CommonEnt
     cISCOLICENSEMGMTMIB.EntityData.BundleName = "cisco_ios_xe"
     cISCOLICENSEMGMTMIB.EntityData.ParentYangName = "CISCO-LICENSE-MGMT-MIB"
     cISCOLICENSEMGMTMIB.EntityData.SegmentPath = "CISCO-LICENSE-MGMT-MIB:CISCO-LICENSE-MGMT-MIB"
+    cISCOLICENSEMGMTMIB.EntityData.AbsolutePath = cISCOLICENSEMGMTMIB.EntityData.SegmentPath
     cISCOLICENSEMGMTMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cISCOLICENSEMGMTMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOLICENSEMGMTMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -475,6 +476,7 @@ func (clmgmtLicenseConfiguration *CISCOLICENSEMGMTMIB_ClmgmtLicenseConfiguration
     clmgmtLicenseConfiguration.EntityData.BundleName = "cisco_ios_xe"
     clmgmtLicenseConfiguration.EntityData.ParentYangName = "CISCO-LICENSE-MGMT-MIB"
     clmgmtLicenseConfiguration.EntityData.SegmentPath = "clmgmtLicenseConfiguration"
+    clmgmtLicenseConfiguration.EntityData.AbsolutePath = "CISCO-LICENSE-MGMT-MIB:CISCO-LICENSE-MGMT-MIB/" + clmgmtLicenseConfiguration.EntityData.SegmentPath
     clmgmtLicenseConfiguration.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     clmgmtLicenseConfiguration.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     clmgmtLicenseConfiguration.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -514,6 +516,7 @@ func (clmgmtLicenseDeviceInformation *CISCOLICENSEMGMTMIB_ClmgmtLicenseDeviceInf
     clmgmtLicenseDeviceInformation.EntityData.BundleName = "cisco_ios_xe"
     clmgmtLicenseDeviceInformation.EntityData.ParentYangName = "CISCO-LICENSE-MGMT-MIB"
     clmgmtLicenseDeviceInformation.EntityData.SegmentPath = "clmgmtLicenseDeviceInformation"
+    clmgmtLicenseDeviceInformation.EntityData.AbsolutePath = "CISCO-LICENSE-MGMT-MIB:CISCO-LICENSE-MGMT-MIB/" + clmgmtLicenseDeviceInformation.EntityData.SegmentPath
     clmgmtLicenseDeviceInformation.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     clmgmtLicenseDeviceInformation.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     clmgmtLicenseDeviceInformation.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -563,6 +566,7 @@ func (clmgmtLicenseNotifObjects *CISCOLICENSEMGMTMIB_ClmgmtLicenseNotifObjects) 
     clmgmtLicenseNotifObjects.EntityData.BundleName = "cisco_ios_xe"
     clmgmtLicenseNotifObjects.EntityData.ParentYangName = "CISCO-LICENSE-MGMT-MIB"
     clmgmtLicenseNotifObjects.EntityData.SegmentPath = "clmgmtLicenseNotifObjects"
+    clmgmtLicenseNotifObjects.EntityData.AbsolutePath = "CISCO-LICENSE-MGMT-MIB:CISCO-LICENSE-MGMT-MIB/" + clmgmtLicenseNotifObjects.EntityData.SegmentPath
     clmgmtLicenseNotifObjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     clmgmtLicenseNotifObjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     clmgmtLicenseNotifObjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -696,6 +700,7 @@ func (clmgmtLicenseActionTable *CISCOLICENSEMGMTMIB_ClmgmtLicenseActionTable) Ge
     clmgmtLicenseActionTable.EntityData.BundleName = "cisco_ios_xe"
     clmgmtLicenseActionTable.EntityData.ParentYangName = "CISCO-LICENSE-MGMT-MIB"
     clmgmtLicenseActionTable.EntityData.SegmentPath = "clmgmtLicenseActionTable"
+    clmgmtLicenseActionTable.EntityData.AbsolutePath = "CISCO-LICENSE-MGMT-MIB:CISCO-LICENSE-MGMT-MIB/" + clmgmtLicenseActionTable.EntityData.SegmentPath
     clmgmtLicenseActionTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     clmgmtLicenseActionTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     clmgmtLicenseActionTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -858,6 +863,7 @@ func (clmgmtLicenseActionTable *CISCOLICENSEMGMTMIB_ClmgmtLicenseActionTable) Ge
 type CISCOLICENSEMGMTMIB_ClmgmtLicenseActionTable_ClmgmtLicenseActionEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. This object uniquely identifies a row in
     // clmgmtLicenseActionTable. The management application should choose this
@@ -1043,6 +1049,7 @@ func (clmgmtLicenseActionEntry *CISCOLICENSEMGMTMIB_ClmgmtLicenseActionTable_Clm
     clmgmtLicenseActionEntry.EntityData.BundleName = "cisco_ios_xe"
     clmgmtLicenseActionEntry.EntityData.ParentYangName = "clmgmtLicenseActionTable"
     clmgmtLicenseActionEntry.EntityData.SegmentPath = "clmgmtLicenseActionEntry" + types.AddKeyToken(clmgmtLicenseActionEntry.ClmgmtLicenseActionIndex, "clmgmtLicenseActionIndex")
+    clmgmtLicenseActionEntry.EntityData.AbsolutePath = "CISCO-LICENSE-MGMT-MIB:CISCO-LICENSE-MGMT-MIB/clmgmtLicenseActionTable/" + clmgmtLicenseActionEntry.EntityData.SegmentPath
     clmgmtLicenseActionEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     clmgmtLicenseActionEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     clmgmtLicenseActionEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1123,6 +1130,7 @@ func (clmgmtLicenseActionResultTable *CISCOLICENSEMGMTMIB_ClmgmtLicenseActionRes
     clmgmtLicenseActionResultTable.EntityData.BundleName = "cisco_ios_xe"
     clmgmtLicenseActionResultTable.EntityData.ParentYangName = "CISCO-LICENSE-MGMT-MIB"
     clmgmtLicenseActionResultTable.EntityData.SegmentPath = "clmgmtLicenseActionResultTable"
+    clmgmtLicenseActionResultTable.EntityData.AbsolutePath = "CISCO-LICENSE-MGMT-MIB:CISCO-LICENSE-MGMT-MIB/" + clmgmtLicenseActionResultTable.EntityData.SegmentPath
     clmgmtLicenseActionResultTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     clmgmtLicenseActionResultTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     clmgmtLicenseActionResultTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1150,6 +1158,7 @@ func (clmgmtLicenseActionResultTable *CISCOLICENSEMGMTMIB_ClmgmtLicenseActionRes
 type CISCOLICENSEMGMTMIB_ClmgmtLicenseActionResultTable_ClmgmtLicenseActionResultEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..4294967295.
     // Refers to
@@ -1179,6 +1188,7 @@ func (clmgmtLicenseActionResultEntry *CISCOLICENSEMGMTMIB_ClmgmtLicenseActionRes
     clmgmtLicenseActionResultEntry.EntityData.BundleName = "cisco_ios_xe"
     clmgmtLicenseActionResultEntry.EntityData.ParentYangName = "clmgmtLicenseActionResultTable"
     clmgmtLicenseActionResultEntry.EntityData.SegmentPath = "clmgmtLicenseActionResultEntry" + types.AddKeyToken(clmgmtLicenseActionResultEntry.ClmgmtLicenseActionIndex, "clmgmtLicenseActionIndex") + types.AddKeyToken(clmgmtLicenseActionResultEntry.ClmgmtLicenseNumber, "clmgmtLicenseNumber")
+    clmgmtLicenseActionResultEntry.EntityData.AbsolutePath = "CISCO-LICENSE-MGMT-MIB:CISCO-LICENSE-MGMT-MIB/clmgmtLicenseActionResultTable/" + clmgmtLicenseActionResultEntry.EntityData.SegmentPath
     clmgmtLicenseActionResultEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     clmgmtLicenseActionResultEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     clmgmtLicenseActionResultEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1214,6 +1224,7 @@ func (clmgmtLicenseStoreInfoTable *CISCOLICENSEMGMTMIB_ClmgmtLicenseStoreInfoTab
     clmgmtLicenseStoreInfoTable.EntityData.BundleName = "cisco_ios_xe"
     clmgmtLicenseStoreInfoTable.EntityData.ParentYangName = "CISCO-LICENSE-MGMT-MIB"
     clmgmtLicenseStoreInfoTable.EntityData.SegmentPath = "clmgmtLicenseStoreInfoTable"
+    clmgmtLicenseStoreInfoTable.EntityData.AbsolutePath = "CISCO-LICENSE-MGMT-MIB:CISCO-LICENSE-MGMT-MIB/" + clmgmtLicenseStoreInfoTable.EntityData.SegmentPath
     clmgmtLicenseStoreInfoTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     clmgmtLicenseStoreInfoTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     clmgmtLicenseStoreInfoTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1237,6 +1248,7 @@ func (clmgmtLicenseStoreInfoTable *CISCOLICENSEMGMTMIB_ClmgmtLicenseStoreInfoTab
 type CISCOLICENSEMGMTMIB_ClmgmtLicenseStoreInfoTable_ClmgmtLicenseStoreInfoEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -1271,6 +1283,7 @@ func (clmgmtLicenseStoreInfoEntry *CISCOLICENSEMGMTMIB_ClmgmtLicenseStoreInfoTab
     clmgmtLicenseStoreInfoEntry.EntityData.BundleName = "cisco_ios_xe"
     clmgmtLicenseStoreInfoEntry.EntityData.ParentYangName = "clmgmtLicenseStoreInfoTable"
     clmgmtLicenseStoreInfoEntry.EntityData.SegmentPath = "clmgmtLicenseStoreInfoEntry" + types.AddKeyToken(clmgmtLicenseStoreInfoEntry.EntPhysicalIndex, "entPhysicalIndex") + types.AddKeyToken(clmgmtLicenseStoreInfoEntry.ClmgmtLicenseStoreIndex, "clmgmtLicenseStoreIndex")
+    clmgmtLicenseStoreInfoEntry.EntityData.AbsolutePath = "CISCO-LICENSE-MGMT-MIB:CISCO-LICENSE-MGMT-MIB/clmgmtLicenseStoreInfoTable/" + clmgmtLicenseStoreInfoEntry.EntityData.SegmentPath
     clmgmtLicenseStoreInfoEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     clmgmtLicenseStoreInfoEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     clmgmtLicenseStoreInfoEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1312,6 +1325,7 @@ func (clmgmtLicenseDeviceInfoTable *CISCOLICENSEMGMTMIB_ClmgmtLicenseDeviceInfoT
     clmgmtLicenseDeviceInfoTable.EntityData.BundleName = "cisco_ios_xe"
     clmgmtLicenseDeviceInfoTable.EntityData.ParentYangName = "CISCO-LICENSE-MGMT-MIB"
     clmgmtLicenseDeviceInfoTable.EntityData.SegmentPath = "clmgmtLicenseDeviceInfoTable"
+    clmgmtLicenseDeviceInfoTable.EntityData.AbsolutePath = "CISCO-LICENSE-MGMT-MIB:CISCO-LICENSE-MGMT-MIB/" + clmgmtLicenseDeviceInfoTable.EntityData.SegmentPath
     clmgmtLicenseDeviceInfoTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     clmgmtLicenseDeviceInfoTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     clmgmtLicenseDeviceInfoTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1334,6 +1348,7 @@ func (clmgmtLicenseDeviceInfoTable *CISCOLICENSEMGMTMIB_ClmgmtLicenseDeviceInfoT
 type CISCOLICENSEMGMTMIB_ClmgmtLicenseDeviceInfoTable_ClmgmtLicenseDeviceInfoEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -1353,6 +1368,7 @@ func (clmgmtLicenseDeviceInfoEntry *CISCOLICENSEMGMTMIB_ClmgmtLicenseDeviceInfoT
     clmgmtLicenseDeviceInfoEntry.EntityData.BundleName = "cisco_ios_xe"
     clmgmtLicenseDeviceInfoEntry.EntityData.ParentYangName = "clmgmtLicenseDeviceInfoTable"
     clmgmtLicenseDeviceInfoEntry.EntityData.SegmentPath = "clmgmtLicenseDeviceInfoEntry" + types.AddKeyToken(clmgmtLicenseDeviceInfoEntry.EntPhysicalIndex, "entPhysicalIndex")
+    clmgmtLicenseDeviceInfoEntry.EntityData.AbsolutePath = "CISCO-LICENSE-MGMT-MIB:CISCO-LICENSE-MGMT-MIB/clmgmtLicenseDeviceInfoTable/" + clmgmtLicenseDeviceInfoEntry.EntityData.SegmentPath
     clmgmtLicenseDeviceInfoEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     clmgmtLicenseDeviceInfoEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     clmgmtLicenseDeviceInfoEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1390,6 +1406,7 @@ func (clmgmtLicenseInfoTable *CISCOLICENSEMGMTMIB_ClmgmtLicenseInfoTable) GetEnt
     clmgmtLicenseInfoTable.EntityData.BundleName = "cisco_ios_xe"
     clmgmtLicenseInfoTable.EntityData.ParentYangName = "CISCO-LICENSE-MGMT-MIB"
     clmgmtLicenseInfoTable.EntityData.SegmentPath = "clmgmtLicenseInfoTable"
+    clmgmtLicenseInfoTable.EntityData.AbsolutePath = "CISCO-LICENSE-MGMT-MIB:CISCO-LICENSE-MGMT-MIB/" + clmgmtLicenseInfoTable.EntityData.SegmentPath
     clmgmtLicenseInfoTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     clmgmtLicenseInfoTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     clmgmtLicenseInfoTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1418,6 +1435,7 @@ func (clmgmtLicenseInfoTable *CISCOLICENSEMGMTMIB_ClmgmtLicenseInfoTable) GetEnt
 type CISCOLICENSEMGMTMIB_ClmgmtLicenseInfoTable_ClmgmtLicenseInfoEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -1561,6 +1579,7 @@ func (clmgmtLicenseInfoEntry *CISCOLICENSEMGMTMIB_ClmgmtLicenseInfoTable_ClmgmtL
     clmgmtLicenseInfoEntry.EntityData.BundleName = "cisco_ios_xe"
     clmgmtLicenseInfoEntry.EntityData.ParentYangName = "clmgmtLicenseInfoTable"
     clmgmtLicenseInfoEntry.EntityData.SegmentPath = "clmgmtLicenseInfoEntry" + types.AddKeyToken(clmgmtLicenseInfoEntry.EntPhysicalIndex, "entPhysicalIndex") + types.AddKeyToken(clmgmtLicenseInfoEntry.ClmgmtLicenseStoreUsed, "clmgmtLicenseStoreUsed") + types.AddKeyToken(clmgmtLicenseInfoEntry.ClmgmtLicenseIndex, "clmgmtLicenseIndex")
+    clmgmtLicenseInfoEntry.EntityData.AbsolutePath = "CISCO-LICENSE-MGMT-MIB:CISCO-LICENSE-MGMT-MIB/clmgmtLicenseInfoTable/" + clmgmtLicenseInfoEntry.EntityData.SegmentPath
     clmgmtLicenseInfoEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     clmgmtLicenseInfoEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     clmgmtLicenseInfoEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1658,6 +1677,7 @@ func (clmgmtLicensableFeatureTable *CISCOLICENSEMGMTMIB_ClmgmtLicensableFeatureT
     clmgmtLicensableFeatureTable.EntityData.BundleName = "cisco_ios_xe"
     clmgmtLicensableFeatureTable.EntityData.ParentYangName = "CISCO-LICENSE-MGMT-MIB"
     clmgmtLicensableFeatureTable.EntityData.SegmentPath = "clmgmtLicensableFeatureTable"
+    clmgmtLicensableFeatureTable.EntityData.AbsolutePath = "CISCO-LICENSE-MGMT-MIB:CISCO-LICENSE-MGMT-MIB/" + clmgmtLicensableFeatureTable.EntityData.SegmentPath
     clmgmtLicensableFeatureTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     clmgmtLicensableFeatureTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     clmgmtLicensableFeatureTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1680,6 +1700,7 @@ func (clmgmtLicensableFeatureTable *CISCOLICENSEMGMTMIB_ClmgmtLicensableFeatureT
 type CISCOLICENSEMGMTMIB_ClmgmtLicensableFeatureTable_ClmgmtLicensableFeatureEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -1745,6 +1766,7 @@ func (clmgmtLicensableFeatureEntry *CISCOLICENSEMGMTMIB_ClmgmtLicensableFeatureT
     clmgmtLicensableFeatureEntry.EntityData.BundleName = "cisco_ios_xe"
     clmgmtLicensableFeatureEntry.EntityData.ParentYangName = "clmgmtLicensableFeatureTable"
     clmgmtLicensableFeatureEntry.EntityData.SegmentPath = "clmgmtLicensableFeatureEntry" + types.AddKeyToken(clmgmtLicensableFeatureEntry.EntPhysicalIndex, "entPhysicalIndex") + types.AddKeyToken(clmgmtLicensableFeatureEntry.ClmgmtFeatureIndex, "clmgmtFeatureIndex")
+    clmgmtLicensableFeatureEntry.EntityData.AbsolutePath = "CISCO-LICENSE-MGMT-MIB:CISCO-LICENSE-MGMT-MIB/clmgmtLicensableFeatureTable/" + clmgmtLicensableFeatureEntry.EntityData.SegmentPath
     clmgmtLicensableFeatureEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     clmgmtLicensableFeatureEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     clmgmtLicensableFeatureEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1816,6 +1838,7 @@ func (clmgmtDevCredExportActionTable *CISCOLICENSEMGMTMIB_ClmgmtDevCredExportAct
     clmgmtDevCredExportActionTable.EntityData.BundleName = "cisco_ios_xe"
     clmgmtDevCredExportActionTable.EntityData.ParentYangName = "CISCO-LICENSE-MGMT-MIB"
     clmgmtDevCredExportActionTable.EntityData.SegmentPath = "clmgmtDevCredExportActionTable"
+    clmgmtDevCredExportActionTable.EntityData.AbsolutePath = "CISCO-LICENSE-MGMT-MIB:CISCO-LICENSE-MGMT-MIB/" + clmgmtDevCredExportActionTable.EntityData.SegmentPath
     clmgmtDevCredExportActionTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     clmgmtDevCredExportActionTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     clmgmtDevCredExportActionTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1873,6 +1896,7 @@ func (clmgmtDevCredExportActionTable *CISCOLICENSEMGMTMIB_ClmgmtDevCredExportAct
 type CISCOLICENSEMGMTMIB_ClmgmtDevCredExportActionTable_ClmgmtDevCredExportActionEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. This object uniquely identifies a row in
     // clmgmtDevCredExportActionTable. The management application chooses this
@@ -1978,6 +2002,7 @@ func (clmgmtDevCredExportActionEntry *CISCOLICENSEMGMTMIB_ClmgmtDevCredExportAct
     clmgmtDevCredExportActionEntry.EntityData.BundleName = "cisco_ios_xe"
     clmgmtDevCredExportActionEntry.EntityData.ParentYangName = "clmgmtDevCredExportActionTable"
     clmgmtDevCredExportActionEntry.EntityData.SegmentPath = "clmgmtDevCredExportActionEntry" + types.AddKeyToken(clmgmtDevCredExportActionEntry.ClmgmtDevCredExportActionIndex, "clmgmtDevCredExportActionIndex")
+    clmgmtDevCredExportActionEntry.EntityData.AbsolutePath = "CISCO-LICENSE-MGMT-MIB:CISCO-LICENSE-MGMT-MIB/clmgmtDevCredExportActionTable/" + clmgmtDevCredExportActionEntry.EntityData.SegmentPath
     clmgmtDevCredExportActionEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     clmgmtDevCredExportActionEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     clmgmtDevCredExportActionEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

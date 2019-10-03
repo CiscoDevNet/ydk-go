@@ -1,7 +1,7 @@
 // This module contains a collection of YANG definitions
 // for Cisco IOS-XR ping action package configuration.
 // 
-// Copyright (c) 2016 by Cisco Systems, Inc.
+// Copyright (c) 2016, 2018 by Cisco Systems, Inc.
 // All rights reserved.
 package traceroute_act
 
@@ -39,6 +39,7 @@ func (traceroute *Traceroute) GetEntityData() *types.CommonEntityData {
     traceroute.EntityData.BundleName = "cisco_ios_xr"
     traceroute.EntityData.ParentYangName = "Cisco-IOS-XR-traceroute-act"
     traceroute.EntityData.SegmentPath = "Cisco-IOS-XR-traceroute-act:traceroute"
+    traceroute.EntityData.AbsolutePath = traceroute.EntityData.SegmentPath
     traceroute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     traceroute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     traceroute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -74,6 +75,7 @@ func (input *Traceroute_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "traceroute"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-traceroute-act:traceroute/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -90,9 +92,11 @@ func (input *Traceroute_Input) GetEntityData() *types.CommonEntityData {
 }
 
 // Traceroute_Input_Destination
+// This type is a presence type.
 type Traceroute_Input_Destination struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Destination address or hostname. The type is string. This attribute is
     // mandatory.
@@ -143,6 +147,7 @@ func (destination *Traceroute_Input_Destination) GetEntityData() *types.CommonEn
     destination.EntityData.BundleName = "cisco_ios_xr"
     destination.EntityData.ParentYangName = "input"
     destination.EntityData.SegmentPath = "destination"
+    destination.EntityData.AbsolutePath = "Cisco-IOS-XR-traceroute-act:traceroute/input/" + destination.EntityData.SegmentPath
     destination.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     destination.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     destination.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -168,9 +173,11 @@ func (destination *Traceroute_Input_Destination) GetEntityData() *types.CommonEn
 }
 
 // Traceroute_Input_Ipv4
+// This type is a presence type.
 type Traceroute_Input_Ipv4 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Destination address or hostname. The type is string. This attribute is
     // mandatory.
@@ -214,6 +221,7 @@ func (ipv4 *Traceroute_Input_Ipv4) GetEntityData() *types.CommonEntityData {
     ipv4.EntityData.BundleName = "cisco_ios_xr"
     ipv4.EntityData.ParentYangName = "input"
     ipv4.EntityData.SegmentPath = "ipv4"
+    ipv4.EntityData.AbsolutePath = "Cisco-IOS-XR-traceroute-act:traceroute/input/" + ipv4.EntityData.SegmentPath
     ipv4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -237,9 +245,11 @@ func (ipv4 *Traceroute_Input_Ipv4) GetEntityData() *types.CommonEntityData {
 }
 
 // Traceroute_Input_Ipv6
+// This type is a presence type.
 type Traceroute_Input_Ipv6 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Destination address or hostname. The type is string. This attribute is
     // mandatory.
@@ -290,6 +300,7 @@ func (ipv6 *Traceroute_Input_Ipv6) GetEntityData() *types.CommonEntityData {
     ipv6.EntityData.BundleName = "cisco_ios_xr"
     ipv6.EntityData.ParentYangName = "input"
     ipv6.EntityData.SegmentPath = "ipv6"
+    ipv6.EntityData.AbsolutePath = "Cisco-IOS-XR-traceroute-act:traceroute/input/" + ipv6.EntityData.SegmentPath
     ipv6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -329,6 +340,7 @@ func (output *Traceroute_Output) GetEntityData() *types.CommonEntityData {
     output.EntityData.BundleName = "cisco_ios_xr"
     output.EntityData.ParentYangName = "traceroute"
     output.EntityData.SegmentPath = "output"
+    output.EntityData.AbsolutePath = "Cisco-IOS-XR-traceroute-act:traceroute/" + output.EntityData.SegmentPath
     output.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     output.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     output.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -360,6 +372,7 @@ func (tracerouteResponse *Traceroute_Output_TracerouteResponse) GetEntityData() 
     tracerouteResponse.EntityData.BundleName = "cisco_ios_xr"
     tracerouteResponse.EntityData.ParentYangName = "output"
     tracerouteResponse.EntityData.SegmentPath = "traceroute-response"
+    tracerouteResponse.EntityData.AbsolutePath = "Cisco-IOS-XR-traceroute-act:traceroute/output/" + tracerouteResponse.EntityData.SegmentPath
     tracerouteResponse.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tracerouteResponse.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tracerouteResponse.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -375,9 +388,11 @@ func (tracerouteResponse *Traceroute_Output_TracerouteResponse) GetEntityData() 
 }
 
 // Traceroute_Output_TracerouteResponse_Ipv4
+// This type is a presence type.
 type Traceroute_Output_TracerouteResponse_Ipv4 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Destination address or hostname. The type is string.
     Destination interface{}
@@ -395,6 +410,7 @@ func (ipv4 *Traceroute_Output_TracerouteResponse_Ipv4) GetEntityData() *types.Co
     ipv4.EntityData.BundleName = "cisco_ios_xr"
     ipv4.EntityData.ParentYangName = "traceroute-response"
     ipv4.EntityData.SegmentPath = "ipv4"
+    ipv4.EntityData.AbsolutePath = "Cisco-IOS-XR-traceroute-act:traceroute/output/traceroute-response/" + ipv4.EntityData.SegmentPath
     ipv4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -425,6 +441,7 @@ func (hops *Traceroute_Output_TracerouteResponse_Ipv4_Hops) GetEntityData() *typ
     hops.EntityData.BundleName = "cisco_ios_xr"
     hops.EntityData.ParentYangName = "ipv4"
     hops.EntityData.SegmentPath = "hops"
+    hops.EntityData.AbsolutePath = "Cisco-IOS-XR-traceroute-act:traceroute/output/traceroute-response/ipv4/" + hops.EntityData.SegmentPath
     hops.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hops.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hops.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -445,6 +462,7 @@ func (hops *Traceroute_Output_TracerouteResponse_Ipv4_Hops) GetEntityData() *typ
 type Traceroute_Output_TracerouteResponse_Ipv4_Hops_Hop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Index of the hop. The type is interface{} with
     // range: 0..4294967295.
@@ -466,6 +484,7 @@ func (hop *Traceroute_Output_TracerouteResponse_Ipv4_Hops_Hop) GetEntityData() *
     hop.EntityData.BundleName = "cisco_ios_xr"
     hop.EntityData.ParentYangName = "hops"
     hop.EntityData.SegmentPath = "hop" + types.AddKeyToken(hop.HopIndex, "hop-index")
+    hop.EntityData.AbsolutePath = "Cisco-IOS-XR-traceroute-act:traceroute/output/traceroute-response/ipv4/hops/" + hop.EntityData.SegmentPath
     hop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -498,6 +517,7 @@ func (probes *Traceroute_Output_TracerouteResponse_Ipv4_Hops_Hop_Probes) GetEnti
     probes.EntityData.BundleName = "cisco_ios_xr"
     probes.EntityData.ParentYangName = "hop"
     probes.EntityData.SegmentPath = "probes"
+    probes.EntityData.AbsolutePath = "Cisco-IOS-XR-traceroute-act:traceroute/output/traceroute-response/ipv4/hops/hop/" + probes.EntityData.SegmentPath
     probes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     probes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     probes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -518,6 +538,7 @@ func (probes *Traceroute_Output_TracerouteResponse_Ipv4_Hops_Hop_Probes) GetEnti
 type Traceroute_Output_TracerouteResponse_Ipv4_Hops_Hop_Probes_Probe struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Index of the probe. The type is interface{} with
     // range: 0..4294967295.
@@ -542,6 +563,7 @@ func (probe *Traceroute_Output_TracerouteResponse_Ipv4_Hops_Hop_Probes_Probe) Ge
     probe.EntityData.BundleName = "cisco_ios_xr"
     probe.EntityData.ParentYangName = "probes"
     probe.EntityData.SegmentPath = "probe" + types.AddKeyToken(probe.ProbeIndex, "probe-index")
+    probe.EntityData.AbsolutePath = "Cisco-IOS-XR-traceroute-act:traceroute/output/traceroute-response/ipv4/hops/hop/probes/" + probe.EntityData.SegmentPath
     probe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     probe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     probe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -560,9 +582,11 @@ func (probe *Traceroute_Output_TracerouteResponse_Ipv4_Hops_Hop_Probes_Probe) Ge
 }
 
 // Traceroute_Output_TracerouteResponse_Ipv6
+// This type is a presence type.
 type Traceroute_Output_TracerouteResponse_Ipv6 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YPresence bool
 
     // Destination address or hostname. The type is string.
     Destination interface{}
@@ -580,6 +604,7 @@ func (ipv6 *Traceroute_Output_TracerouteResponse_Ipv6) GetEntityData() *types.Co
     ipv6.EntityData.BundleName = "cisco_ios_xr"
     ipv6.EntityData.ParentYangName = "traceroute-response"
     ipv6.EntityData.SegmentPath = "ipv6"
+    ipv6.EntityData.AbsolutePath = "Cisco-IOS-XR-traceroute-act:traceroute/output/traceroute-response/" + ipv6.EntityData.SegmentPath
     ipv6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -610,6 +635,7 @@ func (hops *Traceroute_Output_TracerouteResponse_Ipv6_Hops) GetEntityData() *typ
     hops.EntityData.BundleName = "cisco_ios_xr"
     hops.EntityData.ParentYangName = "ipv6"
     hops.EntityData.SegmentPath = "hops"
+    hops.EntityData.AbsolutePath = "Cisco-IOS-XR-traceroute-act:traceroute/output/traceroute-response/ipv6/" + hops.EntityData.SegmentPath
     hops.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hops.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hops.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -630,6 +656,7 @@ func (hops *Traceroute_Output_TracerouteResponse_Ipv6_Hops) GetEntityData() *typ
 type Traceroute_Output_TracerouteResponse_Ipv6_Hops_Hop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Index of the hop. The type is interface{} with
     // range: 0..4294967295.
@@ -651,6 +678,7 @@ func (hop *Traceroute_Output_TracerouteResponse_Ipv6_Hops_Hop) GetEntityData() *
     hop.EntityData.BundleName = "cisco_ios_xr"
     hop.EntityData.ParentYangName = "hops"
     hop.EntityData.SegmentPath = "hop" + types.AddKeyToken(hop.HopIndex, "hop-index")
+    hop.EntityData.AbsolutePath = "Cisco-IOS-XR-traceroute-act:traceroute/output/traceroute-response/ipv6/hops/" + hop.EntityData.SegmentPath
     hop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -683,6 +711,7 @@ func (probes *Traceroute_Output_TracerouteResponse_Ipv6_Hops_Hop_Probes) GetEnti
     probes.EntityData.BundleName = "cisco_ios_xr"
     probes.EntityData.ParentYangName = "hop"
     probes.EntityData.SegmentPath = "probes"
+    probes.EntityData.AbsolutePath = "Cisco-IOS-XR-traceroute-act:traceroute/output/traceroute-response/ipv6/hops/hop/" + probes.EntityData.SegmentPath
     probes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     probes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     probes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -703,6 +732,7 @@ func (probes *Traceroute_Output_TracerouteResponse_Ipv6_Hops_Hop_Probes) GetEnti
 type Traceroute_Output_TracerouteResponse_Ipv6_Hops_Hop_Probes_Probe struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Index of the probe. The type is interface{} with
     // range: 0..4294967295.
@@ -727,6 +757,7 @@ func (probe *Traceroute_Output_TracerouteResponse_Ipv6_Hops_Hop_Probes_Probe) Ge
     probe.EntityData.BundleName = "cisco_ios_xr"
     probe.EntityData.ParentYangName = "probes"
     probe.EntityData.SegmentPath = "probe" + types.AddKeyToken(probe.ProbeIndex, "probe-index")
+    probe.EntityData.AbsolutePath = "Cisco-IOS-XR-traceroute-act:traceroute/output/traceroute-response/ipv6/hops/hop/probes/" + probe.EntityData.SegmentPath
     probe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     probe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     probe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

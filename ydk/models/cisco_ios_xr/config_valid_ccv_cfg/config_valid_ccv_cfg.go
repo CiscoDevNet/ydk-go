@@ -61,6 +61,7 @@ func (configurationvalidation *Configurationvalidation) GetEntityData() *types.C
     configurationvalidation.EntityData.BundleName = "cisco_ios_xr"
     configurationvalidation.EntityData.ParentYangName = "Cisco-IOS-XR-config-valid-ccv-cfg"
     configurationvalidation.EntityData.SegmentPath = "Cisco-IOS-XR-config-valid-ccv-cfg:configurationvalidation"
+    configurationvalidation.EntityData.AbsolutePath = configurationvalidation.EntityData.SegmentPath
     configurationvalidation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configurationvalidation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configurationvalidation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -92,6 +93,7 @@ func (failureTypeActions *Configurationvalidation_FailureTypeActions) GetEntityD
     failureTypeActions.EntityData.BundleName = "cisco_ios_xr"
     failureTypeActions.EntityData.ParentYangName = "configurationvalidation"
     failureTypeActions.EntityData.SegmentPath = "failure-type-actions"
+    failureTypeActions.EntityData.AbsolutePath = "Cisco-IOS-XR-config-valid-ccv-cfg:configurationvalidation/" + failureTypeActions.EntityData.SegmentPath
     failureTypeActions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     failureTypeActions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     failureTypeActions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -113,6 +115,7 @@ func (failureTypeActions *Configurationvalidation_FailureTypeActions) GetEntityD
 type Configurationvalidation_FailureTypeActions_FailureTypeAction struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Failure type. The type is Failure.
     Failure interface{}
@@ -127,6 +130,7 @@ func (failureTypeAction *Configurationvalidation_FailureTypeActions_FailureTypeA
     failureTypeAction.EntityData.BundleName = "cisco_ios_xr"
     failureTypeAction.EntityData.ParentYangName = "failure-type-actions"
     failureTypeAction.EntityData.SegmentPath = "failure-type-action" + types.AddKeyToken(failureTypeAction.Failure, "failure")
+    failureTypeAction.EntityData.AbsolutePath = "Cisco-IOS-XR-config-valid-ccv-cfg:configurationvalidation/failure-type-actions/" + failureTypeAction.EntityData.SegmentPath
     failureTypeAction.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     failureTypeAction.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     failureTypeAction.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

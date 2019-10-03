@@ -46,6 +46,7 @@ func (processMandatory *ProcessMandatory) GetEntityData() *types.CommonEntityDat
     processMandatory.EntityData.BundleName = "cisco_ios_xr"
     processMandatory.EntityData.ParentYangName = "Cisco-IOS-XR-sysmgr-cfg"
     processMandatory.EntityData.SegmentPath = "Cisco-IOS-XR-sysmgr-cfg:process-mandatory"
+    processMandatory.EntityData.AbsolutePath = processMandatory.EntityData.SegmentPath
     processMandatory.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     processMandatory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     processMandatory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -76,6 +77,7 @@ func (nodes *ProcessMandatory_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.BundleName = "cisco_ios_xr"
     nodes.EntityData.ParentYangName = "process-mandatory"
     nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.AbsolutePath = "Cisco-IOS-XR-sysmgr-cfg:process-mandatory/" + nodes.EntityData.SegmentPath
     nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -97,6 +99,7 @@ func (nodes *ProcessMandatory_Nodes) GetEntityData() *types.CommonEntityData {
 type ProcessMandatory_Nodes_Node struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Node name. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -112,6 +115,7 @@ func (node *ProcessMandatory_Nodes_Node) GetEntityData() *types.CommonEntityData
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
     node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeName, "node-name")
+    node.EntityData.AbsolutePath = "Cisco-IOS-XR-sysmgr-cfg:process-mandatory/nodes/" + node.EntityData.SegmentPath
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -143,6 +147,7 @@ func (processes *ProcessMandatory_Nodes_Node_Processes) GetEntityData() *types.C
     processes.EntityData.BundleName = "cisco_ios_xr"
     processes.EntityData.ParentYangName = "node"
     processes.EntityData.SegmentPath = "processes"
+    processes.EntityData.AbsolutePath = "Cisco-IOS-XR-sysmgr-cfg:process-mandatory/nodes/node/" + processes.EntityData.SegmentPath
     processes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     processes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     processes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -164,6 +169,7 @@ func (processes *ProcessMandatory_Nodes_Node_Processes) GetEntityData() *types.C
 type ProcessMandatory_Nodes_Node_Processes_Process struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Process name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -176,6 +182,7 @@ func (process *ProcessMandatory_Nodes_Node_Processes_Process) GetEntityData() *t
     process.EntityData.BundleName = "cisco_ios_xr"
     process.EntityData.ParentYangName = "processes"
     process.EntityData.SegmentPath = "process" + types.AddKeyToken(process.ProcessName, "process-name")
+    process.EntityData.AbsolutePath = "Cisco-IOS-XR-sysmgr-cfg:process-mandatory/nodes/node/processes/" + process.EntityData.SegmentPath
     process.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     process.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     process.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -205,6 +212,7 @@ func (all *ProcessMandatory_All) GetEntityData() *types.CommonEntityData {
     all.EntityData.BundleName = "cisco_ios_xr"
     all.EntityData.ParentYangName = "process-mandatory"
     all.EntityData.SegmentPath = "all"
+    all.EntityData.AbsolutePath = "Cisco-IOS-XR-sysmgr-cfg:process-mandatory/" + all.EntityData.SegmentPath
     all.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     all.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     all.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -235,6 +243,7 @@ func (processes *ProcessMandatory_All_Processes) GetEntityData() *types.CommonEn
     processes.EntityData.BundleName = "cisco_ios_xr"
     processes.EntityData.ParentYangName = "all"
     processes.EntityData.SegmentPath = "processes"
+    processes.EntityData.AbsolutePath = "Cisco-IOS-XR-sysmgr-cfg:process-mandatory/all/" + processes.EntityData.SegmentPath
     processes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     processes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     processes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -256,6 +265,7 @@ func (processes *ProcessMandatory_All_Processes) GetEntityData() *types.CommonEn
 type ProcessMandatory_All_Processes_Process struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Process name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -268,6 +278,7 @@ func (process *ProcessMandatory_All_Processes_Process) GetEntityData() *types.Co
     process.EntityData.BundleName = "cisco_ios_xr"
     process.EntityData.ParentYangName = "processes"
     process.EntityData.SegmentPath = "process" + types.AddKeyToken(process.ProcessName, "process-name")
+    process.EntityData.AbsolutePath = "Cisco-IOS-XR-sysmgr-cfg:process-mandatory/all/processes/" + process.EntityData.SegmentPath
     process.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     process.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     process.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -305,6 +316,7 @@ func (processSingleCrash *ProcessSingleCrash) GetEntityData() *types.CommonEntit
     processSingleCrash.EntityData.BundleName = "cisco_ios_xr"
     processSingleCrash.EntityData.ParentYangName = "Cisco-IOS-XR-sysmgr-cfg"
     processSingleCrash.EntityData.SegmentPath = "Cisco-IOS-XR-sysmgr-cfg:process-single-crash"
+    processSingleCrash.EntityData.AbsolutePath = processSingleCrash.EntityData.SegmentPath
     processSingleCrash.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     processSingleCrash.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     processSingleCrash.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

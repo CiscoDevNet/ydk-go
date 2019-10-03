@@ -24,6 +24,7 @@ import (
 	"github.com/CiscoDevNet/ydk-go/ydk/errors"
 	"github.com/CiscoDevNet/ydk-go/ydk/path"
 	"github.com/CiscoDevNet/ydk-go/ydk/types"
+	"github.com/CiscoDevNet/ydk-go/ydk/types/yfilter"
 	encoding "github.com/CiscoDevNet/ydk-go/ydk/types/encoding_format"
 	"github.com/CiscoDevNet/ydk-go/ydk/types/protocol"
 )
@@ -188,6 +189,11 @@ func executeNetconfRpc(provider types.ServiceProvider, operation string, entity 
 	dataTag := "entity"
 	if operation == "read" {
 		dataTag = "filter"
+		types.SetNontopEntityFilter(entity, yfilter.Read)
+	} else {
+		if operation == "delete" {
+			types.SetNontopEntityFilter(entity, yfilter.Delete)
+		}
 	}
 	data := make(map[string]interface{})
 	data[dataTag] = entity
@@ -197,7 +203,9 @@ func executeNetconfRpc(provider types.ServiceProvider, operation string, entity 
 	if ok && mode == "config" {
 		setConfigFlag = true
 	}
-	return path.ExecuteRPC(provider, rpcTag, data, setConfigFlag)
+	dn := path.ExecuteRPC(provider, rpcTag, data, setConfigFlag)
+	types.SetNontopEntityFilter(entity, yfilter.NotSet)
+	return dn
 }
 
 func (provider *NetconfServiceProvider) ExecuteRpc(operation string, entity types.Entity, params map[string]string) types.DataNode {

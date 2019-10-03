@@ -1,9 +1,15 @@
+// This module contains definitions
+// for the Calvados model objects.
+// 
 // This module contains a collection of YANG
 // definitions for Cisco IOS-XR SysAdmin configuration.
 // 
 // The System Admin Manager (CM)
 // 
 // Copyright(c) 2010-2017 by Cisco Systems, Inc.
+// All rights reserved.
+// 
+// Copyright (c) 2012-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package sysadmin_cm
 
@@ -50,18 +56,18 @@ const (
 )
 
 // NodeInventory
-// System Admin Manager Node Inventory. All accesses are 
+// System Admin Manager Node Inventory. All accesses are
 // read-only. CLI show command looks like show node-inventory
 // location <location>
 type NodeInventory struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // System Admin Manager Node Inventory. All accesses are  read-only. CLI show
+    // System Admin Manager Node Inventory. All accesses are read-only. CLI show
     // command looks like show node-inventory location <location>.
     Summary NodeInventory_Summary
 
-    // System Admin Manager Node Inventory. All accesses are  read-only. CLI show
+    // System Admin Manager Node Inventory. All accesses are read-only. CLI show
     // command looks like show node-inventory location <location>.
     Detail NodeInventory_Detail
 }
@@ -72,6 +78,7 @@ func (nodeInventory *NodeInventory) GetEntityData() *types.CommonEntityData {
     nodeInventory.EntityData.BundleName = "cisco_ios_xr"
     nodeInventory.EntityData.ParentYangName = "Cisco-IOS-XR-sysadmin-cm"
     nodeInventory.EntityData.SegmentPath = "Cisco-IOS-XR-sysadmin-cm:node-inventory"
+    nodeInventory.EntityData.AbsolutePath = nodeInventory.EntityData.SegmentPath
     nodeInventory.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodeInventory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodeInventory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -87,7 +94,7 @@ func (nodeInventory *NodeInventory) GetEntityData() *types.CommonEntityData {
 }
 
 // NodeInventory_Summary
-// System Admin Manager Node Inventory. All accesses are 
+// System Admin Manager Node Inventory. All accesses are
 // read-only. CLI show command looks like show node-inventory
 // location <location>
 type NodeInventory_Summary struct {
@@ -104,6 +111,7 @@ func (summary *NodeInventory_Summary) GetEntityData() *types.CommonEntityData {
     summary.EntityData.BundleName = "cisco_ios_xr"
     summary.EntityData.ParentYangName = "node-inventory"
     summary.EntityData.SegmentPath = "summary"
+    summary.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-cm:node-inventory/" + summary.EntityData.SegmentPath
     summary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     summary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     summary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -124,6 +132,7 @@ func (summary *NodeInventory_Summary) GetEntityData() *types.CommonEntityData {
 type NodeInventory_Summary_NodeLocations struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with pattern:
     // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-7])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[0-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
@@ -139,6 +148,7 @@ func (nodeLocations *NodeInventory_Summary_NodeLocations) GetEntityData() *types
     nodeLocations.EntityData.BundleName = "cisco_ios_xr"
     nodeLocations.EntityData.ParentYangName = "summary"
     nodeLocations.EntityData.SegmentPath = "node_locations" + types.AddKeyToken(nodeLocations.NodeLocation, "node_location")
+    nodeLocations.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-cm:node-inventory/summary/" + nodeLocations.EntityData.SegmentPath
     nodeLocations.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodeLocations.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodeLocations.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -160,6 +170,7 @@ func (nodeLocations *NodeInventory_Summary_NodeLocations) GetEntityData() *types
 type NodeInventory_Summary_NodeLocations_Nodei struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IP address of the node. The type is one of the
     // following types: string with pattern:
@@ -188,6 +199,7 @@ func (nodei *NodeInventory_Summary_NodeLocations_Nodei) GetEntityData() *types.C
     nodei.EntityData.BundleName = "cisco_ios_xr"
     nodei.EntityData.ParentYangName = "node_locations"
     nodei.EntityData.SegmentPath = "nodei" + types.AddKeyToken(nodei.IpAddress, "ip_address")
+    nodei.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-cm:node-inventory/summary/node_locations/" + nodei.EntityData.SegmentPath
     nodei.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodei.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodei.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -206,7 +218,7 @@ func (nodei *NodeInventory_Summary_NodeLocations_Nodei) GetEntityData() *types.C
 }
 
 // NodeInventory_Detail
-// System Admin Manager Node Inventory. All accesses are 
+// System Admin Manager Node Inventory. All accesses are
 // read-only. CLI show command looks like show node-inventory
 // location <location>
 type NodeInventory_Detail struct {
@@ -223,6 +235,7 @@ func (detail *NodeInventory_Detail) GetEntityData() *types.CommonEntityData {
     detail.EntityData.BundleName = "cisco_ios_xr"
     detail.EntityData.ParentYangName = "node-inventory"
     detail.EntityData.SegmentPath = "detail"
+    detail.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-cm:node-inventory/" + detail.EntityData.SegmentPath
     detail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     detail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     detail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -243,6 +256,7 @@ func (detail *NodeInventory_Detail) GetEntityData() *types.CommonEntityData {
 type NodeInventory_Detail_NodeLocations struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with pattern:
     // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-7])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[0-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
@@ -258,6 +272,7 @@ func (nodeLocations *NodeInventory_Detail_NodeLocations) GetEntityData() *types.
     nodeLocations.EntityData.BundleName = "cisco_ios_xr"
     nodeLocations.EntityData.ParentYangName = "detail"
     nodeLocations.EntityData.SegmentPath = "node_locations" + types.AddKeyToken(nodeLocations.NodeLocation, "node_location")
+    nodeLocations.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-cm:node-inventory/detail/" + nodeLocations.EntityData.SegmentPath
     nodeLocations.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodeLocations.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodeLocations.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -279,6 +294,7 @@ func (nodeLocations *NodeInventory_Detail_NodeLocations) GetEntityData() *types.
 type NodeInventory_Detail_NodeLocations_Nodei struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IP address of the node. The type is one of the
     // following types: string with pattern:
@@ -316,6 +332,7 @@ func (nodei *NodeInventory_Detail_NodeLocations_Nodei) GetEntityData() *types.Co
     nodei.EntityData.BundleName = "cisco_ios_xr"
     nodei.EntityData.ParentYangName = "node_locations"
     nodei.EntityData.SegmentPath = "nodei" + types.AddKeyToken(nodei.IpAddress, "ip_address")
+    nodei.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-cm:node-inventory/detail/node_locations/" + nodei.EntityData.SegmentPath
     nodei.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodei.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodei.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -337,7 +354,7 @@ func (nodei *NodeInventory_Detail_NodeLocations_Nodei) GetEntityData() *types.Co
 }
 
 // CardInventory
-// System Admin Manager Card Inventory. All accesses are 
+// System Admin Manager Card Inventory. All accesses are
 // read-only. CLI show command looks like show card-inventory
 // location <location>
 type CardInventory struct {
@@ -354,6 +371,7 @@ func (cardInventory *CardInventory) GetEntityData() *types.CommonEntityData {
     cardInventory.EntityData.BundleName = "cisco_ios_xr"
     cardInventory.EntityData.ParentYangName = "Cisco-IOS-XR-sysadmin-cm"
     cardInventory.EntityData.SegmentPath = "Cisco-IOS-XR-sysadmin-cm:card-inventory"
+    cardInventory.EntityData.AbsolutePath = cardInventory.EntityData.SegmentPath
     cardInventory.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cardInventory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cardInventory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -374,6 +392,7 @@ func (cardInventory *CardInventory) GetEntityData() *types.CommonEntityData {
 type CardInventory_CardLocations struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with pattern:
     // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-7])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[0-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
@@ -389,6 +408,7 @@ func (cardLocations *CardInventory_CardLocations) GetEntityData() *types.CommonE
     cardLocations.EntityData.BundleName = "cisco_ios_xr"
     cardLocations.EntityData.ParentYangName = "card-inventory"
     cardLocations.EntityData.SegmentPath = "card_locations" + types.AddKeyToken(cardLocations.CardLocation, "card_location")
+    cardLocations.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-cm:card-inventory/" + cardLocations.EntityData.SegmentPath
     cardLocations.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cardLocations.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cardLocations.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -410,6 +430,7 @@ func (cardLocations *CardInventory_CardLocations) GetEntityData() *types.CommonE
 type CardInventory_CardLocations_Cardi struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Serial Number of the Card. The type is string.
     CardSerial interface{}
@@ -439,6 +460,7 @@ func (cardi *CardInventory_CardLocations_Cardi) GetEntityData() *types.CommonEnt
     cardi.EntityData.BundleName = "cisco_ios_xr"
     cardi.EntityData.ParentYangName = "card_locations"
     cardi.EntityData.SegmentPath = "cardi" + types.AddKeyToken(cardi.CardSerial, "card_serial")
+    cardi.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-cm:card-inventory/card_locations/" + cardi.EntityData.SegmentPath
     cardi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cardi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cardi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -474,6 +496,7 @@ func (rackInventory *RackInventory) GetEntityData() *types.CommonEntityData {
     rackInventory.EntityData.BundleName = "cisco_ios_xr"
     rackInventory.EntityData.ParentYangName = "Cisco-IOS-XR-sysadmin-cm"
     rackInventory.EntityData.SegmentPath = "Cisco-IOS-XR-sysadmin-cm:rack-inventory"
+    rackInventory.EntityData.AbsolutePath = rackInventory.EntityData.SegmentPath
     rackInventory.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rackInventory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rackInventory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -494,6 +517,7 @@ func (rackInventory *RackInventory) GetEntityData() *types.CommonEntityData {
 type RackInventory_RackLocations struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with pattern:
     // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-7])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[0-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
@@ -509,6 +533,7 @@ func (rackLocations *RackInventory_RackLocations) GetEntityData() *types.CommonE
     rackLocations.EntityData.BundleName = "cisco_ios_xr"
     rackLocations.EntityData.ParentYangName = "rack-inventory"
     rackLocations.EntityData.SegmentPath = "rack_locations" + types.AddKeyToken(rackLocations.RackLocation, "rack_location")
+    rackLocations.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-cm:rack-inventory/" + rackLocations.EntityData.SegmentPath
     rackLocations.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rackLocations.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rackLocations.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -530,6 +555,7 @@ func (rackLocations *RackInventory_RackLocations) GetEntityData() *types.CommonE
 type RackInventory_RackLocations_Racki struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Serial Number of the Rack. The type is string.
     RackSerial interface{}
@@ -547,6 +573,7 @@ func (racki *RackInventory_RackLocations_Racki) GetEntityData() *types.CommonEnt
     racki.EntityData.BundleName = "cisco_ios_xr"
     racki.EntityData.ParentYangName = "rack_locations"
     racki.EntityData.SegmentPath = "racki" + types.AddKeyToken(racki.RackSerial, "rack_serial")
+    racki.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-cm:rack-inventory/rack_locations/" + racki.EntityData.SegmentPath
     racki.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     racki.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     racki.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -578,6 +605,7 @@ func (systemServiceInventory *SystemServiceInventory) GetEntityData() *types.Com
     systemServiceInventory.EntityData.BundleName = "cisco_ios_xr"
     systemServiceInventory.EntityData.ParentYangName = "Cisco-IOS-XR-sysadmin-cm"
     systemServiceInventory.EntityData.SegmentPath = "Cisco-IOS-XR-sysadmin-cm:system-service-inventory"
+    systemServiceInventory.EntityData.AbsolutePath = systemServiceInventory.EntityData.SegmentPath
     systemServiceInventory.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     systemServiceInventory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     systemServiceInventory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -598,6 +626,7 @@ func (systemServiceInventory *SystemServiceInventory) GetEntityData() *types.Com
 type SystemServiceInventory_SsvcLocations struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with pattern:
     // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-7])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[0-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
@@ -613,6 +642,7 @@ func (ssvcLocations *SystemServiceInventory_SsvcLocations) GetEntityData() *type
     ssvcLocations.EntityData.BundleName = "cisco_ios_xr"
     ssvcLocations.EntityData.ParentYangName = "system-service-inventory"
     ssvcLocations.EntityData.SegmentPath = "ssvc_locations" + types.AddKeyToken(ssvcLocations.SsvcLocation, "ssvc_location")
+    ssvcLocations.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-cm:system-service-inventory/" + ssvcLocations.EntityData.SegmentPath
     ssvcLocations.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ssvcLocations.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ssvcLocations.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -634,6 +664,7 @@ func (ssvcLocations *SystemServiceInventory_SsvcLocations) GetEntityData() *type
 type SystemServiceInventory_SsvcLocations_Ssvci struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Service Name. The type is string.
     SvcName interface{}
@@ -660,6 +691,7 @@ func (ssvci *SystemServiceInventory_SsvcLocations_Ssvci) GetEntityData() *types.
     ssvci.EntityData.BundleName = "cisco_ios_xr"
     ssvci.EntityData.ParentYangName = "ssvc_locations"
     ssvci.EntityData.SegmentPath = "ssvci" + types.AddKeyToken(ssvci.SvcName, "svc_name")
+    ssvci.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-cm:system-service-inventory/ssvc_locations/" + ssvci.EntityData.SegmentPath
     ssvci.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ssvci.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ssvci.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -694,6 +726,7 @@ func (rackServiceInventory *RackServiceInventory) GetEntityData() *types.CommonE
     rackServiceInventory.EntityData.BundleName = "cisco_ios_xr"
     rackServiceInventory.EntityData.ParentYangName = "Cisco-IOS-XR-sysadmin-cm"
     rackServiceInventory.EntityData.SegmentPath = "Cisco-IOS-XR-sysadmin-cm:rack-service-inventory"
+    rackServiceInventory.EntityData.AbsolutePath = rackServiceInventory.EntityData.SegmentPath
     rackServiceInventory.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rackServiceInventory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rackServiceInventory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -714,6 +747,7 @@ func (rackServiceInventory *RackServiceInventory) GetEntityData() *types.CommonE
 type RackServiceInventory_RsvcLocations struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with pattern:
     // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-7])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[0-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
@@ -729,6 +763,7 @@ func (rsvcLocations *RackServiceInventory_RsvcLocations) GetEntityData() *types.
     rsvcLocations.EntityData.BundleName = "cisco_ios_xr"
     rsvcLocations.EntityData.ParentYangName = "rack-service-inventory"
     rsvcLocations.EntityData.SegmentPath = "rsvc_locations" + types.AddKeyToken(rsvcLocations.RsvcLocation, "rsvc_location")
+    rsvcLocations.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-cm:rack-service-inventory/" + rsvcLocations.EntityData.SegmentPath
     rsvcLocations.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rsvcLocations.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rsvcLocations.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -750,6 +785,7 @@ func (rsvcLocations *RackServiceInventory_RsvcLocations) GetEntityData() *types.
 type RackServiceInventory_RsvcLocations_Rsvci struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Service Name. The type is string.
     SvcName interface{}
@@ -776,6 +812,7 @@ func (rsvci *RackServiceInventory_RsvcLocations_Rsvci) GetEntityData() *types.Co
     rsvci.EntityData.BundleName = "cisco_ios_xr"
     rsvci.EntityData.ParentYangName = "rsvc_locations"
     rsvci.EntityData.SegmentPath = "rsvci" + types.AddKeyToken(rsvci.SvcName, "svc_name")
+    rsvci.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-cm:rack-service-inventory/rsvc_locations/" + rsvci.EntityData.SegmentPath
     rsvci.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rsvci.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rsvci.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -810,6 +847,7 @@ func (sdrInventory *SdrInventory) GetEntityData() *types.CommonEntityData {
     sdrInventory.EntityData.BundleName = "cisco_ios_xr"
     sdrInventory.EntityData.ParentYangName = "Cisco-IOS-XR-sysadmin-cm"
     sdrInventory.EntityData.SegmentPath = "Cisco-IOS-XR-sysadmin-cm:sdr-inventory"
+    sdrInventory.EntityData.AbsolutePath = sdrInventory.EntityData.SegmentPath
     sdrInventory.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sdrInventory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sdrInventory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -830,6 +868,7 @@ func (sdrInventory *SdrInventory) GetEntityData() *types.CommonEntityData {
 type SdrInventory_SdrLocations struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with pattern:
     // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-7])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[0-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
@@ -845,6 +884,7 @@ func (sdrLocations *SdrInventory_SdrLocations) GetEntityData() *types.CommonEnti
     sdrLocations.EntityData.BundleName = "cisco_ios_xr"
     sdrLocations.EntityData.ParentYangName = "sdr-inventory"
     sdrLocations.EntityData.SegmentPath = "sdr_locations" + types.AddKeyToken(sdrLocations.SdrLocation, "sdr_location")
+    sdrLocations.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-cm:sdr-inventory/" + sdrLocations.EntityData.SegmentPath
     sdrLocations.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sdrLocations.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sdrLocations.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -866,6 +906,7 @@ func (sdrLocations *SdrInventory_SdrLocations) GetEntityData() *types.CommonEnti
 type SdrInventory_SdrLocations_Sdri struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. SDR NAME. The type is string.
     SdrName interface{}
@@ -887,6 +928,7 @@ func (sdri *SdrInventory_SdrLocations_Sdri) GetEntityData() *types.CommonEntityD
     sdri.EntityData.BundleName = "cisco_ios_xr"
     sdri.EntityData.ParentYangName = "sdr_locations"
     sdri.EntityData.SegmentPath = "sdri" + types.AddKeyToken(sdri.SdrName, "sdr_name")
+    sdri.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-cm:sdr-inventory/sdr_locations/" + sdri.EntityData.SegmentPath
     sdri.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sdri.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sdri.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -919,6 +961,7 @@ func (leaderStatistics *LeaderStatistics) GetEntityData() *types.CommonEntityDat
     leaderStatistics.EntityData.BundleName = "cisco_ios_xr"
     leaderStatistics.EntityData.ParentYangName = "Cisco-IOS-XR-sysadmin-cm"
     leaderStatistics.EntityData.SegmentPath = "Cisco-IOS-XR-sysadmin-cm:leader-statistics"
+    leaderStatistics.EntityData.AbsolutePath = leaderStatistics.EntityData.SegmentPath
     leaderStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     leaderStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     leaderStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -939,6 +982,7 @@ func (leaderStatistics *LeaderStatistics) GetEntityData() *types.CommonEntityDat
 type LeaderStatistics_LdrLocations struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with pattern:
     // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-7])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[0-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
@@ -969,6 +1013,7 @@ func (ldrLocations *LeaderStatistics_LdrLocations) GetEntityData() *types.Common
     ldrLocations.EntityData.BundleName = "cisco_ios_xr"
     ldrLocations.EntityData.ParentYangName = "leader-statistics"
     ldrLocations.EntityData.SegmentPath = "ldr_locations" + types.AddKeyToken(ldrLocations.LdrLocation, "ldr_location")
+    ldrLocations.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-cm:leader-statistics/" + ldrLocations.EntityData.SegmentPath
     ldrLocations.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ldrLocations.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ldrLocations.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1004,6 +1049,7 @@ func (topologyNeighbors *TopologyNeighbors) GetEntityData() *types.CommonEntityD
     topologyNeighbors.EntityData.BundleName = "cisco_ios_xr"
     topologyNeighbors.EntityData.ParentYangName = "Cisco-IOS-XR-sysadmin-cm"
     topologyNeighbors.EntityData.SegmentPath = "Cisco-IOS-XR-sysadmin-cm:topology-neighbors"
+    topologyNeighbors.EntityData.AbsolutePath = topologyNeighbors.EntityData.SegmentPath
     topologyNeighbors.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     topologyNeighbors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     topologyNeighbors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1024,6 +1070,7 @@ func (topologyNeighbors *TopologyNeighbors) GetEntityData() *types.CommonEntityD
 type TopologyNeighbors_NbrLocations struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with pattern:
     // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-7])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[0-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
@@ -1039,6 +1086,7 @@ func (nbrLocations *TopologyNeighbors_NbrLocations) GetEntityData() *types.Commo
     nbrLocations.EntityData.BundleName = "cisco_ios_xr"
     nbrLocations.EntityData.ParentYangName = "topology-neighbors"
     nbrLocations.EntityData.SegmentPath = "nbr_locations" + types.AddKeyToken(nbrLocations.NbrLocation, "nbr_location")
+    nbrLocations.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-cm:topology-neighbors/" + nbrLocations.EntityData.SegmentPath
     nbrLocations.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nbrLocations.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nbrLocations.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1060,6 +1108,7 @@ func (nbrLocations *TopologyNeighbors_NbrLocations) GetEntityData() *types.Commo
 type TopologyNeighbors_NbrLocations_Nbri struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Neighbor System ID. The type is string.
     NbrSystemId interface{}
@@ -1087,6 +1136,7 @@ func (nbri *TopologyNeighbors_NbrLocations_Nbri) GetEntityData() *types.CommonEn
     nbri.EntityData.BundleName = "cisco_ios_xr"
     nbri.EntityData.ParentYangName = "nbr_locations"
     nbri.EntityData.SegmentPath = "nbri" + types.AddKeyToken(nbri.NbrSystemId, "nbr_system_id") + types.AddKeyToken(nbri.NbrAreaType, "nbr_area_type")
+    nbri.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-cm:topology-neighbors/nbr_locations/" + nbri.EntityData.SegmentPath
     nbri.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nbri.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nbri.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1117,6 +1167,7 @@ func (placement *Placement) GetEntityData() *types.CommonEntityData {
     placement.EntityData.BundleName = "cisco_ios_xr"
     placement.EntityData.ParentYangName = "Cisco-IOS-XR-sysadmin-cm"
     placement.EntityData.SegmentPath = "Cisco-IOS-XR-sysadmin-cm:placement"
+    placement.EntityData.AbsolutePath = placement.EntityData.SegmentPath
     placement.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     placement.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     placement.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

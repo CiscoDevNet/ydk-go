@@ -128,6 +128,7 @@ func (cISCOCONFIGCOPYMIB *CISCOCONFIGCOPYMIB) GetEntityData() *types.CommonEntit
     cISCOCONFIGCOPYMIB.EntityData.BundleName = "cisco_ios_xe"
     cISCOCONFIGCOPYMIB.EntityData.ParentYangName = "CISCO-CONFIG-COPY-MIB"
     cISCOCONFIGCOPYMIB.EntityData.SegmentPath = "CISCO-CONFIG-COPY-MIB:CISCO-CONFIG-COPY-MIB"
+    cISCOCONFIGCOPYMIB.EntityData.AbsolutePath = cISCOCONFIGCOPYMIB.EntityData.SegmentPath
     cISCOCONFIGCOPYMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cISCOCONFIGCOPYMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOCONFIGCOPYMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -186,6 +187,7 @@ func (ccCopyTable *CISCOCONFIGCOPYMIB_CcCopyTable) GetEntityData() *types.Common
     ccCopyTable.EntityData.BundleName = "cisco_ios_xe"
     ccCopyTable.EntityData.ParentYangName = "CISCO-CONFIG-COPY-MIB"
     ccCopyTable.EntityData.SegmentPath = "ccCopyTable"
+    ccCopyTable.EntityData.AbsolutePath = "CISCO-CONFIG-COPY-MIB:CISCO-CONFIG-COPY-MIB/" + ccCopyTable.EntityData.SegmentPath
     ccCopyTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ccCopyTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ccCopyTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -257,6 +259,7 @@ func (ccCopyTable *CISCOCONFIGCOPYMIB_CcCopyTable) GetEntityData() *types.Common
 type CISCOCONFIGCOPYMIB_CcCopyTable_CcCopyEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Object which specifies a unique entry in the
     // ccCopyTable.  A management station wishing to initiate a config-copy
@@ -386,6 +389,7 @@ func (ccCopyEntry *CISCOCONFIGCOPYMIB_CcCopyTable_CcCopyEntry) GetEntityData() *
     ccCopyEntry.EntityData.BundleName = "cisco_ios_xe"
     ccCopyEntry.EntityData.ParentYangName = "ccCopyTable"
     ccCopyEntry.EntityData.SegmentPath = "ccCopyEntry" + types.AddKeyToken(ccCopyEntry.CcCopyIndex, "ccCopyIndex")
+    ccCopyEntry.EntityData.AbsolutePath = "CISCO-CONFIG-COPY-MIB:CISCO-CONFIG-COPY-MIB/ccCopyTable/" + ccCopyEntry.EntityData.SegmentPath
     ccCopyEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ccCopyEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ccCopyEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -469,6 +473,7 @@ func (ccCopyErrorTable *CISCOCONFIGCOPYMIB_CcCopyErrorTable) GetEntityData() *ty
     ccCopyErrorTable.EntityData.BundleName = "cisco_ios_xe"
     ccCopyErrorTable.EntityData.ParentYangName = "CISCO-CONFIG-COPY-MIB"
     ccCopyErrorTable.EntityData.SegmentPath = "ccCopyErrorTable"
+    ccCopyErrorTable.EntityData.AbsolutePath = "CISCO-CONFIG-COPY-MIB:CISCO-CONFIG-COPY-MIB/" + ccCopyErrorTable.EntityData.SegmentPath
     ccCopyErrorTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ccCopyErrorTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ccCopyErrorTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -492,6 +497,7 @@ func (ccCopyErrorTable *CISCOCONFIGCOPYMIB_CcCopyErrorTable) GetEntityData() *ty
 type CISCOCONFIGCOPYMIB_CcCopyErrorTable_CcCopyErrorEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -517,8 +523,8 @@ type CISCOCONFIGCOPYMIB_CcCopyErrorTable_CcCopyErrorEntry struct {
     // The World Wide Name (WWN) of this destination device on which config copy
     // operation is performed. The value of this object is zero-length string if 
     // WWN is unassigned or unknown. For example, devices  which do not support
-    // fibre channel would not have WWN. The type is string with length: 0 | 8 |
-    // 16.
+    // fibre channel would not have WWN. The type is string with length: 0..0 |
+    // 8..8 | 16..16.
     CcCopyErrorDeviceWWN interface{}
 
     // The error description for the error happened for this destination of this
@@ -532,6 +538,7 @@ func (ccCopyErrorEntry *CISCOCONFIGCOPYMIB_CcCopyErrorTable_CcCopyErrorEntry) Ge
     ccCopyErrorEntry.EntityData.BundleName = "cisco_ios_xe"
     ccCopyErrorEntry.EntityData.ParentYangName = "ccCopyErrorTable"
     ccCopyErrorEntry.EntityData.SegmentPath = "ccCopyErrorEntry" + types.AddKeyToken(ccCopyErrorEntry.CcCopyIndex, "ccCopyIndex") + types.AddKeyToken(ccCopyErrorEntry.CcCopyErrorIndex, "ccCopyErrorIndex")
+    ccCopyErrorEntry.EntityData.AbsolutePath = "CISCO-CONFIG-COPY-MIB:CISCO-CONFIG-COPY-MIB/ccCopyErrorTable/" + ccCopyErrorEntry.EntityData.SegmentPath
     ccCopyErrorEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ccCopyErrorEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ccCopyErrorEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

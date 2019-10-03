@@ -74,6 +74,7 @@ func (tOKENRINGRMONMIB *TOKENRINGRMONMIB) GetEntityData() *types.CommonEntityDat
     tOKENRINGRMONMIB.EntityData.BundleName = "cisco_ios_xe"
     tOKENRINGRMONMIB.EntityData.ParentYangName = "TOKEN-RING-RMON-MIB"
     tOKENRINGRMONMIB.EntityData.SegmentPath = "TOKEN-RING-RMON-MIB:TOKEN-RING-RMON-MIB"
+    tOKENRINGRMONMIB.EntityData.AbsolutePath = tOKENRINGRMONMIB.EntityData.SegmentPath
     tOKENRINGRMONMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     tOKENRINGRMONMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     tOKENRINGRMONMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -120,6 +121,7 @@ func (tokenRingMLStatsTable *TOKENRINGRMONMIB_TokenRingMLStatsTable) GetEntityDa
     tokenRingMLStatsTable.EntityData.BundleName = "cisco_ios_xe"
     tokenRingMLStatsTable.EntityData.ParentYangName = "TOKEN-RING-RMON-MIB"
     tokenRingMLStatsTable.EntityData.SegmentPath = "tokenRingMLStatsTable"
+    tokenRingMLStatsTable.EntityData.AbsolutePath = "TOKEN-RING-RMON-MIB:TOKEN-RING-RMON-MIB/" + tokenRingMLStatsTable.EntityData.SegmentPath
     tokenRingMLStatsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     tokenRingMLStatsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     tokenRingMLStatsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -142,6 +144,7 @@ func (tokenRingMLStatsTable *TOKENRINGRMONMIB_TokenRingMLStatsTable) GetEntityDa
 type TOKENRINGRMONMIB_TokenRingMLStatsTable_TokenRingMLStatsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The value of this object uniquely identifies this
     // tokenRingMLStats entry. The type is interface{} with range: 1..65535.
@@ -299,6 +302,7 @@ func (tokenRingMLStatsEntry *TOKENRINGRMONMIB_TokenRingMLStatsTable_TokenRingMLS
     tokenRingMLStatsEntry.EntityData.BundleName = "cisco_ios_xe"
     tokenRingMLStatsEntry.EntityData.ParentYangName = "tokenRingMLStatsTable"
     tokenRingMLStatsEntry.EntityData.SegmentPath = "tokenRingMLStatsEntry" + types.AddKeyToken(tokenRingMLStatsEntry.TokenRingMLStatsIndex, "tokenRingMLStatsIndex")
+    tokenRingMLStatsEntry.EntityData.AbsolutePath = "TOKEN-RING-RMON-MIB:TOKEN-RING-RMON-MIB/tokenRingMLStatsTable/" + tokenRingMLStatsEntry.EntityData.SegmentPath
     tokenRingMLStatsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     tokenRingMLStatsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     tokenRingMLStatsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -359,6 +363,7 @@ func (tokenRingPStatsTable *TOKENRINGRMONMIB_TokenRingPStatsTable) GetEntityData
     tokenRingPStatsTable.EntityData.BundleName = "cisco_ios_xe"
     tokenRingPStatsTable.EntityData.ParentYangName = "TOKEN-RING-RMON-MIB"
     tokenRingPStatsTable.EntityData.SegmentPath = "tokenRingPStatsTable"
+    tokenRingPStatsTable.EntityData.AbsolutePath = "TOKEN-RING-RMON-MIB:TOKEN-RING-RMON-MIB/" + tokenRingPStatsTable.EntityData.SegmentPath
     tokenRingPStatsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     tokenRingPStatsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     tokenRingPStatsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -382,6 +387,7 @@ func (tokenRingPStatsTable *TOKENRINGRMONMIB_TokenRingPStatsTable) GetEntityData
 type TOKENRINGRMONMIB_TokenRingPStatsTable_TokenRingPStatsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The value of this object uniquely identifies this
     // tokenRingPStats entry. The type is interface{} with range: 1..65535.
@@ -508,6 +514,7 @@ func (tokenRingPStatsEntry *TOKENRINGRMONMIB_TokenRingPStatsTable_TokenRingPStat
     tokenRingPStatsEntry.EntityData.BundleName = "cisco_ios_xe"
     tokenRingPStatsEntry.EntityData.ParentYangName = "tokenRingPStatsTable"
     tokenRingPStatsEntry.EntityData.SegmentPath = "tokenRingPStatsEntry" + types.AddKeyToken(tokenRingPStatsEntry.TokenRingPStatsIndex, "tokenRingPStatsIndex")
+    tokenRingPStatsEntry.EntityData.AbsolutePath = "TOKEN-RING-RMON-MIB:TOKEN-RING-RMON-MIB/tokenRingPStatsTable/" + tokenRingPStatsEntry.EntityData.SegmentPath
     tokenRingPStatsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     tokenRingPStatsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     tokenRingPStatsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -565,6 +572,7 @@ func (tokenRingMLHistoryTable *TOKENRINGRMONMIB_TokenRingMLHistoryTable) GetEnti
     tokenRingMLHistoryTable.EntityData.BundleName = "cisco_ios_xe"
     tokenRingMLHistoryTable.EntityData.ParentYangName = "TOKEN-RING-RMON-MIB"
     tokenRingMLHistoryTable.EntityData.SegmentPath = "tokenRingMLHistoryTable"
+    tokenRingMLHistoryTable.EntityData.AbsolutePath = "TOKEN-RING-RMON-MIB:TOKEN-RING-RMON-MIB/" + tokenRingMLHistoryTable.EntityData.SegmentPath
     tokenRingMLHistoryTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     tokenRingMLHistoryTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     tokenRingMLHistoryTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -587,6 +595,7 @@ func (tokenRingMLHistoryTable *TOKENRINGRMONMIB_TokenRingMLHistoryTable) GetEnti
 type TOKENRINGRMONMIB_TokenRingMLHistoryTable_TokenRingMLHistoryEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The history of which this entry is a part.  The
     // history identified by a particular value of this index is the same history
@@ -742,6 +751,7 @@ func (tokenRingMLHistoryEntry *TOKENRINGRMONMIB_TokenRingMLHistoryTable_TokenRin
     tokenRingMLHistoryEntry.EntityData.BundleName = "cisco_ios_xe"
     tokenRingMLHistoryEntry.EntityData.ParentYangName = "tokenRingMLHistoryTable"
     tokenRingMLHistoryEntry.EntityData.SegmentPath = "tokenRingMLHistoryEntry" + types.AddKeyToken(tokenRingMLHistoryEntry.TokenRingMLHistoryIndex, "tokenRingMLHistoryIndex") + types.AddKeyToken(tokenRingMLHistoryEntry.TokenRingMLHistorySampleIndex, "tokenRingMLHistorySampleIndex")
+    tokenRingMLHistoryEntry.EntityData.AbsolutePath = "TOKEN-RING-RMON-MIB:TOKEN-RING-RMON-MIB/tokenRingMLHistoryTable/" + tokenRingMLHistoryEntry.EntityData.SegmentPath
     tokenRingMLHistoryEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     tokenRingMLHistoryEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     tokenRingMLHistoryEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -800,6 +810,7 @@ func (tokenRingPHistoryTable *TOKENRINGRMONMIB_TokenRingPHistoryTable) GetEntity
     tokenRingPHistoryTable.EntityData.BundleName = "cisco_ios_xe"
     tokenRingPHistoryTable.EntityData.ParentYangName = "TOKEN-RING-RMON-MIB"
     tokenRingPHistoryTable.EntityData.SegmentPath = "tokenRingPHistoryTable"
+    tokenRingPHistoryTable.EntityData.AbsolutePath = "TOKEN-RING-RMON-MIB:TOKEN-RING-RMON-MIB/" + tokenRingPHistoryTable.EntityData.SegmentPath
     tokenRingPHistoryTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     tokenRingPHistoryTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     tokenRingPHistoryTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -822,6 +833,7 @@ func (tokenRingPHistoryTable *TOKENRINGRMONMIB_TokenRingPHistoryTable) GetEntity
 type TOKENRINGRMONMIB_TokenRingPHistoryTable_TokenRingPHistoryEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The history of which this entry is a part.  The
     // history identified by a particular value of this index is the same history
@@ -941,6 +953,7 @@ func (tokenRingPHistoryEntry *TOKENRINGRMONMIB_TokenRingPHistoryTable_TokenRingP
     tokenRingPHistoryEntry.EntityData.BundleName = "cisco_ios_xe"
     tokenRingPHistoryEntry.EntityData.ParentYangName = "tokenRingPHistoryTable"
     tokenRingPHistoryEntry.EntityData.SegmentPath = "tokenRingPHistoryEntry" + types.AddKeyToken(tokenRingPHistoryEntry.TokenRingPHistoryIndex, "tokenRingPHistoryIndex") + types.AddKeyToken(tokenRingPHistoryEntry.TokenRingPHistorySampleIndex, "tokenRingPHistorySampleIndex")
+    tokenRingPHistoryEntry.EntityData.AbsolutePath = "TOKEN-RING-RMON-MIB:TOKEN-RING-RMON-MIB/tokenRingPHistoryTable/" + tokenRingPHistoryEntry.EntityData.SegmentPath
     tokenRingPHistoryEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     tokenRingPHistoryEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     tokenRingPHistoryEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -990,6 +1003,7 @@ func (ringStationControlTable *TOKENRINGRMONMIB_RingStationControlTable) GetEnti
     ringStationControlTable.EntityData.BundleName = "cisco_ios_xe"
     ringStationControlTable.EntityData.ParentYangName = "TOKEN-RING-RMON-MIB"
     ringStationControlTable.EntityData.SegmentPath = "ringStationControlTable"
+    ringStationControlTable.EntityData.AbsolutePath = "TOKEN-RING-RMON-MIB:TOKEN-RING-RMON-MIB/" + ringStationControlTable.EntityData.SegmentPath
     ringStationControlTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ringStationControlTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ringStationControlTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1013,6 +1027,7 @@ func (ringStationControlTable *TOKENRINGRMONMIB_RingStationControlTable) GetEnti
 type TOKENRINGRMONMIB_RingStationControlTable_RingStationControlEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The value of this object uniquely identifies the
     // interface on this remote network monitoring device from which ringStation
@@ -1037,17 +1052,17 @@ type TOKENRINGRMONMIB_RingStationControlTable_RingStationControlEntry struct {
 
     // The address of the sender of the last beacon frame received by the probe on
     // this ring.  If no beacon frames have been received, this object shall be
-    // equal to six octets of zero. The type is string with length: 6.
+    // equal to six octets of zero. The type is string with length: 6..6.
     RingStationControlBeaconSender interface{}
 
     // The address of the NAUN in the last beacon frame received by the probe on
     // this ring.  If no beacon frames have been received, this object shall be
-    // equal to six octets of zero. The type is string with length: 6.
+    // equal to six octets of zero. The type is string with length: 6..6.
     RingStationControlBeaconNAUN interface{}
 
     // The address of the Active Monitor on this segment.  If this address is
     // unknown, this object shall be equal to six octets of zero. The type is
-    // string with length: 6.
+    // string with length: 6..6.
     RingStationControlActiveMonitor interface{}
 
     // The number of add and delete events in the ringStationOrderTable optionally
@@ -1087,6 +1102,7 @@ func (ringStationControlEntry *TOKENRINGRMONMIB_RingStationControlTable_RingStat
     ringStationControlEntry.EntityData.BundleName = "cisco_ios_xe"
     ringStationControlEntry.EntityData.ParentYangName = "ringStationControlTable"
     ringStationControlEntry.EntityData.SegmentPath = "ringStationControlEntry" + types.AddKeyToken(ringStationControlEntry.RingStationControlIfIndex, "ringStationControlIfIndex")
+    ringStationControlEntry.EntityData.AbsolutePath = "TOKEN-RING-RMON-MIB:TOKEN-RING-RMON-MIB/ringStationControlTable/" + ringStationControlEntry.EntityData.SegmentPath
     ringStationControlEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ringStationControlEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ringStationControlEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1156,6 +1172,7 @@ func (ringStationTable *TOKENRINGRMONMIB_RingStationTable) GetEntityData() *type
     ringStationTable.EntityData.BundleName = "cisco_ios_xe"
     ringStationTable.EntityData.ParentYangName = "TOKEN-RING-RMON-MIB"
     ringStationTable.EntityData.SegmentPath = "ringStationTable"
+    ringStationTable.EntityData.AbsolutePath = "TOKEN-RING-RMON-MIB:TOKEN-RING-RMON-MIB/" + ringStationTable.EntityData.SegmentPath
     ringStationTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ringStationTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ringStationTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1179,6 +1196,7 @@ func (ringStationTable *TOKENRINGRMONMIB_RingStationTable) GetEntityData() *type
 type TOKENRINGRMONMIB_RingStationTable_RingStationEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The value of this object uniquely identifies the
     // interface on this remote network monitoring device on which this station
@@ -1189,11 +1207,11 @@ type TOKENRINGRMONMIB_RingStationTable_RingStationEntry struct {
     RingStationIfIndex interface{}
 
     // This attribute is a key. The physical address of this station. The type is
-    // string with length: 6.
+    // string with length: 6..6.
     RingStationMacAddress interface{}
 
     // The physical address of last known NAUN of this station. The type is string
-    // with length: 6.
+    // with length: 6..6.
     RingStationLastNAUN interface{}
 
     // The status of this station on the ring. The type is
@@ -1293,6 +1311,7 @@ func (ringStationEntry *TOKENRINGRMONMIB_RingStationTable_RingStationEntry) GetE
     ringStationEntry.EntityData.BundleName = "cisco_ios_xe"
     ringStationEntry.EntityData.ParentYangName = "ringStationTable"
     ringStationEntry.EntityData.SegmentPath = "ringStationEntry" + types.AddKeyToken(ringStationEntry.RingStationIfIndex, "ringStationIfIndex") + types.AddKeyToken(ringStationEntry.RingStationMacAddress, "ringStationMacAddress")
+    ringStationEntry.EntityData.AbsolutePath = "TOKEN-RING-RMON-MIB:TOKEN-RING-RMON-MIB/ringStationTable/" + ringStationEntry.EntityData.SegmentPath
     ringStationEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ringStationEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ringStationEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1359,6 +1378,7 @@ func (ringStationOrderTable *TOKENRINGRMONMIB_RingStationOrderTable) GetEntityDa
     ringStationOrderTable.EntityData.BundleName = "cisco_ios_xe"
     ringStationOrderTable.EntityData.ParentYangName = "TOKEN-RING-RMON-MIB"
     ringStationOrderTable.EntityData.SegmentPath = "ringStationOrderTable"
+    ringStationOrderTable.EntityData.AbsolutePath = "TOKEN-RING-RMON-MIB:TOKEN-RING-RMON-MIB/" + ringStationOrderTable.EntityData.SegmentPath
     ringStationOrderTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ringStationOrderTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ringStationOrderTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1389,6 +1409,7 @@ func (ringStationOrderTable *TOKENRINGRMONMIB_RingStationOrderTable) GetEntityDa
 type TOKENRINGRMONMIB_RingStationOrderTable_RingStationOrderEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The value of this object uniquely identifies the
     // interface on this remote network monitoring device on which this station
@@ -1405,7 +1426,7 @@ type TOKENRINGRMONMIB_RingStationOrderTable_RingStationOrderEntry struct {
     // range: -2147483648..2147483647.
     RingStationOrderOrderIndex interface{}
 
-    // The physical address of this station. The type is string with length: 6.
+    // The physical address of this station. The type is string with length: 6..6.
     RingStationOrderMacAddress interface{}
 }
 
@@ -1415,6 +1436,7 @@ func (ringStationOrderEntry *TOKENRINGRMONMIB_RingStationOrderTable_RingStationO
     ringStationOrderEntry.EntityData.BundleName = "cisco_ios_xe"
     ringStationOrderEntry.EntityData.ParentYangName = "ringStationOrderTable"
     ringStationOrderEntry.EntityData.SegmentPath = "ringStationOrderEntry" + types.AddKeyToken(ringStationOrderEntry.RingStationOrderIfIndex, "ringStationOrderIfIndex") + types.AddKeyToken(ringStationOrderEntry.RingStationOrderOrderIndex, "ringStationOrderOrderIndex")
+    ringStationOrderEntry.EntityData.AbsolutePath = "TOKEN-RING-RMON-MIB:TOKEN-RING-RMON-MIB/ringStationOrderTable/" + ringStationOrderEntry.EntityData.SegmentPath
     ringStationOrderEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ringStationOrderEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ringStationOrderEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1450,6 +1472,7 @@ func (ringStationConfigControlTable *TOKENRINGRMONMIB_RingStationConfigControlTa
     ringStationConfigControlTable.EntityData.BundleName = "cisco_ios_xe"
     ringStationConfigControlTable.EntityData.ParentYangName = "TOKEN-RING-RMON-MIB"
     ringStationConfigControlTable.EntityData.SegmentPath = "ringStationConfigControlTable"
+    ringStationConfigControlTable.EntityData.AbsolutePath = "TOKEN-RING-RMON-MIB:TOKEN-RING-RMON-MIB/" + ringStationConfigControlTable.EntityData.SegmentPath
     ringStationConfigControlTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ringStationConfigControlTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ringStationConfigControlTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1473,6 +1496,7 @@ func (ringStationConfigControlTable *TOKENRINGRMONMIB_RingStationConfigControlTa
 type TOKENRINGRMONMIB_RingStationConfigControlTable_RingStationConfigControlEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The value of this object uniquely identifies the  
     // interface on this remote network monitoring device on which this station
@@ -1483,7 +1507,7 @@ type TOKENRINGRMONMIB_RingStationConfigControlTable_RingStationConfigControlEntr
     RingStationConfigControlIfIndex interface{}
 
     // This attribute is a key. The physical address of this station. The type is
-    // string with length: 6.
+    // string with length: 6..6.
     RingStationConfigControlMacAddress interface{}
 
     // Setting this object to `removing(2)' causes a Remove Station MAC frame to
@@ -1504,6 +1528,7 @@ func (ringStationConfigControlEntry *TOKENRINGRMONMIB_RingStationConfigControlTa
     ringStationConfigControlEntry.EntityData.BundleName = "cisco_ios_xe"
     ringStationConfigControlEntry.EntityData.ParentYangName = "ringStationConfigControlTable"
     ringStationConfigControlEntry.EntityData.SegmentPath = "ringStationConfigControlEntry" + types.AddKeyToken(ringStationConfigControlEntry.RingStationConfigControlIfIndex, "ringStationConfigControlIfIndex") + types.AddKeyToken(ringStationConfigControlEntry.RingStationConfigControlMacAddress, "ringStationConfigControlMacAddress")
+    ringStationConfigControlEntry.EntityData.AbsolutePath = "TOKEN-RING-RMON-MIB:TOKEN-RING-RMON-MIB/ringStationConfigControlTable/" + ringStationConfigControlEntry.EntityData.SegmentPath
     ringStationConfigControlEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ringStationConfigControlEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ringStationConfigControlEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1557,6 +1582,7 @@ func (ringStationConfigTable *TOKENRINGRMONMIB_RingStationConfigTable) GetEntity
     ringStationConfigTable.EntityData.BundleName = "cisco_ios_xe"
     ringStationConfigTable.EntityData.ParentYangName = "TOKEN-RING-RMON-MIB"
     ringStationConfigTable.EntityData.SegmentPath = "ringStationConfigTable"
+    ringStationConfigTable.EntityData.AbsolutePath = "TOKEN-RING-RMON-MIB:TOKEN-RING-RMON-MIB/" + ringStationConfigTable.EntityData.SegmentPath
     ringStationConfigTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ringStationConfigTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ringStationConfigTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1580,6 +1606,7 @@ func (ringStationConfigTable *TOKENRINGRMONMIB_RingStationConfigTable) GetEntity
 type TOKENRINGRMONMIB_RingStationConfigTable_RingStationConfigEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The value of this object uniquely identifies the  
     // interface on this remote network monitoring device on which this station
@@ -1590,7 +1617,7 @@ type TOKENRINGRMONMIB_RingStationConfigTable_RingStationConfigEntry struct {
     RingStationConfigIfIndex interface{}
 
     // This attribute is a key. The physical address of this station. The type is
-    // string with length: 6.
+    // string with length: 6..6.
     RingStationConfigMacAddress interface{}
 
     // The value of sysUpTime at the time this configuration information was last
@@ -1598,18 +1625,19 @@ type TOKENRINGRMONMIB_RingStationConfigTable_RingStationConfigEntry struct {
     RingStationConfigUpdateTime interface{}
 
     // The assigned physical location of this station. The type is string with
-    // length: 4.
+    // length: 4..4.
     RingStationConfigLocation interface{}
 
-    // The microcode EC level of this station. The type is string with length: 10.
+    // The microcode EC level of this station. The type is string with length:
+    // 10..10.
     RingStationConfigMicrocode interface{}
 
     // The low-order 4 octets of the group address recognized by this station. The
-    // type is string with length: 4.
+    // type is string with length: 4..4.
     RingStationConfigGroupAddress interface{}
 
     // the functional addresses recognized by this station. The type is string
-    // with length: 4.
+    // with length: 4..4.
     RingStationConfigFunctionalAddress interface{}
 }
 
@@ -1619,6 +1647,7 @@ func (ringStationConfigEntry *TOKENRINGRMONMIB_RingStationConfigTable_RingStatio
     ringStationConfigEntry.EntityData.BundleName = "cisco_ios_xe"
     ringStationConfigEntry.EntityData.ParentYangName = "ringStationConfigTable"
     ringStationConfigEntry.EntityData.SegmentPath = "ringStationConfigEntry" + types.AddKeyToken(ringStationConfigEntry.RingStationConfigIfIndex, "ringStationConfigIfIndex") + types.AddKeyToken(ringStationConfigEntry.RingStationConfigMacAddress, "ringStationConfigMacAddress")
+    ringStationConfigEntry.EntityData.AbsolutePath = "TOKEN-RING-RMON-MIB:TOKEN-RING-RMON-MIB/ringStationConfigTable/" + ringStationConfigEntry.EntityData.SegmentPath
     ringStationConfigEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ringStationConfigEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ringStationConfigEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1656,6 +1685,7 @@ func (sourceRoutingStatsTable *TOKENRINGRMONMIB_SourceRoutingStatsTable) GetEnti
     sourceRoutingStatsTable.EntityData.BundleName = "cisco_ios_xe"
     sourceRoutingStatsTable.EntityData.ParentYangName = "TOKEN-RING-RMON-MIB"
     sourceRoutingStatsTable.EntityData.SegmentPath = "sourceRoutingStatsTable"
+    sourceRoutingStatsTable.EntityData.AbsolutePath = "TOKEN-RING-RMON-MIB:TOKEN-RING-RMON-MIB/" + sourceRoutingStatsTable.EntityData.SegmentPath
     sourceRoutingStatsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     sourceRoutingStatsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     sourceRoutingStatsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1678,6 +1708,7 @@ func (sourceRoutingStatsTable *TOKENRINGRMONMIB_SourceRoutingStatsTable) GetEnti
 type TOKENRINGRMONMIB_SourceRoutingStatsTable_SourceRoutingStatsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The value of this object uniquely identifies the
     // interface on this remote network monitoring device on which source routing
@@ -1834,6 +1865,7 @@ func (sourceRoutingStatsEntry *TOKENRINGRMONMIB_SourceRoutingStatsTable_SourceRo
     sourceRoutingStatsEntry.EntityData.BundleName = "cisco_ios_xe"
     sourceRoutingStatsEntry.EntityData.ParentYangName = "sourceRoutingStatsTable"
     sourceRoutingStatsEntry.EntityData.SegmentPath = "sourceRoutingStatsEntry" + types.AddKeyToken(sourceRoutingStatsEntry.SourceRoutingStatsIfIndex, "sourceRoutingStatsIfIndex")
+    sourceRoutingStatsEntry.EntityData.AbsolutePath = "TOKEN-RING-RMON-MIB:TOKEN-RING-RMON-MIB/sourceRoutingStatsTable/" + sourceRoutingStatsEntry.EntityData.SegmentPath
     sourceRoutingStatsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     sourceRoutingStatsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     sourceRoutingStatsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

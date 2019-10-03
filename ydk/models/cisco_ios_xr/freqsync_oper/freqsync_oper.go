@@ -55,8 +55,8 @@ const (
     // Stream available
     FsyncBagStreamState_stream_available FsyncBagStreamState = "stream-available"
 
-    // Stream available acquiring
-    FsyncBagStreamState_stream_available_acquiring FsyncBagStreamState = "stream-available-acquiring"
+    // Stream acquiring
+    FsyncBagStreamState_stream_acquiring FsyncBagStreamState = "stream-acquiring"
 
     // Stream locked
     FsyncBagStreamState_stream_locked FsyncBagStreamState = "stream-locked"
@@ -460,6 +460,7 @@ func (frequencySynchronization *FrequencySynchronization) GetEntityData() *types
     frequencySynchronization.EntityData.BundleName = "cisco_ios_xr"
     frequencySynchronization.EntityData.ParentYangName = "Cisco-IOS-XR-freqsync-oper"
     frequencySynchronization.EntityData.SegmentPath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization"
+    frequencySynchronization.EntityData.AbsolutePath = frequencySynchronization.EntityData.SegmentPath
     frequencySynchronization.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     frequencySynchronization.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     frequencySynchronization.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -494,6 +495,7 @@ func (globalNodes *FrequencySynchronization_GlobalNodes) GetEntityData() *types.
     globalNodes.EntityData.BundleName = "cisco_ios_xr"
     globalNodes.EntityData.ParentYangName = "frequency-synchronization"
     globalNodes.EntityData.SegmentPath = "global-nodes"
+    globalNodes.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/" + globalNodes.EntityData.SegmentPath
     globalNodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     globalNodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     globalNodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -515,6 +517,7 @@ func (globalNodes *FrequencySynchronization_GlobalNodes) GetEntityData() *types.
 type FrequencySynchronization_GlobalNodes_GlobalNode struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Node. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -542,6 +545,7 @@ func (globalNode *FrequencySynchronization_GlobalNodes_GlobalNode) GetEntityData
     globalNode.EntityData.BundleName = "cisco_ios_xr"
     globalNode.EntityData.ParentYangName = "global-nodes"
     globalNode.EntityData.SegmentPath = "global-node" + types.AddKeyToken(globalNode.Node, "node")
+    globalNode.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/global-nodes/" + globalNode.EntityData.SegmentPath
     globalNode.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     globalNode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     globalNode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -579,6 +583,7 @@ func (clockInterfaceSelectionBackTraces *FrequencySynchronization_GlobalNodes_Gl
     clockInterfaceSelectionBackTraces.EntityData.BundleName = "cisco_ios_xr"
     clockInterfaceSelectionBackTraces.EntityData.ParentYangName = "global-node"
     clockInterfaceSelectionBackTraces.EntityData.SegmentPath = "clock-interface-selection-back-traces"
+    clockInterfaceSelectionBackTraces.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/global-nodes/global-node/" + clockInterfaceSelectionBackTraces.EntityData.SegmentPath
     clockInterfaceSelectionBackTraces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clockInterfaceSelectionBackTraces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clockInterfaceSelectionBackTraces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -601,6 +606,7 @@ func (clockInterfaceSelectionBackTraces *FrequencySynchronization_GlobalNodes_Gl
 type FrequencySynchronization_GlobalNodes_GlobalNode_ClockInterfaceSelectionBackTraces_ClockInterfaceSelectionBackTrace struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Clock type. The type is FsyncClock.
     ClockType interface{}
@@ -624,6 +630,7 @@ func (clockInterfaceSelectionBackTrace *FrequencySynchronization_GlobalNodes_Glo
     clockInterfaceSelectionBackTrace.EntityData.BundleName = "cisco_ios_xr"
     clockInterfaceSelectionBackTrace.EntityData.ParentYangName = "clock-interface-selection-back-traces"
     clockInterfaceSelectionBackTrace.EntityData.SegmentPath = "clock-interface-selection-back-trace" + types.AddKeyToken(clockInterfaceSelectionBackTrace.ClockType, "clock-type") + types.AddKeyToken(clockInterfaceSelectionBackTrace.Id, "id")
+    clockInterfaceSelectionBackTrace.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/global-nodes/global-node/clock-interface-selection-back-traces/" + clockInterfaceSelectionBackTrace.EntityData.SegmentPath
     clockInterfaceSelectionBackTrace.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clockInterfaceSelectionBackTrace.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clockInterfaceSelectionBackTrace.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -632,6 +639,7 @@ func (clockInterfaceSelectionBackTrace *FrequencySynchronization_GlobalNodes_Glo
     clockInterfaceSelectionBackTrace.EntityData.Children.Append("selected-source", types.YChild{"SelectedSource", &clockInterfaceSelectionBackTrace.SelectedSource})
     clockInterfaceSelectionBackTrace.EntityData.Children.Append("selection-point", types.YChild{"SelectionPoint", nil})
     for i := range clockInterfaceSelectionBackTrace.SelectionPoint {
+        types.SetYListKey(clockInterfaceSelectionBackTrace.SelectionPoint[i], i)
         clockInterfaceSelectionBackTrace.EntityData.Children.Append(types.GetSegmentPath(clockInterfaceSelectionBackTrace.SelectionPoint[i]), types.YChild{"SelectionPoint", clockInterfaceSelectionBackTrace.SelectionPoint[i]})
     }
     clockInterfaceSelectionBackTrace.EntityData.Leafs = types.NewOrderedMap()
@@ -658,10 +666,6 @@ type FrequencySynchronization_GlobalNodes_GlobalNode_ClockInterfaceSelectionBack
     // SONET interfaces. The type is string with pattern: [a-zA-Z0-9._/-]+.
     SonetInterface interface{}
 
-    // Internal Clock Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
-    Node interface{}
-
     // PTP Clock Node. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     PtpNode interface{}
@@ -677,6 +681,9 @@ type FrequencySynchronization_GlobalNodes_GlobalNode_ClockInterfaceSelectionBack
     // Clock ID.
     ClockId FrequencySynchronization_GlobalNodes_GlobalNode_ClockInterfaceSelectionBackTraces_ClockInterfaceSelectionBackTrace_SelectedSource_ClockId
 
+    // Internal Clock ID.
+    InternalClockId FrequencySynchronization_GlobalNodes_GlobalNode_ClockInterfaceSelectionBackTraces_ClockInterfaceSelectionBackTrace_SelectedSource_InternalClockId
+
     // GNSS Receiver ID.
     GnssReceiverId FrequencySynchronization_GlobalNodes_GlobalNode_ClockInterfaceSelectionBackTraces_ClockInterfaceSelectionBackTrace_SelectedSource_GnssReceiverId
 }
@@ -687,18 +694,19 @@ func (selectedSource *FrequencySynchronization_GlobalNodes_GlobalNode_ClockInter
     selectedSource.EntityData.BundleName = "cisco_ios_xr"
     selectedSource.EntityData.ParentYangName = "clock-interface-selection-back-trace"
     selectedSource.EntityData.SegmentPath = "selected-source"
+    selectedSource.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/global-nodes/global-node/clock-interface-selection-back-traces/clock-interface-selection-back-trace/" + selectedSource.EntityData.SegmentPath
     selectedSource.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     selectedSource.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     selectedSource.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     selectedSource.EntityData.Children = types.NewOrderedMap()
     selectedSource.EntityData.Children.Append("clock-id", types.YChild{"ClockId", &selectedSource.ClockId})
+    selectedSource.EntityData.Children.Append("internal-clock-id", types.YChild{"InternalClockId", &selectedSource.InternalClockId})
     selectedSource.EntityData.Children.Append("gnss-receiver-id", types.YChild{"GnssReceiverId", &selectedSource.GnssReceiverId})
     selectedSource.EntityData.Leafs = types.NewOrderedMap()
     selectedSource.EntityData.Leafs.Append("source-class", types.YLeaf{"SourceClass", selectedSource.SourceClass})
     selectedSource.EntityData.Leafs.Append("ethernet-interface", types.YLeaf{"EthernetInterface", selectedSource.EthernetInterface})
     selectedSource.EntityData.Leafs.Append("sonet-interface", types.YLeaf{"SonetInterface", selectedSource.SonetInterface})
-    selectedSource.EntityData.Leafs.Append("node", types.YLeaf{"Node", selectedSource.Node})
     selectedSource.EntityData.Leafs.Append("ptp-node", types.YLeaf{"PtpNode", selectedSource.PtpNode})
     selectedSource.EntityData.Leafs.Append("satellite-access-interface", types.YLeaf{"SatelliteAccessInterface", selectedSource.SatelliteAccessInterface})
     selectedSource.EntityData.Leafs.Append("ntp-node", types.YLeaf{"NtpNode", selectedSource.NtpNode})
@@ -732,6 +740,7 @@ func (clockId *FrequencySynchronization_GlobalNodes_GlobalNode_ClockInterfaceSel
     clockId.EntityData.BundleName = "cisco_ios_xr"
     clockId.EntityData.ParentYangName = "selected-source"
     clockId.EntityData.SegmentPath = "clock-id"
+    clockId.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/global-nodes/global-node/clock-interface-selection-back-traces/clock-interface-selection-back-trace/selected-source/" + clockId.EntityData.SegmentPath
     clockId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clockId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clockId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -745,6 +754,46 @@ func (clockId *FrequencySynchronization_GlobalNodes_GlobalNode_ClockInterfaceSel
     clockId.EntityData.YListKeys = []string {}
 
     return &(clockId.EntityData)
+}
+
+// FrequencySynchronization_GlobalNodes_GlobalNode_ClockInterfaceSelectionBackTraces_ClockInterfaceSelectionBackTrace_SelectedSource_InternalClockId
+// Internal Clock ID
+type FrequencySynchronization_GlobalNodes_GlobalNode_ClockInterfaceSelectionBackTraces_ClockInterfaceSelectionBackTrace_SelectedSource_InternalClockId struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Node. The type is string with pattern:
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    Node interface{}
+
+    // ID (port number for clock interface, receiver number for GNSS receiver).
+    // The type is interface{} with range: 0..4294967295.
+    Id interface{}
+
+    // Name. The type is string with length: 0..144.
+    ClockName interface{}
+}
+
+func (internalClockId *FrequencySynchronization_GlobalNodes_GlobalNode_ClockInterfaceSelectionBackTraces_ClockInterfaceSelectionBackTrace_SelectedSource_InternalClockId) GetEntityData() *types.CommonEntityData {
+    internalClockId.EntityData.YFilter = internalClockId.YFilter
+    internalClockId.EntityData.YangName = "internal-clock-id"
+    internalClockId.EntityData.BundleName = "cisco_ios_xr"
+    internalClockId.EntityData.ParentYangName = "selected-source"
+    internalClockId.EntityData.SegmentPath = "internal-clock-id"
+    internalClockId.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/global-nodes/global-node/clock-interface-selection-back-traces/clock-interface-selection-back-trace/selected-source/" + internalClockId.EntityData.SegmentPath
+    internalClockId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    internalClockId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    internalClockId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    internalClockId.EntityData.Children = types.NewOrderedMap()
+    internalClockId.EntityData.Leafs = types.NewOrderedMap()
+    internalClockId.EntityData.Leafs.Append("node", types.YLeaf{"Node", internalClockId.Node})
+    internalClockId.EntityData.Leafs.Append("id", types.YLeaf{"Id", internalClockId.Id})
+    internalClockId.EntityData.Leafs.Append("clock-name", types.YLeaf{"ClockName", internalClockId.ClockName})
+
+    internalClockId.EntityData.YListKeys = []string {}
+
+    return &(internalClockId.EntityData)
 }
 
 // FrequencySynchronization_GlobalNodes_GlobalNode_ClockInterfaceSelectionBackTraces_ClockInterfaceSelectionBackTrace_SelectedSource_GnssReceiverId
@@ -771,6 +820,7 @@ func (gnssReceiverId *FrequencySynchronization_GlobalNodes_GlobalNode_ClockInter
     gnssReceiverId.EntityData.BundleName = "cisco_ios_xr"
     gnssReceiverId.EntityData.ParentYangName = "selected-source"
     gnssReceiverId.EntityData.SegmentPath = "gnss-receiver-id"
+    gnssReceiverId.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/global-nodes/global-node/clock-interface-selection-back-traces/clock-interface-selection-back-trace/selected-source/" + gnssReceiverId.EntityData.SegmentPath
     gnssReceiverId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     gnssReceiverId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     gnssReceiverId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -791,6 +841,7 @@ func (gnssReceiverId *FrequencySynchronization_GlobalNodes_GlobalNode_ClockInter
 type FrequencySynchronization_GlobalNodes_GlobalNode_ClockInterfaceSelectionBackTraces_ClockInterfaceSelectionBackTrace_SelectionPoint struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Selection point type. The type is interface{} with range: 0..255.
     SelectionPointType interface{}
@@ -808,7 +859,8 @@ func (selectionPoint *FrequencySynchronization_GlobalNodes_GlobalNode_ClockInter
     selectionPoint.EntityData.YangName = "selection-point"
     selectionPoint.EntityData.BundleName = "cisco_ios_xr"
     selectionPoint.EntityData.ParentYangName = "clock-interface-selection-back-trace"
-    selectionPoint.EntityData.SegmentPath = "selection-point"
+    selectionPoint.EntityData.SegmentPath = "selection-point" + types.AddNoKeyToken(selectionPoint)
+    selectionPoint.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/global-nodes/global-node/clock-interface-selection-back-traces/clock-interface-selection-back-trace/" + selectionPoint.EntityData.SegmentPath
     selectionPoint.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     selectionPoint.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     selectionPoint.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -843,6 +895,7 @@ func (clockInterfaceSelectionForwardTraces *FrequencySynchronization_GlobalNodes
     clockInterfaceSelectionForwardTraces.EntityData.BundleName = "cisco_ios_xr"
     clockInterfaceSelectionForwardTraces.EntityData.ParentYangName = "global-node"
     clockInterfaceSelectionForwardTraces.EntityData.SegmentPath = "clock-interface-selection-forward-traces"
+    clockInterfaceSelectionForwardTraces.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/global-nodes/global-node/" + clockInterfaceSelectionForwardTraces.EntityData.SegmentPath
     clockInterfaceSelectionForwardTraces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clockInterfaceSelectionForwardTraces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clockInterfaceSelectionForwardTraces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -865,6 +918,7 @@ func (clockInterfaceSelectionForwardTraces *FrequencySynchronization_GlobalNodes
 type FrequencySynchronization_GlobalNodes_GlobalNode_ClockInterfaceSelectionForwardTraces_ClockInterfaceSelectionForwardTrace struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Clock type. The type is FsyncClock.
     ClockType interface{}
@@ -884,6 +938,7 @@ func (clockInterfaceSelectionForwardTrace *FrequencySynchronization_GlobalNodes_
     clockInterfaceSelectionForwardTrace.EntityData.BundleName = "cisco_ios_xr"
     clockInterfaceSelectionForwardTrace.EntityData.ParentYangName = "clock-interface-selection-forward-traces"
     clockInterfaceSelectionForwardTrace.EntityData.SegmentPath = "clock-interface-selection-forward-trace" + types.AddKeyToken(clockInterfaceSelectionForwardTrace.ClockType, "clock-type") + types.AddKeyToken(clockInterfaceSelectionForwardTrace.Port, "port")
+    clockInterfaceSelectionForwardTrace.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/global-nodes/global-node/clock-interface-selection-forward-traces/" + clockInterfaceSelectionForwardTrace.EntityData.SegmentPath
     clockInterfaceSelectionForwardTrace.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clockInterfaceSelectionForwardTrace.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clockInterfaceSelectionForwardTrace.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -891,6 +946,7 @@ func (clockInterfaceSelectionForwardTrace *FrequencySynchronization_GlobalNodes_
     clockInterfaceSelectionForwardTrace.EntityData.Children = types.NewOrderedMap()
     clockInterfaceSelectionForwardTrace.EntityData.Children.Append("forward-trace", types.YChild{"ForwardTrace", nil})
     for i := range clockInterfaceSelectionForwardTrace.ForwardTrace {
+        types.SetYListKey(clockInterfaceSelectionForwardTrace.ForwardTrace[i], i)
         clockInterfaceSelectionForwardTrace.EntityData.Children.Append(types.GetSegmentPath(clockInterfaceSelectionForwardTrace.ForwardTrace[i]), types.YChild{"ForwardTrace", clockInterfaceSelectionForwardTrace.ForwardTrace[i]})
     }
     clockInterfaceSelectionForwardTrace.EntityData.Leafs = types.NewOrderedMap()
@@ -907,6 +963,7 @@ func (clockInterfaceSelectionForwardTrace *FrequencySynchronization_GlobalNodes_
 type FrequencySynchronization_GlobalNodes_GlobalNode_ClockInterfaceSelectionForwardTraces_ClockInterfaceSelectionForwardTrace_ForwardTrace struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The source or selection point at this point in the forwardtrace.
     ForwardTraceNode FrequencySynchronization_GlobalNodes_GlobalNode_ClockInterfaceSelectionForwardTraces_ClockInterfaceSelectionForwardTrace_ForwardTrace_ForwardTraceNode
@@ -917,7 +974,8 @@ func (forwardTrace *FrequencySynchronization_GlobalNodes_GlobalNode_ClockInterfa
     forwardTrace.EntityData.YangName = "forward-trace"
     forwardTrace.EntityData.BundleName = "cisco_ios_xr"
     forwardTrace.EntityData.ParentYangName = "clock-interface-selection-forward-trace"
-    forwardTrace.EntityData.SegmentPath = "forward-trace"
+    forwardTrace.EntityData.SegmentPath = "forward-trace" + types.AddNoKeyToken(forwardTrace)
+    forwardTrace.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/global-nodes/global-node/clock-interface-selection-forward-traces/clock-interface-selection-forward-trace/" + forwardTrace.EntityData.SegmentPath
     forwardTrace.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     forwardTrace.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     forwardTrace.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -954,6 +1012,7 @@ func (forwardTraceNode *FrequencySynchronization_GlobalNodes_GlobalNode_ClockInt
     forwardTraceNode.EntityData.BundleName = "cisco_ios_xr"
     forwardTraceNode.EntityData.ParentYangName = "forward-trace"
     forwardTraceNode.EntityData.SegmentPath = "forward-trace-node"
+    forwardTraceNode.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/global-nodes/global-node/clock-interface-selection-forward-traces/clock-interface-selection-forward-trace/forward-trace/" + forwardTraceNode.EntityData.SegmentPath
     forwardTraceNode.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     forwardTraceNode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     forwardTraceNode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -992,6 +1051,7 @@ func (selectionPoint *FrequencySynchronization_GlobalNodes_GlobalNode_ClockInter
     selectionPoint.EntityData.BundleName = "cisco_ios_xr"
     selectionPoint.EntityData.ParentYangName = "forward-trace-node"
     selectionPoint.EntityData.SegmentPath = "selection-point"
+    selectionPoint.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/global-nodes/global-node/clock-interface-selection-forward-traces/clock-interface-selection-forward-trace/forward-trace/forward-trace-node/" + selectionPoint.EntityData.SegmentPath
     selectionPoint.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     selectionPoint.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     selectionPoint.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1022,10 +1082,6 @@ type FrequencySynchronization_GlobalNodes_GlobalNode_ClockInterfaceSelectionForw
     // SONET interfaces. The type is string with pattern: [a-zA-Z0-9._/-]+.
     SonetInterface interface{}
 
-    // Internal Clock Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
-    Node interface{}
-
     // PTP Clock Node. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     PtpNode interface{}
@@ -1041,6 +1097,9 @@ type FrequencySynchronization_GlobalNodes_GlobalNode_ClockInterfaceSelectionForw
     // Clock ID.
     ClockId FrequencySynchronization_GlobalNodes_GlobalNode_ClockInterfaceSelectionForwardTraces_ClockInterfaceSelectionForwardTrace_ForwardTrace_ForwardTraceNode_Source_ClockId
 
+    // Internal Clock ID.
+    InternalClockId FrequencySynchronization_GlobalNodes_GlobalNode_ClockInterfaceSelectionForwardTraces_ClockInterfaceSelectionForwardTrace_ForwardTrace_ForwardTraceNode_Source_InternalClockId
+
     // GNSS Receiver ID.
     GnssReceiverId FrequencySynchronization_GlobalNodes_GlobalNode_ClockInterfaceSelectionForwardTraces_ClockInterfaceSelectionForwardTrace_ForwardTrace_ForwardTraceNode_Source_GnssReceiverId
 }
@@ -1051,18 +1110,19 @@ func (source *FrequencySynchronization_GlobalNodes_GlobalNode_ClockInterfaceSele
     source.EntityData.BundleName = "cisco_ios_xr"
     source.EntityData.ParentYangName = "forward-trace-node"
     source.EntityData.SegmentPath = "source"
+    source.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/global-nodes/global-node/clock-interface-selection-forward-traces/clock-interface-selection-forward-trace/forward-trace/forward-trace-node/" + source.EntityData.SegmentPath
     source.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     source.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     source.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     source.EntityData.Children = types.NewOrderedMap()
     source.EntityData.Children.Append("clock-id", types.YChild{"ClockId", &source.ClockId})
+    source.EntityData.Children.Append("internal-clock-id", types.YChild{"InternalClockId", &source.InternalClockId})
     source.EntityData.Children.Append("gnss-receiver-id", types.YChild{"GnssReceiverId", &source.GnssReceiverId})
     source.EntityData.Leafs = types.NewOrderedMap()
     source.EntityData.Leafs.Append("source-class", types.YLeaf{"SourceClass", source.SourceClass})
     source.EntityData.Leafs.Append("ethernet-interface", types.YLeaf{"EthernetInterface", source.EthernetInterface})
     source.EntityData.Leafs.Append("sonet-interface", types.YLeaf{"SonetInterface", source.SonetInterface})
-    source.EntityData.Leafs.Append("node", types.YLeaf{"Node", source.Node})
     source.EntityData.Leafs.Append("ptp-node", types.YLeaf{"PtpNode", source.PtpNode})
     source.EntityData.Leafs.Append("satellite-access-interface", types.YLeaf{"SatelliteAccessInterface", source.SatelliteAccessInterface})
     source.EntityData.Leafs.Append("ntp-node", types.YLeaf{"NtpNode", source.NtpNode})
@@ -1096,6 +1156,7 @@ func (clockId *FrequencySynchronization_GlobalNodes_GlobalNode_ClockInterfaceSel
     clockId.EntityData.BundleName = "cisco_ios_xr"
     clockId.EntityData.ParentYangName = "source"
     clockId.EntityData.SegmentPath = "clock-id"
+    clockId.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/global-nodes/global-node/clock-interface-selection-forward-traces/clock-interface-selection-forward-trace/forward-trace/forward-trace-node/source/" + clockId.EntityData.SegmentPath
     clockId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clockId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clockId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1109,6 +1170,46 @@ func (clockId *FrequencySynchronization_GlobalNodes_GlobalNode_ClockInterfaceSel
     clockId.EntityData.YListKeys = []string {}
 
     return &(clockId.EntityData)
+}
+
+// FrequencySynchronization_GlobalNodes_GlobalNode_ClockInterfaceSelectionForwardTraces_ClockInterfaceSelectionForwardTrace_ForwardTrace_ForwardTraceNode_Source_InternalClockId
+// Internal Clock ID
+type FrequencySynchronization_GlobalNodes_GlobalNode_ClockInterfaceSelectionForwardTraces_ClockInterfaceSelectionForwardTrace_ForwardTrace_ForwardTraceNode_Source_InternalClockId struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Node. The type is string with pattern:
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    Node interface{}
+
+    // ID (port number for clock interface, receiver number for GNSS receiver).
+    // The type is interface{} with range: 0..4294967295.
+    Id interface{}
+
+    // Name. The type is string with length: 0..144.
+    ClockName interface{}
+}
+
+func (internalClockId *FrequencySynchronization_GlobalNodes_GlobalNode_ClockInterfaceSelectionForwardTraces_ClockInterfaceSelectionForwardTrace_ForwardTrace_ForwardTraceNode_Source_InternalClockId) GetEntityData() *types.CommonEntityData {
+    internalClockId.EntityData.YFilter = internalClockId.YFilter
+    internalClockId.EntityData.YangName = "internal-clock-id"
+    internalClockId.EntityData.BundleName = "cisco_ios_xr"
+    internalClockId.EntityData.ParentYangName = "source"
+    internalClockId.EntityData.SegmentPath = "internal-clock-id"
+    internalClockId.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/global-nodes/global-node/clock-interface-selection-forward-traces/clock-interface-selection-forward-trace/forward-trace/forward-trace-node/source/" + internalClockId.EntityData.SegmentPath
+    internalClockId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    internalClockId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    internalClockId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    internalClockId.EntityData.Children = types.NewOrderedMap()
+    internalClockId.EntityData.Leafs = types.NewOrderedMap()
+    internalClockId.EntityData.Leafs.Append("node", types.YLeaf{"Node", internalClockId.Node})
+    internalClockId.EntityData.Leafs.Append("id", types.YLeaf{"Id", internalClockId.Id})
+    internalClockId.EntityData.Leafs.Append("clock-name", types.YLeaf{"ClockName", internalClockId.ClockName})
+
+    internalClockId.EntityData.YListKeys = []string {}
+
+    return &(internalClockId.EntityData)
 }
 
 // FrequencySynchronization_GlobalNodes_GlobalNode_ClockInterfaceSelectionForwardTraces_ClockInterfaceSelectionForwardTrace_ForwardTrace_ForwardTraceNode_Source_GnssReceiverId
@@ -1135,6 +1236,7 @@ func (gnssReceiverId *FrequencySynchronization_GlobalNodes_GlobalNode_ClockInter
     gnssReceiverId.EntityData.BundleName = "cisco_ios_xr"
     gnssReceiverId.EntityData.ParentYangName = "source"
     gnssReceiverId.EntityData.SegmentPath = "gnss-receiver-id"
+    gnssReceiverId.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/global-nodes/global-node/clock-interface-selection-forward-traces/clock-interface-selection-forward-trace/forward-trace/forward-trace-node/source/" + gnssReceiverId.EntityData.SegmentPath
     gnssReceiverId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     gnssReceiverId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     gnssReceiverId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1171,6 +1273,7 @@ func (timeOfDayBackTrace *FrequencySynchronization_GlobalNodes_GlobalNode_TimeOf
     timeOfDayBackTrace.EntityData.BundleName = "cisco_ios_xr"
     timeOfDayBackTrace.EntityData.ParentYangName = "global-node"
     timeOfDayBackTrace.EntityData.SegmentPath = "time-of-day-back-trace"
+    timeOfDayBackTrace.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/global-nodes/global-node/" + timeOfDayBackTrace.EntityData.SegmentPath
     timeOfDayBackTrace.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     timeOfDayBackTrace.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     timeOfDayBackTrace.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1179,6 +1282,7 @@ func (timeOfDayBackTrace *FrequencySynchronization_GlobalNodes_GlobalNode_TimeOf
     timeOfDayBackTrace.EntityData.Children.Append("selected-source", types.YChild{"SelectedSource", &timeOfDayBackTrace.SelectedSource})
     timeOfDayBackTrace.EntityData.Children.Append("selection-point", types.YChild{"SelectionPoint", nil})
     for i := range timeOfDayBackTrace.SelectionPoint {
+        types.SetYListKey(timeOfDayBackTrace.SelectionPoint[i], i)
         timeOfDayBackTrace.EntityData.Children.Append(types.GetSegmentPath(timeOfDayBackTrace.SelectionPoint[i]), types.YChild{"SelectionPoint", timeOfDayBackTrace.SelectionPoint[i]})
     }
     timeOfDayBackTrace.EntityData.Leafs = types.NewOrderedMap()
@@ -1203,10 +1307,6 @@ type FrequencySynchronization_GlobalNodes_GlobalNode_TimeOfDayBackTrace_Selected
     // SONET interfaces. The type is string with pattern: [a-zA-Z0-9._/-]+.
     SonetInterface interface{}
 
-    // Internal Clock Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
-    Node interface{}
-
     // PTP Clock Node. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     PtpNode interface{}
@@ -1222,6 +1322,9 @@ type FrequencySynchronization_GlobalNodes_GlobalNode_TimeOfDayBackTrace_Selected
     // Clock ID.
     ClockId FrequencySynchronization_GlobalNodes_GlobalNode_TimeOfDayBackTrace_SelectedSource_ClockId
 
+    // Internal Clock ID.
+    InternalClockId FrequencySynchronization_GlobalNodes_GlobalNode_TimeOfDayBackTrace_SelectedSource_InternalClockId
+
     // GNSS Receiver ID.
     GnssReceiverId FrequencySynchronization_GlobalNodes_GlobalNode_TimeOfDayBackTrace_SelectedSource_GnssReceiverId
 }
@@ -1232,18 +1335,19 @@ func (selectedSource *FrequencySynchronization_GlobalNodes_GlobalNode_TimeOfDayB
     selectedSource.EntityData.BundleName = "cisco_ios_xr"
     selectedSource.EntityData.ParentYangName = "time-of-day-back-trace"
     selectedSource.EntityData.SegmentPath = "selected-source"
+    selectedSource.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/global-nodes/global-node/time-of-day-back-trace/" + selectedSource.EntityData.SegmentPath
     selectedSource.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     selectedSource.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     selectedSource.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     selectedSource.EntityData.Children = types.NewOrderedMap()
     selectedSource.EntityData.Children.Append("clock-id", types.YChild{"ClockId", &selectedSource.ClockId})
+    selectedSource.EntityData.Children.Append("internal-clock-id", types.YChild{"InternalClockId", &selectedSource.InternalClockId})
     selectedSource.EntityData.Children.Append("gnss-receiver-id", types.YChild{"GnssReceiverId", &selectedSource.GnssReceiverId})
     selectedSource.EntityData.Leafs = types.NewOrderedMap()
     selectedSource.EntityData.Leafs.Append("source-class", types.YLeaf{"SourceClass", selectedSource.SourceClass})
     selectedSource.EntityData.Leafs.Append("ethernet-interface", types.YLeaf{"EthernetInterface", selectedSource.EthernetInterface})
     selectedSource.EntityData.Leafs.Append("sonet-interface", types.YLeaf{"SonetInterface", selectedSource.SonetInterface})
-    selectedSource.EntityData.Leafs.Append("node", types.YLeaf{"Node", selectedSource.Node})
     selectedSource.EntityData.Leafs.Append("ptp-node", types.YLeaf{"PtpNode", selectedSource.PtpNode})
     selectedSource.EntityData.Leafs.Append("satellite-access-interface", types.YLeaf{"SatelliteAccessInterface", selectedSource.SatelliteAccessInterface})
     selectedSource.EntityData.Leafs.Append("ntp-node", types.YLeaf{"NtpNode", selectedSource.NtpNode})
@@ -1277,6 +1381,7 @@ func (clockId *FrequencySynchronization_GlobalNodes_GlobalNode_TimeOfDayBackTrac
     clockId.EntityData.BundleName = "cisco_ios_xr"
     clockId.EntityData.ParentYangName = "selected-source"
     clockId.EntityData.SegmentPath = "clock-id"
+    clockId.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/global-nodes/global-node/time-of-day-back-trace/selected-source/" + clockId.EntityData.SegmentPath
     clockId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clockId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clockId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1290,6 +1395,46 @@ func (clockId *FrequencySynchronization_GlobalNodes_GlobalNode_TimeOfDayBackTrac
     clockId.EntityData.YListKeys = []string {}
 
     return &(clockId.EntityData)
+}
+
+// FrequencySynchronization_GlobalNodes_GlobalNode_TimeOfDayBackTrace_SelectedSource_InternalClockId
+// Internal Clock ID
+type FrequencySynchronization_GlobalNodes_GlobalNode_TimeOfDayBackTrace_SelectedSource_InternalClockId struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Node. The type is string with pattern:
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    Node interface{}
+
+    // ID (port number for clock interface, receiver number for GNSS receiver).
+    // The type is interface{} with range: 0..4294967295.
+    Id interface{}
+
+    // Name. The type is string with length: 0..144.
+    ClockName interface{}
+}
+
+func (internalClockId *FrequencySynchronization_GlobalNodes_GlobalNode_TimeOfDayBackTrace_SelectedSource_InternalClockId) GetEntityData() *types.CommonEntityData {
+    internalClockId.EntityData.YFilter = internalClockId.YFilter
+    internalClockId.EntityData.YangName = "internal-clock-id"
+    internalClockId.EntityData.BundleName = "cisco_ios_xr"
+    internalClockId.EntityData.ParentYangName = "selected-source"
+    internalClockId.EntityData.SegmentPath = "internal-clock-id"
+    internalClockId.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/global-nodes/global-node/time-of-day-back-trace/selected-source/" + internalClockId.EntityData.SegmentPath
+    internalClockId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    internalClockId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    internalClockId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    internalClockId.EntityData.Children = types.NewOrderedMap()
+    internalClockId.EntityData.Leafs = types.NewOrderedMap()
+    internalClockId.EntityData.Leafs.Append("node", types.YLeaf{"Node", internalClockId.Node})
+    internalClockId.EntityData.Leafs.Append("id", types.YLeaf{"Id", internalClockId.Id})
+    internalClockId.EntityData.Leafs.Append("clock-name", types.YLeaf{"ClockName", internalClockId.ClockName})
+
+    internalClockId.EntityData.YListKeys = []string {}
+
+    return &(internalClockId.EntityData)
 }
 
 // FrequencySynchronization_GlobalNodes_GlobalNode_TimeOfDayBackTrace_SelectedSource_GnssReceiverId
@@ -1316,6 +1461,7 @@ func (gnssReceiverId *FrequencySynchronization_GlobalNodes_GlobalNode_TimeOfDayB
     gnssReceiverId.EntityData.BundleName = "cisco_ios_xr"
     gnssReceiverId.EntityData.ParentYangName = "selected-source"
     gnssReceiverId.EntityData.SegmentPath = "gnss-receiver-id"
+    gnssReceiverId.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/global-nodes/global-node/time-of-day-back-trace/selected-source/" + gnssReceiverId.EntityData.SegmentPath
     gnssReceiverId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     gnssReceiverId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     gnssReceiverId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1336,6 +1482,7 @@ func (gnssReceiverId *FrequencySynchronization_GlobalNodes_GlobalNode_TimeOfDayB
 type FrequencySynchronization_GlobalNodes_GlobalNode_TimeOfDayBackTrace_SelectionPoint struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Selection point type. The type is interface{} with range: 0..255.
     SelectionPointType interface{}
@@ -1353,7 +1500,8 @@ func (selectionPoint *FrequencySynchronization_GlobalNodes_GlobalNode_TimeOfDayB
     selectionPoint.EntityData.YangName = "selection-point"
     selectionPoint.EntityData.BundleName = "cisco_ios_xr"
     selectionPoint.EntityData.ParentYangName = "time-of-day-back-trace"
-    selectionPoint.EntityData.SegmentPath = "selection-point"
+    selectionPoint.EntityData.SegmentPath = "selection-point" + types.AddNoKeyToken(selectionPoint)
+    selectionPoint.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/global-nodes/global-node/time-of-day-back-trace/" + selectionPoint.EntityData.SegmentPath
     selectionPoint.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     selectionPoint.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     selectionPoint.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1387,6 +1535,7 @@ func (ntpSelectionForwardTrace *FrequencySynchronization_GlobalNodes_GlobalNode_
     ntpSelectionForwardTrace.EntityData.BundleName = "cisco_ios_xr"
     ntpSelectionForwardTrace.EntityData.ParentYangName = "global-node"
     ntpSelectionForwardTrace.EntityData.SegmentPath = "ntp-selection-forward-trace"
+    ntpSelectionForwardTrace.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/global-nodes/global-node/" + ntpSelectionForwardTrace.EntityData.SegmentPath
     ntpSelectionForwardTrace.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ntpSelectionForwardTrace.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ntpSelectionForwardTrace.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1394,6 +1543,7 @@ func (ntpSelectionForwardTrace *FrequencySynchronization_GlobalNodes_GlobalNode_
     ntpSelectionForwardTrace.EntityData.Children = types.NewOrderedMap()
     ntpSelectionForwardTrace.EntityData.Children.Append("forward-trace", types.YChild{"ForwardTrace", nil})
     for i := range ntpSelectionForwardTrace.ForwardTrace {
+        types.SetYListKey(ntpSelectionForwardTrace.ForwardTrace[i], i)
         ntpSelectionForwardTrace.EntityData.Children.Append(types.GetSegmentPath(ntpSelectionForwardTrace.ForwardTrace[i]), types.YChild{"ForwardTrace", ntpSelectionForwardTrace.ForwardTrace[i]})
     }
     ntpSelectionForwardTrace.EntityData.Leafs = types.NewOrderedMap()
@@ -1408,6 +1558,7 @@ func (ntpSelectionForwardTrace *FrequencySynchronization_GlobalNodes_GlobalNode_
 type FrequencySynchronization_GlobalNodes_GlobalNode_NtpSelectionForwardTrace_ForwardTrace struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The source or selection point at this point in the forwardtrace.
     ForwardTraceNode FrequencySynchronization_GlobalNodes_GlobalNode_NtpSelectionForwardTrace_ForwardTrace_ForwardTraceNode
@@ -1418,7 +1569,8 @@ func (forwardTrace *FrequencySynchronization_GlobalNodes_GlobalNode_NtpSelection
     forwardTrace.EntityData.YangName = "forward-trace"
     forwardTrace.EntityData.BundleName = "cisco_ios_xr"
     forwardTrace.EntityData.ParentYangName = "ntp-selection-forward-trace"
-    forwardTrace.EntityData.SegmentPath = "forward-trace"
+    forwardTrace.EntityData.SegmentPath = "forward-trace" + types.AddNoKeyToken(forwardTrace)
+    forwardTrace.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/global-nodes/global-node/ntp-selection-forward-trace/" + forwardTrace.EntityData.SegmentPath
     forwardTrace.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     forwardTrace.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     forwardTrace.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1455,6 +1607,7 @@ func (forwardTraceNode *FrequencySynchronization_GlobalNodes_GlobalNode_NtpSelec
     forwardTraceNode.EntityData.BundleName = "cisco_ios_xr"
     forwardTraceNode.EntityData.ParentYangName = "forward-trace"
     forwardTraceNode.EntityData.SegmentPath = "forward-trace-node"
+    forwardTraceNode.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/global-nodes/global-node/ntp-selection-forward-trace/forward-trace/" + forwardTraceNode.EntityData.SegmentPath
     forwardTraceNode.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     forwardTraceNode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     forwardTraceNode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1493,6 +1646,7 @@ func (selectionPoint *FrequencySynchronization_GlobalNodes_GlobalNode_NtpSelecti
     selectionPoint.EntityData.BundleName = "cisco_ios_xr"
     selectionPoint.EntityData.ParentYangName = "forward-trace-node"
     selectionPoint.EntityData.SegmentPath = "selection-point"
+    selectionPoint.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/global-nodes/global-node/ntp-selection-forward-trace/forward-trace/forward-trace-node/" + selectionPoint.EntityData.SegmentPath
     selectionPoint.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     selectionPoint.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     selectionPoint.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1523,10 +1677,6 @@ type FrequencySynchronization_GlobalNodes_GlobalNode_NtpSelectionForwardTrace_Fo
     // SONET interfaces. The type is string with pattern: [a-zA-Z0-9._/-]+.
     SonetInterface interface{}
 
-    // Internal Clock Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
-    Node interface{}
-
     // PTP Clock Node. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     PtpNode interface{}
@@ -1542,6 +1692,9 @@ type FrequencySynchronization_GlobalNodes_GlobalNode_NtpSelectionForwardTrace_Fo
     // Clock ID.
     ClockId FrequencySynchronization_GlobalNodes_GlobalNode_NtpSelectionForwardTrace_ForwardTrace_ForwardTraceNode_Source_ClockId
 
+    // Internal Clock ID.
+    InternalClockId FrequencySynchronization_GlobalNodes_GlobalNode_NtpSelectionForwardTrace_ForwardTrace_ForwardTraceNode_Source_InternalClockId
+
     // GNSS Receiver ID.
     GnssReceiverId FrequencySynchronization_GlobalNodes_GlobalNode_NtpSelectionForwardTrace_ForwardTrace_ForwardTraceNode_Source_GnssReceiverId
 }
@@ -1552,18 +1705,19 @@ func (source *FrequencySynchronization_GlobalNodes_GlobalNode_NtpSelectionForwar
     source.EntityData.BundleName = "cisco_ios_xr"
     source.EntityData.ParentYangName = "forward-trace-node"
     source.EntityData.SegmentPath = "source"
+    source.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/global-nodes/global-node/ntp-selection-forward-trace/forward-trace/forward-trace-node/" + source.EntityData.SegmentPath
     source.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     source.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     source.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     source.EntityData.Children = types.NewOrderedMap()
     source.EntityData.Children.Append("clock-id", types.YChild{"ClockId", &source.ClockId})
+    source.EntityData.Children.Append("internal-clock-id", types.YChild{"InternalClockId", &source.InternalClockId})
     source.EntityData.Children.Append("gnss-receiver-id", types.YChild{"GnssReceiverId", &source.GnssReceiverId})
     source.EntityData.Leafs = types.NewOrderedMap()
     source.EntityData.Leafs.Append("source-class", types.YLeaf{"SourceClass", source.SourceClass})
     source.EntityData.Leafs.Append("ethernet-interface", types.YLeaf{"EthernetInterface", source.EthernetInterface})
     source.EntityData.Leafs.Append("sonet-interface", types.YLeaf{"SonetInterface", source.SonetInterface})
-    source.EntityData.Leafs.Append("node", types.YLeaf{"Node", source.Node})
     source.EntityData.Leafs.Append("ptp-node", types.YLeaf{"PtpNode", source.PtpNode})
     source.EntityData.Leafs.Append("satellite-access-interface", types.YLeaf{"SatelliteAccessInterface", source.SatelliteAccessInterface})
     source.EntityData.Leafs.Append("ntp-node", types.YLeaf{"NtpNode", source.NtpNode})
@@ -1597,6 +1751,7 @@ func (clockId *FrequencySynchronization_GlobalNodes_GlobalNode_NtpSelectionForwa
     clockId.EntityData.BundleName = "cisco_ios_xr"
     clockId.EntityData.ParentYangName = "source"
     clockId.EntityData.SegmentPath = "clock-id"
+    clockId.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/global-nodes/global-node/ntp-selection-forward-trace/forward-trace/forward-trace-node/source/" + clockId.EntityData.SegmentPath
     clockId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clockId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clockId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1610,6 +1765,46 @@ func (clockId *FrequencySynchronization_GlobalNodes_GlobalNode_NtpSelectionForwa
     clockId.EntityData.YListKeys = []string {}
 
     return &(clockId.EntityData)
+}
+
+// FrequencySynchronization_GlobalNodes_GlobalNode_NtpSelectionForwardTrace_ForwardTrace_ForwardTraceNode_Source_InternalClockId
+// Internal Clock ID
+type FrequencySynchronization_GlobalNodes_GlobalNode_NtpSelectionForwardTrace_ForwardTrace_ForwardTraceNode_Source_InternalClockId struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Node. The type is string with pattern:
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    Node interface{}
+
+    // ID (port number for clock interface, receiver number for GNSS receiver).
+    // The type is interface{} with range: 0..4294967295.
+    Id interface{}
+
+    // Name. The type is string with length: 0..144.
+    ClockName interface{}
+}
+
+func (internalClockId *FrequencySynchronization_GlobalNodes_GlobalNode_NtpSelectionForwardTrace_ForwardTrace_ForwardTraceNode_Source_InternalClockId) GetEntityData() *types.CommonEntityData {
+    internalClockId.EntityData.YFilter = internalClockId.YFilter
+    internalClockId.EntityData.YangName = "internal-clock-id"
+    internalClockId.EntityData.BundleName = "cisco_ios_xr"
+    internalClockId.EntityData.ParentYangName = "source"
+    internalClockId.EntityData.SegmentPath = "internal-clock-id"
+    internalClockId.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/global-nodes/global-node/ntp-selection-forward-trace/forward-trace/forward-trace-node/source/" + internalClockId.EntityData.SegmentPath
+    internalClockId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    internalClockId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    internalClockId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    internalClockId.EntityData.Children = types.NewOrderedMap()
+    internalClockId.EntityData.Leafs = types.NewOrderedMap()
+    internalClockId.EntityData.Leafs.Append("node", types.YLeaf{"Node", internalClockId.Node})
+    internalClockId.EntityData.Leafs.Append("id", types.YLeaf{"Id", internalClockId.Id})
+    internalClockId.EntityData.Leafs.Append("clock-name", types.YLeaf{"ClockName", internalClockId.ClockName})
+
+    internalClockId.EntityData.YListKeys = []string {}
+
+    return &(internalClockId.EntityData)
 }
 
 // FrequencySynchronization_GlobalNodes_GlobalNode_NtpSelectionForwardTrace_ForwardTrace_ForwardTraceNode_Source_GnssReceiverId
@@ -1636,6 +1831,7 @@ func (gnssReceiverId *FrequencySynchronization_GlobalNodes_GlobalNode_NtpSelecti
     gnssReceiverId.EntityData.BundleName = "cisco_ios_xr"
     gnssReceiverId.EntityData.ParentYangName = "source"
     gnssReceiverId.EntityData.SegmentPath = "gnss-receiver-id"
+    gnssReceiverId.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/global-nodes/global-node/ntp-selection-forward-trace/forward-trace/forward-trace-node/source/" + gnssReceiverId.EntityData.SegmentPath
     gnssReceiverId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     gnssReceiverId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     gnssReceiverId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1669,6 +1865,7 @@ func (ptpSelectionForwardTrace *FrequencySynchronization_GlobalNodes_GlobalNode_
     ptpSelectionForwardTrace.EntityData.BundleName = "cisco_ios_xr"
     ptpSelectionForwardTrace.EntityData.ParentYangName = "global-node"
     ptpSelectionForwardTrace.EntityData.SegmentPath = "ptp-selection-forward-trace"
+    ptpSelectionForwardTrace.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/global-nodes/global-node/" + ptpSelectionForwardTrace.EntityData.SegmentPath
     ptpSelectionForwardTrace.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ptpSelectionForwardTrace.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ptpSelectionForwardTrace.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1676,6 +1873,7 @@ func (ptpSelectionForwardTrace *FrequencySynchronization_GlobalNodes_GlobalNode_
     ptpSelectionForwardTrace.EntityData.Children = types.NewOrderedMap()
     ptpSelectionForwardTrace.EntityData.Children.Append("forward-trace", types.YChild{"ForwardTrace", nil})
     for i := range ptpSelectionForwardTrace.ForwardTrace {
+        types.SetYListKey(ptpSelectionForwardTrace.ForwardTrace[i], i)
         ptpSelectionForwardTrace.EntityData.Children.Append(types.GetSegmentPath(ptpSelectionForwardTrace.ForwardTrace[i]), types.YChild{"ForwardTrace", ptpSelectionForwardTrace.ForwardTrace[i]})
     }
     ptpSelectionForwardTrace.EntityData.Leafs = types.NewOrderedMap()
@@ -1690,6 +1888,7 @@ func (ptpSelectionForwardTrace *FrequencySynchronization_GlobalNodes_GlobalNode_
 type FrequencySynchronization_GlobalNodes_GlobalNode_PtpSelectionForwardTrace_ForwardTrace struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The source or selection point at this point in the forwardtrace.
     ForwardTraceNode FrequencySynchronization_GlobalNodes_GlobalNode_PtpSelectionForwardTrace_ForwardTrace_ForwardTraceNode
@@ -1700,7 +1899,8 @@ func (forwardTrace *FrequencySynchronization_GlobalNodes_GlobalNode_PtpSelection
     forwardTrace.EntityData.YangName = "forward-trace"
     forwardTrace.EntityData.BundleName = "cisco_ios_xr"
     forwardTrace.EntityData.ParentYangName = "ptp-selection-forward-trace"
-    forwardTrace.EntityData.SegmentPath = "forward-trace"
+    forwardTrace.EntityData.SegmentPath = "forward-trace" + types.AddNoKeyToken(forwardTrace)
+    forwardTrace.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/global-nodes/global-node/ptp-selection-forward-trace/" + forwardTrace.EntityData.SegmentPath
     forwardTrace.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     forwardTrace.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     forwardTrace.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1737,6 +1937,7 @@ func (forwardTraceNode *FrequencySynchronization_GlobalNodes_GlobalNode_PtpSelec
     forwardTraceNode.EntityData.BundleName = "cisco_ios_xr"
     forwardTraceNode.EntityData.ParentYangName = "forward-trace"
     forwardTraceNode.EntityData.SegmentPath = "forward-trace-node"
+    forwardTraceNode.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/global-nodes/global-node/ptp-selection-forward-trace/forward-trace/" + forwardTraceNode.EntityData.SegmentPath
     forwardTraceNode.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     forwardTraceNode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     forwardTraceNode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1775,6 +1976,7 @@ func (selectionPoint *FrequencySynchronization_GlobalNodes_GlobalNode_PtpSelecti
     selectionPoint.EntityData.BundleName = "cisco_ios_xr"
     selectionPoint.EntityData.ParentYangName = "forward-trace-node"
     selectionPoint.EntityData.SegmentPath = "selection-point"
+    selectionPoint.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/global-nodes/global-node/ptp-selection-forward-trace/forward-trace/forward-trace-node/" + selectionPoint.EntityData.SegmentPath
     selectionPoint.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     selectionPoint.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     selectionPoint.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1805,10 +2007,6 @@ type FrequencySynchronization_GlobalNodes_GlobalNode_PtpSelectionForwardTrace_Fo
     // SONET interfaces. The type is string with pattern: [a-zA-Z0-9._/-]+.
     SonetInterface interface{}
 
-    // Internal Clock Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
-    Node interface{}
-
     // PTP Clock Node. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     PtpNode interface{}
@@ -1824,6 +2022,9 @@ type FrequencySynchronization_GlobalNodes_GlobalNode_PtpSelectionForwardTrace_Fo
     // Clock ID.
     ClockId FrequencySynchronization_GlobalNodes_GlobalNode_PtpSelectionForwardTrace_ForwardTrace_ForwardTraceNode_Source_ClockId
 
+    // Internal Clock ID.
+    InternalClockId FrequencySynchronization_GlobalNodes_GlobalNode_PtpSelectionForwardTrace_ForwardTrace_ForwardTraceNode_Source_InternalClockId
+
     // GNSS Receiver ID.
     GnssReceiverId FrequencySynchronization_GlobalNodes_GlobalNode_PtpSelectionForwardTrace_ForwardTrace_ForwardTraceNode_Source_GnssReceiverId
 }
@@ -1834,18 +2035,19 @@ func (source *FrequencySynchronization_GlobalNodes_GlobalNode_PtpSelectionForwar
     source.EntityData.BundleName = "cisco_ios_xr"
     source.EntityData.ParentYangName = "forward-trace-node"
     source.EntityData.SegmentPath = "source"
+    source.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/global-nodes/global-node/ptp-selection-forward-trace/forward-trace/forward-trace-node/" + source.EntityData.SegmentPath
     source.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     source.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     source.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     source.EntityData.Children = types.NewOrderedMap()
     source.EntityData.Children.Append("clock-id", types.YChild{"ClockId", &source.ClockId})
+    source.EntityData.Children.Append("internal-clock-id", types.YChild{"InternalClockId", &source.InternalClockId})
     source.EntityData.Children.Append("gnss-receiver-id", types.YChild{"GnssReceiverId", &source.GnssReceiverId})
     source.EntityData.Leafs = types.NewOrderedMap()
     source.EntityData.Leafs.Append("source-class", types.YLeaf{"SourceClass", source.SourceClass})
     source.EntityData.Leafs.Append("ethernet-interface", types.YLeaf{"EthernetInterface", source.EthernetInterface})
     source.EntityData.Leafs.Append("sonet-interface", types.YLeaf{"SonetInterface", source.SonetInterface})
-    source.EntityData.Leafs.Append("node", types.YLeaf{"Node", source.Node})
     source.EntityData.Leafs.Append("ptp-node", types.YLeaf{"PtpNode", source.PtpNode})
     source.EntityData.Leafs.Append("satellite-access-interface", types.YLeaf{"SatelliteAccessInterface", source.SatelliteAccessInterface})
     source.EntityData.Leafs.Append("ntp-node", types.YLeaf{"NtpNode", source.NtpNode})
@@ -1879,6 +2081,7 @@ func (clockId *FrequencySynchronization_GlobalNodes_GlobalNode_PtpSelectionForwa
     clockId.EntityData.BundleName = "cisco_ios_xr"
     clockId.EntityData.ParentYangName = "source"
     clockId.EntityData.SegmentPath = "clock-id"
+    clockId.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/global-nodes/global-node/ptp-selection-forward-trace/forward-trace/forward-trace-node/source/" + clockId.EntityData.SegmentPath
     clockId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clockId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clockId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1892,6 +2095,46 @@ func (clockId *FrequencySynchronization_GlobalNodes_GlobalNode_PtpSelectionForwa
     clockId.EntityData.YListKeys = []string {}
 
     return &(clockId.EntityData)
+}
+
+// FrequencySynchronization_GlobalNodes_GlobalNode_PtpSelectionForwardTrace_ForwardTrace_ForwardTraceNode_Source_InternalClockId
+// Internal Clock ID
+type FrequencySynchronization_GlobalNodes_GlobalNode_PtpSelectionForwardTrace_ForwardTrace_ForwardTraceNode_Source_InternalClockId struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Node. The type is string with pattern:
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    Node interface{}
+
+    // ID (port number for clock interface, receiver number for GNSS receiver).
+    // The type is interface{} with range: 0..4294967295.
+    Id interface{}
+
+    // Name. The type is string with length: 0..144.
+    ClockName interface{}
+}
+
+func (internalClockId *FrequencySynchronization_GlobalNodes_GlobalNode_PtpSelectionForwardTrace_ForwardTrace_ForwardTraceNode_Source_InternalClockId) GetEntityData() *types.CommonEntityData {
+    internalClockId.EntityData.YFilter = internalClockId.YFilter
+    internalClockId.EntityData.YangName = "internal-clock-id"
+    internalClockId.EntityData.BundleName = "cisco_ios_xr"
+    internalClockId.EntityData.ParentYangName = "source"
+    internalClockId.EntityData.SegmentPath = "internal-clock-id"
+    internalClockId.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/global-nodes/global-node/ptp-selection-forward-trace/forward-trace/forward-trace-node/source/" + internalClockId.EntityData.SegmentPath
+    internalClockId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    internalClockId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    internalClockId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    internalClockId.EntityData.Children = types.NewOrderedMap()
+    internalClockId.EntityData.Leafs = types.NewOrderedMap()
+    internalClockId.EntityData.Leafs.Append("node", types.YLeaf{"Node", internalClockId.Node})
+    internalClockId.EntityData.Leafs.Append("id", types.YLeaf{"Id", internalClockId.Id})
+    internalClockId.EntityData.Leafs.Append("clock-name", types.YLeaf{"ClockName", internalClockId.ClockName})
+
+    internalClockId.EntityData.YListKeys = []string {}
+
+    return &(internalClockId.EntityData)
 }
 
 // FrequencySynchronization_GlobalNodes_GlobalNode_PtpSelectionForwardTrace_ForwardTrace_ForwardTraceNode_Source_GnssReceiverId
@@ -1918,6 +2161,7 @@ func (gnssReceiverId *FrequencySynchronization_GlobalNodes_GlobalNode_PtpSelecti
     gnssReceiverId.EntityData.BundleName = "cisco_ios_xr"
     gnssReceiverId.EntityData.ParentYangName = "source"
     gnssReceiverId.EntityData.SegmentPath = "gnss-receiver-id"
+    gnssReceiverId.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/global-nodes/global-node/ptp-selection-forward-trace/forward-trace/forward-trace-node/source/" + gnssReceiverId.EntityData.SegmentPath
     gnssReceiverId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     gnssReceiverId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     gnssReceiverId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1950,6 +2194,7 @@ func (globalInterfaces *FrequencySynchronization_GlobalInterfaces) GetEntityData
     globalInterfaces.EntityData.BundleName = "cisco_ios_xr"
     globalInterfaces.EntityData.ParentYangName = "frequency-synchronization"
     globalInterfaces.EntityData.SegmentPath = "global-interfaces"
+    globalInterfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/" + globalInterfaces.EntityData.SegmentPath
     globalInterfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     globalInterfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     globalInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1972,6 +2217,7 @@ func (globalInterfaces *FrequencySynchronization_GlobalInterfaces) GetEntityData
 type FrequencySynchronization_GlobalInterfaces_GlobalInterface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -1990,6 +2236,7 @@ func (globalInterface *FrequencySynchronization_GlobalInterfaces_GlobalInterface
     globalInterface.EntityData.BundleName = "cisco_ios_xr"
     globalInterface.EntityData.ParentYangName = "global-interfaces"
     globalInterface.EntityData.SegmentPath = "global-interface" + types.AddKeyToken(globalInterface.InterfaceName, "interface-name")
+    globalInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/global-interfaces/" + globalInterface.EntityData.SegmentPath
     globalInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     globalInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     globalInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2023,6 +2270,7 @@ func (interfaceSelectionForwardTrace *FrequencySynchronization_GlobalInterfaces_
     interfaceSelectionForwardTrace.EntityData.BundleName = "cisco_ios_xr"
     interfaceSelectionForwardTrace.EntityData.ParentYangName = "global-interface"
     interfaceSelectionForwardTrace.EntityData.SegmentPath = "interface-selection-forward-trace"
+    interfaceSelectionForwardTrace.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/global-interfaces/global-interface/" + interfaceSelectionForwardTrace.EntityData.SegmentPath
     interfaceSelectionForwardTrace.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceSelectionForwardTrace.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceSelectionForwardTrace.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2030,6 +2278,7 @@ func (interfaceSelectionForwardTrace *FrequencySynchronization_GlobalInterfaces_
     interfaceSelectionForwardTrace.EntityData.Children = types.NewOrderedMap()
     interfaceSelectionForwardTrace.EntityData.Children.Append("forward-trace", types.YChild{"ForwardTrace", nil})
     for i := range interfaceSelectionForwardTrace.ForwardTrace {
+        types.SetYListKey(interfaceSelectionForwardTrace.ForwardTrace[i], i)
         interfaceSelectionForwardTrace.EntityData.Children.Append(types.GetSegmentPath(interfaceSelectionForwardTrace.ForwardTrace[i]), types.YChild{"ForwardTrace", interfaceSelectionForwardTrace.ForwardTrace[i]})
     }
     interfaceSelectionForwardTrace.EntityData.Leafs = types.NewOrderedMap()
@@ -2044,6 +2293,7 @@ func (interfaceSelectionForwardTrace *FrequencySynchronization_GlobalInterfaces_
 type FrequencySynchronization_GlobalInterfaces_GlobalInterface_InterfaceSelectionForwardTrace_ForwardTrace struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The source or selection point at this point in the forwardtrace.
     ForwardTraceNode FrequencySynchronization_GlobalInterfaces_GlobalInterface_InterfaceSelectionForwardTrace_ForwardTrace_ForwardTraceNode
@@ -2054,7 +2304,8 @@ func (forwardTrace *FrequencySynchronization_GlobalInterfaces_GlobalInterface_In
     forwardTrace.EntityData.YangName = "forward-trace"
     forwardTrace.EntityData.BundleName = "cisco_ios_xr"
     forwardTrace.EntityData.ParentYangName = "interface-selection-forward-trace"
-    forwardTrace.EntityData.SegmentPath = "forward-trace"
+    forwardTrace.EntityData.SegmentPath = "forward-trace" + types.AddNoKeyToken(forwardTrace)
+    forwardTrace.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/global-interfaces/global-interface/interface-selection-forward-trace/" + forwardTrace.EntityData.SegmentPath
     forwardTrace.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     forwardTrace.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     forwardTrace.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2091,6 +2342,7 @@ func (forwardTraceNode *FrequencySynchronization_GlobalInterfaces_GlobalInterfac
     forwardTraceNode.EntityData.BundleName = "cisco_ios_xr"
     forwardTraceNode.EntityData.ParentYangName = "forward-trace"
     forwardTraceNode.EntityData.SegmentPath = "forward-trace-node"
+    forwardTraceNode.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/global-interfaces/global-interface/interface-selection-forward-trace/forward-trace/" + forwardTraceNode.EntityData.SegmentPath
     forwardTraceNode.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     forwardTraceNode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     forwardTraceNode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2129,6 +2381,7 @@ func (selectionPoint *FrequencySynchronization_GlobalInterfaces_GlobalInterface_
     selectionPoint.EntityData.BundleName = "cisco_ios_xr"
     selectionPoint.EntityData.ParentYangName = "forward-trace-node"
     selectionPoint.EntityData.SegmentPath = "selection-point"
+    selectionPoint.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/global-interfaces/global-interface/interface-selection-forward-trace/forward-trace/forward-trace-node/" + selectionPoint.EntityData.SegmentPath
     selectionPoint.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     selectionPoint.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     selectionPoint.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2159,10 +2412,6 @@ type FrequencySynchronization_GlobalInterfaces_GlobalInterface_InterfaceSelectio
     // SONET interfaces. The type is string with pattern: [a-zA-Z0-9._/-]+.
     SonetInterface interface{}
 
-    // Internal Clock Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
-    Node interface{}
-
     // PTP Clock Node. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     PtpNode interface{}
@@ -2178,6 +2427,9 @@ type FrequencySynchronization_GlobalInterfaces_GlobalInterface_InterfaceSelectio
     // Clock ID.
     ClockId FrequencySynchronization_GlobalInterfaces_GlobalInterface_InterfaceSelectionForwardTrace_ForwardTrace_ForwardTraceNode_Source_ClockId
 
+    // Internal Clock ID.
+    InternalClockId FrequencySynchronization_GlobalInterfaces_GlobalInterface_InterfaceSelectionForwardTrace_ForwardTrace_ForwardTraceNode_Source_InternalClockId
+
     // GNSS Receiver ID.
     GnssReceiverId FrequencySynchronization_GlobalInterfaces_GlobalInterface_InterfaceSelectionForwardTrace_ForwardTrace_ForwardTraceNode_Source_GnssReceiverId
 }
@@ -2188,18 +2440,19 @@ func (source *FrequencySynchronization_GlobalInterfaces_GlobalInterface_Interfac
     source.EntityData.BundleName = "cisco_ios_xr"
     source.EntityData.ParentYangName = "forward-trace-node"
     source.EntityData.SegmentPath = "source"
+    source.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/global-interfaces/global-interface/interface-selection-forward-trace/forward-trace/forward-trace-node/" + source.EntityData.SegmentPath
     source.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     source.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     source.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     source.EntityData.Children = types.NewOrderedMap()
     source.EntityData.Children.Append("clock-id", types.YChild{"ClockId", &source.ClockId})
+    source.EntityData.Children.Append("internal-clock-id", types.YChild{"InternalClockId", &source.InternalClockId})
     source.EntityData.Children.Append("gnss-receiver-id", types.YChild{"GnssReceiverId", &source.GnssReceiverId})
     source.EntityData.Leafs = types.NewOrderedMap()
     source.EntityData.Leafs.Append("source-class", types.YLeaf{"SourceClass", source.SourceClass})
     source.EntityData.Leafs.Append("ethernet-interface", types.YLeaf{"EthernetInterface", source.EthernetInterface})
     source.EntityData.Leafs.Append("sonet-interface", types.YLeaf{"SonetInterface", source.SonetInterface})
-    source.EntityData.Leafs.Append("node", types.YLeaf{"Node", source.Node})
     source.EntityData.Leafs.Append("ptp-node", types.YLeaf{"PtpNode", source.PtpNode})
     source.EntityData.Leafs.Append("satellite-access-interface", types.YLeaf{"SatelliteAccessInterface", source.SatelliteAccessInterface})
     source.EntityData.Leafs.Append("ntp-node", types.YLeaf{"NtpNode", source.NtpNode})
@@ -2233,6 +2486,7 @@ func (clockId *FrequencySynchronization_GlobalInterfaces_GlobalInterface_Interfa
     clockId.EntityData.BundleName = "cisco_ios_xr"
     clockId.EntityData.ParentYangName = "source"
     clockId.EntityData.SegmentPath = "clock-id"
+    clockId.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/global-interfaces/global-interface/interface-selection-forward-trace/forward-trace/forward-trace-node/source/" + clockId.EntityData.SegmentPath
     clockId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clockId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clockId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2246,6 +2500,46 @@ func (clockId *FrequencySynchronization_GlobalInterfaces_GlobalInterface_Interfa
     clockId.EntityData.YListKeys = []string {}
 
     return &(clockId.EntityData)
+}
+
+// FrequencySynchronization_GlobalInterfaces_GlobalInterface_InterfaceSelectionForwardTrace_ForwardTrace_ForwardTraceNode_Source_InternalClockId
+// Internal Clock ID
+type FrequencySynchronization_GlobalInterfaces_GlobalInterface_InterfaceSelectionForwardTrace_ForwardTrace_ForwardTraceNode_Source_InternalClockId struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Node. The type is string with pattern:
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    Node interface{}
+
+    // ID (port number for clock interface, receiver number for GNSS receiver).
+    // The type is interface{} with range: 0..4294967295.
+    Id interface{}
+
+    // Name. The type is string with length: 0..144.
+    ClockName interface{}
+}
+
+func (internalClockId *FrequencySynchronization_GlobalInterfaces_GlobalInterface_InterfaceSelectionForwardTrace_ForwardTrace_ForwardTraceNode_Source_InternalClockId) GetEntityData() *types.CommonEntityData {
+    internalClockId.EntityData.YFilter = internalClockId.YFilter
+    internalClockId.EntityData.YangName = "internal-clock-id"
+    internalClockId.EntityData.BundleName = "cisco_ios_xr"
+    internalClockId.EntityData.ParentYangName = "source"
+    internalClockId.EntityData.SegmentPath = "internal-clock-id"
+    internalClockId.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/global-interfaces/global-interface/interface-selection-forward-trace/forward-trace/forward-trace-node/source/" + internalClockId.EntityData.SegmentPath
+    internalClockId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    internalClockId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    internalClockId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    internalClockId.EntityData.Children = types.NewOrderedMap()
+    internalClockId.EntityData.Leafs = types.NewOrderedMap()
+    internalClockId.EntityData.Leafs.Append("node", types.YLeaf{"Node", internalClockId.Node})
+    internalClockId.EntityData.Leafs.Append("id", types.YLeaf{"Id", internalClockId.Id})
+    internalClockId.EntityData.Leafs.Append("clock-name", types.YLeaf{"ClockName", internalClockId.ClockName})
+
+    internalClockId.EntityData.YListKeys = []string {}
+
+    return &(internalClockId.EntityData)
 }
 
 // FrequencySynchronization_GlobalInterfaces_GlobalInterface_InterfaceSelectionForwardTrace_ForwardTrace_ForwardTraceNode_Source_GnssReceiverId
@@ -2272,6 +2566,7 @@ func (gnssReceiverId *FrequencySynchronization_GlobalInterfaces_GlobalInterface_
     gnssReceiverId.EntityData.BundleName = "cisco_ios_xr"
     gnssReceiverId.EntityData.ParentYangName = "source"
     gnssReceiverId.EntityData.SegmentPath = "gnss-receiver-id"
+    gnssReceiverId.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/global-interfaces/global-interface/interface-selection-forward-trace/forward-trace/forward-trace-node/source/" + gnssReceiverId.EntityData.SegmentPath
     gnssReceiverId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     gnssReceiverId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     gnssReceiverId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2308,6 +2603,7 @@ func (interfaceSelectionBackTrace *FrequencySynchronization_GlobalInterfaces_Glo
     interfaceSelectionBackTrace.EntityData.BundleName = "cisco_ios_xr"
     interfaceSelectionBackTrace.EntityData.ParentYangName = "global-interface"
     interfaceSelectionBackTrace.EntityData.SegmentPath = "interface-selection-back-trace"
+    interfaceSelectionBackTrace.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/global-interfaces/global-interface/" + interfaceSelectionBackTrace.EntityData.SegmentPath
     interfaceSelectionBackTrace.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceSelectionBackTrace.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceSelectionBackTrace.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2316,6 +2612,7 @@ func (interfaceSelectionBackTrace *FrequencySynchronization_GlobalInterfaces_Glo
     interfaceSelectionBackTrace.EntityData.Children.Append("selected-source", types.YChild{"SelectedSource", &interfaceSelectionBackTrace.SelectedSource})
     interfaceSelectionBackTrace.EntityData.Children.Append("selection-point", types.YChild{"SelectionPoint", nil})
     for i := range interfaceSelectionBackTrace.SelectionPoint {
+        types.SetYListKey(interfaceSelectionBackTrace.SelectionPoint[i], i)
         interfaceSelectionBackTrace.EntityData.Children.Append(types.GetSegmentPath(interfaceSelectionBackTrace.SelectionPoint[i]), types.YChild{"SelectionPoint", interfaceSelectionBackTrace.SelectionPoint[i]})
     }
     interfaceSelectionBackTrace.EntityData.Leafs = types.NewOrderedMap()
@@ -2340,10 +2637,6 @@ type FrequencySynchronization_GlobalInterfaces_GlobalInterface_InterfaceSelectio
     // SONET interfaces. The type is string with pattern: [a-zA-Z0-9._/-]+.
     SonetInterface interface{}
 
-    // Internal Clock Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
-    Node interface{}
-
     // PTP Clock Node. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     PtpNode interface{}
@@ -2359,6 +2652,9 @@ type FrequencySynchronization_GlobalInterfaces_GlobalInterface_InterfaceSelectio
     // Clock ID.
     ClockId FrequencySynchronization_GlobalInterfaces_GlobalInterface_InterfaceSelectionBackTrace_SelectedSource_ClockId
 
+    // Internal Clock ID.
+    InternalClockId FrequencySynchronization_GlobalInterfaces_GlobalInterface_InterfaceSelectionBackTrace_SelectedSource_InternalClockId
+
     // GNSS Receiver ID.
     GnssReceiverId FrequencySynchronization_GlobalInterfaces_GlobalInterface_InterfaceSelectionBackTrace_SelectedSource_GnssReceiverId
 }
@@ -2369,18 +2665,19 @@ func (selectedSource *FrequencySynchronization_GlobalInterfaces_GlobalInterface_
     selectedSource.EntityData.BundleName = "cisco_ios_xr"
     selectedSource.EntityData.ParentYangName = "interface-selection-back-trace"
     selectedSource.EntityData.SegmentPath = "selected-source"
+    selectedSource.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/global-interfaces/global-interface/interface-selection-back-trace/" + selectedSource.EntityData.SegmentPath
     selectedSource.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     selectedSource.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     selectedSource.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     selectedSource.EntityData.Children = types.NewOrderedMap()
     selectedSource.EntityData.Children.Append("clock-id", types.YChild{"ClockId", &selectedSource.ClockId})
+    selectedSource.EntityData.Children.Append("internal-clock-id", types.YChild{"InternalClockId", &selectedSource.InternalClockId})
     selectedSource.EntityData.Children.Append("gnss-receiver-id", types.YChild{"GnssReceiverId", &selectedSource.GnssReceiverId})
     selectedSource.EntityData.Leafs = types.NewOrderedMap()
     selectedSource.EntityData.Leafs.Append("source-class", types.YLeaf{"SourceClass", selectedSource.SourceClass})
     selectedSource.EntityData.Leafs.Append("ethernet-interface", types.YLeaf{"EthernetInterface", selectedSource.EthernetInterface})
     selectedSource.EntityData.Leafs.Append("sonet-interface", types.YLeaf{"SonetInterface", selectedSource.SonetInterface})
-    selectedSource.EntityData.Leafs.Append("node", types.YLeaf{"Node", selectedSource.Node})
     selectedSource.EntityData.Leafs.Append("ptp-node", types.YLeaf{"PtpNode", selectedSource.PtpNode})
     selectedSource.EntityData.Leafs.Append("satellite-access-interface", types.YLeaf{"SatelliteAccessInterface", selectedSource.SatelliteAccessInterface})
     selectedSource.EntityData.Leafs.Append("ntp-node", types.YLeaf{"NtpNode", selectedSource.NtpNode})
@@ -2414,6 +2711,7 @@ func (clockId *FrequencySynchronization_GlobalInterfaces_GlobalInterface_Interfa
     clockId.EntityData.BundleName = "cisco_ios_xr"
     clockId.EntityData.ParentYangName = "selected-source"
     clockId.EntityData.SegmentPath = "clock-id"
+    clockId.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/global-interfaces/global-interface/interface-selection-back-trace/selected-source/" + clockId.EntityData.SegmentPath
     clockId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clockId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clockId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2427,6 +2725,46 @@ func (clockId *FrequencySynchronization_GlobalInterfaces_GlobalInterface_Interfa
     clockId.EntityData.YListKeys = []string {}
 
     return &(clockId.EntityData)
+}
+
+// FrequencySynchronization_GlobalInterfaces_GlobalInterface_InterfaceSelectionBackTrace_SelectedSource_InternalClockId
+// Internal Clock ID
+type FrequencySynchronization_GlobalInterfaces_GlobalInterface_InterfaceSelectionBackTrace_SelectedSource_InternalClockId struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Node. The type is string with pattern:
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    Node interface{}
+
+    // ID (port number for clock interface, receiver number for GNSS receiver).
+    // The type is interface{} with range: 0..4294967295.
+    Id interface{}
+
+    // Name. The type is string with length: 0..144.
+    ClockName interface{}
+}
+
+func (internalClockId *FrequencySynchronization_GlobalInterfaces_GlobalInterface_InterfaceSelectionBackTrace_SelectedSource_InternalClockId) GetEntityData() *types.CommonEntityData {
+    internalClockId.EntityData.YFilter = internalClockId.YFilter
+    internalClockId.EntityData.YangName = "internal-clock-id"
+    internalClockId.EntityData.BundleName = "cisco_ios_xr"
+    internalClockId.EntityData.ParentYangName = "selected-source"
+    internalClockId.EntityData.SegmentPath = "internal-clock-id"
+    internalClockId.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/global-interfaces/global-interface/interface-selection-back-trace/selected-source/" + internalClockId.EntityData.SegmentPath
+    internalClockId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    internalClockId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    internalClockId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    internalClockId.EntityData.Children = types.NewOrderedMap()
+    internalClockId.EntityData.Leafs = types.NewOrderedMap()
+    internalClockId.EntityData.Leafs.Append("node", types.YLeaf{"Node", internalClockId.Node})
+    internalClockId.EntityData.Leafs.Append("id", types.YLeaf{"Id", internalClockId.Id})
+    internalClockId.EntityData.Leafs.Append("clock-name", types.YLeaf{"ClockName", internalClockId.ClockName})
+
+    internalClockId.EntityData.YListKeys = []string {}
+
+    return &(internalClockId.EntityData)
 }
 
 // FrequencySynchronization_GlobalInterfaces_GlobalInterface_InterfaceSelectionBackTrace_SelectedSource_GnssReceiverId
@@ -2453,6 +2791,7 @@ func (gnssReceiverId *FrequencySynchronization_GlobalInterfaces_GlobalInterface_
     gnssReceiverId.EntityData.BundleName = "cisco_ios_xr"
     gnssReceiverId.EntityData.ParentYangName = "selected-source"
     gnssReceiverId.EntityData.SegmentPath = "gnss-receiver-id"
+    gnssReceiverId.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/global-interfaces/global-interface/interface-selection-back-trace/selected-source/" + gnssReceiverId.EntityData.SegmentPath
     gnssReceiverId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     gnssReceiverId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     gnssReceiverId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2473,6 +2812,7 @@ func (gnssReceiverId *FrequencySynchronization_GlobalInterfaces_GlobalInterface_
 type FrequencySynchronization_GlobalInterfaces_GlobalInterface_InterfaceSelectionBackTrace_SelectionPoint struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Selection point type. The type is interface{} with range: 0..255.
     SelectionPointType interface{}
@@ -2490,7 +2830,8 @@ func (selectionPoint *FrequencySynchronization_GlobalInterfaces_GlobalInterface_
     selectionPoint.EntityData.YangName = "selection-point"
     selectionPoint.EntityData.BundleName = "cisco_ios_xr"
     selectionPoint.EntityData.ParentYangName = "interface-selection-back-trace"
-    selectionPoint.EntityData.SegmentPath = "selection-point"
+    selectionPoint.EntityData.SegmentPath = "selection-point" + types.AddNoKeyToken(selectionPoint)
+    selectionPoint.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/global-interfaces/global-interface/interface-selection-back-trace/" + selectionPoint.EntityData.SegmentPath
     selectionPoint.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     selectionPoint.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     selectionPoint.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2527,6 +2868,7 @@ func (summary *FrequencySynchronization_Summary) GetEntityData() *types.CommonEn
     summary.EntityData.BundleName = "cisco_ios_xr"
     summary.EntityData.ParentYangName = "frequency-synchronization"
     summary.EntityData.SegmentPath = "summary"
+    summary.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/" + summary.EntityData.SegmentPath
     summary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     summary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     summary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2534,10 +2876,12 @@ func (summary *FrequencySynchronization_Summary) GetEntityData() *types.CommonEn
     summary.EntityData.Children = types.NewOrderedMap()
     summary.EntityData.Children.Append("frequency-summary", types.YChild{"FrequencySummary", nil})
     for i := range summary.FrequencySummary {
+        types.SetYListKey(summary.FrequencySummary[i], i)
         summary.EntityData.Children.Append(types.GetSegmentPath(summary.FrequencySummary[i]), types.YChild{"FrequencySummary", summary.FrequencySummary[i]})
     }
     summary.EntityData.Children.Append("time-of-day-summary", types.YChild{"TimeOfDaySummary", nil})
     for i := range summary.TimeOfDaySummary {
+        types.SetYListKey(summary.TimeOfDaySummary[i], i)
         summary.EntityData.Children.Append(types.GetSegmentPath(summary.TimeOfDaySummary[i]), types.YChild{"TimeOfDaySummary", summary.TimeOfDaySummary[i]})
     }
     summary.EntityData.Leafs = types.NewOrderedMap()
@@ -2552,6 +2896,7 @@ func (summary *FrequencySynchronization_Summary) GetEntityData() *types.CommonEn
 type FrequencySynchronization_Summary_FrequencySummary struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The number of clock-interfaces being driven by the source. The type is
     // interface{} with range: 0..4294967295.
@@ -2574,7 +2919,8 @@ func (frequencySummary *FrequencySynchronization_Summary_FrequencySummary) GetEn
     frequencySummary.EntityData.YangName = "frequency-summary"
     frequencySummary.EntityData.BundleName = "cisco_ios_xr"
     frequencySummary.EntityData.ParentYangName = "summary"
-    frequencySummary.EntityData.SegmentPath = "frequency-summary"
+    frequencySummary.EntityData.SegmentPath = "frequency-summary" + types.AddNoKeyToken(frequencySummary)
+    frequencySummary.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/summary/" + frequencySummary.EntityData.SegmentPath
     frequencySummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     frequencySummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     frequencySummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2607,10 +2953,6 @@ type FrequencySynchronization_Summary_FrequencySummary_Source struct {
     // SONET interfaces. The type is string with pattern: [a-zA-Z0-9._/-]+.
     SonetInterface interface{}
 
-    // Internal Clock Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
-    Node interface{}
-
     // PTP Clock Node. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     PtpNode interface{}
@@ -2626,6 +2968,9 @@ type FrequencySynchronization_Summary_FrequencySummary_Source struct {
     // Clock ID.
     ClockId FrequencySynchronization_Summary_FrequencySummary_Source_ClockId
 
+    // Internal Clock ID.
+    InternalClockId FrequencySynchronization_Summary_FrequencySummary_Source_InternalClockId
+
     // GNSS Receiver ID.
     GnssReceiverId FrequencySynchronization_Summary_FrequencySummary_Source_GnssReceiverId
 }
@@ -2636,18 +2981,19 @@ func (source *FrequencySynchronization_Summary_FrequencySummary_Source) GetEntit
     source.EntityData.BundleName = "cisco_ios_xr"
     source.EntityData.ParentYangName = "frequency-summary"
     source.EntityData.SegmentPath = "source"
+    source.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/summary/frequency-summary/" + source.EntityData.SegmentPath
     source.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     source.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     source.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     source.EntityData.Children = types.NewOrderedMap()
     source.EntityData.Children.Append("clock-id", types.YChild{"ClockId", &source.ClockId})
+    source.EntityData.Children.Append("internal-clock-id", types.YChild{"InternalClockId", &source.InternalClockId})
     source.EntityData.Children.Append("gnss-receiver-id", types.YChild{"GnssReceiverId", &source.GnssReceiverId})
     source.EntityData.Leafs = types.NewOrderedMap()
     source.EntityData.Leafs.Append("source-class", types.YLeaf{"SourceClass", source.SourceClass})
     source.EntityData.Leafs.Append("ethernet-interface", types.YLeaf{"EthernetInterface", source.EthernetInterface})
     source.EntityData.Leafs.Append("sonet-interface", types.YLeaf{"SonetInterface", source.SonetInterface})
-    source.EntityData.Leafs.Append("node", types.YLeaf{"Node", source.Node})
     source.EntityData.Leafs.Append("ptp-node", types.YLeaf{"PtpNode", source.PtpNode})
     source.EntityData.Leafs.Append("satellite-access-interface", types.YLeaf{"SatelliteAccessInterface", source.SatelliteAccessInterface})
     source.EntityData.Leafs.Append("ntp-node", types.YLeaf{"NtpNode", source.NtpNode})
@@ -2681,6 +3027,7 @@ func (clockId *FrequencySynchronization_Summary_FrequencySummary_Source_ClockId)
     clockId.EntityData.BundleName = "cisco_ios_xr"
     clockId.EntityData.ParentYangName = "source"
     clockId.EntityData.SegmentPath = "clock-id"
+    clockId.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/summary/frequency-summary/source/" + clockId.EntityData.SegmentPath
     clockId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clockId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clockId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2694,6 +3041,46 @@ func (clockId *FrequencySynchronization_Summary_FrequencySummary_Source_ClockId)
     clockId.EntityData.YListKeys = []string {}
 
     return &(clockId.EntityData)
+}
+
+// FrequencySynchronization_Summary_FrequencySummary_Source_InternalClockId
+// Internal Clock ID
+type FrequencySynchronization_Summary_FrequencySummary_Source_InternalClockId struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Node. The type is string with pattern:
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    Node interface{}
+
+    // ID (port number for clock interface, receiver number for GNSS receiver).
+    // The type is interface{} with range: 0..4294967295.
+    Id interface{}
+
+    // Name. The type is string with length: 0..144.
+    ClockName interface{}
+}
+
+func (internalClockId *FrequencySynchronization_Summary_FrequencySummary_Source_InternalClockId) GetEntityData() *types.CommonEntityData {
+    internalClockId.EntityData.YFilter = internalClockId.YFilter
+    internalClockId.EntityData.YangName = "internal-clock-id"
+    internalClockId.EntityData.BundleName = "cisco_ios_xr"
+    internalClockId.EntityData.ParentYangName = "source"
+    internalClockId.EntityData.SegmentPath = "internal-clock-id"
+    internalClockId.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/summary/frequency-summary/source/" + internalClockId.EntityData.SegmentPath
+    internalClockId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    internalClockId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    internalClockId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    internalClockId.EntityData.Children = types.NewOrderedMap()
+    internalClockId.EntityData.Leafs = types.NewOrderedMap()
+    internalClockId.EntityData.Leafs.Append("node", types.YLeaf{"Node", internalClockId.Node})
+    internalClockId.EntityData.Leafs.Append("id", types.YLeaf{"Id", internalClockId.Id})
+    internalClockId.EntityData.Leafs.Append("clock-name", types.YLeaf{"ClockName", internalClockId.ClockName})
+
+    internalClockId.EntityData.YListKeys = []string {}
+
+    return &(internalClockId.EntityData)
 }
 
 // FrequencySynchronization_Summary_FrequencySummary_Source_GnssReceiverId
@@ -2720,6 +3107,7 @@ func (gnssReceiverId *FrequencySynchronization_Summary_FrequencySummary_Source_G
     gnssReceiverId.EntityData.BundleName = "cisco_ios_xr"
     gnssReceiverId.EntityData.ParentYangName = "source"
     gnssReceiverId.EntityData.SegmentPath = "gnss-receiver-id"
+    gnssReceiverId.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/summary/frequency-summary/source/" + gnssReceiverId.EntityData.SegmentPath
     gnssReceiverId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     gnssReceiverId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     gnssReceiverId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2740,6 +3128,7 @@ func (gnssReceiverId *FrequencySynchronization_Summary_FrequencySummary_Source_G
 type FrequencySynchronization_Summary_TimeOfDaySummary struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The number of cards having their time-of-day set by the source. The type is
     // interface{} with range: 0..4294967295.
@@ -2754,7 +3143,8 @@ func (timeOfDaySummary *FrequencySynchronization_Summary_TimeOfDaySummary) GetEn
     timeOfDaySummary.EntityData.YangName = "time-of-day-summary"
     timeOfDaySummary.EntityData.BundleName = "cisco_ios_xr"
     timeOfDaySummary.EntityData.ParentYangName = "summary"
-    timeOfDaySummary.EntityData.SegmentPath = "time-of-day-summary"
+    timeOfDaySummary.EntityData.SegmentPath = "time-of-day-summary" + types.AddNoKeyToken(timeOfDaySummary)
+    timeOfDaySummary.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/summary/" + timeOfDaySummary.EntityData.SegmentPath
     timeOfDaySummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     timeOfDaySummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     timeOfDaySummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2785,10 +3175,6 @@ type FrequencySynchronization_Summary_TimeOfDaySummary_Source struct {
     // SONET interfaces. The type is string with pattern: [a-zA-Z0-9._/-]+.
     SonetInterface interface{}
 
-    // Internal Clock Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
-    Node interface{}
-
     // PTP Clock Node. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     PtpNode interface{}
@@ -2804,6 +3190,9 @@ type FrequencySynchronization_Summary_TimeOfDaySummary_Source struct {
     // Clock ID.
     ClockId FrequencySynchronization_Summary_TimeOfDaySummary_Source_ClockId
 
+    // Internal Clock ID.
+    InternalClockId FrequencySynchronization_Summary_TimeOfDaySummary_Source_InternalClockId
+
     // GNSS Receiver ID.
     GnssReceiverId FrequencySynchronization_Summary_TimeOfDaySummary_Source_GnssReceiverId
 }
@@ -2814,18 +3203,19 @@ func (source *FrequencySynchronization_Summary_TimeOfDaySummary_Source) GetEntit
     source.EntityData.BundleName = "cisco_ios_xr"
     source.EntityData.ParentYangName = "time-of-day-summary"
     source.EntityData.SegmentPath = "source"
+    source.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/summary/time-of-day-summary/" + source.EntityData.SegmentPath
     source.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     source.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     source.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     source.EntityData.Children = types.NewOrderedMap()
     source.EntityData.Children.Append("clock-id", types.YChild{"ClockId", &source.ClockId})
+    source.EntityData.Children.Append("internal-clock-id", types.YChild{"InternalClockId", &source.InternalClockId})
     source.EntityData.Children.Append("gnss-receiver-id", types.YChild{"GnssReceiverId", &source.GnssReceiverId})
     source.EntityData.Leafs = types.NewOrderedMap()
     source.EntityData.Leafs.Append("source-class", types.YLeaf{"SourceClass", source.SourceClass})
     source.EntityData.Leafs.Append("ethernet-interface", types.YLeaf{"EthernetInterface", source.EthernetInterface})
     source.EntityData.Leafs.Append("sonet-interface", types.YLeaf{"SonetInterface", source.SonetInterface})
-    source.EntityData.Leafs.Append("node", types.YLeaf{"Node", source.Node})
     source.EntityData.Leafs.Append("ptp-node", types.YLeaf{"PtpNode", source.PtpNode})
     source.EntityData.Leafs.Append("satellite-access-interface", types.YLeaf{"SatelliteAccessInterface", source.SatelliteAccessInterface})
     source.EntityData.Leafs.Append("ntp-node", types.YLeaf{"NtpNode", source.NtpNode})
@@ -2859,6 +3249,7 @@ func (clockId *FrequencySynchronization_Summary_TimeOfDaySummary_Source_ClockId)
     clockId.EntityData.BundleName = "cisco_ios_xr"
     clockId.EntityData.ParentYangName = "source"
     clockId.EntityData.SegmentPath = "clock-id"
+    clockId.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/summary/time-of-day-summary/source/" + clockId.EntityData.SegmentPath
     clockId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clockId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clockId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2872,6 +3263,46 @@ func (clockId *FrequencySynchronization_Summary_TimeOfDaySummary_Source_ClockId)
     clockId.EntityData.YListKeys = []string {}
 
     return &(clockId.EntityData)
+}
+
+// FrequencySynchronization_Summary_TimeOfDaySummary_Source_InternalClockId
+// Internal Clock ID
+type FrequencySynchronization_Summary_TimeOfDaySummary_Source_InternalClockId struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Node. The type is string with pattern:
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    Node interface{}
+
+    // ID (port number for clock interface, receiver number for GNSS receiver).
+    // The type is interface{} with range: 0..4294967295.
+    Id interface{}
+
+    // Name. The type is string with length: 0..144.
+    ClockName interface{}
+}
+
+func (internalClockId *FrequencySynchronization_Summary_TimeOfDaySummary_Source_InternalClockId) GetEntityData() *types.CommonEntityData {
+    internalClockId.EntityData.YFilter = internalClockId.YFilter
+    internalClockId.EntityData.YangName = "internal-clock-id"
+    internalClockId.EntityData.BundleName = "cisco_ios_xr"
+    internalClockId.EntityData.ParentYangName = "source"
+    internalClockId.EntityData.SegmentPath = "internal-clock-id"
+    internalClockId.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/summary/time-of-day-summary/source/" + internalClockId.EntityData.SegmentPath
+    internalClockId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    internalClockId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    internalClockId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    internalClockId.EntityData.Children = types.NewOrderedMap()
+    internalClockId.EntityData.Leafs = types.NewOrderedMap()
+    internalClockId.EntityData.Leafs.Append("node", types.YLeaf{"Node", internalClockId.Node})
+    internalClockId.EntityData.Leafs.Append("id", types.YLeaf{"Id", internalClockId.Id})
+    internalClockId.EntityData.Leafs.Append("clock-name", types.YLeaf{"ClockName", internalClockId.ClockName})
+
+    internalClockId.EntityData.YListKeys = []string {}
+
+    return &(internalClockId.EntityData)
 }
 
 // FrequencySynchronization_Summary_TimeOfDaySummary_Source_GnssReceiverId
@@ -2898,6 +3329,7 @@ func (gnssReceiverId *FrequencySynchronization_Summary_TimeOfDaySummary_Source_G
     gnssReceiverId.EntityData.BundleName = "cisco_ios_xr"
     gnssReceiverId.EntityData.ParentYangName = "source"
     gnssReceiverId.EntityData.SegmentPath = "gnss-receiver-id"
+    gnssReceiverId.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/summary/time-of-day-summary/source/" + gnssReceiverId.EntityData.SegmentPath
     gnssReceiverId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     gnssReceiverId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     gnssReceiverId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2930,6 +3362,7 @@ func (interfaceDatas *FrequencySynchronization_InterfaceDatas) GetEntityData() *
     interfaceDatas.EntityData.BundleName = "cisco_ios_xr"
     interfaceDatas.EntityData.ParentYangName = "frequency-synchronization"
     interfaceDatas.EntityData.SegmentPath = "interface-datas"
+    interfaceDatas.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/" + interfaceDatas.EntityData.SegmentPath
     interfaceDatas.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceDatas.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceDatas.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2951,6 +3384,7 @@ func (interfaceDatas *FrequencySynchronization_InterfaceDatas) GetEntityData() *
 type FrequencySynchronization_InterfaceDatas_InterfaceData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -3036,6 +3470,7 @@ func (interfaceData *FrequencySynchronization_InterfaceDatas_InterfaceData) GetE
     interfaceData.EntityData.BundleName = "cisco_ios_xr"
     interfaceData.EntityData.ParentYangName = "interface-datas"
     interfaceData.EntityData.SegmentPath = "interface-data" + types.AddKeyToken(interfaceData.InterfaceName, "interface-name")
+    interfaceData.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/interface-datas/" + interfaceData.EntityData.SegmentPath
     interfaceData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3052,10 +3487,12 @@ func (interfaceData *FrequencySynchronization_InterfaceDatas_InterfaceData) GetE
     interfaceData.EntityData.Children.Append("esmc-statistics", types.YChild{"EsmcStatistics", &interfaceData.EsmcStatistics})
     interfaceData.EntityData.Children.Append("spa-selection-point", types.YChild{"SpaSelectionPoint", nil})
     for i := range interfaceData.SpaSelectionPoint {
+        types.SetYListKey(interfaceData.SpaSelectionPoint[i], i)
         interfaceData.EntityData.Children.Append(types.GetSegmentPath(interfaceData.SpaSelectionPoint[i]), types.YChild{"SpaSelectionPoint", interfaceData.SpaSelectionPoint[i]})
     }
     interfaceData.EntityData.Children.Append("node-selection-point", types.YChild{"NodeSelectionPoint", nil})
     for i := range interfaceData.NodeSelectionPoint {
+        types.SetYListKey(interfaceData.NodeSelectionPoint[i], i)
         interfaceData.EntityData.Children.Append(types.GetSegmentPath(interfaceData.NodeSelectionPoint[i]), types.YChild{"NodeSelectionPoint", interfaceData.NodeSelectionPoint[i]})
     }
     interfaceData.EntityData.Leafs = types.NewOrderedMap()
@@ -3093,10 +3530,6 @@ type FrequencySynchronization_InterfaceDatas_InterfaceData_Source struct {
     // SONET interfaces. The type is string with pattern: [a-zA-Z0-9._/-]+.
     SonetInterface interface{}
 
-    // Internal Clock Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
-    Node interface{}
-
     // PTP Clock Node. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     PtpNode interface{}
@@ -3112,6 +3545,9 @@ type FrequencySynchronization_InterfaceDatas_InterfaceData_Source struct {
     // Clock ID.
     ClockId FrequencySynchronization_InterfaceDatas_InterfaceData_Source_ClockId
 
+    // Internal Clock ID.
+    InternalClockId FrequencySynchronization_InterfaceDatas_InterfaceData_Source_InternalClockId
+
     // GNSS Receiver ID.
     GnssReceiverId FrequencySynchronization_InterfaceDatas_InterfaceData_Source_GnssReceiverId
 }
@@ -3122,18 +3558,19 @@ func (source *FrequencySynchronization_InterfaceDatas_InterfaceData_Source) GetE
     source.EntityData.BundleName = "cisco_ios_xr"
     source.EntityData.ParentYangName = "interface-data"
     source.EntityData.SegmentPath = "source"
+    source.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/interface-datas/interface-data/" + source.EntityData.SegmentPath
     source.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     source.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     source.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     source.EntityData.Children = types.NewOrderedMap()
     source.EntityData.Children.Append("clock-id", types.YChild{"ClockId", &source.ClockId})
+    source.EntityData.Children.Append("internal-clock-id", types.YChild{"InternalClockId", &source.InternalClockId})
     source.EntityData.Children.Append("gnss-receiver-id", types.YChild{"GnssReceiverId", &source.GnssReceiverId})
     source.EntityData.Leafs = types.NewOrderedMap()
     source.EntityData.Leafs.Append("source-class", types.YLeaf{"SourceClass", source.SourceClass})
     source.EntityData.Leafs.Append("ethernet-interface", types.YLeaf{"EthernetInterface", source.EthernetInterface})
     source.EntityData.Leafs.Append("sonet-interface", types.YLeaf{"SonetInterface", source.SonetInterface})
-    source.EntityData.Leafs.Append("node", types.YLeaf{"Node", source.Node})
     source.EntityData.Leafs.Append("ptp-node", types.YLeaf{"PtpNode", source.PtpNode})
     source.EntityData.Leafs.Append("satellite-access-interface", types.YLeaf{"SatelliteAccessInterface", source.SatelliteAccessInterface})
     source.EntityData.Leafs.Append("ntp-node", types.YLeaf{"NtpNode", source.NtpNode})
@@ -3167,6 +3604,7 @@ func (clockId *FrequencySynchronization_InterfaceDatas_InterfaceData_Source_Cloc
     clockId.EntityData.BundleName = "cisco_ios_xr"
     clockId.EntityData.ParentYangName = "source"
     clockId.EntityData.SegmentPath = "clock-id"
+    clockId.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/interface-datas/interface-data/source/" + clockId.EntityData.SegmentPath
     clockId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clockId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clockId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3180,6 +3618,46 @@ func (clockId *FrequencySynchronization_InterfaceDatas_InterfaceData_Source_Cloc
     clockId.EntityData.YListKeys = []string {}
 
     return &(clockId.EntityData)
+}
+
+// FrequencySynchronization_InterfaceDatas_InterfaceData_Source_InternalClockId
+// Internal Clock ID
+type FrequencySynchronization_InterfaceDatas_InterfaceData_Source_InternalClockId struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Node. The type is string with pattern:
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    Node interface{}
+
+    // ID (port number for clock interface, receiver number for GNSS receiver).
+    // The type is interface{} with range: 0..4294967295.
+    Id interface{}
+
+    // Name. The type is string with length: 0..144.
+    ClockName interface{}
+}
+
+func (internalClockId *FrequencySynchronization_InterfaceDatas_InterfaceData_Source_InternalClockId) GetEntityData() *types.CommonEntityData {
+    internalClockId.EntityData.YFilter = internalClockId.YFilter
+    internalClockId.EntityData.YangName = "internal-clock-id"
+    internalClockId.EntityData.BundleName = "cisco_ios_xr"
+    internalClockId.EntityData.ParentYangName = "source"
+    internalClockId.EntityData.SegmentPath = "internal-clock-id"
+    internalClockId.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/interface-datas/interface-data/source/" + internalClockId.EntityData.SegmentPath
+    internalClockId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    internalClockId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    internalClockId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    internalClockId.EntityData.Children = types.NewOrderedMap()
+    internalClockId.EntityData.Leafs = types.NewOrderedMap()
+    internalClockId.EntityData.Leafs.Append("node", types.YLeaf{"Node", internalClockId.Node})
+    internalClockId.EntityData.Leafs.Append("id", types.YLeaf{"Id", internalClockId.Id})
+    internalClockId.EntityData.Leafs.Append("clock-name", types.YLeaf{"ClockName", internalClockId.ClockName})
+
+    internalClockId.EntityData.YListKeys = []string {}
+
+    return &(internalClockId.EntityData)
 }
 
 // FrequencySynchronization_InterfaceDatas_InterfaceData_Source_GnssReceiverId
@@ -3206,6 +3684,7 @@ func (gnssReceiverId *FrequencySynchronization_InterfaceDatas_InterfaceData_Sour
     gnssReceiverId.EntityData.BundleName = "cisco_ios_xr"
     gnssReceiverId.EntityData.ParentYangName = "source"
     gnssReceiverId.EntityData.SegmentPath = "gnss-receiver-id"
+    gnssReceiverId.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/interface-datas/interface-data/source/" + gnssReceiverId.EntityData.SegmentPath
     gnssReceiverId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     gnssReceiverId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     gnssReceiverId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3236,10 +3715,6 @@ type FrequencySynchronization_InterfaceDatas_InterfaceData_SelectedSource struct
     // SONET interfaces. The type is string with pattern: [a-zA-Z0-9._/-]+.
     SonetInterface interface{}
 
-    // Internal Clock Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
-    Node interface{}
-
     // PTP Clock Node. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     PtpNode interface{}
@@ -3255,6 +3730,9 @@ type FrequencySynchronization_InterfaceDatas_InterfaceData_SelectedSource struct
     // Clock ID.
     ClockId FrequencySynchronization_InterfaceDatas_InterfaceData_SelectedSource_ClockId
 
+    // Internal Clock ID.
+    InternalClockId FrequencySynchronization_InterfaceDatas_InterfaceData_SelectedSource_InternalClockId
+
     // GNSS Receiver ID.
     GnssReceiverId FrequencySynchronization_InterfaceDatas_InterfaceData_SelectedSource_GnssReceiverId
 }
@@ -3265,18 +3743,19 @@ func (selectedSource *FrequencySynchronization_InterfaceDatas_InterfaceData_Sele
     selectedSource.EntityData.BundleName = "cisco_ios_xr"
     selectedSource.EntityData.ParentYangName = "interface-data"
     selectedSource.EntityData.SegmentPath = "selected-source"
+    selectedSource.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/interface-datas/interface-data/" + selectedSource.EntityData.SegmentPath
     selectedSource.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     selectedSource.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     selectedSource.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     selectedSource.EntityData.Children = types.NewOrderedMap()
     selectedSource.EntityData.Children.Append("clock-id", types.YChild{"ClockId", &selectedSource.ClockId})
+    selectedSource.EntityData.Children.Append("internal-clock-id", types.YChild{"InternalClockId", &selectedSource.InternalClockId})
     selectedSource.EntityData.Children.Append("gnss-receiver-id", types.YChild{"GnssReceiverId", &selectedSource.GnssReceiverId})
     selectedSource.EntityData.Leafs = types.NewOrderedMap()
     selectedSource.EntityData.Leafs.Append("source-class", types.YLeaf{"SourceClass", selectedSource.SourceClass})
     selectedSource.EntityData.Leafs.Append("ethernet-interface", types.YLeaf{"EthernetInterface", selectedSource.EthernetInterface})
     selectedSource.EntityData.Leafs.Append("sonet-interface", types.YLeaf{"SonetInterface", selectedSource.SonetInterface})
-    selectedSource.EntityData.Leafs.Append("node", types.YLeaf{"Node", selectedSource.Node})
     selectedSource.EntityData.Leafs.Append("ptp-node", types.YLeaf{"PtpNode", selectedSource.PtpNode})
     selectedSource.EntityData.Leafs.Append("satellite-access-interface", types.YLeaf{"SatelliteAccessInterface", selectedSource.SatelliteAccessInterface})
     selectedSource.EntityData.Leafs.Append("ntp-node", types.YLeaf{"NtpNode", selectedSource.NtpNode})
@@ -3310,6 +3789,7 @@ func (clockId *FrequencySynchronization_InterfaceDatas_InterfaceData_SelectedSou
     clockId.EntityData.BundleName = "cisco_ios_xr"
     clockId.EntityData.ParentYangName = "selected-source"
     clockId.EntityData.SegmentPath = "clock-id"
+    clockId.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/interface-datas/interface-data/selected-source/" + clockId.EntityData.SegmentPath
     clockId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clockId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clockId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3323,6 +3803,46 @@ func (clockId *FrequencySynchronization_InterfaceDatas_InterfaceData_SelectedSou
     clockId.EntityData.YListKeys = []string {}
 
     return &(clockId.EntityData)
+}
+
+// FrequencySynchronization_InterfaceDatas_InterfaceData_SelectedSource_InternalClockId
+// Internal Clock ID
+type FrequencySynchronization_InterfaceDatas_InterfaceData_SelectedSource_InternalClockId struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Node. The type is string with pattern:
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    Node interface{}
+
+    // ID (port number for clock interface, receiver number for GNSS receiver).
+    // The type is interface{} with range: 0..4294967295.
+    Id interface{}
+
+    // Name. The type is string with length: 0..144.
+    ClockName interface{}
+}
+
+func (internalClockId *FrequencySynchronization_InterfaceDatas_InterfaceData_SelectedSource_InternalClockId) GetEntityData() *types.CommonEntityData {
+    internalClockId.EntityData.YFilter = internalClockId.YFilter
+    internalClockId.EntityData.YangName = "internal-clock-id"
+    internalClockId.EntityData.BundleName = "cisco_ios_xr"
+    internalClockId.EntityData.ParentYangName = "selected-source"
+    internalClockId.EntityData.SegmentPath = "internal-clock-id"
+    internalClockId.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/interface-datas/interface-data/selected-source/" + internalClockId.EntityData.SegmentPath
+    internalClockId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    internalClockId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    internalClockId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    internalClockId.EntityData.Children = types.NewOrderedMap()
+    internalClockId.EntityData.Leafs = types.NewOrderedMap()
+    internalClockId.EntityData.Leafs.Append("node", types.YLeaf{"Node", internalClockId.Node})
+    internalClockId.EntityData.Leafs.Append("id", types.YLeaf{"Id", internalClockId.Id})
+    internalClockId.EntityData.Leafs.Append("clock-name", types.YLeaf{"ClockName", internalClockId.ClockName})
+
+    internalClockId.EntityData.YListKeys = []string {}
+
+    return &(internalClockId.EntityData)
 }
 
 // FrequencySynchronization_InterfaceDatas_InterfaceData_SelectedSource_GnssReceiverId
@@ -3349,6 +3869,7 @@ func (gnssReceiverId *FrequencySynchronization_InterfaceDatas_InterfaceData_Sele
     gnssReceiverId.EntityData.BundleName = "cisco_ios_xr"
     gnssReceiverId.EntityData.ParentYangName = "selected-source"
     gnssReceiverId.EntityData.SegmentPath = "gnss-receiver-id"
+    gnssReceiverId.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/interface-datas/interface-data/selected-source/" + gnssReceiverId.EntityData.SegmentPath
     gnssReceiverId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     gnssReceiverId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     gnssReceiverId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3389,6 +3910,7 @@ func (qualityLevelReceived *FrequencySynchronization_InterfaceDatas_InterfaceDat
     qualityLevelReceived.EntityData.BundleName = "cisco_ios_xr"
     qualityLevelReceived.EntityData.ParentYangName = "interface-data"
     qualityLevelReceived.EntityData.SegmentPath = "quality-level-received"
+    qualityLevelReceived.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/interface-datas/interface-data/" + qualityLevelReceived.EntityData.SegmentPath
     qualityLevelReceived.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     qualityLevelReceived.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     qualityLevelReceived.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3430,6 +3952,7 @@ func (qualityLevelDamped *FrequencySynchronization_InterfaceDatas_InterfaceData_
     qualityLevelDamped.EntityData.BundleName = "cisco_ios_xr"
     qualityLevelDamped.EntityData.ParentYangName = "interface-data"
     qualityLevelDamped.EntityData.SegmentPath = "quality-level-damped"
+    qualityLevelDamped.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/interface-datas/interface-data/" + qualityLevelDamped.EntityData.SegmentPath
     qualityLevelDamped.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     qualityLevelDamped.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     qualityLevelDamped.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3471,6 +3994,7 @@ func (qualityLevelEffectiveInput *FrequencySynchronization_InterfaceDatas_Interf
     qualityLevelEffectiveInput.EntityData.BundleName = "cisco_ios_xr"
     qualityLevelEffectiveInput.EntityData.ParentYangName = "interface-data"
     qualityLevelEffectiveInput.EntityData.SegmentPath = "quality-level-effective-input"
+    qualityLevelEffectiveInput.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/interface-datas/interface-data/" + qualityLevelEffectiveInput.EntityData.SegmentPath
     qualityLevelEffectiveInput.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     qualityLevelEffectiveInput.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     qualityLevelEffectiveInput.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3512,6 +4036,7 @@ func (qualityLevelEffectiveOutput *FrequencySynchronization_InterfaceDatas_Inter
     qualityLevelEffectiveOutput.EntityData.BundleName = "cisco_ios_xr"
     qualityLevelEffectiveOutput.EntityData.ParentYangName = "interface-data"
     qualityLevelEffectiveOutput.EntityData.SegmentPath = "quality-level-effective-output"
+    qualityLevelEffectiveOutput.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/interface-datas/interface-data/" + qualityLevelEffectiveOutput.EntityData.SegmentPath
     qualityLevelEffectiveOutput.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     qualityLevelEffectiveOutput.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     qualityLevelEffectiveOutput.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3554,6 +4079,7 @@ func (qualityLevelSelectedSource *FrequencySynchronization_InterfaceDatas_Interf
     qualityLevelSelectedSource.EntityData.BundleName = "cisco_ios_xr"
     qualityLevelSelectedSource.EntityData.ParentYangName = "interface-data"
     qualityLevelSelectedSource.EntityData.SegmentPath = "quality-level-selected-source"
+    qualityLevelSelectedSource.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/interface-datas/interface-data/" + qualityLevelSelectedSource.EntityData.SegmentPath
     qualityLevelSelectedSource.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     qualityLevelSelectedSource.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     qualityLevelSelectedSource.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3600,6 +4126,7 @@ func (ethernetPeerInformation *FrequencySynchronization_InterfaceDatas_Interface
     ethernetPeerInformation.EntityData.BundleName = "cisco_ios_xr"
     ethernetPeerInformation.EntityData.ParentYangName = "interface-data"
     ethernetPeerInformation.EntityData.SegmentPath = "ethernet-peer-information"
+    ethernetPeerInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/interface-datas/interface-data/" + ethernetPeerInformation.EntityData.SegmentPath
     ethernetPeerInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ethernetPeerInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ethernetPeerInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3638,6 +4165,7 @@ func (peerStateTime *FrequencySynchronization_InterfaceDatas_InterfaceData_Ether
     peerStateTime.EntityData.BundleName = "cisco_ios_xr"
     peerStateTime.EntityData.ParentYangName = "ethernet-peer-information"
     peerStateTime.EntityData.SegmentPath = "peer-state-time"
+    peerStateTime.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/interface-datas/interface-data/ethernet-peer-information/" + peerStateTime.EntityData.SegmentPath
     peerStateTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerStateTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerStateTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3673,6 +4201,7 @@ func (lastSsm *FrequencySynchronization_InterfaceDatas_InterfaceData_EthernetPee
     lastSsm.EntityData.BundleName = "cisco_ios_xr"
     lastSsm.EntityData.ParentYangName = "ethernet-peer-information"
     lastSsm.EntityData.SegmentPath = "last-ssm"
+    lastSsm.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/interface-datas/interface-data/ethernet-peer-information/" + lastSsm.EntityData.SegmentPath
     lastSsm.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastSsm.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastSsm.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3731,6 +4260,7 @@ func (esmcStatistics *FrequencySynchronization_InterfaceDatas_InterfaceData_Esmc
     esmcStatistics.EntityData.BundleName = "cisco_ios_xr"
     esmcStatistics.EntityData.ParentYangName = "interface-data"
     esmcStatistics.EntityData.SegmentPath = "esmc-statistics"
+    esmcStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/interface-datas/interface-data/" + esmcStatistics.EntityData.SegmentPath
     esmcStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     esmcStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     esmcStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3756,6 +4286,7 @@ func (esmcStatistics *FrequencySynchronization_InterfaceDatas_InterfaceData_Esmc
 type FrequencySynchronization_InterfaceDatas_InterfaceData_SpaSelectionPoint struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Selection point ID. The type is interface{} with range: 0..255.
     SelectionPoint interface{}
@@ -3769,7 +4300,8 @@ func (spaSelectionPoint *FrequencySynchronization_InterfaceDatas_InterfaceData_S
     spaSelectionPoint.EntityData.YangName = "spa-selection-point"
     spaSelectionPoint.EntityData.BundleName = "cisco_ios_xr"
     spaSelectionPoint.EntityData.ParentYangName = "interface-data"
-    spaSelectionPoint.EntityData.SegmentPath = "spa-selection-point"
+    spaSelectionPoint.EntityData.SegmentPath = "spa-selection-point" + types.AddNoKeyToken(spaSelectionPoint)
+    spaSelectionPoint.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/interface-datas/interface-data/" + spaSelectionPoint.EntityData.SegmentPath
     spaSelectionPoint.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     spaSelectionPoint.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     spaSelectionPoint.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3789,6 +4321,7 @@ func (spaSelectionPoint *FrequencySynchronization_InterfaceDatas_InterfaceData_S
 type FrequencySynchronization_InterfaceDatas_InterfaceData_NodeSelectionPoint struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Selection point ID. The type is interface{} with range: 0..255.
     SelectionPoint interface{}
@@ -3802,7 +4335,8 @@ func (nodeSelectionPoint *FrequencySynchronization_InterfaceDatas_InterfaceData_
     nodeSelectionPoint.EntityData.YangName = "node-selection-point"
     nodeSelectionPoint.EntityData.BundleName = "cisco_ios_xr"
     nodeSelectionPoint.EntityData.ParentYangName = "interface-data"
-    nodeSelectionPoint.EntityData.SegmentPath = "node-selection-point"
+    nodeSelectionPoint.EntityData.SegmentPath = "node-selection-point" + types.AddNoKeyToken(nodeSelectionPoint)
+    nodeSelectionPoint.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/interface-datas/interface-data/" + nodeSelectionPoint.EntityData.SegmentPath
     nodeSelectionPoint.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodeSelectionPoint.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodeSelectionPoint.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3834,6 +4368,7 @@ func (nodes *FrequencySynchronization_Nodes) GetEntityData() *types.CommonEntity
     nodes.EntityData.BundleName = "cisco_ios_xr"
     nodes.EntityData.ParentYangName = "frequency-synchronization"
     nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/" + nodes.EntityData.SegmentPath
     nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3855,6 +4390,7 @@ func (nodes *FrequencySynchronization_Nodes) GetEntityData() *types.CommonEntity
 type FrequencySynchronization_Nodes_Node struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Node. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -3891,6 +4427,7 @@ func (node *FrequencySynchronization_Nodes_Node) GetEntityData() *types.CommonEn
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
     node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.Node, "node")
+    node.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/nodes/" + node.EntityData.SegmentPath
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3953,6 +4490,7 @@ func (ntpData *FrequencySynchronization_Nodes_Node_NtpData) GetEntityData() *typ
     ntpData.EntityData.BundleName = "cisco_ios_xr"
     ntpData.EntityData.ParentYangName = "node"
     ntpData.EntityData.SegmentPath = "ntp-data"
+    ntpData.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/nodes/node/" + ntpData.EntityData.SegmentPath
     ntpData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ntpData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ntpData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3961,10 +4499,12 @@ func (ntpData *FrequencySynchronization_Nodes_Node_NtpData) GetEntityData() *typ
     ntpData.EntityData.Children.Append("quality-level-effective-input", types.YChild{"QualityLevelEffectiveInput", &ntpData.QualityLevelEffectiveInput})
     ntpData.EntityData.Children.Append("spa-selection-point", types.YChild{"SpaSelectionPoint", nil})
     for i := range ntpData.SpaSelectionPoint {
+        types.SetYListKey(ntpData.SpaSelectionPoint[i], i)
         ntpData.EntityData.Children.Append(types.GetSegmentPath(ntpData.SpaSelectionPoint[i]), types.YChild{"SpaSelectionPoint", ntpData.SpaSelectionPoint[i]})
     }
     ntpData.EntityData.Children.Append("node-selection-point", types.YChild{"NodeSelectionPoint", nil})
     for i := range ntpData.NodeSelectionPoint {
+        types.SetYListKey(ntpData.NodeSelectionPoint[i], i)
         ntpData.EntityData.Children.Append(types.GetSegmentPath(ntpData.NodeSelectionPoint[i]), types.YChild{"NodeSelectionPoint", ntpData.NodeSelectionPoint[i]})
     }
     ntpData.EntityData.Leafs = types.NewOrderedMap()
@@ -4004,6 +4544,7 @@ func (qualityLevelEffectiveInput *FrequencySynchronization_Nodes_Node_NtpData_Qu
     qualityLevelEffectiveInput.EntityData.BundleName = "cisco_ios_xr"
     qualityLevelEffectiveInput.EntityData.ParentYangName = "ntp-data"
     qualityLevelEffectiveInput.EntityData.SegmentPath = "quality-level-effective-input"
+    qualityLevelEffectiveInput.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/nodes/node/ntp-data/" + qualityLevelEffectiveInput.EntityData.SegmentPath
     qualityLevelEffectiveInput.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     qualityLevelEffectiveInput.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     qualityLevelEffectiveInput.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4025,6 +4566,7 @@ func (qualityLevelEffectiveInput *FrequencySynchronization_Nodes_Node_NtpData_Qu
 type FrequencySynchronization_Nodes_Node_NtpData_SpaSelectionPoint struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Selection point ID. The type is interface{} with range: 0..255.
     SelectionPoint interface{}
@@ -4038,7 +4580,8 @@ func (spaSelectionPoint *FrequencySynchronization_Nodes_Node_NtpData_SpaSelectio
     spaSelectionPoint.EntityData.YangName = "spa-selection-point"
     spaSelectionPoint.EntityData.BundleName = "cisco_ios_xr"
     spaSelectionPoint.EntityData.ParentYangName = "ntp-data"
-    spaSelectionPoint.EntityData.SegmentPath = "spa-selection-point"
+    spaSelectionPoint.EntityData.SegmentPath = "spa-selection-point" + types.AddNoKeyToken(spaSelectionPoint)
+    spaSelectionPoint.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/nodes/node/ntp-data/" + spaSelectionPoint.EntityData.SegmentPath
     spaSelectionPoint.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     spaSelectionPoint.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     spaSelectionPoint.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4058,6 +4601,7 @@ func (spaSelectionPoint *FrequencySynchronization_Nodes_Node_NtpData_SpaSelectio
 type FrequencySynchronization_Nodes_Node_NtpData_NodeSelectionPoint struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Selection point ID. The type is interface{} with range: 0..255.
     SelectionPoint interface{}
@@ -4071,7 +4615,8 @@ func (nodeSelectionPoint *FrequencySynchronization_Nodes_Node_NtpData_NodeSelect
     nodeSelectionPoint.EntityData.YangName = "node-selection-point"
     nodeSelectionPoint.EntityData.BundleName = "cisco_ios_xr"
     nodeSelectionPoint.EntityData.ParentYangName = "ntp-data"
-    nodeSelectionPoint.EntityData.SegmentPath = "node-selection-point"
+    nodeSelectionPoint.EntityData.SegmentPath = "node-selection-point" + types.AddNoKeyToken(nodeSelectionPoint)
+    nodeSelectionPoint.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/nodes/node/ntp-data/" + nodeSelectionPoint.EntityData.SegmentPath
     nodeSelectionPoint.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodeSelectionPoint.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodeSelectionPoint.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4103,6 +4648,7 @@ func (selectionPointDatas *FrequencySynchronization_Nodes_Node_SelectionPointDat
     selectionPointDatas.EntityData.BundleName = "cisco_ios_xr"
     selectionPointDatas.EntityData.ParentYangName = "node"
     selectionPointDatas.EntityData.SegmentPath = "selection-point-datas"
+    selectionPointDatas.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/nodes/node/" + selectionPointDatas.EntityData.SegmentPath
     selectionPointDatas.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     selectionPointDatas.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     selectionPointDatas.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4124,6 +4670,7 @@ func (selectionPointDatas *FrequencySynchronization_Nodes_Node_SelectionPointDat
 type FrequencySynchronization_Nodes_Node_SelectionPointDatas_SelectionPointData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Selection point ID. The type is interface{} with
     // range: 0..4294967295.
@@ -4161,6 +4708,7 @@ func (selectionPointData *FrequencySynchronization_Nodes_Node_SelectionPointData
     selectionPointData.EntityData.BundleName = "cisco_ios_xr"
     selectionPointData.EntityData.ParentYangName = "selection-point-datas"
     selectionPointData.EntityData.SegmentPath = "selection-point-data" + types.AddKeyToken(selectionPointData.SelectionPoint, "selection-point")
+    selectionPointData.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/nodes/node/selection-point-datas/" + selectionPointData.EntityData.SegmentPath
     selectionPointData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     selectionPointData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     selectionPointData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4221,6 +4769,7 @@ func (output *FrequencySynchronization_Nodes_Node_SelectionPointDatas_SelectionP
     output.EntityData.BundleName = "cisco_ios_xr"
     output.EntityData.ParentYangName = "selection-point-data"
     output.EntityData.SegmentPath = "output"
+    output.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/nodes/node/selection-point-datas/selection-point-data/" + output.EntityData.SegmentPath
     output.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     output.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     output.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4228,18 +4777,22 @@ func (output *FrequencySynchronization_Nodes_Node_SelectionPointDatas_SelectionP
     output.EntityData.Children = types.NewOrderedMap()
     output.EntityData.Children.Append("spa-selection-point", types.YChild{"SpaSelectionPoint", nil})
     for i := range output.SpaSelectionPoint {
+        types.SetYListKey(output.SpaSelectionPoint[i], i)
         output.EntityData.Children.Append(types.GetSegmentPath(output.SpaSelectionPoint[i]), types.YChild{"SpaSelectionPoint", output.SpaSelectionPoint[i]})
     }
     output.EntityData.Children.Append("node-selection-point", types.YChild{"NodeSelectionPoint", nil})
     for i := range output.NodeSelectionPoint {
+        types.SetYListKey(output.NodeSelectionPoint[i], i)
         output.EntityData.Children.Append(types.GetSegmentPath(output.NodeSelectionPoint[i]), types.YChild{"NodeSelectionPoint", output.NodeSelectionPoint[i]})
     }
     output.EntityData.Children.Append("chassis-selection-point", types.YChild{"ChassisSelectionPoint", nil})
     for i := range output.ChassisSelectionPoint {
+        types.SetYListKey(output.ChassisSelectionPoint[i], i)
         output.EntityData.Children.Append(types.GetSegmentPath(output.ChassisSelectionPoint[i]), types.YChild{"ChassisSelectionPoint", output.ChassisSelectionPoint[i]})
     }
     output.EntityData.Children.Append("router-selection-point", types.YChild{"RouterSelectionPoint", nil})
     for i := range output.RouterSelectionPoint {
+        types.SetYListKey(output.RouterSelectionPoint[i], i)
         output.EntityData.Children.Append(types.GetSegmentPath(output.RouterSelectionPoint[i]), types.YChild{"RouterSelectionPoint", output.RouterSelectionPoint[i]})
     }
     output.EntityData.Leafs = types.NewOrderedMap()
@@ -4257,6 +4810,7 @@ func (output *FrequencySynchronization_Nodes_Node_SelectionPointDatas_SelectionP
 type FrequencySynchronization_Nodes_Node_SelectionPointDatas_SelectionPointData_Output_SpaSelectionPoint struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Selection point ID. The type is interface{} with range: 0..255.
     SelectionPoint interface{}
@@ -4270,7 +4824,8 @@ func (spaSelectionPoint *FrequencySynchronization_Nodes_Node_SelectionPointDatas
     spaSelectionPoint.EntityData.YangName = "spa-selection-point"
     spaSelectionPoint.EntityData.BundleName = "cisco_ios_xr"
     spaSelectionPoint.EntityData.ParentYangName = "output"
-    spaSelectionPoint.EntityData.SegmentPath = "spa-selection-point"
+    spaSelectionPoint.EntityData.SegmentPath = "spa-selection-point" + types.AddNoKeyToken(spaSelectionPoint)
+    spaSelectionPoint.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/nodes/node/selection-point-datas/selection-point-data/output/" + spaSelectionPoint.EntityData.SegmentPath
     spaSelectionPoint.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     spaSelectionPoint.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     spaSelectionPoint.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4290,6 +4845,7 @@ func (spaSelectionPoint *FrequencySynchronization_Nodes_Node_SelectionPointDatas
 type FrequencySynchronization_Nodes_Node_SelectionPointDatas_SelectionPointData_Output_NodeSelectionPoint struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Selection point ID. The type is interface{} with range: 0..255.
     SelectionPoint interface{}
@@ -4303,7 +4859,8 @@ func (nodeSelectionPoint *FrequencySynchronization_Nodes_Node_SelectionPointData
     nodeSelectionPoint.EntityData.YangName = "node-selection-point"
     nodeSelectionPoint.EntityData.BundleName = "cisco_ios_xr"
     nodeSelectionPoint.EntityData.ParentYangName = "output"
-    nodeSelectionPoint.EntityData.SegmentPath = "node-selection-point"
+    nodeSelectionPoint.EntityData.SegmentPath = "node-selection-point" + types.AddNoKeyToken(nodeSelectionPoint)
+    nodeSelectionPoint.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/nodes/node/selection-point-datas/selection-point-data/output/" + nodeSelectionPoint.EntityData.SegmentPath
     nodeSelectionPoint.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodeSelectionPoint.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodeSelectionPoint.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4323,6 +4880,7 @@ func (nodeSelectionPoint *FrequencySynchronization_Nodes_Node_SelectionPointData
 type FrequencySynchronization_Nodes_Node_SelectionPointDatas_SelectionPointData_Output_ChassisSelectionPoint struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Selection point ID. The type is interface{} with range: 0..255.
     SelectionPoint interface{}
@@ -4336,7 +4894,8 @@ func (chassisSelectionPoint *FrequencySynchronization_Nodes_Node_SelectionPointD
     chassisSelectionPoint.EntityData.YangName = "chassis-selection-point"
     chassisSelectionPoint.EntityData.BundleName = "cisco_ios_xr"
     chassisSelectionPoint.EntityData.ParentYangName = "output"
-    chassisSelectionPoint.EntityData.SegmentPath = "chassis-selection-point"
+    chassisSelectionPoint.EntityData.SegmentPath = "chassis-selection-point" + types.AddNoKeyToken(chassisSelectionPoint)
+    chassisSelectionPoint.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/nodes/node/selection-point-datas/selection-point-data/output/" + chassisSelectionPoint.EntityData.SegmentPath
     chassisSelectionPoint.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     chassisSelectionPoint.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     chassisSelectionPoint.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4356,6 +4915,7 @@ func (chassisSelectionPoint *FrequencySynchronization_Nodes_Node_SelectionPointD
 type FrequencySynchronization_Nodes_Node_SelectionPointDatas_SelectionPointData_Output_RouterSelectionPoint struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Selection point ID. The type is interface{} with range: 0..255.
     SelectionPoint interface{}
@@ -4369,7 +4929,8 @@ func (routerSelectionPoint *FrequencySynchronization_Nodes_Node_SelectionPointDa
     routerSelectionPoint.EntityData.YangName = "router-selection-point"
     routerSelectionPoint.EntityData.BundleName = "cisco_ios_xr"
     routerSelectionPoint.EntityData.ParentYangName = "output"
-    routerSelectionPoint.EntityData.SegmentPath = "router-selection-point"
+    routerSelectionPoint.EntityData.SegmentPath = "router-selection-point" + types.AddNoKeyToken(routerSelectionPoint)
+    routerSelectionPoint.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/nodes/node/selection-point-datas/selection-point-data/output/" + routerSelectionPoint.EntityData.SegmentPath
     routerSelectionPoint.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routerSelectionPoint.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routerSelectionPoint.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4405,6 +4966,7 @@ func (lastProgrammed *FrequencySynchronization_Nodes_Node_SelectionPointDatas_Se
     lastProgrammed.EntityData.BundleName = "cisco_ios_xr"
     lastProgrammed.EntityData.ParentYangName = "selection-point-data"
     lastProgrammed.EntityData.SegmentPath = "last-programmed"
+    lastProgrammed.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/nodes/node/selection-point-datas/selection-point-data/" + lastProgrammed.EntityData.SegmentPath
     lastProgrammed.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastProgrammed.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastProgrammed.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4440,6 +5002,7 @@ func (lastSelection *FrequencySynchronization_Nodes_Node_SelectionPointDatas_Sel
     lastSelection.EntityData.BundleName = "cisco_ios_xr"
     lastSelection.EntityData.ParentYangName = "selection-point-data"
     lastSelection.EntityData.SegmentPath = "last-selection"
+    lastSelection.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/nodes/node/selection-point-datas/selection-point-data/" + lastSelection.EntityData.SegmentPath
     lastSelection.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastSelection.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastSelection.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4471,6 +5034,7 @@ func (configurationErrors *FrequencySynchronization_Nodes_Node_ConfigurationErro
     configurationErrors.EntityData.BundleName = "cisco_ios_xr"
     configurationErrors.EntityData.ParentYangName = "node"
     configurationErrors.EntityData.SegmentPath = "configuration-errors"
+    configurationErrors.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/nodes/node/" + configurationErrors.EntityData.SegmentPath
     configurationErrors.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configurationErrors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configurationErrors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4478,6 +5042,7 @@ func (configurationErrors *FrequencySynchronization_Nodes_Node_ConfigurationErro
     configurationErrors.EntityData.Children = types.NewOrderedMap()
     configurationErrors.EntityData.Children.Append("error-source", types.YChild{"ErrorSource", nil})
     for i := range configurationErrors.ErrorSource {
+        types.SetYListKey(configurationErrors.ErrorSource[i], i)
         configurationErrors.EntityData.Children.Append(types.GetSegmentPath(configurationErrors.ErrorSource[i]), types.YChild{"ErrorSource", configurationErrors.ErrorSource[i]})
     }
     configurationErrors.EntityData.Leafs = types.NewOrderedMap()
@@ -4492,6 +5057,7 @@ func (configurationErrors *FrequencySynchronization_Nodes_Node_ConfigurationErro
 type FrequencySynchronization_Nodes_Node_ConfigurationErrors_ErrorSource struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Frequency Synchronization enable error. The type is bool.
     EnableError interface{}
@@ -4544,7 +5110,8 @@ func (errorSource *FrequencySynchronization_Nodes_Node_ConfigurationErrors_Error
     errorSource.EntityData.YangName = "error-source"
     errorSource.EntityData.BundleName = "cisco_ios_xr"
     errorSource.EntityData.ParentYangName = "configuration-errors"
-    errorSource.EntityData.SegmentPath = "error-source"
+    errorSource.EntityData.SegmentPath = "error-source" + types.AddNoKeyToken(errorSource)
+    errorSource.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/nodes/node/configuration-errors/" + errorSource.EntityData.SegmentPath
     errorSource.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     errorSource.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     errorSource.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4587,10 +5154,6 @@ type FrequencySynchronization_Nodes_Node_ConfigurationErrors_ErrorSource_Source 
     // SONET interfaces. The type is string with pattern: [a-zA-Z0-9._/-]+.
     SonetInterface interface{}
 
-    // Internal Clock Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
-    Node interface{}
-
     // PTP Clock Node. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     PtpNode interface{}
@@ -4606,6 +5169,9 @@ type FrequencySynchronization_Nodes_Node_ConfigurationErrors_ErrorSource_Source 
     // Clock ID.
     ClockId FrequencySynchronization_Nodes_Node_ConfigurationErrors_ErrorSource_Source_ClockId
 
+    // Internal Clock ID.
+    InternalClockId FrequencySynchronization_Nodes_Node_ConfigurationErrors_ErrorSource_Source_InternalClockId
+
     // GNSS Receiver ID.
     GnssReceiverId FrequencySynchronization_Nodes_Node_ConfigurationErrors_ErrorSource_Source_GnssReceiverId
 }
@@ -4616,18 +5182,19 @@ func (source *FrequencySynchronization_Nodes_Node_ConfigurationErrors_ErrorSourc
     source.EntityData.BundleName = "cisco_ios_xr"
     source.EntityData.ParentYangName = "error-source"
     source.EntityData.SegmentPath = "source"
+    source.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/nodes/node/configuration-errors/error-source/" + source.EntityData.SegmentPath
     source.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     source.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     source.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     source.EntityData.Children = types.NewOrderedMap()
     source.EntityData.Children.Append("clock-id", types.YChild{"ClockId", &source.ClockId})
+    source.EntityData.Children.Append("internal-clock-id", types.YChild{"InternalClockId", &source.InternalClockId})
     source.EntityData.Children.Append("gnss-receiver-id", types.YChild{"GnssReceiverId", &source.GnssReceiverId})
     source.EntityData.Leafs = types.NewOrderedMap()
     source.EntityData.Leafs.Append("source-class", types.YLeaf{"SourceClass", source.SourceClass})
     source.EntityData.Leafs.Append("ethernet-interface", types.YLeaf{"EthernetInterface", source.EthernetInterface})
     source.EntityData.Leafs.Append("sonet-interface", types.YLeaf{"SonetInterface", source.SonetInterface})
-    source.EntityData.Leafs.Append("node", types.YLeaf{"Node", source.Node})
     source.EntityData.Leafs.Append("ptp-node", types.YLeaf{"PtpNode", source.PtpNode})
     source.EntityData.Leafs.Append("satellite-access-interface", types.YLeaf{"SatelliteAccessInterface", source.SatelliteAccessInterface})
     source.EntityData.Leafs.Append("ntp-node", types.YLeaf{"NtpNode", source.NtpNode})
@@ -4661,6 +5228,7 @@ func (clockId *FrequencySynchronization_Nodes_Node_ConfigurationErrors_ErrorSour
     clockId.EntityData.BundleName = "cisco_ios_xr"
     clockId.EntityData.ParentYangName = "source"
     clockId.EntityData.SegmentPath = "clock-id"
+    clockId.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/nodes/node/configuration-errors/error-source/source/" + clockId.EntityData.SegmentPath
     clockId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clockId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clockId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4674,6 +5242,46 @@ func (clockId *FrequencySynchronization_Nodes_Node_ConfigurationErrors_ErrorSour
     clockId.EntityData.YListKeys = []string {}
 
     return &(clockId.EntityData)
+}
+
+// FrequencySynchronization_Nodes_Node_ConfigurationErrors_ErrorSource_Source_InternalClockId
+// Internal Clock ID
+type FrequencySynchronization_Nodes_Node_ConfigurationErrors_ErrorSource_Source_InternalClockId struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Node. The type is string with pattern:
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    Node interface{}
+
+    // ID (port number for clock interface, receiver number for GNSS receiver).
+    // The type is interface{} with range: 0..4294967295.
+    Id interface{}
+
+    // Name. The type is string with length: 0..144.
+    ClockName interface{}
+}
+
+func (internalClockId *FrequencySynchronization_Nodes_Node_ConfigurationErrors_ErrorSource_Source_InternalClockId) GetEntityData() *types.CommonEntityData {
+    internalClockId.EntityData.YFilter = internalClockId.YFilter
+    internalClockId.EntityData.YangName = "internal-clock-id"
+    internalClockId.EntityData.BundleName = "cisco_ios_xr"
+    internalClockId.EntityData.ParentYangName = "source"
+    internalClockId.EntityData.SegmentPath = "internal-clock-id"
+    internalClockId.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/nodes/node/configuration-errors/error-source/source/" + internalClockId.EntityData.SegmentPath
+    internalClockId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    internalClockId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    internalClockId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    internalClockId.EntityData.Children = types.NewOrderedMap()
+    internalClockId.EntityData.Leafs = types.NewOrderedMap()
+    internalClockId.EntityData.Leafs.Append("node", types.YLeaf{"Node", internalClockId.Node})
+    internalClockId.EntityData.Leafs.Append("id", types.YLeaf{"Id", internalClockId.Id})
+    internalClockId.EntityData.Leafs.Append("clock-name", types.YLeaf{"ClockName", internalClockId.ClockName})
+
+    internalClockId.EntityData.YListKeys = []string {}
+
+    return &(internalClockId.EntityData)
 }
 
 // FrequencySynchronization_Nodes_Node_ConfigurationErrors_ErrorSource_Source_GnssReceiverId
@@ -4700,6 +5308,7 @@ func (gnssReceiverId *FrequencySynchronization_Nodes_Node_ConfigurationErrors_Er
     gnssReceiverId.EntityData.BundleName = "cisco_ios_xr"
     gnssReceiverId.EntityData.ParentYangName = "source"
     gnssReceiverId.EntityData.SegmentPath = "gnss-receiver-id"
+    gnssReceiverId.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/nodes/node/configuration-errors/error-source/source/" + gnssReceiverId.EntityData.SegmentPath
     gnssReceiverId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     gnssReceiverId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     gnssReceiverId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4740,6 +5349,7 @@ func (inputMinQl *FrequencySynchronization_Nodes_Node_ConfigurationErrors_ErrorS
     inputMinQl.EntityData.BundleName = "cisco_ios_xr"
     inputMinQl.EntityData.ParentYangName = "error-source"
     inputMinQl.EntityData.SegmentPath = "input-min-ql"
+    inputMinQl.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/nodes/node/configuration-errors/error-source/" + inputMinQl.EntityData.SegmentPath
     inputMinQl.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     inputMinQl.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inputMinQl.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4781,6 +5391,7 @@ func (inputExactQl *FrequencySynchronization_Nodes_Node_ConfigurationErrors_Erro
     inputExactQl.EntityData.BundleName = "cisco_ios_xr"
     inputExactQl.EntityData.ParentYangName = "error-source"
     inputExactQl.EntityData.SegmentPath = "input-exact-ql"
+    inputExactQl.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/nodes/node/configuration-errors/error-source/" + inputExactQl.EntityData.SegmentPath
     inputExactQl.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     inputExactQl.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inputExactQl.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4822,6 +5433,7 @@ func (inputMaxQl *FrequencySynchronization_Nodes_Node_ConfigurationErrors_ErrorS
     inputMaxQl.EntityData.BundleName = "cisco_ios_xr"
     inputMaxQl.EntityData.ParentYangName = "error-source"
     inputMaxQl.EntityData.SegmentPath = "input-max-ql"
+    inputMaxQl.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/nodes/node/configuration-errors/error-source/" + inputMaxQl.EntityData.SegmentPath
     inputMaxQl.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     inputMaxQl.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inputMaxQl.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4863,6 +5475,7 @@ func (outputMinQl *FrequencySynchronization_Nodes_Node_ConfigurationErrors_Error
     outputMinQl.EntityData.BundleName = "cisco_ios_xr"
     outputMinQl.EntityData.ParentYangName = "error-source"
     outputMinQl.EntityData.SegmentPath = "output-min-ql"
+    outputMinQl.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/nodes/node/configuration-errors/error-source/" + outputMinQl.EntityData.SegmentPath
     outputMinQl.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     outputMinQl.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outputMinQl.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4904,6 +5517,7 @@ func (outputExactQl *FrequencySynchronization_Nodes_Node_ConfigurationErrors_Err
     outputExactQl.EntityData.BundleName = "cisco_ios_xr"
     outputExactQl.EntityData.ParentYangName = "error-source"
     outputExactQl.EntityData.SegmentPath = "output-exact-ql"
+    outputExactQl.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/nodes/node/configuration-errors/error-source/" + outputExactQl.EntityData.SegmentPath
     outputExactQl.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     outputExactQl.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outputExactQl.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4945,6 +5559,7 @@ func (outputMaxQl *FrequencySynchronization_Nodes_Node_ConfigurationErrors_Error
     outputMaxQl.EntityData.BundleName = "cisco_ios_xr"
     outputMaxQl.EntityData.ParentYangName = "error-source"
     outputMaxQl.EntityData.SegmentPath = "output-max-ql"
+    outputMaxQl.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/nodes/node/configuration-errors/error-source/" + outputMaxQl.EntityData.SegmentPath
     outputMaxQl.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     outputMaxQl.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outputMaxQl.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5002,6 +5617,7 @@ func (ptpData *FrequencySynchronization_Nodes_Node_PtpData) GetEntityData() *typ
     ptpData.EntityData.BundleName = "cisco_ios_xr"
     ptpData.EntityData.ParentYangName = "node"
     ptpData.EntityData.SegmentPath = "ptp-data"
+    ptpData.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/nodes/node/" + ptpData.EntityData.SegmentPath
     ptpData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ptpData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ptpData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5010,10 +5626,12 @@ func (ptpData *FrequencySynchronization_Nodes_Node_PtpData) GetEntityData() *typ
     ptpData.EntityData.Children.Append("quality-level-effective-input", types.YChild{"QualityLevelEffectiveInput", &ptpData.QualityLevelEffectiveInput})
     ptpData.EntityData.Children.Append("spa-selection-point", types.YChild{"SpaSelectionPoint", nil})
     for i := range ptpData.SpaSelectionPoint {
+        types.SetYListKey(ptpData.SpaSelectionPoint[i], i)
         ptpData.EntityData.Children.Append(types.GetSegmentPath(ptpData.SpaSelectionPoint[i]), types.YChild{"SpaSelectionPoint", ptpData.SpaSelectionPoint[i]})
     }
     ptpData.EntityData.Children.Append("node-selection-point", types.YChild{"NodeSelectionPoint", nil})
     for i := range ptpData.NodeSelectionPoint {
+        types.SetYListKey(ptpData.NodeSelectionPoint[i], i)
         ptpData.EntityData.Children.Append(types.GetSegmentPath(ptpData.NodeSelectionPoint[i]), types.YChild{"NodeSelectionPoint", ptpData.NodeSelectionPoint[i]})
     }
     ptpData.EntityData.Leafs = types.NewOrderedMap()
@@ -5053,6 +5671,7 @@ func (qualityLevelEffectiveInput *FrequencySynchronization_Nodes_Node_PtpData_Qu
     qualityLevelEffectiveInput.EntityData.BundleName = "cisco_ios_xr"
     qualityLevelEffectiveInput.EntityData.ParentYangName = "ptp-data"
     qualityLevelEffectiveInput.EntityData.SegmentPath = "quality-level-effective-input"
+    qualityLevelEffectiveInput.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/nodes/node/ptp-data/" + qualityLevelEffectiveInput.EntityData.SegmentPath
     qualityLevelEffectiveInput.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     qualityLevelEffectiveInput.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     qualityLevelEffectiveInput.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5074,6 +5693,7 @@ func (qualityLevelEffectiveInput *FrequencySynchronization_Nodes_Node_PtpData_Qu
 type FrequencySynchronization_Nodes_Node_PtpData_SpaSelectionPoint struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Selection point ID. The type is interface{} with range: 0..255.
     SelectionPoint interface{}
@@ -5087,7 +5707,8 @@ func (spaSelectionPoint *FrequencySynchronization_Nodes_Node_PtpData_SpaSelectio
     spaSelectionPoint.EntityData.YangName = "spa-selection-point"
     spaSelectionPoint.EntityData.BundleName = "cisco_ios_xr"
     spaSelectionPoint.EntityData.ParentYangName = "ptp-data"
-    spaSelectionPoint.EntityData.SegmentPath = "spa-selection-point"
+    spaSelectionPoint.EntityData.SegmentPath = "spa-selection-point" + types.AddNoKeyToken(spaSelectionPoint)
+    spaSelectionPoint.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/nodes/node/ptp-data/" + spaSelectionPoint.EntityData.SegmentPath
     spaSelectionPoint.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     spaSelectionPoint.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     spaSelectionPoint.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5107,6 +5728,7 @@ func (spaSelectionPoint *FrequencySynchronization_Nodes_Node_PtpData_SpaSelectio
 type FrequencySynchronization_Nodes_Node_PtpData_NodeSelectionPoint struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Selection point ID. The type is interface{} with range: 0..255.
     SelectionPoint interface{}
@@ -5120,7 +5742,8 @@ func (nodeSelectionPoint *FrequencySynchronization_Nodes_Node_PtpData_NodeSelect
     nodeSelectionPoint.EntityData.YangName = "node-selection-point"
     nodeSelectionPoint.EntityData.BundleName = "cisco_ios_xr"
     nodeSelectionPoint.EntityData.ParentYangName = "ptp-data"
-    nodeSelectionPoint.EntityData.SegmentPath = "node-selection-point"
+    nodeSelectionPoint.EntityData.SegmentPath = "node-selection-point" + types.AddNoKeyToken(nodeSelectionPoint)
+    nodeSelectionPoint.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/nodes/node/ptp-data/" + nodeSelectionPoint.EntityData.SegmentPath
     nodeSelectionPoint.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodeSelectionPoint.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodeSelectionPoint.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5193,6 +5816,7 @@ func (ssmSummary *FrequencySynchronization_Nodes_Node_SsmSummary) GetEntityData(
     ssmSummary.EntityData.BundleName = "cisco_ios_xr"
     ssmSummary.EntityData.ParentYangName = "node"
     ssmSummary.EntityData.SegmentPath = "ssm-summary"
+    ssmSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/nodes/node/" + ssmSummary.EntityData.SegmentPath
     ssmSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ssmSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ssmSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5234,6 +5858,7 @@ func (detailedClockDatas *FrequencySynchronization_Nodes_Node_DetailedClockDatas
     detailedClockDatas.EntityData.BundleName = "cisco_ios_xr"
     detailedClockDatas.EntityData.ParentYangName = "node"
     detailedClockDatas.EntityData.SegmentPath = "detailed-clock-datas"
+    detailedClockDatas.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/nodes/node/" + detailedClockDatas.EntityData.SegmentPath
     detailedClockDatas.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     detailedClockDatas.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     detailedClockDatas.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5256,6 +5881,7 @@ func (detailedClockDatas *FrequencySynchronization_Nodes_Node_DetailedClockDatas
 type FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Clock type. The type is FsyncClock.
     ClockType interface{}
@@ -5357,6 +5983,7 @@ func (detailedClockData *FrequencySynchronization_Nodes_Node_DetailedClockDatas_
     detailedClockData.EntityData.BundleName = "cisco_ios_xr"
     detailedClockData.EntityData.ParentYangName = "detailed-clock-datas"
     detailedClockData.EntityData.SegmentPath = "detailed-clock-data" + types.AddKeyToken(detailedClockData.ClockType, "clock-type") + types.AddKeyToken(detailedClockData.Id, "id")
+    detailedClockData.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/nodes/node/detailed-clock-datas/" + detailedClockData.EntityData.SegmentPath
     detailedClockData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     detailedClockData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     detailedClockData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5371,10 +5998,12 @@ func (detailedClockData *FrequencySynchronization_Nodes_Node_DetailedClockDatas_
     detailedClockData.EntityData.Children.Append("quality-level-selected-source", types.YChild{"QualityLevelSelectedSource", &detailedClockData.QualityLevelSelectedSource})
     detailedClockData.EntityData.Children.Append("spa-selection-point", types.YChild{"SpaSelectionPoint", nil})
     for i := range detailedClockData.SpaSelectionPoint {
+        types.SetYListKey(detailedClockData.SpaSelectionPoint[i], i)
         detailedClockData.EntityData.Children.Append(types.GetSegmentPath(detailedClockData.SpaSelectionPoint[i]), types.YChild{"SpaSelectionPoint", detailedClockData.SpaSelectionPoint[i]})
     }
     detailedClockData.EntityData.Children.Append("node-selection-point", types.YChild{"NodeSelectionPoint", nil})
     for i := range detailedClockData.NodeSelectionPoint {
+        types.SetYListKey(detailedClockData.NodeSelectionPoint[i], i)
         detailedClockData.EntityData.Children.Append(types.GetSegmentPath(detailedClockData.NodeSelectionPoint[i]), types.YChild{"NodeSelectionPoint", detailedClockData.NodeSelectionPoint[i]})
     }
     detailedClockData.EntityData.Leafs = types.NewOrderedMap()
@@ -5419,10 +6048,6 @@ type FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData_So
     // SONET interfaces. The type is string with pattern: [a-zA-Z0-9._/-]+.
     SonetInterface interface{}
 
-    // Internal Clock Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
-    Node interface{}
-
     // PTP Clock Node. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     PtpNode interface{}
@@ -5438,6 +6063,9 @@ type FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData_So
     // Clock ID.
     ClockId FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData_Source_ClockId
 
+    // Internal Clock ID.
+    InternalClockId FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData_Source_InternalClockId
+
     // GNSS Receiver ID.
     GnssReceiverId FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData_Source_GnssReceiverId
 }
@@ -5448,18 +6076,19 @@ func (source *FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClo
     source.EntityData.BundleName = "cisco_ios_xr"
     source.EntityData.ParentYangName = "detailed-clock-data"
     source.EntityData.SegmentPath = "source"
+    source.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/nodes/node/detailed-clock-datas/detailed-clock-data/" + source.EntityData.SegmentPath
     source.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     source.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     source.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     source.EntityData.Children = types.NewOrderedMap()
     source.EntityData.Children.Append("clock-id", types.YChild{"ClockId", &source.ClockId})
+    source.EntityData.Children.Append("internal-clock-id", types.YChild{"InternalClockId", &source.InternalClockId})
     source.EntityData.Children.Append("gnss-receiver-id", types.YChild{"GnssReceiverId", &source.GnssReceiverId})
     source.EntityData.Leafs = types.NewOrderedMap()
     source.EntityData.Leafs.Append("source-class", types.YLeaf{"SourceClass", source.SourceClass})
     source.EntityData.Leafs.Append("ethernet-interface", types.YLeaf{"EthernetInterface", source.EthernetInterface})
     source.EntityData.Leafs.Append("sonet-interface", types.YLeaf{"SonetInterface", source.SonetInterface})
-    source.EntityData.Leafs.Append("node", types.YLeaf{"Node", source.Node})
     source.EntityData.Leafs.Append("ptp-node", types.YLeaf{"PtpNode", source.PtpNode})
     source.EntityData.Leafs.Append("satellite-access-interface", types.YLeaf{"SatelliteAccessInterface", source.SatelliteAccessInterface})
     source.EntityData.Leafs.Append("ntp-node", types.YLeaf{"NtpNode", source.NtpNode})
@@ -5493,6 +6122,7 @@ func (clockId *FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedCl
     clockId.EntityData.BundleName = "cisco_ios_xr"
     clockId.EntityData.ParentYangName = "source"
     clockId.EntityData.SegmentPath = "clock-id"
+    clockId.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/nodes/node/detailed-clock-datas/detailed-clock-data/source/" + clockId.EntityData.SegmentPath
     clockId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clockId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clockId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5506,6 +6136,46 @@ func (clockId *FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedCl
     clockId.EntityData.YListKeys = []string {}
 
     return &(clockId.EntityData)
+}
+
+// FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData_Source_InternalClockId
+// Internal Clock ID
+type FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData_Source_InternalClockId struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Node. The type is string with pattern:
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    Node interface{}
+
+    // ID (port number for clock interface, receiver number for GNSS receiver).
+    // The type is interface{} with range: 0..4294967295.
+    Id interface{}
+
+    // Name. The type is string with length: 0..144.
+    ClockName interface{}
+}
+
+func (internalClockId *FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData_Source_InternalClockId) GetEntityData() *types.CommonEntityData {
+    internalClockId.EntityData.YFilter = internalClockId.YFilter
+    internalClockId.EntityData.YangName = "internal-clock-id"
+    internalClockId.EntityData.BundleName = "cisco_ios_xr"
+    internalClockId.EntityData.ParentYangName = "source"
+    internalClockId.EntityData.SegmentPath = "internal-clock-id"
+    internalClockId.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/nodes/node/detailed-clock-datas/detailed-clock-data/source/" + internalClockId.EntityData.SegmentPath
+    internalClockId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    internalClockId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    internalClockId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    internalClockId.EntityData.Children = types.NewOrderedMap()
+    internalClockId.EntityData.Leafs = types.NewOrderedMap()
+    internalClockId.EntityData.Leafs.Append("node", types.YLeaf{"Node", internalClockId.Node})
+    internalClockId.EntityData.Leafs.Append("id", types.YLeaf{"Id", internalClockId.Id})
+    internalClockId.EntityData.Leafs.Append("clock-name", types.YLeaf{"ClockName", internalClockId.ClockName})
+
+    internalClockId.EntityData.YListKeys = []string {}
+
+    return &(internalClockId.EntityData)
 }
 
 // FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData_Source_GnssReceiverId
@@ -5532,6 +6202,7 @@ func (gnssReceiverId *FrequencySynchronization_Nodes_Node_DetailedClockDatas_Det
     gnssReceiverId.EntityData.BundleName = "cisco_ios_xr"
     gnssReceiverId.EntityData.ParentYangName = "source"
     gnssReceiverId.EntityData.SegmentPath = "gnss-receiver-id"
+    gnssReceiverId.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/nodes/node/detailed-clock-datas/detailed-clock-data/source/" + gnssReceiverId.EntityData.SegmentPath
     gnssReceiverId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     gnssReceiverId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     gnssReceiverId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5562,10 +6233,6 @@ type FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData_Se
     // SONET interfaces. The type is string with pattern: [a-zA-Z0-9._/-]+.
     SonetInterface interface{}
 
-    // Internal Clock Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
-    Node interface{}
-
     // PTP Clock Node. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     PtpNode interface{}
@@ -5581,6 +6248,9 @@ type FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData_Se
     // Clock ID.
     ClockId FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData_SelectedSource_ClockId
 
+    // Internal Clock ID.
+    InternalClockId FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData_SelectedSource_InternalClockId
+
     // GNSS Receiver ID.
     GnssReceiverId FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData_SelectedSource_GnssReceiverId
 }
@@ -5591,18 +6261,19 @@ func (selectedSource *FrequencySynchronization_Nodes_Node_DetailedClockDatas_Det
     selectedSource.EntityData.BundleName = "cisco_ios_xr"
     selectedSource.EntityData.ParentYangName = "detailed-clock-data"
     selectedSource.EntityData.SegmentPath = "selected-source"
+    selectedSource.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/nodes/node/detailed-clock-datas/detailed-clock-data/" + selectedSource.EntityData.SegmentPath
     selectedSource.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     selectedSource.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     selectedSource.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     selectedSource.EntityData.Children = types.NewOrderedMap()
     selectedSource.EntityData.Children.Append("clock-id", types.YChild{"ClockId", &selectedSource.ClockId})
+    selectedSource.EntityData.Children.Append("internal-clock-id", types.YChild{"InternalClockId", &selectedSource.InternalClockId})
     selectedSource.EntityData.Children.Append("gnss-receiver-id", types.YChild{"GnssReceiverId", &selectedSource.GnssReceiverId})
     selectedSource.EntityData.Leafs = types.NewOrderedMap()
     selectedSource.EntityData.Leafs.Append("source-class", types.YLeaf{"SourceClass", selectedSource.SourceClass})
     selectedSource.EntityData.Leafs.Append("ethernet-interface", types.YLeaf{"EthernetInterface", selectedSource.EthernetInterface})
     selectedSource.EntityData.Leafs.Append("sonet-interface", types.YLeaf{"SonetInterface", selectedSource.SonetInterface})
-    selectedSource.EntityData.Leafs.Append("node", types.YLeaf{"Node", selectedSource.Node})
     selectedSource.EntityData.Leafs.Append("ptp-node", types.YLeaf{"PtpNode", selectedSource.PtpNode})
     selectedSource.EntityData.Leafs.Append("satellite-access-interface", types.YLeaf{"SatelliteAccessInterface", selectedSource.SatelliteAccessInterface})
     selectedSource.EntityData.Leafs.Append("ntp-node", types.YLeaf{"NtpNode", selectedSource.NtpNode})
@@ -5636,6 +6307,7 @@ func (clockId *FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedCl
     clockId.EntityData.BundleName = "cisco_ios_xr"
     clockId.EntityData.ParentYangName = "selected-source"
     clockId.EntityData.SegmentPath = "clock-id"
+    clockId.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/nodes/node/detailed-clock-datas/detailed-clock-data/selected-source/" + clockId.EntityData.SegmentPath
     clockId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clockId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clockId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5649,6 +6321,46 @@ func (clockId *FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedCl
     clockId.EntityData.YListKeys = []string {}
 
     return &(clockId.EntityData)
+}
+
+// FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData_SelectedSource_InternalClockId
+// Internal Clock ID
+type FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData_SelectedSource_InternalClockId struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Node. The type is string with pattern:
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    Node interface{}
+
+    // ID (port number for clock interface, receiver number for GNSS receiver).
+    // The type is interface{} with range: 0..4294967295.
+    Id interface{}
+
+    // Name. The type is string with length: 0..144.
+    ClockName interface{}
+}
+
+func (internalClockId *FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData_SelectedSource_InternalClockId) GetEntityData() *types.CommonEntityData {
+    internalClockId.EntityData.YFilter = internalClockId.YFilter
+    internalClockId.EntityData.YangName = "internal-clock-id"
+    internalClockId.EntityData.BundleName = "cisco_ios_xr"
+    internalClockId.EntityData.ParentYangName = "selected-source"
+    internalClockId.EntityData.SegmentPath = "internal-clock-id"
+    internalClockId.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/nodes/node/detailed-clock-datas/detailed-clock-data/selected-source/" + internalClockId.EntityData.SegmentPath
+    internalClockId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    internalClockId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    internalClockId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    internalClockId.EntityData.Children = types.NewOrderedMap()
+    internalClockId.EntityData.Leafs = types.NewOrderedMap()
+    internalClockId.EntityData.Leafs.Append("node", types.YLeaf{"Node", internalClockId.Node})
+    internalClockId.EntityData.Leafs.Append("id", types.YLeaf{"Id", internalClockId.Id})
+    internalClockId.EntityData.Leafs.Append("clock-name", types.YLeaf{"ClockName", internalClockId.ClockName})
+
+    internalClockId.EntityData.YListKeys = []string {}
+
+    return &(internalClockId.EntityData)
 }
 
 // FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData_SelectedSource_GnssReceiverId
@@ -5675,6 +6387,7 @@ func (gnssReceiverId *FrequencySynchronization_Nodes_Node_DetailedClockDatas_Det
     gnssReceiverId.EntityData.BundleName = "cisco_ios_xr"
     gnssReceiverId.EntityData.ParentYangName = "selected-source"
     gnssReceiverId.EntityData.SegmentPath = "gnss-receiver-id"
+    gnssReceiverId.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/nodes/node/detailed-clock-datas/detailed-clock-data/selected-source/" + gnssReceiverId.EntityData.SegmentPath
     gnssReceiverId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     gnssReceiverId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     gnssReceiverId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5715,6 +6428,7 @@ func (qualityLevelReceived *FrequencySynchronization_Nodes_Node_DetailedClockDat
     qualityLevelReceived.EntityData.BundleName = "cisco_ios_xr"
     qualityLevelReceived.EntityData.ParentYangName = "detailed-clock-data"
     qualityLevelReceived.EntityData.SegmentPath = "quality-level-received"
+    qualityLevelReceived.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/nodes/node/detailed-clock-datas/detailed-clock-data/" + qualityLevelReceived.EntityData.SegmentPath
     qualityLevelReceived.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     qualityLevelReceived.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     qualityLevelReceived.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5756,6 +6470,7 @@ func (qualityLevelDamped *FrequencySynchronization_Nodes_Node_DetailedClockDatas
     qualityLevelDamped.EntityData.BundleName = "cisco_ios_xr"
     qualityLevelDamped.EntityData.ParentYangName = "detailed-clock-data"
     qualityLevelDamped.EntityData.SegmentPath = "quality-level-damped"
+    qualityLevelDamped.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/nodes/node/detailed-clock-datas/detailed-clock-data/" + qualityLevelDamped.EntityData.SegmentPath
     qualityLevelDamped.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     qualityLevelDamped.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     qualityLevelDamped.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5797,6 +6512,7 @@ func (qualityLevelEffectiveInput *FrequencySynchronization_Nodes_Node_DetailedCl
     qualityLevelEffectiveInput.EntityData.BundleName = "cisco_ios_xr"
     qualityLevelEffectiveInput.EntityData.ParentYangName = "detailed-clock-data"
     qualityLevelEffectiveInput.EntityData.SegmentPath = "quality-level-effective-input"
+    qualityLevelEffectiveInput.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/nodes/node/detailed-clock-datas/detailed-clock-data/" + qualityLevelEffectiveInput.EntityData.SegmentPath
     qualityLevelEffectiveInput.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     qualityLevelEffectiveInput.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     qualityLevelEffectiveInput.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5838,6 +6554,7 @@ func (qualityLevelEffectiveOutput *FrequencySynchronization_Nodes_Node_DetailedC
     qualityLevelEffectiveOutput.EntityData.BundleName = "cisco_ios_xr"
     qualityLevelEffectiveOutput.EntityData.ParentYangName = "detailed-clock-data"
     qualityLevelEffectiveOutput.EntityData.SegmentPath = "quality-level-effective-output"
+    qualityLevelEffectiveOutput.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/nodes/node/detailed-clock-datas/detailed-clock-data/" + qualityLevelEffectiveOutput.EntityData.SegmentPath
     qualityLevelEffectiveOutput.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     qualityLevelEffectiveOutput.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     qualityLevelEffectiveOutput.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5880,6 +6597,7 @@ func (qualityLevelSelectedSource *FrequencySynchronization_Nodes_Node_DetailedCl
     qualityLevelSelectedSource.EntityData.BundleName = "cisco_ios_xr"
     qualityLevelSelectedSource.EntityData.ParentYangName = "detailed-clock-data"
     qualityLevelSelectedSource.EntityData.SegmentPath = "quality-level-selected-source"
+    qualityLevelSelectedSource.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/nodes/node/detailed-clock-datas/detailed-clock-data/" + qualityLevelSelectedSource.EntityData.SegmentPath
     qualityLevelSelectedSource.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     qualityLevelSelectedSource.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     qualityLevelSelectedSource.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5901,6 +6619,7 @@ func (qualityLevelSelectedSource *FrequencySynchronization_Nodes_Node_DetailedCl
 type FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData_SpaSelectionPoint struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Selection point ID. The type is interface{} with range: 0..255.
     SelectionPoint interface{}
@@ -5914,7 +6633,8 @@ func (spaSelectionPoint *FrequencySynchronization_Nodes_Node_DetailedClockDatas_
     spaSelectionPoint.EntityData.YangName = "spa-selection-point"
     spaSelectionPoint.EntityData.BundleName = "cisco_ios_xr"
     spaSelectionPoint.EntityData.ParentYangName = "detailed-clock-data"
-    spaSelectionPoint.EntityData.SegmentPath = "spa-selection-point"
+    spaSelectionPoint.EntityData.SegmentPath = "spa-selection-point" + types.AddNoKeyToken(spaSelectionPoint)
+    spaSelectionPoint.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/nodes/node/detailed-clock-datas/detailed-clock-data/" + spaSelectionPoint.EntityData.SegmentPath
     spaSelectionPoint.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     spaSelectionPoint.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     spaSelectionPoint.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5934,6 +6654,7 @@ func (spaSelectionPoint *FrequencySynchronization_Nodes_Node_DetailedClockDatas_
 type FrequencySynchronization_Nodes_Node_DetailedClockDatas_DetailedClockData_NodeSelectionPoint struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Selection point ID. The type is interface{} with range: 0..255.
     SelectionPoint interface{}
@@ -5947,7 +6668,8 @@ func (nodeSelectionPoint *FrequencySynchronization_Nodes_Node_DetailedClockDatas
     nodeSelectionPoint.EntityData.YangName = "node-selection-point"
     nodeSelectionPoint.EntityData.BundleName = "cisco_ios_xr"
     nodeSelectionPoint.EntityData.ParentYangName = "detailed-clock-data"
-    nodeSelectionPoint.EntityData.SegmentPath = "node-selection-point"
+    nodeSelectionPoint.EntityData.SegmentPath = "node-selection-point" + types.AddNoKeyToken(nodeSelectionPoint)
+    nodeSelectionPoint.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/nodes/node/detailed-clock-datas/detailed-clock-data/" + nodeSelectionPoint.EntityData.SegmentPath
     nodeSelectionPoint.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodeSelectionPoint.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodeSelectionPoint.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5979,6 +6701,7 @@ func (clockDatas *FrequencySynchronization_Nodes_Node_ClockDatas) GetEntityData(
     clockDatas.EntityData.BundleName = "cisco_ios_xr"
     clockDatas.EntityData.ParentYangName = "node"
     clockDatas.EntityData.SegmentPath = "clock-datas"
+    clockDatas.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/nodes/node/" + clockDatas.EntityData.SegmentPath
     clockDatas.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clockDatas.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clockDatas.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6000,6 +6723,7 @@ func (clockDatas *FrequencySynchronization_Nodes_Node_ClockDatas) GetEntityData(
 type FrequencySynchronization_Nodes_Node_ClockDatas_ClockData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Clock type. The type is FsyncClock.
     ClockType interface{}
@@ -6101,6 +6825,7 @@ func (clockData *FrequencySynchronization_Nodes_Node_ClockDatas_ClockData) GetEn
     clockData.EntityData.BundleName = "cisco_ios_xr"
     clockData.EntityData.ParentYangName = "clock-datas"
     clockData.EntityData.SegmentPath = "clock-data" + types.AddKeyToken(clockData.ClockType, "clock-type") + types.AddKeyToken(clockData.Id, "id")
+    clockData.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/nodes/node/clock-datas/" + clockData.EntityData.SegmentPath
     clockData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clockData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clockData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6115,10 +6840,12 @@ func (clockData *FrequencySynchronization_Nodes_Node_ClockDatas_ClockData) GetEn
     clockData.EntityData.Children.Append("quality-level-selected-source", types.YChild{"QualityLevelSelectedSource", &clockData.QualityLevelSelectedSource})
     clockData.EntityData.Children.Append("spa-selection-point", types.YChild{"SpaSelectionPoint", nil})
     for i := range clockData.SpaSelectionPoint {
+        types.SetYListKey(clockData.SpaSelectionPoint[i], i)
         clockData.EntityData.Children.Append(types.GetSegmentPath(clockData.SpaSelectionPoint[i]), types.YChild{"SpaSelectionPoint", clockData.SpaSelectionPoint[i]})
     }
     clockData.EntityData.Children.Append("node-selection-point", types.YChild{"NodeSelectionPoint", nil})
     for i := range clockData.NodeSelectionPoint {
+        types.SetYListKey(clockData.NodeSelectionPoint[i], i)
         clockData.EntityData.Children.Append(types.GetSegmentPath(clockData.NodeSelectionPoint[i]), types.YChild{"NodeSelectionPoint", clockData.NodeSelectionPoint[i]})
     }
     clockData.EntityData.Leafs = types.NewOrderedMap()
@@ -6163,10 +6890,6 @@ type FrequencySynchronization_Nodes_Node_ClockDatas_ClockData_Source struct {
     // SONET interfaces. The type is string with pattern: [a-zA-Z0-9._/-]+.
     SonetInterface interface{}
 
-    // Internal Clock Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
-    Node interface{}
-
     // PTP Clock Node. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     PtpNode interface{}
@@ -6182,6 +6905,9 @@ type FrequencySynchronization_Nodes_Node_ClockDatas_ClockData_Source struct {
     // Clock ID.
     ClockId FrequencySynchronization_Nodes_Node_ClockDatas_ClockData_Source_ClockId
 
+    // Internal Clock ID.
+    InternalClockId FrequencySynchronization_Nodes_Node_ClockDatas_ClockData_Source_InternalClockId
+
     // GNSS Receiver ID.
     GnssReceiverId FrequencySynchronization_Nodes_Node_ClockDatas_ClockData_Source_GnssReceiverId
 }
@@ -6192,18 +6918,19 @@ func (source *FrequencySynchronization_Nodes_Node_ClockDatas_ClockData_Source) G
     source.EntityData.BundleName = "cisco_ios_xr"
     source.EntityData.ParentYangName = "clock-data"
     source.EntityData.SegmentPath = "source"
+    source.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/nodes/node/clock-datas/clock-data/" + source.EntityData.SegmentPath
     source.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     source.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     source.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     source.EntityData.Children = types.NewOrderedMap()
     source.EntityData.Children.Append("clock-id", types.YChild{"ClockId", &source.ClockId})
+    source.EntityData.Children.Append("internal-clock-id", types.YChild{"InternalClockId", &source.InternalClockId})
     source.EntityData.Children.Append("gnss-receiver-id", types.YChild{"GnssReceiverId", &source.GnssReceiverId})
     source.EntityData.Leafs = types.NewOrderedMap()
     source.EntityData.Leafs.Append("source-class", types.YLeaf{"SourceClass", source.SourceClass})
     source.EntityData.Leafs.Append("ethernet-interface", types.YLeaf{"EthernetInterface", source.EthernetInterface})
     source.EntityData.Leafs.Append("sonet-interface", types.YLeaf{"SonetInterface", source.SonetInterface})
-    source.EntityData.Leafs.Append("node", types.YLeaf{"Node", source.Node})
     source.EntityData.Leafs.Append("ptp-node", types.YLeaf{"PtpNode", source.PtpNode})
     source.EntityData.Leafs.Append("satellite-access-interface", types.YLeaf{"SatelliteAccessInterface", source.SatelliteAccessInterface})
     source.EntityData.Leafs.Append("ntp-node", types.YLeaf{"NtpNode", source.NtpNode})
@@ -6237,6 +6964,7 @@ func (clockId *FrequencySynchronization_Nodes_Node_ClockDatas_ClockData_Source_C
     clockId.EntityData.BundleName = "cisco_ios_xr"
     clockId.EntityData.ParentYangName = "source"
     clockId.EntityData.SegmentPath = "clock-id"
+    clockId.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/nodes/node/clock-datas/clock-data/source/" + clockId.EntityData.SegmentPath
     clockId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clockId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clockId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6250,6 +6978,46 @@ func (clockId *FrequencySynchronization_Nodes_Node_ClockDatas_ClockData_Source_C
     clockId.EntityData.YListKeys = []string {}
 
     return &(clockId.EntityData)
+}
+
+// FrequencySynchronization_Nodes_Node_ClockDatas_ClockData_Source_InternalClockId
+// Internal Clock ID
+type FrequencySynchronization_Nodes_Node_ClockDatas_ClockData_Source_InternalClockId struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Node. The type is string with pattern:
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    Node interface{}
+
+    // ID (port number for clock interface, receiver number for GNSS receiver).
+    // The type is interface{} with range: 0..4294967295.
+    Id interface{}
+
+    // Name. The type is string with length: 0..144.
+    ClockName interface{}
+}
+
+func (internalClockId *FrequencySynchronization_Nodes_Node_ClockDatas_ClockData_Source_InternalClockId) GetEntityData() *types.CommonEntityData {
+    internalClockId.EntityData.YFilter = internalClockId.YFilter
+    internalClockId.EntityData.YangName = "internal-clock-id"
+    internalClockId.EntityData.BundleName = "cisco_ios_xr"
+    internalClockId.EntityData.ParentYangName = "source"
+    internalClockId.EntityData.SegmentPath = "internal-clock-id"
+    internalClockId.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/nodes/node/clock-datas/clock-data/source/" + internalClockId.EntityData.SegmentPath
+    internalClockId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    internalClockId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    internalClockId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    internalClockId.EntityData.Children = types.NewOrderedMap()
+    internalClockId.EntityData.Leafs = types.NewOrderedMap()
+    internalClockId.EntityData.Leafs.Append("node", types.YLeaf{"Node", internalClockId.Node})
+    internalClockId.EntityData.Leafs.Append("id", types.YLeaf{"Id", internalClockId.Id})
+    internalClockId.EntityData.Leafs.Append("clock-name", types.YLeaf{"ClockName", internalClockId.ClockName})
+
+    internalClockId.EntityData.YListKeys = []string {}
+
+    return &(internalClockId.EntityData)
 }
 
 // FrequencySynchronization_Nodes_Node_ClockDatas_ClockData_Source_GnssReceiverId
@@ -6276,6 +7044,7 @@ func (gnssReceiverId *FrequencySynchronization_Nodes_Node_ClockDatas_ClockData_S
     gnssReceiverId.EntityData.BundleName = "cisco_ios_xr"
     gnssReceiverId.EntityData.ParentYangName = "source"
     gnssReceiverId.EntityData.SegmentPath = "gnss-receiver-id"
+    gnssReceiverId.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/nodes/node/clock-datas/clock-data/source/" + gnssReceiverId.EntityData.SegmentPath
     gnssReceiverId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     gnssReceiverId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     gnssReceiverId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6306,10 +7075,6 @@ type FrequencySynchronization_Nodes_Node_ClockDatas_ClockData_SelectedSource str
     // SONET interfaces. The type is string with pattern: [a-zA-Z0-9._/-]+.
     SonetInterface interface{}
 
-    // Internal Clock Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
-    Node interface{}
-
     // PTP Clock Node. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     PtpNode interface{}
@@ -6325,6 +7090,9 @@ type FrequencySynchronization_Nodes_Node_ClockDatas_ClockData_SelectedSource str
     // Clock ID.
     ClockId FrequencySynchronization_Nodes_Node_ClockDatas_ClockData_SelectedSource_ClockId
 
+    // Internal Clock ID.
+    InternalClockId FrequencySynchronization_Nodes_Node_ClockDatas_ClockData_SelectedSource_InternalClockId
+
     // GNSS Receiver ID.
     GnssReceiverId FrequencySynchronization_Nodes_Node_ClockDatas_ClockData_SelectedSource_GnssReceiverId
 }
@@ -6335,18 +7103,19 @@ func (selectedSource *FrequencySynchronization_Nodes_Node_ClockDatas_ClockData_S
     selectedSource.EntityData.BundleName = "cisco_ios_xr"
     selectedSource.EntityData.ParentYangName = "clock-data"
     selectedSource.EntityData.SegmentPath = "selected-source"
+    selectedSource.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/nodes/node/clock-datas/clock-data/" + selectedSource.EntityData.SegmentPath
     selectedSource.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     selectedSource.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     selectedSource.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     selectedSource.EntityData.Children = types.NewOrderedMap()
     selectedSource.EntityData.Children.Append("clock-id", types.YChild{"ClockId", &selectedSource.ClockId})
+    selectedSource.EntityData.Children.Append("internal-clock-id", types.YChild{"InternalClockId", &selectedSource.InternalClockId})
     selectedSource.EntityData.Children.Append("gnss-receiver-id", types.YChild{"GnssReceiverId", &selectedSource.GnssReceiverId})
     selectedSource.EntityData.Leafs = types.NewOrderedMap()
     selectedSource.EntityData.Leafs.Append("source-class", types.YLeaf{"SourceClass", selectedSource.SourceClass})
     selectedSource.EntityData.Leafs.Append("ethernet-interface", types.YLeaf{"EthernetInterface", selectedSource.EthernetInterface})
     selectedSource.EntityData.Leafs.Append("sonet-interface", types.YLeaf{"SonetInterface", selectedSource.SonetInterface})
-    selectedSource.EntityData.Leafs.Append("node", types.YLeaf{"Node", selectedSource.Node})
     selectedSource.EntityData.Leafs.Append("ptp-node", types.YLeaf{"PtpNode", selectedSource.PtpNode})
     selectedSource.EntityData.Leafs.Append("satellite-access-interface", types.YLeaf{"SatelliteAccessInterface", selectedSource.SatelliteAccessInterface})
     selectedSource.EntityData.Leafs.Append("ntp-node", types.YLeaf{"NtpNode", selectedSource.NtpNode})
@@ -6380,6 +7149,7 @@ func (clockId *FrequencySynchronization_Nodes_Node_ClockDatas_ClockData_Selected
     clockId.EntityData.BundleName = "cisco_ios_xr"
     clockId.EntityData.ParentYangName = "selected-source"
     clockId.EntityData.SegmentPath = "clock-id"
+    clockId.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/nodes/node/clock-datas/clock-data/selected-source/" + clockId.EntityData.SegmentPath
     clockId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clockId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clockId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6393,6 +7163,46 @@ func (clockId *FrequencySynchronization_Nodes_Node_ClockDatas_ClockData_Selected
     clockId.EntityData.YListKeys = []string {}
 
     return &(clockId.EntityData)
+}
+
+// FrequencySynchronization_Nodes_Node_ClockDatas_ClockData_SelectedSource_InternalClockId
+// Internal Clock ID
+type FrequencySynchronization_Nodes_Node_ClockDatas_ClockData_SelectedSource_InternalClockId struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Node. The type is string with pattern:
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    Node interface{}
+
+    // ID (port number for clock interface, receiver number for GNSS receiver).
+    // The type is interface{} with range: 0..4294967295.
+    Id interface{}
+
+    // Name. The type is string with length: 0..144.
+    ClockName interface{}
+}
+
+func (internalClockId *FrequencySynchronization_Nodes_Node_ClockDatas_ClockData_SelectedSource_InternalClockId) GetEntityData() *types.CommonEntityData {
+    internalClockId.EntityData.YFilter = internalClockId.YFilter
+    internalClockId.EntityData.YangName = "internal-clock-id"
+    internalClockId.EntityData.BundleName = "cisco_ios_xr"
+    internalClockId.EntityData.ParentYangName = "selected-source"
+    internalClockId.EntityData.SegmentPath = "internal-clock-id"
+    internalClockId.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/nodes/node/clock-datas/clock-data/selected-source/" + internalClockId.EntityData.SegmentPath
+    internalClockId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    internalClockId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    internalClockId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    internalClockId.EntityData.Children = types.NewOrderedMap()
+    internalClockId.EntityData.Leafs = types.NewOrderedMap()
+    internalClockId.EntityData.Leafs.Append("node", types.YLeaf{"Node", internalClockId.Node})
+    internalClockId.EntityData.Leafs.Append("id", types.YLeaf{"Id", internalClockId.Id})
+    internalClockId.EntityData.Leafs.Append("clock-name", types.YLeaf{"ClockName", internalClockId.ClockName})
+
+    internalClockId.EntityData.YListKeys = []string {}
+
+    return &(internalClockId.EntityData)
 }
 
 // FrequencySynchronization_Nodes_Node_ClockDatas_ClockData_SelectedSource_GnssReceiverId
@@ -6419,6 +7229,7 @@ func (gnssReceiverId *FrequencySynchronization_Nodes_Node_ClockDatas_ClockData_S
     gnssReceiverId.EntityData.BundleName = "cisco_ios_xr"
     gnssReceiverId.EntityData.ParentYangName = "selected-source"
     gnssReceiverId.EntityData.SegmentPath = "gnss-receiver-id"
+    gnssReceiverId.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/nodes/node/clock-datas/clock-data/selected-source/" + gnssReceiverId.EntityData.SegmentPath
     gnssReceiverId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     gnssReceiverId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     gnssReceiverId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6459,6 +7270,7 @@ func (qualityLevelReceived *FrequencySynchronization_Nodes_Node_ClockDatas_Clock
     qualityLevelReceived.EntityData.BundleName = "cisco_ios_xr"
     qualityLevelReceived.EntityData.ParentYangName = "clock-data"
     qualityLevelReceived.EntityData.SegmentPath = "quality-level-received"
+    qualityLevelReceived.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/nodes/node/clock-datas/clock-data/" + qualityLevelReceived.EntityData.SegmentPath
     qualityLevelReceived.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     qualityLevelReceived.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     qualityLevelReceived.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6500,6 +7312,7 @@ func (qualityLevelDamped *FrequencySynchronization_Nodes_Node_ClockDatas_ClockDa
     qualityLevelDamped.EntityData.BundleName = "cisco_ios_xr"
     qualityLevelDamped.EntityData.ParentYangName = "clock-data"
     qualityLevelDamped.EntityData.SegmentPath = "quality-level-damped"
+    qualityLevelDamped.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/nodes/node/clock-datas/clock-data/" + qualityLevelDamped.EntityData.SegmentPath
     qualityLevelDamped.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     qualityLevelDamped.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     qualityLevelDamped.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6541,6 +7354,7 @@ func (qualityLevelEffectiveInput *FrequencySynchronization_Nodes_Node_ClockDatas
     qualityLevelEffectiveInput.EntityData.BundleName = "cisco_ios_xr"
     qualityLevelEffectiveInput.EntityData.ParentYangName = "clock-data"
     qualityLevelEffectiveInput.EntityData.SegmentPath = "quality-level-effective-input"
+    qualityLevelEffectiveInput.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/nodes/node/clock-datas/clock-data/" + qualityLevelEffectiveInput.EntityData.SegmentPath
     qualityLevelEffectiveInput.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     qualityLevelEffectiveInput.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     qualityLevelEffectiveInput.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6582,6 +7396,7 @@ func (qualityLevelEffectiveOutput *FrequencySynchronization_Nodes_Node_ClockData
     qualityLevelEffectiveOutput.EntityData.BundleName = "cisco_ios_xr"
     qualityLevelEffectiveOutput.EntityData.ParentYangName = "clock-data"
     qualityLevelEffectiveOutput.EntityData.SegmentPath = "quality-level-effective-output"
+    qualityLevelEffectiveOutput.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/nodes/node/clock-datas/clock-data/" + qualityLevelEffectiveOutput.EntityData.SegmentPath
     qualityLevelEffectiveOutput.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     qualityLevelEffectiveOutput.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     qualityLevelEffectiveOutput.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6624,6 +7439,7 @@ func (qualityLevelSelectedSource *FrequencySynchronization_Nodes_Node_ClockDatas
     qualityLevelSelectedSource.EntityData.BundleName = "cisco_ios_xr"
     qualityLevelSelectedSource.EntityData.ParentYangName = "clock-data"
     qualityLevelSelectedSource.EntityData.SegmentPath = "quality-level-selected-source"
+    qualityLevelSelectedSource.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/nodes/node/clock-datas/clock-data/" + qualityLevelSelectedSource.EntityData.SegmentPath
     qualityLevelSelectedSource.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     qualityLevelSelectedSource.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     qualityLevelSelectedSource.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6645,6 +7461,7 @@ func (qualityLevelSelectedSource *FrequencySynchronization_Nodes_Node_ClockDatas
 type FrequencySynchronization_Nodes_Node_ClockDatas_ClockData_SpaSelectionPoint struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Selection point ID. The type is interface{} with range: 0..255.
     SelectionPoint interface{}
@@ -6658,7 +7475,8 @@ func (spaSelectionPoint *FrequencySynchronization_Nodes_Node_ClockDatas_ClockDat
     spaSelectionPoint.EntityData.YangName = "spa-selection-point"
     spaSelectionPoint.EntityData.BundleName = "cisco_ios_xr"
     spaSelectionPoint.EntityData.ParentYangName = "clock-data"
-    spaSelectionPoint.EntityData.SegmentPath = "spa-selection-point"
+    spaSelectionPoint.EntityData.SegmentPath = "spa-selection-point" + types.AddNoKeyToken(spaSelectionPoint)
+    spaSelectionPoint.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/nodes/node/clock-datas/clock-data/" + spaSelectionPoint.EntityData.SegmentPath
     spaSelectionPoint.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     spaSelectionPoint.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     spaSelectionPoint.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6678,6 +7496,7 @@ func (spaSelectionPoint *FrequencySynchronization_Nodes_Node_ClockDatas_ClockDat
 type FrequencySynchronization_Nodes_Node_ClockDatas_ClockData_NodeSelectionPoint struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Selection point ID. The type is interface{} with range: 0..255.
     SelectionPoint interface{}
@@ -6691,7 +7510,8 @@ func (nodeSelectionPoint *FrequencySynchronization_Nodes_Node_ClockDatas_ClockDa
     nodeSelectionPoint.EntityData.YangName = "node-selection-point"
     nodeSelectionPoint.EntityData.BundleName = "cisco_ios_xr"
     nodeSelectionPoint.EntityData.ParentYangName = "clock-data"
-    nodeSelectionPoint.EntityData.SegmentPath = "node-selection-point"
+    nodeSelectionPoint.EntityData.SegmentPath = "node-selection-point" + types.AddNoKeyToken(nodeSelectionPoint)
+    nodeSelectionPoint.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/nodes/node/clock-datas/clock-data/" + nodeSelectionPoint.EntityData.SegmentPath
     nodeSelectionPoint.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodeSelectionPoint.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodeSelectionPoint.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6725,6 +7545,7 @@ func (selectionPointInputs *FrequencySynchronization_Nodes_Node_SelectionPointIn
     selectionPointInputs.EntityData.BundleName = "cisco_ios_xr"
     selectionPointInputs.EntityData.ParentYangName = "node"
     selectionPointInputs.EntityData.SegmentPath = "selection-point-inputs"
+    selectionPointInputs.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/nodes/node/" + selectionPointInputs.EntityData.SegmentPath
     selectionPointInputs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     selectionPointInputs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     selectionPointInputs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6732,6 +7553,7 @@ func (selectionPointInputs *FrequencySynchronization_Nodes_Node_SelectionPointIn
     selectionPointInputs.EntityData.Children = types.NewOrderedMap()
     selectionPointInputs.EntityData.Children.Append("selection-point-input", types.YChild{"SelectionPointInput", nil})
     for i := range selectionPointInputs.SelectionPointInput {
+        types.SetYListKey(selectionPointInputs.SelectionPointInput[i], i)
         selectionPointInputs.EntityData.Children.Append(types.GetSegmentPath(selectionPointInputs.SelectionPointInput[i]), types.YChild{"SelectionPointInput", selectionPointInputs.SelectionPointInput[i]})
     }
     selectionPointInputs.EntityData.Leafs = types.NewOrderedMap()
@@ -6747,6 +7569,7 @@ func (selectionPointInputs *FrequencySynchronization_Nodes_Node_SelectionPointIn
 type FrequencySynchronization_Nodes_Node_SelectionPointInputs_SelectionPointInput struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Selection point ID. The type is interface{} with range: 0..4294967295.
     SelectionPoint interface{}
@@ -6818,7 +7641,8 @@ func (selectionPointInput *FrequencySynchronization_Nodes_Node_SelectionPointInp
     selectionPointInput.EntityData.YangName = "selection-point-input"
     selectionPointInput.EntityData.BundleName = "cisco_ios_xr"
     selectionPointInput.EntityData.ParentYangName = "selection-point-inputs"
-    selectionPointInput.EntityData.SegmentPath = "selection-point-input"
+    selectionPointInput.EntityData.SegmentPath = "selection-point-input" + types.AddNoKeyToken(selectionPointInput)
+    selectionPointInput.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/nodes/node/selection-point-inputs/" + selectionPointInput.EntityData.SegmentPath
     selectionPointInput.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     selectionPointInput.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     selectionPointInput.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6874,6 +7698,7 @@ func (inputSelectionPoint *FrequencySynchronization_Nodes_Node_SelectionPointInp
     inputSelectionPoint.EntityData.BundleName = "cisco_ios_xr"
     inputSelectionPoint.EntityData.ParentYangName = "selection-point-input"
     inputSelectionPoint.EntityData.SegmentPath = "input-selection-point"
+    inputSelectionPoint.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/nodes/node/selection-point-inputs/selection-point-input/" + inputSelectionPoint.EntityData.SegmentPath
     inputSelectionPoint.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     inputSelectionPoint.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inputSelectionPoint.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6911,6 +7736,7 @@ func (stream *FrequencySynchronization_Nodes_Node_SelectionPointInputs_Selection
     stream.EntityData.BundleName = "cisco_ios_xr"
     stream.EntityData.ParentYangName = "selection-point-input"
     stream.EntityData.SegmentPath = "stream"
+    stream.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/nodes/node/selection-point-inputs/selection-point-input/" + stream.EntityData.SegmentPath
     stream.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     stream.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stream.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6941,10 +7767,6 @@ type FrequencySynchronization_Nodes_Node_SelectionPointInputs_SelectionPointInpu
     // SONET interfaces. The type is string with pattern: [a-zA-Z0-9._/-]+.
     SonetInterface interface{}
 
-    // Internal Clock Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
-    Node interface{}
-
     // PTP Clock Node. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     PtpNode interface{}
@@ -6960,6 +7782,9 @@ type FrequencySynchronization_Nodes_Node_SelectionPointInputs_SelectionPointInpu
     // Clock ID.
     ClockId FrequencySynchronization_Nodes_Node_SelectionPointInputs_SelectionPointInput_Stream_SourceId_ClockId
 
+    // Internal Clock ID.
+    InternalClockId FrequencySynchronization_Nodes_Node_SelectionPointInputs_SelectionPointInput_Stream_SourceId_InternalClockId
+
     // GNSS Receiver ID.
     GnssReceiverId FrequencySynchronization_Nodes_Node_SelectionPointInputs_SelectionPointInput_Stream_SourceId_GnssReceiverId
 }
@@ -6970,18 +7795,19 @@ func (sourceId *FrequencySynchronization_Nodes_Node_SelectionPointInputs_Selecti
     sourceId.EntityData.BundleName = "cisco_ios_xr"
     sourceId.EntityData.ParentYangName = "stream"
     sourceId.EntityData.SegmentPath = "source-id"
+    sourceId.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/nodes/node/selection-point-inputs/selection-point-input/stream/" + sourceId.EntityData.SegmentPath
     sourceId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sourceId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sourceId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     sourceId.EntityData.Children = types.NewOrderedMap()
     sourceId.EntityData.Children.Append("clock-id", types.YChild{"ClockId", &sourceId.ClockId})
+    sourceId.EntityData.Children.Append("internal-clock-id", types.YChild{"InternalClockId", &sourceId.InternalClockId})
     sourceId.EntityData.Children.Append("gnss-receiver-id", types.YChild{"GnssReceiverId", &sourceId.GnssReceiverId})
     sourceId.EntityData.Leafs = types.NewOrderedMap()
     sourceId.EntityData.Leafs.Append("source-class", types.YLeaf{"SourceClass", sourceId.SourceClass})
     sourceId.EntityData.Leafs.Append("ethernet-interface", types.YLeaf{"EthernetInterface", sourceId.EthernetInterface})
     sourceId.EntityData.Leafs.Append("sonet-interface", types.YLeaf{"SonetInterface", sourceId.SonetInterface})
-    sourceId.EntityData.Leafs.Append("node", types.YLeaf{"Node", sourceId.Node})
     sourceId.EntityData.Leafs.Append("ptp-node", types.YLeaf{"PtpNode", sourceId.PtpNode})
     sourceId.EntityData.Leafs.Append("satellite-access-interface", types.YLeaf{"SatelliteAccessInterface", sourceId.SatelliteAccessInterface})
     sourceId.EntityData.Leafs.Append("ntp-node", types.YLeaf{"NtpNode", sourceId.NtpNode})
@@ -7015,6 +7841,7 @@ func (clockId *FrequencySynchronization_Nodes_Node_SelectionPointInputs_Selectio
     clockId.EntityData.BundleName = "cisco_ios_xr"
     clockId.EntityData.ParentYangName = "source-id"
     clockId.EntityData.SegmentPath = "clock-id"
+    clockId.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/nodes/node/selection-point-inputs/selection-point-input/stream/source-id/" + clockId.EntityData.SegmentPath
     clockId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clockId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clockId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7028,6 +7855,46 @@ func (clockId *FrequencySynchronization_Nodes_Node_SelectionPointInputs_Selectio
     clockId.EntityData.YListKeys = []string {}
 
     return &(clockId.EntityData)
+}
+
+// FrequencySynchronization_Nodes_Node_SelectionPointInputs_SelectionPointInput_Stream_SourceId_InternalClockId
+// Internal Clock ID
+type FrequencySynchronization_Nodes_Node_SelectionPointInputs_SelectionPointInput_Stream_SourceId_InternalClockId struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Node. The type is string with pattern:
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    Node interface{}
+
+    // ID (port number for clock interface, receiver number for GNSS receiver).
+    // The type is interface{} with range: 0..4294967295.
+    Id interface{}
+
+    // Name. The type is string with length: 0..144.
+    ClockName interface{}
+}
+
+func (internalClockId *FrequencySynchronization_Nodes_Node_SelectionPointInputs_SelectionPointInput_Stream_SourceId_InternalClockId) GetEntityData() *types.CommonEntityData {
+    internalClockId.EntityData.YFilter = internalClockId.YFilter
+    internalClockId.EntityData.YangName = "internal-clock-id"
+    internalClockId.EntityData.BundleName = "cisco_ios_xr"
+    internalClockId.EntityData.ParentYangName = "source-id"
+    internalClockId.EntityData.SegmentPath = "internal-clock-id"
+    internalClockId.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/nodes/node/selection-point-inputs/selection-point-input/stream/source-id/" + internalClockId.EntityData.SegmentPath
+    internalClockId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    internalClockId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    internalClockId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    internalClockId.EntityData.Children = types.NewOrderedMap()
+    internalClockId.EntityData.Leafs = types.NewOrderedMap()
+    internalClockId.EntityData.Leafs.Append("node", types.YLeaf{"Node", internalClockId.Node})
+    internalClockId.EntityData.Leafs.Append("id", types.YLeaf{"Id", internalClockId.Id})
+    internalClockId.EntityData.Leafs.Append("clock-name", types.YLeaf{"ClockName", internalClockId.ClockName})
+
+    internalClockId.EntityData.YListKeys = []string {}
+
+    return &(internalClockId.EntityData)
 }
 
 // FrequencySynchronization_Nodes_Node_SelectionPointInputs_SelectionPointInput_Stream_SourceId_GnssReceiverId
@@ -7054,6 +7921,7 @@ func (gnssReceiverId *FrequencySynchronization_Nodes_Node_SelectionPointInputs_S
     gnssReceiverId.EntityData.BundleName = "cisco_ios_xr"
     gnssReceiverId.EntityData.ParentYangName = "source-id"
     gnssReceiverId.EntityData.SegmentPath = "gnss-receiver-id"
+    gnssReceiverId.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/nodes/node/selection-point-inputs/selection-point-input/stream/source-id/" + gnssReceiverId.EntityData.SegmentPath
     gnssReceiverId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     gnssReceiverId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     gnssReceiverId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7088,6 +7956,7 @@ func (selectionPointId *FrequencySynchronization_Nodes_Node_SelectionPointInputs
     selectionPointId.EntityData.BundleName = "cisco_ios_xr"
     selectionPointId.EntityData.ParentYangName = "stream"
     selectionPointId.EntityData.SegmentPath = "selection-point-id"
+    selectionPointId.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/nodes/node/selection-point-inputs/selection-point-input/stream/" + selectionPointId.EntityData.SegmentPath
     selectionPointId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     selectionPointId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     selectionPointId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7125,6 +7994,7 @@ func (selectionPoint *FrequencySynchronization_Nodes_Node_SelectionPointInputs_S
     selectionPoint.EntityData.BundleName = "cisco_ios_xr"
     selectionPoint.EntityData.ParentYangName = "selection-point-id"
     selectionPoint.EntityData.SegmentPath = "selection-point"
+    selectionPoint.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/nodes/node/selection-point-inputs/selection-point-input/stream/selection-point-id/" + selectionPoint.EntityData.SegmentPath
     selectionPoint.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     selectionPoint.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     selectionPoint.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7155,10 +8025,6 @@ type FrequencySynchronization_Nodes_Node_SelectionPointInputs_SelectionPointInpu
     // SONET interfaces. The type is string with pattern: [a-zA-Z0-9._/-]+.
     SonetInterface interface{}
 
-    // Internal Clock Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
-    Node interface{}
-
     // PTP Clock Node. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     PtpNode interface{}
@@ -7174,6 +8040,9 @@ type FrequencySynchronization_Nodes_Node_SelectionPointInputs_SelectionPointInpu
     // Clock ID.
     ClockId FrequencySynchronization_Nodes_Node_SelectionPointInputs_SelectionPointInput_OriginalSource_ClockId
 
+    // Internal Clock ID.
+    InternalClockId FrequencySynchronization_Nodes_Node_SelectionPointInputs_SelectionPointInput_OriginalSource_InternalClockId
+
     // GNSS Receiver ID.
     GnssReceiverId FrequencySynchronization_Nodes_Node_SelectionPointInputs_SelectionPointInput_OriginalSource_GnssReceiverId
 }
@@ -7184,18 +8053,19 @@ func (originalSource *FrequencySynchronization_Nodes_Node_SelectionPointInputs_S
     originalSource.EntityData.BundleName = "cisco_ios_xr"
     originalSource.EntityData.ParentYangName = "selection-point-input"
     originalSource.EntityData.SegmentPath = "original-source"
+    originalSource.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/nodes/node/selection-point-inputs/selection-point-input/" + originalSource.EntityData.SegmentPath
     originalSource.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     originalSource.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     originalSource.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     originalSource.EntityData.Children = types.NewOrderedMap()
     originalSource.EntityData.Children.Append("clock-id", types.YChild{"ClockId", &originalSource.ClockId})
+    originalSource.EntityData.Children.Append("internal-clock-id", types.YChild{"InternalClockId", &originalSource.InternalClockId})
     originalSource.EntityData.Children.Append("gnss-receiver-id", types.YChild{"GnssReceiverId", &originalSource.GnssReceiverId})
     originalSource.EntityData.Leafs = types.NewOrderedMap()
     originalSource.EntityData.Leafs.Append("source-class", types.YLeaf{"SourceClass", originalSource.SourceClass})
     originalSource.EntityData.Leafs.Append("ethernet-interface", types.YLeaf{"EthernetInterface", originalSource.EthernetInterface})
     originalSource.EntityData.Leafs.Append("sonet-interface", types.YLeaf{"SonetInterface", originalSource.SonetInterface})
-    originalSource.EntityData.Leafs.Append("node", types.YLeaf{"Node", originalSource.Node})
     originalSource.EntityData.Leafs.Append("ptp-node", types.YLeaf{"PtpNode", originalSource.PtpNode})
     originalSource.EntityData.Leafs.Append("satellite-access-interface", types.YLeaf{"SatelliteAccessInterface", originalSource.SatelliteAccessInterface})
     originalSource.EntityData.Leafs.Append("ntp-node", types.YLeaf{"NtpNode", originalSource.NtpNode})
@@ -7229,6 +8099,7 @@ func (clockId *FrequencySynchronization_Nodes_Node_SelectionPointInputs_Selectio
     clockId.EntityData.BundleName = "cisco_ios_xr"
     clockId.EntityData.ParentYangName = "original-source"
     clockId.EntityData.SegmentPath = "clock-id"
+    clockId.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/nodes/node/selection-point-inputs/selection-point-input/original-source/" + clockId.EntityData.SegmentPath
     clockId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clockId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clockId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7242,6 +8113,46 @@ func (clockId *FrequencySynchronization_Nodes_Node_SelectionPointInputs_Selectio
     clockId.EntityData.YListKeys = []string {}
 
     return &(clockId.EntityData)
+}
+
+// FrequencySynchronization_Nodes_Node_SelectionPointInputs_SelectionPointInput_OriginalSource_InternalClockId
+// Internal Clock ID
+type FrequencySynchronization_Nodes_Node_SelectionPointInputs_SelectionPointInput_OriginalSource_InternalClockId struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Node. The type is string with pattern:
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    Node interface{}
+
+    // ID (port number for clock interface, receiver number for GNSS receiver).
+    // The type is interface{} with range: 0..4294967295.
+    Id interface{}
+
+    // Name. The type is string with length: 0..144.
+    ClockName interface{}
+}
+
+func (internalClockId *FrequencySynchronization_Nodes_Node_SelectionPointInputs_SelectionPointInput_OriginalSource_InternalClockId) GetEntityData() *types.CommonEntityData {
+    internalClockId.EntityData.YFilter = internalClockId.YFilter
+    internalClockId.EntityData.YangName = "internal-clock-id"
+    internalClockId.EntityData.BundleName = "cisco_ios_xr"
+    internalClockId.EntityData.ParentYangName = "original-source"
+    internalClockId.EntityData.SegmentPath = "internal-clock-id"
+    internalClockId.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/nodes/node/selection-point-inputs/selection-point-input/original-source/" + internalClockId.EntityData.SegmentPath
+    internalClockId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    internalClockId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    internalClockId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    internalClockId.EntityData.Children = types.NewOrderedMap()
+    internalClockId.EntityData.Leafs = types.NewOrderedMap()
+    internalClockId.EntityData.Leafs.Append("node", types.YLeaf{"Node", internalClockId.Node})
+    internalClockId.EntityData.Leafs.Append("id", types.YLeaf{"Id", internalClockId.Id})
+    internalClockId.EntityData.Leafs.Append("clock-name", types.YLeaf{"ClockName", internalClockId.ClockName})
+
+    internalClockId.EntityData.YListKeys = []string {}
+
+    return &(internalClockId.EntityData)
 }
 
 // FrequencySynchronization_Nodes_Node_SelectionPointInputs_SelectionPointInput_OriginalSource_GnssReceiverId
@@ -7268,6 +8179,7 @@ func (gnssReceiverId *FrequencySynchronization_Nodes_Node_SelectionPointInputs_S
     gnssReceiverId.EntityData.BundleName = "cisco_ios_xr"
     gnssReceiverId.EntityData.ParentYangName = "original-source"
     gnssReceiverId.EntityData.SegmentPath = "gnss-receiver-id"
+    gnssReceiverId.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/nodes/node/selection-point-inputs/selection-point-input/original-source/" + gnssReceiverId.EntityData.SegmentPath
     gnssReceiverId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     gnssReceiverId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     gnssReceiverId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7308,6 +8220,7 @@ func (qualityLevel *FrequencySynchronization_Nodes_Node_SelectionPointInputs_Sel
     qualityLevel.EntityData.BundleName = "cisco_ios_xr"
     qualityLevel.EntityData.ParentYangName = "selection-point-input"
     qualityLevel.EntityData.SegmentPath = "quality-level"
+    qualityLevel.EntityData.AbsolutePath = "Cisco-IOS-XR-freqsync-oper:frequency-synchronization/nodes/node/selection-point-inputs/selection-point-input/" + qualityLevel.EntityData.SegmentPath
     qualityLevel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     qualityLevel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     qualityLevel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

@@ -46,6 +46,7 @@ func (sbfd *Sbfd) GetEntityData() *types.CommonEntityData {
     sbfd.EntityData.BundleName = "cisco_ios_xr"
     sbfd.EntityData.ParentYangName = "Cisco-IOS-XR-ip-sbfd-cfg"
     sbfd.EntityData.SegmentPath = "Cisco-IOS-XR-ip-sbfd-cfg:sbfd"
+    sbfd.EntityData.AbsolutePath = sbfd.EntityData.SegmentPath
     sbfd.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sbfd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sbfd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -79,6 +80,7 @@ func (remoteTarget *Sbfd_RemoteTarget) GetEntityData() *types.CommonEntityData {
     remoteTarget.EntityData.BundleName = "cisco_ios_xr"
     remoteTarget.EntityData.ParentYangName = "sbfd"
     remoteTarget.EntityData.SegmentPath = "remote-target"
+    remoteTarget.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-sbfd-cfg:sbfd/" + remoteTarget.EntityData.SegmentPath
     remoteTarget.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteTarget.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteTarget.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -110,6 +112,7 @@ func (ipv4Addresses *Sbfd_RemoteTarget_Ipv4Addresses) GetEntityData() *types.Com
     ipv4Addresses.EntityData.BundleName = "cisco_ios_xr"
     ipv4Addresses.EntityData.ParentYangName = "remote-target"
     ipv4Addresses.EntityData.SegmentPath = "ipv4-addresses"
+    ipv4Addresses.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-sbfd-cfg:sbfd/remote-target/" + ipv4Addresses.EntityData.SegmentPath
     ipv4Addresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4Addresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4Addresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -131,6 +134,7 @@ func (ipv4Addresses *Sbfd_RemoteTarget_Ipv4Addresses) GetEntityData() *types.Com
 type Sbfd_RemoteTarget_Ipv4Addresses_Ipv4Address struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key.  IPv4 address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -147,6 +151,7 @@ func (ipv4Address *Sbfd_RemoteTarget_Ipv4Addresses_Ipv4Address) GetEntityData() 
     ipv4Address.EntityData.BundleName = "cisco_ios_xr"
     ipv4Address.EntityData.ParentYangName = "ipv4-addresses"
     ipv4Address.EntityData.SegmentPath = "ipv4-address" + types.AddKeyToken(ipv4Address.Address, "address")
+    ipv4Address.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-sbfd-cfg:sbfd/remote-target/ipv4-addresses/" + ipv4Address.EntityData.SegmentPath
     ipv4Address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4Address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4Address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -169,6 +174,7 @@ func (ipv4Address *Sbfd_RemoteTarget_Ipv4Addresses_Ipv4Address) GetEntityData() 
 type Sbfd_RemoteTarget_Ipv4Addresses_Ipv4Address_RemoteDiscriminator struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Remote Discriminator Value. The type is
     // interface{} with range: 1..4294967295.
@@ -181,6 +187,7 @@ func (remoteDiscriminator *Sbfd_RemoteTarget_Ipv4Addresses_Ipv4Address_RemoteDis
     remoteDiscriminator.EntityData.BundleName = "cisco_ios_xr"
     remoteDiscriminator.EntityData.ParentYangName = "ipv4-address"
     remoteDiscriminator.EntityData.SegmentPath = "remote-discriminator" + types.AddKeyToken(remoteDiscriminator.RemoteDiscriminator, "remote-discriminator")
+    remoteDiscriminator.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-sbfd-cfg:sbfd/remote-target/ipv4-addresses/ipv4-address/" + remoteDiscriminator.EntityData.SegmentPath
     remoteDiscriminator.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteDiscriminator.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteDiscriminator.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -211,6 +218,7 @@ func (ipv6Addresses *Sbfd_RemoteTarget_Ipv6Addresses) GetEntityData() *types.Com
     ipv6Addresses.EntityData.BundleName = "cisco_ios_xr"
     ipv6Addresses.EntityData.ParentYangName = "remote-target"
     ipv6Addresses.EntityData.SegmentPath = "ipv6-addresses"
+    ipv6Addresses.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-sbfd-cfg:sbfd/remote-target/" + ipv6Addresses.EntityData.SegmentPath
     ipv6Addresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6Addresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6Addresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -232,6 +240,7 @@ func (ipv6Addresses *Sbfd_RemoteTarget_Ipv6Addresses) GetEntityData() *types.Com
 type Sbfd_RemoteTarget_Ipv6Addresses_Ipv6Address struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key.  IPv6 adddress. The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
@@ -248,6 +257,7 @@ func (ipv6Address *Sbfd_RemoteTarget_Ipv6Addresses_Ipv6Address) GetEntityData() 
     ipv6Address.EntityData.BundleName = "cisco_ios_xr"
     ipv6Address.EntityData.ParentYangName = "ipv6-addresses"
     ipv6Address.EntityData.SegmentPath = "ipv6-address" + types.AddKeyToken(ipv6Address.Address, "address")
+    ipv6Address.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-sbfd-cfg:sbfd/remote-target/ipv6-addresses/" + ipv6Address.EntityData.SegmentPath
     ipv6Address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6Address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6Address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -270,6 +280,7 @@ func (ipv6Address *Sbfd_RemoteTarget_Ipv6Addresses_Ipv6Address) GetEntityData() 
 type Sbfd_RemoteTarget_Ipv6Addresses_Ipv6Address_RemoteDiscriminator struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Remote Discriminator Value. The type is
     // interface{} with range: 1..4294967295.
@@ -282,6 +293,7 @@ func (remoteDiscriminator *Sbfd_RemoteTarget_Ipv6Addresses_Ipv6Address_RemoteDis
     remoteDiscriminator.EntityData.BundleName = "cisco_ios_xr"
     remoteDiscriminator.EntityData.ParentYangName = "ipv6-address"
     remoteDiscriminator.EntityData.SegmentPath = "remote-discriminator" + types.AddKeyToken(remoteDiscriminator.RemoteDiscriminator, "remote-discriminator")
+    remoteDiscriminator.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-sbfd-cfg:sbfd/remote-target/ipv6-addresses/ipv6-address/" + remoteDiscriminator.EntityData.SegmentPath
     remoteDiscriminator.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteDiscriminator.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteDiscriminator.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -320,6 +332,7 @@ func (localDiscriminator *Sbfd_LocalDiscriminator) GetEntityData() *types.Common
     localDiscriminator.EntityData.BundleName = "cisco_ios_xr"
     localDiscriminator.EntityData.ParentYangName = "sbfd"
     localDiscriminator.EntityData.SegmentPath = "local-discriminator"
+    localDiscriminator.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-sbfd-cfg:sbfd/" + localDiscriminator.EntityData.SegmentPath
     localDiscriminator.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     localDiscriminator.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     localDiscriminator.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -354,6 +367,7 @@ func (intfDiscriminators *Sbfd_LocalDiscriminator_IntfDiscriminators) GetEntityD
     intfDiscriminators.EntityData.BundleName = "cisco_ios_xr"
     intfDiscriminators.EntityData.ParentYangName = "local-discriminator"
     intfDiscriminators.EntityData.SegmentPath = "intf-discriminators"
+    intfDiscriminators.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-sbfd-cfg:sbfd/local-discriminator/" + intfDiscriminators.EntityData.SegmentPath
     intfDiscriminators.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     intfDiscriminators.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     intfDiscriminators.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -375,6 +389,7 @@ func (intfDiscriminators *Sbfd_LocalDiscriminator_IntfDiscriminators) GetEntityD
 type Sbfd_LocalDiscriminator_IntfDiscriminators_IntfDiscriminator struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface Name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -387,6 +402,7 @@ func (intfDiscriminator *Sbfd_LocalDiscriminator_IntfDiscriminators_IntfDiscrimi
     intfDiscriminator.EntityData.BundleName = "cisco_ios_xr"
     intfDiscriminator.EntityData.ParentYangName = "intf-discriminators"
     intfDiscriminator.EntityData.SegmentPath = "intf-discriminator" + types.AddKeyToken(intfDiscriminator.InterfaceName, "interface-name")
+    intfDiscriminator.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-sbfd-cfg:sbfd/local-discriminator/intf-discriminators/" + intfDiscriminator.EntityData.SegmentPath
     intfDiscriminator.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     intfDiscriminator.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     intfDiscriminator.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -417,6 +433,7 @@ func (dynamicDiscriminators *Sbfd_LocalDiscriminator_DynamicDiscriminators) GetE
     dynamicDiscriminators.EntityData.BundleName = "cisco_ios_xr"
     dynamicDiscriminators.EntityData.ParentYangName = "local-discriminator"
     dynamicDiscriminators.EntityData.SegmentPath = "dynamic-discriminators"
+    dynamicDiscriminators.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-sbfd-cfg:sbfd/local-discriminator/" + dynamicDiscriminators.EntityData.SegmentPath
     dynamicDiscriminators.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dynamicDiscriminators.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dynamicDiscriminators.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -438,6 +455,7 @@ func (dynamicDiscriminators *Sbfd_LocalDiscriminator_DynamicDiscriminators) GetE
 type Sbfd_LocalDiscriminator_DynamicDiscriminators_DynamicDiscriminator struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Dynamic discriminator value. The type is
     // interface{} with range: 0..1.
@@ -450,6 +468,7 @@ func (dynamicDiscriminator *Sbfd_LocalDiscriminator_DynamicDiscriminators_Dynami
     dynamicDiscriminator.EntityData.BundleName = "cisco_ios_xr"
     dynamicDiscriminator.EntityData.ParentYangName = "dynamic-discriminators"
     dynamicDiscriminator.EntityData.SegmentPath = "dynamic-discriminator" + types.AddKeyToken(dynamicDiscriminator.Discriminator, "discriminator")
+    dynamicDiscriminator.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-sbfd-cfg:sbfd/local-discriminator/dynamic-discriminators/" + dynamicDiscriminator.EntityData.SegmentPath
     dynamicDiscriminator.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dynamicDiscriminator.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dynamicDiscriminator.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -481,6 +500,7 @@ func (ipv4Discriminators *Sbfd_LocalDiscriminator_Ipv4Discriminators) GetEntityD
     ipv4Discriminators.EntityData.BundleName = "cisco_ios_xr"
     ipv4Discriminators.EntityData.ParentYangName = "local-discriminator"
     ipv4Discriminators.EntityData.SegmentPath = "ipv4-discriminators"
+    ipv4Discriminators.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-sbfd-cfg:sbfd/local-discriminator/" + ipv4Discriminators.EntityData.SegmentPath
     ipv4Discriminators.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4Discriminators.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4Discriminators.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -502,6 +522,7 @@ func (ipv4Discriminators *Sbfd_LocalDiscriminator_Ipv4Discriminators) GetEntityD
 type Sbfd_LocalDiscriminator_Ipv4Discriminators_Ipv4Discriminator struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key.  IPv4 address. The type is one of the following
     // types: string with pattern:
@@ -517,6 +538,7 @@ func (ipv4Discriminator *Sbfd_LocalDiscriminator_Ipv4Discriminators_Ipv4Discrimi
     ipv4Discriminator.EntityData.BundleName = "cisco_ios_xr"
     ipv4Discriminator.EntityData.ParentYangName = "ipv4-discriminators"
     ipv4Discriminator.EntityData.SegmentPath = "ipv4-discriminator" + types.AddKeyToken(ipv4Discriminator.Address, "address")
+    ipv4Discriminator.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-sbfd-cfg:sbfd/local-discriminator/ipv4-discriminators/" + ipv4Discriminator.EntityData.SegmentPath
     ipv4Discriminator.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4Discriminator.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4Discriminator.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -547,6 +569,7 @@ func (val32Discriminators *Sbfd_LocalDiscriminator_Val32Discriminators) GetEntit
     val32Discriminators.EntityData.BundleName = "cisco_ios_xr"
     val32Discriminators.EntityData.ParentYangName = "local-discriminator"
     val32Discriminators.EntityData.SegmentPath = "val32-discriminators"
+    val32Discriminators.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-sbfd-cfg:sbfd/local-discriminator/" + val32Discriminators.EntityData.SegmentPath
     val32Discriminators.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     val32Discriminators.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     val32Discriminators.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -568,6 +591,7 @@ func (val32Discriminators *Sbfd_LocalDiscriminator_Val32Discriminators) GetEntit
 type Sbfd_LocalDiscriminator_Val32Discriminators_Val32Discriminator struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Local discriminator value. The type is interface{}
     // with range: 1..4294967295.
@@ -580,6 +604,7 @@ func (val32Discriminator *Sbfd_LocalDiscriminator_Val32Discriminators_Val32Discr
     val32Discriminator.EntityData.BundleName = "cisco_ios_xr"
     val32Discriminator.EntityData.ParentYangName = "val32-discriminators"
     val32Discriminator.EntityData.SegmentPath = "val32-discriminator" + types.AddKeyToken(val32Discriminator.Discriminator, "discriminator")
+    val32Discriminator.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-sbfd-cfg:sbfd/local-discriminator/val32-discriminators/" + val32Discriminator.EntityData.SegmentPath
     val32Discriminator.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     val32Discriminator.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     val32Discriminator.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

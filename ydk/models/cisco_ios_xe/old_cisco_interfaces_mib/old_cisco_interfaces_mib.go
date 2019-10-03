@@ -33,6 +33,7 @@ func (oLDCISCOINTERFACESMIB *OLDCISCOINTERFACESMIB) GetEntityData() *types.Commo
     oLDCISCOINTERFACESMIB.EntityData.BundleName = "cisco_ios_xe"
     oLDCISCOINTERFACESMIB.EntityData.ParentYangName = "OLD-CISCO-INTERFACES-MIB"
     oLDCISCOINTERFACESMIB.EntityData.SegmentPath = "OLD-CISCO-INTERFACES-MIB:OLD-CISCO-INTERFACES-MIB"
+    oLDCISCOINTERFACESMIB.EntityData.AbsolutePath = oLDCISCOINTERFACESMIB.EntityData.SegmentPath
     oLDCISCOINTERFACESMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     oLDCISCOINTERFACESMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     oLDCISCOINTERFACESMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -64,6 +65,7 @@ func (lifTable *OLDCISCOINTERFACESMIB_LifTable) GetEntityData() *types.CommonEnt
     lifTable.EntityData.BundleName = "cisco_ios_xe"
     lifTable.EntityData.ParentYangName = "OLD-CISCO-INTERFACES-MIB"
     lifTable.EntityData.SegmentPath = "lifTable"
+    lifTable.EntityData.AbsolutePath = "OLD-CISCO-INTERFACES-MIB:OLD-CISCO-INTERFACES-MIB/" + lifTable.EntityData.SegmentPath
     lifTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     lifTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     lifTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -86,6 +88,7 @@ func (lifTable *OLDCISCOINTERFACESMIB_LifTable) GetEntityData() *types.CommonEnt
 type OLDCISCOINTERFACESMIB_LifTable_LifEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range:
     // -2147483648..2147483647. Refers to
@@ -550,6 +553,7 @@ func (lifEntry *OLDCISCOINTERFACESMIB_LifTable_LifEntry) GetEntityData() *types.
     lifEntry.EntityData.BundleName = "cisco_ios_xe"
     lifEntry.EntityData.ParentYangName = "lifTable"
     lifEntry.EntityData.SegmentPath = "lifEntry" + types.AddKeyToken(lifEntry.IfIndex, "ifIndex")
+    lifEntry.EntityData.AbsolutePath = "OLD-CISCO-INTERFACES-MIB:OLD-CISCO-INTERFACES-MIB/lifTable/" + lifEntry.EntityData.SegmentPath
     lifEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     lifEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     lifEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -694,6 +698,7 @@ func (lFSIPTable *OLDCISCOINTERFACESMIB_LFSIPTable) GetEntityData() *types.Commo
     lFSIPTable.EntityData.BundleName = "cisco_ios_xe"
     lFSIPTable.EntityData.ParentYangName = "OLD-CISCO-INTERFACES-MIB"
     lFSIPTable.EntityData.SegmentPath = "lFSIPTable"
+    lFSIPTable.EntityData.AbsolutePath = "OLD-CISCO-INTERFACES-MIB:OLD-CISCO-INTERFACES-MIB/" + lFSIPTable.EntityData.SegmentPath
     lFSIPTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     lFSIPTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     lFSIPTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -716,6 +721,7 @@ func (lFSIPTable *OLDCISCOINTERFACESMIB_LFSIPTable) GetEntityData() *types.Commo
 type OLDCISCOINTERFACESMIB_LFSIPTable_LFSIPEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface index of this card corresponding to its
     // ifIndex. The type is interface{} with range: -2147483648..2147483647.
@@ -757,6 +763,7 @@ func (lFSIPEntry *OLDCISCOINTERFACESMIB_LFSIPTable_LFSIPEntry) GetEntityData() *
     lFSIPEntry.EntityData.BundleName = "cisco_ios_xe"
     lFSIPEntry.EntityData.ParentYangName = "lFSIPTable"
     lFSIPEntry.EntityData.SegmentPath = "lFSIPEntry" + types.AddKeyToken(lFSIPEntry.LocIfFSIPIndex, "locIfFSIPIndex")
+    lFSIPEntry.EntityData.AbsolutePath = "OLD-CISCO-INTERFACES-MIB:OLD-CISCO-INTERFACES-MIB/lFSIPTable/" + lFSIPEntry.EntityData.SegmentPath
     lFSIPEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     lFSIPEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     lFSIPEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

@@ -67,6 +67,7 @@ func (parser *Parser) GetEntityData() *types.CommonEntityData {
     parser.EntityData.BundleName = "cisco_ios_xr"
     parser.EntityData.ParentYangName = "Cisco-IOS-XR-parser-cfg"
     parser.EntityData.SegmentPath = "Cisco-IOS-XR-parser-cfg:parser"
+    parser.EntityData.AbsolutePath = parser.EntityData.SegmentPath
     parser.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     parser.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     parser.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -105,6 +106,7 @@ func (indentation *Parser_Indentation) GetEntityData() *types.CommonEntityData {
     indentation.EntityData.BundleName = "cisco_ios_xr"
     indentation.EntityData.ParentYangName = "parser"
     indentation.EntityData.SegmentPath = "indentation"
+    indentation.EntityData.AbsolutePath = "Cisco-IOS-XR-parser-cfg:parser/" + indentation.EntityData.SegmentPath
     indentation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     indentation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     indentation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -140,6 +142,7 @@ func (alias *Parser_Alias) GetEntityData() *types.CommonEntityData {
     alias.EntityData.BundleName = "cisco_ios_xr"
     alias.EntityData.ParentYangName = "parser"
     alias.EntityData.SegmentPath = "alias"
+    alias.EntityData.AbsolutePath = "Cisco-IOS-XR-parser-cfg:parser/" + alias.EntityData.SegmentPath
     alias.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     alias.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     alias.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -171,6 +174,7 @@ func (execs *Parser_Alias_Execs) GetEntityData() *types.CommonEntityData {
     execs.EntityData.BundleName = "cisco_ios_xr"
     execs.EntityData.ParentYangName = "alias"
     execs.EntityData.SegmentPath = "execs"
+    execs.EntityData.AbsolutePath = "Cisco-IOS-XR-parser-cfg:parser/alias/" + execs.EntityData.SegmentPath
     execs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     execs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     execs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -192,6 +196,7 @@ func (execs *Parser_Alias_Execs) GetEntityData() *types.CommonEntityData {
 type Parser_Alias_Execs_Exec struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Exec Alias name. The type is string with length:
     // 1..30.
@@ -207,6 +212,7 @@ func (exec *Parser_Alias_Execs_Exec) GetEntityData() *types.CommonEntityData {
     exec.EntityData.BundleName = "cisco_ios_xr"
     exec.EntityData.ParentYangName = "execs"
     exec.EntityData.SegmentPath = "exec" + types.AddKeyToken(exec.Identifier, "identifier")
+    exec.EntityData.AbsolutePath = "Cisco-IOS-XR-parser-cfg:parser/alias/execs/" + exec.EntityData.SegmentPath
     exec.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     exec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     exec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -238,6 +244,7 @@ func (configurations *Parser_Alias_Configurations) GetEntityData() *types.Common
     configurations.EntityData.BundleName = "cisco_ios_xr"
     configurations.EntityData.ParentYangName = "alias"
     configurations.EntityData.SegmentPath = "configurations"
+    configurations.EntityData.AbsolutePath = "Cisco-IOS-XR-parser-cfg:parser/alias/" + configurations.EntityData.SegmentPath
     configurations.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configurations.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configurations.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -259,6 +266,7 @@ func (configurations *Parser_Alias_Configurations) GetEntityData() *types.Common
 type Parser_Alias_Configurations_Configuration struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Configuration alias name. The type is string with
     // length: 1..30.
@@ -274,6 +282,7 @@ func (configuration *Parser_Alias_Configurations_Configuration) GetEntityData() 
     configuration.EntityData.BundleName = "cisco_ios_xr"
     configuration.EntityData.ParentYangName = "configurations"
     configuration.EntityData.SegmentPath = "configuration" + types.AddKeyToken(configuration.Identifier, "identifier")
+    configuration.EntityData.AbsolutePath = "Cisco-IOS-XR-parser-cfg:parser/alias/configurations/" + configuration.EntityData.SegmentPath
     configuration.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configuration.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configuration.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -304,6 +313,7 @@ func (alls *Parser_Alias_Alls) GetEntityData() *types.CommonEntityData {
     alls.EntityData.BundleName = "cisco_ios_xr"
     alls.EntityData.ParentYangName = "alias"
     alls.EntityData.SegmentPath = "alls"
+    alls.EntityData.AbsolutePath = "Cisco-IOS-XR-parser-cfg:parser/alias/" + alls.EntityData.SegmentPath
     alls.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     alls.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     alls.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -325,6 +335,7 @@ func (alls *Parser_Alias_Alls) GetEntityData() *types.CommonEntityData {
 type Parser_Alias_Alls_All struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Alias name. The type is string with length: 1..30.
     Identifier interface{}
@@ -339,6 +350,7 @@ func (all *Parser_Alias_Alls_All) GetEntityData() *types.CommonEntityData {
     all.EntityData.BundleName = "cisco_ios_xr"
     all.EntityData.ParentYangName = "alls"
     all.EntityData.SegmentPath = "all" + types.AddKeyToken(all.Identifier, "identifier")
+    all.EntityData.AbsolutePath = "Cisco-IOS-XR-parser-cfg:parser/alias/alls/" + all.EntityData.SegmentPath
     all.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     all.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     all.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -370,6 +382,7 @@ func (history *Parser_History) GetEntityData() *types.CommonEntityData {
     history.EntityData.BundleName = "cisco_ios_xr"
     history.EntityData.ParentYangName = "parser"
     history.EntityData.SegmentPath = "history"
+    history.EntityData.AbsolutePath = "Cisco-IOS-XR-parser-cfg:parser/" + history.EntityData.SegmentPath
     history.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     history.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     history.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -399,6 +412,7 @@ func (interactive *Parser_Interactive) GetEntityData() *types.CommonEntityData {
     interactive.EntityData.BundleName = "cisco_ios_xr"
     interactive.EntityData.ParentYangName = "parser"
     interactive.EntityData.SegmentPath = "interactive"
+    interactive.EntityData.AbsolutePath = "Cisco-IOS-XR-parser-cfg:parser/" + interactive.EntityData.SegmentPath
     interactive.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interactive.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interactive.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -428,6 +442,7 @@ func (commitOptimized *Parser_CommitOptimized) GetEntityData() *types.CommonEnti
     commitOptimized.EntityData.BundleName = "cisco_ios_xr"
     commitOptimized.EntityData.ParentYangName = "parser"
     commitOptimized.EntityData.SegmentPath = "commit-optimized"
+    commitOptimized.EntityData.AbsolutePath = "Cisco-IOS-XR-parser-cfg:parser/" + commitOptimized.EntityData.SegmentPath
     commitOptimized.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     commitOptimized.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     commitOptimized.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -457,6 +472,7 @@ func (sysadminLoginBanner *Parser_SysadminLoginBanner) GetEntityData() *types.Co
     sysadminLoginBanner.EntityData.BundleName = "cisco_ios_xr"
     sysadminLoginBanner.EntityData.ParentYangName = "parser"
     sysadminLoginBanner.EntityData.SegmentPath = "sysadmin-login-banner"
+    sysadminLoginBanner.EntityData.AbsolutePath = "Cisco-IOS-XR-parser-cfg:parser/" + sysadminLoginBanner.EntityData.SegmentPath
     sysadminLoginBanner.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sysadminLoginBanner.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sysadminLoginBanner.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -486,6 +502,7 @@ func (interfaceDisplay *Parser_InterfaceDisplay) GetEntityData() *types.CommonEn
     interfaceDisplay.EntityData.BundleName = "cisco_ios_xr"
     interfaceDisplay.EntityData.ParentYangName = "parser"
     interfaceDisplay.EntityData.SegmentPath = "interface-display"
+    interfaceDisplay.EntityData.AbsolutePath = "Cisco-IOS-XR-parser-cfg:parser/" + interfaceDisplay.EntityData.SegmentPath
     interfaceDisplay.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceDisplay.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceDisplay.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -515,6 +532,7 @@ func (netmaskFormat *Parser_NetmaskFormat) GetEntityData() *types.CommonEntityDa
     netmaskFormat.EntityData.BundleName = "cisco_ios_xr"
     netmaskFormat.EntityData.ParentYangName = "parser"
     netmaskFormat.EntityData.SegmentPath = "netmask-format"
+    netmaskFormat.EntityData.AbsolutePath = "Cisco-IOS-XR-parser-cfg:parser/" + netmaskFormat.EntityData.SegmentPath
     netmaskFormat.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     netmaskFormat.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     netmaskFormat.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -544,6 +562,7 @@ func (configuration *Parser_Configuration) GetEntityData() *types.CommonEntityDa
     configuration.EntityData.BundleName = "cisco_ios_xr"
     configuration.EntityData.ParentYangName = "parser"
     configuration.EntityData.SegmentPath = "configuration"
+    configuration.EntityData.AbsolutePath = "Cisco-IOS-XR-parser-cfg:parser/" + configuration.EntityData.SegmentPath
     configuration.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configuration.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configuration.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -573,6 +592,7 @@ func (disable *Parser_Configuration_Disable) GetEntityData() *types.CommonEntity
     disable.EntityData.BundleName = "cisco_ios_xr"
     disable.EntityData.ParentYangName = "configuration"
     disable.EntityData.SegmentPath = "disable"
+    disable.EntityData.AbsolutePath = "Cisco-IOS-XR-parser-cfg:parser/configuration/" + disable.EntityData.SegmentPath
     disable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     disable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     disable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -603,6 +623,7 @@ func (submodeExit *Parser_SubmodeExit) GetEntityData() *types.CommonEntityData {
     submodeExit.EntityData.BundleName = "cisco_ios_xr"
     submodeExit.EntityData.ParentYangName = "parser"
     submodeExit.EntityData.SegmentPath = "submode-exit"
+    submodeExit.EntityData.AbsolutePath = "Cisco-IOS-XR-parser-cfg:parser/" + submodeExit.EntityData.SegmentPath
     submodeExit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     submodeExit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     submodeExit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

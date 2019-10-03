@@ -35,9 +35,9 @@ module Cisco-IOS-XR-sysadmin-ethsw-esdma-fdb {
      Copyright (c) 2012-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
-  revision 2017-05-01 {
+  revision 2018-10-26 {
     description
-      "Namespace change to comply with Cisco guidelines on namespace";
+      "Modified FDB port leaf to use new ESDMA type esdma-switch-fdb-ports";
   }
 
   grouping switch-fdb-location {
@@ -90,7 +90,7 @@ module Cisco-IOS-XR-sysadmin-ethsw-esdma-fdb {
               }
             }
             leaf fdb-port {
-              type esdma_types:esdma-switch-port-type;
+              type esdma_types:esdma-switch-fdb-ports;
               description
                 "Switch port MAC address learned on.";
             }

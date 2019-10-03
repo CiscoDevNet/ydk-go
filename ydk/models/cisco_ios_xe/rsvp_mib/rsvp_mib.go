@@ -67,6 +67,7 @@ func (rSVPMIB *RSVPMIB) GetEntityData() *types.CommonEntityData {
     rSVPMIB.EntityData.BundleName = "cisco_ios_xe"
     rSVPMIB.EntityData.ParentYangName = "RSVP-MIB"
     rSVPMIB.EntityData.SegmentPath = "RSVP-MIB:RSVP-MIB"
+    rSVPMIB.EntityData.AbsolutePath = rSVPMIB.EntityData.SegmentPath
     rSVPMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     rSVPMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     rSVPMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -143,6 +144,7 @@ func (rsvpGenObjects *RSVPMIB_RsvpGenObjects) GetEntityData() *types.CommonEntit
     rsvpGenObjects.EntityData.BundleName = "cisco_ios_xe"
     rsvpGenObjects.EntityData.ParentYangName = "RSVP-MIB"
     rsvpGenObjects.EntityData.SegmentPath = "rsvpGenObjects"
+    rsvpGenObjects.EntityData.AbsolutePath = "RSVP-MIB:RSVP-MIB/" + rsvpGenObjects.EntityData.SegmentPath
     rsvpGenObjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     rsvpGenObjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     rsvpGenObjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -178,6 +180,7 @@ func (rsvpSessionTable *RSVPMIB_RsvpSessionTable) GetEntityData() *types.CommonE
     rsvpSessionTable.EntityData.BundleName = "cisco_ios_xe"
     rsvpSessionTable.EntityData.ParentYangName = "RSVP-MIB"
     rsvpSessionTable.EntityData.SegmentPath = "rsvpSessionTable"
+    rsvpSessionTable.EntityData.AbsolutePath = "RSVP-MIB:RSVP-MIB/" + rsvpSessionTable.EntityData.SegmentPath
     rsvpSessionTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     rsvpSessionTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     rsvpSessionTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -199,6 +202,7 @@ func (rsvpSessionTable *RSVPMIB_RsvpSessionTable) GetEntityData() *types.CommonE
 type RSVPMIB_RsvpSessionTable_RsvpSessionEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The	number of this session.	 This is for  SNMP
     // Indexing  purposes  only and	has no relation	to any protocol	value. The
@@ -253,6 +257,7 @@ func (rsvpSessionEntry *RSVPMIB_RsvpSessionTable_RsvpSessionEntry) GetEntityData
     rsvpSessionEntry.EntityData.BundleName = "cisco_ios_xe"
     rsvpSessionEntry.EntityData.ParentYangName = "rsvpSessionTable"
     rsvpSessionEntry.EntityData.SegmentPath = "rsvpSessionEntry" + types.AddKeyToken(rsvpSessionEntry.RsvpSessionNumber, "rsvpSessionNumber")
+    rsvpSessionEntry.EntityData.AbsolutePath = "RSVP-MIB:RSVP-MIB/rsvpSessionTable/" + rsvpSessionEntry.EntityData.SegmentPath
     rsvpSessionEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     rsvpSessionEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     rsvpSessionEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -293,6 +298,7 @@ func (rsvpSenderTable *RSVPMIB_RsvpSenderTable) GetEntityData() *types.CommonEnt
     rsvpSenderTable.EntityData.BundleName = "cisco_ios_xe"
     rsvpSenderTable.EntityData.ParentYangName = "RSVP-MIB"
     rsvpSenderTable.EntityData.SegmentPath = "rsvpSenderTable"
+    rsvpSenderTable.EntityData.AbsolutePath = "RSVP-MIB:RSVP-MIB/" + rsvpSenderTable.EntityData.SegmentPath
     rsvpSenderTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     rsvpSenderTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     rsvpSenderTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -315,6 +321,7 @@ func (rsvpSenderTable *RSVPMIB_RsvpSenderTable) GetEntityData() *types.CommonEnt
 type RSVPMIB_RsvpSenderTable_RsvpSenderEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 0..2147483647.
     // Refers to
@@ -619,6 +626,7 @@ func (rsvpSenderEntry *RSVPMIB_RsvpSenderTable_RsvpSenderEntry) GetEntityData() 
     rsvpSenderEntry.EntityData.BundleName = "cisco_ios_xe"
     rsvpSenderEntry.EntityData.ParentYangName = "rsvpSenderTable"
     rsvpSenderEntry.EntityData.SegmentPath = "rsvpSenderEntry" + types.AddKeyToken(rsvpSenderEntry.RsvpSessionNumber, "rsvpSessionNumber") + types.AddKeyToken(rsvpSenderEntry.RsvpSenderNumber, "rsvpSenderNumber")
+    rsvpSenderEntry.EntityData.AbsolutePath = "RSVP-MIB:RSVP-MIB/rsvpSenderTable/" + rsvpSenderEntry.EntityData.SegmentPath
     rsvpSenderEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     rsvpSenderEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     rsvpSenderEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -696,6 +704,7 @@ func (rsvpSenderOutInterfaceTable *RSVPMIB_RsvpSenderOutInterfaceTable) GetEntit
     rsvpSenderOutInterfaceTable.EntityData.BundleName = "cisco_ios_xe"
     rsvpSenderOutInterfaceTable.EntityData.ParentYangName = "RSVP-MIB"
     rsvpSenderOutInterfaceTable.EntityData.SegmentPath = "rsvpSenderOutInterfaceTable"
+    rsvpSenderOutInterfaceTable.EntityData.AbsolutePath = "RSVP-MIB:RSVP-MIB/" + rsvpSenderOutInterfaceTable.EntityData.SegmentPath
     rsvpSenderOutInterfaceTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     rsvpSenderOutInterfaceTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     rsvpSenderOutInterfaceTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -718,6 +727,7 @@ func (rsvpSenderOutInterfaceTable *RSVPMIB_RsvpSenderOutInterfaceTable) GetEntit
 type RSVPMIB_RsvpSenderOutInterfaceTable_RsvpSenderOutInterfaceEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 0..2147483647.
     // Refers to
@@ -742,6 +752,7 @@ func (rsvpSenderOutInterfaceEntry *RSVPMIB_RsvpSenderOutInterfaceTable_RsvpSende
     rsvpSenderOutInterfaceEntry.EntityData.BundleName = "cisco_ios_xe"
     rsvpSenderOutInterfaceEntry.EntityData.ParentYangName = "rsvpSenderOutInterfaceTable"
     rsvpSenderOutInterfaceEntry.EntityData.SegmentPath = "rsvpSenderOutInterfaceEntry" + types.AddKeyToken(rsvpSenderOutInterfaceEntry.RsvpSessionNumber, "rsvpSessionNumber") + types.AddKeyToken(rsvpSenderOutInterfaceEntry.RsvpSenderNumber, "rsvpSenderNumber") + types.AddKeyToken(rsvpSenderOutInterfaceEntry.IfIndex, "ifIndex")
+    rsvpSenderOutInterfaceEntry.EntityData.AbsolutePath = "RSVP-MIB:RSVP-MIB/rsvpSenderOutInterfaceTable/" + rsvpSenderOutInterfaceEntry.EntityData.SegmentPath
     rsvpSenderOutInterfaceEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     rsvpSenderOutInterfaceEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     rsvpSenderOutInterfaceEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -777,6 +788,7 @@ func (rsvpResvTable *RSVPMIB_RsvpResvTable) GetEntityData() *types.CommonEntityD
     rsvpResvTable.EntityData.BundleName = "cisco_ios_xe"
     rsvpResvTable.EntityData.ParentYangName = "RSVP-MIB"
     rsvpResvTable.EntityData.SegmentPath = "rsvpResvTable"
+    rsvpResvTable.EntityData.AbsolutePath = "RSVP-MIB:RSVP-MIB/" + rsvpResvTable.EntityData.SegmentPath
     rsvpResvTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     rsvpResvTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     rsvpResvTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -800,6 +812,7 @@ func (rsvpResvTable *RSVPMIB_RsvpResvTable) GetEntityData() *types.CommonEntityD
 type RSVPMIB_RsvpResvTable_RsvpResvEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 0..2147483647.
     // Refers to
@@ -980,6 +993,7 @@ func (rsvpResvEntry *RSVPMIB_RsvpResvTable_RsvpResvEntry) GetEntityData() *types
     rsvpResvEntry.EntityData.BundleName = "cisco_ios_xe"
     rsvpResvEntry.EntityData.ParentYangName = "rsvpResvTable"
     rsvpResvEntry.EntityData.SegmentPath = "rsvpResvEntry" + types.AddKeyToken(rsvpResvEntry.RsvpSessionNumber, "rsvpSessionNumber") + types.AddKeyToken(rsvpResvEntry.RsvpResvNumber, "rsvpResvNumber")
+    rsvpResvEntry.EntityData.AbsolutePath = "RSVP-MIB:RSVP-MIB/rsvpResvTable/" + rsvpResvEntry.EntityData.SegmentPath
     rsvpResvEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     rsvpResvEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     rsvpResvEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1042,6 +1056,7 @@ func (rsvpResvFwdTable *RSVPMIB_RsvpResvFwdTable) GetEntityData() *types.CommonE
     rsvpResvFwdTable.EntityData.BundleName = "cisco_ios_xe"
     rsvpResvFwdTable.EntityData.ParentYangName = "RSVP-MIB"
     rsvpResvFwdTable.EntityData.SegmentPath = "rsvpResvFwdTable"
+    rsvpResvFwdTable.EntityData.AbsolutePath = "RSVP-MIB:RSVP-MIB/" + rsvpResvFwdTable.EntityData.SegmentPath
     rsvpResvFwdTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     rsvpResvFwdTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     rsvpResvFwdTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1065,6 +1080,7 @@ func (rsvpResvFwdTable *RSVPMIB_RsvpResvFwdTable) GetEntityData() *types.CommonE
 type RSVPMIB_RsvpResvFwdTable_RsvpResvFwdEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 0..2147483647.
     // Refers to
@@ -1242,6 +1258,7 @@ func (rsvpResvFwdEntry *RSVPMIB_RsvpResvFwdTable_RsvpResvFwdEntry) GetEntityData
     rsvpResvFwdEntry.EntityData.BundleName = "cisco_ios_xe"
     rsvpResvFwdEntry.EntityData.ParentYangName = "rsvpResvFwdTable"
     rsvpResvFwdEntry.EntityData.SegmentPath = "rsvpResvFwdEntry" + types.AddKeyToken(rsvpResvFwdEntry.RsvpSessionNumber, "rsvpSessionNumber") + types.AddKeyToken(rsvpResvFwdEntry.RsvpResvFwdNumber, "rsvpResvFwdNumber")
+    rsvpResvFwdEntry.EntityData.AbsolutePath = "RSVP-MIB:RSVP-MIB/rsvpResvFwdTable/" + rsvpResvFwdEntry.EntityData.SegmentPath
     rsvpResvFwdEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     rsvpResvFwdEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     rsvpResvFwdEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1303,6 +1320,7 @@ func (rsvpIfTable *RSVPMIB_RsvpIfTable) GetEntityData() *types.CommonEntityData 
     rsvpIfTable.EntityData.BundleName = "cisco_ios_xe"
     rsvpIfTable.EntityData.ParentYangName = "RSVP-MIB"
     rsvpIfTable.EntityData.SegmentPath = "rsvpIfTable"
+    rsvpIfTable.EntityData.AbsolutePath = "RSVP-MIB:RSVP-MIB/" + rsvpIfTable.EntityData.SegmentPath
     rsvpIfTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     rsvpIfTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     rsvpIfTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1325,6 +1343,7 @@ func (rsvpIfTable *RSVPMIB_RsvpIfTable) GetEntityData() *types.CommonEntityData 
 type RSVPMIB_RsvpIfTable_RsvpIfEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -1388,6 +1407,7 @@ func (rsvpIfEntry *RSVPMIB_RsvpIfTable_RsvpIfEntry) GetEntityData() *types.Commo
     rsvpIfEntry.EntityData.BundleName = "cisco_ios_xe"
     rsvpIfEntry.EntityData.ParentYangName = "rsvpIfTable"
     rsvpIfEntry.EntityData.SegmentPath = "rsvpIfEntry" + types.AddKeyToken(rsvpIfEntry.IfIndex, "ifIndex")
+    rsvpIfEntry.EntityData.AbsolutePath = "RSVP-MIB:RSVP-MIB/rsvpIfTable/" + rsvpIfEntry.EntityData.SegmentPath
     rsvpIfEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     rsvpIfEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     rsvpIfEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1430,6 +1450,7 @@ func (rsvpNbrTable *RSVPMIB_RsvpNbrTable) GetEntityData() *types.CommonEntityDat
     rsvpNbrTable.EntityData.BundleName = "cisco_ios_xe"
     rsvpNbrTable.EntityData.ParentYangName = "RSVP-MIB"
     rsvpNbrTable.EntityData.SegmentPath = "rsvpNbrTable"
+    rsvpNbrTable.EntityData.AbsolutePath = "RSVP-MIB:RSVP-MIB/" + rsvpNbrTable.EntityData.SegmentPath
     rsvpNbrTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     rsvpNbrTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     rsvpNbrTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1452,6 +1473,7 @@ func (rsvpNbrTable *RSVPMIB_RsvpNbrTable) GetEntityData() *types.CommonEntityDat
 type RSVPMIB_RsvpNbrTable_RsvpNbrEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -1479,6 +1501,7 @@ func (rsvpNbrEntry *RSVPMIB_RsvpNbrTable_RsvpNbrEntry) GetEntityData() *types.Co
     rsvpNbrEntry.EntityData.BundleName = "cisco_ios_xe"
     rsvpNbrEntry.EntityData.ParentYangName = "rsvpNbrTable"
     rsvpNbrEntry.EntityData.SegmentPath = "rsvpNbrEntry" + types.AddKeyToken(rsvpNbrEntry.IfIndex, "ifIndex") + types.AddKeyToken(rsvpNbrEntry.RsvpNbrAddress, "rsvpNbrAddress")
+    rsvpNbrEntry.EntityData.AbsolutePath = "RSVP-MIB:RSVP-MIB/rsvpNbrTable/" + rsvpNbrEntry.EntityData.SegmentPath
     rsvpNbrEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     rsvpNbrEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     rsvpNbrEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

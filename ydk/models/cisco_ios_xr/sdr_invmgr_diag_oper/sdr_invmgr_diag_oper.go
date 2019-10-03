@@ -40,6 +40,7 @@ func (diag *Diag) GetEntityData() *types.CommonEntityData {
     diag.EntityData.BundleName = "cisco_ios_xr"
     diag.EntityData.ParentYangName = "Cisco-IOS-XR-sdr-invmgr-diag-oper"
     diag.EntityData.SegmentPath = "Cisco-IOS-XR-sdr-invmgr-diag-oper:diag"
+    diag.EntityData.AbsolutePath = diag.EntityData.SegmentPath
     diag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     diag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     diag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -69,6 +70,7 @@ func (racks *Diag_Racks) GetEntityData() *types.CommonEntityData {
     racks.EntityData.BundleName = "cisco_ios_xr"
     racks.EntityData.ParentYangName = "diag"
     racks.EntityData.SegmentPath = "racks"
+    racks.EntityData.AbsolutePath = "Cisco-IOS-XR-sdr-invmgr-diag-oper:diag/" + racks.EntityData.SegmentPath
     racks.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     racks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     racks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -90,6 +92,7 @@ func (racks *Diag_Racks) GetEntityData() *types.CommonEntityData {
 type Diag_Racks_Rack struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Rack name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -114,6 +117,7 @@ func (rack *Diag_Racks_Rack) GetEntityData() *types.CommonEntityData {
     rack.EntityData.BundleName = "cisco_ios_xr"
     rack.EntityData.ParentYangName = "racks"
     rack.EntityData.SegmentPath = "rack" + types.AddKeyToken(rack.RackName, "rack-name")
+    rack.EntityData.AbsolutePath = "Cisco-IOS-XR-sdr-invmgr-diag-oper:diag/racks/" + rack.EntityData.SegmentPath
     rack.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rack.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rack.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -148,6 +152,7 @@ func (powerShelfs *Diag_Racks_Rack_PowerShelfs) GetEntityData() *types.CommonEnt
     powerShelfs.EntityData.BundleName = "cisco_ios_xr"
     powerShelfs.EntityData.ParentYangName = "rack"
     powerShelfs.EntityData.SegmentPath = "power-shelfs"
+    powerShelfs.EntityData.AbsolutePath = "Cisco-IOS-XR-sdr-invmgr-diag-oper:diag/racks/rack/" + powerShelfs.EntityData.SegmentPath
     powerShelfs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     powerShelfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     powerShelfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -169,6 +174,7 @@ func (powerShelfs *Diag_Racks_Rack_PowerShelfs) GetEntityData() *types.CommonEnt
 type Diag_Racks_Rack_PowerShelfs_PowerShelf struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Power Shelf name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -184,6 +190,7 @@ func (powerShelf *Diag_Racks_Rack_PowerShelfs_PowerShelf) GetEntityData() *types
     powerShelf.EntityData.BundleName = "cisco_ios_xr"
     powerShelf.EntityData.ParentYangName = "power-shelfs"
     powerShelf.EntityData.SegmentPath = "power-shelf" + types.AddKeyToken(powerShelf.PowerShelfName, "power-shelf-name")
+    powerShelf.EntityData.AbsolutePath = "Cisco-IOS-XR-sdr-invmgr-diag-oper:diag/racks/rack/power-shelfs/" + powerShelf.EntityData.SegmentPath
     powerShelf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     powerShelf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     powerShelf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -215,6 +222,7 @@ func (powerSupplies *Diag_Racks_Rack_PowerShelfs_PowerShelf_PowerSupplies) GetEn
     powerSupplies.EntityData.BundleName = "cisco_ios_xr"
     powerSupplies.EntityData.ParentYangName = "power-shelf"
     powerSupplies.EntityData.SegmentPath = "power-supplies"
+    powerSupplies.EntityData.AbsolutePath = "Cisco-IOS-XR-sdr-invmgr-diag-oper:diag/racks/rack/power-shelfs/power-shelf/" + powerSupplies.EntityData.SegmentPath
     powerSupplies.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     powerSupplies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     powerSupplies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -236,6 +244,7 @@ func (powerSupplies *Diag_Racks_Rack_PowerShelfs_PowerShelf_PowerSupplies) GetEn
 type Diag_Racks_Rack_PowerShelfs_PowerShelf_PowerSupplies_PowerSupply struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Power Supply name. The type is string with
     // pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -251,6 +260,7 @@ func (powerSupply *Diag_Racks_Rack_PowerShelfs_PowerShelf_PowerSupplies_PowerSup
     powerSupply.EntityData.BundleName = "cisco_ios_xr"
     powerSupply.EntityData.ParentYangName = "power-supplies"
     powerSupply.EntityData.SegmentPath = "power-supply" + types.AddKeyToken(powerSupply.PowerSupplyName, "power-supply-name")
+    powerSupply.EntityData.AbsolutePath = "Cisco-IOS-XR-sdr-invmgr-diag-oper:diag/racks/rack/power-shelfs/power-shelf/power-supplies/" + powerSupply.EntityData.SegmentPath
     powerSupply.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     powerSupply.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     powerSupply.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -456,6 +466,7 @@ func (information *Diag_Racks_Rack_PowerShelfs_PowerShelf_PowerSupplies_PowerSup
     information.EntityData.BundleName = "cisco_ios_xr"
     information.EntityData.ParentYangName = "power-supply"
     information.EntityData.SegmentPath = "information"
+    information.EntityData.AbsolutePath = "Cisco-IOS-XR-sdr-invmgr-diag-oper:diag/racks/rack/power-shelfs/power-shelf/power-supplies/power-supply/" + information.EntityData.SegmentPath
     information.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     information.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     information.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -549,6 +560,7 @@ func (rma *Diag_Racks_Rack_PowerShelfs_PowerShelf_PowerSupplies_PowerSupply_Info
     rma.EntityData.BundleName = "cisco_ios_xr"
     rma.EntityData.ParentYangName = "information"
     rma.EntityData.SegmentPath = "rma"
+    rma.EntityData.AbsolutePath = "Cisco-IOS-XR-sdr-invmgr-diag-oper:diag/racks/rack/power-shelfs/power-shelf/power-supplies/power-supply/information/" + rma.EntityData.SegmentPath
     rma.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rma.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rma.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -580,6 +592,7 @@ func (fanTrays *Diag_Racks_Rack_FanTrays) GetEntityData() *types.CommonEntityDat
     fanTrays.EntityData.BundleName = "cisco_ios_xr"
     fanTrays.EntityData.ParentYangName = "rack"
     fanTrays.EntityData.SegmentPath = "fan-trays"
+    fanTrays.EntityData.AbsolutePath = "Cisco-IOS-XR-sdr-invmgr-diag-oper:diag/racks/rack/" + fanTrays.EntityData.SegmentPath
     fanTrays.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fanTrays.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fanTrays.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -601,6 +614,7 @@ func (fanTrays *Diag_Racks_Rack_FanTrays) GetEntityData() *types.CommonEntityDat
 type Diag_Racks_Rack_FanTrays_FanTray struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Fan tray name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -616,6 +630,7 @@ func (fanTray *Diag_Racks_Rack_FanTrays_FanTray) GetEntityData() *types.CommonEn
     fanTray.EntityData.BundleName = "cisco_ios_xr"
     fanTray.EntityData.ParentYangName = "fan-trays"
     fanTray.EntityData.SegmentPath = "fan-tray" + types.AddKeyToken(fanTray.FanTrayName, "fan-tray-name")
+    fanTray.EntityData.AbsolutePath = "Cisco-IOS-XR-sdr-invmgr-diag-oper:diag/racks/rack/fan-trays/" + fanTray.EntityData.SegmentPath
     fanTray.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fanTray.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fanTray.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -647,6 +662,7 @@ func (fanses *Diag_Racks_Rack_FanTrays_FanTray_Fanses) GetEntityData() *types.Co
     fanses.EntityData.BundleName = "cisco_ios_xr"
     fanses.EntityData.ParentYangName = "fan-tray"
     fanses.EntityData.SegmentPath = "fanses"
+    fanses.EntityData.AbsolutePath = "Cisco-IOS-XR-sdr-invmgr-diag-oper:diag/racks/rack/fan-trays/fan-tray/" + fanses.EntityData.SegmentPath
     fanses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fanses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fanses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -668,6 +684,7 @@ func (fanses *Diag_Racks_Rack_FanTrays_FanTray_Fanses) GetEntityData() *types.Co
 type Diag_Racks_Rack_FanTrays_FanTray_Fanses_Fans struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Fans name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -683,6 +700,7 @@ func (fans *Diag_Racks_Rack_FanTrays_FanTray_Fanses_Fans) GetEntityData() *types
     fans.EntityData.BundleName = "cisco_ios_xr"
     fans.EntityData.ParentYangName = "fanses"
     fans.EntityData.SegmentPath = "fans" + types.AddKeyToken(fans.FansName, "fans-name")
+    fans.EntityData.AbsolutePath = "Cisco-IOS-XR-sdr-invmgr-diag-oper:diag/racks/rack/fan-trays/fan-tray/fanses/" + fans.EntityData.SegmentPath
     fans.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fans.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fans.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -888,6 +906,7 @@ func (information *Diag_Racks_Rack_FanTrays_FanTray_Fanses_Fans_Information) Get
     information.EntityData.BundleName = "cisco_ios_xr"
     information.EntityData.ParentYangName = "fans"
     information.EntityData.SegmentPath = "information"
+    information.EntityData.AbsolutePath = "Cisco-IOS-XR-sdr-invmgr-diag-oper:diag/racks/rack/fan-trays/fan-tray/fanses/fans/" + information.EntityData.SegmentPath
     information.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     information.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     information.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -981,6 +1000,7 @@ func (rma *Diag_Racks_Rack_FanTrays_FanTray_Fanses_Fans_Information_Rma) GetEnti
     rma.EntityData.BundleName = "cisco_ios_xr"
     rma.EntityData.ParentYangName = "information"
     rma.EntityData.SegmentPath = "rma"
+    rma.EntityData.AbsolutePath = "Cisco-IOS-XR-sdr-invmgr-diag-oper:diag/racks/rack/fan-trays/fan-tray/fanses/fans/information/" + rma.EntityData.SegmentPath
     rma.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rma.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rma.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1012,6 +1032,7 @@ func (slots *Diag_Racks_Rack_Slots) GetEntityData() *types.CommonEntityData {
     slots.EntityData.BundleName = "cisco_ios_xr"
     slots.EntityData.ParentYangName = "rack"
     slots.EntityData.SegmentPath = "slots"
+    slots.EntityData.AbsolutePath = "Cisco-IOS-XR-sdr-invmgr-diag-oper:diag/racks/rack/" + slots.EntityData.SegmentPath
     slots.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     slots.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     slots.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1033,6 +1054,7 @@ func (slots *Diag_Racks_Rack_Slots) GetEntityData() *types.CommonEntityData {
 type Diag_Racks_Rack_Slots_Slot struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Slot name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -1048,6 +1070,7 @@ func (slot *Diag_Racks_Rack_Slots_Slot) GetEntityData() *types.CommonEntityData 
     slot.EntityData.BundleName = "cisco_ios_xr"
     slot.EntityData.ParentYangName = "slots"
     slot.EntityData.SegmentPath = "slot" + types.AddKeyToken(slot.SlotName, "slot-name")
+    slot.EntityData.AbsolutePath = "Cisco-IOS-XR-sdr-invmgr-diag-oper:diag/racks/rack/slots/" + slot.EntityData.SegmentPath
     slot.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     slot.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     slot.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1079,6 +1102,7 @@ func (instances *Diag_Racks_Rack_Slots_Slot_Instances) GetEntityData() *types.Co
     instances.EntityData.BundleName = "cisco_ios_xr"
     instances.EntityData.ParentYangName = "slot"
     instances.EntityData.SegmentPath = "instances"
+    instances.EntityData.AbsolutePath = "Cisco-IOS-XR-sdr-invmgr-diag-oper:diag/racks/rack/slots/slot/" + instances.EntityData.SegmentPath
     instances.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     instances.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     instances.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1100,6 +1124,7 @@ func (instances *Diag_Racks_Rack_Slots_Slot_Instances) GetEntityData() *types.Co
 type Diag_Racks_Rack_Slots_Slot_Instances_Instance struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Instance name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -1115,6 +1140,7 @@ func (instance *Diag_Racks_Rack_Slots_Slot_Instances_Instance) GetEntityData() *
     instance.EntityData.BundleName = "cisco_ios_xr"
     instance.EntityData.ParentYangName = "instances"
     instance.EntityData.SegmentPath = "instance" + types.AddKeyToken(instance.Name, "name")
+    instance.EntityData.AbsolutePath = "Cisco-IOS-XR-sdr-invmgr-diag-oper:diag/racks/rack/slots/slot/instances/" + instance.EntityData.SegmentPath
     instance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     instance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     instance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1148,6 +1174,7 @@ func (detail *Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail) GetEntityDat
     detail.EntityData.BundleName = "cisco_ios_xr"
     detail.EntityData.ParentYangName = "instance"
     detail.EntityData.SegmentPath = "detail"
+    detail.EntityData.AbsolutePath = "Cisco-IOS-XR-sdr-invmgr-diag-oper:diag/racks/rack/slots/slot/instances/instance/" + detail.EntityData.SegmentPath
     detail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     detail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     detail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1353,6 +1380,7 @@ func (cardInstance *Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_CardIns
     cardInstance.EntityData.BundleName = "cisco_ios_xr"
     cardInstance.EntityData.ParentYangName = "detail"
     cardInstance.EntityData.SegmentPath = "card-instance"
+    cardInstance.EntityData.AbsolutePath = "Cisco-IOS-XR-sdr-invmgr-diag-oper:diag/racks/rack/slots/slot/instances/instance/detail/" + cardInstance.EntityData.SegmentPath
     cardInstance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cardInstance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cardInstance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1446,6 +1474,7 @@ func (rma *Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_CardInstance_Rma
     rma.EntityData.BundleName = "cisco_ios_xr"
     rma.EntityData.ParentYangName = "card-instance"
     rma.EntityData.SegmentPath = "rma"
+    rma.EntityData.AbsolutePath = "Cisco-IOS-XR-sdr-invmgr-diag-oper:diag/racks/rack/slots/slot/instances/instance/detail/card-instance/" + rma.EntityData.SegmentPath
     rma.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rma.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rma.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1652,6 +1681,7 @@ func (chassis *Diag_Racks_Rack_Chassis) GetEntityData() *types.CommonEntityData 
     chassis.EntityData.BundleName = "cisco_ios_xr"
     chassis.EntityData.ParentYangName = "rack"
     chassis.EntityData.SegmentPath = "chassis"
+    chassis.EntityData.AbsolutePath = "Cisco-IOS-XR-sdr-invmgr-diag-oper:diag/racks/rack/" + chassis.EntityData.SegmentPath
     chassis.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     chassis.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     chassis.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1745,6 +1775,7 @@ func (rma *Diag_Racks_Rack_Chassis_Rma) GetEntityData() *types.CommonEntityData 
     rma.EntityData.BundleName = "cisco_ios_xr"
     rma.EntityData.ParentYangName = "chassis"
     rma.EntityData.SegmentPath = "rma"
+    rma.EntityData.AbsolutePath = "Cisco-IOS-XR-sdr-invmgr-diag-oper:diag/racks/rack/chassis/" + rma.EntityData.SegmentPath
     rma.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rma.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rma.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

@@ -26,6 +26,10 @@ submodule Cisco-IOS-XR-clns-isis-oper-sub3 {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2019-02-16 {
+    description
+      "Added interface link-group name";
+  }
   revision 2018-04-07 {
     description
       "Update SRv6 definitions to draft-filsfils-spring-srv6-network-programming-04";

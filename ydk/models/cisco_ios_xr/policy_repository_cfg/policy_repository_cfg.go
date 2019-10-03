@@ -52,6 +52,7 @@ func (routingPolicy *RoutingPolicy) GetEntityData() *types.CommonEntityData {
     routingPolicy.EntityData.BundleName = "cisco_ios_xr"
     routingPolicy.EntityData.ParentYangName = "Cisco-IOS-XR-policy-repository-cfg"
     routingPolicy.EntityData.SegmentPath = "Cisco-IOS-XR-policy-repository-cfg:routing-policy"
+    routingPolicy.EntityData.AbsolutePath = routingPolicy.EntityData.SegmentPath
     routingPolicy.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routingPolicy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routingPolicy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -86,6 +87,7 @@ func (routePolicies *RoutingPolicy_RoutePolicies) GetEntityData() *types.CommonE
     routePolicies.EntityData.BundleName = "cisco_ios_xr"
     routePolicies.EntityData.ParentYangName = "routing-policy"
     routePolicies.EntityData.SegmentPath = "route-policies"
+    routePolicies.EntityData.AbsolutePath = "Cisco-IOS-XR-policy-repository-cfg:routing-policy/" + routePolicies.EntityData.SegmentPath
     routePolicies.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routePolicies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routePolicies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -107,6 +109,7 @@ func (routePolicies *RoutingPolicy_RoutePolicies) GetEntityData() *types.CommonE
 type RoutingPolicy_RoutePolicies_RoutePolicy struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Route policy name. The type is string with
     // pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -122,6 +125,7 @@ func (routePolicy *RoutingPolicy_RoutePolicies_RoutePolicy) GetEntityData() *typ
     routePolicy.EntityData.BundleName = "cisco_ios_xr"
     routePolicy.EntityData.ParentYangName = "route-policies"
     routePolicy.EntityData.SegmentPath = "route-policy" + types.AddKeyToken(routePolicy.RoutePolicyName, "route-policy-name")
+    routePolicy.EntityData.AbsolutePath = "Cisco-IOS-XR-policy-repository-cfg:routing-policy/route-policies/" + routePolicy.EntityData.SegmentPath
     routePolicy.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routePolicy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routePolicy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -200,6 +204,7 @@ func (sets *RoutingPolicy_Sets) GetEntityData() *types.CommonEntityData {
     sets.EntityData.BundleName = "cisco_ios_xr"
     sets.EntityData.ParentYangName = "routing-policy"
     sets.EntityData.SegmentPath = "sets"
+    sets.EntityData.AbsolutePath = "Cisco-IOS-XR-policy-repository-cfg:routing-policy/" + sets.EntityData.SegmentPath
     sets.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sets.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sets.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -246,6 +251,7 @@ func (prefixSets *RoutingPolicy_Sets_PrefixSets) GetEntityData() *types.CommonEn
     prefixSets.EntityData.BundleName = "cisco_ios_xr"
     prefixSets.EntityData.ParentYangName = "sets"
     prefixSets.EntityData.SegmentPath = "prefix-sets"
+    prefixSets.EntityData.AbsolutePath = "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/" + prefixSets.EntityData.SegmentPath
     prefixSets.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefixSets.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefixSets.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -267,6 +273,7 @@ func (prefixSets *RoutingPolicy_Sets_PrefixSets) GetEntityData() *types.CommonEn
 type RoutingPolicy_Sets_PrefixSets_PrefixSet struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Set name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -282,6 +289,7 @@ func (prefixSet *RoutingPolicy_Sets_PrefixSets_PrefixSet) GetEntityData() *types
     prefixSet.EntityData.BundleName = "cisco_ios_xr"
     prefixSet.EntityData.ParentYangName = "prefix-sets"
     prefixSet.EntityData.SegmentPath = "prefix-set" + types.AddKeyToken(prefixSet.SetName, "set-name")
+    prefixSet.EntityData.AbsolutePath = "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/prefix-sets/" + prefixSet.EntityData.SegmentPath
     prefixSet.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefixSet.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefixSet.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -313,6 +321,7 @@ func (largeCommunitySets *RoutingPolicy_Sets_LargeCommunitySets) GetEntityData()
     largeCommunitySets.EntityData.BundleName = "cisco_ios_xr"
     largeCommunitySets.EntityData.ParentYangName = "sets"
     largeCommunitySets.EntityData.SegmentPath = "large-community-sets"
+    largeCommunitySets.EntityData.AbsolutePath = "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/" + largeCommunitySets.EntityData.SegmentPath
     largeCommunitySets.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     largeCommunitySets.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     largeCommunitySets.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -334,6 +343,7 @@ func (largeCommunitySets *RoutingPolicy_Sets_LargeCommunitySets) GetEntityData()
 type RoutingPolicy_Sets_LargeCommunitySets_LargeCommunitySet struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Set name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -349,6 +359,7 @@ func (largeCommunitySet *RoutingPolicy_Sets_LargeCommunitySets_LargeCommunitySet
     largeCommunitySet.EntityData.BundleName = "cisco_ios_xr"
     largeCommunitySet.EntityData.ParentYangName = "large-community-sets"
     largeCommunitySet.EntityData.SegmentPath = "large-community-set" + types.AddKeyToken(largeCommunitySet.SetName, "set-name")
+    largeCommunitySet.EntityData.AbsolutePath = "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/large-community-sets/" + largeCommunitySet.EntityData.SegmentPath
     largeCommunitySet.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     largeCommunitySet.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     largeCommunitySet.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -380,6 +391,7 @@ func (macSets *RoutingPolicy_Sets_MacSets) GetEntityData() *types.CommonEntityDa
     macSets.EntityData.BundleName = "cisco_ios_xr"
     macSets.EntityData.ParentYangName = "sets"
     macSets.EntityData.SegmentPath = "mac-sets"
+    macSets.EntityData.AbsolutePath = "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/" + macSets.EntityData.SegmentPath
     macSets.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     macSets.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     macSets.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -401,6 +413,7 @@ func (macSets *RoutingPolicy_Sets_MacSets) GetEntityData() *types.CommonEntityDa
 type RoutingPolicy_Sets_MacSets_MacSet struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Set name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -416,6 +429,7 @@ func (macSet *RoutingPolicy_Sets_MacSets_MacSet) GetEntityData() *types.CommonEn
     macSet.EntityData.BundleName = "cisco_ios_xr"
     macSet.EntityData.ParentYangName = "mac-sets"
     macSet.EntityData.SegmentPath = "mac-set" + types.AddKeyToken(macSet.SetName, "set-name")
+    macSet.EntityData.AbsolutePath = "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/mac-sets/" + macSet.EntityData.SegmentPath
     macSet.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     macSet.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     macSet.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -447,6 +461,7 @@ func (extendedCommunityOpaqueSets *RoutingPolicy_Sets_ExtendedCommunityOpaqueSet
     extendedCommunityOpaqueSets.EntityData.BundleName = "cisco_ios_xr"
     extendedCommunityOpaqueSets.EntityData.ParentYangName = "sets"
     extendedCommunityOpaqueSets.EntityData.SegmentPath = "extended-community-opaque-sets"
+    extendedCommunityOpaqueSets.EntityData.AbsolutePath = "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/" + extendedCommunityOpaqueSets.EntityData.SegmentPath
     extendedCommunityOpaqueSets.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     extendedCommunityOpaqueSets.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     extendedCommunityOpaqueSets.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -468,6 +483,7 @@ func (extendedCommunityOpaqueSets *RoutingPolicy_Sets_ExtendedCommunityOpaqueSet
 type RoutingPolicy_Sets_ExtendedCommunityOpaqueSets_ExtendedCommunityOpaqueSet struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Set name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -484,6 +500,7 @@ func (extendedCommunityOpaqueSet *RoutingPolicy_Sets_ExtendedCommunityOpaqueSets
     extendedCommunityOpaqueSet.EntityData.BundleName = "cisco_ios_xr"
     extendedCommunityOpaqueSet.EntityData.ParentYangName = "extended-community-opaque-sets"
     extendedCommunityOpaqueSet.EntityData.SegmentPath = "extended-community-opaque-set" + types.AddKeyToken(extendedCommunityOpaqueSet.SetName, "set-name")
+    extendedCommunityOpaqueSet.EntityData.AbsolutePath = "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/extended-community-opaque-sets/" + extendedCommunityOpaqueSet.EntityData.SegmentPath
     extendedCommunityOpaqueSet.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     extendedCommunityOpaqueSet.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     extendedCommunityOpaqueSet.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -506,14 +523,13 @@ type RoutingPolicy_Sets_OspfAreaSets struct {
 
     // Information about an individual OSPF area set. Usage: OSPF area set allows
     // to define named set of area numbers        which can be referenced in the
-    // route-policy. Area sets      may be used during redistribution of the ospf
-    // protocol.  Example: ospf-area-set EXAMPLE      1,                          
-    // 192.168.1.255                                  end-set                     
-    // Syntax: OSPF area number can be entered as 32 bit number or in          the
-    // ip address format. See example.                     Semantic: Area numbers
-    // listed in the set will be searched for             a match. In the example
-    // these are areas 1 and                  192.168.1.255.                      
-    // . The type is slice of RoutingPolicy_Sets_OspfAreaSets_OspfAreaSet.
+    // route-policy. Area sets may be used during redistribution of the ospf
+    // protocol.  Example: ospf-area-set EXAMPLE 1, 192.168.1.255 end-set Syntax:
+    // OSPF area number can be entered as 32 bit number or in          the ip
+    // address format. See example. Semantic: Area numbers listed in the set will
+    // be searched for             a match. In the example these are areas 1 and
+    // 192.168.1.255.                                . The type is slice of
+    // RoutingPolicy_Sets_OspfAreaSets_OspfAreaSet.
     OspfAreaSet []*RoutingPolicy_Sets_OspfAreaSets_OspfAreaSet
 }
 
@@ -523,6 +539,7 @@ func (ospfAreaSets *RoutingPolicy_Sets_OspfAreaSets) GetEntityData() *types.Comm
     ospfAreaSets.EntityData.BundleName = "cisco_ios_xr"
     ospfAreaSets.EntityData.ParentYangName = "sets"
     ospfAreaSets.EntityData.SegmentPath = "ospf-area-sets"
+    ospfAreaSets.EntityData.AbsolutePath = "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/" + ospfAreaSets.EntityData.SegmentPath
     ospfAreaSets.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ospfAreaSets.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ospfAreaSets.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -543,22 +560,23 @@ func (ospfAreaSets *RoutingPolicy_Sets_OspfAreaSets) GetEntityData() *types.Comm
 // Information about an individual OSPF area set.
 // Usage: OSPF area set allows to define named
 // set of area numbers        which can be
-// referenced in the route-policy. Area sets     
+// referenced in the route-policy. Area sets
 // may be used during redistribution of the ospf
-// protocol.  Example: ospf-area-set EXAMPLE     
-// 1,                                            
-// 192.168.1.255                                 
-// end-set                                       
+// protocol.  Example: ospf-area-set EXAMPLE
+// 1,
+// 192.168.1.255
+// end-set
 // Syntax: OSPF area number can be entered as 32
 // bit number or in          the ip address
-// format. See example.                    
+// format. See example.
 // Semantic: Area numbers listed in the set will
 // be searched for             a match. In the
-// example these are areas 1 and                 
+// example these are areas 1 and
 // 192.168.1.255.                                
 type RoutingPolicy_Sets_OspfAreaSets_OspfAreaSet struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Set name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -574,6 +592,7 @@ func (ospfAreaSet *RoutingPolicy_Sets_OspfAreaSets_OspfAreaSet) GetEntityData() 
     ospfAreaSet.EntityData.BundleName = "cisco_ios_xr"
     ospfAreaSet.EntityData.ParentYangName = "ospf-area-sets"
     ospfAreaSet.EntityData.SegmentPath = "ospf-area-set" + types.AddKeyToken(ospfAreaSet.SetName, "set-name")
+    ospfAreaSet.EntityData.AbsolutePath = "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/ospf-area-sets/" + ospfAreaSet.EntityData.SegmentPath
     ospfAreaSet.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ospfAreaSet.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ospfAreaSet.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -605,6 +624,7 @@ func (extendedCommunityCostSets *RoutingPolicy_Sets_ExtendedCommunityCostSets) G
     extendedCommunityCostSets.EntityData.BundleName = "cisco_ios_xr"
     extendedCommunityCostSets.EntityData.ParentYangName = "sets"
     extendedCommunityCostSets.EntityData.SegmentPath = "extended-community-cost-sets"
+    extendedCommunityCostSets.EntityData.AbsolutePath = "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/" + extendedCommunityCostSets.EntityData.SegmentPath
     extendedCommunityCostSets.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     extendedCommunityCostSets.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     extendedCommunityCostSets.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -626,6 +646,7 @@ func (extendedCommunityCostSets *RoutingPolicy_Sets_ExtendedCommunityCostSets) G
 type RoutingPolicy_Sets_ExtendedCommunityCostSets_ExtendedCommunityCostSet struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Set name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -642,6 +663,7 @@ func (extendedCommunityCostSet *RoutingPolicy_Sets_ExtendedCommunityCostSets_Ext
     extendedCommunityCostSet.EntityData.BundleName = "cisco_ios_xr"
     extendedCommunityCostSet.EntityData.ParentYangName = "extended-community-cost-sets"
     extendedCommunityCostSet.EntityData.SegmentPath = "extended-community-cost-set" + types.AddKeyToken(extendedCommunityCostSet.SetName, "set-name")
+    extendedCommunityCostSet.EntityData.AbsolutePath = "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/extended-community-cost-sets/" + extendedCommunityCostSet.EntityData.SegmentPath
     extendedCommunityCostSet.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     extendedCommunityCostSet.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     extendedCommunityCostSet.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -673,6 +695,7 @@ func (extendedCommunitySooSets *RoutingPolicy_Sets_ExtendedCommunitySooSets) Get
     extendedCommunitySooSets.EntityData.BundleName = "cisco_ios_xr"
     extendedCommunitySooSets.EntityData.ParentYangName = "sets"
     extendedCommunitySooSets.EntityData.SegmentPath = "extended-community-soo-sets"
+    extendedCommunitySooSets.EntityData.AbsolutePath = "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/" + extendedCommunitySooSets.EntityData.SegmentPath
     extendedCommunitySooSets.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     extendedCommunitySooSets.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     extendedCommunitySooSets.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -694,6 +717,7 @@ func (extendedCommunitySooSets *RoutingPolicy_Sets_ExtendedCommunitySooSets) Get
 type RoutingPolicy_Sets_ExtendedCommunitySooSets_ExtendedCommunitySooSet struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Set name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -710,6 +734,7 @@ func (extendedCommunitySooSet *RoutingPolicy_Sets_ExtendedCommunitySooSets_Exten
     extendedCommunitySooSet.EntityData.BundleName = "cisco_ios_xr"
     extendedCommunitySooSet.EntityData.ParentYangName = "extended-community-soo-sets"
     extendedCommunitySooSet.EntityData.SegmentPath = "extended-community-soo-set" + types.AddKeyToken(extendedCommunitySooSet.SetName, "set-name")
+    extendedCommunitySooSet.EntityData.AbsolutePath = "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/extended-community-soo-sets/" + extendedCommunitySooSet.EntityData.SegmentPath
     extendedCommunitySooSet.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     extendedCommunitySooSet.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     extendedCommunitySooSet.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -741,6 +766,7 @@ func (esiSets *RoutingPolicy_Sets_EsiSets) GetEntityData() *types.CommonEntityDa
     esiSets.EntityData.BundleName = "cisco_ios_xr"
     esiSets.EntityData.ParentYangName = "sets"
     esiSets.EntityData.SegmentPath = "esi-sets"
+    esiSets.EntityData.AbsolutePath = "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/" + esiSets.EntityData.SegmentPath
     esiSets.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     esiSets.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     esiSets.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -762,6 +788,7 @@ func (esiSets *RoutingPolicy_Sets_EsiSets) GetEntityData() *types.CommonEntityDa
 type RoutingPolicy_Sets_EsiSets_EsiSet struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Set name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -777,6 +804,7 @@ func (esiSet *RoutingPolicy_Sets_EsiSets_EsiSet) GetEntityData() *types.CommonEn
     esiSet.EntityData.BundleName = "cisco_ios_xr"
     esiSet.EntityData.ParentYangName = "esi-sets"
     esiSet.EntityData.SegmentPath = "esi-set" + types.AddKeyToken(esiSet.SetName, "set-name")
+    esiSet.EntityData.AbsolutePath = "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/esi-sets/" + esiSet.EntityData.SegmentPath
     esiSet.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     esiSet.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     esiSet.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -808,6 +836,7 @@ func (extendedCommunitySegNhSets *RoutingPolicy_Sets_ExtendedCommunitySegNhSets)
     extendedCommunitySegNhSets.EntityData.BundleName = "cisco_ios_xr"
     extendedCommunitySegNhSets.EntityData.ParentYangName = "sets"
     extendedCommunitySegNhSets.EntityData.SegmentPath = "extended-community-seg-nh-sets"
+    extendedCommunitySegNhSets.EntityData.AbsolutePath = "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/" + extendedCommunitySegNhSets.EntityData.SegmentPath
     extendedCommunitySegNhSets.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     extendedCommunitySegNhSets.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     extendedCommunitySegNhSets.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -829,6 +858,7 @@ func (extendedCommunitySegNhSets *RoutingPolicy_Sets_ExtendedCommunitySegNhSets)
 type RoutingPolicy_Sets_ExtendedCommunitySegNhSets_ExtendedCommunitySegNhSet struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Set name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -845,6 +875,7 @@ func (extendedCommunitySegNhSet *RoutingPolicy_Sets_ExtendedCommunitySegNhSets_E
     extendedCommunitySegNhSet.EntityData.BundleName = "cisco_ios_xr"
     extendedCommunitySegNhSet.EntityData.ParentYangName = "extended-community-seg-nh-sets"
     extendedCommunitySegNhSet.EntityData.SegmentPath = "extended-community-seg-nh-set" + types.AddKeyToken(extendedCommunitySegNhSet.SetName, "set-name")
+    extendedCommunitySegNhSet.EntityData.AbsolutePath = "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/extended-community-seg-nh-sets/" + extendedCommunitySegNhSet.EntityData.SegmentPath
     extendedCommunitySegNhSet.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     extendedCommunitySegNhSet.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     extendedCommunitySegNhSet.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -876,6 +907,7 @@ func (rdSets *RoutingPolicy_Sets_RdSets) GetEntityData() *types.CommonEntityData
     rdSets.EntityData.BundleName = "cisco_ios_xr"
     rdSets.EntityData.ParentYangName = "sets"
     rdSets.EntityData.SegmentPath = "rd-sets"
+    rdSets.EntityData.AbsolutePath = "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/" + rdSets.EntityData.SegmentPath
     rdSets.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rdSets.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rdSets.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -897,6 +929,7 @@ func (rdSets *RoutingPolicy_Sets_RdSets) GetEntityData() *types.CommonEntityData
 type RoutingPolicy_Sets_RdSets_RdSet struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Set name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -912,6 +945,7 @@ func (rdSet *RoutingPolicy_Sets_RdSets_RdSet) GetEntityData() *types.CommonEntit
     rdSet.EntityData.BundleName = "cisco_ios_xr"
     rdSet.EntityData.ParentYangName = "rd-sets"
     rdSet.EntityData.SegmentPath = "rd-set" + types.AddKeyToken(rdSet.SetName, "set-name")
+    rdSet.EntityData.AbsolutePath = "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/rd-sets/" + rdSet.EntityData.SegmentPath
     rdSet.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rdSet.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rdSet.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -942,6 +976,7 @@ func (policyGlobalSetTable *RoutingPolicy_Sets_PolicyGlobalSetTable) GetEntityDa
     policyGlobalSetTable.EntityData.BundleName = "cisco_ios_xr"
     policyGlobalSetTable.EntityData.ParentYangName = "sets"
     policyGlobalSetTable.EntityData.SegmentPath = "policy-global-set-table"
+    policyGlobalSetTable.EntityData.AbsolutePath = "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/" + policyGlobalSetTable.EntityData.SegmentPath
     policyGlobalSetTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     policyGlobalSetTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policyGlobalSetTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -972,6 +1007,7 @@ func (extendedCommunityBandwidthSets *RoutingPolicy_Sets_ExtendedCommunityBandwi
     extendedCommunityBandwidthSets.EntityData.BundleName = "cisco_ios_xr"
     extendedCommunityBandwidthSets.EntityData.ParentYangName = "sets"
     extendedCommunityBandwidthSets.EntityData.SegmentPath = "extended-community-bandwidth-sets"
+    extendedCommunityBandwidthSets.EntityData.AbsolutePath = "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/" + extendedCommunityBandwidthSets.EntityData.SegmentPath
     extendedCommunityBandwidthSets.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     extendedCommunityBandwidthSets.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     extendedCommunityBandwidthSets.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -993,6 +1029,7 @@ func (extendedCommunityBandwidthSets *RoutingPolicy_Sets_ExtendedCommunityBandwi
 type RoutingPolicy_Sets_ExtendedCommunityBandwidthSets_ExtendedCommunityBandwidthSet struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Set name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -1009,6 +1046,7 @@ func (extendedCommunityBandwidthSet *RoutingPolicy_Sets_ExtendedCommunityBandwid
     extendedCommunityBandwidthSet.EntityData.BundleName = "cisco_ios_xr"
     extendedCommunityBandwidthSet.EntityData.ParentYangName = "extended-community-bandwidth-sets"
     extendedCommunityBandwidthSet.EntityData.SegmentPath = "extended-community-bandwidth-set" + types.AddKeyToken(extendedCommunityBandwidthSet.SetName, "set-name")
+    extendedCommunityBandwidthSet.EntityData.AbsolutePath = "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/extended-community-bandwidth-sets/" + extendedCommunityBandwidthSet.EntityData.SegmentPath
     extendedCommunityBandwidthSet.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     extendedCommunityBandwidthSet.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     extendedCommunityBandwidthSet.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1040,6 +1078,7 @@ func (communitySets *RoutingPolicy_Sets_CommunitySets) GetEntityData() *types.Co
     communitySets.EntityData.BundleName = "cisco_ios_xr"
     communitySets.EntityData.ParentYangName = "sets"
     communitySets.EntityData.SegmentPath = "community-sets"
+    communitySets.EntityData.AbsolutePath = "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/" + communitySets.EntityData.SegmentPath
     communitySets.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     communitySets.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     communitySets.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1061,6 +1100,7 @@ func (communitySets *RoutingPolicy_Sets_CommunitySets) GetEntityData() *types.Co
 type RoutingPolicy_Sets_CommunitySets_CommunitySet struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Set name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -1076,6 +1116,7 @@ func (communitySet *RoutingPolicy_Sets_CommunitySets_CommunitySet) GetEntityData
     communitySet.EntityData.BundleName = "cisco_ios_xr"
     communitySet.EntityData.ParentYangName = "community-sets"
     communitySet.EntityData.SegmentPath = "community-set" + types.AddKeyToken(communitySet.SetName, "set-name")
+    communitySet.EntityData.AbsolutePath = "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/community-sets/" + communitySet.EntityData.SegmentPath
     communitySet.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     communitySet.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     communitySet.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1107,6 +1148,7 @@ func (asPathSets *RoutingPolicy_Sets_AsPathSets) GetEntityData() *types.CommonEn
     asPathSets.EntityData.BundleName = "cisco_ios_xr"
     asPathSets.EntityData.ParentYangName = "sets"
     asPathSets.EntityData.SegmentPath = "as-path-sets"
+    asPathSets.EntityData.AbsolutePath = "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/" + asPathSets.EntityData.SegmentPath
     asPathSets.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     asPathSets.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asPathSets.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1128,6 +1170,7 @@ func (asPathSets *RoutingPolicy_Sets_AsPathSets) GetEntityData() *types.CommonEn
 type RoutingPolicy_Sets_AsPathSets_AsPathSet struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Set name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -1143,6 +1186,7 @@ func (asPathSet *RoutingPolicy_Sets_AsPathSets_AsPathSet) GetEntityData() *types
     asPathSet.EntityData.BundleName = "cisco_ios_xr"
     asPathSet.EntityData.ParentYangName = "as-path-sets"
     asPathSet.EntityData.SegmentPath = "as-path-set" + types.AddKeyToken(asPathSet.SetName, "set-name")
+    asPathSet.EntityData.AbsolutePath = "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/as-path-sets/" + asPathSet.EntityData.SegmentPath
     asPathSet.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     asPathSet.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asPathSet.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1174,6 +1218,7 @@ func (tagSets *RoutingPolicy_Sets_TagSets) GetEntityData() *types.CommonEntityDa
     tagSets.EntityData.BundleName = "cisco_ios_xr"
     tagSets.EntityData.ParentYangName = "sets"
     tagSets.EntityData.SegmentPath = "tag-sets"
+    tagSets.EntityData.AbsolutePath = "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/" + tagSets.EntityData.SegmentPath
     tagSets.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tagSets.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tagSets.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1195,6 +1240,7 @@ func (tagSets *RoutingPolicy_Sets_TagSets) GetEntityData() *types.CommonEntityDa
 type RoutingPolicy_Sets_TagSets_TagSet struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Set name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -1210,6 +1256,7 @@ func (tagSet *RoutingPolicy_Sets_TagSets_TagSet) GetEntityData() *types.CommonEn
     tagSet.EntityData.BundleName = "cisco_ios_xr"
     tagSet.EntityData.ParentYangName = "tag-sets"
     tagSet.EntityData.SegmentPath = "tag-set" + types.AddKeyToken(tagSet.SetName, "set-name")
+    tagSet.EntityData.AbsolutePath = "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/tag-sets/" + tagSet.EntityData.SegmentPath
     tagSet.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tagSet.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tagSet.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1241,6 +1288,7 @@ func (etagSets *RoutingPolicy_Sets_EtagSets) GetEntityData() *types.CommonEntity
     etagSets.EntityData.BundleName = "cisco_ios_xr"
     etagSets.EntityData.ParentYangName = "sets"
     etagSets.EntityData.SegmentPath = "etag-sets"
+    etagSets.EntityData.AbsolutePath = "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/" + etagSets.EntityData.SegmentPath
     etagSets.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     etagSets.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     etagSets.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1262,6 +1310,7 @@ func (etagSets *RoutingPolicy_Sets_EtagSets) GetEntityData() *types.CommonEntity
 type RoutingPolicy_Sets_EtagSets_EtagSet struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Set name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -1277,6 +1326,7 @@ func (etagSet *RoutingPolicy_Sets_EtagSets_EtagSet) GetEntityData() *types.Commo
     etagSet.EntityData.BundleName = "cisco_ios_xr"
     etagSet.EntityData.ParentYangName = "etag-sets"
     etagSet.EntityData.SegmentPath = "etag-set" + types.AddKeyToken(etagSet.SetName, "set-name")
+    etagSet.EntityData.AbsolutePath = "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/etag-sets/" + etagSet.EntityData.SegmentPath
     etagSet.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     etagSet.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     etagSet.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1308,6 +1358,7 @@ func (extendedCommunityRtSets *RoutingPolicy_Sets_ExtendedCommunityRtSets) GetEn
     extendedCommunityRtSets.EntityData.BundleName = "cisco_ios_xr"
     extendedCommunityRtSets.EntityData.ParentYangName = "sets"
     extendedCommunityRtSets.EntityData.SegmentPath = "extended-community-rt-sets"
+    extendedCommunityRtSets.EntityData.AbsolutePath = "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/" + extendedCommunityRtSets.EntityData.SegmentPath
     extendedCommunityRtSets.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     extendedCommunityRtSets.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     extendedCommunityRtSets.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1329,6 +1380,7 @@ func (extendedCommunityRtSets *RoutingPolicy_Sets_ExtendedCommunityRtSets) GetEn
 type RoutingPolicy_Sets_ExtendedCommunityRtSets_ExtendedCommunityRtSet struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Set name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -1344,6 +1396,7 @@ func (extendedCommunityRtSet *RoutingPolicy_Sets_ExtendedCommunityRtSets_Extende
     extendedCommunityRtSet.EntityData.BundleName = "cisco_ios_xr"
     extendedCommunityRtSet.EntityData.ParentYangName = "extended-community-rt-sets"
     extendedCommunityRtSet.EntityData.SegmentPath = "extended-community-rt-set" + types.AddKeyToken(extendedCommunityRtSet.SetName, "set-name")
+    extendedCommunityRtSet.EntityData.AbsolutePath = "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/extended-community-rt-sets/" + extendedCommunityRtSet.EntityData.SegmentPath
     extendedCommunityRtSet.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     extendedCommunityRtSet.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     extendedCommunityRtSet.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1380,6 +1433,7 @@ func (limits *RoutingPolicy_Limits) GetEntityData() *types.CommonEntityData {
     limits.EntityData.BundleName = "cisco_ios_xr"
     limits.EntityData.ParentYangName = "routing-policy"
     limits.EntityData.SegmentPath = "limits"
+    limits.EntityData.AbsolutePath = "Cisco-IOS-XR-policy-repository-cfg:routing-policy/" + limits.EntityData.SegmentPath
     limits.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     limits.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     limits.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

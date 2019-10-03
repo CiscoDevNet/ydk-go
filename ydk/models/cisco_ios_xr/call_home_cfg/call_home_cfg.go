@@ -221,6 +221,7 @@ func (callHome *CallHome) GetEntityData() *types.CommonEntityData {
     callHome.EntityData.BundleName = "cisco_ios_xr"
     callHome.EntityData.ParentYangName = "Cisco-IOS-XR-call-home-cfg"
     callHome.EntityData.SegmentPath = "Cisco-IOS-XR-call-home-cfg:call-home"
+    callHome.EntityData.AbsolutePath = callHome.EntityData.SegmentPath
     callHome.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     callHome.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     callHome.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -270,6 +271,7 @@ func (mailServers *CallHome_MailServers) GetEntityData() *types.CommonEntityData
     mailServers.EntityData.BundleName = "cisco_ios_xr"
     mailServers.EntityData.ParentYangName = "call-home"
     mailServers.EntityData.SegmentPath = "mail-servers"
+    mailServers.EntityData.AbsolutePath = "Cisco-IOS-XR-call-home-cfg:call-home/" + mailServers.EntityData.SegmentPath
     mailServers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mailServers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mailServers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -291,6 +293,7 @@ func (mailServers *CallHome_MailServers) GetEntityData() *types.CommonEntityData
 type CallHome_MailServers_MailServer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Email server. The type is string.
     MailServAddress interface{}
@@ -306,6 +309,7 @@ func (mailServer *CallHome_MailServers_MailServer) GetEntityData() *types.Common
     mailServer.EntityData.BundleName = "cisco_ios_xr"
     mailServer.EntityData.ParentYangName = "mail-servers"
     mailServer.EntityData.SegmentPath = "mail-server" + types.AddKeyToken(mailServer.MailServAddress, "mail-serv-address")
+    mailServer.EntityData.AbsolutePath = "Cisco-IOS-XR-call-home-cfg:call-home/mail-servers/" + mailServer.EntityData.SegmentPath
     mailServer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mailServer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mailServer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -337,6 +341,7 @@ func (syslogThrottling *CallHome_SyslogThrottling) GetEntityData() *types.Common
     syslogThrottling.EntityData.BundleName = "cisco_ios_xr"
     syslogThrottling.EntityData.ParentYangName = "call-home"
     syslogThrottling.EntityData.SegmentPath = "syslog-throttling"
+    syslogThrottling.EntityData.AbsolutePath = "Cisco-IOS-XR-call-home-cfg:call-home/" + syslogThrottling.EntityData.SegmentPath
     syslogThrottling.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     syslogThrottling.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     syslogThrottling.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -369,6 +374,7 @@ func (httpProxy *CallHome_HttpProxy) GetEntityData() *types.CommonEntityData {
     httpProxy.EntityData.BundleName = "cisco_ios_xr"
     httpProxy.EntityData.ParentYangName = "call-home"
     httpProxy.EntityData.SegmentPath = "http-proxy"
+    httpProxy.EntityData.AbsolutePath = "Cisco-IOS-XR-call-home-cfg:call-home/" + httpProxy.EntityData.SegmentPath
     httpProxy.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     httpProxy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     httpProxy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -399,6 +405,7 @@ func (profiles *CallHome_Profiles) GetEntityData() *types.CommonEntityData {
     profiles.EntityData.BundleName = "cisco_ios_xr"
     profiles.EntityData.ParentYangName = "call-home"
     profiles.EntityData.SegmentPath = "profiles"
+    profiles.EntityData.AbsolutePath = "Cisco-IOS-XR-call-home-cfg:call-home/" + profiles.EntityData.SegmentPath
     profiles.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     profiles.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     profiles.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -420,13 +427,11 @@ func (profiles *CallHome_Profiles) GetEntityData() *types.CommonEntityData {
 type CallHome_Profiles_Profile struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Profile name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
     ProfileName interface{}
-
-    // Create a profile. The type is interface{}.
-    Create interface{}
 
     // none. The type is string.
     MessageFormat interface{}
@@ -460,6 +465,7 @@ func (profile *CallHome_Profiles_Profile) GetEntityData() *types.CommonEntityDat
     profile.EntityData.BundleName = "cisco_ios_xr"
     profile.EntityData.ParentYangName = "profiles"
     profile.EntityData.SegmentPath = "profile" + types.AddKeyToken(profile.ProfileName, "profile-name")
+    profile.EntityData.AbsolutePath = "Cisco-IOS-XR-call-home-cfg:call-home/profiles/" + profile.EntityData.SegmentPath
     profile.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     profile.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     profile.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -471,7 +477,6 @@ func (profile *CallHome_Profiles_Profile) GetEntityData() *types.CommonEntityDat
     profile.EntityData.Children.Append("subscribe-alert-group", types.YChild{"SubscribeAlertGroup", &profile.SubscribeAlertGroup})
     profile.EntityData.Leafs = types.NewOrderedMap()
     profile.EntityData.Leafs.Append("profile-name", types.YLeaf{"ProfileName", profile.ProfileName})
-    profile.EntityData.Leafs.Append("create", types.YLeaf{"Create", profile.Create})
     profile.EntityData.Leafs.Append("message-format", types.YLeaf{"MessageFormat", profile.MessageFormat})
     profile.EntityData.Leafs.Append("anonymous", types.YLeaf{"Anonymous", profile.Anonymous})
     profile.EntityData.Leafs.Append("message-size-limit", types.YLeaf{"MessageSizeLimit", profile.MessageSizeLimit})
@@ -501,6 +506,7 @@ func (reportType *CallHome_Profiles_Profile_ReportType) GetEntityData() *types.C
     reportType.EntityData.BundleName = "cisco_ios_xr"
     reportType.EntityData.ParentYangName = "profile"
     reportType.EntityData.SegmentPath = "report-type"
+    reportType.EntityData.AbsolutePath = "Cisco-IOS-XR-call-home-cfg:call-home/profiles/profile/" + reportType.EntityData.SegmentPath
     reportType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     reportType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     reportType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -531,6 +537,7 @@ func (reportingCallhomeData *CallHome_Profiles_Profile_ReportType_ReportingCallh
     reportingCallhomeData.EntityData.BundleName = "cisco_ios_xr"
     reportingCallhomeData.EntityData.ParentYangName = "report-type"
     reportingCallhomeData.EntityData.SegmentPath = "reporting-callhome-data"
+    reportingCallhomeData.EntityData.AbsolutePath = "Cisco-IOS-XR-call-home-cfg:call-home/profiles/profile/report-type/" + reportingCallhomeData.EntityData.SegmentPath
     reportingCallhomeData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     reportingCallhomeData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     reportingCallhomeData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -560,6 +567,7 @@ func (reportingLicensingData *CallHome_Profiles_Profile_ReportType_ReportingLice
     reportingLicensingData.EntityData.BundleName = "cisco_ios_xr"
     reportingLicensingData.EntityData.ParentYangName = "report-type"
     reportingLicensingData.EntityData.SegmentPath = "reporting-licensing-data"
+    reportingLicensingData.EntityData.AbsolutePath = "Cisco-IOS-XR-call-home-cfg:call-home/profiles/profile/report-type/" + reportingLicensingData.EntityData.SegmentPath
     reportingLicensingData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     reportingLicensingData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     reportingLicensingData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -590,6 +598,7 @@ func (methods *CallHome_Profiles_Profile_Methods) GetEntityData() *types.CommonE
     methods.EntityData.BundleName = "cisco_ios_xr"
     methods.EntityData.ParentYangName = "profile"
     methods.EntityData.SegmentPath = "methods"
+    methods.EntityData.AbsolutePath = "Cisco-IOS-XR-call-home-cfg:call-home/profiles/profile/" + methods.EntityData.SegmentPath
     methods.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     methods.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     methods.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -611,6 +620,7 @@ func (methods *CallHome_Profiles_Profile_Methods) GetEntityData() *types.CommonE
 type CallHome_Profiles_Profile_Methods_Method struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Transport Method. The type is CallHomeTransMethod.
     Method interface{}
@@ -625,6 +635,7 @@ func (method *CallHome_Profiles_Profile_Methods_Method) GetEntityData() *types.C
     method.EntityData.BundleName = "cisco_ios_xr"
     method.EntityData.ParentYangName = "methods"
     method.EntityData.SegmentPath = "method" + types.AddKeyToken(method.Method, "method")
+    method.EntityData.AbsolutePath = "Cisco-IOS-XR-call-home-cfg:call-home/profiles/profile/methods/" + method.EntityData.SegmentPath
     method.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     method.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     method.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -656,6 +667,7 @@ func (addresses *CallHome_Profiles_Profile_Addresses) GetEntityData() *types.Com
     addresses.EntityData.BundleName = "cisco_ios_xr"
     addresses.EntityData.ParentYangName = "profile"
     addresses.EntityData.SegmentPath = "addresses"
+    addresses.EntityData.AbsolutePath = "Cisco-IOS-XR-call-home-cfg:call-home/profiles/profile/" + addresses.EntityData.SegmentPath
     addresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     addresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     addresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -677,6 +689,7 @@ func (addresses *CallHome_Profiles_Profile_Addresses) GetEntityData() *types.Com
 type CallHome_Profiles_Profile_Addresses_Address struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Transpotation Method. The type is
     // CallHomeTransMethod.
@@ -696,6 +709,7 @@ func (address *CallHome_Profiles_Profile_Addresses_Address) GetEntityData() *typ
     address.EntityData.BundleName = "cisco_ios_xr"
     address.EntityData.ParentYangName = "addresses"
     address.EntityData.SegmentPath = "address" + types.AddKeyToken(address.Method, "method") + types.AddKeyToken(address.DestinationAddr, "destination-addr")
+    address.EntityData.AbsolutePath = "Cisco-IOS-XR-call-home-cfg:call-home/profiles/profile/addresses/" + address.EntityData.SegmentPath
     address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -742,6 +756,7 @@ func (subscribeAlertGroup *CallHome_Profiles_Profile_SubscribeAlertGroup) GetEnt
     subscribeAlertGroup.EntityData.BundleName = "cisco_ios_xr"
     subscribeAlertGroup.EntityData.ParentYangName = "profile"
     subscribeAlertGroup.EntityData.SegmentPath = "subscribe-alert-group"
+    subscribeAlertGroup.EntityData.AbsolutePath = "Cisco-IOS-XR-call-home-cfg:call-home/profiles/profile/" + subscribeAlertGroup.EntityData.SegmentPath
     subscribeAlertGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     subscribeAlertGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     subscribeAlertGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -776,6 +791,7 @@ func (environment *CallHome_Profiles_Profile_SubscribeAlertGroup_Environment) Ge
     environment.EntityData.BundleName = "cisco_ios_xr"
     environment.EntityData.ParentYangName = "subscribe-alert-group"
     environment.EntityData.SegmentPath = "environment"
+    environment.EntityData.AbsolutePath = "Cisco-IOS-XR-call-home-cfg:call-home/profiles/profile/subscribe-alert-group/" + environment.EntityData.SegmentPath
     environment.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     environment.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     environment.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -808,6 +824,7 @@ func (configuration *CallHome_Profiles_Profile_SubscribeAlertGroup_Configuration
     configuration.EntityData.BundleName = "cisco_ios_xr"
     configuration.EntityData.ParentYangName = "subscribe-alert-group"
     configuration.EntityData.SegmentPath = "configuration"
+    configuration.EntityData.AbsolutePath = "Cisco-IOS-XR-call-home-cfg:call-home/profiles/profile/subscribe-alert-group/" + configuration.EntityData.SegmentPath
     configuration.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configuration.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configuration.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -850,6 +867,7 @@ func (periodic *CallHome_Profiles_Profile_SubscribeAlertGroup_Configuration_Peri
     periodic.EntityData.BundleName = "cisco_ios_xr"
     periodic.EntityData.ParentYangName = "configuration"
     periodic.EntityData.SegmentPath = "periodic"
+    periodic.EntityData.AbsolutePath = "Cisco-IOS-XR-call-home-cfg:call-home/profiles/profile/subscribe-alert-group/configuration/" + periodic.EntityData.SegmentPath
     periodic.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     periodic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     periodic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -883,6 +901,7 @@ func (snapshot *CallHome_Profiles_Profile_SubscribeAlertGroup_Snapshot) GetEntit
     snapshot.EntityData.BundleName = "cisco_ios_xr"
     snapshot.EntityData.ParentYangName = "subscribe-alert-group"
     snapshot.EntityData.SegmentPath = "snapshot"
+    snapshot.EntityData.AbsolutePath = "Cisco-IOS-XR-call-home-cfg:call-home/profiles/profile/subscribe-alert-group/" + snapshot.EntityData.SegmentPath
     snapshot.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     snapshot.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     snapshot.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -924,6 +943,7 @@ func (periodic *CallHome_Profiles_Profile_SubscribeAlertGroup_Snapshot_Periodic)
     periodic.EntityData.BundleName = "cisco_ios_xr"
     periodic.EntityData.ParentYangName = "snapshot"
     periodic.EntityData.SegmentPath = "periodic"
+    periodic.EntityData.AbsolutePath = "Cisco-IOS-XR-call-home-cfg:call-home/profiles/profile/subscribe-alert-group/snapshot/" + periodic.EntityData.SegmentPath
     periodic.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     periodic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     periodic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -960,6 +980,7 @@ func (inventory *CallHome_Profiles_Profile_SubscribeAlertGroup_Inventory) GetEnt
     inventory.EntityData.BundleName = "cisco_ios_xr"
     inventory.EntityData.ParentYangName = "subscribe-alert-group"
     inventory.EntityData.SegmentPath = "inventory"
+    inventory.EntityData.AbsolutePath = "Cisco-IOS-XR-call-home-cfg:call-home/profiles/profile/subscribe-alert-group/" + inventory.EntityData.SegmentPath
     inventory.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     inventory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inventory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1002,6 +1023,7 @@ func (periodic *CallHome_Profiles_Profile_SubscribeAlertGroup_Inventory_Periodic
     periodic.EntityData.BundleName = "cisco_ios_xr"
     periodic.EntityData.ParentYangName = "inventory"
     periodic.EntityData.SegmentPath = "periodic"
+    periodic.EntityData.AbsolutePath = "Cisco-IOS-XR-call-home-cfg:call-home/profiles/profile/subscribe-alert-group/inventory/" + periodic.EntityData.SegmentPath
     periodic.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     periodic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     periodic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1035,6 +1057,7 @@ func (crash *CallHome_Profiles_Profile_SubscribeAlertGroup_Crash) GetEntityData(
     crash.EntityData.BundleName = "cisco_ios_xr"
     crash.EntityData.ParentYangName = "subscribe-alert-group"
     crash.EntityData.SegmentPath = "crash"
+    crash.EntityData.AbsolutePath = "Cisco-IOS-XR-call-home-cfg:call-home/profiles/profile/subscribe-alert-group/" + crash.EntityData.SegmentPath
     crash.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     crash.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     crash.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1065,6 +1088,7 @@ func (syslogs *CallHome_Profiles_Profile_SubscribeAlertGroup_Syslogs) GetEntityD
     syslogs.EntityData.BundleName = "cisco_ios_xr"
     syslogs.EntityData.ParentYangName = "subscribe-alert-group"
     syslogs.EntityData.SegmentPath = "syslogs"
+    syslogs.EntityData.AbsolutePath = "Cisco-IOS-XR-call-home-cfg:call-home/profiles/profile/subscribe-alert-group/" + syslogs.EntityData.SegmentPath
     syslogs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     syslogs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     syslogs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1086,6 +1110,7 @@ func (syslogs *CallHome_Profiles_Profile_SubscribeAlertGroup_Syslogs) GetEntityD
 type CallHome_Profiles_Profile_SubscribeAlertGroup_Syslogs_Syslog struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Syslog message pattern to be matched. The type is
     // string with length: 1..80.
@@ -1101,6 +1126,7 @@ func (syslog *CallHome_Profiles_Profile_SubscribeAlertGroup_Syslogs_Syslog) GetE
     syslog.EntityData.BundleName = "cisco_ios_xr"
     syslog.EntityData.ParentYangName = "syslogs"
     syslog.EntityData.SegmentPath = "syslog" + types.AddKeyToken(syslog.SyslogPattern, "syslog-pattern")
+    syslog.EntityData.AbsolutePath = "Cisco-IOS-XR-call-home-cfg:call-home/profiles/profile/subscribe-alert-group/syslogs/" + syslog.EntityData.SegmentPath
     syslog.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     syslog.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     syslog.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1132,6 +1158,7 @@ func (alertGroups *CallHome_AlertGroups) GetEntityData() *types.CommonEntityData
     alertGroups.EntityData.BundleName = "cisco_ios_xr"
     alertGroups.EntityData.ParentYangName = "call-home"
     alertGroups.EntityData.SegmentPath = "alert-groups"
+    alertGroups.EntityData.AbsolutePath = "Cisco-IOS-XR-call-home-cfg:call-home/" + alertGroups.EntityData.SegmentPath
     alertGroups.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     alertGroups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     alertGroups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1153,6 +1180,7 @@ func (alertGroups *CallHome_AlertGroups) GetEntityData() *types.CommonEntityData
 type CallHome_AlertGroups_AlertGroup struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. none. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -1171,6 +1199,7 @@ func (alertGroup *CallHome_AlertGroups_AlertGroup) GetEntityData() *types.Common
     alertGroup.EntityData.BundleName = "cisco_ios_xr"
     alertGroup.EntityData.ParentYangName = "alert-groups"
     alertGroup.EntityData.SegmentPath = "alert-group" + types.AddKeyToken(alertGroup.AlertGroupName, "alert-group-name")
+    alertGroup.EntityData.AbsolutePath = "Cisco-IOS-XR-call-home-cfg:call-home/alert-groups/" + alertGroup.EntityData.SegmentPath
     alertGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     alertGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     alertGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1202,6 +1231,7 @@ func (dataPrivacies *CallHome_DataPrivacies) GetEntityData() *types.CommonEntity
     dataPrivacies.EntityData.BundleName = "cisco_ios_xr"
     dataPrivacies.EntityData.ParentYangName = "call-home"
     dataPrivacies.EntityData.SegmentPath = "data-privacies"
+    dataPrivacies.EntityData.AbsolutePath = "Cisco-IOS-XR-call-home-cfg:call-home/" + dataPrivacies.EntityData.SegmentPath
     dataPrivacies.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dataPrivacies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dataPrivacies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1223,6 +1253,7 @@ func (dataPrivacies *CallHome_DataPrivacies) GetEntityData() *types.CommonEntity
 type CallHome_DataPrivacies_DataPrivacy struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Data privacy type (hostname or level). The type is
     // string.
@@ -1238,6 +1269,7 @@ func (dataPrivacy *CallHome_DataPrivacies_DataPrivacy) GetEntityData() *types.Co
     dataPrivacy.EntityData.BundleName = "cisco_ios_xr"
     dataPrivacy.EntityData.ParentYangName = "data-privacies"
     dataPrivacy.EntityData.SegmentPath = "data-privacy" + types.AddKeyToken(dataPrivacy.HostName, "host-name")
+    dataPrivacy.EntityData.AbsolutePath = "Cisco-IOS-XR-call-home-cfg:call-home/data-privacies/" + dataPrivacy.EntityData.SegmentPath
     dataPrivacy.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dataPrivacy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dataPrivacy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1268,6 +1300,7 @@ func (alertGroupConfig *CallHome_AlertGroupConfig) GetEntityData() *types.Common
     alertGroupConfig.EntityData.BundleName = "cisco_ios_xr"
     alertGroupConfig.EntityData.ParentYangName = "call-home"
     alertGroupConfig.EntityData.SegmentPath = "alert-group-config"
+    alertGroupConfig.EntityData.AbsolutePath = "Cisco-IOS-XR-call-home-cfg:call-home/" + alertGroupConfig.EntityData.SegmentPath
     alertGroupConfig.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     alertGroupConfig.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     alertGroupConfig.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1298,6 +1331,7 @@ func (snapshotCommands *CallHome_AlertGroupConfig_SnapshotCommands) GetEntityDat
     snapshotCommands.EntityData.BundleName = "cisco_ios_xr"
     snapshotCommands.EntityData.ParentYangName = "alert-group-config"
     snapshotCommands.EntityData.SegmentPath = "snapshot-commands"
+    snapshotCommands.EntityData.AbsolutePath = "Cisco-IOS-XR-call-home-cfg:call-home/alert-group-config/" + snapshotCommands.EntityData.SegmentPath
     snapshotCommands.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     snapshotCommands.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     snapshotCommands.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1319,6 +1353,7 @@ func (snapshotCommands *CallHome_AlertGroupConfig_SnapshotCommands) GetEntityDat
 type CallHome_AlertGroupConfig_SnapshotCommands_SnapshotCommand struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. new added command. The type is string with length:
     // 1..127.
@@ -1334,6 +1369,7 @@ func (snapshotCommand *CallHome_AlertGroupConfig_SnapshotCommands_SnapshotComman
     snapshotCommand.EntityData.BundleName = "cisco_ios_xr"
     snapshotCommand.EntityData.ParentYangName = "snapshot-commands"
     snapshotCommand.EntityData.SegmentPath = "snapshot-command" + types.AddKeyToken(snapshotCommand.Command, "command")
+    snapshotCommand.EntityData.AbsolutePath = "Cisco-IOS-XR-call-home-cfg:call-home/alert-group-config/snapshot-commands/" + snapshotCommand.EntityData.SegmentPath
     snapshotCommand.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     snapshotCommand.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     snapshotCommand.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1369,6 +1405,7 @@ func (authorization *CallHome_Authorization) GetEntityData() *types.CommonEntity
     authorization.EntityData.BundleName = "cisco_ios_xr"
     authorization.EntityData.ParentYangName = "call-home"
     authorization.EntityData.SegmentPath = "authorization"
+    authorization.EntityData.AbsolutePath = "Cisco-IOS-XR-call-home-cfg:call-home/" + authorization.EntityData.SegmentPath
     authorization.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     authorization.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     authorization.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

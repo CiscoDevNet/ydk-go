@@ -44,6 +44,7 @@ func (radius *Radius) GetEntityData() *types.CommonEntityData {
     radius.EntityData.BundleName = "cisco_ios_xr"
     radius.EntityData.ParentYangName = "Cisco-IOS-XR-aaa-protocol-radius-oper"
     radius.EntityData.SegmentPath = "Cisco-IOS-XR-aaa-protocol-radius-oper:radius"
+    radius.EntityData.AbsolutePath = radius.EntityData.SegmentPath
     radius.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     radius.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     radius.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -74,6 +75,7 @@ func (nodes *Radius_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.BundleName = "cisco_ios_xr"
     nodes.EntityData.ParentYangName = "radius"
     nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.AbsolutePath = "Cisco-IOS-XR-aaa-protocol-radius-oper:radius/" + nodes.EntityData.SegmentPath
     nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -95,6 +97,7 @@ func (nodes *Radius_Nodes) GetEntityData() *types.CommonEntityData {
 type Radius_Nodes_Node struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Node name. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -128,6 +131,7 @@ func (node *Radius_Nodes_Node) GetEntityData() *types.CommonEntityData {
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
     node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeName, "node-name")
+    node.EntityData.AbsolutePath = "Cisco-IOS-XR-aaa-protocol-radius-oper:radius/nodes/" + node.EntityData.SegmentPath
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -172,6 +176,7 @@ func (client *Radius_Nodes_Node_Client) GetEntityData() *types.CommonEntityData 
     client.EntityData.BundleName = "cisco_ios_xr"
     client.EntityData.ParentYangName = "node"
     client.EntityData.SegmentPath = "client"
+    client.EntityData.AbsolutePath = "Cisco-IOS-XR-aaa-protocol-radius-oper:radius/nodes/node/" + client.EntityData.SegmentPath
     client.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     client.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     client.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -203,6 +208,7 @@ func (deadCriteria *Radius_Nodes_Node_DeadCriteria) GetEntityData() *types.Commo
     deadCriteria.EntityData.BundleName = "cisco_ios_xr"
     deadCriteria.EntityData.ParentYangName = "node"
     deadCriteria.EntityData.SegmentPath = "dead-criteria"
+    deadCriteria.EntityData.AbsolutePath = "Cisco-IOS-XR-aaa-protocol-radius-oper:radius/nodes/node/" + deadCriteria.EntityData.SegmentPath
     deadCriteria.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     deadCriteria.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     deadCriteria.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -233,6 +239,7 @@ func (hosts *Radius_Nodes_Node_DeadCriteria_Hosts) GetEntityData() *types.Common
     hosts.EntityData.BundleName = "cisco_ios_xr"
     hosts.EntityData.ParentYangName = "dead-criteria"
     hosts.EntityData.SegmentPath = "hosts"
+    hosts.EntityData.AbsolutePath = "Cisco-IOS-XR-aaa-protocol-radius-oper:radius/nodes/node/dead-criteria/" + hosts.EntityData.SegmentPath
     hosts.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hosts.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hosts.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -240,6 +247,7 @@ func (hosts *Radius_Nodes_Node_DeadCriteria_Hosts) GetEntityData() *types.Common
     hosts.EntityData.Children = types.NewOrderedMap()
     hosts.EntityData.Children.Append("host", types.YChild{"Host", nil})
     for i := range hosts.Host {
+        types.SetYListKey(hosts.Host[i], i)
         hosts.EntityData.Children.Append(types.GetSegmentPath(hosts.Host[i]), types.YChild{"Host", hosts.Host[i]})
     }
     hosts.EntityData.Leafs = types.NewOrderedMap()
@@ -254,6 +262,7 @@ func (hosts *Radius_Nodes_Node_DeadCriteria_Hosts) GetEntityData() *types.Common
 type Radius_Nodes_Node_DeadCriteria_Hosts_Host struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // IP address of RADIUS server. The type is one of the following types: string
     // with pattern:
@@ -282,7 +291,8 @@ func (host *Radius_Nodes_Node_DeadCriteria_Hosts_Host) GetEntityData() *types.Co
     host.EntityData.YangName = "host"
     host.EntityData.BundleName = "cisco_ios_xr"
     host.EntityData.ParentYangName = "hosts"
-    host.EntityData.SegmentPath = "host"
+    host.EntityData.SegmentPath = "host" + types.AddNoKeyToken(host)
+    host.EntityData.AbsolutePath = "Cisco-IOS-XR-aaa-protocol-radius-oper:radius/nodes/node/dead-criteria/hosts/" + host.EntityData.SegmentPath
     host.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     host.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     host.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -319,6 +329,7 @@ func (time *Radius_Nodes_Node_DeadCriteria_Hosts_Host_Time) GetEntityData() *typ
     time.EntityData.BundleName = "cisco_ios_xr"
     time.EntityData.ParentYangName = "host"
     time.EntityData.SegmentPath = "time"
+    time.EntityData.AbsolutePath = "Cisco-IOS-XR-aaa-protocol-radius-oper:radius/nodes/node/dead-criteria/hosts/host/" + time.EntityData.SegmentPath
     time.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     time.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     time.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -352,6 +363,7 @@ func (tries *Radius_Nodes_Node_DeadCriteria_Hosts_Host_Tries) GetEntityData() *t
     tries.EntityData.BundleName = "cisco_ios_xr"
     tries.EntityData.ParentYangName = "host"
     tries.EntityData.SegmentPath = "tries"
+    tries.EntityData.AbsolutePath = "Cisco-IOS-XR-aaa-protocol-radius-oper:radius/nodes/node/dead-criteria/hosts/host/" + tries.EntityData.SegmentPath
     tries.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -383,6 +395,7 @@ func (authentication *Radius_Nodes_Node_Authentication) GetEntityData() *types.C
     authentication.EntityData.BundleName = "cisco_ios_xr"
     authentication.EntityData.ParentYangName = "node"
     authentication.EntityData.SegmentPath = "authentication"
+    authentication.EntityData.AbsolutePath = "Cisco-IOS-XR-aaa-protocol-radius-oper:radius/nodes/node/" + authentication.EntityData.SegmentPath
     authentication.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     authentication.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     authentication.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -390,6 +403,7 @@ func (authentication *Radius_Nodes_Node_Authentication) GetEntityData() *types.C
     authentication.EntityData.Children = types.NewOrderedMap()
     authentication.EntityData.Children.Append("authentication-group", types.YChild{"AuthenticationGroup", nil})
     for i := range authentication.AuthenticationGroup {
+        types.SetYListKey(authentication.AuthenticationGroup[i], i)
         authentication.EntityData.Children.Append(types.GetSegmentPath(authentication.AuthenticationGroup[i]), types.YChild{"AuthenticationGroup", authentication.AuthenticationGroup[i]})
     }
     authentication.EntityData.Leafs = types.NewOrderedMap()
@@ -404,10 +418,7 @@ func (authentication *Radius_Nodes_Node_Authentication) GetEntityData() *types.C
 type Radius_Nodes_Node_Authentication_AuthenticationGroup struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
-
-    // IP address of RADIUS server. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
-    ServerAddress interface{}
+    YListKey string
 
     // Authentication port number. The type is interface{} with range:
     // 0..4294967295.
@@ -428,7 +439,8 @@ func (authenticationGroup *Radius_Nodes_Node_Authentication_AuthenticationGroup)
     authenticationGroup.EntityData.YangName = "authentication-group"
     authenticationGroup.EntityData.BundleName = "cisco_ios_xr"
     authenticationGroup.EntityData.ParentYangName = "authentication"
-    authenticationGroup.EntityData.SegmentPath = "authentication-group"
+    authenticationGroup.EntityData.SegmentPath = "authentication-group" + types.AddNoKeyToken(authenticationGroup)
+    authenticationGroup.EntityData.AbsolutePath = "Cisco-IOS-XR-aaa-protocol-radius-oper:radius/nodes/node/authentication/" + authenticationGroup.EntityData.SegmentPath
     authenticationGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     authenticationGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     authenticationGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -436,7 +448,6 @@ func (authenticationGroup *Radius_Nodes_Node_Authentication_AuthenticationGroup)
     authenticationGroup.EntityData.Children = types.NewOrderedMap()
     authenticationGroup.EntityData.Children.Append("authentication", types.YChild{"Authentication", &authenticationGroup.Authentication})
     authenticationGroup.EntityData.Leafs = types.NewOrderedMap()
-    authenticationGroup.EntityData.Leafs.Append("server-address", types.YLeaf{"ServerAddress", authenticationGroup.ServerAddress})
     authenticationGroup.EntityData.Leafs.Append("port", types.YLeaf{"Port", authenticationGroup.Port})
     authenticationGroup.EntityData.Leafs.Append("ip-address", types.YLeaf{"IpAddress", authenticationGroup.IpAddress})
     authenticationGroup.EntityData.Leafs.Append("family", types.YLeaf{"Family", authenticationGroup.Family})
@@ -500,10 +511,6 @@ type Radius_Nodes_Node_Authentication_AuthenticationGroup_Authentication struct 
     // with range: 0..4294967295. Units are millisecond.
     Rtt interface{}
 
-    // Average response time for authentication requests. The type is interface{}
-    // with range: 0..4294967295.
-    AuthenResponseTime interface{}
-
     // Number of succeeded authentication transactions. The type is interface{}
     // with range: 0..4294967295.
     AuthenTransactionSuccessess interface{}
@@ -523,6 +530,30 @@ type Radius_Nodes_Node_Authentication_AuthenticationGroup_Authentication struct 
     // Number of incorrect authentication responses. The type is interface{} with
     // range: 0..4294967295.
     AuthenIncorrectResponses interface{}
+
+    // Estimated Throttled Authentication Transactions. The type is interface{}
+    // with range: 0..4294967295.
+    AuthThrottledTransactions interface{}
+
+    // Maximum Throttled Authentication Transactions. The type is interface{} with
+    // range: 0..4294967295.
+    AuthMaxTransactions interface{}
+
+    // Automated Test Stats for authentication requests. The type is interface{}
+    // with range: 0..4294967295.
+    TotalTestAuthReqs interface{}
+
+    // Automated Test Stats for authentication timeouts. The type is interface{}
+    // with range: 0..4294967295.
+    TotalTestAuthTimeouts interface{}
+
+    // Automated Test Stats for authentication response. The type is interface{}
+    // with range: 0..4294967295.
+    TotalTestAuthResponse interface{}
+
+    // Automated Test Stats for authentication pending. The type is interface{}
+    // with range: 0..4294967295.
+    TotalTestAuthPending interface{}
 }
 
 func (authentication *Radius_Nodes_Node_Authentication_AuthenticationGroup_Authentication) GetEntityData() *types.CommonEntityData {
@@ -531,6 +562,7 @@ func (authentication *Radius_Nodes_Node_Authentication_AuthenticationGroup_Authe
     authentication.EntityData.BundleName = "cisco_ios_xr"
     authentication.EntityData.ParentYangName = "authentication-group"
     authentication.EntityData.SegmentPath = "authentication"
+    authentication.EntityData.AbsolutePath = "Cisco-IOS-XR-aaa-protocol-radius-oper:radius/nodes/node/authentication/authentication-group/" + authentication.EntityData.SegmentPath
     authentication.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     authentication.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     authentication.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -549,12 +581,17 @@ func (authentication *Radius_Nodes_Node_Authentication_AuthenticationGroup_Authe
     authentication.EntityData.Leafs.Append("unknown-access-types", types.YLeaf{"UnknownAccessTypes", authentication.UnknownAccessTypes})
     authentication.EntityData.Leafs.Append("dropped-access-responses", types.YLeaf{"DroppedAccessResponses", authentication.DroppedAccessResponses})
     authentication.EntityData.Leafs.Append("rtt", types.YLeaf{"Rtt", authentication.Rtt})
-    authentication.EntityData.Leafs.Append("authen-response-time", types.YLeaf{"AuthenResponseTime", authentication.AuthenResponseTime})
     authentication.EntityData.Leafs.Append("authen-transaction-successess", types.YLeaf{"AuthenTransactionSuccessess", authentication.AuthenTransactionSuccessess})
     authentication.EntityData.Leafs.Append("authen-transaction-failure", types.YLeaf{"AuthenTransactionFailure", authentication.AuthenTransactionFailure})
     authentication.EntityData.Leafs.Append("authen-unexpected-responses", types.YLeaf{"AuthenUnexpectedResponses", authentication.AuthenUnexpectedResponses})
     authentication.EntityData.Leafs.Append("authen-server-error-responses", types.YLeaf{"AuthenServerErrorResponses", authentication.AuthenServerErrorResponses})
     authentication.EntityData.Leafs.Append("authen-incorrect-responses", types.YLeaf{"AuthenIncorrectResponses", authentication.AuthenIncorrectResponses})
+    authentication.EntityData.Leafs.Append("auth-throttled-transactions", types.YLeaf{"AuthThrottledTransactions", authentication.AuthThrottledTransactions})
+    authentication.EntityData.Leafs.Append("auth-max-transactions", types.YLeaf{"AuthMaxTransactions", authentication.AuthMaxTransactions})
+    authentication.EntityData.Leafs.Append("total-test-auth-reqs", types.YLeaf{"TotalTestAuthReqs", authentication.TotalTestAuthReqs})
+    authentication.EntityData.Leafs.Append("total-test-auth-timeouts", types.YLeaf{"TotalTestAuthTimeouts", authentication.TotalTestAuthTimeouts})
+    authentication.EntityData.Leafs.Append("total-test-auth-response", types.YLeaf{"TotalTestAuthResponse", authentication.TotalTestAuthResponse})
+    authentication.EntityData.Leafs.Append("total-test-auth-pending", types.YLeaf{"TotalTestAuthPending", authentication.TotalTestAuthPending})
 
     authentication.EntityData.YListKeys = []string {}
 
@@ -578,6 +615,7 @@ func (accounting *Radius_Nodes_Node_Accounting) GetEntityData() *types.CommonEnt
     accounting.EntityData.BundleName = "cisco_ios_xr"
     accounting.EntityData.ParentYangName = "node"
     accounting.EntityData.SegmentPath = "accounting"
+    accounting.EntityData.AbsolutePath = "Cisco-IOS-XR-aaa-protocol-radius-oper:radius/nodes/node/" + accounting.EntityData.SegmentPath
     accounting.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     accounting.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accounting.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -585,6 +623,7 @@ func (accounting *Radius_Nodes_Node_Accounting) GetEntityData() *types.CommonEnt
     accounting.EntityData.Children = types.NewOrderedMap()
     accounting.EntityData.Children.Append("accounting-group", types.YChild{"AccountingGroup", nil})
     for i := range accounting.AccountingGroup {
+        types.SetYListKey(accounting.AccountingGroup[i], i)
         accounting.EntityData.Children.Append(types.GetSegmentPath(accounting.AccountingGroup[i]), types.YChild{"AccountingGroup", accounting.AccountingGroup[i]})
     }
     accounting.EntityData.Leafs = types.NewOrderedMap()
@@ -599,10 +638,7 @@ func (accounting *Radius_Nodes_Node_Accounting) GetEntityData() *types.CommonEnt
 type Radius_Nodes_Node_Accounting_AccountingGroup struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
-
-    // IP address of RADIUS server. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
-    ServerAddress interface{}
+    YListKey string
 
     // Accounting port number. The type is interface{} with range: 0..4294967295.
     Port interface{}
@@ -622,7 +658,8 @@ func (accountingGroup *Radius_Nodes_Node_Accounting_AccountingGroup) GetEntityDa
     accountingGroup.EntityData.YangName = "accounting-group"
     accountingGroup.EntityData.BundleName = "cisco_ios_xr"
     accountingGroup.EntityData.ParentYangName = "accounting"
-    accountingGroup.EntityData.SegmentPath = "accounting-group"
+    accountingGroup.EntityData.SegmentPath = "accounting-group" + types.AddNoKeyToken(accountingGroup)
+    accountingGroup.EntityData.AbsolutePath = "Cisco-IOS-XR-aaa-protocol-radius-oper:radius/nodes/node/accounting/" + accountingGroup.EntityData.SegmentPath
     accountingGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     accountingGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accountingGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -630,7 +667,6 @@ func (accountingGroup *Radius_Nodes_Node_Accounting_AccountingGroup) GetEntityDa
     accountingGroup.EntityData.Children = types.NewOrderedMap()
     accountingGroup.EntityData.Children.Append("accounting", types.YChild{"Accounting", &accountingGroup.Accounting})
     accountingGroup.EntityData.Leafs = types.NewOrderedMap()
-    accountingGroup.EntityData.Leafs.Append("server-address", types.YLeaf{"ServerAddress", accountingGroup.ServerAddress})
     accountingGroup.EntityData.Leafs.Append("port", types.YLeaf{"Port", accountingGroup.Port})
     accountingGroup.EntityData.Leafs.Append("ip-address", types.YLeaf{"IpAddress", accountingGroup.IpAddress})
     accountingGroup.EntityData.Leafs.Append("family", types.YLeaf{"Family", accountingGroup.Family})
@@ -690,18 +726,6 @@ type Radius_Nodes_Node_Accounting_AccountingGroup_Accounting struct {
     // range: 0..4294967295.
     AcctUnexpectedResponses interface{}
 
-    // Number of server error accounting responses. The type is interface{} with
-    // range: 0..4294967295.
-    AcctServerErrorResponses interface{}
-
-    // Number of incorrect accounting responses. The type is interface{} with
-    // range: 0..4294967295.
-    AcctIncorrectResponses interface{}
-
-    // Average response time for authentication requests. The type is interface{}
-    // with range: 0..4294967295.
-    AcctResponseTime interface{}
-
     // Number of succeeded authentication transactions. The type is interface{}
     // with range: 0..4294967295.
     AcctTransactionSuccessess interface{}
@@ -709,6 +733,30 @@ type Radius_Nodes_Node_Accounting_AccountingGroup_Accounting struct {
     // Number of failed authentication transactions. The type is interface{} with
     // range: 0..4294967295.
     AcctTransactionFailure interface{}
+
+    // Estimated Throttled Accounting Transactions. The type is interface{} with
+    // range: 0..4294967295.
+    AcctThrottledTransactions interface{}
+
+    // Maximum Throttled Accounting Transactions. The type is interface{} with
+    // range: 0..4294967295.
+    AcctMaxThrottleTrans interface{}
+
+    // Automated Test Stats for accounting requests. The type is interface{} with
+    // range: 0..4294967295.
+    TotalTestAcctReqs interface{}
+
+    // Automated Test Stats for accounting timeouts. The type is interface{} with
+    // range: 0..4294967295.
+    TotalTestAcctTimeouts interface{}
+
+    // Automated Test Stats for accounting response. The type is interface{} with
+    // range: 0..4294967295.
+    TotalTestAcctResponse interface{}
+
+    // Automated Test Stats for accounting pending. The type is interface{} with
+    // range: 0..4294967295.
+    TotalTestAcctPending interface{}
 }
 
 func (accounting *Radius_Nodes_Node_Accounting_AccountingGroup_Accounting) GetEntityData() *types.CommonEntityData {
@@ -717,6 +765,7 @@ func (accounting *Radius_Nodes_Node_Accounting_AccountingGroup_Accounting) GetEn
     accounting.EntityData.BundleName = "cisco_ios_xr"
     accounting.EntityData.ParentYangName = "accounting-group"
     accounting.EntityData.SegmentPath = "accounting"
+    accounting.EntityData.AbsolutePath = "Cisco-IOS-XR-aaa-protocol-radius-oper:radius/nodes/node/accounting/accounting-group/" + accounting.EntityData.SegmentPath
     accounting.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     accounting.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accounting.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -734,11 +783,14 @@ func (accounting *Radius_Nodes_Node_Accounting_AccountingGroup_Accounting) GetEn
     accounting.EntityData.Leafs.Append("dropped-responses", types.YLeaf{"DroppedResponses", accounting.DroppedResponses})
     accounting.EntityData.Leafs.Append("rtt", types.YLeaf{"Rtt", accounting.Rtt})
     accounting.EntityData.Leafs.Append("acct-unexpected-responses", types.YLeaf{"AcctUnexpectedResponses", accounting.AcctUnexpectedResponses})
-    accounting.EntityData.Leafs.Append("acct-server-error-responses", types.YLeaf{"AcctServerErrorResponses", accounting.AcctServerErrorResponses})
-    accounting.EntityData.Leafs.Append("acct-incorrect-responses", types.YLeaf{"AcctIncorrectResponses", accounting.AcctIncorrectResponses})
-    accounting.EntityData.Leafs.Append("acct-response-time", types.YLeaf{"AcctResponseTime", accounting.AcctResponseTime})
     accounting.EntityData.Leafs.Append("acct-transaction-successess", types.YLeaf{"AcctTransactionSuccessess", accounting.AcctTransactionSuccessess})
     accounting.EntityData.Leafs.Append("acct-transaction-failure", types.YLeaf{"AcctTransactionFailure", accounting.AcctTransactionFailure})
+    accounting.EntityData.Leafs.Append("acct-throttled-transactions", types.YLeaf{"AcctThrottledTransactions", accounting.AcctThrottledTransactions})
+    accounting.EntityData.Leafs.Append("acct-max-throttle-trans", types.YLeaf{"AcctMaxThrottleTrans", accounting.AcctMaxThrottleTrans})
+    accounting.EntityData.Leafs.Append("total-test-acct-reqs", types.YLeaf{"TotalTestAcctReqs", accounting.TotalTestAcctReqs})
+    accounting.EntityData.Leafs.Append("total-test-acct-timeouts", types.YLeaf{"TotalTestAcctTimeouts", accounting.TotalTestAcctTimeouts})
+    accounting.EntityData.Leafs.Append("total-test-acct-response", types.YLeaf{"TotalTestAcctResponse", accounting.TotalTestAcctResponse})
+    accounting.EntityData.Leafs.Append("total-test-acct-pending", types.YLeaf{"TotalTestAcctPending", accounting.TotalTestAcctPending})
 
     accounting.EntityData.YListKeys = []string {}
 
@@ -762,6 +814,7 @@ func (dynamicAuthorizationClients *Radius_Nodes_Node_DynamicAuthorizationClients
     dynamicAuthorizationClients.EntityData.BundleName = "cisco_ios_xr"
     dynamicAuthorizationClients.EntityData.ParentYangName = "node"
     dynamicAuthorizationClients.EntityData.SegmentPath = "dynamic-authorization-clients"
+    dynamicAuthorizationClients.EntityData.AbsolutePath = "Cisco-IOS-XR-aaa-protocol-radius-oper:radius/nodes/node/" + dynamicAuthorizationClients.EntityData.SegmentPath
     dynamicAuthorizationClients.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dynamicAuthorizationClients.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dynamicAuthorizationClients.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -769,6 +822,7 @@ func (dynamicAuthorizationClients *Radius_Nodes_Node_DynamicAuthorizationClients
     dynamicAuthorizationClients.EntityData.Children = types.NewOrderedMap()
     dynamicAuthorizationClients.EntityData.Children.Append("dynamic-author-client", types.YChild{"DynamicAuthorClient", nil})
     for i := range dynamicAuthorizationClients.DynamicAuthorClient {
+        types.SetYListKey(dynamicAuthorizationClients.DynamicAuthorClient[i], i)
         dynamicAuthorizationClients.EntityData.Children.Append(types.GetSegmentPath(dynamicAuthorizationClients.DynamicAuthorClient[i]), types.YChild{"DynamicAuthorClient", dynamicAuthorizationClients.DynamicAuthorClient[i]})
     }
     dynamicAuthorizationClients.EntityData.Leafs = types.NewOrderedMap()
@@ -783,10 +837,7 @@ func (dynamicAuthorizationClients *Radius_Nodes_Node_DynamicAuthorizationClients
 type Radius_Nodes_Node_DynamicAuthorizationClients_DynamicAuthorClient struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
-
-    // Client's Internet address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
-    ClientAddress interface{}
+    YListKey string
 
     // Number of RADIUS Disconnect-Requestsreceived from the client. The type is
     // interface{} with range: 0..4294967295.
@@ -879,8 +930,8 @@ type Radius_Nodes_Node_DynamicAuthorizationClients_DynamicAuthorClient struct {
     // VRF of RADIUS dynamic authorization client. The type is string.
     VrfName interface{}
 
-    // Address Buffer. The type is string with length: 0..46.
-    AddrBuf interface{}
+    // Address Buffer. The type is string.
+    ClientAddress interface{}
 }
 
 func (dynamicAuthorClient *Radius_Nodes_Node_DynamicAuthorizationClients_DynamicAuthorClient) GetEntityData() *types.CommonEntityData {
@@ -888,14 +939,14 @@ func (dynamicAuthorClient *Radius_Nodes_Node_DynamicAuthorizationClients_Dynamic
     dynamicAuthorClient.EntityData.YangName = "dynamic-author-client"
     dynamicAuthorClient.EntityData.BundleName = "cisco_ios_xr"
     dynamicAuthorClient.EntityData.ParentYangName = "dynamic-authorization-clients"
-    dynamicAuthorClient.EntityData.SegmentPath = "dynamic-author-client"
+    dynamicAuthorClient.EntityData.SegmentPath = "dynamic-author-client" + types.AddNoKeyToken(dynamicAuthorClient)
+    dynamicAuthorClient.EntityData.AbsolutePath = "Cisco-IOS-XR-aaa-protocol-radius-oper:radius/nodes/node/dynamic-authorization-clients/" + dynamicAuthorClient.EntityData.SegmentPath
     dynamicAuthorClient.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dynamicAuthorClient.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dynamicAuthorClient.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     dynamicAuthorClient.EntityData.Children = types.NewOrderedMap()
     dynamicAuthorClient.EntityData.Leafs = types.NewOrderedMap()
-    dynamicAuthorClient.EntityData.Leafs.Append("client-address", types.YLeaf{"ClientAddress", dynamicAuthorClient.ClientAddress})
     dynamicAuthorClient.EntityData.Leafs.Append("disc-reqs", types.YLeaf{"DiscReqs", dynamicAuthorClient.DiscReqs})
     dynamicAuthorClient.EntityData.Leafs.Append("disc-acks", types.YLeaf{"DiscAcks", dynamicAuthorClient.DiscAcks})
     dynamicAuthorClient.EntityData.Leafs.Append("disc-naks", types.YLeaf{"DiscNaks", dynamicAuthorClient.DiscNaks})
@@ -919,7 +970,7 @@ func (dynamicAuthorClient *Radius_Nodes_Node_DynamicAuthorizationClients_Dynamic
     dynamicAuthorClient.EntityData.Leafs.Append("service-not-present", types.YLeaf{"ServiceNotPresent", dynamicAuthorClient.ServiceNotPresent})
     dynamicAuthorClient.EntityData.Leafs.Append("send-to-ch-fail", types.YLeaf{"SendToChFail", dynamicAuthorClient.SendToChFail})
     dynamicAuthorClient.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", dynamicAuthorClient.VrfName})
-    dynamicAuthorClient.EntityData.Leafs.Append("addr-buf", types.YLeaf{"AddrBuf", dynamicAuthorClient.AddrBuf})
+    dynamicAuthorClient.EntityData.Leafs.Append("client-address", types.YLeaf{"ClientAddress", dynamicAuthorClient.ClientAddress})
 
     dynamicAuthorClient.EntityData.YListKeys = []string {}
 
@@ -943,6 +994,7 @@ func (serverGroups *Radius_Nodes_Node_ServerGroups) GetEntityData() *types.Commo
     serverGroups.EntityData.BundleName = "cisco_ios_xr"
     serverGroups.EntityData.ParentYangName = "node"
     serverGroups.EntityData.SegmentPath = "server-groups"
+    serverGroups.EntityData.AbsolutePath = "Cisco-IOS-XR-aaa-protocol-radius-oper:radius/nodes/node/" + serverGroups.EntityData.SegmentPath
     serverGroups.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     serverGroups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     serverGroups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -964,6 +1016,7 @@ func (serverGroups *Radius_Nodes_Node_ServerGroups) GetEntityData() *types.Commo
 type Radius_Nodes_Node_ServerGroups_ServerGroup struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Group name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -993,6 +1046,7 @@ func (serverGroup *Radius_Nodes_Node_ServerGroups_ServerGroup) GetEntityData() *
     serverGroup.EntityData.BundleName = "cisco_ios_xr"
     serverGroup.EntityData.ParentYangName = "server-groups"
     serverGroup.EntityData.SegmentPath = "server-group" + types.AddKeyToken(serverGroup.ServerGroupName, "server-group-name")
+    serverGroup.EntityData.AbsolutePath = "Cisco-IOS-XR-aaa-protocol-radius-oper:radius/nodes/node/server-groups/" + serverGroup.EntityData.SegmentPath
     serverGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     serverGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     serverGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1000,6 +1054,7 @@ func (serverGroup *Radius_Nodes_Node_ServerGroups_ServerGroup) GetEntityData() *
     serverGroup.EntityData.Children = types.NewOrderedMap()
     serverGroup.EntityData.Children.Append("server-group", types.YChild{"ServerGroup", nil})
     for i := range serverGroup.ServerGroup {
+        types.SetYListKey(serverGroup.ServerGroup[i], i)
         serverGroup.EntityData.Children.Append(types.GetSegmentPath(serverGroup.ServerGroup[i]), types.YChild{"ServerGroup", serverGroup.ServerGroup[i]})
     }
     serverGroup.EntityData.Leafs = types.NewOrderedMap()
@@ -1019,10 +1074,7 @@ func (serverGroup *Radius_Nodes_Node_ServerGroups_ServerGroup) GetEntityData() *
 type Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
-
-    // Server address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
-    ServerAddress interface{}
+    YListKey string
 
     // Authentication port. The type is interface{} with range: 0..4294967295.
     AuthenticationPort interface{}
@@ -1057,7 +1109,8 @@ func (serverGroup *Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup) GetEn
     serverGroup.EntityData.YangName = "server-group"
     serverGroup.EntityData.BundleName = "cisco_ios_xr"
     serverGroup.EntityData.ParentYangName = "server-group"
-    serverGroup.EntityData.SegmentPath = "server-group"
+    serverGroup.EntityData.SegmentPath = "server-group" + types.AddNoKeyToken(serverGroup)
+    serverGroup.EntityData.AbsolutePath = "Cisco-IOS-XR-aaa-protocol-radius-oper:radius/nodes/node/server-groups/server-group/" + serverGroup.EntityData.SegmentPath
     serverGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     serverGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     serverGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1067,7 +1120,6 @@ func (serverGroup *Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup) GetEn
     serverGroup.EntityData.Children.Append("authentication", types.YChild{"Authentication", &serverGroup.Authentication})
     serverGroup.EntityData.Children.Append("authorization", types.YChild{"Authorization", &serverGroup.Authorization})
     serverGroup.EntityData.Leafs = types.NewOrderedMap()
-    serverGroup.EntityData.Leafs.Append("server-address", types.YLeaf{"ServerAddress", serverGroup.ServerAddress})
     serverGroup.EntityData.Leafs.Append("authentication-port", types.YLeaf{"AuthenticationPort", serverGroup.AuthenticationPort})
     serverGroup.EntityData.Leafs.Append("accounting-port", types.YLeaf{"AccountingPort", serverGroup.AccountingPort})
     serverGroup.EntityData.Leafs.Append("is-private", types.YLeaf{"IsPrivate", serverGroup.IsPrivate})
@@ -1130,18 +1182,6 @@ type Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup_Accounting struct {
     // range: 0..4294967295.
     AcctUnexpectedResponses interface{}
 
-    // Number of server error accounting responses. The type is interface{} with
-    // range: 0..4294967295.
-    AcctServerErrorResponses interface{}
-
-    // Number of incorrect accounting responses. The type is interface{} with
-    // range: 0..4294967295.
-    AcctIncorrectResponses interface{}
-
-    // Average response time for authentication requests. The type is interface{}
-    // with range: 0..4294967295.
-    AcctResponseTime interface{}
-
     // Number of succeeded authentication transactions. The type is interface{}
     // with range: 0..4294967295.
     AcctTransactionSuccessess interface{}
@@ -1149,6 +1189,30 @@ type Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup_Accounting struct {
     // Number of failed authentication transactions. The type is interface{} with
     // range: 0..4294967295.
     AcctTransactionFailure interface{}
+
+    // Estimated Throttled Accounting Transactions. The type is interface{} with
+    // range: 0..4294967295.
+    AcctThrottledTransactions interface{}
+
+    // Maximum Throttled Accounting Transactions. The type is interface{} with
+    // range: 0..4294967295.
+    AcctMaxThrottleTrans interface{}
+
+    // Automated Test Stats for accounting requests. The type is interface{} with
+    // range: 0..4294967295.
+    TotalTestAcctReqs interface{}
+
+    // Automated Test Stats for accounting timeouts. The type is interface{} with
+    // range: 0..4294967295.
+    TotalTestAcctTimeouts interface{}
+
+    // Automated Test Stats for accounting response. The type is interface{} with
+    // range: 0..4294967295.
+    TotalTestAcctResponse interface{}
+
+    // Automated Test Stats for accounting pending. The type is interface{} with
+    // range: 0..4294967295.
+    TotalTestAcctPending interface{}
 }
 
 func (accounting *Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup_Accounting) GetEntityData() *types.CommonEntityData {
@@ -1157,6 +1221,7 @@ func (accounting *Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup_Account
     accounting.EntityData.BundleName = "cisco_ios_xr"
     accounting.EntityData.ParentYangName = "server-group"
     accounting.EntityData.SegmentPath = "accounting"
+    accounting.EntityData.AbsolutePath = "Cisco-IOS-XR-aaa-protocol-radius-oper:radius/nodes/node/server-groups/server-group/server-group/" + accounting.EntityData.SegmentPath
     accounting.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     accounting.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accounting.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1174,11 +1239,14 @@ func (accounting *Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup_Account
     accounting.EntityData.Leafs.Append("dropped-responses", types.YLeaf{"DroppedResponses", accounting.DroppedResponses})
     accounting.EntityData.Leafs.Append("rtt", types.YLeaf{"Rtt", accounting.Rtt})
     accounting.EntityData.Leafs.Append("acct-unexpected-responses", types.YLeaf{"AcctUnexpectedResponses", accounting.AcctUnexpectedResponses})
-    accounting.EntityData.Leafs.Append("acct-server-error-responses", types.YLeaf{"AcctServerErrorResponses", accounting.AcctServerErrorResponses})
-    accounting.EntityData.Leafs.Append("acct-incorrect-responses", types.YLeaf{"AcctIncorrectResponses", accounting.AcctIncorrectResponses})
-    accounting.EntityData.Leafs.Append("acct-response-time", types.YLeaf{"AcctResponseTime", accounting.AcctResponseTime})
     accounting.EntityData.Leafs.Append("acct-transaction-successess", types.YLeaf{"AcctTransactionSuccessess", accounting.AcctTransactionSuccessess})
     accounting.EntityData.Leafs.Append("acct-transaction-failure", types.YLeaf{"AcctTransactionFailure", accounting.AcctTransactionFailure})
+    accounting.EntityData.Leafs.Append("acct-throttled-transactions", types.YLeaf{"AcctThrottledTransactions", accounting.AcctThrottledTransactions})
+    accounting.EntityData.Leafs.Append("acct-max-throttle-trans", types.YLeaf{"AcctMaxThrottleTrans", accounting.AcctMaxThrottleTrans})
+    accounting.EntityData.Leafs.Append("total-test-acct-reqs", types.YLeaf{"TotalTestAcctReqs", accounting.TotalTestAcctReqs})
+    accounting.EntityData.Leafs.Append("total-test-acct-timeouts", types.YLeaf{"TotalTestAcctTimeouts", accounting.TotalTestAcctTimeouts})
+    accounting.EntityData.Leafs.Append("total-test-acct-response", types.YLeaf{"TotalTestAcctResponse", accounting.TotalTestAcctResponse})
+    accounting.EntityData.Leafs.Append("total-test-acct-pending", types.YLeaf{"TotalTestAcctPending", accounting.TotalTestAcctPending})
 
     accounting.EntityData.YListKeys = []string {}
 
@@ -1239,10 +1307,6 @@ type Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup_Authentication struc
     // with range: 0..4294967295. Units are millisecond.
     Rtt interface{}
 
-    // Average response time for authentication requests. The type is interface{}
-    // with range: 0..4294967295.
-    AuthenResponseTime interface{}
-
     // Number of succeeded authentication transactions. The type is interface{}
     // with range: 0..4294967295.
     AuthenTransactionSuccessess interface{}
@@ -1262,6 +1326,30 @@ type Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup_Authentication struc
     // Number of incorrect authentication responses. The type is interface{} with
     // range: 0..4294967295.
     AuthenIncorrectResponses interface{}
+
+    // Estimated Throttled Authentication Transactions. The type is interface{}
+    // with range: 0..4294967295.
+    AuthThrottledTransactions interface{}
+
+    // Maximum Throttled Authentication Transactions. The type is interface{} with
+    // range: 0..4294967295.
+    AuthMaxTransactions interface{}
+
+    // Automated Test Stats for authentication requests. The type is interface{}
+    // with range: 0..4294967295.
+    TotalTestAuthReqs interface{}
+
+    // Automated Test Stats for authentication timeouts. The type is interface{}
+    // with range: 0..4294967295.
+    TotalTestAuthTimeouts interface{}
+
+    // Automated Test Stats for authentication response. The type is interface{}
+    // with range: 0..4294967295.
+    TotalTestAuthResponse interface{}
+
+    // Automated Test Stats for authentication pending. The type is interface{}
+    // with range: 0..4294967295.
+    TotalTestAuthPending interface{}
 }
 
 func (authentication *Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup_Authentication) GetEntityData() *types.CommonEntityData {
@@ -1270,6 +1358,7 @@ func (authentication *Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup_Aut
     authentication.EntityData.BundleName = "cisco_ios_xr"
     authentication.EntityData.ParentYangName = "server-group"
     authentication.EntityData.SegmentPath = "authentication"
+    authentication.EntityData.AbsolutePath = "Cisco-IOS-XR-aaa-protocol-radius-oper:radius/nodes/node/server-groups/server-group/server-group/" + authentication.EntityData.SegmentPath
     authentication.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     authentication.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     authentication.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1288,12 +1377,17 @@ func (authentication *Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup_Aut
     authentication.EntityData.Leafs.Append("unknown-access-types", types.YLeaf{"UnknownAccessTypes", authentication.UnknownAccessTypes})
     authentication.EntityData.Leafs.Append("dropped-access-responses", types.YLeaf{"DroppedAccessResponses", authentication.DroppedAccessResponses})
     authentication.EntityData.Leafs.Append("rtt", types.YLeaf{"Rtt", authentication.Rtt})
-    authentication.EntityData.Leafs.Append("authen-response-time", types.YLeaf{"AuthenResponseTime", authentication.AuthenResponseTime})
     authentication.EntityData.Leafs.Append("authen-transaction-successess", types.YLeaf{"AuthenTransactionSuccessess", authentication.AuthenTransactionSuccessess})
     authentication.EntityData.Leafs.Append("authen-transaction-failure", types.YLeaf{"AuthenTransactionFailure", authentication.AuthenTransactionFailure})
     authentication.EntityData.Leafs.Append("authen-unexpected-responses", types.YLeaf{"AuthenUnexpectedResponses", authentication.AuthenUnexpectedResponses})
     authentication.EntityData.Leafs.Append("authen-server-error-responses", types.YLeaf{"AuthenServerErrorResponses", authentication.AuthenServerErrorResponses})
     authentication.EntityData.Leafs.Append("authen-incorrect-responses", types.YLeaf{"AuthenIncorrectResponses", authentication.AuthenIncorrectResponses})
+    authentication.EntityData.Leafs.Append("auth-throttled-transactions", types.YLeaf{"AuthThrottledTransactions", authentication.AuthThrottledTransactions})
+    authentication.EntityData.Leafs.Append("auth-max-transactions", types.YLeaf{"AuthMaxTransactions", authentication.AuthMaxTransactions})
+    authentication.EntityData.Leafs.Append("total-test-auth-reqs", types.YLeaf{"TotalTestAuthReqs", authentication.TotalTestAuthReqs})
+    authentication.EntityData.Leafs.Append("total-test-auth-timeouts", types.YLeaf{"TotalTestAuthTimeouts", authentication.TotalTestAuthTimeouts})
+    authentication.EntityData.Leafs.Append("total-test-auth-response", types.YLeaf{"TotalTestAuthResponse", authentication.TotalTestAuthResponse})
+    authentication.EntityData.Leafs.Append("total-test-auth-pending", types.YLeaf{"TotalTestAuthPending", authentication.TotalTestAuthPending})
 
     authentication.EntityData.YListKeys = []string {}
 
@@ -1345,6 +1439,7 @@ func (authorization *Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup_Auth
     authorization.EntityData.BundleName = "cisco_ios_xr"
     authorization.EntityData.ParentYangName = "server-group"
     authorization.EntityData.SegmentPath = "authorization"
+    authorization.EntityData.AbsolutePath = "Cisco-IOS-XR-aaa-protocol-radius-oper:radius/nodes/node/server-groups/server-group/server-group/" + authorization.EntityData.SegmentPath
     authorization.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     authorization.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     authorization.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1394,6 +1489,7 @@ func (dynamicAuthorization *Radius_Nodes_Node_DynamicAuthorization) GetEntityDat
     dynamicAuthorization.EntityData.BundleName = "cisco_ios_xr"
     dynamicAuthorization.EntityData.ParentYangName = "node"
     dynamicAuthorization.EntityData.SegmentPath = "dynamic-authorization"
+    dynamicAuthorization.EntityData.AbsolutePath = "Cisco-IOS-XR-aaa-protocol-radius-oper:radius/nodes/node/" + dynamicAuthorization.EntityData.SegmentPath
     dynamicAuthorization.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dynamicAuthorization.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dynamicAuthorization.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

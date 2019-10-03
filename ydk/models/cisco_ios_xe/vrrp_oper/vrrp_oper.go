@@ -98,6 +98,7 @@ func (vrrpOperData *VrrpOperData) GetEntityData() *types.CommonEntityData {
     vrrpOperData.EntityData.BundleName = "cisco_ios_xe"
     vrrpOperData.EntityData.ParentYangName = "Cisco-IOS-XE-vrrp-oper"
     vrrpOperData.EntityData.SegmentPath = "Cisco-IOS-XE-vrrp-oper:vrrp-oper-data"
+    vrrpOperData.EntityData.AbsolutePath = vrrpOperData.EntityData.SegmentPath
     vrrpOperData.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     vrrpOperData.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     vrrpOperData.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -119,6 +120,7 @@ func (vrrpOperData *VrrpOperData) GetEntityData() *types.CommonEntityData {
 type VrrpOperData_VrrpOperState struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IfIndex for the interface on which VRRP group is
     // hosted. The type is interface{} with range: 0..4294967295.
@@ -264,6 +266,7 @@ func (vrrpOperState *VrrpOperData_VrrpOperState) GetEntityData() *types.CommonEn
     vrrpOperState.EntityData.BundleName = "cisco_ios_xe"
     vrrpOperState.EntityData.ParentYangName = "vrrp-oper-data"
     vrrpOperState.EntityData.SegmentPath = "vrrp-oper-state" + types.AddKeyToken(vrrpOperState.IfNumber, "if-number") + types.AddKeyToken(vrrpOperState.GroupId, "group-id") + types.AddKeyToken(vrrpOperState.AddrType, "addr-type")
+    vrrpOperState.EntityData.AbsolutePath = "Cisco-IOS-XE-vrrp-oper:vrrp-oper-data/" + vrrpOperState.EntityData.SegmentPath
     vrrpOperState.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     vrrpOperState.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     vrrpOperState.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -271,6 +274,7 @@ func (vrrpOperState *VrrpOperData_VrrpOperState) GetEntityData() *types.CommonEn
     vrrpOperState.EntityData.Children = types.NewOrderedMap()
     vrrpOperState.EntityData.Children.Append("track-list", types.YChild{"TrackList", nil})
     for i := range vrrpOperState.TrackList {
+        types.SetYListKey(vrrpOperState.TrackList[i], i)
         vrrpOperState.EntityData.Children.Append(types.GetSegmentPath(vrrpOperState.TrackList[i]), types.YChild{"TrackList", vrrpOperState.TrackList[i]})
     }
     vrrpOperState.EntityData.Leafs = types.NewOrderedMap()
@@ -315,6 +319,7 @@ func (vrrpOperState *VrrpOperData_VrrpOperState) GetEntityData() *types.CommonEn
 type VrrpOperData_VrrpOperState_TrackList struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Name of the tracking object. The type is string.
     TrackName interface{}
@@ -328,7 +333,8 @@ func (trackList *VrrpOperData_VrrpOperState_TrackList) GetEntityData() *types.Co
     trackList.EntityData.YangName = "track-list"
     trackList.EntityData.BundleName = "cisco_ios_xe"
     trackList.EntityData.ParentYangName = "vrrp-oper-state"
-    trackList.EntityData.SegmentPath = "track-list"
+    trackList.EntityData.SegmentPath = "track-list" + types.AddNoKeyToken(trackList)
+    trackList.EntityData.AbsolutePath = "Cisco-IOS-XE-vrrp-oper:vrrp-oper-data/vrrp-oper-state/" + trackList.EntityData.SegmentPath
     trackList.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     trackList.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     trackList.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

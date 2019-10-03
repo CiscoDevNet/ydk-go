@@ -40,6 +40,7 @@ func (cofo *Cofo) GetEntityData() *types.CommonEntityData {
     cofo.EntityData.BundleName = "cisco_ios_xr"
     cofo.EntityData.ParentYangName = "Cisco-IOS-XR-cofo-infra-oper"
     cofo.EntityData.SegmentPath = "Cisco-IOS-XR-cofo-infra-oper:cofo"
+    cofo.EntityData.AbsolutePath = cofo.EntityData.SegmentPath
     cofo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cofo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cofo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -70,6 +71,7 @@ func (nodes *Cofo_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.BundleName = "cisco_ios_xr"
     nodes.EntityData.ParentYangName = "cofo"
     nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.AbsolutePath = "Cisco-IOS-XR-cofo-infra-oper:cofo/" + nodes.EntityData.SegmentPath
     nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -91,6 +93,7 @@ func (nodes *Cofo_Nodes) GetEntityData() *types.CommonEntityData {
 type Cofo_Nodes_Node struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The node. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -109,6 +112,7 @@ func (node *Cofo_Nodes_Node) GetEntityData() *types.CommonEntityData {
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
     node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeName, "node-name")
+    node.EntityData.AbsolutePath = "Cisco-IOS-XR-cofo-infra-oper:cofo/nodes/" + node.EntityData.SegmentPath
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -140,6 +144,7 @@ func (clientIds *Cofo_Nodes_Node_ClientIds) GetEntityData() *types.CommonEntityD
     clientIds.EntityData.BundleName = "cisco_ios_xr"
     clientIds.EntityData.ParentYangName = "node"
     clientIds.EntityData.SegmentPath = "client-ids"
+    clientIds.EntityData.AbsolutePath = "Cisco-IOS-XR-cofo-infra-oper:cofo/nodes/node/" + clientIds.EntityData.SegmentPath
     clientIds.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clientIds.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clientIds.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -161,6 +166,7 @@ func (clientIds *Cofo_Nodes_Node_ClientIds) GetEntityData() *types.CommonEntityD
 type Cofo_Nodes_Node_ClientIds_ClientId struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Specific Client identifier. The type is
     // interface{} with range: 1..7.
@@ -199,6 +205,7 @@ func (clientId *Cofo_Nodes_Node_ClientIds_ClientId) GetEntityData() *types.Commo
     clientId.EntityData.BundleName = "cisco_ios_xr"
     clientId.EntityData.ParentYangName = "client-ids"
     clientId.EntityData.SegmentPath = "client-id" + types.AddKeyToken(clientId.Id, "id")
+    clientId.EntityData.AbsolutePath = "Cisco-IOS-XR-cofo-infra-oper:cofo/nodes/node/client-ids/" + clientId.EntityData.SegmentPath
     clientId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clientId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clientId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -236,6 +243,7 @@ func (topicIds *Cofo_Nodes_Node_TopicIds) GetEntityData() *types.CommonEntityDat
     topicIds.EntityData.BundleName = "cisco_ios_xr"
     topicIds.EntityData.ParentYangName = "node"
     topicIds.EntityData.SegmentPath = "topic-ids"
+    topicIds.EntityData.AbsolutePath = "Cisco-IOS-XR-cofo-infra-oper:cofo/nodes/node/" + topicIds.EntityData.SegmentPath
     topicIds.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     topicIds.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     topicIds.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -257,6 +265,7 @@ func (topicIds *Cofo_Nodes_Node_TopicIds) GetEntityData() *types.CommonEntityDat
 type Cofo_Nodes_Node_TopicIds_TopicId struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Specific Topic identifier. The type is interface{}
     // with range: 1..8.
@@ -276,6 +285,7 @@ func (topicId *Cofo_Nodes_Node_TopicIds_TopicId) GetEntityData() *types.CommonEn
     topicId.EntityData.BundleName = "cisco_ios_xr"
     topicId.EntityData.ParentYangName = "topic-ids"
     topicId.EntityData.SegmentPath = "topic-id" + types.AddKeyToken(topicId.Id, "id")
+    topicId.EntityData.AbsolutePath = "Cisco-IOS-XR-cofo-infra-oper:cofo/nodes/node/topic-ids/" + topicId.EntityData.SegmentPath
     topicId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     topicId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     topicId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -283,6 +293,7 @@ func (topicId *Cofo_Nodes_Node_TopicIds_TopicId) GetEntityData() *types.CommonEn
     topicId.EntityData.Children = types.NewOrderedMap()
     topicId.EntityData.Children.Append("database-info-struct", types.YChild{"DatabaseInfoStruct", nil})
     for i := range topicId.DatabaseInfoStruct {
+        types.SetYListKey(topicId.DatabaseInfoStruct[i], i)
         topicId.EntityData.Children.Append(types.GetSegmentPath(topicId.DatabaseInfoStruct[i]), types.YChild{"DatabaseInfoStruct", topicId.DatabaseInfoStruct[i]})
     }
     topicId.EntityData.Leafs = types.NewOrderedMap()
@@ -299,6 +310,7 @@ func (topicId *Cofo_Nodes_Node_TopicIds_TopicId) GetEntityData() *types.CommonEn
 type Cofo_Nodes_Node_TopicIds_TopicId_DatabaseInfoStruct struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // SDR ID. The type is interface{} with range: 0..4294967295.
     SdrId interface{}
@@ -313,7 +325,8 @@ func (databaseInfoStruct *Cofo_Nodes_Node_TopicIds_TopicId_DatabaseInfoStruct) G
     databaseInfoStruct.EntityData.YangName = "database-info-struct"
     databaseInfoStruct.EntityData.BundleName = "cisco_ios_xr"
     databaseInfoStruct.EntityData.ParentYangName = "topic-id"
-    databaseInfoStruct.EntityData.SegmentPath = "database-info-struct"
+    databaseInfoStruct.EntityData.SegmentPath = "database-info-struct" + types.AddNoKeyToken(databaseInfoStruct)
+    databaseInfoStruct.EntityData.AbsolutePath = "Cisco-IOS-XR-cofo-infra-oper:cofo/nodes/node/topic-ids/topic-id/" + databaseInfoStruct.EntityData.SegmentPath
     databaseInfoStruct.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     databaseInfoStruct.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     databaseInfoStruct.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -321,6 +334,7 @@ func (databaseInfoStruct *Cofo_Nodes_Node_TopicIds_TopicId_DatabaseInfoStruct) G
     databaseInfoStruct.EntityData.Children = types.NewOrderedMap()
     databaseInfoStruct.EntityData.Children.Append("client-db-info-struct", types.YChild{"ClientDbInfoStruct", nil})
     for i := range databaseInfoStruct.ClientDbInfoStruct {
+        types.SetYListKey(databaseInfoStruct.ClientDbInfoStruct[i], i)
         databaseInfoStruct.EntityData.Children.Append(types.GetSegmentPath(databaseInfoStruct.ClientDbInfoStruct[i]), types.YChild{"ClientDbInfoStruct", databaseInfoStruct.ClientDbInfoStruct[i]})
     }
     databaseInfoStruct.EntityData.Leafs = types.NewOrderedMap()
@@ -336,6 +350,7 @@ func (databaseInfoStruct *Cofo_Nodes_Node_TopicIds_TopicId_DatabaseInfoStruct) G
 type Cofo_Nodes_Node_TopicIds_TopicId_DatabaseInfoStruct_ClientDbInfoStruct struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Total objects. The type is interface{} with range: 0..4294967295.
     TotalObjects interface{}
@@ -353,7 +368,8 @@ func (clientDbInfoStruct *Cofo_Nodes_Node_TopicIds_TopicId_DatabaseInfoStruct_Cl
     clientDbInfoStruct.EntityData.YangName = "client-db-info-struct"
     clientDbInfoStruct.EntityData.BundleName = "cisco_ios_xr"
     clientDbInfoStruct.EntityData.ParentYangName = "database-info-struct"
-    clientDbInfoStruct.EntityData.SegmentPath = "client-db-info-struct"
+    clientDbInfoStruct.EntityData.SegmentPath = "client-db-info-struct" + types.AddNoKeyToken(clientDbInfoStruct)
+    clientDbInfoStruct.EntityData.AbsolutePath = "Cisco-IOS-XR-cofo-infra-oper:cofo/nodes/node/topic-ids/topic-id/database-info-struct/" + clientDbInfoStruct.EntityData.SegmentPath
     clientDbInfoStruct.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clientDbInfoStruct.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clientDbInfoStruct.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -361,6 +377,7 @@ func (clientDbInfoStruct *Cofo_Nodes_Node_TopicIds_TopicId_DatabaseInfoStruct_Cl
     clientDbInfoStruct.EntityData.Children = types.NewOrderedMap()
     clientDbInfoStruct.EntityData.Children.Append("cofo-object-published-array", types.YChild{"CofoObjectPublishedArray", nil})
     for i := range clientDbInfoStruct.CofoObjectPublishedArray {
+        types.SetYListKey(clientDbInfoStruct.CofoObjectPublishedArray[i], i)
         clientDbInfoStruct.EntityData.Children.Append(types.GetSegmentPath(clientDbInfoStruct.CofoObjectPublishedArray[i]), types.YChild{"CofoObjectPublishedArray", clientDbInfoStruct.CofoObjectPublishedArray[i]})
     }
     clientDbInfoStruct.EntityData.Leafs = types.NewOrderedMap()
@@ -377,6 +394,7 @@ func (clientDbInfoStruct *Cofo_Nodes_Node_TopicIds_TopicId_DatabaseInfoStruct_Cl
 type Cofo_Nodes_Node_TopicIds_TopicId_DatabaseInfoStruct_ClientDbInfoStruct_CofoObjectPublishedArray struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Client ID. The type is interface{} with range: 0..4294967295.
     ClientId interface{}
@@ -416,7 +434,8 @@ func (cofoObjectPublishedArray *Cofo_Nodes_Node_TopicIds_TopicId_DatabaseInfoStr
     cofoObjectPublishedArray.EntityData.YangName = "cofo-object-published-array"
     cofoObjectPublishedArray.EntityData.BundleName = "cisco_ios_xr"
     cofoObjectPublishedArray.EntityData.ParentYangName = "client-db-info-struct"
-    cofoObjectPublishedArray.EntityData.SegmentPath = "cofo-object-published-array"
+    cofoObjectPublishedArray.EntityData.SegmentPath = "cofo-object-published-array" + types.AddNoKeyToken(cofoObjectPublishedArray)
+    cofoObjectPublishedArray.EntityData.AbsolutePath = "Cisco-IOS-XR-cofo-infra-oper:cofo/nodes/node/topic-ids/topic-id/database-info-struct/client-db-info-struct/" + cofoObjectPublishedArray.EntityData.SegmentPath
     cofoObjectPublishedArray.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cofoObjectPublishedArray.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cofoObjectPublishedArray.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -458,6 +477,7 @@ func (objectAddTime *Cofo_Nodes_Node_TopicIds_TopicId_DatabaseInfoStruct_ClientD
     objectAddTime.EntityData.BundleName = "cisco_ios_xr"
     objectAddTime.EntityData.ParentYangName = "cofo-object-published-array"
     objectAddTime.EntityData.SegmentPath = "object-add-time"
+    objectAddTime.EntityData.AbsolutePath = "Cisco-IOS-XR-cofo-infra-oper:cofo/nodes/node/topic-ids/topic-id/database-info-struct/client-db-info-struct/cofo-object-published-array/" + objectAddTime.EntityData.SegmentPath
     objectAddTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     objectAddTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     objectAddTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -491,6 +511,7 @@ func (objectDeleteTime *Cofo_Nodes_Node_TopicIds_TopicId_DatabaseInfoStruct_Clie
     objectDeleteTime.EntityData.BundleName = "cisco_ios_xr"
     objectDeleteTime.EntityData.ParentYangName = "cofo-object-published-array"
     objectDeleteTime.EntityData.SegmentPath = "object-delete-time"
+    objectDeleteTime.EntityData.AbsolutePath = "Cisco-IOS-XR-cofo-infra-oper:cofo/nodes/node/topic-ids/topic-id/database-info-struct/client-db-info-struct/cofo-object-published-array/" + objectDeleteTime.EntityData.SegmentPath
     objectDeleteTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     objectDeleteTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     objectDeleteTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -524,6 +545,7 @@ func (objectTxlAddTime *Cofo_Nodes_Node_TopicIds_TopicId_DatabaseInfoStruct_Clie
     objectTxlAddTime.EntityData.BundleName = "cisco_ios_xr"
     objectTxlAddTime.EntityData.ParentYangName = "cofo-object-published-array"
     objectTxlAddTime.EntityData.SegmentPath = "object-txl-add-time"
+    objectTxlAddTime.EntityData.AbsolutePath = "Cisco-IOS-XR-cofo-infra-oper:cofo/nodes/node/topic-ids/topic-id/database-info-struct/client-db-info-struct/cofo-object-published-array/" + objectTxlAddTime.EntityData.SegmentPath
     objectTxlAddTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     objectTxlAddTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     objectTxlAddTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -557,6 +579,7 @@ func (objectTxlEncodeTime *Cofo_Nodes_Node_TopicIds_TopicId_DatabaseInfoStruct_C
     objectTxlEncodeTime.EntityData.BundleName = "cisco_ios_xr"
     objectTxlEncodeTime.EntityData.ParentYangName = "cofo-object-published-array"
     objectTxlEncodeTime.EntityData.SegmentPath = "object-txl-encode-time"
+    objectTxlEncodeTime.EntityData.AbsolutePath = "Cisco-IOS-XR-cofo-infra-oper:cofo/nodes/node/topic-ids/topic-id/database-info-struct/client-db-info-struct/cofo-object-published-array/" + objectTxlEncodeTime.EntityData.SegmentPath
     objectTxlEncodeTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     objectTxlEncodeTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     objectTxlEncodeTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

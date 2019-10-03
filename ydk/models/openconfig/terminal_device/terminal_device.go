@@ -89,6 +89,7 @@ func (terminalDevice *TerminalDevice) GetEntityData() *types.CommonEntityData {
     terminalDevice.EntityData.BundleName = "openconfig"
     terminalDevice.EntityData.ParentYangName = "openconfig-terminal-device"
     terminalDevice.EntityData.SegmentPath = "openconfig-terminal-device:terminal-device"
+    terminalDevice.EntityData.AbsolutePath = terminalDevice.EntityData.SegmentPath
     terminalDevice.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     terminalDevice.EntityData.NamespaceTable = openconfig.GetNamespaces()
     terminalDevice.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -118,6 +119,7 @@ func (config *TerminalDevice_Config) GetEntityData() *types.CommonEntityData {
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "terminal-device"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-terminal-device:terminal-device/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -143,6 +145,7 @@ func (state *TerminalDevice_State) GetEntityData() *types.CommonEntityData {
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "terminal-device"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-terminal-device:terminal-device/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -172,6 +175,7 @@ func (logicalChannels *TerminalDevice_LogicalChannels) GetEntityData() *types.Co
     logicalChannels.EntityData.BundleName = "openconfig"
     logicalChannels.EntityData.ParentYangName = "terminal-device"
     logicalChannels.EntityData.SegmentPath = "logical-channels"
+    logicalChannels.EntityData.AbsolutePath = "openconfig-terminal-device:terminal-device/" + logicalChannels.EntityData.SegmentPath
     logicalChannels.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     logicalChannels.EntityData.NamespaceTable = openconfig.GetNamespaces()
     logicalChannels.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -193,6 +197,7 @@ func (logicalChannels *TerminalDevice_LogicalChannels) GetEntityData() *types.Co
 type TerminalDevice_LogicalChannels_Channel struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the index of the logical channel. The
     // type is string with range: 0..4294967295. Refers to
@@ -227,6 +232,7 @@ func (channel *TerminalDevice_LogicalChannels_Channel) GetEntityData() *types.Co
     channel.EntityData.BundleName = "openconfig"
     channel.EntityData.ParentYangName = "logical-channels"
     channel.EntityData.SegmentPath = "channel" + types.AddKeyToken(channel.Index, "index")
+    channel.EntityData.AbsolutePath = "openconfig-terminal-device:terminal-device/logical-channels/" + channel.EntityData.SegmentPath
     channel.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     channel.EntityData.NamespaceTable = openconfig.GetNamespaces()
     channel.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -301,6 +307,7 @@ func (config *TerminalDevice_LogicalChannels_Channel_Config) GetEntityData() *ty
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "channel"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-terminal-device:terminal-device/logical-channels/channel/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -379,6 +386,7 @@ func (state *TerminalDevice_LogicalChannels_Channel_State) GetEntityData() *type
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "channel"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-terminal-device:terminal-device/logical-channels/channel/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -431,6 +439,7 @@ func (otn *TerminalDevice_LogicalChannels_Channel_Otn) GetEntityData() *types.Co
     otn.EntityData.BundleName = "openconfig"
     otn.EntityData.ParentYangName = "channel"
     otn.EntityData.SegmentPath = "otn"
+    otn.EntityData.AbsolutePath = "openconfig-terminal-device:terminal-device/logical-channels/channel/" + otn.EntityData.SegmentPath
     otn.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     otn.EntityData.NamespaceTable = openconfig.GetNamespaces()
     otn.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -469,6 +478,7 @@ func (config *TerminalDevice_LogicalChannels_Channel_Otn_Config) GetEntityData()
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "otn"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-terminal-device:terminal-device/logical-channels/channel/otn/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -564,6 +574,7 @@ func (state *TerminalDevice_LogicalChannels_Channel_Otn_State) GetEntityData() *
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "otn"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-terminal-device:terminal-device/logical-channels/channel/otn/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -623,6 +634,7 @@ func (preFecBer *TerminalDevice_LogicalChannels_Channel_Otn_State_PreFecBer) Get
     preFecBer.EntityData.BundleName = "openconfig"
     preFecBer.EntityData.ParentYangName = "state"
     preFecBer.EntityData.SegmentPath = "pre-fec-ber"
+    preFecBer.EntityData.AbsolutePath = "openconfig-terminal-device:terminal-device/logical-channels/channel/otn/state/" + preFecBer.EntityData.SegmentPath
     preFecBer.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     preFecBer.EntityData.NamespaceTable = openconfig.GetNamespaces()
     preFecBer.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -669,6 +681,7 @@ func (postFecBer *TerminalDevice_LogicalChannels_Channel_Otn_State_PostFecBer) G
     postFecBer.EntityData.BundleName = "openconfig"
     postFecBer.EntityData.ParentYangName = "state"
     postFecBer.EntityData.SegmentPath = "post-fec-ber"
+    postFecBer.EntityData.AbsolutePath = "openconfig-terminal-device:terminal-device/logical-channels/channel/otn/state/" + postFecBer.EntityData.SegmentPath
     postFecBer.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     postFecBer.EntityData.NamespaceTable = openconfig.GetNamespaces()
     postFecBer.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -714,6 +727,7 @@ func (qValue *TerminalDevice_LogicalChannels_Channel_Otn_State_QValue) GetEntity
     qValue.EntityData.BundleName = "openconfig"
     qValue.EntityData.ParentYangName = "state"
     qValue.EntityData.SegmentPath = "q-value"
+    qValue.EntityData.AbsolutePath = "openconfig-terminal-device:terminal-device/logical-channels/channel/otn/state/" + qValue.EntityData.SegmentPath
     qValue.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     qValue.EntityData.NamespaceTable = openconfig.GetNamespaces()
     qValue.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -761,6 +775,7 @@ func (esnr *TerminalDevice_LogicalChannels_Channel_Otn_State_Esnr) GetEntityData
     esnr.EntityData.BundleName = "openconfig"
     esnr.EntityData.ParentYangName = "state"
     esnr.EntityData.SegmentPath = "esnr"
+    esnr.EntityData.AbsolutePath = "openconfig-terminal-device:terminal-device/logical-channels/channel/otn/state/" + esnr.EntityData.SegmentPath
     esnr.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     esnr.EntityData.NamespaceTable = openconfig.GetNamespaces()
     esnr.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -797,6 +812,7 @@ func (ethernet *TerminalDevice_LogicalChannels_Channel_Ethernet) GetEntityData()
     ethernet.EntityData.BundleName = "openconfig"
     ethernet.EntityData.ParentYangName = "channel"
     ethernet.EntityData.SegmentPath = "ethernet"
+    ethernet.EntityData.AbsolutePath = "openconfig-terminal-device:terminal-device/logical-channels/channel/" + ethernet.EntityData.SegmentPath
     ethernet.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ethernet.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ethernet.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -825,6 +841,7 @@ func (config *TerminalDevice_LogicalChannels_Channel_Ethernet_Config) GetEntityD
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "ethernet"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-terminal-device:terminal-device/logical-channels/channel/ethernet/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -894,6 +911,7 @@ func (state *TerminalDevice_LogicalChannels_Channel_Ethernet_State) GetEntityDat
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "ethernet"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-terminal-device:terminal-device/logical-channels/channel/ethernet/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -937,6 +955,7 @@ func (ingress *TerminalDevice_LogicalChannels_Channel_Ingress) GetEntityData() *
     ingress.EntityData.BundleName = "openconfig"
     ingress.EntityData.ParentYangName = "channel"
     ingress.EntityData.SegmentPath = "ingress"
+    ingress.EntityData.AbsolutePath = "openconfig-terminal-device:terminal-device/logical-channels/channel/" + ingress.EntityData.SegmentPath
     ingress.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ingress.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ingress.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -981,6 +1000,7 @@ func (config *TerminalDevice_LogicalChannels_Channel_Ingress_Config) GetEntityDa
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "ingress"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-terminal-device:terminal-device/logical-channels/channel/ingress/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1025,6 +1045,7 @@ func (state *TerminalDevice_LogicalChannels_Channel_Ingress_State) GetEntityData
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "ingress"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-terminal-device:terminal-device/logical-channels/channel/ingress/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1068,6 +1089,7 @@ func (logicalChannelAssignments *TerminalDevice_LogicalChannels_Channel_LogicalC
     logicalChannelAssignments.EntityData.BundleName = "openconfig"
     logicalChannelAssignments.EntityData.ParentYangName = "channel"
     logicalChannelAssignments.EntityData.SegmentPath = "logical-channel-assignments"
+    logicalChannelAssignments.EntityData.AbsolutePath = "openconfig-terminal-device:terminal-device/logical-channels/channel/" + logicalChannelAssignments.EntityData.SegmentPath
     logicalChannelAssignments.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     logicalChannelAssignments.EntityData.NamespaceTable = openconfig.GetNamespaces()
     logicalChannelAssignments.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1107,6 +1129,7 @@ func (logicalChannelAssignments *TerminalDevice_LogicalChannels_Channel_LogicalC
 type TerminalDevice_LogicalChannels_Channel_LogicalChannelAssignments_Assignment struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the index for the current tributary
     // assignment. The type is string with range: 0..4294967295. Refers to
@@ -1126,6 +1149,7 @@ func (assignment *TerminalDevice_LogicalChannels_Channel_LogicalChannelAssignmen
     assignment.EntityData.BundleName = "openconfig"
     assignment.EntityData.ParentYangName = "logical-channel-assignments"
     assignment.EntityData.SegmentPath = "assignment" + types.AddKeyToken(assignment.Index, "index")
+    assignment.EntityData.AbsolutePath = "openconfig-terminal-device:terminal-device/logical-channels/channel/logical-channel-assignments/" + assignment.EntityData.SegmentPath
     assignment.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     assignment.EntityData.NamespaceTable = openconfig.GetNamespaces()
     assignment.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1182,6 +1206,7 @@ func (config *TerminalDevice_LogicalChannels_Channel_LogicalChannelAssignments_A
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "assignment"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-terminal-device:terminal-device/logical-channels/channel/logical-channel-assignments/assignment/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1252,6 +1277,7 @@ func (state *TerminalDevice_LogicalChannels_Channel_LogicalChannelAssignments_As
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "assignment"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-terminal-device:terminal-device/logical-channels/channel/logical-channel-assignments/assignment/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1300,6 +1326,7 @@ func (operationalModes *TerminalDevice_OperationalModes) GetEntityData() *types.
     operationalModes.EntityData.BundleName = "openconfig"
     operationalModes.EntityData.ParentYangName = "terminal-device"
     operationalModes.EntityData.SegmentPath = "operational-modes"
+    operationalModes.EntityData.AbsolutePath = "openconfig-terminal-device:terminal-device/" + operationalModes.EntityData.SegmentPath
     operationalModes.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     operationalModes.EntityData.NamespaceTable = openconfig.GetNamespaces()
     operationalModes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1324,6 +1351,7 @@ func (operationalModes *TerminalDevice_OperationalModes) GetEntityData() *types.
 type TerminalDevice_OperationalModes_Mode struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to mode-id. The type is string with
     // range: 0..65535. Refers to
@@ -1343,6 +1371,7 @@ func (mode *TerminalDevice_OperationalModes_Mode) GetEntityData() *types.CommonE
     mode.EntityData.BundleName = "openconfig"
     mode.EntityData.ParentYangName = "operational-modes"
     mode.EntityData.SegmentPath = "mode" + types.AddKeyToken(mode.ModeId, "mode-id")
+    mode.EntityData.AbsolutePath = "openconfig-terminal-device:terminal-device/operational-modes/" + mode.EntityData.SegmentPath
     mode.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     mode.EntityData.NamespaceTable = openconfig.GetNamespaces()
     mode.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1371,6 +1400,7 @@ func (config *TerminalDevice_OperationalModes_Mode_Config) GetEntityData() *type
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "mode"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-terminal-device:terminal-device/operational-modes/mode/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1410,6 +1440,7 @@ func (state *TerminalDevice_OperationalModes_Mode_State) GetEntityData() *types.
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "mode"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-terminal-device:terminal-device/operational-modes/mode/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()

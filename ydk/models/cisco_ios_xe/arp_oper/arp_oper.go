@@ -68,6 +68,7 @@ func (arpData *ArpData) GetEntityData() *types.CommonEntityData {
     arpData.EntityData.BundleName = "cisco_ios_xe"
     arpData.EntityData.ParentYangName = "Cisco-IOS-XE-arp-oper"
     arpData.EntityData.SegmentPath = "Cisco-IOS-XE-arp-oper:arp-data"
+    arpData.EntityData.AbsolutePath = arpData.EntityData.SegmentPath
     arpData.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     arpData.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     arpData.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -89,6 +90,7 @@ func (arpData *ArpData) GetEntityData() *types.CommonEntityData {
 type ArpData_ArpVrf struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. VRF name that this entry is tied to. The type is
     // string.
@@ -105,6 +107,7 @@ func (arpVrf *ArpData_ArpVrf) GetEntityData() *types.CommonEntityData {
     arpVrf.EntityData.BundleName = "cisco_ios_xe"
     arpVrf.EntityData.ParentYangName = "arp-data"
     arpVrf.EntityData.SegmentPath = "arp-vrf" + types.AddKeyToken(arpVrf.Vrf, "vrf")
+    arpVrf.EntityData.AbsolutePath = "Cisco-IOS-XE-arp-oper:arp-data/" + arpVrf.EntityData.SegmentPath
     arpVrf.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     arpVrf.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     arpVrf.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -127,6 +130,7 @@ func (arpVrf *ArpData_ArpVrf) GetEntityData() *types.CommonEntityData {
 type ArpData_ArpVrf_ArpOper struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. High level protocol address. The type is one of
     // the following types: string with pattern:
@@ -165,6 +169,7 @@ func (arpOper *ArpData_ArpVrf_ArpOper) GetEntityData() *types.CommonEntityData {
     arpOper.EntityData.BundleName = "cisco_ios_xe"
     arpOper.EntityData.ParentYangName = "arp-vrf"
     arpOper.EntityData.SegmentPath = "arp-oper" + types.AddKeyToken(arpOper.Address, "address")
+    arpOper.EntityData.AbsolutePath = "Cisco-IOS-XE-arp-oper:arp-data/arp-vrf/" + arpOper.EntityData.SegmentPath
     arpOper.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     arpOper.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     arpOper.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

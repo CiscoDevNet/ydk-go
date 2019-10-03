@@ -40,6 +40,7 @@ func (cISCODIALCONTROLMIB *CISCODIALCONTROLMIB) GetEntityData() *types.CommonEnt
     cISCODIALCONTROLMIB.EntityData.BundleName = "cisco_ios_xe"
     cISCODIALCONTROLMIB.EntityData.ParentYangName = "CISCO-DIAL-CONTROL-MIB"
     cISCODIALCONTROLMIB.EntityData.SegmentPath = "CISCO-DIAL-CONTROL-MIB:CISCO-DIAL-CONTROL-MIB"
+    cISCODIALCONTROLMIB.EntityData.AbsolutePath = cISCODIALCONTROLMIB.EntityData.SegmentPath
     cISCODIALCONTROLMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cISCODIALCONTROLMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCODIALCONTROLMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -75,6 +76,7 @@ func (cPeerGlobalConfiguration *CISCODIALCONTROLMIB_CPeerGlobalConfiguration) Ge
     cPeerGlobalConfiguration.EntityData.BundleName = "cisco_ios_xe"
     cPeerGlobalConfiguration.EntityData.ParentYangName = "CISCO-DIAL-CONTROL-MIB"
     cPeerGlobalConfiguration.EntityData.SegmentPath = "cPeerGlobalConfiguration"
+    cPeerGlobalConfiguration.EntityData.AbsolutePath = "CISCO-DIAL-CONTROL-MIB:CISCO-DIAL-CONTROL-MIB/" + cPeerGlobalConfiguration.EntityData.SegmentPath
     cPeerGlobalConfiguration.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cPeerGlobalConfiguration.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cPeerGlobalConfiguration.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -117,6 +119,7 @@ func (cCallHistoryTable *CISCODIALCONTROLMIB_CCallHistoryTable) GetEntityData() 
     cCallHistoryTable.EntityData.BundleName = "cisco_ios_xe"
     cCallHistoryTable.EntityData.ParentYangName = "CISCO-DIAL-CONTROL-MIB"
     cCallHistoryTable.EntityData.SegmentPath = "cCallHistoryTable"
+    cCallHistoryTable.EntityData.AbsolutePath = "CISCO-DIAL-CONTROL-MIB:CISCO-DIAL-CONTROL-MIB/" + cCallHistoryTable.EntityData.SegmentPath
     cCallHistoryTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cCallHistoryTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cCallHistoryTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -138,6 +141,7 @@ func (cCallHistoryTable *CISCODIALCONTROLMIB_CCallHistoryTable) GetEntityData() 
 type CISCODIALCONTROLMIB_CCallHistoryTable_CCallHistoryEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. A monotonically increasing integer for the sole
     // purpose of indexing call disconnection events.  When it reaches the 
@@ -260,6 +264,7 @@ func (cCallHistoryEntry *CISCODIALCONTROLMIB_CCallHistoryTable_CCallHistoryEntry
     cCallHistoryEntry.EntityData.BundleName = "cisco_ios_xe"
     cCallHistoryEntry.EntityData.ParentYangName = "cCallHistoryTable"
     cCallHistoryEntry.EntityData.SegmentPath = "cCallHistoryEntry" + types.AddKeyToken(cCallHistoryEntry.CCallHistoryIndex, "cCallHistoryIndex")
+    cCallHistoryEntry.EntityData.AbsolutePath = "CISCO-DIAL-CONTROL-MIB:CISCO-DIAL-CONTROL-MIB/cCallHistoryTable/" + cCallHistoryEntry.EntityData.SegmentPath
     cCallHistoryEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cCallHistoryEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cCallHistoryEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -404,6 +409,7 @@ func (cCallHistoryIecTable *CISCODIALCONTROLMIB_CCallHistoryIecTable) GetEntityD
     cCallHistoryIecTable.EntityData.BundleName = "cisco_ios_xe"
     cCallHistoryIecTable.EntityData.ParentYangName = "CISCO-DIAL-CONTROL-MIB"
     cCallHistoryIecTable.EntityData.SegmentPath = "cCallHistoryIecTable"
+    cCallHistoryIecTable.EntityData.AbsolutePath = "CISCO-DIAL-CONTROL-MIB:CISCO-DIAL-CONTROL-MIB/" + cCallHistoryIecTable.EntityData.SegmentPath
     cCallHistoryIecTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cCallHistoryIecTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cCallHistoryIecTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -425,6 +431,7 @@ func (cCallHistoryIecTable *CISCODIALCONTROLMIB_CCallHistoryIecTable) GetEntityD
 type CISCODIALCONTROLMIB_CCallHistoryIecTable_CCallHistoryIecEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..4294967295.
     // Refers to
@@ -458,6 +465,7 @@ func (cCallHistoryIecEntry *CISCODIALCONTROLMIB_CCallHistoryIecTable_CCallHistor
     cCallHistoryIecEntry.EntityData.BundleName = "cisco_ios_xe"
     cCallHistoryIecEntry.EntityData.ParentYangName = "cCallHistoryIecTable"
     cCallHistoryIecEntry.EntityData.SegmentPath = "cCallHistoryIecEntry" + types.AddKeyToken(cCallHistoryIecEntry.CCallHistoryIndex, "cCallHistoryIndex") + types.AddKeyToken(cCallHistoryIecEntry.CCallHistoryIecIndex, "cCallHistoryIecIndex")
+    cCallHistoryIecEntry.EntityData.AbsolutePath = "CISCO-DIAL-CONTROL-MIB:CISCO-DIAL-CONTROL-MIB/cCallHistoryIecTable/" + cCallHistoryIecEntry.EntityData.SegmentPath
     cCallHistoryIecEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cCallHistoryIecEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cCallHistoryIecEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

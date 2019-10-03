@@ -68,6 +68,7 @@ func (keyGenerateRsaGeneralKeys *KeyGenerateRsaGeneralKeys) GetEntityData() *typ
     keyGenerateRsaGeneralKeys.EntityData.BundleName = "cisco_ios_xr"
     keyGenerateRsaGeneralKeys.EntityData.ParentYangName = "Cisco-IOS-XR-crypto-act"
     keyGenerateRsaGeneralKeys.EntityData.SegmentPath = "Cisco-IOS-XR-crypto-act:key-generate-rsa-general-keys"
+    keyGenerateRsaGeneralKeys.EntityData.AbsolutePath = keyGenerateRsaGeneralKeys.EntityData.SegmentPath
     keyGenerateRsaGeneralKeys.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     keyGenerateRsaGeneralKeys.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     keyGenerateRsaGeneralKeys.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -101,6 +102,7 @@ func (input *KeyGenerateRsaGeneralKeys_Input) GetEntityData() *types.CommonEntit
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "key-generate-rsa-general-keys"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-act:key-generate-rsa-general-keys/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -131,6 +133,7 @@ func (keyGenerateRsaUsageKeys *KeyGenerateRsaUsageKeys) GetEntityData() *types.C
     keyGenerateRsaUsageKeys.EntityData.BundleName = "cisco_ios_xr"
     keyGenerateRsaUsageKeys.EntityData.ParentYangName = "Cisco-IOS-XR-crypto-act"
     keyGenerateRsaUsageKeys.EntityData.SegmentPath = "Cisco-IOS-XR-crypto-act:key-generate-rsa-usage-keys"
+    keyGenerateRsaUsageKeys.EntityData.AbsolutePath = keyGenerateRsaUsageKeys.EntityData.SegmentPath
     keyGenerateRsaUsageKeys.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     keyGenerateRsaUsageKeys.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     keyGenerateRsaUsageKeys.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -164,6 +167,7 @@ func (input *KeyGenerateRsaUsageKeys_Input) GetEntityData() *types.CommonEntityD
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "key-generate-rsa-usage-keys"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-act:key-generate-rsa-usage-keys/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -194,6 +198,7 @@ func (keyGenerateRsa *KeyGenerateRsa) GetEntityData() *types.CommonEntityData {
     keyGenerateRsa.EntityData.BundleName = "cisco_ios_xr"
     keyGenerateRsa.EntityData.ParentYangName = "Cisco-IOS-XR-crypto-act"
     keyGenerateRsa.EntityData.SegmentPath = "Cisco-IOS-XR-crypto-act:key-generate-rsa"
+    keyGenerateRsa.EntityData.AbsolutePath = keyGenerateRsa.EntityData.SegmentPath
     keyGenerateRsa.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     keyGenerateRsa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     keyGenerateRsa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -227,6 +232,7 @@ func (input *KeyGenerateRsa_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "key-generate-rsa"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-act:key-generate-rsa/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -257,6 +263,7 @@ func (keyGenerateDsa *KeyGenerateDsa) GetEntityData() *types.CommonEntityData {
     keyGenerateDsa.EntityData.BundleName = "cisco_ios_xr"
     keyGenerateDsa.EntityData.ParentYangName = "Cisco-IOS-XR-crypto-act"
     keyGenerateDsa.EntityData.SegmentPath = "Cisco-IOS-XR-crypto-act:key-generate-dsa"
+    keyGenerateDsa.EntityData.AbsolutePath = keyGenerateDsa.EntityData.SegmentPath
     keyGenerateDsa.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     keyGenerateDsa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     keyGenerateDsa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -276,7 +283,7 @@ type KeyGenerateDsa_Input struct {
     YFilter yfilter.YFilter
 
     // Key modulus size can be 512, 768 or 1024 bits. The type is interface{} with
-    // range: 512..None | 768..None | 1024..None. This attribute is mandatory.
+    // range: 512..512 | 768..768 | 1024..1024. This attribute is mandatory.
     KeyModulus interface{}
 }
 
@@ -286,6 +293,7 @@ func (input *KeyGenerateDsa_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "key-generate-dsa"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-act:key-generate-dsa/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -315,6 +323,7 @@ func (keyGenerateEcdsa *KeyGenerateEcdsa) GetEntityData() *types.CommonEntityDat
     keyGenerateEcdsa.EntityData.BundleName = "cisco_ios_xr"
     keyGenerateEcdsa.EntityData.ParentYangName = "Cisco-IOS-XR-crypto-act"
     keyGenerateEcdsa.EntityData.SegmentPath = "Cisco-IOS-XR-crypto-act:key-generate-ecdsa"
+    keyGenerateEcdsa.EntityData.AbsolutePath = keyGenerateEcdsa.EntityData.SegmentPath
     keyGenerateEcdsa.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     keyGenerateEcdsa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     keyGenerateEcdsa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -346,6 +355,7 @@ func (input *KeyGenerateEcdsa_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "key-generate-ecdsa"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-act:key-generate-ecdsa/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -387,6 +397,7 @@ func (keyZeroizeRsa *KeyZeroizeRsa) GetEntityData() *types.CommonEntityData {
     keyZeroizeRsa.EntityData.BundleName = "cisco_ios_xr"
     keyZeroizeRsa.EntityData.ParentYangName = "Cisco-IOS-XR-crypto-act"
     keyZeroizeRsa.EntityData.SegmentPath = "Cisco-IOS-XR-crypto-act:key-zeroize-rsa"
+    keyZeroizeRsa.EntityData.AbsolutePath = keyZeroizeRsa.EntityData.SegmentPath
     keyZeroizeRsa.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     keyZeroizeRsa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     keyZeroizeRsa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -415,6 +426,7 @@ func (input *KeyZeroizeRsa_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "key-zeroize-rsa"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-act:key-zeroize-rsa/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -441,6 +453,7 @@ func (keyZeroizeDsa *KeyZeroizeDsa) GetEntityData() *types.CommonEntityData {
     keyZeroizeDsa.EntityData.BundleName = "cisco_ios_xr"
     keyZeroizeDsa.EntityData.ParentYangName = "Cisco-IOS-XR-crypto-act"
     keyZeroizeDsa.EntityData.SegmentPath = "Cisco-IOS-XR-crypto-act:key-zeroize-dsa"
+    keyZeroizeDsa.EntityData.AbsolutePath = keyZeroizeDsa.EntityData.SegmentPath
     keyZeroizeDsa.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     keyZeroizeDsa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     keyZeroizeDsa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -469,6 +482,7 @@ func (keyZeroizeEcdsa *KeyZeroizeEcdsa) GetEntityData() *types.CommonEntityData 
     keyZeroizeEcdsa.EntityData.BundleName = "cisco_ios_xr"
     keyZeroizeEcdsa.EntityData.ParentYangName = "Cisco-IOS-XR-crypto-act"
     keyZeroizeEcdsa.EntityData.SegmentPath = "Cisco-IOS-XR-crypto-act:key-zeroize-ecdsa"
+    keyZeroizeEcdsa.EntityData.AbsolutePath = keyZeroizeEcdsa.EntityData.SegmentPath
     keyZeroizeEcdsa.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     keyZeroizeEcdsa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     keyZeroizeEcdsa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -500,6 +514,7 @@ func (input *KeyZeroizeEcdsa_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "key-zeroize-ecdsa"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-act:key-zeroize-ecdsa/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -538,6 +553,7 @@ func (keyZeroizeAuthenticationRsa *KeyZeroizeAuthenticationRsa) GetEntityData() 
     keyZeroizeAuthenticationRsa.EntityData.BundleName = "cisco_ios_xr"
     keyZeroizeAuthenticationRsa.EntityData.ParentYangName = "Cisco-IOS-XR-crypto-act"
     keyZeroizeAuthenticationRsa.EntityData.SegmentPath = "Cisco-IOS-XR-crypto-act:key-zeroize-authentication-rsa"
+    keyZeroizeAuthenticationRsa.EntityData.AbsolutePath = keyZeroizeAuthenticationRsa.EntityData.SegmentPath
     keyZeroizeAuthenticationRsa.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     keyZeroizeAuthenticationRsa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     keyZeroizeAuthenticationRsa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -566,6 +582,7 @@ func (keyImportAuthenticationRsa *KeyImportAuthenticationRsa) GetEntityData() *t
     keyImportAuthenticationRsa.EntityData.BundleName = "cisco_ios_xr"
     keyImportAuthenticationRsa.EntityData.ParentYangName = "Cisco-IOS-XR-crypto-act"
     keyImportAuthenticationRsa.EntityData.SegmentPath = "Cisco-IOS-XR-crypto-act:key-import-authentication-rsa"
+    keyImportAuthenticationRsa.EntityData.AbsolutePath = keyImportAuthenticationRsa.EntityData.SegmentPath
     keyImportAuthenticationRsa.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     keyImportAuthenticationRsa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     keyImportAuthenticationRsa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -594,6 +611,7 @@ func (input *KeyImportAuthenticationRsa_Input) GetEntityData() *types.CommonEnti
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "key-import-authentication-rsa"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-act:key-import-authentication-rsa/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -623,6 +641,7 @@ func (caAuthenticate *CaAuthenticate) GetEntityData() *types.CommonEntityData {
     caAuthenticate.EntityData.BundleName = "cisco_ios_xr"
     caAuthenticate.EntityData.ParentYangName = "Cisco-IOS-XR-crypto-act"
     caAuthenticate.EntityData.SegmentPath = "Cisco-IOS-XR-crypto-act:ca-authenticate"
+    caAuthenticate.EntityData.AbsolutePath = caAuthenticate.EntityData.SegmentPath
     caAuthenticate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     caAuthenticate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     caAuthenticate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -651,6 +670,7 @@ func (input *CaAuthenticate_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "ca-authenticate"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-act:ca-authenticate/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -680,6 +700,7 @@ func (caEnroll *CaEnroll) GetEntityData() *types.CommonEntityData {
     caEnroll.EntityData.BundleName = "cisco_ios_xr"
     caEnroll.EntityData.ParentYangName = "Cisco-IOS-XR-crypto-act"
     caEnroll.EntityData.SegmentPath = "Cisco-IOS-XR-crypto-act:ca-enroll"
+    caEnroll.EntityData.AbsolutePath = caEnroll.EntityData.SegmentPath
     caEnroll.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     caEnroll.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     caEnroll.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -708,6 +729,7 @@ func (input *CaEnroll_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "ca-enroll"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-act:ca-enroll/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -737,6 +759,7 @@ func (caImportCertificate *CaImportCertificate) GetEntityData() *types.CommonEnt
     caImportCertificate.EntityData.BundleName = "cisco_ios_xr"
     caImportCertificate.EntityData.ParentYangName = "Cisco-IOS-XR-crypto-act"
     caImportCertificate.EntityData.SegmentPath = "Cisco-IOS-XR-crypto-act:ca-import-certificate"
+    caImportCertificate.EntityData.AbsolutePath = caImportCertificate.EntityData.SegmentPath
     caImportCertificate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     caImportCertificate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     caImportCertificate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -765,6 +788,7 @@ func (input *CaImportCertificate_Input) GetEntityData() *types.CommonEntityData 
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "ca-import-certificate"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-act:ca-import-certificate/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -794,6 +818,7 @@ func (caCancelEnroll *CaCancelEnroll) GetEntityData() *types.CommonEntityData {
     caCancelEnroll.EntityData.BundleName = "cisco_ios_xr"
     caCancelEnroll.EntityData.ParentYangName = "Cisco-IOS-XR-crypto-act"
     caCancelEnroll.EntityData.SegmentPath = "Cisco-IOS-XR-crypto-act:ca-cancel-enroll"
+    caCancelEnroll.EntityData.AbsolutePath = caCancelEnroll.EntityData.SegmentPath
     caCancelEnroll.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     caCancelEnroll.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     caCancelEnroll.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -822,6 +847,7 @@ func (input *CaCancelEnroll_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "ca-cancel-enroll"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-act:ca-cancel-enroll/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -854,6 +880,7 @@ func (caCrlRequest *CaCrlRequest) GetEntityData() *types.CommonEntityData {
     caCrlRequest.EntityData.BundleName = "cisco_ios_xr"
     caCrlRequest.EntityData.ParentYangName = "Cisco-IOS-XR-crypto-act"
     caCrlRequest.EntityData.SegmentPath = "Cisco-IOS-XR-crypto-act:ca-crl-request"
+    caCrlRequest.EntityData.AbsolutePath = caCrlRequest.EntityData.SegmentPath
     caCrlRequest.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     caCrlRequest.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     caCrlRequest.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -884,6 +911,7 @@ func (input *CaCrlRequest_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "ca-crl-request"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-act:ca-crl-request/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -912,6 +940,7 @@ func (output *CaCrlRequest_Output) GetEntityData() *types.CommonEntityData {
     output.EntityData.BundleName = "cisco_ios_xr"
     output.EntityData.ParentYangName = "ca-crl-request"
     output.EntityData.SegmentPath = "output"
+    output.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-act:ca-crl-request/" + output.EntityData.SegmentPath
     output.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     output.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     output.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -941,6 +970,7 @@ func (caTrustpoolImportUrl *CaTrustpoolImportUrl) GetEntityData() *types.CommonE
     caTrustpoolImportUrl.EntityData.BundleName = "cisco_ios_xr"
     caTrustpoolImportUrl.EntityData.ParentYangName = "Cisco-IOS-XR-crypto-act"
     caTrustpoolImportUrl.EntityData.SegmentPath = "Cisco-IOS-XR-crypto-act:ca-trustpool-import-url"
+    caTrustpoolImportUrl.EntityData.AbsolutePath = caTrustpoolImportUrl.EntityData.SegmentPath
     caTrustpoolImportUrl.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     caTrustpoolImportUrl.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     caTrustpoolImportUrl.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -969,6 +999,7 @@ func (input *CaTrustpoolImportUrl_Input) GetEntityData() *types.CommonEntityData
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "ca-trustpool-import-url"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-act:ca-trustpool-import-url/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -998,6 +1029,7 @@ func (caTrustpoolImportUrlClean *CaTrustpoolImportUrlClean) GetEntityData() *typ
     caTrustpoolImportUrlClean.EntityData.BundleName = "cisco_ios_xr"
     caTrustpoolImportUrlClean.EntityData.ParentYangName = "Cisco-IOS-XR-crypto-act"
     caTrustpoolImportUrlClean.EntityData.SegmentPath = "Cisco-IOS-XR-crypto-act:ca-trustpool-import-url-clean"
+    caTrustpoolImportUrlClean.EntityData.AbsolutePath = caTrustpoolImportUrlClean.EntityData.SegmentPath
     caTrustpoolImportUrlClean.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     caTrustpoolImportUrlClean.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     caTrustpoolImportUrlClean.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1026,6 +1058,7 @@ func (input *CaTrustpoolImportUrlClean_Input) GetEntityData() *types.CommonEntit
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "ca-trustpool-import-url-clean"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-act:ca-trustpool-import-url-clean/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

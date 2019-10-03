@@ -39,6 +39,7 @@ func (action *Action) GetEntityData() *types.CommonEntityData {
     action.EntityData.BundleName = "cisco_ios_xr"
     action.EntityData.ParentYangName = "tailf-actions"
     action.EntityData.SegmentPath = "tailf-actions:action"
+    action.EntityData.AbsolutePath = action.EntityData.SegmentPath
     action.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     action.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     action.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -68,6 +69,7 @@ func (input *Action_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "action"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "tailf-actions:action/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -96,6 +98,7 @@ func (output *Action_Output) GetEntityData() *types.CommonEntityData {
     output.EntityData.BundleName = "cisco_ios_xr"
     output.EntityData.ParentYangName = "action"
     output.EntityData.SegmentPath = "output"
+    output.EntityData.AbsolutePath = "tailf-actions:action/" + output.EntityData.SegmentPath
     output.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     output.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     output.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

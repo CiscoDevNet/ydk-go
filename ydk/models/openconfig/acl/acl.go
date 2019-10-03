@@ -165,6 +165,7 @@ func (acl *Acl) GetEntityData() *types.CommonEntityData {
     acl.EntityData.BundleName = "openconfig"
     acl.EntityData.ParentYangName = "openconfig-acl"
     acl.EntityData.SegmentPath = "openconfig-acl:acl"
+    acl.EntityData.AbsolutePath = acl.EntityData.SegmentPath
     acl.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     acl.EntityData.NamespaceTable = openconfig.GetNamespaces()
     acl.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -194,6 +195,7 @@ func (config *Acl_Config) GetEntityData() *types.CommonEntityData {
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "acl"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-acl:acl/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -224,6 +226,7 @@ func (state *Acl_State) GetEntityData() *types.CommonEntityData {
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "acl"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-acl:acl/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -254,6 +257,7 @@ func (aclSets *Acl_AclSets) GetEntityData() *types.CommonEntityData {
     aclSets.EntityData.BundleName = "openconfig"
     aclSets.EntityData.ParentYangName = "acl"
     aclSets.EntityData.SegmentPath = "acl-sets"
+    aclSets.EntityData.AbsolutePath = "openconfig-acl:acl/" + aclSets.EntityData.SegmentPath
     aclSets.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     aclSets.EntityData.NamespaceTable = openconfig.GetNamespaces()
     aclSets.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -276,6 +280,7 @@ func (aclSets *Acl_AclSets) GetEntityData() *types.CommonEntityData {
 type Acl_AclSets_AclSet struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the name list key. The type is
     // string. Refers to acl.Acl_AclSets_AclSet_Config_Name
@@ -301,6 +306,7 @@ func (aclSet *Acl_AclSets_AclSet) GetEntityData() *types.CommonEntityData {
     aclSet.EntityData.BundleName = "openconfig"
     aclSet.EntityData.ParentYangName = "acl-sets"
     aclSet.EntityData.SegmentPath = "acl-set" + types.AddKeyToken(aclSet.Name, "name") + types.AddKeyToken(aclSet.Type, "type")
+    aclSet.EntityData.AbsolutePath = "openconfig-acl:acl/acl-sets/" + aclSet.EntityData.SegmentPath
     aclSet.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     aclSet.EntityData.NamespaceTable = openconfig.GetNamespaces()
     aclSet.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -342,6 +348,7 @@ func (config *Acl_AclSets_AclSet_Config) GetEntityData() *types.CommonEntityData
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "acl-set"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-acl:acl/acl-sets/acl-set/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -381,6 +388,7 @@ func (state *Acl_AclSets_AclSet_State) GetEntityData() *types.CommonEntityData {
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "acl-set"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-acl:acl/acl-sets/acl-set/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -413,6 +421,7 @@ func (aclEntries *Acl_AclSets_AclSet_AclEntries) GetEntityData() *types.CommonEn
     aclEntries.EntityData.BundleName = "openconfig"
     aclEntries.EntityData.ParentYangName = "acl-set"
     aclEntries.EntityData.SegmentPath = "acl-entries"
+    aclEntries.EntityData.AbsolutePath = "openconfig-acl:acl/acl-sets/acl-set/" + aclEntries.EntityData.SegmentPath
     aclEntries.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     aclEntries.EntityData.NamespaceTable = openconfig.GetNamespaces()
     aclEntries.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -434,6 +443,7 @@ func (aclEntries *Acl_AclSets_AclSet_AclEntries) GetEntityData() *types.CommonEn
 type Acl_AclSets_AclSet_AclEntries_AclEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. references the list key. The type is string with
     // range: 0..4294967295. Refers to
@@ -471,6 +481,7 @@ func (aclEntry *Acl_AclSets_AclSet_AclEntries_AclEntry) GetEntityData() *types.C
     aclEntry.EntityData.BundleName = "openconfig"
     aclEntry.EntityData.ParentYangName = "acl-entries"
     aclEntry.EntityData.SegmentPath = "acl-entry" + types.AddKeyToken(aclEntry.SequenceId, "sequence-id")
+    aclEntry.EntityData.AbsolutePath = "openconfig-acl:acl/acl-sets/acl-set/acl-entries/" + aclEntry.EntityData.SegmentPath
     aclEntry.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     aclEntry.EntityData.NamespaceTable = openconfig.GetNamespaces()
     aclEntry.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -516,6 +527,7 @@ func (config *Acl_AclSets_AclSet_AclEntries_AclEntry_Config) GetEntityData() *ty
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "acl-entry"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-acl:acl/acl-sets/acl-set/acl-entries/acl-entry/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -576,6 +588,7 @@ func (state *Acl_AclSets_AclSet_AclEntries_AclEntry_State) GetEntityData() *type
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "acl-entry"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-acl:acl/acl-sets/acl-set/acl-entries/acl-entry/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -611,6 +624,7 @@ func (l2 *Acl_AclSets_AclSet_AclEntries_AclEntry_L2) GetEntityData() *types.Comm
     l2.EntityData.BundleName = "openconfig"
     l2.EntityData.ParentYangName = "acl-entry"
     l2.EntityData.SegmentPath = "l2"
+    l2.EntityData.AbsolutePath = "openconfig-acl:acl/acl-sets/acl-set/acl-entries/acl-entry/" + l2.EntityData.SegmentPath
     l2.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     l2.EntityData.NamespaceTable = openconfig.GetNamespaces()
     l2.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -659,6 +673,7 @@ func (config *Acl_AclSets_AclSet_AclEntries_AclEntry_L2_Config) GetEntityData() 
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "l2"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-acl:acl/acl-sets/acl-set/acl-entries/acl-entry/l2/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -710,6 +725,7 @@ func (state *Acl_AclSets_AclSet_AclEntries_AclEntry_L2_State) GetEntityData() *t
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "l2"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-acl:acl/acl-sets/acl-set/acl-entries/acl-entry/l2/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -746,6 +762,7 @@ func (ipv4 *Acl_AclSets_AclSet_AclEntries_AclEntry_Ipv4) GetEntityData() *types.
     ipv4.EntityData.BundleName = "openconfig"
     ipv4.EntityData.ParentYangName = "acl-entry"
     ipv4.EntityData.SegmentPath = "ipv4"
+    ipv4.EntityData.AbsolutePath = "openconfig-acl:acl/acl-sets/acl-set/acl-entries/acl-entry/" + ipv4.EntityData.SegmentPath
     ipv4.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ipv4.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ipv4.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -794,6 +811,7 @@ func (config *Acl_AclSets_AclSet_AclEntries_AclEntry_Ipv4_Config) GetEntityData(
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "ipv4"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-acl:acl/acl-sets/acl-set/acl-entries/acl-entry/ipv4/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -845,6 +863,7 @@ func (state *Acl_AclSets_AclSet_AclEntries_AclEntry_Ipv4_State) GetEntityData() 
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "ipv4"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-acl:acl/acl-sets/acl-set/acl-entries/acl-entry/ipv4/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -881,6 +900,7 @@ func (ipv6 *Acl_AclSets_AclSet_AclEntries_AclEntry_Ipv6) GetEntityData() *types.
     ipv6.EntityData.BundleName = "openconfig"
     ipv6.EntityData.ParentYangName = "acl-entry"
     ipv6.EntityData.SegmentPath = "ipv6"
+    ipv6.EntityData.AbsolutePath = "openconfig-acl:acl/acl-sets/acl-set/acl-entries/acl-entry/" + ipv6.EntityData.SegmentPath
     ipv6.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ipv6.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ipv6.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -936,6 +956,7 @@ func (config *Acl_AclSets_AclSet_AclEntries_AclEntry_Ipv6_Config) GetEntityData(
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "ipv6"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-acl:acl/acl-sets/acl-set/acl-entries/acl-entry/ipv6/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -996,6 +1017,7 @@ func (state *Acl_AclSets_AclSet_AclEntries_AclEntry_Ipv6_State) GetEntityData() 
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "ipv6"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-acl:acl/acl-sets/acl-set/acl-entries/acl-entry/ipv6/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1034,6 +1056,7 @@ func (transport *Acl_AclSets_AclSet_AclEntries_AclEntry_Transport) GetEntityData
     transport.EntityData.BundleName = "openconfig"
     transport.EntityData.ParentYangName = "acl-entry"
     transport.EntityData.SegmentPath = "transport"
+    transport.EntityData.AbsolutePath = "openconfig-acl:acl/acl-sets/acl-set/acl-entries/acl-entry/" + transport.EntityData.SegmentPath
     transport.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     transport.EntityData.NamespaceTable = openconfig.GetNamespaces()
     transport.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1066,8 +1089,8 @@ type Acl_AclSets_AclSet_AclEntries_AclEntry_Transport_Config struct {
     // or int with range: 0..65535, or enumeration PortNumRange.
     DestinationPort interface{}
 
-    // List of TCP flags to match. The type is slice of ['TCPACK', 'TCPSYN',
-    // 'TCPECE', 'TCPFIN', 'TCPRST', 'TCPURG', 'TCPPSH', 'TCPCWR'].
+    // List of TCP flags to match. The type is slice of [u'TCPACK', u'TCPSYN',
+    // u'TCPECE', u'TCPFIN', u'TCPRST', u'TCPURG', u'TCPPSH', u'TCPCWR'].
     TcpFlags []interface{}
 }
 
@@ -1077,6 +1100,7 @@ func (config *Acl_AclSets_AclSet_AclEntries_AclEntry_Transport_Config) GetEntity
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "transport"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-acl:acl/acl-sets/acl-set/acl-entries/acl-entry/transport/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1110,8 +1134,8 @@ type Acl_AclSets_AclSet_AclEntries_AclEntry_Transport_State struct {
     // or int with range: 0..65535, or enumeration PortNumRange.
     DestinationPort interface{}
 
-    // List of TCP flags to match. The type is slice of ['TCPACK', 'TCPSYN',
-    // 'TCPECE', 'TCPFIN', 'TCPRST', 'TCPURG', 'TCPPSH', 'TCPCWR'].
+    // List of TCP flags to match. The type is slice of [u'TCPACK', u'TCPSYN',
+    // u'TCPECE', u'TCPFIN', u'TCPRST', u'TCPURG', u'TCPPSH', u'TCPCWR'].
     TcpFlags []interface{}
 }
 
@@ -1121,6 +1145,7 @@ func (state *Acl_AclSets_AclSet_AclEntries_AclEntry_Transport_State) GetEntityDa
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "transport"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-acl:acl/acl-sets/acl-set/acl-entries/acl-entry/transport/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1158,6 +1183,7 @@ func (inputInterface *Acl_AclSets_AclSet_AclEntries_AclEntry_InputInterface) Get
     inputInterface.EntityData.BundleName = "openconfig"
     inputInterface.EntityData.ParentYangName = "acl-entry"
     inputInterface.EntityData.SegmentPath = "input-interface"
+    inputInterface.EntityData.AbsolutePath = "openconfig-acl:acl/acl-sets/acl-set/acl-entries/acl-entry/" + inputInterface.EntityData.SegmentPath
     inputInterface.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     inputInterface.EntityData.NamespaceTable = openconfig.GetNamespaces()
     inputInterface.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1186,6 +1212,7 @@ func (config *Acl_AclSets_AclSet_AclEntries_AclEntry_InputInterface_Config) GetE
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "input-interface"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-acl:acl/acl-sets/acl-set/acl-entries/acl-entry/input-interface/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1211,6 +1238,7 @@ func (state *Acl_AclSets_AclSet_AclEntries_AclEntry_InputInterface_State) GetEnt
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "input-interface"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-acl:acl/acl-sets/acl-set/acl-entries/acl-entry/input-interface/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1242,6 +1270,7 @@ func (interfaceRef *Acl_AclSets_AclSet_AclEntries_AclEntry_InputInterface_Interf
     interfaceRef.EntityData.BundleName = "openconfig"
     interfaceRef.EntityData.ParentYangName = "input-interface"
     interfaceRef.EntityData.SegmentPath = "interface-ref"
+    interfaceRef.EntityData.AbsolutePath = "openconfig-acl:acl/acl-sets/acl-set/acl-entries/acl-entry/input-interface/" + interfaceRef.EntityData.SegmentPath
     interfaceRef.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     interfaceRef.EntityData.NamespaceTable = openconfig.GetNamespaces()
     interfaceRef.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1281,6 +1310,7 @@ func (config *Acl_AclSets_AclSet_AclEntries_AclEntry_InputInterface_InterfaceRef
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "interface-ref"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-acl:acl/acl-sets/acl-set/acl-entries/acl-entry/input-interface/interface-ref/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1320,6 +1350,7 @@ func (state *Acl_AclSets_AclSet_AclEntries_AclEntry_InputInterface_InterfaceRef_
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "interface-ref"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-acl:acl/acl-sets/acl-set/acl-entries/acl-entry/input-interface/interface-ref/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1354,6 +1385,7 @@ func (actions *Acl_AclSets_AclSet_AclEntries_AclEntry_Actions) GetEntityData() *
     actions.EntityData.BundleName = "openconfig"
     actions.EntityData.ParentYangName = "acl-entry"
     actions.EntityData.SegmentPath = "actions"
+    actions.EntityData.AbsolutePath = "openconfig-acl:acl/acl-sets/acl-set/acl-entries/acl-entry/" + actions.EntityData.SegmentPath
     actions.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     actions.EntityData.NamespaceTable = openconfig.GetNamespaces()
     actions.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1391,6 +1423,7 @@ func (config *Acl_AclSets_AclSet_AclEntries_AclEntry_Actions_Config) GetEntityDa
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "actions"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-acl:acl/acl-sets/acl-set/acl-entries/acl-entry/actions/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1428,6 +1461,7 @@ func (state *Acl_AclSets_AclSet_AclEntries_AclEntry_Actions_State) GetEntityData
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "actions"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-acl:acl/acl-sets/acl-set/acl-entries/acl-entry/actions/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1460,6 +1494,7 @@ func (interfaces *Acl_Interfaces) GetEntityData() *types.CommonEntityData {
     interfaces.EntityData.BundleName = "openconfig"
     interfaces.EntityData.ParentYangName = "acl"
     interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.AbsolutePath = "openconfig-acl:acl/" + interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     interfaces.EntityData.NamespaceTable = openconfig.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1481,6 +1516,7 @@ func (interfaces *Acl_Interfaces) GetEntityData() *types.CommonEntityData {
 type Acl_Interfaces_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the interface id list key. The type
     // is string. Refers to acl.Acl_Interfaces_Interface_Config_Id
@@ -1508,6 +1544,7 @@ func (self *Acl_Interfaces_Interface) GetEntityData() *types.CommonEntityData {
     self.EntityData.BundleName = "openconfig"
     self.EntityData.ParentYangName = "interfaces"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.Id, "id")
+    self.EntityData.AbsolutePath = "openconfig-acl:acl/interfaces/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     self.EntityData.NamespaceTable = openconfig.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1543,6 +1580,7 @@ func (config *Acl_Interfaces_Interface_Config) GetEntityData() *types.CommonEnti
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "interface"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-acl:acl/interfaces/interface/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1573,6 +1611,7 @@ func (state *Acl_Interfaces_Interface_State) GetEntityData() *types.CommonEntity
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "interface"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-acl:acl/interfaces/interface/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1605,6 +1644,7 @@ func (interfaceRef *Acl_Interfaces_Interface_InterfaceRef) GetEntityData() *type
     interfaceRef.EntityData.BundleName = "openconfig"
     interfaceRef.EntityData.ParentYangName = "interface"
     interfaceRef.EntityData.SegmentPath = "interface-ref"
+    interfaceRef.EntityData.AbsolutePath = "openconfig-acl:acl/interfaces/interface/" + interfaceRef.EntityData.SegmentPath
     interfaceRef.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     interfaceRef.EntityData.NamespaceTable = openconfig.GetNamespaces()
     interfaceRef.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1644,6 +1684,7 @@ func (config *Acl_Interfaces_Interface_InterfaceRef_Config) GetEntityData() *typ
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "interface-ref"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-acl:acl/interfaces/interface/interface-ref/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1683,6 +1724,7 @@ func (state *Acl_Interfaces_Interface_InterfaceRef_State) GetEntityData() *types
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "interface-ref"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-acl:acl/interfaces/interface/interface-ref/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1715,6 +1757,7 @@ func (ingressAclSets *Acl_Interfaces_Interface_IngressAclSets) GetEntityData() *
     ingressAclSets.EntityData.BundleName = "openconfig"
     ingressAclSets.EntityData.ParentYangName = "interface"
     ingressAclSets.EntityData.SegmentPath = "ingress-acl-sets"
+    ingressAclSets.EntityData.AbsolutePath = "openconfig-acl:acl/interfaces/interface/" + ingressAclSets.EntityData.SegmentPath
     ingressAclSets.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ingressAclSets.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ingressAclSets.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1736,6 +1779,7 @@ func (ingressAclSets *Acl_Interfaces_Interface_IngressAclSets) GetEntityData() *
 type Acl_Interfaces_Interface_IngressAclSets_IngressAclSet struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to set name list key. The type is
     // string. Refers to
@@ -1762,6 +1806,7 @@ func (ingressAclSet *Acl_Interfaces_Interface_IngressAclSets_IngressAclSet) GetE
     ingressAclSet.EntityData.BundleName = "openconfig"
     ingressAclSet.EntityData.ParentYangName = "ingress-acl-sets"
     ingressAclSet.EntityData.SegmentPath = "ingress-acl-set" + types.AddKeyToken(ingressAclSet.SetName, "set-name") + types.AddKeyToken(ingressAclSet.Type, "type")
+    ingressAclSet.EntityData.AbsolutePath = "openconfig-acl:acl/interfaces/interface/ingress-acl-sets/" + ingressAclSet.EntityData.SegmentPath
     ingressAclSet.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ingressAclSet.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ingressAclSet.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1800,6 +1845,7 @@ func (config *Acl_Interfaces_Interface_IngressAclSets_IngressAclSet_Config) GetE
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "ingress-acl-set"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-acl:acl/interfaces/interface/ingress-acl-sets/ingress-acl-set/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1835,6 +1881,7 @@ func (state *Acl_Interfaces_Interface_IngressAclSets_IngressAclSet_State) GetEnt
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "ingress-acl-set"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-acl:acl/interfaces/interface/ingress-acl-sets/ingress-acl-set/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1866,6 +1913,7 @@ func (aclEntries *Acl_Interfaces_Interface_IngressAclSets_IngressAclSet_AclEntri
     aclEntries.EntityData.BundleName = "openconfig"
     aclEntries.EntityData.ParentYangName = "ingress-acl-set"
     aclEntries.EntityData.SegmentPath = "acl-entries"
+    aclEntries.EntityData.AbsolutePath = "openconfig-acl:acl/interfaces/interface/ingress-acl-sets/ingress-acl-set/" + aclEntries.EntityData.SegmentPath
     aclEntries.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     aclEntries.EntityData.NamespaceTable = openconfig.GetNamespaces()
     aclEntries.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1887,6 +1935,7 @@ func (aclEntries *Acl_Interfaces_Interface_IngressAclSets_IngressAclSet_AclEntri
 type Acl_Interfaces_Interface_IngressAclSets_IngressAclSet_AclEntries_AclEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to per-interface acl entry key. The type
     // is string with range: 0..4294967295. Refers to
@@ -1903,6 +1952,7 @@ func (aclEntry *Acl_Interfaces_Interface_IngressAclSets_IngressAclSet_AclEntries
     aclEntry.EntityData.BundleName = "openconfig"
     aclEntry.EntityData.ParentYangName = "acl-entries"
     aclEntry.EntityData.SegmentPath = "acl-entry" + types.AddKeyToken(aclEntry.SequenceId, "sequence-id")
+    aclEntry.EntityData.AbsolutePath = "openconfig-acl:acl/interfaces/interface/ingress-acl-sets/ingress-acl-set/acl-entries/" + aclEntry.EntityData.SegmentPath
     aclEntry.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     aclEntry.EntityData.NamespaceTable = openconfig.GetNamespaces()
     aclEntry.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1957,6 +2007,7 @@ func (state *Acl_Interfaces_Interface_IngressAclSets_IngressAclSet_AclEntries_Ac
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "acl-entry"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-acl:acl/interfaces/interface/ingress-acl-sets/ingress-acl-set/acl-entries/acl-entry/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1990,6 +2041,7 @@ func (egressAclSets *Acl_Interfaces_Interface_EgressAclSets) GetEntityData() *ty
     egressAclSets.EntityData.BundleName = "openconfig"
     egressAclSets.EntityData.ParentYangName = "interface"
     egressAclSets.EntityData.SegmentPath = "egress-acl-sets"
+    egressAclSets.EntityData.AbsolutePath = "openconfig-acl:acl/interfaces/interface/" + egressAclSets.EntityData.SegmentPath
     egressAclSets.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     egressAclSets.EntityData.NamespaceTable = openconfig.GetNamespaces()
     egressAclSets.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2011,6 +2063,7 @@ func (egressAclSets *Acl_Interfaces_Interface_EgressAclSets) GetEntityData() *ty
 type Acl_Interfaces_Interface_EgressAclSets_EgressAclSet struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to set name list key. The type is
     // string. Refers to
@@ -2037,6 +2090,7 @@ func (egressAclSet *Acl_Interfaces_Interface_EgressAclSets_EgressAclSet) GetEnti
     egressAclSet.EntityData.BundleName = "openconfig"
     egressAclSet.EntityData.ParentYangName = "egress-acl-sets"
     egressAclSet.EntityData.SegmentPath = "egress-acl-set" + types.AddKeyToken(egressAclSet.SetName, "set-name") + types.AddKeyToken(egressAclSet.Type, "type")
+    egressAclSet.EntityData.AbsolutePath = "openconfig-acl:acl/interfaces/interface/egress-acl-sets/" + egressAclSet.EntityData.SegmentPath
     egressAclSet.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     egressAclSet.EntityData.NamespaceTable = openconfig.GetNamespaces()
     egressAclSet.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2075,6 +2129,7 @@ func (config *Acl_Interfaces_Interface_EgressAclSets_EgressAclSet_Config) GetEnt
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "egress-acl-set"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-acl:acl/interfaces/interface/egress-acl-sets/egress-acl-set/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2110,6 +2165,7 @@ func (state *Acl_Interfaces_Interface_EgressAclSets_EgressAclSet_State) GetEntit
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "egress-acl-set"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-acl:acl/interfaces/interface/egress-acl-sets/egress-acl-set/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2141,6 +2197,7 @@ func (aclEntries *Acl_Interfaces_Interface_EgressAclSets_EgressAclSet_AclEntries
     aclEntries.EntityData.BundleName = "openconfig"
     aclEntries.EntityData.ParentYangName = "egress-acl-set"
     aclEntries.EntityData.SegmentPath = "acl-entries"
+    aclEntries.EntityData.AbsolutePath = "openconfig-acl:acl/interfaces/interface/egress-acl-sets/egress-acl-set/" + aclEntries.EntityData.SegmentPath
     aclEntries.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     aclEntries.EntityData.NamespaceTable = openconfig.GetNamespaces()
     aclEntries.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2162,6 +2219,7 @@ func (aclEntries *Acl_Interfaces_Interface_EgressAclSets_EgressAclSet_AclEntries
 type Acl_Interfaces_Interface_EgressAclSets_EgressAclSet_AclEntries_AclEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to per-interface acl entry key. The type
     // is string with range: 0..4294967295. Refers to
@@ -2178,6 +2236,7 @@ func (aclEntry *Acl_Interfaces_Interface_EgressAclSets_EgressAclSet_AclEntries_A
     aclEntry.EntityData.BundleName = "openconfig"
     aclEntry.EntityData.ParentYangName = "acl-entries"
     aclEntry.EntityData.SegmentPath = "acl-entry" + types.AddKeyToken(aclEntry.SequenceId, "sequence-id")
+    aclEntry.EntityData.AbsolutePath = "openconfig-acl:acl/interfaces/interface/egress-acl-sets/egress-acl-set/acl-entries/" + aclEntry.EntityData.SegmentPath
     aclEntry.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     aclEntry.EntityData.NamespaceTable = openconfig.GetNamespaces()
     aclEntry.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2232,6 +2291,7 @@ func (state *Acl_Interfaces_Interface_EgressAclSets_EgressAclSet_AclEntries_AclE
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "acl-entry"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-acl:acl/interfaces/interface/egress-acl-sets/egress-acl-set/acl-entries/acl-entry/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()

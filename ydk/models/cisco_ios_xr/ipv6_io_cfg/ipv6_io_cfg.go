@@ -58,6 +58,7 @@ func (ipv6Configuration *Ipv6Configuration) GetEntityData() *types.CommonEntityD
     ipv6Configuration.EntityData.BundleName = "cisco_ios_xr"
     ipv6Configuration.EntityData.ParentYangName = "Cisco-IOS-XR-ipv6-io-cfg"
     ipv6Configuration.EntityData.SegmentPath = "Cisco-IOS-XR-ipv6-io-cfg:ipv6-configuration"
+    ipv6Configuration.EntityData.AbsolutePath = ipv6Configuration.EntityData.SegmentPath
     ipv6Configuration.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6Configuration.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6Configuration.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -97,6 +98,7 @@ func (ipv6Assembler *Ipv6Configuration_Ipv6Assembler) GetEntityData() *types.Com
     ipv6Assembler.EntityData.BundleName = "cisco_ios_xr"
     ipv6Assembler.EntityData.ParentYangName = "ipv6-configuration"
     ipv6Assembler.EntityData.SegmentPath = "ipv6-assembler"
+    ipv6Assembler.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-io-cfg:ipv6-configuration/" + ipv6Assembler.EntityData.SegmentPath
     ipv6Assembler.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6Assembler.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6Assembler.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -134,6 +136,7 @@ func (ipv6icmp *Ipv6Configuration_Ipv6icmp) GetEntityData() *types.CommonEntityD
     ipv6icmp.EntityData.BundleName = "cisco_ios_xr"
     ipv6icmp.EntityData.ParentYangName = "ipv6-configuration"
     ipv6icmp.EntityData.SegmentPath = "ipv6icmp"
+    ipv6icmp.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-io-cfg:ipv6-configuration/" + ipv6icmp.EntityData.SegmentPath
     ipv6icmp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6icmp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6icmp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

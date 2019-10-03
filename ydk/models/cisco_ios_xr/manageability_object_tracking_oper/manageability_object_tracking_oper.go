@@ -93,6 +93,7 @@ func (objectTracking *ObjectTracking) GetEntityData() *types.CommonEntityData {
     objectTracking.EntityData.BundleName = "cisco_ios_xr"
     objectTracking.EntityData.ParentYangName = "Cisco-IOS-XR-manageability-object-tracking-oper"
     objectTracking.EntityData.SegmentPath = "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking"
+    objectTracking.EntityData.AbsolutePath = objectTracking.EntityData.SegmentPath
     objectTracking.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     objectTracking.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     objectTracking.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -130,6 +131,7 @@ func (trackTypeInterface *ObjectTracking_TrackTypeInterface) GetEntityData() *ty
     trackTypeInterface.EntityData.BundleName = "cisco_ios_xr"
     trackTypeInterface.EntityData.ParentYangName = "object-tracking"
     trackTypeInterface.EntityData.SegmentPath = "track-type-interface"
+    trackTypeInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/" + trackTypeInterface.EntityData.SegmentPath
     trackTypeInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trackTypeInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trackTypeInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -137,6 +139,7 @@ func (trackTypeInterface *ObjectTracking_TrackTypeInterface) GetEntityData() *ty
     trackTypeInterface.EntityData.Children = types.NewOrderedMap()
     trackTypeInterface.EntityData.Children.Append("track-info", types.YChild{"TrackInfo", nil})
     for i := range trackTypeInterface.TrackInfo {
+        types.SetYListKey(trackTypeInterface.TrackInfo[i], i)
         trackTypeInterface.EntityData.Children.Append(types.GetSegmentPath(trackTypeInterface.TrackInfo[i]), types.YChild{"TrackInfo", trackTypeInterface.TrackInfo[i]})
     }
     trackTypeInterface.EntityData.Leafs = types.NewOrderedMap()
@@ -151,6 +154,7 @@ func (trackTypeInterface *ObjectTracking_TrackTypeInterface) GetEntityData() *ty
 type ObjectTracking_TrackTypeInterface_TrackInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Track Name. The type is string with length: 0..33.
     TrackeName interface{}
@@ -197,7 +201,8 @@ func (trackInfo *ObjectTracking_TrackTypeInterface_TrackInfo) GetEntityData() *t
     trackInfo.EntityData.YangName = "track-info"
     trackInfo.EntityData.BundleName = "cisco_ios_xr"
     trackInfo.EntityData.ParentYangName = "track-type-interface"
-    trackInfo.EntityData.SegmentPath = "track-info"
+    trackInfo.EntityData.SegmentPath = "track-info" + types.AddNoKeyToken(trackInfo)
+    trackInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-interface/" + trackInfo.EntityData.SegmentPath
     trackInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trackInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trackInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -250,6 +255,7 @@ func (trackTypeInfo *ObjectTracking_TrackTypeInterface_TrackInfo_TrackTypeInfo) 
     trackTypeInfo.EntityData.BundleName = "cisco_ios_xr"
     trackTypeInfo.EntityData.ParentYangName = "track-info"
     trackTypeInfo.EntityData.SegmentPath = "track-type-info"
+    trackTypeInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-interface/track-info/" + trackTypeInfo.EntityData.SegmentPath
     trackTypeInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trackTypeInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trackTypeInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -283,6 +289,7 @@ func (interfaceTracks *ObjectTracking_TrackTypeInterface_TrackInfo_TrackTypeInfo
     interfaceTracks.EntityData.BundleName = "cisco_ios_xr"
     interfaceTracks.EntityData.ParentYangName = "track-type-info"
     interfaceTracks.EntityData.SegmentPath = "interface-tracks"
+    interfaceTracks.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-interface/track-info/track-type-info/" + interfaceTracks.EntityData.SegmentPath
     interfaceTracks.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceTracks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceTracks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -321,6 +328,7 @@ func (routeTracks *ObjectTracking_TrackTypeInterface_TrackInfo_TrackTypeInfo_Rou
     routeTracks.EntityData.BundleName = "cisco_ios_xr"
     routeTracks.EntityData.ParentYangName = "track-type-info"
     routeTracks.EntityData.SegmentPath = "route-tracks"
+    routeTracks.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-interface/track-info/track-type-info/" + routeTracks.EntityData.SegmentPath
     routeTracks.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routeTracks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routeTracks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -359,6 +367,7 @@ func (ipslaTracks *ObjectTracking_TrackTypeInterface_TrackInfo_TrackTypeInfo_Ips
     ipslaTracks.EntityData.BundleName = "cisco_ios_xr"
     ipslaTracks.EntityData.ParentYangName = "track-type-info"
     ipslaTracks.EntityData.SegmentPath = "ipsla-tracks"
+    ipslaTracks.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-interface/track-info/track-type-info/" + ipslaTracks.EntityData.SegmentPath
     ipslaTracks.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipslaTracks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipslaTracks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -399,6 +408,7 @@ func (bfdTracks *ObjectTracking_TrackTypeInterface_TrackInfo_TrackTypeInfo_BfdTr
     bfdTracks.EntityData.BundleName = "cisco_ios_xr"
     bfdTracks.EntityData.ParentYangName = "track-type-info"
     bfdTracks.EntityData.SegmentPath = "bfd-tracks"
+    bfdTracks.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-interface/track-info/track-type-info/" + bfdTracks.EntityData.SegmentPath
     bfdTracks.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bfdTracks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bfdTracks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -432,6 +442,7 @@ func (boolTracks *ObjectTracking_TrackTypeInterface_TrackInfo_BoolTracks) GetEnt
     boolTracks.EntityData.BundleName = "cisco_ios_xr"
     boolTracks.EntityData.ParentYangName = "track-info"
     boolTracks.EntityData.SegmentPath = "bool-tracks"
+    boolTracks.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-interface/track-info/" + boolTracks.EntityData.SegmentPath
     boolTracks.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     boolTracks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     boolTracks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -439,6 +450,7 @@ func (boolTracks *ObjectTracking_TrackTypeInterface_TrackInfo_BoolTracks) GetEnt
     boolTracks.EntityData.Children = types.NewOrderedMap()
     boolTracks.EntityData.Children.Append("bool-track-info", types.YChild{"BoolTrackInfo", nil})
     for i := range boolTracks.BoolTrackInfo {
+        types.SetYListKey(boolTracks.BoolTrackInfo[i], i)
         boolTracks.EntityData.Children.Append(types.GetSegmentPath(boolTracks.BoolTrackInfo[i]), types.YChild{"BoolTrackInfo", boolTracks.BoolTrackInfo[i]})
     }
     boolTracks.EntityData.Leafs = types.NewOrderedMap()
@@ -453,6 +465,7 @@ func (boolTracks *ObjectTracking_TrackTypeInterface_TrackInfo_BoolTracks) GetEnt
 type ObjectTracking_TrackTypeInterface_TrackInfo_BoolTracks_BoolTrackInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Object Name. The type is string with length: 0..33.
     ObjectName interface{}
@@ -469,7 +482,8 @@ func (boolTrackInfo *ObjectTracking_TrackTypeInterface_TrackInfo_BoolTracks_Bool
     boolTrackInfo.EntityData.YangName = "bool-track-info"
     boolTrackInfo.EntityData.BundleName = "cisco_ios_xr"
     boolTrackInfo.EntityData.ParentYangName = "bool-tracks"
-    boolTrackInfo.EntityData.SegmentPath = "bool-track-info"
+    boolTrackInfo.EntityData.SegmentPath = "bool-track-info" + types.AddNoKeyToken(boolTrackInfo)
+    boolTrackInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-interface/track-info/bool-tracks/" + boolTrackInfo.EntityData.SegmentPath
     boolTrackInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     boolTrackInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     boolTrackInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -502,6 +516,7 @@ func (thresholdTracks *ObjectTracking_TrackTypeInterface_TrackInfo_ThresholdTrac
     thresholdTracks.EntityData.BundleName = "cisco_ios_xr"
     thresholdTracks.EntityData.ParentYangName = "track-info"
     thresholdTracks.EntityData.SegmentPath = "threshold-tracks"
+    thresholdTracks.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-interface/track-info/" + thresholdTracks.EntityData.SegmentPath
     thresholdTracks.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     thresholdTracks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     thresholdTracks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -509,6 +524,7 @@ func (thresholdTracks *ObjectTracking_TrackTypeInterface_TrackInfo_ThresholdTrac
     thresholdTracks.EntityData.Children = types.NewOrderedMap()
     thresholdTracks.EntityData.Children.Append("threshold-track-info", types.YChild{"ThresholdTrackInfo", nil})
     for i := range thresholdTracks.ThresholdTrackInfo {
+        types.SetYListKey(thresholdTracks.ThresholdTrackInfo[i], i)
         thresholdTracks.EntityData.Children.Append(types.GetSegmentPath(thresholdTracks.ThresholdTrackInfo[i]), types.YChild{"ThresholdTrackInfo", thresholdTracks.ThresholdTrackInfo[i]})
     }
     thresholdTracks.EntityData.Leafs = types.NewOrderedMap()
@@ -523,6 +539,7 @@ func (thresholdTracks *ObjectTracking_TrackTypeInterface_TrackInfo_ThresholdTrac
 type ObjectTracking_TrackTypeInterface_TrackInfo_ThresholdTracks_ThresholdTrackInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Object name. The type is string with length: 0..33.
     ObjectName interface{}
@@ -545,7 +562,8 @@ func (thresholdTrackInfo *ObjectTracking_TrackTypeInterface_TrackInfo_ThresholdT
     thresholdTrackInfo.EntityData.YangName = "threshold-track-info"
     thresholdTrackInfo.EntityData.BundleName = "cisco_ios_xr"
     thresholdTrackInfo.EntityData.ParentYangName = "threshold-tracks"
-    thresholdTrackInfo.EntityData.SegmentPath = "threshold-track-info"
+    thresholdTrackInfo.EntityData.SegmentPath = "threshold-track-info" + types.AddNoKeyToken(thresholdTrackInfo)
+    thresholdTrackInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-interface/track-info/threshold-tracks/" + thresholdTrackInfo.EntityData.SegmentPath
     thresholdTrackInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     thresholdTrackInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     thresholdTrackInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -578,6 +596,7 @@ func (trackingInteraces *ObjectTracking_TrackTypeInterface_TrackInfo_TrackingInt
     trackingInteraces.EntityData.BundleName = "cisco_ios_xr"
     trackingInteraces.EntityData.ParentYangName = "track-info"
     trackingInteraces.EntityData.SegmentPath = "tracking-interaces"
+    trackingInteraces.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-interface/track-info/" + trackingInteraces.EntityData.SegmentPath
     trackingInteraces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trackingInteraces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trackingInteraces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -585,6 +604,7 @@ func (trackingInteraces *ObjectTracking_TrackTypeInterface_TrackInfo_TrackingInt
     trackingInteraces.EntityData.Children = types.NewOrderedMap()
     trackingInteraces.EntityData.Children.Append("interface-tracking-info", types.YChild{"InterfaceTrackingInfo", nil})
     for i := range trackingInteraces.InterfaceTrackingInfo {
+        types.SetYListKey(trackingInteraces.InterfaceTrackingInfo[i], i)
         trackingInteraces.EntityData.Children.Append(types.GetSegmentPath(trackingInteraces.InterfaceTrackingInfo[i]), types.YChild{"InterfaceTrackingInfo", trackingInteraces.InterfaceTrackingInfo[i]})
     }
     trackingInteraces.EntityData.Leafs = types.NewOrderedMap()
@@ -599,6 +619,7 @@ func (trackingInteraces *ObjectTracking_TrackTypeInterface_TrackInfo_TrackingInt
 type ObjectTracking_TrackTypeInterface_TrackInfo_TrackingInteraces_InterfaceTrackingInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Interface Name. The type is string with length: 0..120.
     InterfaceName interface{}
@@ -609,7 +630,8 @@ func (interfaceTrackingInfo *ObjectTracking_TrackTypeInterface_TrackInfo_Trackin
     interfaceTrackingInfo.EntityData.YangName = "interface-tracking-info"
     interfaceTrackingInfo.EntityData.BundleName = "cisco_ios_xr"
     interfaceTrackingInfo.EntityData.ParentYangName = "tracking-interaces"
-    interfaceTrackingInfo.EntityData.SegmentPath = "interface-tracking-info"
+    interfaceTrackingInfo.EntityData.SegmentPath = "interface-tracking-info" + types.AddNoKeyToken(interfaceTrackingInfo)
+    interfaceTrackingInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-interface/track-info/tracking-interaces/" + interfaceTrackingInfo.EntityData.SegmentPath
     interfaceTrackingInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceTrackingInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceTrackingInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -644,6 +666,7 @@ func (delayed *ObjectTracking_TrackTypeInterface_TrackInfo_Delayed) GetEntityDat
     delayed.EntityData.BundleName = "cisco_ios_xr"
     delayed.EntityData.ParentYangName = "track-info"
     delayed.EntityData.SegmentPath = "delayed"
+    delayed.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-interface/track-info/" + delayed.EntityData.SegmentPath
     delayed.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     delayed.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     delayed.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -675,6 +698,7 @@ func (trackBriefs *ObjectTracking_TrackBriefs) GetEntityData() *types.CommonEnti
     trackBriefs.EntityData.BundleName = "cisco_ios_xr"
     trackBriefs.EntityData.ParentYangName = "object-tracking"
     trackBriefs.EntityData.SegmentPath = "track-briefs"
+    trackBriefs.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/" + trackBriefs.EntityData.SegmentPath
     trackBriefs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trackBriefs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trackBriefs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -696,6 +720,7 @@ func (trackBriefs *ObjectTracking_TrackBriefs) GetEntityData() *types.CommonEnti
 type ObjectTracking_TrackBriefs_TrackBrief struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Track name. The type is string with length: 1..32.
     TrackName interface{}
@@ -711,6 +736,7 @@ func (trackBrief *ObjectTracking_TrackBriefs_TrackBrief) GetEntityData() *types.
     trackBrief.EntityData.BundleName = "cisco_ios_xr"
     trackBrief.EntityData.ParentYangName = "track-briefs"
     trackBrief.EntityData.SegmentPath = "track-brief" + types.AddKeyToken(trackBrief.TrackName, "track-name")
+    trackBrief.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-briefs/" + trackBrief.EntityData.SegmentPath
     trackBrief.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trackBrief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trackBrief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -718,6 +744,7 @@ func (trackBrief *ObjectTracking_TrackBriefs_TrackBrief) GetEntityData() *types.
     trackBrief.EntityData.Children = types.NewOrderedMap()
     trackBrief.EntityData.Children.Append("track-info-brief", types.YChild{"TrackInfoBrief", nil})
     for i := range trackBrief.TrackInfoBrief {
+        types.SetYListKey(trackBrief.TrackInfoBrief[i], i)
         trackBrief.EntityData.Children.Append(types.GetSegmentPath(trackBrief.TrackInfoBrief[i]), types.YChild{"TrackInfoBrief", trackBrief.TrackInfoBrief[i]})
     }
     trackBrief.EntityData.Leafs = types.NewOrderedMap()
@@ -733,6 +760,7 @@ func (trackBrief *ObjectTracking_TrackBriefs_TrackBrief) GetEntityData() *types.
 type ObjectTracking_TrackBriefs_TrackBrief_TrackInfoBrief struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Track Name. The type is string with length: 0..33.
     TrackeName interface{}
@@ -752,7 +780,8 @@ func (trackInfoBrief *ObjectTracking_TrackBriefs_TrackBrief_TrackInfoBrief) GetE
     trackInfoBrief.EntityData.YangName = "track-info-brief"
     trackInfoBrief.EntityData.BundleName = "cisco_ios_xr"
     trackInfoBrief.EntityData.ParentYangName = "track-brief"
-    trackInfoBrief.EntityData.SegmentPath = "track-info-brief"
+    trackInfoBrief.EntityData.SegmentPath = "track-info-brief" + types.AddNoKeyToken(trackInfoBrief)
+    trackInfoBrief.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-briefs/track-brief/" + trackInfoBrief.EntityData.SegmentPath
     trackInfoBrief.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trackInfoBrief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trackInfoBrief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -797,6 +826,7 @@ func (trackTypeInfo *ObjectTracking_TrackBriefs_TrackBrief_TrackInfoBrief_TrackT
     trackTypeInfo.EntityData.BundleName = "cisco_ios_xr"
     trackTypeInfo.EntityData.ParentYangName = "track-info-brief"
     trackTypeInfo.EntityData.SegmentPath = "track-type-info"
+    trackTypeInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-briefs/track-brief/track-info-brief/" + trackTypeInfo.EntityData.SegmentPath
     trackTypeInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trackTypeInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trackTypeInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -830,6 +860,7 @@ func (interfaceTracks *ObjectTracking_TrackBriefs_TrackBrief_TrackInfoBrief_Trac
     interfaceTracks.EntityData.BundleName = "cisco_ios_xr"
     interfaceTracks.EntityData.ParentYangName = "track-type-info"
     interfaceTracks.EntityData.SegmentPath = "interface-tracks"
+    interfaceTracks.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-briefs/track-brief/track-info-brief/track-type-info/" + interfaceTracks.EntityData.SegmentPath
     interfaceTracks.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceTracks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceTracks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -868,6 +899,7 @@ func (routeTracks *ObjectTracking_TrackBriefs_TrackBrief_TrackInfoBrief_TrackTyp
     routeTracks.EntityData.BundleName = "cisco_ios_xr"
     routeTracks.EntityData.ParentYangName = "track-type-info"
     routeTracks.EntityData.SegmentPath = "route-tracks"
+    routeTracks.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-briefs/track-brief/track-info-brief/track-type-info/" + routeTracks.EntityData.SegmentPath
     routeTracks.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routeTracks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routeTracks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -906,6 +938,7 @@ func (ipslaTracks *ObjectTracking_TrackBriefs_TrackBrief_TrackInfoBrief_TrackTyp
     ipslaTracks.EntityData.BundleName = "cisco_ios_xr"
     ipslaTracks.EntityData.ParentYangName = "track-type-info"
     ipslaTracks.EntityData.SegmentPath = "ipsla-tracks"
+    ipslaTracks.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-briefs/track-brief/track-info-brief/track-type-info/" + ipslaTracks.EntityData.SegmentPath
     ipslaTracks.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipslaTracks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipslaTracks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -946,6 +979,7 @@ func (bfdTracks *ObjectTracking_TrackBriefs_TrackBrief_TrackInfoBrief_TrackTypeI
     bfdTracks.EntityData.BundleName = "cisco_ios_xr"
     bfdTracks.EntityData.ParentYangName = "track-type-info"
     bfdTracks.EntityData.SegmentPath = "bfd-tracks"
+    bfdTracks.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-briefs/track-brief/track-info-brief/track-type-info/" + bfdTracks.EntityData.SegmentPath
     bfdTracks.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bfdTracks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bfdTracks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -979,6 +1013,7 @@ func (trackTypeRtrReachability *ObjectTracking_TrackTypeRtrReachability) GetEnti
     trackTypeRtrReachability.EntityData.BundleName = "cisco_ios_xr"
     trackTypeRtrReachability.EntityData.ParentYangName = "object-tracking"
     trackTypeRtrReachability.EntityData.SegmentPath = "track-type-rtr-reachability"
+    trackTypeRtrReachability.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/" + trackTypeRtrReachability.EntityData.SegmentPath
     trackTypeRtrReachability.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trackTypeRtrReachability.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trackTypeRtrReachability.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -986,6 +1021,7 @@ func (trackTypeRtrReachability *ObjectTracking_TrackTypeRtrReachability) GetEnti
     trackTypeRtrReachability.EntityData.Children = types.NewOrderedMap()
     trackTypeRtrReachability.EntityData.Children.Append("track-info", types.YChild{"TrackInfo", nil})
     for i := range trackTypeRtrReachability.TrackInfo {
+        types.SetYListKey(trackTypeRtrReachability.TrackInfo[i], i)
         trackTypeRtrReachability.EntityData.Children.Append(types.GetSegmentPath(trackTypeRtrReachability.TrackInfo[i]), types.YChild{"TrackInfo", trackTypeRtrReachability.TrackInfo[i]})
     }
     trackTypeRtrReachability.EntityData.Leafs = types.NewOrderedMap()
@@ -1000,6 +1036,7 @@ func (trackTypeRtrReachability *ObjectTracking_TrackTypeRtrReachability) GetEnti
 type ObjectTracking_TrackTypeRtrReachability_TrackInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Track Name. The type is string with length: 0..33.
     TrackeName interface{}
@@ -1046,7 +1083,8 @@ func (trackInfo *ObjectTracking_TrackTypeRtrReachability_TrackInfo) GetEntityDat
     trackInfo.EntityData.YangName = "track-info"
     trackInfo.EntityData.BundleName = "cisco_ios_xr"
     trackInfo.EntityData.ParentYangName = "track-type-rtr-reachability"
-    trackInfo.EntityData.SegmentPath = "track-info"
+    trackInfo.EntityData.SegmentPath = "track-info" + types.AddNoKeyToken(trackInfo)
+    trackInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-rtr-reachability/" + trackInfo.EntityData.SegmentPath
     trackInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trackInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trackInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1099,6 +1137,7 @@ func (trackTypeInfo *ObjectTracking_TrackTypeRtrReachability_TrackInfo_TrackType
     trackTypeInfo.EntityData.BundleName = "cisco_ios_xr"
     trackTypeInfo.EntityData.ParentYangName = "track-info"
     trackTypeInfo.EntityData.SegmentPath = "track-type-info"
+    trackTypeInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-rtr-reachability/track-info/" + trackTypeInfo.EntityData.SegmentPath
     trackTypeInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trackTypeInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trackTypeInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1132,6 +1171,7 @@ func (interfaceTracks *ObjectTracking_TrackTypeRtrReachability_TrackInfo_TrackTy
     interfaceTracks.EntityData.BundleName = "cisco_ios_xr"
     interfaceTracks.EntityData.ParentYangName = "track-type-info"
     interfaceTracks.EntityData.SegmentPath = "interface-tracks"
+    interfaceTracks.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-rtr-reachability/track-info/track-type-info/" + interfaceTracks.EntityData.SegmentPath
     interfaceTracks.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceTracks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceTracks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1170,6 +1210,7 @@ func (routeTracks *ObjectTracking_TrackTypeRtrReachability_TrackInfo_TrackTypeIn
     routeTracks.EntityData.BundleName = "cisco_ios_xr"
     routeTracks.EntityData.ParentYangName = "track-type-info"
     routeTracks.EntityData.SegmentPath = "route-tracks"
+    routeTracks.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-rtr-reachability/track-info/track-type-info/" + routeTracks.EntityData.SegmentPath
     routeTracks.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routeTracks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routeTracks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1208,6 +1249,7 @@ func (ipslaTracks *ObjectTracking_TrackTypeRtrReachability_TrackInfo_TrackTypeIn
     ipslaTracks.EntityData.BundleName = "cisco_ios_xr"
     ipslaTracks.EntityData.ParentYangName = "track-type-info"
     ipslaTracks.EntityData.SegmentPath = "ipsla-tracks"
+    ipslaTracks.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-rtr-reachability/track-info/track-type-info/" + ipslaTracks.EntityData.SegmentPath
     ipslaTracks.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipslaTracks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipslaTracks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1248,6 +1290,7 @@ func (bfdTracks *ObjectTracking_TrackTypeRtrReachability_TrackInfo_TrackTypeInfo
     bfdTracks.EntityData.BundleName = "cisco_ios_xr"
     bfdTracks.EntityData.ParentYangName = "track-type-info"
     bfdTracks.EntityData.SegmentPath = "bfd-tracks"
+    bfdTracks.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-rtr-reachability/track-info/track-type-info/" + bfdTracks.EntityData.SegmentPath
     bfdTracks.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bfdTracks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bfdTracks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1281,6 +1324,7 @@ func (boolTracks *ObjectTracking_TrackTypeRtrReachability_TrackInfo_BoolTracks) 
     boolTracks.EntityData.BundleName = "cisco_ios_xr"
     boolTracks.EntityData.ParentYangName = "track-info"
     boolTracks.EntityData.SegmentPath = "bool-tracks"
+    boolTracks.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-rtr-reachability/track-info/" + boolTracks.EntityData.SegmentPath
     boolTracks.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     boolTracks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     boolTracks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1288,6 +1332,7 @@ func (boolTracks *ObjectTracking_TrackTypeRtrReachability_TrackInfo_BoolTracks) 
     boolTracks.EntityData.Children = types.NewOrderedMap()
     boolTracks.EntityData.Children.Append("bool-track-info", types.YChild{"BoolTrackInfo", nil})
     for i := range boolTracks.BoolTrackInfo {
+        types.SetYListKey(boolTracks.BoolTrackInfo[i], i)
         boolTracks.EntityData.Children.Append(types.GetSegmentPath(boolTracks.BoolTrackInfo[i]), types.YChild{"BoolTrackInfo", boolTracks.BoolTrackInfo[i]})
     }
     boolTracks.EntityData.Leafs = types.NewOrderedMap()
@@ -1302,6 +1347,7 @@ func (boolTracks *ObjectTracking_TrackTypeRtrReachability_TrackInfo_BoolTracks) 
 type ObjectTracking_TrackTypeRtrReachability_TrackInfo_BoolTracks_BoolTrackInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Object Name. The type is string with length: 0..33.
     ObjectName interface{}
@@ -1318,7 +1364,8 @@ func (boolTrackInfo *ObjectTracking_TrackTypeRtrReachability_TrackInfo_BoolTrack
     boolTrackInfo.EntityData.YangName = "bool-track-info"
     boolTrackInfo.EntityData.BundleName = "cisco_ios_xr"
     boolTrackInfo.EntityData.ParentYangName = "bool-tracks"
-    boolTrackInfo.EntityData.SegmentPath = "bool-track-info"
+    boolTrackInfo.EntityData.SegmentPath = "bool-track-info" + types.AddNoKeyToken(boolTrackInfo)
+    boolTrackInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-rtr-reachability/track-info/bool-tracks/" + boolTrackInfo.EntityData.SegmentPath
     boolTrackInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     boolTrackInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     boolTrackInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1351,6 +1398,7 @@ func (thresholdTracks *ObjectTracking_TrackTypeRtrReachability_TrackInfo_Thresho
     thresholdTracks.EntityData.BundleName = "cisco_ios_xr"
     thresholdTracks.EntityData.ParentYangName = "track-info"
     thresholdTracks.EntityData.SegmentPath = "threshold-tracks"
+    thresholdTracks.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-rtr-reachability/track-info/" + thresholdTracks.EntityData.SegmentPath
     thresholdTracks.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     thresholdTracks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     thresholdTracks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1358,6 +1406,7 @@ func (thresholdTracks *ObjectTracking_TrackTypeRtrReachability_TrackInfo_Thresho
     thresholdTracks.EntityData.Children = types.NewOrderedMap()
     thresholdTracks.EntityData.Children.Append("threshold-track-info", types.YChild{"ThresholdTrackInfo", nil})
     for i := range thresholdTracks.ThresholdTrackInfo {
+        types.SetYListKey(thresholdTracks.ThresholdTrackInfo[i], i)
         thresholdTracks.EntityData.Children.Append(types.GetSegmentPath(thresholdTracks.ThresholdTrackInfo[i]), types.YChild{"ThresholdTrackInfo", thresholdTracks.ThresholdTrackInfo[i]})
     }
     thresholdTracks.EntityData.Leafs = types.NewOrderedMap()
@@ -1372,6 +1421,7 @@ func (thresholdTracks *ObjectTracking_TrackTypeRtrReachability_TrackInfo_Thresho
 type ObjectTracking_TrackTypeRtrReachability_TrackInfo_ThresholdTracks_ThresholdTrackInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Object name. The type is string with length: 0..33.
     ObjectName interface{}
@@ -1394,7 +1444,8 @@ func (thresholdTrackInfo *ObjectTracking_TrackTypeRtrReachability_TrackInfo_Thre
     thresholdTrackInfo.EntityData.YangName = "threshold-track-info"
     thresholdTrackInfo.EntityData.BundleName = "cisco_ios_xr"
     thresholdTrackInfo.EntityData.ParentYangName = "threshold-tracks"
-    thresholdTrackInfo.EntityData.SegmentPath = "threshold-track-info"
+    thresholdTrackInfo.EntityData.SegmentPath = "threshold-track-info" + types.AddNoKeyToken(thresholdTrackInfo)
+    thresholdTrackInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-rtr-reachability/track-info/threshold-tracks/" + thresholdTrackInfo.EntityData.SegmentPath
     thresholdTrackInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     thresholdTrackInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     thresholdTrackInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1427,6 +1478,7 @@ func (trackingInteraces *ObjectTracking_TrackTypeRtrReachability_TrackInfo_Track
     trackingInteraces.EntityData.BundleName = "cisco_ios_xr"
     trackingInteraces.EntityData.ParentYangName = "track-info"
     trackingInteraces.EntityData.SegmentPath = "tracking-interaces"
+    trackingInteraces.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-rtr-reachability/track-info/" + trackingInteraces.EntityData.SegmentPath
     trackingInteraces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trackingInteraces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trackingInteraces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1434,6 +1486,7 @@ func (trackingInteraces *ObjectTracking_TrackTypeRtrReachability_TrackInfo_Track
     trackingInteraces.EntityData.Children = types.NewOrderedMap()
     trackingInteraces.EntityData.Children.Append("interface-tracking-info", types.YChild{"InterfaceTrackingInfo", nil})
     for i := range trackingInteraces.InterfaceTrackingInfo {
+        types.SetYListKey(trackingInteraces.InterfaceTrackingInfo[i], i)
         trackingInteraces.EntityData.Children.Append(types.GetSegmentPath(trackingInteraces.InterfaceTrackingInfo[i]), types.YChild{"InterfaceTrackingInfo", trackingInteraces.InterfaceTrackingInfo[i]})
     }
     trackingInteraces.EntityData.Leafs = types.NewOrderedMap()
@@ -1448,6 +1501,7 @@ func (trackingInteraces *ObjectTracking_TrackTypeRtrReachability_TrackInfo_Track
 type ObjectTracking_TrackTypeRtrReachability_TrackInfo_TrackingInteraces_InterfaceTrackingInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Interface Name. The type is string with length: 0..120.
     InterfaceName interface{}
@@ -1458,7 +1512,8 @@ func (interfaceTrackingInfo *ObjectTracking_TrackTypeRtrReachability_TrackInfo_T
     interfaceTrackingInfo.EntityData.YangName = "interface-tracking-info"
     interfaceTrackingInfo.EntityData.BundleName = "cisco_ios_xr"
     interfaceTrackingInfo.EntityData.ParentYangName = "tracking-interaces"
-    interfaceTrackingInfo.EntityData.SegmentPath = "interface-tracking-info"
+    interfaceTrackingInfo.EntityData.SegmentPath = "interface-tracking-info" + types.AddNoKeyToken(interfaceTrackingInfo)
+    interfaceTrackingInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-rtr-reachability/track-info/tracking-interaces/" + interfaceTrackingInfo.EntityData.SegmentPath
     interfaceTrackingInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceTrackingInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceTrackingInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1493,6 +1548,7 @@ func (delayed *ObjectTracking_TrackTypeRtrReachability_TrackInfo_Delayed) GetEnt
     delayed.EntityData.BundleName = "cisco_ios_xr"
     delayed.EntityData.ParentYangName = "track-info"
     delayed.EntityData.SegmentPath = "delayed"
+    delayed.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-rtr-reachability/track-info/" + delayed.EntityData.SegmentPath
     delayed.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     delayed.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     delayed.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1524,6 +1580,7 @@ func (trackTypeRtrReachabilityBrief *ObjectTracking_TrackTypeRtrReachabilityBrie
     trackTypeRtrReachabilityBrief.EntityData.BundleName = "cisco_ios_xr"
     trackTypeRtrReachabilityBrief.EntityData.ParentYangName = "object-tracking"
     trackTypeRtrReachabilityBrief.EntityData.SegmentPath = "track-type-rtr-reachability-brief"
+    trackTypeRtrReachabilityBrief.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/" + trackTypeRtrReachabilityBrief.EntityData.SegmentPath
     trackTypeRtrReachabilityBrief.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trackTypeRtrReachabilityBrief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trackTypeRtrReachabilityBrief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1531,6 +1588,7 @@ func (trackTypeRtrReachabilityBrief *ObjectTracking_TrackTypeRtrReachabilityBrie
     trackTypeRtrReachabilityBrief.EntityData.Children = types.NewOrderedMap()
     trackTypeRtrReachabilityBrief.EntityData.Children.Append("track-info-brief", types.YChild{"TrackInfoBrief", nil})
     for i := range trackTypeRtrReachabilityBrief.TrackInfoBrief {
+        types.SetYListKey(trackTypeRtrReachabilityBrief.TrackInfoBrief[i], i)
         trackTypeRtrReachabilityBrief.EntityData.Children.Append(types.GetSegmentPath(trackTypeRtrReachabilityBrief.TrackInfoBrief[i]), types.YChild{"TrackInfoBrief", trackTypeRtrReachabilityBrief.TrackInfoBrief[i]})
     }
     trackTypeRtrReachabilityBrief.EntityData.Leafs = types.NewOrderedMap()
@@ -1545,6 +1603,7 @@ func (trackTypeRtrReachabilityBrief *ObjectTracking_TrackTypeRtrReachabilityBrie
 type ObjectTracking_TrackTypeRtrReachabilityBrief_TrackInfoBrief struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Track Name. The type is string with length: 0..33.
     TrackeName interface{}
@@ -1564,7 +1623,8 @@ func (trackInfoBrief *ObjectTracking_TrackTypeRtrReachabilityBrief_TrackInfoBrie
     trackInfoBrief.EntityData.YangName = "track-info-brief"
     trackInfoBrief.EntityData.BundleName = "cisco_ios_xr"
     trackInfoBrief.EntityData.ParentYangName = "track-type-rtr-reachability-brief"
-    trackInfoBrief.EntityData.SegmentPath = "track-info-brief"
+    trackInfoBrief.EntityData.SegmentPath = "track-info-brief" + types.AddNoKeyToken(trackInfoBrief)
+    trackInfoBrief.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-rtr-reachability-brief/" + trackInfoBrief.EntityData.SegmentPath
     trackInfoBrief.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trackInfoBrief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trackInfoBrief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1609,6 +1669,7 @@ func (trackTypeInfo *ObjectTracking_TrackTypeRtrReachabilityBrief_TrackInfoBrief
     trackTypeInfo.EntityData.BundleName = "cisco_ios_xr"
     trackTypeInfo.EntityData.ParentYangName = "track-info-brief"
     trackTypeInfo.EntityData.SegmentPath = "track-type-info"
+    trackTypeInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-rtr-reachability-brief/track-info-brief/" + trackTypeInfo.EntityData.SegmentPath
     trackTypeInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trackTypeInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trackTypeInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1642,6 +1703,7 @@ func (interfaceTracks *ObjectTracking_TrackTypeRtrReachabilityBrief_TrackInfoBri
     interfaceTracks.EntityData.BundleName = "cisco_ios_xr"
     interfaceTracks.EntityData.ParentYangName = "track-type-info"
     interfaceTracks.EntityData.SegmentPath = "interface-tracks"
+    interfaceTracks.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-rtr-reachability-brief/track-info-brief/track-type-info/" + interfaceTracks.EntityData.SegmentPath
     interfaceTracks.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceTracks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceTracks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1680,6 +1742,7 @@ func (routeTracks *ObjectTracking_TrackTypeRtrReachabilityBrief_TrackInfoBrief_T
     routeTracks.EntityData.BundleName = "cisco_ios_xr"
     routeTracks.EntityData.ParentYangName = "track-type-info"
     routeTracks.EntityData.SegmentPath = "route-tracks"
+    routeTracks.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-rtr-reachability-brief/track-info-brief/track-type-info/" + routeTracks.EntityData.SegmentPath
     routeTracks.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routeTracks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routeTracks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1718,6 +1781,7 @@ func (ipslaTracks *ObjectTracking_TrackTypeRtrReachabilityBrief_TrackInfoBrief_T
     ipslaTracks.EntityData.BundleName = "cisco_ios_xr"
     ipslaTracks.EntityData.ParentYangName = "track-type-info"
     ipslaTracks.EntityData.SegmentPath = "ipsla-tracks"
+    ipslaTracks.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-rtr-reachability-brief/track-info-brief/track-type-info/" + ipslaTracks.EntityData.SegmentPath
     ipslaTracks.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipslaTracks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipslaTracks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1758,6 +1822,7 @@ func (bfdTracks *ObjectTracking_TrackTypeRtrReachabilityBrief_TrackInfoBrief_Tra
     bfdTracks.EntityData.BundleName = "cisco_ios_xr"
     bfdTracks.EntityData.ParentYangName = "track-type-info"
     bfdTracks.EntityData.SegmentPath = "bfd-tracks"
+    bfdTracks.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-rtr-reachability-brief/track-info-brief/track-type-info/" + bfdTracks.EntityData.SegmentPath
     bfdTracks.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bfdTracks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bfdTracks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1791,6 +1856,7 @@ func (tracks *ObjectTracking_Tracks) GetEntityData() *types.CommonEntityData {
     tracks.EntityData.BundleName = "cisco_ios_xr"
     tracks.EntityData.ParentYangName = "object-tracking"
     tracks.EntityData.SegmentPath = "tracks"
+    tracks.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/" + tracks.EntityData.SegmentPath
     tracks.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tracks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tracks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1812,6 +1878,7 @@ func (tracks *ObjectTracking_Tracks) GetEntityData() *types.CommonEntityData {
 type ObjectTracking_Tracks_Track struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Track name. The type is string with length: 1..32.
     TrackName interface{}
@@ -1826,6 +1893,7 @@ func (track *ObjectTracking_Tracks_Track) GetEntityData() *types.CommonEntityDat
     track.EntityData.BundleName = "cisco_ios_xr"
     track.EntityData.ParentYangName = "tracks"
     track.EntityData.SegmentPath = "track" + types.AddKeyToken(track.TrackName, "track-name")
+    track.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/tracks/" + track.EntityData.SegmentPath
     track.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     track.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     track.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1833,6 +1901,7 @@ func (track *ObjectTracking_Tracks_Track) GetEntityData() *types.CommonEntityDat
     track.EntityData.Children = types.NewOrderedMap()
     track.EntityData.Children.Append("track-info", types.YChild{"TrackInfo", nil})
     for i := range track.TrackInfo {
+        types.SetYListKey(track.TrackInfo[i], i)
         track.EntityData.Children.Append(types.GetSegmentPath(track.TrackInfo[i]), types.YChild{"TrackInfo", track.TrackInfo[i]})
     }
     track.EntityData.Leafs = types.NewOrderedMap()
@@ -1848,6 +1917,7 @@ func (track *ObjectTracking_Tracks_Track) GetEntityData() *types.CommonEntityDat
 type ObjectTracking_Tracks_Track_TrackInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Track Name. The type is string with length: 0..33.
     TrackeName interface{}
@@ -1894,7 +1964,8 @@ func (trackInfo *ObjectTracking_Tracks_Track_TrackInfo) GetEntityData() *types.C
     trackInfo.EntityData.YangName = "track-info"
     trackInfo.EntityData.BundleName = "cisco_ios_xr"
     trackInfo.EntityData.ParentYangName = "track"
-    trackInfo.EntityData.SegmentPath = "track-info"
+    trackInfo.EntityData.SegmentPath = "track-info" + types.AddNoKeyToken(trackInfo)
+    trackInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/tracks/track/" + trackInfo.EntityData.SegmentPath
     trackInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trackInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trackInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1947,6 +2018,7 @@ func (trackTypeInfo *ObjectTracking_Tracks_Track_TrackInfo_TrackTypeInfo) GetEnt
     trackTypeInfo.EntityData.BundleName = "cisco_ios_xr"
     trackTypeInfo.EntityData.ParentYangName = "track-info"
     trackTypeInfo.EntityData.SegmentPath = "track-type-info"
+    trackTypeInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/tracks/track/track-info/" + trackTypeInfo.EntityData.SegmentPath
     trackTypeInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trackTypeInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trackTypeInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1980,6 +2052,7 @@ func (interfaceTracks *ObjectTracking_Tracks_Track_TrackInfo_TrackTypeInfo_Inter
     interfaceTracks.EntityData.BundleName = "cisco_ios_xr"
     interfaceTracks.EntityData.ParentYangName = "track-type-info"
     interfaceTracks.EntityData.SegmentPath = "interface-tracks"
+    interfaceTracks.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/tracks/track/track-info/track-type-info/" + interfaceTracks.EntityData.SegmentPath
     interfaceTracks.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceTracks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceTracks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2018,6 +2091,7 @@ func (routeTracks *ObjectTracking_Tracks_Track_TrackInfo_TrackTypeInfo_RouteTrac
     routeTracks.EntityData.BundleName = "cisco_ios_xr"
     routeTracks.EntityData.ParentYangName = "track-type-info"
     routeTracks.EntityData.SegmentPath = "route-tracks"
+    routeTracks.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/tracks/track/track-info/track-type-info/" + routeTracks.EntityData.SegmentPath
     routeTracks.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routeTracks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routeTracks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2056,6 +2130,7 @@ func (ipslaTracks *ObjectTracking_Tracks_Track_TrackInfo_TrackTypeInfo_IpslaTrac
     ipslaTracks.EntityData.BundleName = "cisco_ios_xr"
     ipslaTracks.EntityData.ParentYangName = "track-type-info"
     ipslaTracks.EntityData.SegmentPath = "ipsla-tracks"
+    ipslaTracks.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/tracks/track/track-info/track-type-info/" + ipslaTracks.EntityData.SegmentPath
     ipslaTracks.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipslaTracks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipslaTracks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2096,6 +2171,7 @@ func (bfdTracks *ObjectTracking_Tracks_Track_TrackInfo_TrackTypeInfo_BfdTracks) 
     bfdTracks.EntityData.BundleName = "cisco_ios_xr"
     bfdTracks.EntityData.ParentYangName = "track-type-info"
     bfdTracks.EntityData.SegmentPath = "bfd-tracks"
+    bfdTracks.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/tracks/track/track-info/track-type-info/" + bfdTracks.EntityData.SegmentPath
     bfdTracks.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bfdTracks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bfdTracks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2129,6 +2205,7 @@ func (boolTracks *ObjectTracking_Tracks_Track_TrackInfo_BoolTracks) GetEntityDat
     boolTracks.EntityData.BundleName = "cisco_ios_xr"
     boolTracks.EntityData.ParentYangName = "track-info"
     boolTracks.EntityData.SegmentPath = "bool-tracks"
+    boolTracks.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/tracks/track/track-info/" + boolTracks.EntityData.SegmentPath
     boolTracks.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     boolTracks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     boolTracks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2136,6 +2213,7 @@ func (boolTracks *ObjectTracking_Tracks_Track_TrackInfo_BoolTracks) GetEntityDat
     boolTracks.EntityData.Children = types.NewOrderedMap()
     boolTracks.EntityData.Children.Append("bool-track-info", types.YChild{"BoolTrackInfo", nil})
     for i := range boolTracks.BoolTrackInfo {
+        types.SetYListKey(boolTracks.BoolTrackInfo[i], i)
         boolTracks.EntityData.Children.Append(types.GetSegmentPath(boolTracks.BoolTrackInfo[i]), types.YChild{"BoolTrackInfo", boolTracks.BoolTrackInfo[i]})
     }
     boolTracks.EntityData.Leafs = types.NewOrderedMap()
@@ -2150,6 +2228,7 @@ func (boolTracks *ObjectTracking_Tracks_Track_TrackInfo_BoolTracks) GetEntityDat
 type ObjectTracking_Tracks_Track_TrackInfo_BoolTracks_BoolTrackInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Object Name. The type is string with length: 0..33.
     ObjectName interface{}
@@ -2166,7 +2245,8 @@ func (boolTrackInfo *ObjectTracking_Tracks_Track_TrackInfo_BoolTracks_BoolTrackI
     boolTrackInfo.EntityData.YangName = "bool-track-info"
     boolTrackInfo.EntityData.BundleName = "cisco_ios_xr"
     boolTrackInfo.EntityData.ParentYangName = "bool-tracks"
-    boolTrackInfo.EntityData.SegmentPath = "bool-track-info"
+    boolTrackInfo.EntityData.SegmentPath = "bool-track-info" + types.AddNoKeyToken(boolTrackInfo)
+    boolTrackInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/tracks/track/track-info/bool-tracks/" + boolTrackInfo.EntityData.SegmentPath
     boolTrackInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     boolTrackInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     boolTrackInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2199,6 +2279,7 @@ func (thresholdTracks *ObjectTracking_Tracks_Track_TrackInfo_ThresholdTracks) Ge
     thresholdTracks.EntityData.BundleName = "cisco_ios_xr"
     thresholdTracks.EntityData.ParentYangName = "track-info"
     thresholdTracks.EntityData.SegmentPath = "threshold-tracks"
+    thresholdTracks.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/tracks/track/track-info/" + thresholdTracks.EntityData.SegmentPath
     thresholdTracks.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     thresholdTracks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     thresholdTracks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2206,6 +2287,7 @@ func (thresholdTracks *ObjectTracking_Tracks_Track_TrackInfo_ThresholdTracks) Ge
     thresholdTracks.EntityData.Children = types.NewOrderedMap()
     thresholdTracks.EntityData.Children.Append("threshold-track-info", types.YChild{"ThresholdTrackInfo", nil})
     for i := range thresholdTracks.ThresholdTrackInfo {
+        types.SetYListKey(thresholdTracks.ThresholdTrackInfo[i], i)
         thresholdTracks.EntityData.Children.Append(types.GetSegmentPath(thresholdTracks.ThresholdTrackInfo[i]), types.YChild{"ThresholdTrackInfo", thresholdTracks.ThresholdTrackInfo[i]})
     }
     thresholdTracks.EntityData.Leafs = types.NewOrderedMap()
@@ -2220,6 +2302,7 @@ func (thresholdTracks *ObjectTracking_Tracks_Track_TrackInfo_ThresholdTracks) Ge
 type ObjectTracking_Tracks_Track_TrackInfo_ThresholdTracks_ThresholdTrackInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Object name. The type is string with length: 0..33.
     ObjectName interface{}
@@ -2242,7 +2325,8 @@ func (thresholdTrackInfo *ObjectTracking_Tracks_Track_TrackInfo_ThresholdTracks_
     thresholdTrackInfo.EntityData.YangName = "threshold-track-info"
     thresholdTrackInfo.EntityData.BundleName = "cisco_ios_xr"
     thresholdTrackInfo.EntityData.ParentYangName = "threshold-tracks"
-    thresholdTrackInfo.EntityData.SegmentPath = "threshold-track-info"
+    thresholdTrackInfo.EntityData.SegmentPath = "threshold-track-info" + types.AddNoKeyToken(thresholdTrackInfo)
+    thresholdTrackInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/tracks/track/track-info/threshold-tracks/" + thresholdTrackInfo.EntityData.SegmentPath
     thresholdTrackInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     thresholdTrackInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     thresholdTrackInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2275,6 +2359,7 @@ func (trackingInteraces *ObjectTracking_Tracks_Track_TrackInfo_TrackingInteraces
     trackingInteraces.EntityData.BundleName = "cisco_ios_xr"
     trackingInteraces.EntityData.ParentYangName = "track-info"
     trackingInteraces.EntityData.SegmentPath = "tracking-interaces"
+    trackingInteraces.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/tracks/track/track-info/" + trackingInteraces.EntityData.SegmentPath
     trackingInteraces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trackingInteraces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trackingInteraces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2282,6 +2367,7 @@ func (trackingInteraces *ObjectTracking_Tracks_Track_TrackInfo_TrackingInteraces
     trackingInteraces.EntityData.Children = types.NewOrderedMap()
     trackingInteraces.EntityData.Children.Append("interface-tracking-info", types.YChild{"InterfaceTrackingInfo", nil})
     for i := range trackingInteraces.InterfaceTrackingInfo {
+        types.SetYListKey(trackingInteraces.InterfaceTrackingInfo[i], i)
         trackingInteraces.EntityData.Children.Append(types.GetSegmentPath(trackingInteraces.InterfaceTrackingInfo[i]), types.YChild{"InterfaceTrackingInfo", trackingInteraces.InterfaceTrackingInfo[i]})
     }
     trackingInteraces.EntityData.Leafs = types.NewOrderedMap()
@@ -2296,6 +2382,7 @@ func (trackingInteraces *ObjectTracking_Tracks_Track_TrackInfo_TrackingInteraces
 type ObjectTracking_Tracks_Track_TrackInfo_TrackingInteraces_InterfaceTrackingInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Interface Name. The type is string with length: 0..120.
     InterfaceName interface{}
@@ -2306,7 +2393,8 @@ func (interfaceTrackingInfo *ObjectTracking_Tracks_Track_TrackInfo_TrackingInter
     interfaceTrackingInfo.EntityData.YangName = "interface-tracking-info"
     interfaceTrackingInfo.EntityData.BundleName = "cisco_ios_xr"
     interfaceTrackingInfo.EntityData.ParentYangName = "tracking-interaces"
-    interfaceTrackingInfo.EntityData.SegmentPath = "interface-tracking-info"
+    interfaceTrackingInfo.EntityData.SegmentPath = "interface-tracking-info" + types.AddNoKeyToken(interfaceTrackingInfo)
+    interfaceTrackingInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/tracks/track/track-info/tracking-interaces/" + interfaceTrackingInfo.EntityData.SegmentPath
     interfaceTrackingInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceTrackingInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceTrackingInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2341,6 +2429,7 @@ func (delayed *ObjectTracking_Tracks_Track_TrackInfo_Delayed) GetEntityData() *t
     delayed.EntityData.BundleName = "cisco_ios_xr"
     delayed.EntityData.ParentYangName = "track-info"
     delayed.EntityData.SegmentPath = "delayed"
+    delayed.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/tracks/track/track-info/" + delayed.EntityData.SegmentPath
     delayed.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     delayed.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     delayed.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2372,6 +2461,7 @@ func (trackTypeIpv4RouteBrief *ObjectTracking_TrackTypeIpv4RouteBrief) GetEntity
     trackTypeIpv4RouteBrief.EntityData.BundleName = "cisco_ios_xr"
     trackTypeIpv4RouteBrief.EntityData.ParentYangName = "object-tracking"
     trackTypeIpv4RouteBrief.EntityData.SegmentPath = "track-type-ipv4-route-brief"
+    trackTypeIpv4RouteBrief.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/" + trackTypeIpv4RouteBrief.EntityData.SegmentPath
     trackTypeIpv4RouteBrief.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trackTypeIpv4RouteBrief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trackTypeIpv4RouteBrief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2379,6 +2469,7 @@ func (trackTypeIpv4RouteBrief *ObjectTracking_TrackTypeIpv4RouteBrief) GetEntity
     trackTypeIpv4RouteBrief.EntityData.Children = types.NewOrderedMap()
     trackTypeIpv4RouteBrief.EntityData.Children.Append("track-info-brief", types.YChild{"TrackInfoBrief", nil})
     for i := range trackTypeIpv4RouteBrief.TrackInfoBrief {
+        types.SetYListKey(trackTypeIpv4RouteBrief.TrackInfoBrief[i], i)
         trackTypeIpv4RouteBrief.EntityData.Children.Append(types.GetSegmentPath(trackTypeIpv4RouteBrief.TrackInfoBrief[i]), types.YChild{"TrackInfoBrief", trackTypeIpv4RouteBrief.TrackInfoBrief[i]})
     }
     trackTypeIpv4RouteBrief.EntityData.Leafs = types.NewOrderedMap()
@@ -2393,6 +2484,7 @@ func (trackTypeIpv4RouteBrief *ObjectTracking_TrackTypeIpv4RouteBrief) GetEntity
 type ObjectTracking_TrackTypeIpv4RouteBrief_TrackInfoBrief struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Track Name. The type is string with length: 0..33.
     TrackeName interface{}
@@ -2412,7 +2504,8 @@ func (trackInfoBrief *ObjectTracking_TrackTypeIpv4RouteBrief_TrackInfoBrief) Get
     trackInfoBrief.EntityData.YangName = "track-info-brief"
     trackInfoBrief.EntityData.BundleName = "cisco_ios_xr"
     trackInfoBrief.EntityData.ParentYangName = "track-type-ipv4-route-brief"
-    trackInfoBrief.EntityData.SegmentPath = "track-info-brief"
+    trackInfoBrief.EntityData.SegmentPath = "track-info-brief" + types.AddNoKeyToken(trackInfoBrief)
+    trackInfoBrief.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-ipv4-route-brief/" + trackInfoBrief.EntityData.SegmentPath
     trackInfoBrief.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trackInfoBrief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trackInfoBrief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2457,6 +2550,7 @@ func (trackTypeInfo *ObjectTracking_TrackTypeIpv4RouteBrief_TrackInfoBrief_Track
     trackTypeInfo.EntityData.BundleName = "cisco_ios_xr"
     trackTypeInfo.EntityData.ParentYangName = "track-info-brief"
     trackTypeInfo.EntityData.SegmentPath = "track-type-info"
+    trackTypeInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-ipv4-route-brief/track-info-brief/" + trackTypeInfo.EntityData.SegmentPath
     trackTypeInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trackTypeInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trackTypeInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2490,6 +2584,7 @@ func (interfaceTracks *ObjectTracking_TrackTypeIpv4RouteBrief_TrackInfoBrief_Tra
     interfaceTracks.EntityData.BundleName = "cisco_ios_xr"
     interfaceTracks.EntityData.ParentYangName = "track-type-info"
     interfaceTracks.EntityData.SegmentPath = "interface-tracks"
+    interfaceTracks.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-ipv4-route-brief/track-info-brief/track-type-info/" + interfaceTracks.EntityData.SegmentPath
     interfaceTracks.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceTracks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceTracks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2528,6 +2623,7 @@ func (routeTracks *ObjectTracking_TrackTypeIpv4RouteBrief_TrackInfoBrief_TrackTy
     routeTracks.EntityData.BundleName = "cisco_ios_xr"
     routeTracks.EntityData.ParentYangName = "track-type-info"
     routeTracks.EntityData.SegmentPath = "route-tracks"
+    routeTracks.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-ipv4-route-brief/track-info-brief/track-type-info/" + routeTracks.EntityData.SegmentPath
     routeTracks.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routeTracks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routeTracks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2566,6 +2662,7 @@ func (ipslaTracks *ObjectTracking_TrackTypeIpv4RouteBrief_TrackInfoBrief_TrackTy
     ipslaTracks.EntityData.BundleName = "cisco_ios_xr"
     ipslaTracks.EntityData.ParentYangName = "track-type-info"
     ipslaTracks.EntityData.SegmentPath = "ipsla-tracks"
+    ipslaTracks.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-ipv4-route-brief/track-info-brief/track-type-info/" + ipslaTracks.EntityData.SegmentPath
     ipslaTracks.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipslaTracks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipslaTracks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2606,6 +2703,7 @@ func (bfdTracks *ObjectTracking_TrackTypeIpv4RouteBrief_TrackInfoBrief_TrackType
     bfdTracks.EntityData.BundleName = "cisco_ios_xr"
     bfdTracks.EntityData.ParentYangName = "track-type-info"
     bfdTracks.EntityData.SegmentPath = "bfd-tracks"
+    bfdTracks.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-ipv4-route-brief/track-info-brief/track-type-info/" + bfdTracks.EntityData.SegmentPath
     bfdTracks.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bfdTracks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bfdTracks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2639,6 +2737,7 @@ func (trackTypeIpv4Route *ObjectTracking_TrackTypeIpv4Route) GetEntityData() *ty
     trackTypeIpv4Route.EntityData.BundleName = "cisco_ios_xr"
     trackTypeIpv4Route.EntityData.ParentYangName = "object-tracking"
     trackTypeIpv4Route.EntityData.SegmentPath = "track-type-ipv4-route"
+    trackTypeIpv4Route.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/" + trackTypeIpv4Route.EntityData.SegmentPath
     trackTypeIpv4Route.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trackTypeIpv4Route.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trackTypeIpv4Route.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2646,6 +2745,7 @@ func (trackTypeIpv4Route *ObjectTracking_TrackTypeIpv4Route) GetEntityData() *ty
     trackTypeIpv4Route.EntityData.Children = types.NewOrderedMap()
     trackTypeIpv4Route.EntityData.Children.Append("track-info", types.YChild{"TrackInfo", nil})
     for i := range trackTypeIpv4Route.TrackInfo {
+        types.SetYListKey(trackTypeIpv4Route.TrackInfo[i], i)
         trackTypeIpv4Route.EntityData.Children.Append(types.GetSegmentPath(trackTypeIpv4Route.TrackInfo[i]), types.YChild{"TrackInfo", trackTypeIpv4Route.TrackInfo[i]})
     }
     trackTypeIpv4Route.EntityData.Leafs = types.NewOrderedMap()
@@ -2660,6 +2760,7 @@ func (trackTypeIpv4Route *ObjectTracking_TrackTypeIpv4Route) GetEntityData() *ty
 type ObjectTracking_TrackTypeIpv4Route_TrackInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Track Name. The type is string with length: 0..33.
     TrackeName interface{}
@@ -2706,7 +2807,8 @@ func (trackInfo *ObjectTracking_TrackTypeIpv4Route_TrackInfo) GetEntityData() *t
     trackInfo.EntityData.YangName = "track-info"
     trackInfo.EntityData.BundleName = "cisco_ios_xr"
     trackInfo.EntityData.ParentYangName = "track-type-ipv4-route"
-    trackInfo.EntityData.SegmentPath = "track-info"
+    trackInfo.EntityData.SegmentPath = "track-info" + types.AddNoKeyToken(trackInfo)
+    trackInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-ipv4-route/" + trackInfo.EntityData.SegmentPath
     trackInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trackInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trackInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2759,6 +2861,7 @@ func (trackTypeInfo *ObjectTracking_TrackTypeIpv4Route_TrackInfo_TrackTypeInfo) 
     trackTypeInfo.EntityData.BundleName = "cisco_ios_xr"
     trackTypeInfo.EntityData.ParentYangName = "track-info"
     trackTypeInfo.EntityData.SegmentPath = "track-type-info"
+    trackTypeInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-ipv4-route/track-info/" + trackTypeInfo.EntityData.SegmentPath
     trackTypeInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trackTypeInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trackTypeInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2792,6 +2895,7 @@ func (interfaceTracks *ObjectTracking_TrackTypeIpv4Route_TrackInfo_TrackTypeInfo
     interfaceTracks.EntityData.BundleName = "cisco_ios_xr"
     interfaceTracks.EntityData.ParentYangName = "track-type-info"
     interfaceTracks.EntityData.SegmentPath = "interface-tracks"
+    interfaceTracks.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-ipv4-route/track-info/track-type-info/" + interfaceTracks.EntityData.SegmentPath
     interfaceTracks.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceTracks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceTracks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2830,6 +2934,7 @@ func (routeTracks *ObjectTracking_TrackTypeIpv4Route_TrackInfo_TrackTypeInfo_Rou
     routeTracks.EntityData.BundleName = "cisco_ios_xr"
     routeTracks.EntityData.ParentYangName = "track-type-info"
     routeTracks.EntityData.SegmentPath = "route-tracks"
+    routeTracks.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-ipv4-route/track-info/track-type-info/" + routeTracks.EntityData.SegmentPath
     routeTracks.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routeTracks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routeTracks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2868,6 +2973,7 @@ func (ipslaTracks *ObjectTracking_TrackTypeIpv4Route_TrackInfo_TrackTypeInfo_Ips
     ipslaTracks.EntityData.BundleName = "cisco_ios_xr"
     ipslaTracks.EntityData.ParentYangName = "track-type-info"
     ipslaTracks.EntityData.SegmentPath = "ipsla-tracks"
+    ipslaTracks.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-ipv4-route/track-info/track-type-info/" + ipslaTracks.EntityData.SegmentPath
     ipslaTracks.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipslaTracks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipslaTracks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2908,6 +3014,7 @@ func (bfdTracks *ObjectTracking_TrackTypeIpv4Route_TrackInfo_TrackTypeInfo_BfdTr
     bfdTracks.EntityData.BundleName = "cisco_ios_xr"
     bfdTracks.EntityData.ParentYangName = "track-type-info"
     bfdTracks.EntityData.SegmentPath = "bfd-tracks"
+    bfdTracks.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-ipv4-route/track-info/track-type-info/" + bfdTracks.EntityData.SegmentPath
     bfdTracks.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bfdTracks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bfdTracks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2941,6 +3048,7 @@ func (boolTracks *ObjectTracking_TrackTypeIpv4Route_TrackInfo_BoolTracks) GetEnt
     boolTracks.EntityData.BundleName = "cisco_ios_xr"
     boolTracks.EntityData.ParentYangName = "track-info"
     boolTracks.EntityData.SegmentPath = "bool-tracks"
+    boolTracks.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-ipv4-route/track-info/" + boolTracks.EntityData.SegmentPath
     boolTracks.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     boolTracks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     boolTracks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2948,6 +3056,7 @@ func (boolTracks *ObjectTracking_TrackTypeIpv4Route_TrackInfo_BoolTracks) GetEnt
     boolTracks.EntityData.Children = types.NewOrderedMap()
     boolTracks.EntityData.Children.Append("bool-track-info", types.YChild{"BoolTrackInfo", nil})
     for i := range boolTracks.BoolTrackInfo {
+        types.SetYListKey(boolTracks.BoolTrackInfo[i], i)
         boolTracks.EntityData.Children.Append(types.GetSegmentPath(boolTracks.BoolTrackInfo[i]), types.YChild{"BoolTrackInfo", boolTracks.BoolTrackInfo[i]})
     }
     boolTracks.EntityData.Leafs = types.NewOrderedMap()
@@ -2962,6 +3071,7 @@ func (boolTracks *ObjectTracking_TrackTypeIpv4Route_TrackInfo_BoolTracks) GetEnt
 type ObjectTracking_TrackTypeIpv4Route_TrackInfo_BoolTracks_BoolTrackInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Object Name. The type is string with length: 0..33.
     ObjectName interface{}
@@ -2978,7 +3088,8 @@ func (boolTrackInfo *ObjectTracking_TrackTypeIpv4Route_TrackInfo_BoolTracks_Bool
     boolTrackInfo.EntityData.YangName = "bool-track-info"
     boolTrackInfo.EntityData.BundleName = "cisco_ios_xr"
     boolTrackInfo.EntityData.ParentYangName = "bool-tracks"
-    boolTrackInfo.EntityData.SegmentPath = "bool-track-info"
+    boolTrackInfo.EntityData.SegmentPath = "bool-track-info" + types.AddNoKeyToken(boolTrackInfo)
+    boolTrackInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-ipv4-route/track-info/bool-tracks/" + boolTrackInfo.EntityData.SegmentPath
     boolTrackInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     boolTrackInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     boolTrackInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3011,6 +3122,7 @@ func (thresholdTracks *ObjectTracking_TrackTypeIpv4Route_TrackInfo_ThresholdTrac
     thresholdTracks.EntityData.BundleName = "cisco_ios_xr"
     thresholdTracks.EntityData.ParentYangName = "track-info"
     thresholdTracks.EntityData.SegmentPath = "threshold-tracks"
+    thresholdTracks.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-ipv4-route/track-info/" + thresholdTracks.EntityData.SegmentPath
     thresholdTracks.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     thresholdTracks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     thresholdTracks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3018,6 +3130,7 @@ func (thresholdTracks *ObjectTracking_TrackTypeIpv4Route_TrackInfo_ThresholdTrac
     thresholdTracks.EntityData.Children = types.NewOrderedMap()
     thresholdTracks.EntityData.Children.Append("threshold-track-info", types.YChild{"ThresholdTrackInfo", nil})
     for i := range thresholdTracks.ThresholdTrackInfo {
+        types.SetYListKey(thresholdTracks.ThresholdTrackInfo[i], i)
         thresholdTracks.EntityData.Children.Append(types.GetSegmentPath(thresholdTracks.ThresholdTrackInfo[i]), types.YChild{"ThresholdTrackInfo", thresholdTracks.ThresholdTrackInfo[i]})
     }
     thresholdTracks.EntityData.Leafs = types.NewOrderedMap()
@@ -3032,6 +3145,7 @@ func (thresholdTracks *ObjectTracking_TrackTypeIpv4Route_TrackInfo_ThresholdTrac
 type ObjectTracking_TrackTypeIpv4Route_TrackInfo_ThresholdTracks_ThresholdTrackInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Object name. The type is string with length: 0..33.
     ObjectName interface{}
@@ -3054,7 +3168,8 @@ func (thresholdTrackInfo *ObjectTracking_TrackTypeIpv4Route_TrackInfo_ThresholdT
     thresholdTrackInfo.EntityData.YangName = "threshold-track-info"
     thresholdTrackInfo.EntityData.BundleName = "cisco_ios_xr"
     thresholdTrackInfo.EntityData.ParentYangName = "threshold-tracks"
-    thresholdTrackInfo.EntityData.SegmentPath = "threshold-track-info"
+    thresholdTrackInfo.EntityData.SegmentPath = "threshold-track-info" + types.AddNoKeyToken(thresholdTrackInfo)
+    thresholdTrackInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-ipv4-route/track-info/threshold-tracks/" + thresholdTrackInfo.EntityData.SegmentPath
     thresholdTrackInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     thresholdTrackInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     thresholdTrackInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3087,6 +3202,7 @@ func (trackingInteraces *ObjectTracking_TrackTypeIpv4Route_TrackInfo_TrackingInt
     trackingInteraces.EntityData.BundleName = "cisco_ios_xr"
     trackingInteraces.EntityData.ParentYangName = "track-info"
     trackingInteraces.EntityData.SegmentPath = "tracking-interaces"
+    trackingInteraces.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-ipv4-route/track-info/" + trackingInteraces.EntityData.SegmentPath
     trackingInteraces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trackingInteraces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trackingInteraces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3094,6 +3210,7 @@ func (trackingInteraces *ObjectTracking_TrackTypeIpv4Route_TrackInfo_TrackingInt
     trackingInteraces.EntityData.Children = types.NewOrderedMap()
     trackingInteraces.EntityData.Children.Append("interface-tracking-info", types.YChild{"InterfaceTrackingInfo", nil})
     for i := range trackingInteraces.InterfaceTrackingInfo {
+        types.SetYListKey(trackingInteraces.InterfaceTrackingInfo[i], i)
         trackingInteraces.EntityData.Children.Append(types.GetSegmentPath(trackingInteraces.InterfaceTrackingInfo[i]), types.YChild{"InterfaceTrackingInfo", trackingInteraces.InterfaceTrackingInfo[i]})
     }
     trackingInteraces.EntityData.Leafs = types.NewOrderedMap()
@@ -3108,6 +3225,7 @@ func (trackingInteraces *ObjectTracking_TrackTypeIpv4Route_TrackInfo_TrackingInt
 type ObjectTracking_TrackTypeIpv4Route_TrackInfo_TrackingInteraces_InterfaceTrackingInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Interface Name. The type is string with length: 0..120.
     InterfaceName interface{}
@@ -3118,7 +3236,8 @@ func (interfaceTrackingInfo *ObjectTracking_TrackTypeIpv4Route_TrackInfo_Trackin
     interfaceTrackingInfo.EntityData.YangName = "interface-tracking-info"
     interfaceTrackingInfo.EntityData.BundleName = "cisco_ios_xr"
     interfaceTrackingInfo.EntityData.ParentYangName = "tracking-interaces"
-    interfaceTrackingInfo.EntityData.SegmentPath = "interface-tracking-info"
+    interfaceTrackingInfo.EntityData.SegmentPath = "interface-tracking-info" + types.AddNoKeyToken(interfaceTrackingInfo)
+    interfaceTrackingInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-ipv4-route/track-info/tracking-interaces/" + interfaceTrackingInfo.EntityData.SegmentPath
     interfaceTrackingInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceTrackingInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceTrackingInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3153,6 +3272,7 @@ func (delayed *ObjectTracking_TrackTypeIpv4Route_TrackInfo_Delayed) GetEntityDat
     delayed.EntityData.BundleName = "cisco_ios_xr"
     delayed.EntityData.ParentYangName = "track-info"
     delayed.EntityData.SegmentPath = "delayed"
+    delayed.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-ipv4-route/track-info/" + delayed.EntityData.SegmentPath
     delayed.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     delayed.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     delayed.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3184,6 +3304,7 @@ func (trackTypeInterfaceBrief *ObjectTracking_TrackTypeInterfaceBrief) GetEntity
     trackTypeInterfaceBrief.EntityData.BundleName = "cisco_ios_xr"
     trackTypeInterfaceBrief.EntityData.ParentYangName = "object-tracking"
     trackTypeInterfaceBrief.EntityData.SegmentPath = "track-type-interface-brief"
+    trackTypeInterfaceBrief.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/" + trackTypeInterfaceBrief.EntityData.SegmentPath
     trackTypeInterfaceBrief.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trackTypeInterfaceBrief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trackTypeInterfaceBrief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3191,6 +3312,7 @@ func (trackTypeInterfaceBrief *ObjectTracking_TrackTypeInterfaceBrief) GetEntity
     trackTypeInterfaceBrief.EntityData.Children = types.NewOrderedMap()
     trackTypeInterfaceBrief.EntityData.Children.Append("track-info-brief", types.YChild{"TrackInfoBrief", nil})
     for i := range trackTypeInterfaceBrief.TrackInfoBrief {
+        types.SetYListKey(trackTypeInterfaceBrief.TrackInfoBrief[i], i)
         trackTypeInterfaceBrief.EntityData.Children.Append(types.GetSegmentPath(trackTypeInterfaceBrief.TrackInfoBrief[i]), types.YChild{"TrackInfoBrief", trackTypeInterfaceBrief.TrackInfoBrief[i]})
     }
     trackTypeInterfaceBrief.EntityData.Leafs = types.NewOrderedMap()
@@ -3205,6 +3327,7 @@ func (trackTypeInterfaceBrief *ObjectTracking_TrackTypeInterfaceBrief) GetEntity
 type ObjectTracking_TrackTypeInterfaceBrief_TrackInfoBrief struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Track Name. The type is string with length: 0..33.
     TrackeName interface{}
@@ -3224,7 +3347,8 @@ func (trackInfoBrief *ObjectTracking_TrackTypeInterfaceBrief_TrackInfoBrief) Get
     trackInfoBrief.EntityData.YangName = "track-info-brief"
     trackInfoBrief.EntityData.BundleName = "cisco_ios_xr"
     trackInfoBrief.EntityData.ParentYangName = "track-type-interface-brief"
-    trackInfoBrief.EntityData.SegmentPath = "track-info-brief"
+    trackInfoBrief.EntityData.SegmentPath = "track-info-brief" + types.AddNoKeyToken(trackInfoBrief)
+    trackInfoBrief.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-interface-brief/" + trackInfoBrief.EntityData.SegmentPath
     trackInfoBrief.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trackInfoBrief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trackInfoBrief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3269,6 +3393,7 @@ func (trackTypeInfo *ObjectTracking_TrackTypeInterfaceBrief_TrackInfoBrief_Track
     trackTypeInfo.EntityData.BundleName = "cisco_ios_xr"
     trackTypeInfo.EntityData.ParentYangName = "track-info-brief"
     trackTypeInfo.EntityData.SegmentPath = "track-type-info"
+    trackTypeInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-interface-brief/track-info-brief/" + trackTypeInfo.EntityData.SegmentPath
     trackTypeInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trackTypeInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trackTypeInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3302,6 +3427,7 @@ func (interfaceTracks *ObjectTracking_TrackTypeInterfaceBrief_TrackInfoBrief_Tra
     interfaceTracks.EntityData.BundleName = "cisco_ios_xr"
     interfaceTracks.EntityData.ParentYangName = "track-type-info"
     interfaceTracks.EntityData.SegmentPath = "interface-tracks"
+    interfaceTracks.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-interface-brief/track-info-brief/track-type-info/" + interfaceTracks.EntityData.SegmentPath
     interfaceTracks.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceTracks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceTracks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3340,6 +3466,7 @@ func (routeTracks *ObjectTracking_TrackTypeInterfaceBrief_TrackInfoBrief_TrackTy
     routeTracks.EntityData.BundleName = "cisco_ios_xr"
     routeTracks.EntityData.ParentYangName = "track-type-info"
     routeTracks.EntityData.SegmentPath = "route-tracks"
+    routeTracks.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-interface-brief/track-info-brief/track-type-info/" + routeTracks.EntityData.SegmentPath
     routeTracks.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routeTracks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routeTracks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3378,6 +3505,7 @@ func (ipslaTracks *ObjectTracking_TrackTypeInterfaceBrief_TrackInfoBrief_TrackTy
     ipslaTracks.EntityData.BundleName = "cisco_ios_xr"
     ipslaTracks.EntityData.ParentYangName = "track-type-info"
     ipslaTracks.EntityData.SegmentPath = "ipsla-tracks"
+    ipslaTracks.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-interface-brief/track-info-brief/track-type-info/" + ipslaTracks.EntityData.SegmentPath
     ipslaTracks.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipslaTracks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipslaTracks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3418,6 +3546,7 @@ func (bfdTracks *ObjectTracking_TrackTypeInterfaceBrief_TrackInfoBrief_TrackType
     bfdTracks.EntityData.BundleName = "cisco_ios_xr"
     bfdTracks.EntityData.ParentYangName = "track-type-info"
     bfdTracks.EntityData.SegmentPath = "bfd-tracks"
+    bfdTracks.EntityData.AbsolutePath = "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-interface-brief/track-info-brief/track-type-info/" + bfdTracks.EntityData.SegmentPath
     bfdTracks.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bfdTracks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bfdTracks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

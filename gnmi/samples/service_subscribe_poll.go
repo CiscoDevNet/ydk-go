@@ -10,7 +10,6 @@ import (
 	"github.com/CiscoDevNet/ydk-go/ydk/providers"
 	"github.com/CiscoDevNet/ydk-go/ydk/services"
 	"github.com/CiscoDevNet/ydk-go/ydk/types"
-	"github.com/CiscoDevNet/ydk-go/ydk/types/yfilter"
 	"github.com/CiscoDevNet/ydk-go/ydk"
 )
 
@@ -22,18 +21,16 @@ func configBgp(provider *providers.GnmiServiceProvider) {
     neighbor.Config.NeighborAddress = "172.16.255.2"
     neighbor.Config.PeerAs = 65172
     bgp.Neighbors.Neighbor = append(bgp.Neighbors.Neighbor, &neighbor)
-    bgp.YFilter = yfilter.Replace
     
     service := services.GnmiService{}
-	service.Set(provider, &bgp)
+    service.Set(provider, &bgp, "replace")
 }
 
 func deleteBgp(provider *providers.GnmiServiceProvider) {
     filterBgp := ysanity_bgp.Bgp{}
-    filterBgp.YFilter = yfilter.Delete
     
     service := services.GnmiService{}
-	service.Set(provider, &filterBgp)
+    service.Set(provider, &filterBgp, "delete")
 }
 
 func bgpSubscription(provider *providers.GnmiServiceProvider) {

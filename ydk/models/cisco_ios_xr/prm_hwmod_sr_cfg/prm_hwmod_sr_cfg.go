@@ -40,6 +40,7 @@ func (hardwareModule *HardwareModule) GetEntityData() *types.CommonEntityData {
     hardwareModule.EntityData.BundleName = "cisco_ios_xr"
     hardwareModule.EntityData.ParentYangName = "Cisco-IOS-XR-prm-hwmod-sr-cfg"
     hardwareModule.EntityData.SegmentPath = "Cisco-IOS-XR-prm-hwmod-sr-cfg:hardware-module"
+    hardwareModule.EntityData.AbsolutePath = hardwareModule.EntityData.SegmentPath
     hardwareModule.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hardwareModule.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hardwareModule.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -69,6 +70,7 @@ func (segmentRouting *HardwareModule_SegmentRouting) GetEntityData() *types.Comm
     segmentRouting.EntityData.BundleName = "cisco_ios_xr"
     segmentRouting.EntityData.ParentYangName = "hardware-module"
     segmentRouting.EntityData.SegmentPath = "segment-routing"
+    segmentRouting.EntityData.AbsolutePath = "Cisco-IOS-XR-prm-hwmod-sr-cfg:hardware-module/" + segmentRouting.EntityData.SegmentPath
     segmentRouting.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     segmentRouting.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     segmentRouting.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -98,6 +100,7 @@ func (reserve *HardwareModule_SegmentRouting_Reserve) GetEntityData() *types.Com
     reserve.EntityData.BundleName = "cisco_ios_xr"
     reserve.EntityData.ParentYangName = "segment-routing"
     reserve.EntityData.SegmentPath = "reserve"
+    reserve.EntityData.AbsolutePath = "Cisco-IOS-XR-prm-hwmod-sr-cfg:hardware-module/segment-routing/" + reserve.EntityData.SegmentPath
     reserve.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     reserve.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     reserve.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -127,6 +130,7 @@ func (serviceLabel *HardwareModule_SegmentRouting_Reserve_ServiceLabel) GetEntit
     serviceLabel.EntityData.BundleName = "cisco_ios_xr"
     serviceLabel.EntityData.ParentYangName = "reserve"
     serviceLabel.EntityData.SegmentPath = "service-label"
+    serviceLabel.EntityData.AbsolutePath = "Cisco-IOS-XR-prm-hwmod-sr-cfg:hardware-module/segment-routing/reserve/" + serviceLabel.EntityData.SegmentPath
     serviceLabel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     serviceLabel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     serviceLabel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

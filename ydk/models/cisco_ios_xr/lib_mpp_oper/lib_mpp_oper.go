@@ -95,6 +95,7 @@ func (managementPlaneProtection *ManagementPlaneProtection) GetEntityData() *typ
     managementPlaneProtection.EntityData.BundleName = "cisco_ios_xr"
     managementPlaneProtection.EntityData.ParentYangName = "Cisco-IOS-XR-lib-mpp-oper"
     managementPlaneProtection.EntityData.SegmentPath = "Cisco-IOS-XR-lib-mpp-oper:management-plane-protection"
+    managementPlaneProtection.EntityData.AbsolutePath = managementPlaneProtection.EntityData.SegmentPath
     managementPlaneProtection.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     managementPlaneProtection.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     managementPlaneProtection.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -129,6 +130,7 @@ func (outband *ManagementPlaneProtection_Outband) GetEntityData() *types.CommonE
     outband.EntityData.BundleName = "cisco_ios_xr"
     outband.EntityData.ParentYangName = "management-plane-protection"
     outband.EntityData.SegmentPath = "outband"
+    outband.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-oper:management-plane-protection/" + outband.EntityData.SegmentPath
     outband.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     outband.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outband.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -159,6 +161,7 @@ func (vrf *ManagementPlaneProtection_Outband_Vrf) GetEntityData() *types.CommonE
     vrf.EntityData.BundleName = "cisco_ios_xr"
     vrf.EntityData.ParentYangName = "outband"
     vrf.EntityData.SegmentPath = "vrf"
+    vrf.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-oper:management-plane-protection/outband/" + vrf.EntityData.SegmentPath
     vrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -189,6 +192,7 @@ func (interfaces *ManagementPlaneProtection_Outband_Interfaces) GetEntityData() 
     interfaces.EntityData.BundleName = "cisco_ios_xr"
     interfaces.EntityData.ParentYangName = "outband"
     interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-oper:management-plane-protection/outband/" + interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -210,6 +214,7 @@ func (interfaces *ManagementPlaneProtection_Outband_Interfaces) GetEntityData() 
 type ManagementPlaneProtection_Outband_Interfaces_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface name, specify 'all' for all interfaces.
     // The type is string.
@@ -226,6 +231,7 @@ func (self *ManagementPlaneProtection_Outband_Interfaces_Interface) GetEntityDat
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-oper:management-plane-protection/outband/interfaces/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -233,6 +239,7 @@ func (self *ManagementPlaneProtection_Outband_Interfaces_Interface) GetEntityDat
     self.EntityData.Children = types.NewOrderedMap()
     self.EntityData.Children.Append("protocol", types.YChild{"Protocol", nil})
     for i := range self.Protocol {
+        types.SetYListKey(self.Protocol[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.Protocol[i]), types.YChild{"Protocol", self.Protocol[i]})
     }
     self.EntityData.Leafs = types.NewOrderedMap()
@@ -248,6 +255,7 @@ func (self *ManagementPlaneProtection_Outband_Interfaces_Interface) GetEntityDat
 type ManagementPlaneProtection_Outband_Interfaces_Interface_Protocol struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // MPP allow. The type is MppAllow.
     Allow interface{}
@@ -265,7 +273,8 @@ func (protocol *ManagementPlaneProtection_Outband_Interfaces_Interface_Protocol)
     protocol.EntityData.YangName = "protocol"
     protocol.EntityData.BundleName = "cisco_ios_xr"
     protocol.EntityData.ParentYangName = "interface"
-    protocol.EntityData.SegmentPath = "protocol"
+    protocol.EntityData.SegmentPath = "protocol" + types.AddNoKeyToken(protocol)
+    protocol.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-oper:management-plane-protection/outband/interfaces/interface/" + protocol.EntityData.SegmentPath
     protocol.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -273,6 +282,7 @@ func (protocol *ManagementPlaneProtection_Outband_Interfaces_Interface_Protocol)
     protocol.EntityData.Children = types.NewOrderedMap()
     protocol.EntityData.Children.Append("peer-address", types.YChild{"PeerAddress", nil})
     for i := range protocol.PeerAddress {
+        types.SetYListKey(protocol.PeerAddress[i], i)
         protocol.EntityData.Children.Append(types.GetSegmentPath(protocol.PeerAddress[i]), types.YChild{"PeerAddress", protocol.PeerAddress[i]})
     }
     protocol.EntityData.Leafs = types.NewOrderedMap()
@@ -289,6 +299,7 @@ func (protocol *ManagementPlaneProtection_Outband_Interfaces_Interface_Protocol)
 type ManagementPlaneProtection_Outband_Interfaces_Interface_Protocol_PeerAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // AFName. The type is one of the following: Ipv4Ipv6.
     AfName interface{}
@@ -307,7 +318,8 @@ func (peerAddress *ManagementPlaneProtection_Outband_Interfaces_Interface_Protoc
     peerAddress.EntityData.YangName = "peer-address"
     peerAddress.EntityData.BundleName = "cisco_ios_xr"
     peerAddress.EntityData.ParentYangName = "protocol"
-    peerAddress.EntityData.SegmentPath = "peer-address"
+    peerAddress.EntityData.SegmentPath = "peer-address" + types.AddNoKeyToken(peerAddress)
+    peerAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-oper:management-plane-protection/outband/interfaces/interface/protocol/" + peerAddress.EntityData.SegmentPath
     peerAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -340,6 +352,7 @@ func (inband *ManagementPlaneProtection_Inband) GetEntityData() *types.CommonEnt
     inband.EntityData.BundleName = "cisco_ios_xr"
     inband.EntityData.ParentYangName = "management-plane-protection"
     inband.EntityData.SegmentPath = "inband"
+    inband.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-oper:management-plane-protection/" + inband.EntityData.SegmentPath
     inband.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     inband.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inband.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -370,6 +383,7 @@ func (interfaces *ManagementPlaneProtection_Inband_Interfaces) GetEntityData() *
     interfaces.EntityData.BundleName = "cisco_ios_xr"
     interfaces.EntityData.ParentYangName = "inband"
     interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-oper:management-plane-protection/inband/" + interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -391,6 +405,7 @@ func (interfaces *ManagementPlaneProtection_Inband_Interfaces) GetEntityData() *
 type ManagementPlaneProtection_Inband_Interfaces_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface name, specify 'all' for all interfaces.
     // The type is string.
@@ -407,6 +422,7 @@ func (self *ManagementPlaneProtection_Inband_Interfaces_Interface) GetEntityData
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-oper:management-plane-protection/inband/interfaces/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -414,6 +430,7 @@ func (self *ManagementPlaneProtection_Inband_Interfaces_Interface) GetEntityData
     self.EntityData.Children = types.NewOrderedMap()
     self.EntityData.Children.Append("protocol", types.YChild{"Protocol", nil})
     for i := range self.Protocol {
+        types.SetYListKey(self.Protocol[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.Protocol[i]), types.YChild{"Protocol", self.Protocol[i]})
     }
     self.EntityData.Leafs = types.NewOrderedMap()
@@ -429,6 +446,7 @@ func (self *ManagementPlaneProtection_Inband_Interfaces_Interface) GetEntityData
 type ManagementPlaneProtection_Inband_Interfaces_Interface_Protocol struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // MPP allow. The type is MppAllow.
     Allow interface{}
@@ -446,7 +464,8 @@ func (protocol *ManagementPlaneProtection_Inband_Interfaces_Interface_Protocol) 
     protocol.EntityData.YangName = "protocol"
     protocol.EntityData.BundleName = "cisco_ios_xr"
     protocol.EntityData.ParentYangName = "interface"
-    protocol.EntityData.SegmentPath = "protocol"
+    protocol.EntityData.SegmentPath = "protocol" + types.AddNoKeyToken(protocol)
+    protocol.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-oper:management-plane-protection/inband/interfaces/interface/" + protocol.EntityData.SegmentPath
     protocol.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -454,6 +473,7 @@ func (protocol *ManagementPlaneProtection_Inband_Interfaces_Interface_Protocol) 
     protocol.EntityData.Children = types.NewOrderedMap()
     protocol.EntityData.Children.Append("peer-address", types.YChild{"PeerAddress", nil})
     for i := range protocol.PeerAddress {
+        types.SetYListKey(protocol.PeerAddress[i], i)
         protocol.EntityData.Children.Append(types.GetSegmentPath(protocol.PeerAddress[i]), types.YChild{"PeerAddress", protocol.PeerAddress[i]})
     }
     protocol.EntityData.Leafs = types.NewOrderedMap()
@@ -470,6 +490,7 @@ func (protocol *ManagementPlaneProtection_Inband_Interfaces_Interface_Protocol) 
 type ManagementPlaneProtection_Inband_Interfaces_Interface_Protocol_PeerAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // AFName. The type is one of the following: Ipv4Ipv6.
     AfName interface{}
@@ -488,7 +509,8 @@ func (peerAddress *ManagementPlaneProtection_Inband_Interfaces_Interface_Protoco
     peerAddress.EntityData.YangName = "peer-address"
     peerAddress.EntityData.BundleName = "cisco_ios_xr"
     peerAddress.EntityData.ParentYangName = "protocol"
-    peerAddress.EntityData.SegmentPath = "peer-address"
+    peerAddress.EntityData.SegmentPath = "peer-address" + types.AddNoKeyToken(peerAddress)
+    peerAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-mpp-oper:management-plane-protection/inband/interfaces/interface/protocol/" + peerAddress.EntityData.SegmentPath
     peerAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

@@ -48,6 +48,7 @@ func (nvSatelliteGlobal *NvSatelliteGlobal) GetEntityData() *types.CommonEntityD
     nvSatelliteGlobal.EntityData.BundleName = "cisco_ios_xr"
     nvSatelliteGlobal.EntityData.ParentYangName = "Cisco-IOS-XR-icpe-infra-cfg"
     nvSatelliteGlobal.EntityData.SegmentPath = "Cisco-IOS-XR-icpe-infra-cfg:nv-satellite-global"
+    nvSatelliteGlobal.EntityData.AbsolutePath = nvSatelliteGlobal.EntityData.SegmentPath
     nvSatelliteGlobal.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nvSatelliteGlobal.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nvSatelliteGlobal.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -86,6 +87,7 @@ func (chassisMac *NvSatelliteGlobal_ChassisMac) GetEntityData() *types.CommonEnt
     chassisMac.EntityData.BundleName = "cisco_ios_xr"
     chassisMac.EntityData.ParentYangName = "nv-satellite-global"
     chassisMac.EntityData.SegmentPath = "chassis-mac"
+    chassisMac.EntityData.AbsolutePath = "Cisco-IOS-XR-icpe-infra-cfg:nv-satellite-global/" + chassisMac.EntityData.SegmentPath
     chassisMac.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     chassisMac.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     chassisMac.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -117,6 +119,7 @@ func (nvSatellites *NvSatellites) GetEntityData() *types.CommonEntityData {
     nvSatellites.EntityData.BundleName = "cisco_ios_xr"
     nvSatellites.EntityData.ParentYangName = "Cisco-IOS-XR-icpe-infra-cfg"
     nvSatellites.EntityData.SegmentPath = "Cisco-IOS-XR-icpe-infra-cfg:nv-satellites"
+    nvSatellites.EntityData.AbsolutePath = nvSatellites.EntityData.SegmentPath
     nvSatellites.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nvSatellites.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nvSatellites.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -138,6 +141,7 @@ func (nvSatellites *NvSatellites) GetEntityData() *types.CommonEntityData {
 type NvSatellites_NvSatellite struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Satellite ID. The type is interface{} with range:
     // 100..65534.
@@ -203,6 +207,7 @@ func (nvSatellite *NvSatellites_NvSatellite) GetEntityData() *types.CommonEntity
     nvSatellite.EntityData.BundleName = "cisco_ios_xr"
     nvSatellite.EntityData.ParentYangName = "nv-satellites"
     nvSatellite.EntityData.SegmentPath = "nv-satellite" + types.AddKeyToken(nvSatellite.SatelliteId, "satellite-id")
+    nvSatellite.EntityData.AbsolutePath = "Cisco-IOS-XR-icpe-infra-cfg:nv-satellites/" + nvSatellite.EntityData.SegmentPath
     nvSatellite.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nvSatellite.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nvSatellite.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -253,6 +258,7 @@ func (upgradeOnConnect *NvSatellites_NvSatellite_UpgradeOnConnect) GetEntityData
     upgradeOnConnect.EntityData.BundleName = "cisco_ios_xr"
     upgradeOnConnect.EntityData.ParentYangName = "nv-satellite"
     upgradeOnConnect.EntityData.SegmentPath = "upgrade-on-connect"
+    upgradeOnConnect.EntityData.AbsolutePath = "Cisco-IOS-XR-icpe-infra-cfg:nv-satellites/nv-satellite/" + upgradeOnConnect.EntityData.SegmentPath
     upgradeOnConnect.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     upgradeOnConnect.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     upgradeOnConnect.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -298,6 +304,7 @@ func (candidateFabricPorts *NvSatellites_NvSatellite_CandidateFabricPorts) GetEn
     candidateFabricPorts.EntityData.BundleName = "cisco_ios_xr"
     candidateFabricPorts.EntityData.ParentYangName = "nv-satellite"
     candidateFabricPorts.EntityData.SegmentPath = "candidate-fabric-ports"
+    candidateFabricPorts.EntityData.AbsolutePath = "Cisco-IOS-XR-icpe-infra-cfg:nv-satellites/nv-satellite/" + candidateFabricPorts.EntityData.SegmentPath
     candidateFabricPorts.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     candidateFabricPorts.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     candidateFabricPorts.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -320,6 +327,7 @@ func (candidateFabricPorts *NvSatellites_NvSatellite_CandidateFabricPorts) GetEn
 type NvSatellites_NvSatellite_CandidateFabricPorts_CandidateFabricPort struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Port type. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -342,6 +350,7 @@ func (candidateFabricPort *NvSatellites_NvSatellite_CandidateFabricPorts_Candida
     candidateFabricPort.EntityData.BundleName = "cisco_ios_xr"
     candidateFabricPort.EntityData.ParentYangName = "candidate-fabric-ports"
     candidateFabricPort.EntityData.SegmentPath = "candidate-fabric-port" + types.AddKeyToken(candidateFabricPort.PortType, "port-type") + types.AddKeyToken(candidateFabricPort.Slot, "slot") + types.AddKeyToken(candidateFabricPort.SubSlot, "sub-slot")
+    candidateFabricPort.EntityData.AbsolutePath = "Cisco-IOS-XR-icpe-infra-cfg:nv-satellites/nv-satellite/candidate-fabric-ports/" + candidateFabricPort.EntityData.SegmentPath
     candidateFabricPort.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     candidateFabricPort.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     candidateFabricPort.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -378,6 +387,7 @@ func (connectionInfo *NvSatellites_NvSatellite_ConnectionInfo) GetEntityData() *
     connectionInfo.EntityData.BundleName = "cisco_ios_xr"
     connectionInfo.EntityData.ParentYangName = "nv-satellite"
     connectionInfo.EntityData.SegmentPath = "connection-info"
+    connectionInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-icpe-infra-cfg:nv-satellites/nv-satellite/" + connectionInfo.EntityData.SegmentPath
     connectionInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     connectionInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     connectionInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -409,6 +419,7 @@ func (redundancy *NvSatellites_NvSatellite_Redundancy) GetEntityData() *types.Co
     redundancy.EntityData.BundleName = "cisco_ios_xr"
     redundancy.EntityData.ParentYangName = "nv-satellite"
     redundancy.EntityData.SegmentPath = "redundancy"
+    redundancy.EntityData.AbsolutePath = "Cisco-IOS-XR-icpe-infra-cfg:nv-satellites/nv-satellite/" + redundancy.EntityData.SegmentPath
     redundancy.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     redundancy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     redundancy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

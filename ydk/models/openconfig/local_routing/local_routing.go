@@ -81,6 +81,7 @@ func (localRoutes *LocalRoutes) GetEntityData() *types.CommonEntityData {
     localRoutes.EntityData.BundleName = "openconfig"
     localRoutes.EntityData.ParentYangName = "openconfig-local-routing"
     localRoutes.EntityData.SegmentPath = "openconfig-local-routing:local-routes"
+    localRoutes.EntityData.AbsolutePath = localRoutes.EntityData.SegmentPath
     localRoutes.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     localRoutes.EntityData.NamespaceTable = openconfig.GetNamespaces()
     localRoutes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -110,6 +111,7 @@ func (config *LocalRoutes_Config) GetEntityData() *types.CommonEntityData {
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "local-routes"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-local-routing:local-routes/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -135,6 +137,7 @@ func (state *LocalRoutes_State) GetEntityData() *types.CommonEntityData {
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "local-routes"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-local-routing:local-routes/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -164,6 +167,7 @@ func (staticRoutes *LocalRoutes_StaticRoutes) GetEntityData() *types.CommonEntit
     staticRoutes.EntityData.BundleName = "openconfig"
     staticRoutes.EntityData.ParentYangName = "local-routes"
     staticRoutes.EntityData.SegmentPath = "static-routes"
+    staticRoutes.EntityData.AbsolutePath = "openconfig-local-routing:local-routes/" + staticRoutes.EntityData.SegmentPath
     staticRoutes.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     staticRoutes.EntityData.NamespaceTable = openconfig.GetNamespaces()
     staticRoutes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -185,6 +189,7 @@ func (staticRoutes *LocalRoutes_StaticRoutes) GetEntityData() *types.CommonEntit
 type LocalRoutes_StaticRoutes_Static struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the destination prefix list key. The
     // type is one of the following types: string with pattern:
@@ -210,6 +215,7 @@ func (static *LocalRoutes_StaticRoutes_Static) GetEntityData() *types.CommonEnti
     static.EntityData.BundleName = "openconfig"
     static.EntityData.ParentYangName = "static-routes"
     static.EntityData.SegmentPath = "static" + types.AddKeyToken(static.Prefix, "prefix")
+    static.EntityData.AbsolutePath = "openconfig-local-routing:local-routes/static-routes/" + static.EntityData.SegmentPath
     static.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     static.EntityData.NamespaceTable = openconfig.GetNamespaces()
     static.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -252,6 +258,7 @@ func (config *LocalRoutes_StaticRoutes_Static_Config) GetEntityData() *types.Com
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "static"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-local-routing:local-routes/static-routes/static/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -292,6 +299,7 @@ func (state *LocalRoutes_StaticRoutes_Static_State) GetEntityData() *types.Commo
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "static"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-local-routing:local-routes/static-routes/static/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -325,6 +333,7 @@ func (nextHops *LocalRoutes_StaticRoutes_Static_NextHops) GetEntityData() *types
     nextHops.EntityData.BundleName = "openconfig"
     nextHops.EntityData.ParentYangName = "static"
     nextHops.EntityData.SegmentPath = "next-hops"
+    nextHops.EntityData.AbsolutePath = "openconfig-local-routing:local-routes/static-routes/static/" + nextHops.EntityData.SegmentPath
     nextHops.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     nextHops.EntityData.NamespaceTable = openconfig.GetNamespaces()
     nextHops.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -347,6 +356,7 @@ func (nextHops *LocalRoutes_StaticRoutes_Static_NextHops) GetEntityData() *types
 type LocalRoutes_StaticRoutes_Static_NextHops_NextHop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. A reference to the index of the current next-hop.
     // The index is intended to be a user-specified value which can be used to
@@ -371,6 +381,7 @@ func (nextHop *LocalRoutes_StaticRoutes_Static_NextHops_NextHop) GetEntityData()
     nextHop.EntityData.BundleName = "openconfig"
     nextHop.EntityData.ParentYangName = "next-hops"
     nextHop.EntityData.SegmentPath = "next-hop" + types.AddKeyToken(nextHop.Index, "index")
+    nextHop.EntityData.AbsolutePath = "openconfig-local-routing:local-routes/static-routes/static/next-hops/" + nextHop.EntityData.SegmentPath
     nextHop.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     nextHop.EntityData.NamespaceTable = openconfig.GetNamespaces()
     nextHop.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -441,6 +452,7 @@ func (config *LocalRoutes_StaticRoutes_Static_NextHops_NextHop_Config) GetEntity
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "next-hop"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-local-routing:local-routes/static-routes/static/next-hops/next-hop/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -511,6 +523,7 @@ func (state *LocalRoutes_StaticRoutes_Static_NextHops_NextHop_State) GetEntityDa
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "next-hop"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-local-routing:local-routes/static-routes/static/next-hops/next-hop/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -546,6 +559,7 @@ func (interfaceRef *LocalRoutes_StaticRoutes_Static_NextHops_NextHop_InterfaceRe
     interfaceRef.EntityData.BundleName = "openconfig"
     interfaceRef.EntityData.ParentYangName = "next-hop"
     interfaceRef.EntityData.SegmentPath = "interface-ref"
+    interfaceRef.EntityData.AbsolutePath = "openconfig-local-routing:local-routes/static-routes/static/next-hops/next-hop/" + interfaceRef.EntityData.SegmentPath
     interfaceRef.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     interfaceRef.EntityData.NamespaceTable = openconfig.GetNamespaces()
     interfaceRef.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -585,6 +599,7 @@ func (config *LocalRoutes_StaticRoutes_Static_NextHops_NextHop_InterfaceRef_Conf
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "interface-ref"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-local-routing:local-routes/static-routes/static/next-hops/next-hop/interface-ref/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -624,6 +639,7 @@ func (state *LocalRoutes_StaticRoutes_Static_NextHops_NextHop_InterfaceRef_State
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "interface-ref"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-local-routing:local-routes/static-routes/static/next-hops/next-hop/interface-ref/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -656,6 +672,7 @@ func (localAggregates *LocalRoutes_LocalAggregates) GetEntityData() *types.Commo
     localAggregates.EntityData.BundleName = "openconfig"
     localAggregates.EntityData.ParentYangName = "local-routes"
     localAggregates.EntityData.SegmentPath = "local-aggregates"
+    localAggregates.EntityData.AbsolutePath = "openconfig-local-routing:local-routes/" + localAggregates.EntityData.SegmentPath
     localAggregates.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     localAggregates.EntityData.NamespaceTable = openconfig.GetNamespaces()
     localAggregates.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -677,6 +694,7 @@ func (localAggregates *LocalRoutes_LocalAggregates) GetEntityData() *types.Commo
 type LocalRoutes_LocalAggregates_Aggregate struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the configured prefix for this
     // aggregate. The type is one of the following types: string with pattern:
@@ -698,6 +716,7 @@ func (aggregate *LocalRoutes_LocalAggregates_Aggregate) GetEntityData() *types.C
     aggregate.EntityData.BundleName = "openconfig"
     aggregate.EntityData.ParentYangName = "local-aggregates"
     aggregate.EntityData.SegmentPath = "aggregate" + types.AddKeyToken(aggregate.Prefix, "prefix")
+    aggregate.EntityData.AbsolutePath = "openconfig-local-routing:local-routes/local-aggregates/" + aggregate.EntityData.SegmentPath
     aggregate.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     aggregate.EntityData.NamespaceTable = openconfig.GetNamespaces()
     aggregate.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -746,6 +765,7 @@ func (config *LocalRoutes_LocalAggregates_Aggregate_Config) GetEntityData() *typ
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "aggregate"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-local-routing:local-routes/local-aggregates/aggregate/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -795,6 +815,7 @@ func (state *LocalRoutes_LocalAggregates_Aggregate_State) GetEntityData() *types
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "aggregate"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-local-routing:local-routes/local-aggregates/aggregate/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()

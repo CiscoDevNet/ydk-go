@@ -152,6 +152,7 @@ func (dOCSIFMIB *DOCSIFMIB) GetEntityData() *types.CommonEntityData {
     dOCSIFMIB.EntityData.BundleName = "cisco_ios_xe"
     dOCSIFMIB.EntityData.ParentYangName = "DOCS-IF-MIB"
     dOCSIFMIB.EntityData.SegmentPath = "DOCS-IF-MIB:DOCS-IF-MIB"
+    dOCSIFMIB.EntityData.AbsolutePath = dOCSIFMIB.EntityData.SegmentPath
     dOCSIFMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dOCSIFMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dOCSIFMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -198,6 +199,7 @@ func (docsIfBaseObjects *DOCSIFMIB_DocsIfBaseObjects) GetEntityData() *types.Com
     docsIfBaseObjects.EntityData.BundleName = "cisco_ios_xe"
     docsIfBaseObjects.EntityData.ParentYangName = "DOCS-IF-MIB"
     docsIfBaseObjects.EntityData.SegmentPath = "docsIfBaseObjects"
+    docsIfBaseObjects.EntityData.AbsolutePath = "DOCS-IF-MIB:DOCS-IF-MIB/" + docsIfBaseObjects.EntityData.SegmentPath
     docsIfBaseObjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIfBaseObjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIfBaseObjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -247,6 +249,7 @@ func (docsIfCmtsObjects *DOCSIFMIB_DocsIfCmtsObjects) GetEntityData() *types.Com
     docsIfCmtsObjects.EntityData.BundleName = "cisco_ios_xe"
     docsIfCmtsObjects.EntityData.ParentYangName = "DOCS-IF-MIB"
     docsIfCmtsObjects.EntityData.SegmentPath = "docsIfCmtsObjects"
+    docsIfCmtsObjects.EntityData.AbsolutePath = "DOCS-IF-MIB:DOCS-IF-MIB/" + docsIfCmtsObjects.EntityData.SegmentPath
     docsIfCmtsObjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIfCmtsObjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIfCmtsObjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -281,6 +284,7 @@ func (docsIfDownstreamChannelTable *DOCSIFMIB_DocsIfDownstreamChannelTable) GetE
     docsIfDownstreamChannelTable.EntityData.BundleName = "cisco_ios_xe"
     docsIfDownstreamChannelTable.EntityData.ParentYangName = "DOCS-IF-MIB"
     docsIfDownstreamChannelTable.EntityData.SegmentPath = "docsIfDownstreamChannelTable"
+    docsIfDownstreamChannelTable.EntityData.AbsolutePath = "DOCS-IF-MIB:DOCS-IF-MIB/" + docsIfDownstreamChannelTable.EntityData.SegmentPath
     docsIfDownstreamChannelTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIfDownstreamChannelTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIfDownstreamChannelTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -305,6 +309,7 @@ func (docsIfDownstreamChannelTable *DOCSIFMIB_DocsIfDownstreamChannelTable) GetE
 type DOCSIFMIB_DocsIfDownstreamChannelTable_DocsIfDownstreamChannelEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -390,6 +395,7 @@ func (docsIfDownstreamChannelEntry *DOCSIFMIB_DocsIfDownstreamChannelTable_DocsI
     docsIfDownstreamChannelEntry.EntityData.BundleName = "cisco_ios_xe"
     docsIfDownstreamChannelEntry.EntityData.ParentYangName = "docsIfDownstreamChannelTable"
     docsIfDownstreamChannelEntry.EntityData.SegmentPath = "docsIfDownstreamChannelEntry" + types.AddKeyToken(docsIfDownstreamChannelEntry.IfIndex, "ifIndex")
+    docsIfDownstreamChannelEntry.EntityData.AbsolutePath = "DOCS-IF-MIB:DOCS-IF-MIB/docsIfDownstreamChannelTable/" + docsIfDownstreamChannelEntry.EntityData.SegmentPath
     docsIfDownstreamChannelEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIfDownstreamChannelEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIfDownstreamChannelEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -482,6 +488,7 @@ func (docsIfUpstreamChannelTable *DOCSIFMIB_DocsIfUpstreamChannelTable) GetEntit
     docsIfUpstreamChannelTable.EntityData.BundleName = "cisco_ios_xe"
     docsIfUpstreamChannelTable.EntityData.ParentYangName = "DOCS-IF-MIB"
     docsIfUpstreamChannelTable.EntityData.SegmentPath = "docsIfUpstreamChannelTable"
+    docsIfUpstreamChannelTable.EntityData.AbsolutePath = "DOCS-IF-MIB:DOCS-IF-MIB/" + docsIfUpstreamChannelTable.EntityData.SegmentPath
     docsIfUpstreamChannelTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIfUpstreamChannelTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIfUpstreamChannelTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -507,6 +514,7 @@ func (docsIfUpstreamChannelTable *DOCSIFMIB_DocsIfUpstreamChannelTable) GetEntit
 type DOCSIFMIB_DocsIfUpstreamChannelTable_DocsIfUpstreamChannelEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -587,12 +595,12 @@ type DOCSIFMIB_DocsIfUpstreamChannelTable_DocsIfUpstreamChannelEntry struct {
 
     // Applicable for SCDMA channel types only. Number of active codes. Returns
     // zero for Non-SCDMA channel types. Note that legal  values from 64..128 MUST
-    // be non-prime. The type is interface{} with range: 0..None | 64..128.
+    // be non-prime. The type is interface{} with range: 0..0 | 64..128.
     DocsIfUpChannelScdmaActiveCodes interface{}
 
     // Applicable for SCDMA channel types only. The number of SCDMA codes per
     // mini-slot. Returns zero if the value is undefined, unknown or in case of a
-    // TDMA or ATDMA channel. The type is interface{} with range: 0..None | 2..32.
+    // TDMA or ATDMA channel. The type is interface{} with range: 0..0 | 2..32.
     DocsIfUpChannelScdmaCodesPerSlot interface{}
 
     // Applicable for SCDMA channel types only. SCDMA Frame size in units of
@@ -670,6 +678,7 @@ func (docsIfUpstreamChannelEntry *DOCSIFMIB_DocsIfUpstreamChannelTable_DocsIfUps
     docsIfUpstreamChannelEntry.EntityData.BundleName = "cisco_ios_xe"
     docsIfUpstreamChannelEntry.EntityData.ParentYangName = "docsIfUpstreamChannelTable"
     docsIfUpstreamChannelEntry.EntityData.SegmentPath = "docsIfUpstreamChannelEntry" + types.AddKeyToken(docsIfUpstreamChannelEntry.IfIndex, "ifIndex")
+    docsIfUpstreamChannelEntry.EntityData.AbsolutePath = "DOCS-IF-MIB:DOCS-IF-MIB/docsIfUpstreamChannelTable/" + docsIfUpstreamChannelEntry.EntityData.SegmentPath
     docsIfUpstreamChannelEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIfUpstreamChannelEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIfUpstreamChannelEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -733,6 +742,7 @@ func (docsIfQosProfileTable *DOCSIFMIB_DocsIfQosProfileTable) GetEntityData() *t
     docsIfQosProfileTable.EntityData.BundleName = "cisco_ios_xe"
     docsIfQosProfileTable.EntityData.ParentYangName = "DOCS-IF-MIB"
     docsIfQosProfileTable.EntityData.SegmentPath = "docsIfQosProfileTable"
+    docsIfQosProfileTable.EntityData.AbsolutePath = "DOCS-IF-MIB:DOCS-IF-MIB/" + docsIfQosProfileTable.EntityData.SegmentPath
     docsIfQosProfileTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIfQosProfileTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIfQosProfileTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -779,6 +789,7 @@ func (docsIfQosProfileTable *DOCSIFMIB_DocsIfQosProfileTable) GetEntityData() *t
 type DOCSIFMIB_DocsIfQosProfileTable_DocsIfQosProfileEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The index value that uniquely identifies an entry
     // in the docsIfQosProfileTable. The type is interface{} with range: 1..16383.
@@ -839,6 +850,7 @@ func (docsIfQosProfileEntry *DOCSIFMIB_DocsIfQosProfileTable_DocsIfQosProfileEnt
     docsIfQosProfileEntry.EntityData.BundleName = "cisco_ios_xe"
     docsIfQosProfileEntry.EntityData.ParentYangName = "docsIfQosProfileTable"
     docsIfQosProfileEntry.EntityData.SegmentPath = "docsIfQosProfileEntry" + types.AddKeyToken(docsIfQosProfileEntry.DocsIfQosProfIndex, "docsIfQosProfIndex")
+    docsIfQosProfileEntry.EntityData.AbsolutePath = "DOCS-IF-MIB:DOCS-IF-MIB/docsIfQosProfileTable/" + docsIfQosProfileEntry.EntityData.SegmentPath
     docsIfQosProfileEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIfQosProfileEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIfQosProfileEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -884,6 +896,7 @@ func (docsIfSignalQualityTable *DOCSIFMIB_DocsIfSignalQualityTable) GetEntityDat
     docsIfSignalQualityTable.EntityData.BundleName = "cisco_ios_xe"
     docsIfSignalQualityTable.EntityData.ParentYangName = "DOCS-IF-MIB"
     docsIfSignalQualityTable.EntityData.SegmentPath = "docsIfSignalQualityTable"
+    docsIfSignalQualityTable.EntityData.AbsolutePath = "DOCS-IF-MIB:DOCS-IF-MIB/" + docsIfSignalQualityTable.EntityData.SegmentPath
     docsIfSignalQualityTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIfSignalQualityTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIfSignalQualityTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -910,6 +923,7 @@ func (docsIfSignalQualityTable *DOCSIFMIB_DocsIfSignalQualityTable) GetEntityDat
 type DOCSIFMIB_DocsIfSignalQualityTable_DocsIfSignalQualityEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -979,6 +993,7 @@ func (docsIfSignalQualityEntry *DOCSIFMIB_DocsIfSignalQualityTable_DocsIfSignalQ
     docsIfSignalQualityEntry.EntityData.BundleName = "cisco_ios_xe"
     docsIfSignalQualityEntry.EntityData.ParentYangName = "docsIfSignalQualityTable"
     docsIfSignalQualityEntry.EntityData.SegmentPath = "docsIfSignalQualityEntry" + types.AddKeyToken(docsIfSignalQualityEntry.IfIndex, "ifIndex")
+    docsIfSignalQualityEntry.EntityData.AbsolutePath = "DOCS-IF-MIB:DOCS-IF-MIB/docsIfSignalQualityTable/" + docsIfSignalQualityEntry.EntityData.SegmentPath
     docsIfSignalQualityEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIfSignalQualityEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIfSignalQualityEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1022,6 +1037,7 @@ func (docsIfCmMacTable *DOCSIFMIB_DocsIfCmMacTable) GetEntityData() *types.Commo
     docsIfCmMacTable.EntityData.BundleName = "cisco_ios_xe"
     docsIfCmMacTable.EntityData.ParentYangName = "DOCS-IF-MIB"
     docsIfCmMacTable.EntityData.SegmentPath = "docsIfCmMacTable"
+    docsIfCmMacTable.EntityData.AbsolutePath = "DOCS-IF-MIB:DOCS-IF-MIB/" + docsIfCmMacTable.EntityData.SegmentPath
     docsIfCmMacTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIfCmMacTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIfCmMacTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1046,6 +1062,7 @@ func (docsIfCmMacTable *DOCSIFMIB_DocsIfCmMacTable) GetEntityData() *types.Commo
 type DOCSIFMIB_DocsIfCmMacTable_DocsIfCmMacEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -1080,6 +1097,7 @@ func (docsIfCmMacEntry *DOCSIFMIB_DocsIfCmMacTable_DocsIfCmMacEntry) GetEntityDa
     docsIfCmMacEntry.EntityData.BundleName = "cisco_ios_xe"
     docsIfCmMacEntry.EntityData.ParentYangName = "docsIfCmMacTable"
     docsIfCmMacEntry.EntityData.SegmentPath = "docsIfCmMacEntry" + types.AddKeyToken(docsIfCmMacEntry.IfIndex, "ifIndex")
+    docsIfCmMacEntry.EntityData.AbsolutePath = "DOCS-IF-MIB:DOCS-IF-MIB/docsIfCmMacTable/" + docsIfCmMacEntry.EntityData.SegmentPath
     docsIfCmMacEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIfCmMacEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIfCmMacEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1117,6 +1135,7 @@ func (docsIfCmStatusTable *DOCSIFMIB_DocsIfCmStatusTable) GetEntityData() *types
     docsIfCmStatusTable.EntityData.BundleName = "cisco_ios_xe"
     docsIfCmStatusTable.EntityData.ParentYangName = "DOCS-IF-MIB"
     docsIfCmStatusTable.EntityData.SegmentPath = "docsIfCmStatusTable"
+    docsIfCmStatusTable.EntityData.AbsolutePath = "DOCS-IF-MIB:DOCS-IF-MIB/" + docsIfCmStatusTable.EntityData.SegmentPath
     docsIfCmStatusTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIfCmStatusTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIfCmStatusTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1141,6 +1160,7 @@ func (docsIfCmStatusTable *DOCSIFMIB_DocsIfCmStatusTable) GetEntityData() *types
 type DOCSIFMIB_DocsIfCmStatusTable_DocsIfCmStatusEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -1234,6 +1254,7 @@ func (docsIfCmStatusEntry *DOCSIFMIB_DocsIfCmStatusTable_DocsIfCmStatusEntry) Ge
     docsIfCmStatusEntry.EntityData.BundleName = "cisco_ios_xe"
     docsIfCmStatusEntry.EntityData.ParentYangName = "docsIfCmStatusTable"
     docsIfCmStatusEntry.EntityData.SegmentPath = "docsIfCmStatusEntry" + types.AddKeyToken(docsIfCmStatusEntry.IfIndex, "ifIndex")
+    docsIfCmStatusEntry.EntityData.AbsolutePath = "DOCS-IF-MIB:DOCS-IF-MIB/docsIfCmStatusTable/" + docsIfCmStatusEntry.EntityData.SegmentPath
     docsIfCmStatusEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIfCmStatusEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIfCmStatusEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1315,6 +1336,7 @@ func (docsIfCmServiceTable *DOCSIFMIB_DocsIfCmServiceTable) GetEntityData() *typ
     docsIfCmServiceTable.EntityData.BundleName = "cisco_ios_xe"
     docsIfCmServiceTable.EntityData.ParentYangName = "DOCS-IF-MIB"
     docsIfCmServiceTable.EntityData.SegmentPath = "docsIfCmServiceTable"
+    docsIfCmServiceTable.EntityData.AbsolutePath = "DOCS-IF-MIB:DOCS-IF-MIB/" + docsIfCmServiceTable.EntityData.SegmentPath
     docsIfCmServiceTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIfCmServiceTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIfCmServiceTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1340,6 +1362,7 @@ func (docsIfCmServiceTable *DOCSIFMIB_DocsIfCmServiceTable) GetEntityData() *typ
 type DOCSIFMIB_DocsIfCmServiceTable_DocsIfCmServiceEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -1407,6 +1430,7 @@ func (docsIfCmServiceEntry *DOCSIFMIB_DocsIfCmServiceTable_DocsIfCmServiceEntry)
     docsIfCmServiceEntry.EntityData.BundleName = "cisco_ios_xe"
     docsIfCmServiceEntry.EntityData.ParentYangName = "docsIfCmServiceTable"
     docsIfCmServiceEntry.EntityData.SegmentPath = "docsIfCmServiceEntry" + types.AddKeyToken(docsIfCmServiceEntry.IfIndex, "ifIndex") + types.AddKeyToken(docsIfCmServiceEntry.DocsIfCmServiceId, "docsIfCmServiceId")
+    docsIfCmServiceEntry.EntityData.AbsolutePath = "DOCS-IF-MIB:DOCS-IF-MIB/docsIfCmServiceTable/" + docsIfCmServiceEntry.EntityData.SegmentPath
     docsIfCmServiceEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIfCmServiceEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIfCmServiceEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1451,6 +1475,7 @@ func (docsIfCmtsMacTable *DOCSIFMIB_DocsIfCmtsMacTable) GetEntityData() *types.C
     docsIfCmtsMacTable.EntityData.BundleName = "cisco_ios_xe"
     docsIfCmtsMacTable.EntityData.ParentYangName = "DOCS-IF-MIB"
     docsIfCmtsMacTable.EntityData.SegmentPath = "docsIfCmtsMacTable"
+    docsIfCmtsMacTable.EntityData.AbsolutePath = "DOCS-IF-MIB:DOCS-IF-MIB/" + docsIfCmtsMacTable.EntityData.SegmentPath
     docsIfCmtsMacTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIfCmtsMacTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIfCmtsMacTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1475,6 +1500,7 @@ func (docsIfCmtsMacTable *DOCSIFMIB_DocsIfCmtsMacTable) GetEntityData() *types.C
 type DOCSIFMIB_DocsIfCmtsMacTable_DocsIfCmtsMacEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -1535,6 +1561,7 @@ func (docsIfCmtsMacEntry *DOCSIFMIB_DocsIfCmtsMacTable_DocsIfCmtsMacEntry) GetEn
     docsIfCmtsMacEntry.EntityData.BundleName = "cisco_ios_xe"
     docsIfCmtsMacEntry.EntityData.ParentYangName = "docsIfCmtsMacTable"
     docsIfCmtsMacEntry.EntityData.SegmentPath = "docsIfCmtsMacEntry" + types.AddKeyToken(docsIfCmtsMacEntry.IfIndex, "ifIndex")
+    docsIfCmtsMacEntry.EntityData.AbsolutePath = "DOCS-IF-MIB:DOCS-IF-MIB/docsIfCmtsMacTable/" + docsIfCmtsMacEntry.EntityData.SegmentPath
     docsIfCmtsMacEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIfCmtsMacEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIfCmtsMacEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1575,6 +1602,7 @@ func (docsIfCmtsStatusTable *DOCSIFMIB_DocsIfCmtsStatusTable) GetEntityData() *t
     docsIfCmtsStatusTable.EntityData.BundleName = "cisco_ios_xe"
     docsIfCmtsStatusTable.EntityData.ParentYangName = "DOCS-IF-MIB"
     docsIfCmtsStatusTable.EntityData.SegmentPath = "docsIfCmtsStatusTable"
+    docsIfCmtsStatusTable.EntityData.AbsolutePath = "DOCS-IF-MIB:DOCS-IF-MIB/" + docsIfCmtsStatusTable.EntityData.SegmentPath
     docsIfCmtsStatusTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIfCmtsStatusTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIfCmtsStatusTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1598,6 +1626,7 @@ func (docsIfCmtsStatusTable *DOCSIFMIB_DocsIfCmtsStatusTable) GetEntityData() *t
 type DOCSIFMIB_DocsIfCmtsStatusTable_DocsIfCmtsStatusEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -1636,6 +1665,7 @@ func (docsIfCmtsStatusEntry *DOCSIFMIB_DocsIfCmtsStatusTable_DocsIfCmtsStatusEnt
     docsIfCmtsStatusEntry.EntityData.BundleName = "cisco_ios_xe"
     docsIfCmtsStatusEntry.EntityData.ParentYangName = "docsIfCmtsStatusTable"
     docsIfCmtsStatusEntry.EntityData.SegmentPath = "docsIfCmtsStatusEntry" + types.AddKeyToken(docsIfCmtsStatusEntry.IfIndex, "ifIndex")
+    docsIfCmtsStatusEntry.EntityData.AbsolutePath = "DOCS-IF-MIB:DOCS-IF-MIB/docsIfCmtsStatusTable/" + docsIfCmtsStatusEntry.EntityData.SegmentPath
     docsIfCmtsStatusEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIfCmtsStatusEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIfCmtsStatusEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1675,6 +1705,7 @@ func (docsIfCmtsCmStatusTable *DOCSIFMIB_DocsIfCmtsCmStatusTable) GetEntityData(
     docsIfCmtsCmStatusTable.EntityData.BundleName = "cisco_ios_xe"
     docsIfCmtsCmStatusTable.EntityData.ParentYangName = "DOCS-IF-MIB"
     docsIfCmtsCmStatusTable.EntityData.SegmentPath = "docsIfCmtsCmStatusTable"
+    docsIfCmtsCmStatusTable.EntityData.AbsolutePath = "DOCS-IF-MIB:DOCS-IF-MIB/" + docsIfCmtsCmStatusTable.EntityData.SegmentPath
     docsIfCmtsCmStatusTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIfCmtsCmStatusTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIfCmtsCmStatusTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1698,6 +1729,7 @@ func (docsIfCmtsCmStatusTable *DOCSIFMIB_DocsIfCmtsCmStatusTable) GetEntityData(
 type DOCSIFMIB_DocsIfCmtsCmStatusTable_DocsIfCmtsCmStatusEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Index value to uniquely identify an entry in this
     // table. For an individual Cable Modem, this index value should not change
@@ -1839,6 +1871,7 @@ func (docsIfCmtsCmStatusEntry *DOCSIFMIB_DocsIfCmtsCmStatusTable_DocsIfCmtsCmSta
     docsIfCmtsCmStatusEntry.EntityData.BundleName = "cisco_ios_xe"
     docsIfCmtsCmStatusEntry.EntityData.ParentYangName = "docsIfCmtsCmStatusTable"
     docsIfCmtsCmStatusEntry.EntityData.SegmentPath = "docsIfCmtsCmStatusEntry" + types.AddKeyToken(docsIfCmtsCmStatusEntry.DocsIfCmtsCmStatusIndex, "docsIfCmtsCmStatusIndex")
+    docsIfCmtsCmStatusEntry.EntityData.AbsolutePath = "DOCS-IF-MIB:DOCS-IF-MIB/docsIfCmtsCmStatusTable/" + docsIfCmtsCmStatusEntry.EntityData.SegmentPath
     docsIfCmtsCmStatusEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIfCmtsCmStatusEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIfCmtsCmStatusEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1919,6 +1952,7 @@ func (docsIfCmtsServiceTable *DOCSIFMIB_DocsIfCmtsServiceTable) GetEntityData() 
     docsIfCmtsServiceTable.EntityData.BundleName = "cisco_ios_xe"
     docsIfCmtsServiceTable.EntityData.ParentYangName = "DOCS-IF-MIB"
     docsIfCmtsServiceTable.EntityData.SegmentPath = "docsIfCmtsServiceTable"
+    docsIfCmtsServiceTable.EntityData.AbsolutePath = "DOCS-IF-MIB:DOCS-IF-MIB/" + docsIfCmtsServiceTable.EntityData.SegmentPath
     docsIfCmtsServiceTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIfCmtsServiceTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIfCmtsServiceTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1947,6 +1981,7 @@ func (docsIfCmtsServiceTable *DOCSIFMIB_DocsIfCmtsServiceTable) GetEntityData() 
 type DOCSIFMIB_DocsIfCmtsServiceTable_DocsIfCmtsServiceEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -2005,6 +2040,7 @@ func (docsIfCmtsServiceEntry *DOCSIFMIB_DocsIfCmtsServiceTable_DocsIfCmtsService
     docsIfCmtsServiceEntry.EntityData.BundleName = "cisco_ios_xe"
     docsIfCmtsServiceEntry.EntityData.ParentYangName = "docsIfCmtsServiceTable"
     docsIfCmtsServiceEntry.EntityData.SegmentPath = "docsIfCmtsServiceEntry" + types.AddKeyToken(docsIfCmtsServiceEntry.IfIndex, "ifIndex") + types.AddKeyToken(docsIfCmtsServiceEntry.DocsIfCmtsServiceId, "docsIfCmtsServiceId")
+    docsIfCmtsServiceEntry.EntityData.AbsolutePath = "DOCS-IF-MIB:DOCS-IF-MIB/docsIfCmtsServiceTable/" + docsIfCmtsServiceEntry.EntityData.SegmentPath
     docsIfCmtsServiceEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIfCmtsServiceEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIfCmtsServiceEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2062,6 +2098,7 @@ func (docsIfCmtsModulationTable *DOCSIFMIB_DocsIfCmtsModulationTable) GetEntityD
     docsIfCmtsModulationTable.EntityData.BundleName = "cisco_ios_xe"
     docsIfCmtsModulationTable.EntityData.ParentYangName = "DOCS-IF-MIB"
     docsIfCmtsModulationTable.EntityData.SegmentPath = "docsIfCmtsModulationTable"
+    docsIfCmtsModulationTable.EntityData.AbsolutePath = "DOCS-IF-MIB:DOCS-IF-MIB/" + docsIfCmtsModulationTable.EntityData.SegmentPath
     docsIfCmtsModulationTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIfCmtsModulationTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIfCmtsModulationTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2093,6 +2130,7 @@ func (docsIfCmtsModulationTable *DOCSIFMIB_DocsIfCmtsModulationTable) GetEntityD
 type DOCSIFMIB_DocsIfCmtsModulationTable_DocsIfCmtsModulationEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. An index into the Channel Modulation table
     // representing a group of Interval Usage Codes, all associated with the same
@@ -2198,6 +2236,7 @@ func (docsIfCmtsModulationEntry *DOCSIFMIB_DocsIfCmtsModulationTable_DocsIfCmtsM
     docsIfCmtsModulationEntry.EntityData.BundleName = "cisco_ios_xe"
     docsIfCmtsModulationEntry.EntityData.ParentYangName = "docsIfCmtsModulationTable"
     docsIfCmtsModulationEntry.EntityData.SegmentPath = "docsIfCmtsModulationEntry" + types.AddKeyToken(docsIfCmtsModulationEntry.DocsIfCmtsModIndex, "docsIfCmtsModIndex") + types.AddKeyToken(docsIfCmtsModulationEntry.DocsIfCmtsModIntervalUsageCode, "docsIfCmtsModIntervalUsageCode")
+    docsIfCmtsModulationEntry.EntityData.AbsolutePath = "DOCS-IF-MIB:DOCS-IF-MIB/docsIfCmtsModulationTable/" + docsIfCmtsModulationEntry.EntityData.SegmentPath
     docsIfCmtsModulationEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIfCmtsModulationEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIfCmtsModulationEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2308,6 +2347,7 @@ func (docsIfCmtsMacToCmTable *DOCSIFMIB_DocsIfCmtsMacToCmTable) GetEntityData() 
     docsIfCmtsMacToCmTable.EntityData.BundleName = "cisco_ios_xe"
     docsIfCmtsMacToCmTable.EntityData.ParentYangName = "DOCS-IF-MIB"
     docsIfCmtsMacToCmTable.EntityData.SegmentPath = "docsIfCmtsMacToCmTable"
+    docsIfCmtsMacToCmTable.EntityData.AbsolutePath = "DOCS-IF-MIB:DOCS-IF-MIB/" + docsIfCmtsMacToCmTable.EntityData.SegmentPath
     docsIfCmtsMacToCmTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIfCmtsMacToCmTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIfCmtsMacToCmTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2331,6 +2371,7 @@ func (docsIfCmtsMacToCmTable *DOCSIFMIB_DocsIfCmtsMacToCmTable) GetEntityData() 
 type DOCSIFMIB_DocsIfCmtsMacToCmTable_DocsIfCmtsMacToCmEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The RF side MAC address for the referenced CM.
     // (E.g. the interface on the CM that has docsCableMacLayer(127) as its
@@ -2351,6 +2392,7 @@ func (docsIfCmtsMacToCmEntry *DOCSIFMIB_DocsIfCmtsMacToCmTable_DocsIfCmtsMacToCm
     docsIfCmtsMacToCmEntry.EntityData.BundleName = "cisco_ios_xe"
     docsIfCmtsMacToCmEntry.EntityData.ParentYangName = "docsIfCmtsMacToCmTable"
     docsIfCmtsMacToCmEntry.EntityData.SegmentPath = "docsIfCmtsMacToCmEntry" + types.AddKeyToken(docsIfCmtsMacToCmEntry.DocsIfCmtsCmMac, "docsIfCmtsCmMac")
+    docsIfCmtsMacToCmEntry.EntityData.AbsolutePath = "DOCS-IF-MIB:DOCS-IF-MIB/docsIfCmtsMacToCmTable/" + docsIfCmtsMacToCmEntry.EntityData.SegmentPath
     docsIfCmtsMacToCmEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIfCmtsMacToCmEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIfCmtsMacToCmEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2386,6 +2428,7 @@ func (docsIfCmtsChannelUtilizationTable *DOCSIFMIB_DocsIfCmtsChannelUtilizationT
     docsIfCmtsChannelUtilizationTable.EntityData.BundleName = "cisco_ios_xe"
     docsIfCmtsChannelUtilizationTable.EntityData.ParentYangName = "DOCS-IF-MIB"
     docsIfCmtsChannelUtilizationTable.EntityData.SegmentPath = "docsIfCmtsChannelUtilizationTable"
+    docsIfCmtsChannelUtilizationTable.EntityData.AbsolutePath = "DOCS-IF-MIB:DOCS-IF-MIB/" + docsIfCmtsChannelUtilizationTable.EntityData.SegmentPath
     docsIfCmtsChannelUtilizationTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIfCmtsChannelUtilizationTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIfCmtsChannelUtilizationTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2410,6 +2453,7 @@ func (docsIfCmtsChannelUtilizationTable *DOCSIFMIB_DocsIfCmtsChannelUtilizationT
 type DOCSIFMIB_DocsIfCmtsChannelUtilizationTable_DocsIfCmtsChannelUtilizationEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -2471,6 +2515,7 @@ func (docsIfCmtsChannelUtilizationEntry *DOCSIFMIB_DocsIfCmtsChannelUtilizationT
     docsIfCmtsChannelUtilizationEntry.EntityData.BundleName = "cisco_ios_xe"
     docsIfCmtsChannelUtilizationEntry.EntityData.ParentYangName = "docsIfCmtsChannelUtilizationTable"
     docsIfCmtsChannelUtilizationEntry.EntityData.SegmentPath = "docsIfCmtsChannelUtilizationEntry" + types.AddKeyToken(docsIfCmtsChannelUtilizationEntry.IfIndex, "ifIndex") + types.AddKeyToken(docsIfCmtsChannelUtilizationEntry.DocsIfCmtsChannelUtIfType, "docsIfCmtsChannelUtIfType") + types.AddKeyToken(docsIfCmtsChannelUtilizationEntry.DocsIfCmtsChannelUtId, "docsIfCmtsChannelUtId")
+    docsIfCmtsChannelUtilizationEntry.EntityData.AbsolutePath = "DOCS-IF-MIB:DOCS-IF-MIB/docsIfCmtsChannelUtilizationTable/" + docsIfCmtsChannelUtilizationEntry.EntityData.SegmentPath
     docsIfCmtsChannelUtilizationEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIfCmtsChannelUtilizationEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIfCmtsChannelUtilizationEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2507,6 +2552,7 @@ func (docsIfCmtsDownChannelCounterTable *DOCSIFMIB_DocsIfCmtsDownChannelCounterT
     docsIfCmtsDownChannelCounterTable.EntityData.BundleName = "cisco_ios_xe"
     docsIfCmtsDownChannelCounterTable.EntityData.ParentYangName = "DOCS-IF-MIB"
     docsIfCmtsDownChannelCounterTable.EntityData.SegmentPath = "docsIfCmtsDownChannelCounterTable"
+    docsIfCmtsDownChannelCounterTable.EntityData.AbsolutePath = "DOCS-IF-MIB:DOCS-IF-MIB/" + docsIfCmtsDownChannelCounterTable.EntityData.SegmentPath
     docsIfCmtsDownChannelCounterTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIfCmtsDownChannelCounterTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIfCmtsDownChannelCounterTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2531,6 +2577,7 @@ func (docsIfCmtsDownChannelCounterTable *DOCSIFMIB_DocsIfCmtsDownChannelCounterT
 type DOCSIFMIB_DocsIfCmtsDownChannelCounterTable_DocsIfCmtsDownChannelCounterEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -2584,6 +2631,7 @@ func (docsIfCmtsDownChannelCounterEntry *DOCSIFMIB_DocsIfCmtsDownChannelCounterT
     docsIfCmtsDownChannelCounterEntry.EntityData.BundleName = "cisco_ios_xe"
     docsIfCmtsDownChannelCounterEntry.EntityData.ParentYangName = "docsIfCmtsDownChannelCounterTable"
     docsIfCmtsDownChannelCounterEntry.EntityData.SegmentPath = "docsIfCmtsDownChannelCounterEntry" + types.AddKeyToken(docsIfCmtsDownChannelCounterEntry.IfIndex, "ifIndex")
+    docsIfCmtsDownChannelCounterEntry.EntityData.AbsolutePath = "DOCS-IF-MIB:DOCS-IF-MIB/docsIfCmtsDownChannelCounterTable/" + docsIfCmtsDownChannelCounterEntry.EntityData.SegmentPath
     docsIfCmtsDownChannelCounterEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIfCmtsDownChannelCounterEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIfCmtsDownChannelCounterEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2625,6 +2673,7 @@ func (docsIfCmtsUpChannelCounterTable *DOCSIFMIB_DocsIfCmtsUpChannelCounterTable
     docsIfCmtsUpChannelCounterTable.EntityData.BundleName = "cisco_ios_xe"
     docsIfCmtsUpChannelCounterTable.EntityData.ParentYangName = "DOCS-IF-MIB"
     docsIfCmtsUpChannelCounterTable.EntityData.SegmentPath = "docsIfCmtsUpChannelCounterTable"
+    docsIfCmtsUpChannelCounterTable.EntityData.AbsolutePath = "DOCS-IF-MIB:DOCS-IF-MIB/" + docsIfCmtsUpChannelCounterTable.EntityData.SegmentPath
     docsIfCmtsUpChannelCounterTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIfCmtsUpChannelCounterTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIfCmtsUpChannelCounterTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2650,6 +2699,7 @@ func (docsIfCmtsUpChannelCounterTable *DOCSIFMIB_DocsIfCmtsUpChannelCounterTable
 type DOCSIFMIB_DocsIfCmtsUpChannelCounterTable_DocsIfCmtsUpChannelCounterEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -2933,6 +2983,7 @@ func (docsIfCmtsUpChannelCounterEntry *DOCSIFMIB_DocsIfCmtsUpChannelCounterTable
     docsIfCmtsUpChannelCounterEntry.EntityData.BundleName = "cisco_ios_xe"
     docsIfCmtsUpChannelCounterEntry.EntityData.ParentYangName = "docsIfCmtsUpChannelCounterTable"
     docsIfCmtsUpChannelCounterEntry.EntityData.SegmentPath = "docsIfCmtsUpChannelCounterEntry" + types.AddKeyToken(docsIfCmtsUpChannelCounterEntry.IfIndex, "ifIndex")
+    docsIfCmtsUpChannelCounterEntry.EntityData.AbsolutePath = "DOCS-IF-MIB:DOCS-IF-MIB/docsIfCmtsUpChannelCounterTable/" + docsIfCmtsUpChannelCounterEntry.EntityData.SegmentPath
     docsIfCmtsUpChannelCounterEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIfCmtsUpChannelCounterEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIfCmtsUpChannelCounterEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

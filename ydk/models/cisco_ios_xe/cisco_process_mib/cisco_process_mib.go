@@ -71,6 +71,7 @@ func (cISCOPROCESSMIB *CISCOPROCESSMIB) GetEntityData() *types.CommonEntityData 
     cISCOPROCESSMIB.EntityData.BundleName = "cisco_ios_xe"
     cISCOPROCESSMIB.EntityData.ParentYangName = "CISCO-PROCESS-MIB"
     cISCOPROCESSMIB.EntityData.SegmentPath = "CISCO-PROCESS-MIB:CISCO-PROCESS-MIB"
+    cISCOPROCESSMIB.EntityData.AbsolutePath = cISCOPROCESSMIB.EntityData.SegmentPath
     cISCOPROCESSMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cISCOPROCESSMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOPROCESSMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -120,6 +121,7 @@ func (cpmCPUHistory *CISCOPROCESSMIB_CpmCPUHistory) GetEntityData() *types.Commo
     cpmCPUHistory.EntityData.BundleName = "cisco_ios_xe"
     cpmCPUHistory.EntityData.ParentYangName = "CISCO-PROCESS-MIB"
     cpmCPUHistory.EntityData.SegmentPath = "cpmCPUHistory"
+    cpmCPUHistory.EntityData.AbsolutePath = "CISCO-PROCESS-MIB:CISCO-PROCESS-MIB/" + cpmCPUHistory.EntityData.SegmentPath
     cpmCPUHistory.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cpmCPUHistory.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cpmCPUHistory.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -152,6 +154,7 @@ func (cpmCPUTotalTable *CISCOPROCESSMIB_CpmCPUTotalTable) GetEntityData() *types
     cpmCPUTotalTable.EntityData.BundleName = "cisco_ios_xe"
     cpmCPUTotalTable.EntityData.ParentYangName = "CISCO-PROCESS-MIB"
     cpmCPUTotalTable.EntityData.SegmentPath = "cpmCPUTotalTable"
+    cpmCPUTotalTable.EntityData.AbsolutePath = "CISCO-PROCESS-MIB:CISCO-PROCESS-MIB/" + cpmCPUTotalTable.EntityData.SegmentPath
     cpmCPUTotalTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cpmCPUTotalTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cpmCPUTotalTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -175,6 +178,7 @@ func (cpmCPUTotalTable *CISCOPROCESSMIB_CpmCPUTotalTable) GetEntityData() *types
 type CISCOPROCESSMIB_CpmCPUTotalTable_CpmCPUTotalEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. An index that uniquely represents a CPU (or group
     // of CPUs) whose CPU load information is reported by a row in this table.
@@ -335,6 +339,7 @@ func (cpmCPUTotalEntry *CISCOPROCESSMIB_CpmCPUTotalTable_CpmCPUTotalEntry) GetEn
     cpmCPUTotalEntry.EntityData.BundleName = "cisco_ios_xe"
     cpmCPUTotalEntry.EntityData.ParentYangName = "cpmCPUTotalTable"
     cpmCPUTotalEntry.EntityData.SegmentPath = "cpmCPUTotalEntry" + types.AddKeyToken(cpmCPUTotalEntry.CpmCPUTotalIndex, "cpmCPUTotalIndex")
+    cpmCPUTotalEntry.EntityData.AbsolutePath = "CISCO-PROCESS-MIB:CISCO-PROCESS-MIB/cpmCPUTotalTable/" + cpmCPUTotalEntry.EntityData.SegmentPath
     cpmCPUTotalEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cpmCPUTotalEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cpmCPUTotalEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -394,6 +399,7 @@ func (cpmCoreTable *CISCOPROCESSMIB_CpmCoreTable) GetEntityData() *types.CommonE
     cpmCoreTable.EntityData.BundleName = "cisco_ios_xe"
     cpmCoreTable.EntityData.ParentYangName = "CISCO-PROCESS-MIB"
     cpmCoreTable.EntityData.SegmentPath = "cpmCoreTable"
+    cpmCoreTable.EntityData.AbsolutePath = "CISCO-PROCESS-MIB:CISCO-PROCESS-MIB/" + cpmCoreTable.EntityData.SegmentPath
     cpmCoreTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cpmCoreTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cpmCoreTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -416,6 +422,7 @@ func (cpmCoreTable *CISCOPROCESSMIB_CpmCoreTable) GetEntityData() *types.CommonE
 type CISCOPROCESSMIB_CpmCoreTable_CpmCoreEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..4294967295.
     // Refers to
@@ -469,6 +476,7 @@ func (cpmCoreEntry *CISCOPROCESSMIB_CpmCoreTable_CpmCoreEntry) GetEntityData() *
     cpmCoreEntry.EntityData.BundleName = "cisco_ios_xe"
     cpmCoreEntry.EntityData.ParentYangName = "cpmCoreTable"
     cpmCoreEntry.EntityData.SegmentPath = "cpmCoreEntry" + types.AddKeyToken(cpmCoreEntry.CpmCPUTotalIndex, "cpmCPUTotalIndex") + types.AddKeyToken(cpmCoreEntry.CpmCoreIndex, "cpmCoreIndex")
+    cpmCoreEntry.EntityData.AbsolutePath = "CISCO-PROCESS-MIB:CISCO-PROCESS-MIB/cpmCoreTable/" + cpmCoreEntry.EntityData.SegmentPath
     cpmCoreEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cpmCoreEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cpmCoreEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -509,6 +517,7 @@ func (cpmProcessTable *CISCOPROCESSMIB_CpmProcessTable) GetEntityData() *types.C
     cpmProcessTable.EntityData.BundleName = "cisco_ios_xe"
     cpmProcessTable.EntityData.ParentYangName = "CISCO-PROCESS-MIB"
     cpmProcessTable.EntityData.SegmentPath = "cpmProcessTable"
+    cpmProcessTable.EntityData.AbsolutePath = "CISCO-PROCESS-MIB:CISCO-PROCESS-MIB/" + cpmProcessTable.EntityData.SegmentPath
     cpmProcessTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cpmProcessTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cpmProcessTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -532,6 +541,7 @@ func (cpmProcessTable *CISCOPROCESSMIB_CpmProcessTable) GetEntityData() *types.C
 type CISCOPROCESSMIB_CpmProcessTable_CpmProcessEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..4294967295.
     // Refers to
@@ -622,6 +632,7 @@ func (cpmProcessEntry *CISCOPROCESSMIB_CpmProcessTable_CpmProcessEntry) GetEntit
     cpmProcessEntry.EntityData.BundleName = "cisco_ios_xe"
     cpmProcessEntry.EntityData.ParentYangName = "cpmProcessTable"
     cpmProcessEntry.EntityData.SegmentPath = "cpmProcessEntry" + types.AddKeyToken(cpmProcessEntry.CpmCPUTotalIndex, "cpmCPUTotalIndex") + types.AddKeyToken(cpmProcessEntry.CpmProcessPID, "cpmProcessPID")
+    cpmProcessEntry.EntityData.AbsolutePath = "CISCO-PROCESS-MIB:CISCO-PROCESS-MIB/cpmProcessTable/" + cpmProcessEntry.EntityData.SegmentPath
     cpmProcessEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cpmProcessEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cpmProcessEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -685,6 +696,7 @@ func (cpmProcessExtRevTable *CISCOPROCESSMIB_CpmProcessExtRevTable) GetEntityDat
     cpmProcessExtRevTable.EntityData.BundleName = "cisco_ios_xe"
     cpmProcessExtRevTable.EntityData.ParentYangName = "CISCO-PROCESS-MIB"
     cpmProcessExtRevTable.EntityData.SegmentPath = "cpmProcessExtRevTable"
+    cpmProcessExtRevTable.EntityData.AbsolutePath = "CISCO-PROCESS-MIB:CISCO-PROCESS-MIB/" + cpmProcessExtRevTable.EntityData.SegmentPath
     cpmProcessExtRevTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cpmProcessExtRevTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cpmProcessExtRevTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -708,6 +720,7 @@ func (cpmProcessExtRevTable *CISCOPROCESSMIB_CpmProcessExtRevTable) GetEntityDat
 type CISCOPROCESSMIB_CpmProcessExtRevTable_CpmProcessExtRevEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..4294967295.
     // Refers to
@@ -893,6 +906,7 @@ func (cpmProcessExtRevEntry *CISCOPROCESSMIB_CpmProcessExtRevTable_CpmProcessExt
     cpmProcessExtRevEntry.EntityData.BundleName = "cisco_ios_xe"
     cpmProcessExtRevEntry.EntityData.ParentYangName = "cpmProcessExtRevTable"
     cpmProcessExtRevEntry.EntityData.SegmentPath = "cpmProcessExtRevEntry" + types.AddKeyToken(cpmProcessExtRevEntry.CpmCPUTotalIndex, "cpmCPUTotalIndex") + types.AddKeyToken(cpmProcessExtRevEntry.CpmProcessPID, "cpmProcessPID")
+    cpmProcessExtRevEntry.EntityData.AbsolutePath = "CISCO-PROCESS-MIB:CISCO-PROCESS-MIB/cpmProcessExtRevTable/" + cpmProcessExtRevEntry.EntityData.SegmentPath
     cpmProcessExtRevEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cpmProcessExtRevEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cpmProcessExtRevEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1008,6 +1022,7 @@ func (cpmCPUThresholdTable *CISCOPROCESSMIB_CpmCPUThresholdTable) GetEntityData(
     cpmCPUThresholdTable.EntityData.BundleName = "cisco_ios_xe"
     cpmCPUThresholdTable.EntityData.ParentYangName = "CISCO-PROCESS-MIB"
     cpmCPUThresholdTable.EntityData.SegmentPath = "cpmCPUThresholdTable"
+    cpmCPUThresholdTable.EntityData.AbsolutePath = "CISCO-PROCESS-MIB:CISCO-PROCESS-MIB/" + cpmCPUThresholdTable.EntityData.SegmentPath
     cpmCPUThresholdTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cpmCPUThresholdTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cpmCPUThresholdTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1032,6 +1047,7 @@ func (cpmCPUThresholdTable *CISCOPROCESSMIB_CpmCPUThresholdTable) GetEntityData(
 type CISCOPROCESSMIB_CpmCPUThresholdTable_CpmCPUThresholdEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..4294967295.
     // Refers to
@@ -1081,6 +1097,7 @@ func (cpmCPUThresholdEntry *CISCOPROCESSMIB_CpmCPUThresholdTable_CpmCPUThreshold
     cpmCPUThresholdEntry.EntityData.BundleName = "cisco_ios_xe"
     cpmCPUThresholdEntry.EntityData.ParentYangName = "cpmCPUThresholdTable"
     cpmCPUThresholdEntry.EntityData.SegmentPath = "cpmCPUThresholdEntry" + types.AddKeyToken(cpmCPUThresholdEntry.CpmCPUTotalIndex, "cpmCPUTotalIndex") + types.AddKeyToken(cpmCPUThresholdEntry.CpmCPUThresholdClass, "cpmCPUThresholdClass")
+    cpmCPUThresholdEntry.EntityData.AbsolutePath = "CISCO-PROCESS-MIB:CISCO-PROCESS-MIB/cpmCPUThresholdTable/" + cpmCPUThresholdEntry.EntityData.SegmentPath
     cpmCPUThresholdEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cpmCPUThresholdEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cpmCPUThresholdEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1130,6 +1147,7 @@ func (cpmCPUHistoryTable *CISCOPROCESSMIB_CpmCPUHistoryTable) GetEntityData() *t
     cpmCPUHistoryTable.EntityData.BundleName = "cisco_ios_xe"
     cpmCPUHistoryTable.EntityData.ParentYangName = "CISCO-PROCESS-MIB"
     cpmCPUHistoryTable.EntityData.SegmentPath = "cpmCPUHistoryTable"
+    cpmCPUHistoryTable.EntityData.AbsolutePath = "CISCO-PROCESS-MIB:CISCO-PROCESS-MIB/" + cpmCPUHistoryTable.EntityData.SegmentPath
     cpmCPUHistoryTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cpmCPUHistoryTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cpmCPUHistoryTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1155,6 +1173,7 @@ func (cpmCPUHistoryTable *CISCOPROCESSMIB_CpmCPUHistoryTable) GetEntityData() *t
 type CISCOPROCESSMIB_CpmCPUHistoryTable_CpmCPUHistoryEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..4294967295.
     // Refers to
@@ -1195,6 +1214,7 @@ func (cpmCPUHistoryEntry *CISCOPROCESSMIB_CpmCPUHistoryTable_CpmCPUHistoryEntry)
     cpmCPUHistoryEntry.EntityData.BundleName = "cisco_ios_xe"
     cpmCPUHistoryEntry.EntityData.ParentYangName = "cpmCPUHistoryTable"
     cpmCPUHistoryEntry.EntityData.SegmentPath = "cpmCPUHistoryEntry" + types.AddKeyToken(cpmCPUHistoryEntry.CpmCPUTotalIndex, "cpmCPUTotalIndex") + types.AddKeyToken(cpmCPUHistoryEntry.CpmCPUHistoryReportId, "cpmCPUHistoryReportId")
+    cpmCPUHistoryEntry.EntityData.AbsolutePath = "CISCO-PROCESS-MIB:CISCO-PROCESS-MIB/cpmCPUHistoryTable/" + cpmCPUHistoryEntry.EntityData.SegmentPath
     cpmCPUHistoryEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cpmCPUHistoryEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cpmCPUHistoryEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1235,6 +1255,7 @@ func (cpmCPUProcessHistoryTable *CISCOPROCESSMIB_CpmCPUProcessHistoryTable) GetE
     cpmCPUProcessHistoryTable.EntityData.BundleName = "cisco_ios_xe"
     cpmCPUProcessHistoryTable.EntityData.ParentYangName = "CISCO-PROCESS-MIB"
     cpmCPUProcessHistoryTable.EntityData.SegmentPath = "cpmCPUProcessHistoryTable"
+    cpmCPUProcessHistoryTable.EntityData.AbsolutePath = "CISCO-PROCESS-MIB:CISCO-PROCESS-MIB/" + cpmCPUProcessHistoryTable.EntityData.SegmentPath
     cpmCPUProcessHistoryTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cpmCPUProcessHistoryTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cpmCPUProcessHistoryTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1261,6 +1282,7 @@ func (cpmCPUProcessHistoryTable *CISCOPROCESSMIB_CpmCPUProcessHistoryTable) GetE
 type CISCOPROCESSMIB_CpmCPUProcessHistoryTable_CpmCPUProcessHistoryEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..4294967295.
     // Refers to
@@ -1301,6 +1323,7 @@ func (cpmCPUProcessHistoryEntry *CISCOPROCESSMIB_CpmCPUProcessHistoryTable_CpmCP
     cpmCPUProcessHistoryEntry.EntityData.BundleName = "cisco_ios_xe"
     cpmCPUProcessHistoryEntry.EntityData.ParentYangName = "cpmCPUProcessHistoryTable"
     cpmCPUProcessHistoryEntry.EntityData.SegmentPath = "cpmCPUProcessHistoryEntry" + types.AddKeyToken(cpmCPUProcessHistoryEntry.CpmCPUTotalIndex, "cpmCPUTotalIndex") + types.AddKeyToken(cpmCPUProcessHistoryEntry.CpmCPUHistoryReportId, "cpmCPUHistoryReportId") + types.AddKeyToken(cpmCPUProcessHistoryEntry.CpmCPUProcessHistoryIndex, "cpmCPUProcessHistoryIndex")
+    cpmCPUProcessHistoryEntry.EntityData.AbsolutePath = "CISCO-PROCESS-MIB:CISCO-PROCESS-MIB/cpmCPUProcessHistoryTable/" + cpmCPUProcessHistoryEntry.EntityData.SegmentPath
     cpmCPUProcessHistoryEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cpmCPUProcessHistoryEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cpmCPUProcessHistoryEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1338,6 +1361,7 @@ func (cpmThreadTable *CISCOPROCESSMIB_CpmThreadTable) GetEntityData() *types.Com
     cpmThreadTable.EntityData.BundleName = "cisco_ios_xe"
     cpmThreadTable.EntityData.ParentYangName = "CISCO-PROCESS-MIB"
     cpmThreadTable.EntityData.SegmentPath = "cpmThreadTable"
+    cpmThreadTable.EntityData.AbsolutePath = "CISCO-PROCESS-MIB:CISCO-PROCESS-MIB/" + cpmThreadTable.EntityData.SegmentPath
     cpmThreadTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cpmThreadTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cpmThreadTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1360,6 +1384,7 @@ func (cpmThreadTable *CISCOPROCESSMIB_CpmThreadTable) GetEntityData() *types.Com
 type CISCOPROCESSMIB_CpmThreadTable_CpmThreadEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..4294967295.
     // Refers to
@@ -1441,6 +1466,7 @@ func (cpmThreadEntry *CISCOPROCESSMIB_CpmThreadTable_CpmThreadEntry) GetEntityDa
     cpmThreadEntry.EntityData.BundleName = "cisco_ios_xe"
     cpmThreadEntry.EntityData.ParentYangName = "cpmThreadTable"
     cpmThreadEntry.EntityData.SegmentPath = "cpmThreadEntry" + types.AddKeyToken(cpmThreadEntry.CpmCPUTotalIndex, "cpmCPUTotalIndex") + types.AddKeyToken(cpmThreadEntry.CpmProcessPID, "cpmProcessPID") + types.AddKeyToken(cpmThreadEntry.CpmThreadID, "cpmThreadID")
+    cpmThreadEntry.EntityData.AbsolutePath = "CISCO-PROCESS-MIB:CISCO-PROCESS-MIB/cpmThreadTable/" + cpmThreadEntry.EntityData.SegmentPath
     cpmThreadEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cpmThreadEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cpmThreadEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1524,6 +1550,7 @@ func (cpmVirtualProcessTable *CISCOPROCESSMIB_CpmVirtualProcessTable) GetEntityD
     cpmVirtualProcessTable.EntityData.BundleName = "cisco_ios_xe"
     cpmVirtualProcessTable.EntityData.ParentYangName = "CISCO-PROCESS-MIB"
     cpmVirtualProcessTable.EntityData.SegmentPath = "cpmVirtualProcessTable"
+    cpmVirtualProcessTable.EntityData.AbsolutePath = "CISCO-PROCESS-MIB:CISCO-PROCESS-MIB/" + cpmVirtualProcessTable.EntityData.SegmentPath
     cpmVirtualProcessTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cpmVirtualProcessTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cpmVirtualProcessTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1546,6 +1573,7 @@ func (cpmVirtualProcessTable *CISCOPROCESSMIB_CpmVirtualProcessTable) GetEntityD
 type CISCOPROCESSMIB_CpmVirtualProcessTable_CpmVirtualProcessEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..4294967295.
     // Refers to
@@ -1635,6 +1663,7 @@ func (cpmVirtualProcessEntry *CISCOPROCESSMIB_CpmVirtualProcessTable_CpmVirtualP
     cpmVirtualProcessEntry.EntityData.BundleName = "cisco_ios_xe"
     cpmVirtualProcessEntry.EntityData.ParentYangName = "cpmVirtualProcessTable"
     cpmVirtualProcessEntry.EntityData.SegmentPath = "cpmVirtualProcessEntry" + types.AddKeyToken(cpmVirtualProcessEntry.CpmCPUTotalIndex, "cpmCPUTotalIndex") + types.AddKeyToken(cpmVirtualProcessEntry.CpmProcessPID, "cpmProcessPID") + types.AddKeyToken(cpmVirtualProcessEntry.CpmVirtualProcessID, "cpmVirtualProcessID")
+    cpmVirtualProcessEntry.EntityData.AbsolutePath = "CISCO-PROCESS-MIB:CISCO-PROCESS-MIB/cpmVirtualProcessTable/" + cpmVirtualProcessEntry.EntityData.SegmentPath
     cpmVirtualProcessEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cpmVirtualProcessEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cpmVirtualProcessEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

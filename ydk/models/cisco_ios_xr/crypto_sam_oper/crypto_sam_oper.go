@@ -172,6 +172,7 @@ func (sam *Sam) GetEntityData() *types.CommonEntityData {
     sam.EntityData.BundleName = "cisco_ios_xr"
     sam.EntityData.ParentYangName = "Cisco-IOS-XR-crypto-sam-oper"
     sam.EntityData.SegmentPath = "Cisco-IOS-XR-crypto-sam-oper:sam"
+    sam.EntityData.AbsolutePath = sam.EntityData.SegmentPath
     sam.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sam.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sam.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -213,6 +214,7 @@ func (systemInformation *Sam_SystemInformation) GetEntityData() *types.CommonEnt
     systemInformation.EntityData.BundleName = "cisco_ios_xr"
     systemInformation.EntityData.ParentYangName = "sam"
     systemInformation.EntityData.SegmentPath = "system-information"
+    systemInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-sam-oper:sam/" + systemInformation.EntityData.SegmentPath
     systemInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     systemInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     systemInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -245,6 +247,7 @@ func (logContents *Sam_LogContents) GetEntityData() *types.CommonEntityData {
     logContents.EntityData.BundleName = "cisco_ios_xr"
     logContents.EntityData.ParentYangName = "sam"
     logContents.EntityData.SegmentPath = "log-contents"
+    logContents.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-sam-oper:sam/" + logContents.EntityData.SegmentPath
     logContents.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     logContents.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     logContents.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -266,6 +269,7 @@ func (logContents *Sam_LogContents) GetEntityData() *types.CommonEntityData {
 type Sam_LogContents_LogContent struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Number of lines. The type is interface{} with
     // range: 0..4294967295.
@@ -288,6 +292,7 @@ func (logContent *Sam_LogContents_LogContent) GetEntityData() *types.CommonEntit
     logContent.EntityData.BundleName = "cisco_ios_xr"
     logContent.EntityData.ParentYangName = "log-contents"
     logContent.EntityData.SegmentPath = "log-content" + types.AddKeyToken(logContent.NumberOfLines, "number-of-lines")
+    logContent.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-sam-oper:sam/log-contents/" + logContent.EntityData.SegmentPath
     logContent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     logContent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     logContent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -295,6 +300,7 @@ func (logContent *Sam_LogContents_LogContent) GetEntityData() *types.CommonEntit
     logContent.EntityData.Children = types.NewOrderedMap()
     logContent.EntityData.Children.Append("logs", types.YChild{"Logs", nil})
     for i := range logContent.Logs {
+        types.SetYListKey(logContent.Logs[i], i)
         logContent.EntityData.Children.Append(types.GetSegmentPath(logContent.Logs[i]), types.YChild{"Logs", logContent.Logs[i]})
     }
     logContent.EntityData.Leafs = types.NewOrderedMap()
@@ -312,6 +318,7 @@ func (logContent *Sam_LogContents_LogContent) GetEntityData() *types.CommonEntit
 type Sam_LogContents_LogContent_Logs struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Log time. The type is string.
     Time interface{}
@@ -352,7 +359,8 @@ func (logs *Sam_LogContents_LogContent_Logs) GetEntityData() *types.CommonEntity
     logs.EntityData.YangName = "logs"
     logs.EntityData.BundleName = "cisco_ios_xr"
     logs.EntityData.ParentYangName = "log-content"
-    logs.EntityData.SegmentPath = "logs"
+    logs.EntityData.SegmentPath = "logs" + types.AddNoKeyToken(logs)
+    logs.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-sam-oper:sam/log-contents/log-content/" + logs.EntityData.SegmentPath
     logs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     logs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     logs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -393,6 +401,7 @@ func (devices *Sam_Devices) GetEntityData() *types.CommonEntityData {
     devices.EntityData.BundleName = "cisco_ios_xr"
     devices.EntityData.ParentYangName = "sam"
     devices.EntityData.SegmentPath = "devices"
+    devices.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-sam-oper:sam/" + devices.EntityData.SegmentPath
     devices.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     devices.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     devices.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -414,6 +423,7 @@ func (devices *Sam_Devices) GetEntityData() *types.CommonEntityData {
 type Sam_Devices_Device struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Specify device name. The type is string with
     // pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -429,6 +439,7 @@ func (device *Sam_Devices_Device) GetEntityData() *types.CommonEntityData {
     device.EntityData.BundleName = "cisco_ios_xr"
     device.EntityData.ParentYangName = "devices"
     device.EntityData.SegmentPath = "device" + types.AddKeyToken(device.DeviceName, "device-name")
+    device.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-sam-oper:sam/devices/" + device.EntityData.SegmentPath
     device.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     device.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     device.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -462,6 +473,7 @@ func (certificate *Sam_Devices_Device_Certificate) GetEntityData() *types.Common
     certificate.EntityData.BundleName = "cisco_ios_xr"
     certificate.EntityData.ParentYangName = "device"
     certificate.EntityData.SegmentPath = "certificate"
+    certificate.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-sam-oper:sam/devices/device/" + certificate.EntityData.SegmentPath
     certificate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     certificate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     certificate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -498,6 +510,7 @@ func (brief *Sam_Devices_Device_Certificate_Brief) GetEntityData() *types.Common
     brief.EntityData.BundleName = "cisco_ios_xr"
     brief.EntityData.ParentYangName = "certificate"
     brief.EntityData.SegmentPath = "brief"
+    brief.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-sam-oper:sam/devices/device/certificate/" + brief.EntityData.SegmentPath
     brief.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     brief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     brief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -538,6 +551,7 @@ func (certificateFlags *Sam_Devices_Device_Certificate_Brief_CertificateFlags) G
     certificateFlags.EntityData.BundleName = "cisco_ios_xr"
     certificateFlags.EntityData.ParentYangName = "brief"
     certificateFlags.EntityData.SegmentPath = "certificate-flags"
+    certificateFlags.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-sam-oper:sam/devices/device/certificate/brief/" + certificateFlags.EntityData.SegmentPath
     certificateFlags.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     certificateFlags.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     certificateFlags.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -571,6 +585,7 @@ func (certificateIndexes *Sam_Devices_Device_Certificate_CertificateIndexes) Get
     certificateIndexes.EntityData.BundleName = "cisco_ios_xr"
     certificateIndexes.EntityData.ParentYangName = "certificate"
     certificateIndexes.EntityData.SegmentPath = "certificate-indexes"
+    certificateIndexes.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-sam-oper:sam/devices/device/certificate/" + certificateIndexes.EntityData.SegmentPath
     certificateIndexes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     certificateIndexes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     certificateIndexes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -592,6 +607,7 @@ func (certificateIndexes *Sam_Devices_Device_Certificate_CertificateIndexes) Get
 type Sam_Devices_Device_Certificate_CertificateIndexes_CertificateIndex struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Specify certificate index. The type is interface{}
     // with range: 0..4294967295.
@@ -607,6 +623,7 @@ func (certificateIndex *Sam_Devices_Device_Certificate_CertificateIndexes_Certif
     certificateIndex.EntityData.BundleName = "cisco_ios_xr"
     certificateIndex.EntityData.ParentYangName = "certificate-indexes"
     certificateIndex.EntityData.SegmentPath = "certificate-index" + types.AddKeyToken(certificateIndex.Index, "index")
+    certificateIndex.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-sam-oper:sam/devices/device/certificate/certificate-indexes/" + certificateIndex.EntityData.SegmentPath
     certificateIndex.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     certificateIndex.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     certificateIndex.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -643,6 +660,7 @@ func (detail *Sam_Devices_Device_Certificate_CertificateIndexes_CertificateIndex
     detail.EntityData.BundleName = "cisco_ios_xr"
     detail.EntityData.ParentYangName = "certificate-index"
     detail.EntityData.SegmentPath = "detail"
+    detail.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-sam-oper:sam/devices/device/certificate/certificate-indexes/certificate-index/" + detail.EntityData.SegmentPath
     detail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     detail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     detail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -683,6 +701,7 @@ func (certificateFlags *Sam_Devices_Device_Certificate_CertificateIndexes_Certif
     certificateFlags.EntityData.BundleName = "cisco_ios_xr"
     certificateFlags.EntityData.ParentYangName = "detail"
     certificateFlags.EntityData.SegmentPath = "certificate-flags"
+    certificateFlags.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-sam-oper:sam/devices/device/certificate/certificate-indexes/certificate-index/detail/" + certificateFlags.EntityData.SegmentPath
     certificateFlags.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     certificateFlags.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     certificateFlags.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -716,6 +735,7 @@ func (packages *Sam_Packages) GetEntityData() *types.CommonEntityData {
     packages.EntityData.BundleName = "cisco_ios_xr"
     packages.EntityData.ParentYangName = "sam"
     packages.EntityData.SegmentPath = "packages"
+    packages.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-sam-oper:sam/" + packages.EntityData.SegmentPath
     packages.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     packages.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     packages.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -738,6 +758,7 @@ func (packages *Sam_Packages) GetEntityData() *types.CommonEntityData {
 type Sam_Packages_Package struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Specify package name. The type is string.
     PackageName interface{}
@@ -758,6 +779,7 @@ func (self *Sam_Packages_Package) GetEntityData() *types.CommonEntityData {
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "packages"
     self.EntityData.SegmentPath = "package" + types.AddKeyToken(self.PackageName, "package-name")
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-sam-oper:sam/packages/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -799,6 +821,7 @@ func (certificateFlags *Sam_Packages_Package_CertificateFlags) GetEntityData() *
     certificateFlags.EntityData.BundleName = "cisco_ios_xr"
     certificateFlags.EntityData.ParentYangName = "package"
     certificateFlags.EntityData.SegmentPath = "certificate-flags"
+    certificateFlags.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-sam-oper:sam/packages/package/" + certificateFlags.EntityData.SegmentPath
     certificateFlags.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     certificateFlags.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     certificateFlags.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -833,6 +856,7 @@ func (certificateRevocations *Sam_CertificateRevocations) GetEntityData() *types
     certificateRevocations.EntityData.BundleName = "cisco_ios_xr"
     certificateRevocations.EntityData.ParentYangName = "sam"
     certificateRevocations.EntityData.SegmentPath = "certificate-revocations"
+    certificateRevocations.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-sam-oper:sam/" + certificateRevocations.EntityData.SegmentPath
     certificateRevocations.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     certificateRevocations.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     certificateRevocations.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -854,6 +878,7 @@ func (certificateRevocations *Sam_CertificateRevocations) GetEntityData() *types
 type Sam_CertificateRevocations_CertificateRevocation struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. CRL index. The type is interface{} with range:
     // 0..4294967295.
@@ -869,6 +894,7 @@ func (certificateRevocation *Sam_CertificateRevocations_CertificateRevocation) G
     certificateRevocation.EntityData.BundleName = "cisco_ios_xr"
     certificateRevocation.EntityData.ParentYangName = "certificate-revocations"
     certificateRevocation.EntityData.SegmentPath = "certificate-revocation" + types.AddKeyToken(certificateRevocation.CrlIndex, "crl-index")
+    certificateRevocation.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-sam-oper:sam/certificate-revocations/" + certificateRevocation.EntityData.SegmentPath
     certificateRevocation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     certificateRevocation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     certificateRevocation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -905,6 +931,7 @@ func (certificateRevocationListDetail *Sam_CertificateRevocations_CertificateRev
     certificateRevocationListDetail.EntityData.BundleName = "cisco_ios_xr"
     certificateRevocationListDetail.EntityData.ParentYangName = "certificate-revocation"
     certificateRevocationListDetail.EntityData.SegmentPath = "certificate-revocation-list-detail"
+    certificateRevocationListDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-sam-oper:sam/certificate-revocations/certificate-revocation/" + certificateRevocationListDetail.EntityData.SegmentPath
     certificateRevocationListDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     certificateRevocationListDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     certificateRevocationListDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -942,6 +969,7 @@ func (issuer *Sam_CertificateRevocations_CertificateRevocation_CertificateRevoca
     issuer.EntityData.BundleName = "cisco_ios_xr"
     issuer.EntityData.ParentYangName = "certificate-revocation-list-detail"
     issuer.EntityData.SegmentPath = "issuer"
+    issuer.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-sam-oper:sam/certificate-revocations/certificate-revocation/certificate-revocation-list-detail/" + issuer.EntityData.SegmentPath
     issuer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     issuer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     issuer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -979,6 +1007,7 @@ func (certificateRevocationListSummary *Sam_CertificateRevocationListSummary) Ge
     certificateRevocationListSummary.EntityData.BundleName = "cisco_ios_xr"
     certificateRevocationListSummary.EntityData.ParentYangName = "sam"
     certificateRevocationListSummary.EntityData.SegmentPath = "certificate-revocation-list-summary"
+    certificateRevocationListSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-sam-oper:sam/" + certificateRevocationListSummary.EntityData.SegmentPath
     certificateRevocationListSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     certificateRevocationListSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     certificateRevocationListSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1016,6 +1045,7 @@ func (issuer *Sam_CertificateRevocationListSummary_Issuer) GetEntityData() *type
     issuer.EntityData.BundleName = "cisco_ios_xr"
     issuer.EntityData.ParentYangName = "certificate-revocation-list-summary"
     issuer.EntityData.SegmentPath = "issuer"
+    issuer.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-sam-oper:sam/certificate-revocation-list-summary/" + issuer.EntityData.SegmentPath
     issuer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     issuer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     issuer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

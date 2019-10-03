@@ -69,6 +69,7 @@ func (pOWERETHERNETMIB *POWERETHERNETMIB) GetEntityData() *types.CommonEntityDat
     pOWERETHERNETMIB.EntityData.BundleName = "cisco_ios_xe"
     pOWERETHERNETMIB.EntityData.ParentYangName = "POWER-ETHERNET-MIB"
     pOWERETHERNETMIB.EntityData.SegmentPath = "POWER-ETHERNET-MIB:POWER-ETHERNET-MIB"
+    pOWERETHERNETMIB.EntityData.AbsolutePath = pOWERETHERNETMIB.EntityData.SegmentPath
     pOWERETHERNETMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     pOWERETHERNETMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     pOWERETHERNETMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -107,6 +108,7 @@ func (pethPsePortTable *POWERETHERNETMIB_PethPsePortTable) GetEntityData() *type
     pethPsePortTable.EntityData.BundleName = "cisco_ios_xe"
     pethPsePortTable.EntityData.ParentYangName = "POWER-ETHERNET-MIB"
     pethPsePortTable.EntityData.SegmentPath = "pethPsePortTable"
+    pethPsePortTable.EntityData.AbsolutePath = "POWER-ETHERNET-MIB:POWER-ETHERNET-MIB/" + pethPsePortTable.EntityData.SegmentPath
     pethPsePortTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     pethPsePortTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     pethPsePortTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -129,6 +131,7 @@ func (pethPsePortTable *POWERETHERNETMIB_PethPsePortTable) GetEntityData() *type
 type POWERETHERNETMIB_PethPsePortTable_PethPsePortEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. This variable uniquely identifies the group
     // containing the port to which a power Ethernet PSE is connected.  Group
@@ -367,6 +370,7 @@ func (pethPsePortEntry *POWERETHERNETMIB_PethPsePortTable_PethPsePortEntry) GetE
     pethPsePortEntry.EntityData.BundleName = "cisco_ios_xe"
     pethPsePortEntry.EntityData.ParentYangName = "pethPsePortTable"
     pethPsePortEntry.EntityData.SegmentPath = "pethPsePortEntry" + types.AddKeyToken(pethPsePortEntry.PethPsePortGroupIndex, "pethPsePortGroupIndex") + types.AddKeyToken(pethPsePortEntry.PethPsePortIndex, "pethPsePortIndex")
+    pethPsePortEntry.EntityData.AbsolutePath = "POWER-ETHERNET-MIB:POWER-ETHERNET-MIB/pethPsePortTable/" + pethPsePortEntry.EntityData.SegmentPath
     pethPsePortEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     pethPsePortEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     pethPsePortEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -529,6 +533,7 @@ func (pethMainPseTable *POWERETHERNETMIB_PethMainPseTable) GetEntityData() *type
     pethMainPseTable.EntityData.BundleName = "cisco_ios_xe"
     pethMainPseTable.EntityData.ParentYangName = "POWER-ETHERNET-MIB"
     pethMainPseTable.EntityData.SegmentPath = "pethMainPseTable"
+    pethMainPseTable.EntityData.AbsolutePath = "POWER-ETHERNET-MIB:POWER-ETHERNET-MIB/" + pethMainPseTable.EntityData.SegmentPath
     pethMainPseTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     pethMainPseTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     pethMainPseTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -551,6 +556,7 @@ func (pethMainPseTable *POWERETHERNETMIB_PethMainPseTable) GetEntityData() *type
 type POWERETHERNETMIB_PethMainPseTable_PethMainPseEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. This variable uniquely identifies the group to
     // which power Ethernet PSE is connected.  Group means (box in the stack,
@@ -584,6 +590,7 @@ func (pethMainPseEntry *POWERETHERNETMIB_PethMainPseTable_PethMainPseEntry) GetE
     pethMainPseEntry.EntityData.BundleName = "cisco_ios_xe"
     pethMainPseEntry.EntityData.ParentYangName = "pethMainPseTable"
     pethMainPseEntry.EntityData.SegmentPath = "pethMainPseEntry" + types.AddKeyToken(pethMainPseEntry.PethMainPseGroupIndex, "pethMainPseGroupIndex")
+    pethMainPseEntry.EntityData.AbsolutePath = "POWER-ETHERNET-MIB:POWER-ETHERNET-MIB/pethMainPseTable/" + pethMainPseEntry.EntityData.SegmentPath
     pethMainPseEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     pethMainPseEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     pethMainPseEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -632,6 +639,7 @@ func (pethNotificationControlTable *POWERETHERNETMIB_PethNotificationControlTabl
     pethNotificationControlTable.EntityData.BundleName = "cisco_ios_xe"
     pethNotificationControlTable.EntityData.ParentYangName = "POWER-ETHERNET-MIB"
     pethNotificationControlTable.EntityData.SegmentPath = "pethNotificationControlTable"
+    pethNotificationControlTable.EntityData.AbsolutePath = "POWER-ETHERNET-MIB:POWER-ETHERNET-MIB/" + pethNotificationControlTable.EntityData.SegmentPath
     pethNotificationControlTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     pethNotificationControlTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     pethNotificationControlTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -653,6 +661,7 @@ func (pethNotificationControlTable *POWERETHERNETMIB_PethNotificationControlTabl
 type POWERETHERNETMIB_PethNotificationControlTable_PethNotificationControlEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. This variable uniquely identifies the group. 
     // Group means box in the stack, module in a rack and the value 1 MUST be used
@@ -674,6 +683,7 @@ func (pethNotificationControlEntry *POWERETHERNETMIB_PethNotificationControlTabl
     pethNotificationControlEntry.EntityData.BundleName = "cisco_ios_xe"
     pethNotificationControlEntry.EntityData.ParentYangName = "pethNotificationControlTable"
     pethNotificationControlEntry.EntityData.SegmentPath = "pethNotificationControlEntry" + types.AddKeyToken(pethNotificationControlEntry.PethNotificationControlGroupIndex, "pethNotificationControlGroupIndex")
+    pethNotificationControlEntry.EntityData.AbsolutePath = "POWER-ETHERNET-MIB:POWER-ETHERNET-MIB/pethNotificationControlTable/" + pethNotificationControlEntry.EntityData.SegmentPath
     pethNotificationControlEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     pethNotificationControlEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     pethNotificationControlEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

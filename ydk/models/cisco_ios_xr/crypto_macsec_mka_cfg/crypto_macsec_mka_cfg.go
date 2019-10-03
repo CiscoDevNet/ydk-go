@@ -94,6 +94,7 @@ func (macsec *Macsec) GetEntityData() *types.CommonEntityData {
     macsec.EntityData.BundleName = "cisco_ios_xr"
     macsec.EntityData.ParentYangName = "Cisco-IOS-XR-crypto-macsec-mka-cfg"
     macsec.EntityData.SegmentPath = "Cisco-IOS-XR-crypto-macsec-mka-cfg:macsec"
+    macsec.EntityData.AbsolutePath = macsec.EntityData.SegmentPath
     macsec.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     macsec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     macsec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -124,6 +125,7 @@ func (policyNames *Macsec_PolicyNames) GetEntityData() *types.CommonEntityData {
     policyNames.EntityData.BundleName = "cisco_ios_xr"
     policyNames.EntityData.ParentYangName = "macsec"
     policyNames.EntityData.SegmentPath = "policy-names"
+    policyNames.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-macsec-mka-cfg:macsec/" + policyNames.EntityData.SegmentPath
     policyNames.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     policyNames.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policyNames.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -145,6 +147,7 @@ func (policyNames *Macsec_PolicyNames) GetEntityData() *types.CommonEntityData {
 type Macsec_PolicyNames_PolicyName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of the Policy of maximum length 16. The type
     // is string with length: 1..16.
@@ -195,6 +198,7 @@ func (policyName *Macsec_PolicyNames_PolicyName) GetEntityData() *types.CommonEn
     policyName.EntityData.BundleName = "cisco_ios_xr"
     policyName.EntityData.ParentYangName = "policy-names"
     policyName.EntityData.SegmentPath = "policy-name" + types.AddKeyToken(policyName.Name, "name")
+    policyName.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-macsec-mka-cfg:macsec/policy-names/" + policyName.EntityData.SegmentPath
     policyName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     policyName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policyName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

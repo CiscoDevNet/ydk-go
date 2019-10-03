@@ -92,6 +92,7 @@ func (frequencySynchronization *FrequencySynchronization) GetEntityData() *types
     frequencySynchronization.EntityData.BundleName = "cisco_ios_xr"
     frequencySynchronization.EntityData.ParentYangName = "Cisco-IOS-XR-freqsync-cfg"
     frequencySynchronization.EntityData.SegmentPath = "Cisco-IOS-XR-freqsync-cfg:frequency-synchronization"
+    frequencySynchronization.EntityData.AbsolutePath = frequencySynchronization.EntityData.SegmentPath
     frequencySynchronization.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     frequencySynchronization.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     frequencySynchronization.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

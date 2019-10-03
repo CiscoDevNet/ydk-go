@@ -207,6 +207,7 @@ func (cISCORFMIB *CISCORFMIB) GetEntityData() *types.CommonEntityData {
     cISCORFMIB.EntityData.BundleName = "cisco_ios_xe"
     cISCORFMIB.EntityData.ParentYangName = "CISCO-RF-MIB"
     cISCORFMIB.EntityData.SegmentPath = "CISCO-RF-MIB:CISCO-RF-MIB"
+    cISCORFMIB.EntityData.AbsolutePath = cISCORFMIB.EntityData.SegmentPath
     cISCORFMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cISCORFMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCORFMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -316,6 +317,7 @@ func (cRFStatus *CISCORFMIB_CRFStatus) GetEntityData() *types.CommonEntityData {
     cRFStatus.EntityData.BundleName = "cisco_ios_xe"
     cRFStatus.EntityData.ParentYangName = "CISCO-RF-MIB"
     cRFStatus.EntityData.SegmentPath = "cRFStatus"
+    cRFStatus.EntityData.AbsolutePath = "CISCO-RF-MIB:CISCO-RF-MIB/" + cRFStatus.EntityData.SegmentPath
     cRFStatus.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cRFStatus.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cRFStatus.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -445,6 +447,7 @@ func (cRFCfg *CISCORFMIB_CRFCfg) GetEntityData() *types.CommonEntityData {
     cRFCfg.EntityData.BundleName = "cisco_ios_xe"
     cRFCfg.EntityData.ParentYangName = "CISCO-RF-MIB"
     cRFCfg.EntityData.SegmentPath = "cRFCfg"
+    cRFCfg.EntityData.AbsolutePath = "CISCO-RF-MIB:CISCO-RF-MIB/" + cRFCfg.EntityData.SegmentPath
     cRFCfg.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cRFCfg.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cRFCfg.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -500,6 +503,7 @@ func (cRFHistory *CISCORFMIB_CRFHistory) GetEntityData() *types.CommonEntityData
     cRFHistory.EntityData.BundleName = "cisco_ios_xe"
     cRFHistory.EntityData.ParentYangName = "CISCO-RF-MIB"
     cRFHistory.EntityData.SegmentPath = "cRFHistory"
+    cRFHistory.EntityData.AbsolutePath = "CISCO-RF-MIB:CISCO-RF-MIB/" + cRFHistory.EntityData.SegmentPath
     cRFHistory.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cRFHistory.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cRFHistory.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -535,6 +539,7 @@ func (cRFStatusRFModeCapsTable *CISCORFMIB_CRFStatusRFModeCapsTable) GetEntityDa
     cRFStatusRFModeCapsTable.EntityData.BundleName = "cisco_ios_xe"
     cRFStatusRFModeCapsTable.EntityData.ParentYangName = "CISCO-RF-MIB"
     cRFStatusRFModeCapsTable.EntityData.SegmentPath = "cRFStatusRFModeCapsTable"
+    cRFStatusRFModeCapsTable.EntityData.AbsolutePath = "CISCO-RF-MIB:CISCO-RF-MIB/" + cRFStatusRFModeCapsTable.EntityData.SegmentPath
     cRFStatusRFModeCapsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cRFStatusRFModeCapsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cRFStatusRFModeCapsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -558,6 +563,7 @@ func (cRFStatusRFModeCapsTable *CISCORFMIB_CRFStatusRFModeCapsTable) GetEntityDa
 type CISCORFMIB_CRFStatusRFModeCapsTable_CRFStatusRFModeCapsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The redundancy mode that can be supported on the
     // device. The type is RFMode.
@@ -574,6 +580,7 @@ func (cRFStatusRFModeCapsEntry *CISCORFMIB_CRFStatusRFModeCapsTable_CRFStatusRFM
     cRFStatusRFModeCapsEntry.EntityData.BundleName = "cisco_ios_xe"
     cRFStatusRFModeCapsEntry.EntityData.ParentYangName = "cRFStatusRFModeCapsTable"
     cRFStatusRFModeCapsEntry.EntityData.SegmentPath = "cRFStatusRFModeCapsEntry" + types.AddKeyToken(cRFStatusRFModeCapsEntry.CRFStatusRFModeCapsMode, "cRFStatusRFModeCapsMode")
+    cRFStatusRFModeCapsEntry.EntityData.AbsolutePath = "CISCO-RF-MIB:CISCO-RF-MIB/cRFStatusRFModeCapsTable/" + cRFStatusRFModeCapsEntry.EntityData.SegmentPath
     cRFStatusRFModeCapsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cRFStatusRFModeCapsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cRFStatusRFModeCapsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -612,6 +619,7 @@ func (cRFHistorySwitchOverTable *CISCORFMIB_CRFHistorySwitchOverTable) GetEntity
     cRFHistorySwitchOverTable.EntityData.BundleName = "cisco_ios_xe"
     cRFHistorySwitchOverTable.EntityData.ParentYangName = "CISCO-RF-MIB"
     cRFHistorySwitchOverTable.EntityData.SegmentPath = "cRFHistorySwitchOverTable"
+    cRFHistorySwitchOverTable.EntityData.AbsolutePath = "CISCO-RF-MIB:CISCO-RF-MIB/" + cRFHistorySwitchOverTable.EntityData.SegmentPath
     cRFHistorySwitchOverTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cRFHistorySwitchOverTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cRFHistorySwitchOverTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -636,6 +644,7 @@ func (cRFHistorySwitchOverTable *CISCORFMIB_CRFHistorySwitchOverTable) GetEntity
 type CISCORFMIB_CRFHistorySwitchOverTable_CRFHistorySwitchOverEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. A monotonically increasing integer for the purpose
     // of indexing history table. After reaching maximum value, it wraps around to
@@ -663,6 +672,7 @@ func (cRFHistorySwitchOverEntry *CISCORFMIB_CRFHistorySwitchOverTable_CRFHistory
     cRFHistorySwitchOverEntry.EntityData.BundleName = "cisco_ios_xe"
     cRFHistorySwitchOverEntry.EntityData.ParentYangName = "cRFHistorySwitchOverTable"
     cRFHistorySwitchOverEntry.EntityData.SegmentPath = "cRFHistorySwitchOverEntry" + types.AddKeyToken(cRFHistorySwitchOverEntry.CRFHistorySwitchOverIndex, "cRFHistorySwitchOverIndex")
+    cRFHistorySwitchOverEntry.EntityData.AbsolutePath = "CISCO-RF-MIB:CISCO-RF-MIB/cRFHistorySwitchOverTable/" + cRFHistorySwitchOverEntry.EntityData.SegmentPath
     cRFHistorySwitchOverEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cRFHistorySwitchOverEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cRFHistorySwitchOverEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -707,6 +717,7 @@ func (cRFStatusRFClientTable *CISCORFMIB_CRFStatusRFClientTable) GetEntityData()
     cRFStatusRFClientTable.EntityData.BundleName = "cisco_ios_xe"
     cRFStatusRFClientTable.EntityData.ParentYangName = "CISCO-RF-MIB"
     cRFStatusRFClientTable.EntityData.SegmentPath = "cRFStatusRFClientTable"
+    cRFStatusRFClientTable.EntityData.AbsolutePath = "CISCO-RF-MIB:CISCO-RF-MIB/" + cRFStatusRFClientTable.EntityData.SegmentPath
     cRFStatusRFClientTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cRFStatusRFClientTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cRFStatusRFClientTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -735,6 +746,7 @@ func (cRFStatusRFClientTable *CISCORFMIB_CRFStatusRFClientTable) GetEntityData()
 type CISCORFMIB_CRFStatusRFClientTable_CRFStatusRFClientEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. A unique identifier for the client which
     // registered with the Redundancy Facility. The type is interface{} with
@@ -767,6 +779,7 @@ func (cRFStatusRFClientEntry *CISCORFMIB_CRFStatusRFClientTable_CRFStatusRFClien
     cRFStatusRFClientEntry.EntityData.BundleName = "cisco_ios_xe"
     cRFStatusRFClientEntry.EntityData.ParentYangName = "cRFStatusRFClientTable"
     cRFStatusRFClientEntry.EntityData.SegmentPath = "cRFStatusRFClientEntry" + types.AddKeyToken(cRFStatusRFClientEntry.CRFStatusRFClientID, "cRFStatusRFClientID")
+    cRFStatusRFClientEntry.EntityData.AbsolutePath = "CISCO-RF-MIB:CISCO-RF-MIB/cRFStatusRFClientTable/" + cRFStatusRFClientEntry.EntityData.SegmentPath
     cRFStatusRFClientEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cRFStatusRFClientEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cRFStatusRFClientEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

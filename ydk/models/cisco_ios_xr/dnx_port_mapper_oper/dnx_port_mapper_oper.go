@@ -40,6 +40,7 @@ func (oor *Oor) GetEntityData() *types.CommonEntityData {
     oor.EntityData.BundleName = "cisco_ios_xr"
     oor.EntityData.ParentYangName = "Cisco-IOS-XR-dnx-port-mapper-oper"
     oor.EntityData.SegmentPath = "Cisco-IOS-XR-dnx-port-mapper-oper:oor"
+    oor.EntityData.AbsolutePath = oor.EntityData.SegmentPath
     oor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     oor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     oor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -70,6 +71,7 @@ func (nodes *Oor_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.BundleName = "cisco_ios_xr"
     nodes.EntityData.ParentYangName = "oor"
     nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.AbsolutePath = "Cisco-IOS-XR-dnx-port-mapper-oper:oor/" + nodes.EntityData.SegmentPath
     nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -91,6 +93,7 @@ func (nodes *Oor_Nodes) GetEntityData() *types.CommonEntityData {
 type Oor_Nodes_Node struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Node ID. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -109,6 +112,7 @@ func (node *Oor_Nodes_Node) GetEntityData() *types.CommonEntityData {
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
     node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeName, "node-name")
+    node.EntityData.AbsolutePath = "Cisco-IOS-XR-dnx-port-mapper-oper:oor/nodes/" + node.EntityData.SegmentPath
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -148,6 +152,7 @@ func (summary *Oor_Nodes_Node_Summary) GetEntityData() *types.CommonEntityData {
     summary.EntityData.BundleName = "cisco_ios_xr"
     summary.EntityData.ParentYangName = "node"
     summary.EntityData.SegmentPath = "summary"
+    summary.EntityData.AbsolutePath = "Cisco-IOS-XR-dnx-port-mapper-oper:oor/nodes/node/" + summary.EntityData.SegmentPath
     summary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     summary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     summary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -180,6 +185,7 @@ func (interfaceNames *Oor_Nodes_Node_InterfaceNames) GetEntityData() *types.Comm
     interfaceNames.EntityData.BundleName = "cisco_ios_xr"
     interfaceNames.EntityData.ParentYangName = "node"
     interfaceNames.EntityData.SegmentPath = "interface-names"
+    interfaceNames.EntityData.AbsolutePath = "Cisco-IOS-XR-dnx-port-mapper-oper:oor/nodes/node/" + interfaceNames.EntityData.SegmentPath
     interfaceNames.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceNames.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceNames.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -201,6 +207,7 @@ func (interfaceNames *Oor_Nodes_Node_InterfaceNames) GetEntityData() *types.Comm
 type Oor_Nodes_Node_InterfaceNames_InterfaceName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The name of the interface. The type is string with
     // pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -217,6 +224,7 @@ func (interfaceName *Oor_Nodes_Node_InterfaceNames_InterfaceName) GetEntityData(
     interfaceName.EntityData.BundleName = "cisco_ios_xr"
     interfaceName.EntityData.ParentYangName = "interface-names"
     interfaceName.EntityData.SegmentPath = "interface-name" + types.AddKeyToken(interfaceName.InterfaceName, "interface-name")
+    interfaceName.EntityData.AbsolutePath = "Cisco-IOS-XR-dnx-port-mapper-oper:oor/nodes/node/interface-names/" + interfaceName.EntityData.SegmentPath
     interfaceName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -224,6 +232,7 @@ func (interfaceName *Oor_Nodes_Node_InterfaceNames_InterfaceName) GetEntityData(
     interfaceName.EntityData.Children = types.NewOrderedMap()
     interfaceName.EntityData.Children.Append("interface", types.YChild{"Interface", nil})
     for i := range interfaceName.Interface {
+        types.SetYListKey(interfaceName.Interface[i], i)
         interfaceName.EntityData.Children.Append(types.GetSegmentPath(interfaceName.Interface[i]), types.YChild{"Interface", interfaceName.Interface[i]})
     }
     interfaceName.EntityData.Leafs = types.NewOrderedMap()
@@ -239,6 +248,7 @@ func (interfaceName *Oor_Nodes_Node_InterfaceNames_InterfaceName) GetEntityData(
 type Oor_Nodes_Node_InterfaceNames_InterfaceName_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Name of the interface. The type is string.
     InterfaceName interface{}
@@ -261,7 +271,8 @@ func (self *Oor_Nodes_Node_InterfaceNames_InterfaceName_Interface) GetEntityData
     self.EntityData.YangName = "interface"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interface-name"
-    self.EntityData.SegmentPath = "interface"
+    self.EntityData.SegmentPath = "interface" + types.AddNoKeyToken(self)
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-dnx-port-mapper-oper:oor/nodes/node/interface-names/interface-name/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

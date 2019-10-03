@@ -38,6 +38,7 @@ func (eNTITYSTATEMIB *ENTITYSTATEMIB) GetEntityData() *types.CommonEntityData {
     eNTITYSTATEMIB.EntityData.BundleName = "cisco_ios_xe"
     eNTITYSTATEMIB.EntityData.ParentYangName = "ENTITY-STATE-MIB"
     eNTITYSTATEMIB.EntityData.SegmentPath = "ENTITY-STATE-MIB:ENTITY-STATE-MIB"
+    eNTITYSTATEMIB.EntityData.AbsolutePath = eNTITYSTATEMIB.EntityData.SegmentPath
     eNTITYSTATEMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     eNTITYSTATEMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     eNTITYSTATEMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -73,6 +74,7 @@ func (entStateTable *ENTITYSTATEMIB_EntStateTable) GetEntityData() *types.Common
     entStateTable.EntityData.BundleName = "cisco_ios_xe"
     entStateTable.EntityData.ParentYangName = "ENTITY-STATE-MIB"
     entStateTable.EntityData.SegmentPath = "entStateTable"
+    entStateTable.EntityData.AbsolutePath = "ENTITY-STATE-MIB:ENTITY-STATE-MIB/" + entStateTable.EntityData.SegmentPath
     entStateTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     entStateTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     entStateTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -94,6 +96,7 @@ func (entStateTable *ENTITYSTATEMIB_EntStateTable) GetEntityData() *types.Common
 type ENTITYSTATEMIB_EntStateTable_EntStateEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -179,6 +182,7 @@ func (entStateEntry *ENTITYSTATEMIB_EntStateTable_EntStateEntry) GetEntityData()
     entStateEntry.EntityData.BundleName = "cisco_ios_xe"
     entStateEntry.EntityData.ParentYangName = "entStateTable"
     entStateEntry.EntityData.SegmentPath = "entStateEntry" + types.AddKeyToken(entStateEntry.EntPhysicalIndex, "entPhysicalIndex")
+    entStateEntry.EntityData.AbsolutePath = "ENTITY-STATE-MIB:ENTITY-STATE-MIB/entStateTable/" + entStateEntry.EntityData.SegmentPath
     entStateEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     entStateEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     entStateEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

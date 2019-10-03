@@ -44,6 +44,7 @@ func (mPLSLDPGENERICSTDMIB *MPLSLDPGENERICSTDMIB) GetEntityData() *types.CommonE
     mPLSLDPGENERICSTDMIB.EntityData.BundleName = "cisco_ios_xe"
     mPLSLDPGENERICSTDMIB.EntityData.ParentYangName = "MPLS-LDP-GENERIC-STD-MIB"
     mPLSLDPGENERICSTDMIB.EntityData.SegmentPath = "MPLS-LDP-GENERIC-STD-MIB:MPLS-LDP-GENERIC-STD-MIB"
+    mPLSLDPGENERICSTDMIB.EntityData.AbsolutePath = mPLSLDPGENERICSTDMIB.EntityData.SegmentPath
     mPLSLDPGENERICSTDMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     mPLSLDPGENERICSTDMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mPLSLDPGENERICSTDMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -90,6 +91,7 @@ func (mplsLdpEntityGenericLRTable *MPLSLDPGENERICSTDMIB_MplsLdpEntityGenericLRTa
     mplsLdpEntityGenericLRTable.EntityData.BundleName = "cisco_ios_xe"
     mplsLdpEntityGenericLRTable.EntityData.ParentYangName = "MPLS-LDP-GENERIC-STD-MIB"
     mplsLdpEntityGenericLRTable.EntityData.SegmentPath = "mplsLdpEntityGenericLRTable"
+    mplsLdpEntityGenericLRTable.EntityData.AbsolutePath = "MPLS-LDP-GENERIC-STD-MIB:MPLS-LDP-GENERIC-STD-MIB/" + mplsLdpEntityGenericLRTable.EntityData.SegmentPath
     mplsLdpEntityGenericLRTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     mplsLdpEntityGenericLRTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mplsLdpEntityGenericLRTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -125,6 +127,7 @@ func (mplsLdpEntityGenericLRTable *MPLSLDPGENERICSTDMIB_MplsLdpEntityGenericLRTa
 type MPLSLDPGENERICSTDMIB_MplsLdpEntityGenericLRTable_MplsLdpEntityGenericLREntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string. Refers to
     // mpls_ldp_std_mib.MPLSLDPSTDMIB_MplsLdpEntityTable_MplsLdpEntityEntry_MplsLdpEntityLdpId
@@ -185,6 +188,7 @@ func (mplsLdpEntityGenericLREntry *MPLSLDPGENERICSTDMIB_MplsLdpEntityGenericLRTa
     mplsLdpEntityGenericLREntry.EntityData.BundleName = "cisco_ios_xe"
     mplsLdpEntityGenericLREntry.EntityData.ParentYangName = "mplsLdpEntityGenericLRTable"
     mplsLdpEntityGenericLREntry.EntityData.SegmentPath = "mplsLdpEntityGenericLREntry" + types.AddKeyToken(mplsLdpEntityGenericLREntry.MplsLdpEntityLdpId, "mplsLdpEntityLdpId") + types.AddKeyToken(mplsLdpEntityGenericLREntry.MplsLdpEntityIndex, "mplsLdpEntityIndex") + types.AddKeyToken(mplsLdpEntityGenericLREntry.MplsLdpEntityGenericLRMin, "mplsLdpEntityGenericLRMin") + types.AddKeyToken(mplsLdpEntityGenericLREntry.MplsLdpEntityGenericLRMax, "mplsLdpEntityGenericLRMax")
+    mplsLdpEntityGenericLREntry.EntityData.AbsolutePath = "MPLS-LDP-GENERIC-STD-MIB:MPLS-LDP-GENERIC-STD-MIB/mplsLdpEntityGenericLRTable/" + mplsLdpEntityGenericLREntry.EntityData.SegmentPath
     mplsLdpEntityGenericLREntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     mplsLdpEntityGenericLREntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mplsLdpEntityGenericLREntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

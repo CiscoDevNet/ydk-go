@@ -41,6 +41,7 @@ func (dtiController *DtiController) GetEntityData() *types.CommonEntityData {
     dtiController.EntityData.BundleName = "cisco_ios_xr"
     dtiController.EntityData.ParentYangName = "Cisco-IOS-XR-rptiming-dti-oper"
     dtiController.EntityData.SegmentPath = "Cisco-IOS-XR-rptiming-dti-oper:dti-controller"
+    dtiController.EntityData.AbsolutePath = dtiController.EntityData.SegmentPath
     dtiController.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dtiController.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dtiController.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -71,6 +72,7 @@ func (nodes *DtiController_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.BundleName = "cisco_ios_xr"
     nodes.EntityData.ParentYangName = "dti-controller"
     nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.AbsolutePath = "Cisco-IOS-XR-rptiming-dti-oper:dti-controller/" + nodes.EntityData.SegmentPath
     nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -92,6 +94,7 @@ func (nodes *DtiController_Nodes) GetEntityData() *types.CommonEntityData {
 type DtiController_Nodes_Node struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Node Name. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -113,6 +116,7 @@ func (node *DtiController_Nodes_Node) GetEntityData() *types.CommonEntityData {
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
     node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeName, "node-name")
+    node.EntityData.AbsolutePath = "Cisco-IOS-XR-rptiming-dti-oper:dti-controller/nodes/" + node.EntityData.SegmentPath
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -172,6 +176,7 @@ func (client *DtiController_Nodes_Node_Client) GetEntityData() *types.CommonEnti
     client.EntityData.BundleName = "cisco_ios_xr"
     client.EntityData.ParentYangName = "node"
     client.EntityData.SegmentPath = "client"
+    client.EntityData.AbsolutePath = "Cisco-IOS-XR-rptiming-dti-oper:dti-controller/nodes/node/" + client.EntityData.SegmentPath
     client.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     client.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     client.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -265,6 +270,7 @@ func (port *DtiController_Nodes_Node_Port) GetEntityData() *types.CommonEntityDa
     port.EntityData.BundleName = "cisco_ios_xr"
     port.EntityData.ParentYangName = "node"
     port.EntityData.SegmentPath = "port"
+    port.EntityData.AbsolutePath = "Cisco-IOS-XR-rptiming-dti-oper:dti-controller/nodes/node/" + port.EntityData.SegmentPath
     port.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     port.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     port.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -378,6 +384,7 @@ func (timeOfDay *DtiController_Nodes_Node_TimeOfDay) GetEntityData() *types.Comm
     timeOfDay.EntityData.BundleName = "cisco_ios_xr"
     timeOfDay.EntityData.ParentYangName = "node"
     timeOfDay.EntityData.SegmentPath = "time-of-day"
+    timeOfDay.EntityData.AbsolutePath = "Cisco-IOS-XR-rptiming-dti-oper:dti-controller/nodes/node/" + timeOfDay.EntityData.SegmentPath
     timeOfDay.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     timeOfDay.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     timeOfDay.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

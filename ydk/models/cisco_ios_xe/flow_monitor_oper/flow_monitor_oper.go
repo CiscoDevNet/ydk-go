@@ -122,6 +122,7 @@ func (flowMonitors *FlowMonitors) GetEntityData() *types.CommonEntityData {
     flowMonitors.EntityData.BundleName = "cisco_ios_xe"
     flowMonitors.EntityData.ParentYangName = "Cisco-IOS-XE-flow-monitor-oper"
     flowMonitors.EntityData.SegmentPath = "Cisco-IOS-XE-flow-monitor-oper:flow-monitors"
+    flowMonitors.EntityData.AbsolutePath = flowMonitors.EntityData.SegmentPath
     flowMonitors.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     flowMonitors.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     flowMonitors.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -155,6 +156,7 @@ func (flowMonitors *FlowMonitors) GetEntityData() *types.CommonEntityData {
 type FlowMonitors_FlowMonitor struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of the flow monitor. The type is string.
     Name interface{}
@@ -173,6 +175,7 @@ func (flowMonitor *FlowMonitors_FlowMonitor) GetEntityData() *types.CommonEntity
     flowMonitor.EntityData.BundleName = "cisco_ios_xe"
     flowMonitor.EntityData.ParentYangName = "flow-monitors"
     flowMonitor.EntityData.SegmentPath = "flow-monitor" + types.AddKeyToken(flowMonitor.Name, "name")
+    flowMonitor.EntityData.AbsolutePath = "Cisco-IOS-XE-flow-monitor-oper:flow-monitors/" + flowMonitor.EntityData.SegmentPath
     flowMonitor.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     flowMonitor.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     flowMonitor.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -204,6 +207,7 @@ func (flows *FlowMonitors_FlowMonitor_Flows) GetEntityData() *types.CommonEntity
     flows.EntityData.BundleName = "cisco_ios_xe"
     flows.EntityData.ParentYangName = "flow-monitor"
     flows.EntityData.SegmentPath = "flows"
+    flows.EntityData.AbsolutePath = "Cisco-IOS-XE-flow-monitor-oper:flow-monitors/flow-monitor/" + flows.EntityData.SegmentPath
     flows.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     flows.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     flows.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -225,6 +229,7 @@ func (flows *FlowMonitors_FlowMonitor_Flows) GetEntityData() *types.CommonEntity
 type FlowMonitors_FlowMonitor_Flows_Flow struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Source address of the flow. The type is string.
     SourceAddress interface{}
@@ -276,6 +281,7 @@ func (flow *FlowMonitors_FlowMonitor_Flows_Flow) GetEntityData() *types.CommonEn
     flow.EntityData.BundleName = "cisco_ios_xe"
     flow.EntityData.ParentYangName = "flows"
     flow.EntityData.SegmentPath = "flow" + types.AddKeyToken(flow.SourceAddress, "source-address") + types.AddKeyToken(flow.DestinationAddress, "destination-address") + types.AddKeyToken(flow.InterfaceInput, "interface-input") + types.AddKeyToken(flow.IsMulticast, "is-multicast") + types.AddKeyToken(flow.VrfIdInput, "vrf-id-input") + types.AddKeyToken(flow.SourcePort, "source-port") + types.AddKeyToken(flow.DestinationPort, "destination-port") + types.AddKeyToken(flow.IpTos, "ip-tos") + types.AddKeyToken(flow.IpProtocol, "ip-protocol")
+    flow.EntityData.AbsolutePath = "Cisco-IOS-XE-flow-monitor-oper:flow-monitors/flow-monitor/flows/" + flow.EntityData.SegmentPath
     flow.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     flow.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     flow.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -305,6 +311,7 @@ func (flow *FlowMonitors_FlowMonitor_Flows_Flow) GetEntityData() *types.CommonEn
 type FlowMonitors_FlowExportStatistics struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The name of the flow exporter. The type is string.
     Name interface{}
@@ -323,6 +330,7 @@ func (flowExportStatistics *FlowMonitors_FlowExportStatistics) GetEntityData() *
     flowExportStatistics.EntityData.BundleName = "cisco_ios_xe"
     flowExportStatistics.EntityData.ParentYangName = "flow-monitors"
     flowExportStatistics.EntityData.SegmentPath = "flow-export-statistics" + types.AddKeyToken(flowExportStatistics.Name, "name")
+    flowExportStatistics.EntityData.AbsolutePath = "Cisco-IOS-XE-flow-monitor-oper:flow-monitors/" + flowExportStatistics.EntityData.SegmentPath
     flowExportStatistics.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     flowExportStatistics.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     flowExportStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -331,6 +339,7 @@ func (flowExportStatistics *FlowMonitors_FlowExportStatistics) GetEntityData() *
     flowExportStatistics.EntityData.Children.Append("transport-stats", types.YChild{"TransportStats", &flowExportStatistics.TransportStats})
     flowExportStatistics.EntityData.Children.Append("export-client", types.YChild{"ExportClient", nil})
     for i := range flowExportStatistics.ExportClient {
+        types.SetYListKey(flowExportStatistics.ExportClient[i], i)
         flowExportStatistics.EntityData.Children.Append(types.GetSegmentPath(flowExportStatistics.ExportClient[i]), types.YChild{"ExportClient", flowExportStatistics.ExportClient[i]})
     }
     flowExportStatistics.EntityData.Leafs = types.NewOrderedMap()
@@ -362,6 +371,7 @@ func (transportStats *FlowMonitors_FlowExportStatistics_TransportStats) GetEntit
     transportStats.EntityData.BundleName = "cisco_ios_xe"
     transportStats.EntityData.ParentYangName = "flow-export-statistics"
     transportStats.EntityData.SegmentPath = "transport-stats"
+    transportStats.EntityData.AbsolutePath = "Cisco-IOS-XE-flow-monitor-oper:flow-monitors/flow-export-statistics/" + transportStats.EntityData.SegmentPath
     transportStats.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     transportStats.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     transportStats.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -369,6 +379,7 @@ func (transportStats *FlowMonitors_FlowExportStatistics_TransportStats) GetEntit
     transportStats.EntityData.Children = types.NewOrderedMap()
     transportStats.EntityData.Children.Append("flow-exporter-stats", types.YChild{"FlowExporterStats", nil})
     for i := range transportStats.FlowExporterStats {
+        types.SetYListKey(transportStats.FlowExporterStats[i], i)
         transportStats.EntityData.Children.Append(types.GetSegmentPath(transportStats.FlowExporterStats[i]), types.YChild{"FlowExporterStats", transportStats.FlowExporterStats[i]})
     }
     transportStats.EntityData.Leafs = types.NewOrderedMap()
@@ -384,6 +395,7 @@ func (transportStats *FlowMonitors_FlowExportStatistics_TransportStats) GetEntit
 type FlowMonitors_FlowExportStatistics_TransportStats_FlowExporterStats struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type of the export statistics. The type is
     // FlowExporterIpwriteStatsType.
@@ -403,7 +415,8 @@ func (flowExporterStats *FlowMonitors_FlowExportStatistics_TransportStats_FlowEx
     flowExporterStats.EntityData.YangName = "flow-exporter-stats"
     flowExporterStats.EntityData.BundleName = "cisco_ios_xe"
     flowExporterStats.EntityData.ParentYangName = "transport-stats"
-    flowExporterStats.EntityData.SegmentPath = "flow-exporter-stats"
+    flowExporterStats.EntityData.SegmentPath = "flow-exporter-stats" + types.AddNoKeyToken(flowExporterStats)
+    flowExporterStats.EntityData.AbsolutePath = "Cisco-IOS-XE-flow-monitor-oper:flow-monitors/flow-export-statistics/transport-stats/" + flowExporterStats.EntityData.SegmentPath
     flowExporterStats.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     flowExporterStats.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     flowExporterStats.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -424,6 +437,7 @@ func (flowExporterStats *FlowMonitors_FlowExportStatistics_TransportStats_FlowEx
 type FlowMonitors_FlowExportStatistics_ExportClient struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The name of the flow export client. The type is string.
     Name interface{}
@@ -440,7 +454,8 @@ func (exportClient *FlowMonitors_FlowExportStatistics_ExportClient) GetEntityDat
     exportClient.EntityData.YangName = "export-client"
     exportClient.EntityData.BundleName = "cisco_ios_xe"
     exportClient.EntityData.ParentYangName = "flow-export-statistics"
-    exportClient.EntityData.SegmentPath = "export-client"
+    exportClient.EntityData.SegmentPath = "export-client" + types.AddNoKeyToken(exportClient)
+    exportClient.EntityData.AbsolutePath = "Cisco-IOS-XE-flow-monitor-oper:flow-monitors/flow-export-statistics/" + exportClient.EntityData.SegmentPath
     exportClient.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     exportClient.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     exportClient.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -493,6 +508,7 @@ func (protocolStats *FlowMonitors_FlowExportStatistics_ExportClient_ProtocolStat
     protocolStats.EntityData.BundleName = "cisco_ios_xe"
     protocolStats.EntityData.ParentYangName = "export-client"
     protocolStats.EntityData.SegmentPath = "protocol-stats"
+    protocolStats.EntityData.AbsolutePath = "Cisco-IOS-XE-flow-monitor-oper:flow-monitors/flow-export-statistics/export-client/" + protocolStats.EntityData.SegmentPath
     protocolStats.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     protocolStats.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     protocolStats.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -516,6 +532,7 @@ func (protocolStats *FlowMonitors_FlowExportStatistics_ExportClient_ProtocolStat
 type FlowMonitors_FlowCacheStatistics struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The name of the flow cache. The type is string.
     Name interface{}
@@ -555,6 +572,7 @@ func (flowCacheStatistics *FlowMonitors_FlowCacheStatistics) GetEntityData() *ty
     flowCacheStatistics.EntityData.BundleName = "cisco_ios_xe"
     flowCacheStatistics.EntityData.ParentYangName = "flow-monitors"
     flowCacheStatistics.EntityData.SegmentPath = "flow-cache-statistics" + types.AddKeyToken(flowCacheStatistics.Name, "name")
+    flowCacheStatistics.EntityData.AbsolutePath = "Cisco-IOS-XE-flow-monitor-oper:flow-monitors/" + flowCacheStatistics.EntityData.SegmentPath
     flowCacheStatistics.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     flowCacheStatistics.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     flowCacheStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -580,6 +598,7 @@ func (flowCacheStatistics *FlowMonitors_FlowCacheStatistics) GetEntityData() *ty
 type FlowMonitors_FlowMonitorStatistics struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The name of the flow monitor. The type is string.
     MonitorName interface{}
@@ -643,6 +662,7 @@ func (flowMonitorStatistics *FlowMonitors_FlowMonitorStatistics) GetEntityData()
     flowMonitorStatistics.EntityData.BundleName = "cisco_ios_xe"
     flowMonitorStatistics.EntityData.ParentYangName = "flow-monitors"
     flowMonitorStatistics.EntityData.SegmentPath = "flow-monitor-statistics" + types.AddKeyToken(flowMonitorStatistics.MonitorName, "monitor-name")
+    flowMonitorStatistics.EntityData.AbsolutePath = "Cisco-IOS-XE-flow-monitor-oper:flow-monitors/" + flowMonitorStatistics.EntityData.SegmentPath
     flowMonitorStatistics.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     flowMonitorStatistics.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     flowMonitorStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -704,6 +724,7 @@ func (cacheData *FlowMonitors_FlowMonitorStatistics_CacheData) GetEntityData() *
     cacheData.EntityData.BundleName = "cisco_ios_xe"
     cacheData.EntityData.ParentYangName = "flow-monitor-statistics"
     cacheData.EntityData.SegmentPath = "cache-data"
+    cacheData.EntityData.AbsolutePath = "Cisco-IOS-XE-flow-monitor-oper:flow-monitors/flow-monitor-statistics/" + cacheData.EntityData.SegmentPath
     cacheData.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cacheData.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cacheData.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

@@ -40,6 +40,7 @@ func (coherent *Coherent) GetEntityData() *types.CommonEntityData {
     coherent.EntityData.BundleName = "cisco_ios_xr"
     coherent.EntityData.ParentYangName = "Cisco-IOS-XR-ncs5500-coherent-node-oper"
     coherent.EntityData.SegmentPath = "Cisco-IOS-XR-ncs5500-coherent-node-oper:coherent"
+    coherent.EntityData.AbsolutePath = coherent.EntityData.SegmentPath
     coherent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     coherent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     coherent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -70,6 +71,7 @@ func (nodes *Coherent_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.BundleName = "cisco_ios_xr"
     nodes.EntityData.ParentYangName = "coherent"
     nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-coherent-node-oper:coherent/" + nodes.EntityData.SegmentPath
     nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -92,6 +94,7 @@ func (nodes *Coherent_Nodes) GetEntityData() *types.CommonEntityData {
 type Coherent_Nodes_Node struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The node name. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -110,6 +113,7 @@ func (node *Coherent_Nodes_Node) GetEntityData() *types.CommonEntityData {
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
     node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeName, "node-name")
+    node.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-coherent-node-oper:coherent/nodes/" + node.EntityData.SegmentPath
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -172,6 +176,7 @@ func (coherentTimeStats *Coherent_Nodes_Node_CoherentTimeStats) GetEntityData() 
     coherentTimeStats.EntityData.BundleName = "cisco_ios_xr"
     coherentTimeStats.EntityData.ParentYangName = "node"
     coherentTimeStats.EntityData.SegmentPath = "coherent-time-stats"
+    coherentTimeStats.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-coherent-node-oper:coherent/nodes/node/" + coherentTimeStats.EntityData.SegmentPath
     coherentTimeStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     coherentTimeStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     coherentTimeStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -183,6 +188,7 @@ func (coherentTimeStats *Coherent_Nodes_Node_CoherentTimeStats) GetEntityData() 
     coherentTimeStats.EntityData.Children.Append("dsp-ea-bulk-update", types.YChild{"DspEaBulkUpdate", &coherentTimeStats.DspEaBulkUpdate})
     coherentTimeStats.EntityData.Children.Append("port-stat", types.YChild{"PortStat", nil})
     for i := range coherentTimeStats.PortStat {
+        types.SetYListKey(coherentTimeStats.PortStat[i], i)
         coherentTimeStats.EntityData.Children.Append(types.GetSegmentPath(coherentTimeStats.PortStat[i]), types.YChild{"PortStat", coherentTimeStats.PortStat[i]})
     }
     coherentTimeStats.EntityData.Leafs = types.NewOrderedMap()
@@ -223,6 +229,7 @@ func (optsEaBulkCreate *Coherent_Nodes_Node_CoherentTimeStats_OptsEaBulkCreate) 
     optsEaBulkCreate.EntityData.BundleName = "cisco_ios_xr"
     optsEaBulkCreate.EntityData.ParentYangName = "coherent-time-stats"
     optsEaBulkCreate.EntityData.SegmentPath = "opts-ea-bulk-create"
+    optsEaBulkCreate.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-coherent-node-oper:coherent/nodes/node/coherent-time-stats/" + optsEaBulkCreate.EntityData.SegmentPath
     optsEaBulkCreate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     optsEaBulkCreate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     optsEaBulkCreate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -264,6 +271,7 @@ func (optsEaBulkUpdate *Coherent_Nodes_Node_CoherentTimeStats_OptsEaBulkUpdate) 
     optsEaBulkUpdate.EntityData.BundleName = "cisco_ios_xr"
     optsEaBulkUpdate.EntityData.ParentYangName = "coherent-time-stats"
     optsEaBulkUpdate.EntityData.SegmentPath = "opts-ea-bulk-update"
+    optsEaBulkUpdate.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-coherent-node-oper:coherent/nodes/node/coherent-time-stats/" + optsEaBulkUpdate.EntityData.SegmentPath
     optsEaBulkUpdate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     optsEaBulkUpdate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     optsEaBulkUpdate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -305,6 +313,7 @@ func (dspEaBulkCreate *Coherent_Nodes_Node_CoherentTimeStats_DspEaBulkCreate) Ge
     dspEaBulkCreate.EntityData.BundleName = "cisco_ios_xr"
     dspEaBulkCreate.EntityData.ParentYangName = "coherent-time-stats"
     dspEaBulkCreate.EntityData.SegmentPath = "dsp-ea-bulk-create"
+    dspEaBulkCreate.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-coherent-node-oper:coherent/nodes/node/coherent-time-stats/" + dspEaBulkCreate.EntityData.SegmentPath
     dspEaBulkCreate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dspEaBulkCreate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dspEaBulkCreate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -346,6 +355,7 @@ func (dspEaBulkUpdate *Coherent_Nodes_Node_CoherentTimeStats_DspEaBulkUpdate) Ge
     dspEaBulkUpdate.EntityData.BundleName = "cisco_ios_xr"
     dspEaBulkUpdate.EntityData.ParentYangName = "coherent-time-stats"
     dspEaBulkUpdate.EntityData.SegmentPath = "dsp-ea-bulk-update"
+    dspEaBulkUpdate.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-coherent-node-oper:coherent/nodes/node/coherent-time-stats/" + dspEaBulkUpdate.EntityData.SegmentPath
     dspEaBulkUpdate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dspEaBulkUpdate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dspEaBulkUpdate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -367,6 +377,7 @@ func (dspEaBulkUpdate *Coherent_Nodes_Node_CoherentTimeStats_DspEaBulkUpdate) Ge
 type Coherent_Nodes_Node_CoherentTimeStats_PortStat struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // rsip. The type is interface{} with range: 0..4294967295.
     Rsip interface{}
@@ -419,7 +430,8 @@ func (portStat *Coherent_Nodes_Node_CoherentTimeStats_PortStat) GetEntityData() 
     portStat.EntityData.YangName = "port-stat"
     portStat.EntityData.BundleName = "cisco_ios_xr"
     portStat.EntityData.ParentYangName = "coherent-time-stats"
-    portStat.EntityData.SegmentPath = "port-stat"
+    portStat.EntityData.SegmentPath = "port-stat" + types.AddNoKeyToken(portStat)
+    portStat.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-coherent-node-oper:coherent/nodes/node/coherent-time-stats/" + portStat.EntityData.SegmentPath
     portStat.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     portStat.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     portStat.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -472,6 +484,7 @@ func (laserOnStats *Coherent_Nodes_Node_CoherentTimeStats_PortStat_LaserOnStats)
     laserOnStats.EntityData.BundleName = "cisco_ios_xr"
     laserOnStats.EntityData.ParentYangName = "port-stat"
     laserOnStats.EntityData.SegmentPath = "laser-on-stats"
+    laserOnStats.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-coherent-node-oper:coherent/nodes/node/coherent-time-stats/port-stat/" + laserOnStats.EntityData.SegmentPath
     laserOnStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     laserOnStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     laserOnStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -513,6 +526,7 @@ func (laserOffStats *Coherent_Nodes_Node_CoherentTimeStats_PortStat_LaserOffStat
     laserOffStats.EntityData.BundleName = "cisco_ios_xr"
     laserOffStats.EntityData.ParentYangName = "port-stat"
     laserOffStats.EntityData.SegmentPath = "laser-off-stats"
+    laserOffStats.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-coherent-node-oper:coherent/nodes/node/coherent-time-stats/port-stat/" + laserOffStats.EntityData.SegmentPath
     laserOffStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     laserOffStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     laserOffStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -554,6 +568,7 @@ func (wlOpStats *Coherent_Nodes_Node_CoherentTimeStats_PortStat_WlOpStats) GetEn
     wlOpStats.EntityData.BundleName = "cisco_ios_xr"
     wlOpStats.EntityData.ParentYangName = "port-stat"
     wlOpStats.EntityData.SegmentPath = "wl-op-stats"
+    wlOpStats.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-coherent-node-oper:coherent/nodes/node/coherent-time-stats/port-stat/" + wlOpStats.EntityData.SegmentPath
     wlOpStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     wlOpStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     wlOpStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -595,6 +610,7 @@ func (txpwrOpStats *Coherent_Nodes_Node_CoherentTimeStats_PortStat_TxpwrOpStats)
     txpwrOpStats.EntityData.BundleName = "cisco_ios_xr"
     txpwrOpStats.EntityData.ParentYangName = "port-stat"
     txpwrOpStats.EntityData.SegmentPath = "txpwr-op-stats"
+    txpwrOpStats.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-coherent-node-oper:coherent/nodes/node/coherent-time-stats/port-stat/" + txpwrOpStats.EntityData.SegmentPath
     txpwrOpStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     txpwrOpStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     txpwrOpStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -636,6 +652,7 @@ func (cdminOpStats *Coherent_Nodes_Node_CoherentTimeStats_PortStat_CdminOpStats)
     cdminOpStats.EntityData.BundleName = "cisco_ios_xr"
     cdminOpStats.EntityData.ParentYangName = "port-stat"
     cdminOpStats.EntityData.SegmentPath = "cdmin-op-stats"
+    cdminOpStats.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-coherent-node-oper:coherent/nodes/node/coherent-time-stats/port-stat/" + cdminOpStats.EntityData.SegmentPath
     cdminOpStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cdminOpStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cdminOpStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -677,6 +694,7 @@ func (cdmaxOpStats *Coherent_Nodes_Node_CoherentTimeStats_PortStat_CdmaxOpStats)
     cdmaxOpStats.EntityData.BundleName = "cisco_ios_xr"
     cdmaxOpStats.EntityData.ParentYangName = "port-stat"
     cdmaxOpStats.EntityData.SegmentPath = "cdmax-op-stats"
+    cdmaxOpStats.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-coherent-node-oper:coherent/nodes/node/coherent-time-stats/port-stat/" + cdmaxOpStats.EntityData.SegmentPath
     cdmaxOpStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cdmaxOpStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cdmaxOpStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -718,6 +736,7 @@ func (traffictypeOpStats *Coherent_Nodes_Node_CoherentTimeStats_PortStat_Traffic
     traffictypeOpStats.EntityData.BundleName = "cisco_ios_xr"
     traffictypeOpStats.EntityData.ParentYangName = "port-stat"
     traffictypeOpStats.EntityData.SegmentPath = "traffictype-op-stats"
+    traffictypeOpStats.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-coherent-node-oper:coherent/nodes/node/coherent-time-stats/port-stat/" + traffictypeOpStats.EntityData.SegmentPath
     traffictypeOpStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     traffictypeOpStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     traffictypeOpStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -826,6 +845,7 @@ func (coherenthealth *Coherent_Nodes_Node_Coherenthealth) GetEntityData() *types
     coherenthealth.EntityData.BundleName = "cisco_ios_xr"
     coherenthealth.EntityData.ParentYangName = "node"
     coherenthealth.EntityData.SegmentPath = "coherenthealth"
+    coherenthealth.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-coherent-node-oper:coherent/nodes/node/" + coherenthealth.EntityData.SegmentPath
     coherenthealth.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     coherenthealth.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     coherenthealth.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -833,6 +853,7 @@ func (coherenthealth *Coherent_Nodes_Node_Coherenthealth) GetEntityData() *types
     coherenthealth.EntityData.Children = types.NewOrderedMap()
     coherenthealth.EntityData.Children.Append("port-data", types.YChild{"PortData", nil})
     for i := range coherenthealth.PortData {
+        types.SetYListKey(coherenthealth.PortData[i], i)
         coherenthealth.EntityData.Children.Append(types.GetSegmentPath(coherenthealth.PortData[i]), types.YChild{"PortData", coherenthealth.PortData[i]})
     }
     coherenthealth.EntityData.Leafs = types.NewOrderedMap()
@@ -872,6 +893,7 @@ func (coherenthealth *Coherent_Nodes_Node_Coherenthealth) GetEntityData() *types
 type Coherent_Nodes_Node_Coherenthealth_PortData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // rsip. The type is interface{} with range: 0..4294967295.
     Rsip interface{}
@@ -1045,7 +1067,8 @@ func (portData *Coherent_Nodes_Node_Coherenthealth_PortData) GetEntityData() *ty
     portData.EntityData.YangName = "port-data"
     portData.EntityData.BundleName = "cisco_ios_xr"
     portData.EntityData.ParentYangName = "coherenthealth"
-    portData.EntityData.SegmentPath = "port-data"
+    portData.EntityData.SegmentPath = "port-data" + types.AddNoKeyToken(portData)
+    portData.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-coherent-node-oper:coherent/nodes/node/coherenthealth/" + portData.EntityData.SegmentPath
     portData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     portData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     portData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1164,6 +1187,7 @@ func (ctpInfo *Coherent_Nodes_Node_Coherenthealth_PortData_CtpInfo) GetEntityDat
     ctpInfo.EntityData.BundleName = "cisco_ios_xr"
     ctpInfo.EntityData.ParentYangName = "port-data"
     ctpInfo.EntityData.SegmentPath = "ctp-info"
+    ctpInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-coherent-node-oper:coherent/nodes/node/coherenthealth/port-data/" + ctpInfo.EntityData.SegmentPath
     ctpInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ctpInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ctpInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1206,6 +1230,7 @@ func (interfaceInfo *Coherent_Nodes_Node_Coherenthealth_PortData_InterfaceInfo) 
     interfaceInfo.EntityData.BundleName = "cisco_ios_xr"
     interfaceInfo.EntityData.ParentYangName = "port-data"
     interfaceInfo.EntityData.SegmentPath = "interface-info"
+    interfaceInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-coherent-node-oper:coherent/nodes/node/coherenthealth/port-data/" + interfaceInfo.EntityData.SegmentPath
     interfaceInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1213,6 +1238,7 @@ func (interfaceInfo *Coherent_Nodes_Node_Coherenthealth_PortData_InterfaceInfo) 
     interfaceInfo.EntityData.Children = types.NewOrderedMap()
     interfaceInfo.EntityData.Children.Append("eth-data", types.YChild{"EthData", nil})
     for i := range interfaceInfo.EthData {
+        types.SetYListKey(interfaceInfo.EthData[i], i)
         interfaceInfo.EntityData.Children.Append(types.GetSegmentPath(interfaceInfo.EthData[i]), types.YChild{"EthData", interfaceInfo.EthData[i]})
     }
     interfaceInfo.EntityData.Leafs = types.NewOrderedMap()
@@ -1227,6 +1253,7 @@ func (interfaceInfo *Coherent_Nodes_Node_Coherenthealth_PortData_InterfaceInfo) 
 type Coherent_Nodes_Node_Coherenthealth_PortData_InterfaceInfo_EthData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // ifname. The type is string with length: 0..64.
     Ifname interface{}
@@ -1249,7 +1276,8 @@ func (ethData *Coherent_Nodes_Node_Coherenthealth_PortData_InterfaceInfo_EthData
     ethData.EntityData.YangName = "eth-data"
     ethData.EntityData.BundleName = "cisco_ios_xr"
     ethData.EntityData.ParentYangName = "interface-info"
-    ethData.EntityData.SegmentPath = "eth-data"
+    ethData.EntityData.SegmentPath = "eth-data" + types.AddNoKeyToken(ethData)
+    ethData.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-coherent-node-oper:coherent/nodes/node/coherenthealth/port-data/interface-info/" + ethData.EntityData.SegmentPath
     ethData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ethData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ethData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

@@ -326,6 +326,7 @@ func (cISCOENTITYFRUCONTROLMIB *CISCOENTITYFRUCONTROLMIB) GetEntityData() *types
     cISCOENTITYFRUCONTROLMIB.EntityData.BundleName = "cisco_ios_xe"
     cISCOENTITYFRUCONTROLMIB.EntityData.ParentYangName = "CISCO-ENTITY-FRU-CONTROL-MIB"
     cISCOENTITYFRUCONTROLMIB.EntityData.SegmentPath = "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB"
+    cISCOENTITYFRUCONTROLMIB.EntityData.AbsolutePath = cISCOENTITYFRUCONTROLMIB.EntityData.SegmentPath
     cISCOENTITYFRUCONTROLMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cISCOENTITYFRUCONTROLMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOENTITYFRUCONTROLMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -386,6 +387,7 @@ func (cefcFRUPower *CISCOENTITYFRUCONTROLMIB_CefcFRUPower) GetEntityData() *type
     cefcFRUPower.EntityData.BundleName = "cisco_ios_xe"
     cefcFRUPower.EntityData.ParentYangName = "CISCO-ENTITY-FRU-CONTROL-MIB"
     cefcFRUPower.EntityData.SegmentPath = "cefcFRUPower"
+    cefcFRUPower.EntityData.AbsolutePath = "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/" + cefcFRUPower.EntityData.SegmentPath
     cefcFRUPower.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cefcFRUPower.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cefcFRUPower.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -425,6 +427,7 @@ func (cefcMIBNotificationEnables *CISCOENTITYFRUCONTROLMIB_CefcMIBNotificationEn
     cefcMIBNotificationEnables.EntityData.BundleName = "cisco_ios_xe"
     cefcMIBNotificationEnables.EntityData.ParentYangName = "CISCO-ENTITY-FRU-CONTROL-MIB"
     cefcMIBNotificationEnables.EntityData.SegmentPath = "cefcMIBNotificationEnables"
+    cefcMIBNotificationEnables.EntityData.AbsolutePath = "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/" + cefcMIBNotificationEnables.EntityData.SegmentPath
     cefcMIBNotificationEnables.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cefcMIBNotificationEnables.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cefcMIBNotificationEnables.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -462,6 +465,7 @@ func (cefcFRUPowerSupplyGroupTable *CISCOENTITYFRUCONTROLMIB_CefcFRUPowerSupplyG
     cefcFRUPowerSupplyGroupTable.EntityData.BundleName = "cisco_ios_xe"
     cefcFRUPowerSupplyGroupTable.EntityData.ParentYangName = "CISCO-ENTITY-FRU-CONTROL-MIB"
     cefcFRUPowerSupplyGroupTable.EntityData.SegmentPath = "cefcFRUPowerSupplyGroupTable"
+    cefcFRUPowerSupplyGroupTable.EntityData.AbsolutePath = "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/" + cefcFRUPowerSupplyGroupTable.EntityData.SegmentPath
     cefcFRUPowerSupplyGroupTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cefcFRUPowerSupplyGroupTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cefcFRUPowerSupplyGroupTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -489,6 +493,7 @@ func (cefcFRUPowerSupplyGroupTable *CISCOENTITYFRUCONTROLMIB_CefcFRUPowerSupplyG
 type CISCOENTITYFRUCONTROLMIB_CefcFRUPowerSupplyGroupTable_CefcFRUPowerSupplyGroupEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -541,6 +546,7 @@ func (cefcFRUPowerSupplyGroupEntry *CISCOENTITYFRUCONTROLMIB_CefcFRUPowerSupplyG
     cefcFRUPowerSupplyGroupEntry.EntityData.BundleName = "cisco_ios_xe"
     cefcFRUPowerSupplyGroupEntry.EntityData.ParentYangName = "cefcFRUPowerSupplyGroupTable"
     cefcFRUPowerSupplyGroupEntry.EntityData.SegmentPath = "cefcFRUPowerSupplyGroupEntry" + types.AddKeyToken(cefcFRUPowerSupplyGroupEntry.EntPhysicalIndex, "entPhysicalIndex")
+    cefcFRUPowerSupplyGroupEntry.EntityData.AbsolutePath = "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/cefcFRUPowerSupplyGroupTable/" + cefcFRUPowerSupplyGroupEntry.EntityData.SegmentPath
     cefcFRUPowerSupplyGroupEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cefcFRUPowerSupplyGroupEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cefcFRUPowerSupplyGroupEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -600,6 +606,7 @@ func (cefcFRUPowerStatusTable *CISCOENTITYFRUCONTROLMIB_CefcFRUPowerStatusTable)
     cefcFRUPowerStatusTable.EntityData.BundleName = "cisco_ios_xe"
     cefcFRUPowerStatusTable.EntityData.ParentYangName = "CISCO-ENTITY-FRU-CONTROL-MIB"
     cefcFRUPowerStatusTable.EntityData.SegmentPath = "cefcFRUPowerStatusTable"
+    cefcFRUPowerStatusTable.EntityData.AbsolutePath = "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/" + cefcFRUPowerStatusTable.EntityData.SegmentPath
     cefcFRUPowerStatusTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cefcFRUPowerStatusTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cefcFRUPowerStatusTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -631,6 +638,7 @@ func (cefcFRUPowerStatusTable *CISCOENTITYFRUCONTROLMIB_CefcFRUPowerStatusTable)
 type CISCOENTITYFRUCONTROLMIB_CefcFRUPowerStatusTable_CefcFRUPowerStatusEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -666,6 +674,7 @@ func (cefcFRUPowerStatusEntry *CISCOENTITYFRUCONTROLMIB_CefcFRUPowerStatusTable_
     cefcFRUPowerStatusEntry.EntityData.BundleName = "cisco_ios_xe"
     cefcFRUPowerStatusEntry.EntityData.ParentYangName = "cefcFRUPowerStatusTable"
     cefcFRUPowerStatusEntry.EntityData.SegmentPath = "cefcFRUPowerStatusEntry" + types.AddKeyToken(cefcFRUPowerStatusEntry.EntPhysicalIndex, "entPhysicalIndex")
+    cefcFRUPowerStatusEntry.EntityData.AbsolutePath = "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/cefcFRUPowerStatusTable/" + cefcFRUPowerStatusEntry.EntityData.SegmentPath
     cefcFRUPowerStatusEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cefcFRUPowerStatusEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cefcFRUPowerStatusEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -719,6 +728,7 @@ func (cefcFRUPowerSupplyValueTable *CISCOENTITYFRUCONTROLMIB_CefcFRUPowerSupplyV
     cefcFRUPowerSupplyValueTable.EntityData.BundleName = "cisco_ios_xe"
     cefcFRUPowerSupplyValueTable.EntityData.ParentYangName = "CISCO-ENTITY-FRU-CONTROL-MIB"
     cefcFRUPowerSupplyValueTable.EntityData.SegmentPath = "cefcFRUPowerSupplyValueTable"
+    cefcFRUPowerSupplyValueTable.EntityData.AbsolutePath = "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/" + cefcFRUPowerSupplyValueTable.EntityData.SegmentPath
     cefcFRUPowerSupplyValueTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cefcFRUPowerSupplyValueTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cefcFRUPowerSupplyValueTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -747,6 +757,7 @@ func (cefcFRUPowerSupplyValueTable *CISCOENTITYFRUCONTROLMIB_CefcFRUPowerSupplyV
 type CISCOENTITYFRUCONTROLMIB_CefcFRUPowerSupplyValueTable_CefcFRUPowerSupplyValueEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -778,6 +789,7 @@ func (cefcFRUPowerSupplyValueEntry *CISCOENTITYFRUCONTROLMIB_CefcFRUPowerSupplyV
     cefcFRUPowerSupplyValueEntry.EntityData.BundleName = "cisco_ios_xe"
     cefcFRUPowerSupplyValueEntry.EntityData.ParentYangName = "cefcFRUPowerSupplyValueTable"
     cefcFRUPowerSupplyValueEntry.EntityData.SegmentPath = "cefcFRUPowerSupplyValueEntry" + types.AddKeyToken(cefcFRUPowerSupplyValueEntry.EntPhysicalIndex, "entPhysicalIndex")
+    cefcFRUPowerSupplyValueEntry.EntityData.AbsolutePath = "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/cefcFRUPowerSupplyValueTable/" + cefcFRUPowerSupplyValueEntry.EntityData.SegmentPath
     cefcFRUPowerSupplyValueEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cefcFRUPowerSupplyValueEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cefcFRUPowerSupplyValueEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -819,6 +831,7 @@ func (cefcModuleTable *CISCOENTITYFRUCONTROLMIB_CefcModuleTable) GetEntityData()
     cefcModuleTable.EntityData.BundleName = "cisco_ios_xe"
     cefcModuleTable.EntityData.ParentYangName = "CISCO-ENTITY-FRU-CONTROL-MIB"
     cefcModuleTable.EntityData.SegmentPath = "cefcModuleTable"
+    cefcModuleTable.EntityData.AbsolutePath = "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/" + cefcModuleTable.EntityData.SegmentPath
     cefcModuleTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cefcModuleTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cefcModuleTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -848,6 +861,7 @@ func (cefcModuleTable *CISCOENTITYFRUCONTROLMIB_CefcModuleTable) GetEntityData()
 type CISCOENTITYFRUCONTROLMIB_CefcModuleTable_CefcModuleEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -903,6 +917,7 @@ func (cefcModuleEntry *CISCOENTITYFRUCONTROLMIB_CefcModuleTable_CefcModuleEntry)
     cefcModuleEntry.EntityData.BundleName = "cisco_ios_xe"
     cefcModuleEntry.EntityData.ParentYangName = "cefcModuleTable"
     cefcModuleEntry.EntityData.SegmentPath = "cefcModuleEntry" + types.AddKeyToken(cefcModuleEntry.EntPhysicalIndex, "entPhysicalIndex")
+    cefcModuleEntry.EntityData.AbsolutePath = "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/cefcModuleTable/" + cefcModuleEntry.EntityData.SegmentPath
     cefcModuleEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cefcModuleEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cefcModuleEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -957,6 +972,7 @@ func (cefcIntelliModuleTable *CISCOENTITYFRUCONTROLMIB_CefcIntelliModuleTable) G
     cefcIntelliModuleTable.EntityData.BundleName = "cisco_ios_xe"
     cefcIntelliModuleTable.EntityData.ParentYangName = "CISCO-ENTITY-FRU-CONTROL-MIB"
     cefcIntelliModuleTable.EntityData.SegmentPath = "cefcIntelliModuleTable"
+    cefcIntelliModuleTable.EntityData.AbsolutePath = "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/" + cefcIntelliModuleTable.EntityData.SegmentPath
     cefcIntelliModuleTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cefcIntelliModuleTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cefcIntelliModuleTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -994,6 +1010,7 @@ func (cefcIntelliModuleTable *CISCOENTITYFRUCONTROLMIB_CefcIntelliModuleTable) G
 type CISCOENTITYFRUCONTROLMIB_CefcIntelliModuleTable_CefcIntelliModuleEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -1016,6 +1033,7 @@ func (cefcIntelliModuleEntry *CISCOENTITYFRUCONTROLMIB_CefcIntelliModuleTable_Ce
     cefcIntelliModuleEntry.EntityData.BundleName = "cisco_ios_xe"
     cefcIntelliModuleEntry.EntityData.ParentYangName = "cefcIntelliModuleTable"
     cefcIntelliModuleEntry.EntityData.SegmentPath = "cefcIntelliModuleEntry" + types.AddKeyToken(cefcIntelliModuleEntry.EntPhysicalIndex, "entPhysicalIndex")
+    cefcIntelliModuleEntry.EntityData.AbsolutePath = "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/cefcIntelliModuleTable/" + cefcIntelliModuleEntry.EntityData.SegmentPath
     cefcIntelliModuleEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cefcIntelliModuleEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cefcIntelliModuleEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1061,6 +1079,7 @@ func (cefcModuleLocalSwitchingTable *CISCOENTITYFRUCONTROLMIB_CefcModuleLocalSwi
     cefcModuleLocalSwitchingTable.EntityData.BundleName = "cisco_ios_xe"
     cefcModuleLocalSwitchingTable.EntityData.ParentYangName = "CISCO-ENTITY-FRU-CONTROL-MIB"
     cefcModuleLocalSwitchingTable.EntityData.SegmentPath = "cefcModuleLocalSwitchingTable"
+    cefcModuleLocalSwitchingTable.EntityData.AbsolutePath = "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/" + cefcModuleLocalSwitchingTable.EntityData.SegmentPath
     cefcModuleLocalSwitchingTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cefcModuleLocalSwitchingTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cefcModuleLocalSwitchingTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1094,6 +1113,7 @@ func (cefcModuleLocalSwitchingTable *CISCOENTITYFRUCONTROLMIB_CefcModuleLocalSwi
 type CISCOENTITYFRUCONTROLMIB_CefcModuleLocalSwitchingTable_CefcModuleLocalSwitchingEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -1112,6 +1132,7 @@ func (cefcModuleLocalSwitchingEntry *CISCOENTITYFRUCONTROLMIB_CefcModuleLocalSwi
     cefcModuleLocalSwitchingEntry.EntityData.BundleName = "cisco_ios_xe"
     cefcModuleLocalSwitchingEntry.EntityData.ParentYangName = "cefcModuleLocalSwitchingTable"
     cefcModuleLocalSwitchingEntry.EntityData.SegmentPath = "cefcModuleLocalSwitchingEntry" + types.AddKeyToken(cefcModuleLocalSwitchingEntry.EntPhysicalIndex, "entPhysicalIndex")
+    cefcModuleLocalSwitchingEntry.EntityData.AbsolutePath = "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/cefcModuleLocalSwitchingTable/" + cefcModuleLocalSwitchingEntry.EntityData.SegmentPath
     cefcModuleLocalSwitchingEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cefcModuleLocalSwitchingEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cefcModuleLocalSwitchingEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1166,6 +1187,7 @@ func (cefcFanTrayStatusTable *CISCOENTITYFRUCONTROLMIB_CefcFanTrayStatusTable) G
     cefcFanTrayStatusTable.EntityData.BundleName = "cisco_ios_xe"
     cefcFanTrayStatusTable.EntityData.ParentYangName = "CISCO-ENTITY-FRU-CONTROL-MIB"
     cefcFanTrayStatusTable.EntityData.SegmentPath = "cefcFanTrayStatusTable"
+    cefcFanTrayStatusTable.EntityData.AbsolutePath = "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/" + cefcFanTrayStatusTable.EntityData.SegmentPath
     cefcFanTrayStatusTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cefcFanTrayStatusTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cefcFanTrayStatusTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1198,6 +1220,7 @@ func (cefcFanTrayStatusTable *CISCOENTITYFRUCONTROLMIB_CefcFanTrayStatusTable) G
 type CISCOENTITYFRUCONTROLMIB_CefcFanTrayStatusTable_CefcFanTrayStatusEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -1217,6 +1240,7 @@ func (cefcFanTrayStatusEntry *CISCOENTITYFRUCONTROLMIB_CefcFanTrayStatusTable_Ce
     cefcFanTrayStatusEntry.EntityData.BundleName = "cisco_ios_xe"
     cefcFanTrayStatusEntry.EntityData.ParentYangName = "cefcFanTrayStatusTable"
     cefcFanTrayStatusEntry.EntityData.SegmentPath = "cefcFanTrayStatusEntry" + types.AddKeyToken(cefcFanTrayStatusEntry.EntPhysicalIndex, "entPhysicalIndex")
+    cefcFanTrayStatusEntry.EntityData.AbsolutePath = "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/cefcFanTrayStatusTable/" + cefcFanTrayStatusEntry.EntityData.SegmentPath
     cefcFanTrayStatusEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cefcFanTrayStatusEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cefcFanTrayStatusEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1261,6 +1285,7 @@ func (cefcPhysicalTable *CISCOENTITYFRUCONTROLMIB_CefcPhysicalTable) GetEntityDa
     cefcPhysicalTable.EntityData.BundleName = "cisco_ios_xe"
     cefcPhysicalTable.EntityData.ParentYangName = "CISCO-ENTITY-FRU-CONTROL-MIB"
     cefcPhysicalTable.EntityData.SegmentPath = "cefcPhysicalTable"
+    cefcPhysicalTable.EntityData.AbsolutePath = "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/" + cefcPhysicalTable.EntityData.SegmentPath
     cefcPhysicalTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cefcPhysicalTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cefcPhysicalTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1282,6 +1307,7 @@ func (cefcPhysicalTable *CISCOENTITYFRUCONTROLMIB_CefcPhysicalTable) GetEntityDa
 type CISCOENTITYFRUCONTROLMIB_CefcPhysicalTable_CefcPhysicalEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -1303,6 +1329,7 @@ func (cefcPhysicalEntry *CISCOENTITYFRUCONTROLMIB_CefcPhysicalTable_CefcPhysical
     cefcPhysicalEntry.EntityData.BundleName = "cisco_ios_xe"
     cefcPhysicalEntry.EntityData.ParentYangName = "cefcPhysicalTable"
     cefcPhysicalEntry.EntityData.SegmentPath = "cefcPhysicalEntry" + types.AddKeyToken(cefcPhysicalEntry.EntPhysicalIndex, "entPhysicalIndex")
+    cefcPhysicalEntry.EntityData.AbsolutePath = "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/cefcPhysicalTable/" + cefcPhysicalEntry.EntityData.SegmentPath
     cefcPhysicalEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cefcPhysicalEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cefcPhysicalEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1360,6 +1387,7 @@ func (cefcPowerSupplyInputTable *CISCOENTITYFRUCONTROLMIB_CefcPowerSupplyInputTa
     cefcPowerSupplyInputTable.EntityData.BundleName = "cisco_ios_xe"
     cefcPowerSupplyInputTable.EntityData.ParentYangName = "CISCO-ENTITY-FRU-CONTROL-MIB"
     cefcPowerSupplyInputTable.EntityData.SegmentPath = "cefcPowerSupplyInputTable"
+    cefcPowerSupplyInputTable.EntityData.AbsolutePath = "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/" + cefcPowerSupplyInputTable.EntityData.SegmentPath
     cefcPowerSupplyInputTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cefcPowerSupplyInputTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cefcPowerSupplyInputTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1382,6 +1410,7 @@ func (cefcPowerSupplyInputTable *CISCOENTITYFRUCONTROLMIB_CefcPowerSupplyInputTa
 type CISCOENTITYFRUCONTROLMIB_CefcPowerSupplyInputTable_CefcPowerSupplyInputEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -1406,6 +1435,7 @@ func (cefcPowerSupplyInputEntry *CISCOENTITYFRUCONTROLMIB_CefcPowerSupplyInputTa
     cefcPowerSupplyInputEntry.EntityData.BundleName = "cisco_ios_xe"
     cefcPowerSupplyInputEntry.EntityData.ParentYangName = "cefcPowerSupplyInputTable"
     cefcPowerSupplyInputEntry.EntityData.SegmentPath = "cefcPowerSupplyInputEntry" + types.AddKeyToken(cefcPowerSupplyInputEntry.EntPhysicalIndex, "entPhysicalIndex") + types.AddKeyToken(cefcPowerSupplyInputEntry.CefcPowerSupplyInputIndex, "cefcPowerSupplyInputIndex")
+    cefcPowerSupplyInputEntry.EntityData.AbsolutePath = "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/cefcPowerSupplyInputTable/" + cefcPowerSupplyInputEntry.EntityData.SegmentPath
     cefcPowerSupplyInputEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cefcPowerSupplyInputEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cefcPowerSupplyInputEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1462,6 +1492,7 @@ func (cefcPowerSupplyOutputTable *CISCOENTITYFRUCONTROLMIB_CefcPowerSupplyOutput
     cefcPowerSupplyOutputTable.EntityData.BundleName = "cisco_ios_xe"
     cefcPowerSupplyOutputTable.EntityData.ParentYangName = "CISCO-ENTITY-FRU-CONTROL-MIB"
     cefcPowerSupplyOutputTable.EntityData.SegmentPath = "cefcPowerSupplyOutputTable"
+    cefcPowerSupplyOutputTable.EntityData.AbsolutePath = "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/" + cefcPowerSupplyOutputTable.EntityData.SegmentPath
     cefcPowerSupplyOutputTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cefcPowerSupplyOutputTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cefcPowerSupplyOutputTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1495,6 +1526,7 @@ func (cefcPowerSupplyOutputTable *CISCOENTITYFRUCONTROLMIB_CefcPowerSupplyOutput
 type CISCOENTITYFRUCONTROLMIB_CefcPowerSupplyOutputTable_CefcPowerSupplyOutputEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -1524,6 +1556,7 @@ func (cefcPowerSupplyOutputEntry *CISCOENTITYFRUCONTROLMIB_CefcPowerSupplyOutput
     cefcPowerSupplyOutputEntry.EntityData.BundleName = "cisco_ios_xe"
     cefcPowerSupplyOutputEntry.EntityData.ParentYangName = "cefcPowerSupplyOutputTable"
     cefcPowerSupplyOutputEntry.EntityData.SegmentPath = "cefcPowerSupplyOutputEntry" + types.AddKeyToken(cefcPowerSupplyOutputEntry.EntPhysicalIndex, "entPhysicalIndex") + types.AddKeyToken(cefcPowerSupplyOutputEntry.CefcPSOutputModeIndex, "cefcPSOutputModeIndex")
+    cefcPowerSupplyOutputEntry.EntityData.AbsolutePath = "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/cefcPowerSupplyOutputTable/" + cefcPowerSupplyOutputEntry.EntityData.SegmentPath
     cefcPowerSupplyOutputEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cefcPowerSupplyOutputEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cefcPowerSupplyOutputEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1565,6 +1598,7 @@ func (cefcChassisCoolingTable *CISCOENTITYFRUCONTROLMIB_CefcChassisCoolingTable)
     cefcChassisCoolingTable.EntityData.BundleName = "cisco_ios_xe"
     cefcChassisCoolingTable.EntityData.ParentYangName = "CISCO-ENTITY-FRU-CONTROL-MIB"
     cefcChassisCoolingTable.EntityData.SegmentPath = "cefcChassisCoolingTable"
+    cefcChassisCoolingTable.EntityData.AbsolutePath = "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/" + cefcChassisCoolingTable.EntityData.SegmentPath
     cefcChassisCoolingTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cefcChassisCoolingTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cefcChassisCoolingTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1595,6 +1629,7 @@ func (cefcChassisCoolingTable *CISCOENTITYFRUCONTROLMIB_CefcChassisCoolingTable)
 type CISCOENTITYFRUCONTROLMIB_CefcChassisCoolingTable_CefcChassisCoolingEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -1618,6 +1653,7 @@ func (cefcChassisCoolingEntry *CISCOENTITYFRUCONTROLMIB_CefcChassisCoolingTable_
     cefcChassisCoolingEntry.EntityData.BundleName = "cisco_ios_xe"
     cefcChassisCoolingEntry.EntityData.ParentYangName = "cefcChassisCoolingTable"
     cefcChassisCoolingEntry.EntityData.SegmentPath = "cefcChassisCoolingEntry" + types.AddKeyToken(cefcChassisCoolingEntry.EntPhysicalIndex, "entPhysicalIndex")
+    cefcChassisCoolingEntry.EntityData.AbsolutePath = "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/cefcChassisCoolingTable/" + cefcChassisCoolingEntry.EntityData.SegmentPath
     cefcChassisCoolingEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cefcChassisCoolingEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cefcChassisCoolingEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1657,6 +1693,7 @@ func (cefcFanCoolingTable *CISCOENTITYFRUCONTROLMIB_CefcFanCoolingTable) GetEnti
     cefcFanCoolingTable.EntityData.BundleName = "cisco_ios_xe"
     cefcFanCoolingTable.EntityData.ParentYangName = "CISCO-ENTITY-FRU-CONTROL-MIB"
     cefcFanCoolingTable.EntityData.SegmentPath = "cefcFanCoolingTable"
+    cefcFanCoolingTable.EntityData.AbsolutePath = "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/" + cefcFanCoolingTable.EntityData.SegmentPath
     cefcFanCoolingTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cefcFanCoolingTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cefcFanCoolingTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1687,6 +1724,7 @@ func (cefcFanCoolingTable *CISCOENTITYFRUCONTROLMIB_CefcFanCoolingTable) GetEnti
 type CISCOENTITYFRUCONTROLMIB_CefcFanCoolingTable_CefcFanCoolingEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -1708,6 +1746,7 @@ func (cefcFanCoolingEntry *CISCOENTITYFRUCONTROLMIB_CefcFanCoolingTable_CefcFanC
     cefcFanCoolingEntry.EntityData.BundleName = "cisco_ios_xe"
     cefcFanCoolingEntry.EntityData.ParentYangName = "cefcFanCoolingTable"
     cefcFanCoolingEntry.EntityData.SegmentPath = "cefcFanCoolingEntry" + types.AddKeyToken(cefcFanCoolingEntry.EntPhysicalIndex, "entPhysicalIndex")
+    cefcFanCoolingEntry.EntityData.AbsolutePath = "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/cefcFanCoolingTable/" + cefcFanCoolingEntry.EntityData.SegmentPath
     cefcFanCoolingEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cefcFanCoolingEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cefcFanCoolingEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1745,6 +1784,7 @@ func (cefcModuleCoolingTable *CISCOENTITYFRUCONTROLMIB_CefcModuleCoolingTable) G
     cefcModuleCoolingTable.EntityData.BundleName = "cisco_ios_xe"
     cefcModuleCoolingTable.EntityData.ParentYangName = "CISCO-ENTITY-FRU-CONTROL-MIB"
     cefcModuleCoolingTable.EntityData.SegmentPath = "cefcModuleCoolingTable"
+    cefcModuleCoolingTable.EntityData.AbsolutePath = "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/" + cefcModuleCoolingTable.EntityData.SegmentPath
     cefcModuleCoolingTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cefcModuleCoolingTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cefcModuleCoolingTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1774,6 +1814,7 @@ func (cefcModuleCoolingTable *CISCOENTITYFRUCONTROLMIB_CefcModuleCoolingTable) G
 type CISCOENTITYFRUCONTROLMIB_CefcModuleCoolingTable_CefcModuleCoolingEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -1796,6 +1837,7 @@ func (cefcModuleCoolingEntry *CISCOENTITYFRUCONTROLMIB_CefcModuleCoolingTable_Ce
     cefcModuleCoolingEntry.EntityData.BundleName = "cisco_ios_xe"
     cefcModuleCoolingEntry.EntityData.ParentYangName = "cefcModuleCoolingTable"
     cefcModuleCoolingEntry.EntityData.SegmentPath = "cefcModuleCoolingEntry" + types.AddKeyToken(cefcModuleCoolingEntry.EntPhysicalIndex, "entPhysicalIndex")
+    cefcModuleCoolingEntry.EntityData.AbsolutePath = "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/cefcModuleCoolingTable/" + cefcModuleCoolingEntry.EntityData.SegmentPath
     cefcModuleCoolingEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cefcModuleCoolingEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cefcModuleCoolingEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1837,6 +1879,7 @@ func (cefcFanCoolingCapTable *CISCOENTITYFRUCONTROLMIB_CefcFanCoolingCapTable) G
     cefcFanCoolingCapTable.EntityData.BundleName = "cisco_ios_xe"
     cefcFanCoolingCapTable.EntityData.ParentYangName = "CISCO-ENTITY-FRU-CONTROL-MIB"
     cefcFanCoolingCapTable.EntityData.SegmentPath = "cefcFanCoolingCapTable"
+    cefcFanCoolingCapTable.EntityData.AbsolutePath = "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/" + cefcFanCoolingCapTable.EntityData.SegmentPath
     cefcFanCoolingCapTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cefcFanCoolingCapTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cefcFanCoolingCapTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1869,6 +1912,7 @@ func (cefcFanCoolingCapTable *CISCOENTITYFRUCONTROLMIB_CefcFanCoolingCapTable) G
 type CISCOENTITYFRUCONTROLMIB_CefcFanCoolingCapTable_CefcFanCoolingCapEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -1905,6 +1949,7 @@ func (cefcFanCoolingCapEntry *CISCOENTITYFRUCONTROLMIB_CefcFanCoolingCapTable_Ce
     cefcFanCoolingCapEntry.EntityData.BundleName = "cisco_ios_xe"
     cefcFanCoolingCapEntry.EntityData.ParentYangName = "cefcFanCoolingCapTable"
     cefcFanCoolingCapEntry.EntityData.SegmentPath = "cefcFanCoolingCapEntry" + types.AddKeyToken(cefcFanCoolingCapEntry.EntPhysicalIndex, "entPhysicalIndex") + types.AddKeyToken(cefcFanCoolingCapEntry.CefcFanCoolingCapIndex, "cefcFanCoolingCapIndex")
+    cefcFanCoolingCapEntry.EntityData.AbsolutePath = "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/cefcFanCoolingCapTable/" + cefcFanCoolingCapEntry.EntityData.SegmentPath
     cefcFanCoolingCapEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cefcFanCoolingCapEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cefcFanCoolingCapEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1948,6 +1993,7 @@ func (cefcConnectorRatingTable *CISCOENTITYFRUCONTROLMIB_CefcConnectorRatingTabl
     cefcConnectorRatingTable.EntityData.BundleName = "cisco_ios_xe"
     cefcConnectorRatingTable.EntityData.ParentYangName = "CISCO-ENTITY-FRU-CONTROL-MIB"
     cefcConnectorRatingTable.EntityData.SegmentPath = "cefcConnectorRatingTable"
+    cefcConnectorRatingTable.EntityData.AbsolutePath = "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/" + cefcConnectorRatingTable.EntityData.SegmentPath
     cefcConnectorRatingTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cefcConnectorRatingTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cefcConnectorRatingTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1977,6 +2023,7 @@ func (cefcConnectorRatingTable *CISCOENTITYFRUCONTROLMIB_CefcConnectorRatingTabl
 type CISCOENTITYFRUCONTROLMIB_CefcConnectorRatingTable_CefcConnectorRatingEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -1994,6 +2041,7 @@ func (cefcConnectorRatingEntry *CISCOENTITYFRUCONTROLMIB_CefcConnectorRatingTabl
     cefcConnectorRatingEntry.EntityData.BundleName = "cisco_ios_xe"
     cefcConnectorRatingEntry.EntityData.ParentYangName = "cefcConnectorRatingTable"
     cefcConnectorRatingEntry.EntityData.SegmentPath = "cefcConnectorRatingEntry" + types.AddKeyToken(cefcConnectorRatingEntry.EntPhysicalIndex, "entPhysicalIndex")
+    cefcConnectorRatingEntry.EntityData.AbsolutePath = "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/cefcConnectorRatingTable/" + cefcConnectorRatingEntry.EntityData.SegmentPath
     cefcConnectorRatingEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cefcConnectorRatingEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cefcConnectorRatingEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2031,6 +2079,7 @@ func (cefcModulePowerConsumptionTable *CISCOENTITYFRUCONTROLMIB_CefcModulePowerC
     cefcModulePowerConsumptionTable.EntityData.BundleName = "cisco_ios_xe"
     cefcModulePowerConsumptionTable.EntityData.ParentYangName = "CISCO-ENTITY-FRU-CONTROL-MIB"
     cefcModulePowerConsumptionTable.EntityData.SegmentPath = "cefcModulePowerConsumptionTable"
+    cefcModulePowerConsumptionTable.EntityData.AbsolutePath = "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/" + cefcModulePowerConsumptionTable.EntityData.SegmentPath
     cefcModulePowerConsumptionTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cefcModulePowerConsumptionTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cefcModulePowerConsumptionTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2060,6 +2109,7 @@ func (cefcModulePowerConsumptionTable *CISCOENTITYFRUCONTROLMIB_CefcModulePowerC
 type CISCOENTITYFRUCONTROLMIB_CefcModulePowerConsumptionTable_CefcModulePowerConsumptionEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -2078,6 +2128,7 @@ func (cefcModulePowerConsumptionEntry *CISCOENTITYFRUCONTROLMIB_CefcModulePowerC
     cefcModulePowerConsumptionEntry.EntityData.BundleName = "cisco_ios_xe"
     cefcModulePowerConsumptionEntry.EntityData.ParentYangName = "cefcModulePowerConsumptionTable"
     cefcModulePowerConsumptionEntry.EntityData.SegmentPath = "cefcModulePowerConsumptionEntry" + types.AddKeyToken(cefcModulePowerConsumptionEntry.EntPhysicalIndex, "entPhysicalIndex")
+    cefcModulePowerConsumptionEntry.EntityData.AbsolutePath = "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/cefcModulePowerConsumptionTable/" + cefcModulePowerConsumptionEntry.EntityData.SegmentPath
     cefcModulePowerConsumptionEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cefcModulePowerConsumptionEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cefcModulePowerConsumptionEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

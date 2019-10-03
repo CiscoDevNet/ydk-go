@@ -65,6 +65,7 @@ func (sbfd *Sbfd) GetEntityData() *types.CommonEntityData {
     sbfd.EntityData.BundleName = "cisco_ios_xr"
     sbfd.EntityData.ParentYangName = "Cisco-IOS-XR-ip-sbfd-oper"
     sbfd.EntityData.SegmentPath = "Cisco-IOS-XR-ip-sbfd-oper:sbfd"
+    sbfd.EntityData.AbsolutePath = sbfd.EntityData.SegmentPath
     sbfd.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sbfd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sbfd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -97,6 +98,7 @@ func (targetIdentifier *Sbfd_TargetIdentifier) GetEntityData() *types.CommonEnti
     targetIdentifier.EntityData.BundleName = "cisco_ios_xr"
     targetIdentifier.EntityData.ParentYangName = "sbfd"
     targetIdentifier.EntityData.SegmentPath = "target-identifier"
+    targetIdentifier.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-sbfd-oper:sbfd/" + targetIdentifier.EntityData.SegmentPath
     targetIdentifier.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     targetIdentifier.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     targetIdentifier.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -128,6 +130,7 @@ func (remoteVrfs *Sbfd_TargetIdentifier_RemoteVrfs) GetEntityData() *types.Commo
     remoteVrfs.EntityData.BundleName = "cisco_ios_xr"
     remoteVrfs.EntityData.ParentYangName = "target-identifier"
     remoteVrfs.EntityData.SegmentPath = "remote-vrfs"
+    remoteVrfs.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-sbfd-oper:sbfd/target-identifier/" + remoteVrfs.EntityData.SegmentPath
     remoteVrfs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteVrfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteVrfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -149,6 +152,7 @@ func (remoteVrfs *Sbfd_TargetIdentifier_RemoteVrfs) GetEntityData() *types.Commo
 type Sbfd_TargetIdentifier_RemoteVrfs_RemoteVrf struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. VRF name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -165,6 +169,7 @@ func (remoteVrf *Sbfd_TargetIdentifier_RemoteVrfs_RemoteVrf) GetEntityData() *ty
     remoteVrf.EntityData.BundleName = "cisco_ios_xr"
     remoteVrf.EntityData.ParentYangName = "remote-vrfs"
     remoteVrf.EntityData.SegmentPath = "remote-vrf" + types.AddKeyToken(remoteVrf.VrfName, "vrf-name")
+    remoteVrf.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-sbfd-oper:sbfd/target-identifier/remote-vrfs/" + remoteVrf.EntityData.SegmentPath
     remoteVrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteVrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteVrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -172,6 +177,7 @@ func (remoteVrf *Sbfd_TargetIdentifier_RemoteVrfs_RemoteVrf) GetEntityData() *ty
     remoteVrf.EntityData.Children = types.NewOrderedMap()
     remoteVrf.EntityData.Children.Append("remote-discriminator", types.YChild{"RemoteDiscriminator", nil})
     for i := range remoteVrf.RemoteDiscriminator {
+        types.SetYListKey(remoteVrf.RemoteDiscriminator[i], i)
         remoteVrf.EntityData.Children.Append(types.GetSegmentPath(remoteVrf.RemoteDiscriminator[i]), types.YChild{"RemoteDiscriminator", remoteVrf.RemoteDiscriminator[i]})
     }
     remoteVrf.EntityData.Leafs = types.NewOrderedMap()
@@ -187,6 +193,7 @@ func (remoteVrf *Sbfd_TargetIdentifier_RemoteVrfs_RemoteVrf) GetEntityData() *ty
 type Sbfd_TargetIdentifier_RemoteVrfs_RemoteVrf_RemoteDiscriminator struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // VRF Name . The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     VrfName interface{}
@@ -224,7 +231,8 @@ func (remoteDiscriminator *Sbfd_TargetIdentifier_RemoteVrfs_RemoteVrf_RemoteDisc
     remoteDiscriminator.EntityData.YangName = "remote-discriminator"
     remoteDiscriminator.EntityData.BundleName = "cisco_ios_xr"
     remoteDiscriminator.EntityData.ParentYangName = "remote-vrf"
-    remoteDiscriminator.EntityData.SegmentPath = "remote-discriminator"
+    remoteDiscriminator.EntityData.SegmentPath = "remote-discriminator" + types.AddNoKeyToken(remoteDiscriminator)
+    remoteDiscriminator.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-sbfd-oper:sbfd/target-identifier/remote-vrfs/remote-vrf/" + remoteDiscriminator.EntityData.SegmentPath
     remoteDiscriminator.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteDiscriminator.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteDiscriminator.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -273,6 +281,7 @@ func (ipAddress *Sbfd_TargetIdentifier_RemoteVrfs_RemoteVrf_RemoteDiscriminator_
     ipAddress.EntityData.BundleName = "cisco_ios_xr"
     ipAddress.EntityData.ParentYangName = "remote-discriminator"
     ipAddress.EntityData.SegmentPath = "ip-address"
+    ipAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-sbfd-oper:sbfd/target-identifier/remote-vrfs/remote-vrf/remote-discriminator/" + ipAddress.EntityData.SegmentPath
     ipAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -306,6 +315,7 @@ func (localVrfs *Sbfd_TargetIdentifier_LocalVrfs) GetEntityData() *types.CommonE
     localVrfs.EntityData.BundleName = "cisco_ios_xr"
     localVrfs.EntityData.ParentYangName = "target-identifier"
     localVrfs.EntityData.SegmentPath = "local-vrfs"
+    localVrfs.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-sbfd-oper:sbfd/target-identifier/" + localVrfs.EntityData.SegmentPath
     localVrfs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     localVrfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     localVrfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -327,6 +337,7 @@ func (localVrfs *Sbfd_TargetIdentifier_LocalVrfs) GetEntityData() *types.CommonE
 type Sbfd_TargetIdentifier_LocalVrfs_LocalVrf struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. VRF name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -343,6 +354,7 @@ func (localVrf *Sbfd_TargetIdentifier_LocalVrfs_LocalVrf) GetEntityData() *types
     localVrf.EntityData.BundleName = "cisco_ios_xr"
     localVrf.EntityData.ParentYangName = "local-vrfs"
     localVrf.EntityData.SegmentPath = "local-vrf" + types.AddKeyToken(localVrf.VrfName, "vrf-name")
+    localVrf.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-sbfd-oper:sbfd/target-identifier/local-vrfs/" + localVrf.EntityData.SegmentPath
     localVrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     localVrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     localVrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -350,6 +362,7 @@ func (localVrf *Sbfd_TargetIdentifier_LocalVrfs_LocalVrf) GetEntityData() *types
     localVrf.EntityData.Children = types.NewOrderedMap()
     localVrf.EntityData.Children.Append("local-discriminator", types.YChild{"LocalDiscriminator", nil})
     for i := range localVrf.LocalDiscriminator {
+        types.SetYListKey(localVrf.LocalDiscriminator[i], i)
         localVrf.EntityData.Children.Append(types.GetSegmentPath(localVrf.LocalDiscriminator[i]), types.YChild{"LocalDiscriminator", localVrf.LocalDiscriminator[i]})
     }
     localVrf.EntityData.Leafs = types.NewOrderedMap()
@@ -365,6 +378,7 @@ func (localVrf *Sbfd_TargetIdentifier_LocalVrfs_LocalVrf) GetEntityData() *types
 type Sbfd_TargetIdentifier_LocalVrfs_LocalVrf_LocalDiscriminator struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Local discriminator. The type is interface{} with range: 0..4294967295.
     LocalDiscriminator interface{}
@@ -393,7 +407,8 @@ func (localDiscriminator *Sbfd_TargetIdentifier_LocalVrfs_LocalVrf_LocalDiscrimi
     localDiscriminator.EntityData.YangName = "local-discriminator"
     localDiscriminator.EntityData.BundleName = "cisco_ios_xr"
     localDiscriminator.EntityData.ParentYangName = "local-vrf"
-    localDiscriminator.EntityData.SegmentPath = "local-discriminator"
+    localDiscriminator.EntityData.SegmentPath = "local-discriminator" + types.AddNoKeyToken(localDiscriminator)
+    localDiscriminator.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-sbfd-oper:sbfd/target-identifier/local-vrfs/local-vrf/" + localDiscriminator.EntityData.SegmentPath
     localDiscriminator.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     localDiscriminator.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     localDiscriminator.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

@@ -37,6 +37,7 @@ func (oSPFTRAPMIB *OSPFTRAPMIB) GetEntityData() *types.CommonEntityData {
     oSPFTRAPMIB.EntityData.BundleName = "cisco_ios_xe"
     oSPFTRAPMIB.EntityData.ParentYangName = "OSPF-TRAP-MIB"
     oSPFTRAPMIB.EntityData.SegmentPath = "OSPF-TRAP-MIB:OSPF-TRAP-MIB"
+    oSPFTRAPMIB.EntityData.AbsolutePath = oSPFTRAPMIB.EntityData.SegmentPath
     oSPFTRAPMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     oSPFTRAPMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     oSPFTRAPMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -60,7 +61,7 @@ type OSPFTRAPMIB_OspfTrapControl struct {
     // where a 1 in the bit field represents enabled.  The right-most bit (least
     // significant) represents trap 0.  This object is persistent and when written
     // the entity SHOULD save the change to non-volatile storage. The type is
-    // string with length: 4.
+    // string with length: 4..4.
     OspfSetTrap interface{}
 
     // Potential types of configuration conflicts. Used by the ospfConfigError and
@@ -89,6 +90,7 @@ func (ospfTrapControl *OSPFTRAPMIB_OspfTrapControl) GetEntityData() *types.Commo
     ospfTrapControl.EntityData.BundleName = "cisco_ios_xe"
     ospfTrapControl.EntityData.ParentYangName = "OSPF-TRAP-MIB"
     ospfTrapControl.EntityData.SegmentPath = "ospfTrapControl"
+    ospfTrapControl.EntityData.AbsolutePath = "OSPF-TRAP-MIB:OSPF-TRAP-MIB/" + ospfTrapControl.EntityData.SegmentPath
     ospfTrapControl.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ospfTrapControl.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ospfTrapControl.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

@@ -166,6 +166,7 @@ func (cISCODOT3OAMMIB *CISCODOT3OAMMIB) GetEntityData() *types.CommonEntityData 
     cISCODOT3OAMMIB.EntityData.BundleName = "cisco_ios_xe"
     cISCODOT3OAMMIB.EntityData.ParentYangName = "CISCO-DOT3-OAM-MIB"
     cISCODOT3OAMMIB.EntityData.SegmentPath = "CISCO-DOT3-OAM-MIB:CISCO-DOT3-OAM-MIB"
+    cISCODOT3OAMMIB.EntityData.AbsolutePath = cISCODOT3OAMMIB.EntityData.SegmentPath
     cISCODOT3OAMMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cISCODOT3OAMMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCODOT3OAMMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -208,6 +209,7 @@ func (cdot3OamTable *CISCODOT3OAMMIB_Cdot3OamTable) GetEntityData() *types.Commo
     cdot3OamTable.EntityData.BundleName = "cisco_ios_xe"
     cdot3OamTable.EntityData.ParentYangName = "CISCO-DOT3-OAM-MIB"
     cdot3OamTable.EntityData.SegmentPath = "cdot3OamTable"
+    cdot3OamTable.EntityData.AbsolutePath = "CISCO-DOT3-OAM-MIB:CISCO-DOT3-OAM-MIB/" + cdot3OamTable.EntityData.SegmentPath
     cdot3OamTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdot3OamTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdot3OamTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -236,6 +238,7 @@ func (cdot3OamTable *CISCODOT3OAMMIB_Cdot3OamTable) GetEntityData() *types.Commo
 type CISCODOT3OAMMIB_Cdot3OamTable_Cdot3OamEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -349,6 +352,7 @@ func (cdot3OamEntry *CISCODOT3OAMMIB_Cdot3OamTable_Cdot3OamEntry) GetEntityData(
     cdot3OamEntry.EntityData.BundleName = "cisco_ios_xe"
     cdot3OamEntry.EntityData.ParentYangName = "cdot3OamTable"
     cdot3OamEntry.EntityData.SegmentPath = "cdot3OamEntry" + types.AddKeyToken(cdot3OamEntry.IfIndex, "ifIndex")
+    cdot3OamEntry.EntityData.AbsolutePath = "CISCO-DOT3-OAM-MIB:CISCO-DOT3-OAM-MIB/cdot3OamTable/" + cdot3OamEntry.EntityData.SegmentPath
     cdot3OamEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdot3OamEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdot3OamEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -440,6 +444,7 @@ func (cdot3OamPeerTable *CISCODOT3OAMMIB_Cdot3OamPeerTable) GetEntityData() *typ
     cdot3OamPeerTable.EntityData.BundleName = "cisco_ios_xe"
     cdot3OamPeerTable.EntityData.ParentYangName = "CISCO-DOT3-OAM-MIB"
     cdot3OamPeerTable.EntityData.SegmentPath = "cdot3OamPeerTable"
+    cdot3OamPeerTable.EntityData.AbsolutePath = "CISCO-DOT3-OAM-MIB:CISCO-DOT3-OAM-MIB/" + cdot3OamPeerTable.EntityData.SegmentPath
     cdot3OamPeerTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdot3OamPeerTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdot3OamPeerTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -470,6 +475,7 @@ func (cdot3OamPeerTable *CISCODOT3OAMMIB_Cdot3OamPeerTable) GetEntityData() *typ
 type CISCODOT3OAMMIB_Cdot3OamPeerTable_Cdot3OamPeerEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -484,7 +490,7 @@ type CISCODOT3OAMMIB_Cdot3OamPeerTable_Cdot3OamPeerEntry struct {
     // received with a Local Information TLV.  The OUI can be used to identify the
     // vendor of the remote OAM entity.  This value is initialized to zero before
     // any Local Information TLV is received.  . The type is string with length:
-    // 3.
+    // 3..3.
     Cdot3OamPeerVendorOui interface{}
 
     // The Vendor Info of the OAM peer as reflected in the latest Information
@@ -552,6 +558,7 @@ func (cdot3OamPeerEntry *CISCODOT3OAMMIB_Cdot3OamPeerTable_Cdot3OamPeerEntry) Ge
     cdot3OamPeerEntry.EntityData.BundleName = "cisco_ios_xe"
     cdot3OamPeerEntry.EntityData.ParentYangName = "cdot3OamPeerTable"
     cdot3OamPeerEntry.EntityData.SegmentPath = "cdot3OamPeerEntry" + types.AddKeyToken(cdot3OamPeerEntry.IfIndex, "ifIndex")
+    cdot3OamPeerEntry.EntityData.AbsolutePath = "CISCO-DOT3-OAM-MIB:CISCO-DOT3-OAM-MIB/cdot3OamPeerTable/" + cdot3OamPeerEntry.EntityData.SegmentPath
     cdot3OamPeerEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdot3OamPeerEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdot3OamPeerEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -617,6 +624,7 @@ func (cdot3OamLoopbackTable *CISCODOT3OAMMIB_Cdot3OamLoopbackTable) GetEntityDat
     cdot3OamLoopbackTable.EntityData.BundleName = "cisco_ios_xe"
     cdot3OamLoopbackTable.EntityData.ParentYangName = "CISCO-DOT3-OAM-MIB"
     cdot3OamLoopbackTable.EntityData.SegmentPath = "cdot3OamLoopbackTable"
+    cdot3OamLoopbackTable.EntityData.AbsolutePath = "CISCO-DOT3-OAM-MIB:CISCO-DOT3-OAM-MIB/" + cdot3OamLoopbackTable.EntityData.SegmentPath
     cdot3OamLoopbackTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdot3OamLoopbackTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdot3OamLoopbackTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -643,6 +651,7 @@ func (cdot3OamLoopbackTable *CISCODOT3OAMMIB_Cdot3OamLoopbackTable) GetEntityDat
 type CISCODOT3OAMMIB_Cdot3OamLoopbackTable_Cdot3OamLoopbackEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -702,6 +711,7 @@ func (cdot3OamLoopbackEntry *CISCODOT3OAMMIB_Cdot3OamLoopbackTable_Cdot3OamLoopb
     cdot3OamLoopbackEntry.EntityData.BundleName = "cisco_ios_xe"
     cdot3OamLoopbackEntry.EntityData.ParentYangName = "cdot3OamLoopbackTable"
     cdot3OamLoopbackEntry.EntityData.SegmentPath = "cdot3OamLoopbackEntry" + types.AddKeyToken(cdot3OamLoopbackEntry.IfIndex, "ifIndex")
+    cdot3OamLoopbackEntry.EntityData.AbsolutePath = "CISCO-DOT3-OAM-MIB:CISCO-DOT3-OAM-MIB/cdot3OamLoopbackTable/" + cdot3OamLoopbackEntry.EntityData.SegmentPath
     cdot3OamLoopbackEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdot3OamLoopbackEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdot3OamLoopbackEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -770,6 +780,7 @@ func (cdot3OamStatsTable *CISCODOT3OAMMIB_Cdot3OamStatsTable) GetEntityData() *t
     cdot3OamStatsTable.EntityData.BundleName = "cisco_ios_xe"
     cdot3OamStatsTable.EntityData.ParentYangName = "CISCO-DOT3-OAM-MIB"
     cdot3OamStatsTable.EntityData.SegmentPath = "cdot3OamStatsTable"
+    cdot3OamStatsTable.EntityData.AbsolutePath = "CISCO-DOT3-OAM-MIB:CISCO-DOT3-OAM-MIB/" + cdot3OamStatsTable.EntityData.SegmentPath
     cdot3OamStatsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdot3OamStatsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdot3OamStatsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -795,6 +806,7 @@ func (cdot3OamStatsTable *CISCODOT3OAMMIB_Cdot3OamStatsTable) GetEntityData() *t
 type CISCODOT3OAMMIB_Cdot3OamStatsTable_Cdot3OamStatsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -955,6 +967,7 @@ func (cdot3OamStatsEntry *CISCODOT3OAMMIB_Cdot3OamStatsTable_Cdot3OamStatsEntry)
     cdot3OamStatsEntry.EntityData.BundleName = "cisco_ios_xe"
     cdot3OamStatsEntry.EntityData.ParentYangName = "cdot3OamStatsTable"
     cdot3OamStatsEntry.EntityData.SegmentPath = "cdot3OamStatsEntry" + types.AddKeyToken(cdot3OamStatsEntry.IfIndex, "ifIndex")
+    cdot3OamStatsEntry.EntityData.AbsolutePath = "CISCO-DOT3-OAM-MIB:CISCO-DOT3-OAM-MIB/cdot3OamStatsTable/" + cdot3OamStatsEntry.EntityData.SegmentPath
     cdot3OamStatsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdot3OamStatsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdot3OamStatsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1038,6 +1051,7 @@ func (cdot3OamEventConfigTable *CISCODOT3OAMMIB_Cdot3OamEventConfigTable) GetEnt
     cdot3OamEventConfigTable.EntityData.BundleName = "cisco_ios_xe"
     cdot3OamEventConfigTable.EntityData.ParentYangName = "CISCO-DOT3-OAM-MIB"
     cdot3OamEventConfigTable.EntityData.SegmentPath = "cdot3OamEventConfigTable"
+    cdot3OamEventConfigTable.EntityData.AbsolutePath = "CISCO-DOT3-OAM-MIB:CISCO-DOT3-OAM-MIB/" + cdot3OamEventConfigTable.EntityData.SegmentPath
     cdot3OamEventConfigTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdot3OamEventConfigTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdot3OamEventConfigTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1067,6 +1081,7 @@ func (cdot3OamEventConfigTable *CISCODOT3OAMMIB_Cdot3OamEventConfigTable) GetEnt
 type CISCODOT3OAMMIB_Cdot3OamEventConfigTable_Cdot3OamEventConfigEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -1264,6 +1279,7 @@ func (cdot3OamEventConfigEntry *CISCODOT3OAMMIB_Cdot3OamEventConfigTable_Cdot3Oa
     cdot3OamEventConfigEntry.EntityData.BundleName = "cisco_ios_xe"
     cdot3OamEventConfigEntry.EntityData.ParentYangName = "cdot3OamEventConfigTable"
     cdot3OamEventConfigEntry.EntityData.SegmentPath = "cdot3OamEventConfigEntry" + types.AddKeyToken(cdot3OamEventConfigEntry.IfIndex, "ifIndex")
+    cdot3OamEventConfigEntry.EntityData.AbsolutePath = "CISCO-DOT3-OAM-MIB:CISCO-DOT3-OAM-MIB/cdot3OamEventConfigTable/" + cdot3OamEventConfigEntry.EntityData.SegmentPath
     cdot3OamEventConfigEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdot3OamEventConfigEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdot3OamEventConfigEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1336,6 +1352,7 @@ func (cdot3OamEventLogTable *CISCODOT3OAMMIB_Cdot3OamEventLogTable) GetEntityDat
     cdot3OamEventLogTable.EntityData.BundleName = "cisco_ios_xe"
     cdot3OamEventLogTable.EntityData.ParentYangName = "CISCO-DOT3-OAM-MIB"
     cdot3OamEventLogTable.EntityData.SegmentPath = "cdot3OamEventLogTable"
+    cdot3OamEventLogTable.EntityData.AbsolutePath = "CISCO-DOT3-OAM-MIB:CISCO-DOT3-OAM-MIB/" + cdot3OamEventLogTable.EntityData.SegmentPath
     cdot3OamEventLogTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdot3OamEventLogTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdot3OamEventLogTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1366,6 +1383,7 @@ func (cdot3OamEventLogTable *CISCODOT3OAMMIB_Cdot3OamEventLogTable) GetEntityDat
 type CISCODOT3OAMMIB_Cdot3OamEventLogTable_Cdot3OamEventLogEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -1393,7 +1411,7 @@ type CISCODOT3OAMMIB_Cdot3OamEventLogTable_Cdot3OamEventLogEntry struct {
     // Event TLVs) use the IEEE 802.3 OUI of 0x0180C2.  Organizations defining
     // their own Event Notification TLVs include their OUI in the Event
     // Notification TLV which gets reflected here.  . The type is string with
-    // length: 3.
+    // length: 3..3.
     Cdot3OamEventLogOui interface{}
 
     // The type of event that generated this entry in the event log.  When the OUI
@@ -1502,6 +1520,7 @@ func (cdot3OamEventLogEntry *CISCODOT3OAMMIB_Cdot3OamEventLogTable_Cdot3OamEvent
     cdot3OamEventLogEntry.EntityData.BundleName = "cisco_ios_xe"
     cdot3OamEventLogEntry.EntityData.ParentYangName = "cdot3OamEventLogTable"
     cdot3OamEventLogEntry.EntityData.SegmentPath = "cdot3OamEventLogEntry" + types.AddKeyToken(cdot3OamEventLogEntry.IfIndex, "ifIndex") + types.AddKeyToken(cdot3OamEventLogEntry.Cdot3OamEventLogIndex, "cdot3OamEventLogIndex")
+    cdot3OamEventLogEntry.EntityData.AbsolutePath = "CISCO-DOT3-OAM-MIB:CISCO-DOT3-OAM-MIB/cdot3OamEventLogTable/" + cdot3OamEventLogEntry.EntityData.SegmentPath
     cdot3OamEventLogEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdot3OamEventLogEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdot3OamEventLogEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

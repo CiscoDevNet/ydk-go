@@ -63,6 +63,7 @@ func (systemTime *SystemTime) GetEntityData() *types.CommonEntityData {
     systemTime.EntityData.BundleName = "cisco_ios_xr"
     systemTime.EntityData.ParentYangName = "Cisco-IOS-XR-shellutil-oper"
     systemTime.EntityData.SegmentPath = "Cisco-IOS-XR-shellutil-oper:system-time"
+    systemTime.EntityData.AbsolutePath = systemTime.EntityData.SegmentPath
     systemTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     systemTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     systemTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -121,6 +122,7 @@ func (clock *SystemTime_Clock) GetEntityData() *types.CommonEntityData {
     clock.EntityData.BundleName = "cisco_ios_xr"
     clock.EntityData.ParentYangName = "system-time"
     clock.EntityData.SegmentPath = "clock"
+    clock.EntityData.AbsolutePath = "Cisco-IOS-XR-shellutil-oper:system-time/" + clock.EntityData.SegmentPath
     clock.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clock.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clock.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -152,8 +154,8 @@ type SystemTime_Uptime struct {
     // Host name. The type is string.
     HostName interface{}
 
-    // Amount of time in seconds since this system     was last initialized. The
-    // type is interface{} with range: 0..4294967295. Units are second.
+    // Amount of time in seconds since this system was last initialized. The type
+    // is interface{} with range: 0..4294967295. Units are second.
     Uptime interface{}
 }
 
@@ -163,6 +165,7 @@ func (uptime *SystemTime_Uptime) GetEntityData() *types.CommonEntityData {
     uptime.EntityData.BundleName = "cisco_ios_xr"
     uptime.EntityData.ParentYangName = "system-time"
     uptime.EntityData.SegmentPath = "uptime"
+    uptime.EntityData.AbsolutePath = "Cisco-IOS-XR-shellutil-oper:system-time/" + uptime.EntityData.SegmentPath
     uptime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     uptime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     uptime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

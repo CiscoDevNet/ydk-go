@@ -183,6 +183,7 @@ func (iPMIB *IPMIB) GetEntityData() *types.CommonEntityData {
     iPMIB.EntityData.BundleName = "cisco_ios_xe"
     iPMIB.EntityData.ParentYangName = "IP-MIB"
     iPMIB.EntityData.SegmentPath = "IP-MIB:IP-MIB"
+    iPMIB.EntityData.AbsolutePath = iPMIB.EntityData.SegmentPath
     iPMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     iPMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     iPMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -454,6 +455,7 @@ func (ip *IPMIB_Ip) GetEntityData() *types.CommonEntityData {
     ip.EntityData.BundleName = "cisco_ios_xe"
     ip.EntityData.ParentYangName = "IP-MIB"
     ip.EntityData.SegmentPath = "ip"
+    ip.EntityData.AbsolutePath = "IP-MIB:IP-MIB/" + ip.EntityData.SegmentPath
     ip.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ip.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ip.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -529,6 +531,7 @@ func (ipTrafficStats *IPMIB_IpTrafficStats) GetEntityData() *types.CommonEntityD
     ipTrafficStats.EntityData.BundleName = "cisco_ios_xe"
     ipTrafficStats.EntityData.ParentYangName = "IP-MIB"
     ipTrafficStats.EntityData.SegmentPath = "ipTrafficStats"
+    ipTrafficStats.EntityData.AbsolutePath = "IP-MIB:IP-MIB/" + ipTrafficStats.EntityData.SegmentPath
     ipTrafficStats.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ipTrafficStats.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ipTrafficStats.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -718,6 +721,7 @@ func (icmp *IPMIB_Icmp) GetEntityData() *types.CommonEntityData {
     icmp.EntityData.BundleName = "cisco_ios_xe"
     icmp.EntityData.ParentYangName = "IP-MIB"
     icmp.EntityData.SegmentPath = "icmp"
+    icmp.EntityData.AbsolutePath = "IP-MIB:IP-MIB/" + icmp.EntityData.SegmentPath
     icmp.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     icmp.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     icmp.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -780,6 +784,7 @@ func (ipAddrTable *IPMIB_IpAddrTable) GetEntityData() *types.CommonEntityData {
     ipAddrTable.EntityData.BundleName = "cisco_ios_xe"
     ipAddrTable.EntityData.ParentYangName = "IP-MIB"
     ipAddrTable.EntityData.SegmentPath = "ipAddrTable"
+    ipAddrTable.EntityData.AbsolutePath = "IP-MIB:IP-MIB/" + ipAddrTable.EntityData.SegmentPath
     ipAddrTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ipAddrTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ipAddrTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -802,6 +807,7 @@ func (ipAddrTable *IPMIB_IpAddrTable) GetEntityData() *types.CommonEntityData {
 type IPMIB_IpAddrTable_IpAddrEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The IPv4 address to which this entry's addressing
     // information pertains. The type is string with pattern:
@@ -840,6 +846,7 @@ func (ipAddrEntry *IPMIB_IpAddrTable_IpAddrEntry) GetEntityData() *types.CommonE
     ipAddrEntry.EntityData.BundleName = "cisco_ios_xe"
     ipAddrEntry.EntityData.ParentYangName = "ipAddrTable"
     ipAddrEntry.EntityData.SegmentPath = "ipAddrEntry" + types.AddKeyToken(ipAddrEntry.IpAdEntAddr, "ipAdEntAddr")
+    ipAddrEntry.EntityData.AbsolutePath = "IP-MIB:IP-MIB/ipAddrTable/" + ipAddrEntry.EntityData.SegmentPath
     ipAddrEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ipAddrEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ipAddrEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -879,6 +886,7 @@ func (ipNetToMediaTable *IPMIB_IpNetToMediaTable) GetEntityData() *types.CommonE
     ipNetToMediaTable.EntityData.BundleName = "cisco_ios_xe"
     ipNetToMediaTable.EntityData.ParentYangName = "IP-MIB"
     ipNetToMediaTable.EntityData.SegmentPath = "ipNetToMediaTable"
+    ipNetToMediaTable.EntityData.AbsolutePath = "IP-MIB:IP-MIB/" + ipNetToMediaTable.EntityData.SegmentPath
     ipNetToMediaTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ipNetToMediaTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ipNetToMediaTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -901,6 +909,7 @@ func (ipNetToMediaTable *IPMIB_IpNetToMediaTable) GetEntityData() *types.CommonE
 type IPMIB_IpNetToMediaTable_IpNetToMediaEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The interface on which this entry's equivalence is
     // effective.  The interface identified by a particular value of this index is
@@ -947,6 +956,7 @@ func (ipNetToMediaEntry *IPMIB_IpNetToMediaTable_IpNetToMediaEntry) GetEntityDat
     ipNetToMediaEntry.EntityData.BundleName = "cisco_ios_xe"
     ipNetToMediaEntry.EntityData.ParentYangName = "ipNetToMediaTable"
     ipNetToMediaEntry.EntityData.SegmentPath = "ipNetToMediaEntry" + types.AddKeyToken(ipNetToMediaEntry.IpNetToMediaIfIndex, "ipNetToMediaIfIndex") + types.AddKeyToken(ipNetToMediaEntry.IpNetToMediaNetAddress, "ipNetToMediaNetAddress")
+    ipNetToMediaEntry.EntityData.AbsolutePath = "IP-MIB:IP-MIB/ipNetToMediaTable/" + ipNetToMediaEntry.EntityData.SegmentPath
     ipNetToMediaEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ipNetToMediaEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ipNetToMediaEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -994,6 +1004,7 @@ func (ipv4InterfaceTable *IPMIB_Ipv4InterfaceTable) GetEntityData() *types.Commo
     ipv4InterfaceTable.EntityData.BundleName = "cisco_ios_xe"
     ipv4InterfaceTable.EntityData.ParentYangName = "IP-MIB"
     ipv4InterfaceTable.EntityData.SegmentPath = "ipv4InterfaceTable"
+    ipv4InterfaceTable.EntityData.AbsolutePath = "IP-MIB:IP-MIB/" + ipv4InterfaceTable.EntityData.SegmentPath
     ipv4InterfaceTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ipv4InterfaceTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ipv4InterfaceTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1016,6 +1027,7 @@ func (ipv4InterfaceTable *IPMIB_Ipv4InterfaceTable) GetEntityData() *types.Commo
 type IPMIB_Ipv4InterfaceTable_Ipv4InterfaceEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The index value that uniquely identifies the
     // interface to which this entry is applicable.  The interface identified by a
@@ -1047,6 +1059,7 @@ func (ipv4InterfaceEntry *IPMIB_Ipv4InterfaceTable_Ipv4InterfaceEntry) GetEntity
     ipv4InterfaceEntry.EntityData.BundleName = "cisco_ios_xe"
     ipv4InterfaceEntry.EntityData.ParentYangName = "ipv4InterfaceTable"
     ipv4InterfaceEntry.EntityData.SegmentPath = "ipv4InterfaceEntry" + types.AddKeyToken(ipv4InterfaceEntry.Ipv4InterfaceIfIndex, "ipv4InterfaceIfIndex")
+    ipv4InterfaceEntry.EntityData.AbsolutePath = "IP-MIB:IP-MIB/ipv4InterfaceTable/" + ipv4InterfaceEntry.EntityData.SegmentPath
     ipv4InterfaceEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ipv4InterfaceEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ipv4InterfaceEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1090,6 +1103,7 @@ func (ipv6InterfaceTable *IPMIB_Ipv6InterfaceTable) GetEntityData() *types.Commo
     ipv6InterfaceTable.EntityData.BundleName = "cisco_ios_xe"
     ipv6InterfaceTable.EntityData.ParentYangName = "IP-MIB"
     ipv6InterfaceTable.EntityData.SegmentPath = "ipv6InterfaceTable"
+    ipv6InterfaceTable.EntityData.AbsolutePath = "IP-MIB:IP-MIB/" + ipv6InterfaceTable.EntityData.SegmentPath
     ipv6InterfaceTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ipv6InterfaceTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ipv6InterfaceTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1112,6 +1126,7 @@ func (ipv6InterfaceTable *IPMIB_Ipv6InterfaceTable) GetEntityData() *types.Commo
 type IPMIB_Ipv6InterfaceTable_Ipv6InterfaceEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The index value that uniquely identifies the
     // interface to which this entry is applicable.  The interface identified by a
@@ -1173,6 +1188,7 @@ func (ipv6InterfaceEntry *IPMIB_Ipv6InterfaceTable_Ipv6InterfaceEntry) GetEntity
     ipv6InterfaceEntry.EntityData.BundleName = "cisco_ios_xe"
     ipv6InterfaceEntry.EntityData.ParentYangName = "ipv6InterfaceTable"
     ipv6InterfaceEntry.EntityData.SegmentPath = "ipv6InterfaceEntry" + types.AddKeyToken(ipv6InterfaceEntry.Ipv6InterfaceIfIndex, "ipv6InterfaceIfIndex")
+    ipv6InterfaceEntry.EntityData.AbsolutePath = "IP-MIB:IP-MIB/ipv6InterfaceTable/" + ipv6InterfaceEntry.EntityData.SegmentPath
     ipv6InterfaceEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ipv6InterfaceEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ipv6InterfaceEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1232,6 +1248,7 @@ func (ipSystemStatsTable *IPMIB_IpSystemStatsTable) GetEntityData() *types.Commo
     ipSystemStatsTable.EntityData.BundleName = "cisco_ios_xe"
     ipSystemStatsTable.EntityData.ParentYangName = "IP-MIB"
     ipSystemStatsTable.EntityData.SegmentPath = "ipSystemStatsTable"
+    ipSystemStatsTable.EntityData.AbsolutePath = "IP-MIB:IP-MIB/" + ipSystemStatsTable.EntityData.SegmentPath
     ipSystemStatsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ipSystemStatsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ipSystemStatsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1254,6 +1271,7 @@ func (ipSystemStatsTable *IPMIB_IpSystemStatsTable) GetEntityData() *types.Commo
 type IPMIB_IpSystemStatsTable_IpSystemStatsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The IP version of this row. The type is IpVersion.
     IpSystemStatsIPVersion interface{}
@@ -1662,6 +1680,7 @@ func (ipSystemStatsEntry *IPMIB_IpSystemStatsTable_IpSystemStatsEntry) GetEntity
     ipSystemStatsEntry.EntityData.BundleName = "cisco_ios_xe"
     ipSystemStatsEntry.EntityData.ParentYangName = "ipSystemStatsTable"
     ipSystemStatsEntry.EntityData.SegmentPath = "ipSystemStatsEntry" + types.AddKeyToken(ipSystemStatsEntry.IpSystemStatsIPVersion, "ipSystemStatsIPVersion")
+    ipSystemStatsEntry.EntityData.AbsolutePath = "IP-MIB:IP-MIB/ipSystemStatsTable/" + ipSystemStatsEntry.EntityData.SegmentPath
     ipSystemStatsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ipSystemStatsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ipSystemStatsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1743,6 +1762,7 @@ func (ipIfStatsTable *IPMIB_IpIfStatsTable) GetEntityData() *types.CommonEntityD
     ipIfStatsTable.EntityData.BundleName = "cisco_ios_xe"
     ipIfStatsTable.EntityData.ParentYangName = "IP-MIB"
     ipIfStatsTable.EntityData.SegmentPath = "ipIfStatsTable"
+    ipIfStatsTable.EntityData.AbsolutePath = "IP-MIB:IP-MIB/" + ipIfStatsTable.EntityData.SegmentPath
     ipIfStatsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ipIfStatsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ipIfStatsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1765,6 +1785,7 @@ func (ipIfStatsTable *IPMIB_IpIfStatsTable) GetEntityData() *types.CommonEntityD
 type IPMIB_IpIfStatsTable_IpIfStatsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The IP version of this row. The type is IpVersion.
     IpIfStatsIPVersion interface{}
@@ -2168,6 +2189,7 @@ func (ipIfStatsEntry *IPMIB_IpIfStatsTable_IpIfStatsEntry) GetEntityData() *type
     ipIfStatsEntry.EntityData.BundleName = "cisco_ios_xe"
     ipIfStatsEntry.EntityData.ParentYangName = "ipIfStatsTable"
     ipIfStatsEntry.EntityData.SegmentPath = "ipIfStatsEntry" + types.AddKeyToken(ipIfStatsEntry.IpIfStatsIPVersion, "ipIfStatsIPVersion") + types.AddKeyToken(ipIfStatsEntry.IpIfStatsIfIndex, "ipIfStatsIfIndex")
+    ipIfStatsEntry.EntityData.AbsolutePath = "IP-MIB:IP-MIB/ipIfStatsTable/" + ipIfStatsEntry.EntityData.SegmentPath
     ipIfStatsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ipIfStatsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ipIfStatsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2265,6 +2287,7 @@ func (ipAddressPrefixTable *IPMIB_IpAddressPrefixTable) GetEntityData() *types.C
     ipAddressPrefixTable.EntityData.BundleName = "cisco_ios_xe"
     ipAddressPrefixTable.EntityData.ParentYangName = "IP-MIB"
     ipAddressPrefixTable.EntityData.SegmentPath = "ipAddressPrefixTable"
+    ipAddressPrefixTable.EntityData.AbsolutePath = "IP-MIB:IP-MIB/" + ipAddressPrefixTable.EntityData.SegmentPath
     ipAddressPrefixTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ipAddressPrefixTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ipAddressPrefixTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2286,6 +2309,7 @@ func (ipAddressPrefixTable *IPMIB_IpAddressPrefixTable) GetEntityData() *types.C
 type IPMIB_IpAddressPrefixTable_IpAddressPrefixEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The index value that uniquely identifies the
     // interface on which this prefix is configured.  The interface identified by
@@ -2352,6 +2376,7 @@ func (ipAddressPrefixEntry *IPMIB_IpAddressPrefixTable_IpAddressPrefixEntry) Get
     ipAddressPrefixEntry.EntityData.BundleName = "cisco_ios_xe"
     ipAddressPrefixEntry.EntityData.ParentYangName = "ipAddressPrefixTable"
     ipAddressPrefixEntry.EntityData.SegmentPath = "ipAddressPrefixEntry" + types.AddKeyToken(ipAddressPrefixEntry.IpAddressPrefixIfIndex, "ipAddressPrefixIfIndex") + types.AddKeyToken(ipAddressPrefixEntry.IpAddressPrefixType, "ipAddressPrefixType") + types.AddKeyToken(ipAddressPrefixEntry.IpAddressPrefixPrefix, "ipAddressPrefixPrefix") + types.AddKeyToken(ipAddressPrefixEntry.IpAddressPrefixLength, "ipAddressPrefixLength")
+    ipAddressPrefixEntry.EntityData.AbsolutePath = "IP-MIB:IP-MIB/ipAddressPrefixTable/" + ipAddressPrefixEntry.EntityData.SegmentPath
     ipAddressPrefixEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ipAddressPrefixEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ipAddressPrefixEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2411,6 +2436,7 @@ func (ipAddressTable *IPMIB_IpAddressTable) GetEntityData() *types.CommonEntityD
     ipAddressTable.EntityData.BundleName = "cisco_ios_xe"
     ipAddressTable.EntityData.ParentYangName = "IP-MIB"
     ipAddressTable.EntityData.SegmentPath = "ipAddressTable"
+    ipAddressTable.EntityData.AbsolutePath = "IP-MIB:IP-MIB/" + ipAddressTable.EntityData.SegmentPath
     ipAddressTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ipAddressTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ipAddressTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2432,6 +2458,7 @@ func (ipAddressTable *IPMIB_IpAddressTable) GetEntityData() *types.CommonEntityD
 type IPMIB_IpAddressTable_IpAddressEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The address type of ipAddressAddr. The type is
     // InetAddressType.
@@ -2500,6 +2527,7 @@ func (ipAddressEntry *IPMIB_IpAddressTable_IpAddressEntry) GetEntityData() *type
     ipAddressEntry.EntityData.BundleName = "cisco_ios_xe"
     ipAddressEntry.EntityData.ParentYangName = "ipAddressTable"
     ipAddressEntry.EntityData.SegmentPath = "ipAddressEntry" + types.AddKeyToken(ipAddressEntry.IpAddressAddrType, "ipAddressAddrType") + types.AddKeyToken(ipAddressEntry.IpAddressAddr, "ipAddressAddr")
+    ipAddressEntry.EntityData.AbsolutePath = "IP-MIB:IP-MIB/ipAddressTable/" + ipAddressEntry.EntityData.SegmentPath
     ipAddressEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ipAddressEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ipAddressEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2563,6 +2591,7 @@ func (ipNetToPhysicalTable *IPMIB_IpNetToPhysicalTable) GetEntityData() *types.C
     ipNetToPhysicalTable.EntityData.BundleName = "cisco_ios_xe"
     ipNetToPhysicalTable.EntityData.ParentYangName = "IP-MIB"
     ipNetToPhysicalTable.EntityData.SegmentPath = "ipNetToPhysicalTable"
+    ipNetToPhysicalTable.EntityData.AbsolutePath = "IP-MIB:IP-MIB/" + ipNetToPhysicalTable.EntityData.SegmentPath
     ipNetToPhysicalTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ipNetToPhysicalTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ipNetToPhysicalTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2585,6 +2614,7 @@ func (ipNetToPhysicalTable *IPMIB_IpNetToPhysicalTable) GetEntityData() *types.C
 type IPMIB_IpNetToPhysicalTable_IpNetToPhysicalEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The index value that uniquely identifies the
     // interface to which this entry is applicable.  The interface identified by a
@@ -2661,6 +2691,7 @@ func (ipNetToPhysicalEntry *IPMIB_IpNetToPhysicalTable_IpNetToPhysicalEntry) Get
     ipNetToPhysicalEntry.EntityData.BundleName = "cisco_ios_xe"
     ipNetToPhysicalEntry.EntityData.ParentYangName = "ipNetToPhysicalTable"
     ipNetToPhysicalEntry.EntityData.SegmentPath = "ipNetToPhysicalEntry" + types.AddKeyToken(ipNetToPhysicalEntry.IpNetToPhysicalIfIndex, "ipNetToPhysicalIfIndex") + types.AddKeyToken(ipNetToPhysicalEntry.IpNetToPhysicalNetAddressType, "ipNetToPhysicalNetAddressType") + types.AddKeyToken(ipNetToPhysicalEntry.IpNetToPhysicalNetAddress, "ipNetToPhysicalNetAddress")
+    ipNetToPhysicalEntry.EntityData.AbsolutePath = "IP-MIB:IP-MIB/ipNetToPhysicalTable/" + ipNetToPhysicalEntry.EntityData.SegmentPath
     ipNetToPhysicalEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ipNetToPhysicalEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ipNetToPhysicalEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2737,6 +2768,7 @@ func (ipv6ScopeZoneIndexTable *IPMIB_Ipv6ScopeZoneIndexTable) GetEntityData() *t
     ipv6ScopeZoneIndexTable.EntityData.BundleName = "cisco_ios_xe"
     ipv6ScopeZoneIndexTable.EntityData.ParentYangName = "IP-MIB"
     ipv6ScopeZoneIndexTable.EntityData.SegmentPath = "ipv6ScopeZoneIndexTable"
+    ipv6ScopeZoneIndexTable.EntityData.AbsolutePath = "IP-MIB:IP-MIB/" + ipv6ScopeZoneIndexTable.EntityData.SegmentPath
     ipv6ScopeZoneIndexTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ipv6ScopeZoneIndexTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ipv6ScopeZoneIndexTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2759,6 +2791,7 @@ func (ipv6ScopeZoneIndexTable *IPMIB_Ipv6ScopeZoneIndexTable) GetEntityData() *t
 type IPMIB_Ipv6ScopeZoneIndexTable_Ipv6ScopeZoneIndexEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The index value that uniquely identifies the
     // interface to which these scopes belong.  The interface identified by a
@@ -2822,6 +2855,7 @@ func (ipv6ScopeZoneIndexEntry *IPMIB_Ipv6ScopeZoneIndexTable_Ipv6ScopeZoneIndexE
     ipv6ScopeZoneIndexEntry.EntityData.BundleName = "cisco_ios_xe"
     ipv6ScopeZoneIndexEntry.EntityData.ParentYangName = "ipv6ScopeZoneIndexTable"
     ipv6ScopeZoneIndexEntry.EntityData.SegmentPath = "ipv6ScopeZoneIndexEntry" + types.AddKeyToken(ipv6ScopeZoneIndexEntry.Ipv6ScopeZoneIndexIfIndex, "ipv6ScopeZoneIndexIfIndex")
+    ipv6ScopeZoneIndexEntry.EntityData.AbsolutePath = "IP-MIB:IP-MIB/ipv6ScopeZoneIndexTable/" + ipv6ScopeZoneIndexEntry.EntityData.SegmentPath
     ipv6ScopeZoneIndexEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ipv6ScopeZoneIndexEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ipv6ScopeZoneIndexEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2868,6 +2902,7 @@ func (ipDefaultRouterTable *IPMIB_IpDefaultRouterTable) GetEntityData() *types.C
     ipDefaultRouterTable.EntityData.BundleName = "cisco_ios_xe"
     ipDefaultRouterTable.EntityData.ParentYangName = "IP-MIB"
     ipDefaultRouterTable.EntityData.SegmentPath = "ipDefaultRouterTable"
+    ipDefaultRouterTable.EntityData.AbsolutePath = "IP-MIB:IP-MIB/" + ipDefaultRouterTable.EntityData.SegmentPath
     ipDefaultRouterTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ipDefaultRouterTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ipDefaultRouterTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2890,6 +2925,7 @@ func (ipDefaultRouterTable *IPMIB_IpDefaultRouterTable) GetEntityData() *types.C
 type IPMIB_IpDefaultRouterTable_IpDefaultRouterEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The address type for this row. The type is
     // InetAddressType.
@@ -2935,6 +2971,7 @@ func (ipDefaultRouterEntry *IPMIB_IpDefaultRouterTable_IpDefaultRouterEntry) Get
     ipDefaultRouterEntry.EntityData.BundleName = "cisco_ios_xe"
     ipDefaultRouterEntry.EntityData.ParentYangName = "ipDefaultRouterTable"
     ipDefaultRouterEntry.EntityData.SegmentPath = "ipDefaultRouterEntry" + types.AddKeyToken(ipDefaultRouterEntry.IpDefaultRouterAddressType, "ipDefaultRouterAddressType") + types.AddKeyToken(ipDefaultRouterEntry.IpDefaultRouterAddress, "ipDefaultRouterAddress") + types.AddKeyToken(ipDefaultRouterEntry.IpDefaultRouterIfIndex, "ipDefaultRouterIfIndex")
+    ipDefaultRouterEntry.EntityData.AbsolutePath = "IP-MIB:IP-MIB/ipDefaultRouterTable/" + ipDefaultRouterEntry.EntityData.SegmentPath
     ipDefaultRouterEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ipDefaultRouterEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ipDefaultRouterEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2985,6 +3022,7 @@ func (ipv6RouterAdvertTable *IPMIB_Ipv6RouterAdvertTable) GetEntityData() *types
     ipv6RouterAdvertTable.EntityData.BundleName = "cisco_ios_xe"
     ipv6RouterAdvertTable.EntityData.ParentYangName = "IP-MIB"
     ipv6RouterAdvertTable.EntityData.SegmentPath = "ipv6RouterAdvertTable"
+    ipv6RouterAdvertTable.EntityData.AbsolutePath = "IP-MIB:IP-MIB/" + ipv6RouterAdvertTable.EntityData.SegmentPath
     ipv6RouterAdvertTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ipv6RouterAdvertTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ipv6RouterAdvertTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3011,6 +3049,7 @@ func (ipv6RouterAdvertTable *IPMIB_Ipv6RouterAdvertTable) GetEntityData() *types
 type IPMIB_Ipv6RouterAdvertTable_Ipv6RouterAdvertEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The index value that uniquely identifies the
     // interface on which router advertisements constructed with this information
@@ -3078,7 +3117,7 @@ type IPMIB_Ipv6RouterAdvertTable_Ipv6RouterAdvertEntry struct {
     // between ipv6RouterAdvertMaxInterval and 9000 seconds.  A value of zero
     // indicates that the router is not to be used as a default router.  The
     // default is 3 * ipv6RouterAdvertMaxInterval. The type is interface{} with
-    // range: 0..None | 4..9000. Units are seconds.
+    // range: 0..0 | 4..9000. Units are seconds.
     Ipv6RouterAdvertDefaultLifetime interface{}
 
     // The status of this conceptual row.  As all objects in this conceptual row
@@ -3096,6 +3135,7 @@ func (ipv6RouterAdvertEntry *IPMIB_Ipv6RouterAdvertTable_Ipv6RouterAdvertEntry) 
     ipv6RouterAdvertEntry.EntityData.BundleName = "cisco_ios_xe"
     ipv6RouterAdvertEntry.EntityData.ParentYangName = "ipv6RouterAdvertTable"
     ipv6RouterAdvertEntry.EntityData.SegmentPath = "ipv6RouterAdvertEntry" + types.AddKeyToken(ipv6RouterAdvertEntry.Ipv6RouterAdvertIfIndex, "ipv6RouterAdvertIfIndex")
+    ipv6RouterAdvertEntry.EntityData.AbsolutePath = "IP-MIB:IP-MIB/ipv6RouterAdvertTable/" + ipv6RouterAdvertEntry.EntityData.SegmentPath
     ipv6RouterAdvertEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ipv6RouterAdvertEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ipv6RouterAdvertEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3137,6 +3177,7 @@ func (icmpStatsTable *IPMIB_IcmpStatsTable) GetEntityData() *types.CommonEntityD
     icmpStatsTable.EntityData.BundleName = "cisco_ios_xe"
     icmpStatsTable.EntityData.ParentYangName = "IP-MIB"
     icmpStatsTable.EntityData.SegmentPath = "icmpStatsTable"
+    icmpStatsTable.EntityData.AbsolutePath = "IP-MIB:IP-MIB/" + icmpStatsTable.EntityData.SegmentPath
     icmpStatsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     icmpStatsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     icmpStatsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3158,6 +3199,7 @@ func (icmpStatsTable *IPMIB_IcmpStatsTable) GetEntityData() *types.CommonEntityD
 type IPMIB_IcmpStatsTable_IcmpStatsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The IP version of the statistics. The type is
     // IpVersion.
@@ -3193,6 +3235,7 @@ func (icmpStatsEntry *IPMIB_IcmpStatsTable_IcmpStatsEntry) GetEntityData() *type
     icmpStatsEntry.EntityData.BundleName = "cisco_ios_xe"
     icmpStatsEntry.EntityData.ParentYangName = "icmpStatsTable"
     icmpStatsEntry.EntityData.SegmentPath = "icmpStatsEntry" + types.AddKeyToken(icmpStatsEntry.IcmpStatsIPVersion, "icmpStatsIPVersion")
+    icmpStatsEntry.EntityData.AbsolutePath = "IP-MIB:IP-MIB/icmpStatsTable/" + icmpStatsEntry.EntityData.SegmentPath
     icmpStatsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     icmpStatsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     icmpStatsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3234,6 +3277,7 @@ func (icmpMsgStatsTable *IPMIB_IcmpMsgStatsTable) GetEntityData() *types.CommonE
     icmpMsgStatsTable.EntityData.BundleName = "cisco_ios_xe"
     icmpMsgStatsTable.EntityData.ParentYangName = "IP-MIB"
     icmpMsgStatsTable.EntityData.SegmentPath = "icmpMsgStatsTable"
+    icmpMsgStatsTable.EntityData.AbsolutePath = "IP-MIB:IP-MIB/" + icmpMsgStatsTable.EntityData.SegmentPath
     icmpMsgStatsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     icmpMsgStatsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     icmpMsgStatsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3265,6 +3309,7 @@ func (icmpMsgStatsTable *IPMIB_IcmpMsgStatsTable) GetEntityData() *types.CommonE
 type IPMIB_IcmpMsgStatsTable_IcmpMsgStatsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The IP version of the statistics. The type is
     // IpVersion.
@@ -3290,6 +3335,7 @@ func (icmpMsgStatsEntry *IPMIB_IcmpMsgStatsTable_IcmpMsgStatsEntry) GetEntityDat
     icmpMsgStatsEntry.EntityData.BundleName = "cisco_ios_xe"
     icmpMsgStatsEntry.EntityData.ParentYangName = "icmpMsgStatsTable"
     icmpMsgStatsEntry.EntityData.SegmentPath = "icmpMsgStatsEntry" + types.AddKeyToken(icmpMsgStatsEntry.IcmpMsgStatsIPVersion, "icmpMsgStatsIPVersion") + types.AddKeyToken(icmpMsgStatsEntry.IcmpMsgStatsType, "icmpMsgStatsType")
+    icmpMsgStatsEntry.EntityData.AbsolutePath = "IP-MIB:IP-MIB/icmpMsgStatsTable/" + icmpMsgStatsEntry.EntityData.SegmentPath
     icmpMsgStatsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     icmpMsgStatsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     icmpMsgStatsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

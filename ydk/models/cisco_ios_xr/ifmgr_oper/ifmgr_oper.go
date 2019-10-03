@@ -108,6 +108,7 @@ func (interfaceDampening *InterfaceDampening) GetEntityData() *types.CommonEntit
     interfaceDampening.EntityData.BundleName = "cisco_ios_xr"
     interfaceDampening.EntityData.ParentYangName = "Cisco-IOS-XR-ifmgr-oper"
     interfaceDampening.EntityData.SegmentPath = "Cisco-IOS-XR-ifmgr-oper:interface-dampening"
+    interfaceDampening.EntityData.AbsolutePath = interfaceDampening.EntityData.SegmentPath
     interfaceDampening.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceDampening.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceDampening.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -140,6 +141,7 @@ func (interfaces *InterfaceDampening_Interfaces) GetEntityData() *types.CommonEn
     interfaces.EntityData.BundleName = "cisco_ios_xr"
     interfaces.EntityData.ParentYangName = "interface-dampening"
     interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-oper:interface-dampening/" + interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -162,6 +164,7 @@ func (interfaces *InterfaceDampening_Interfaces) GetEntityData() *types.CommonEn
 type InterfaceDampening_Interfaces_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The name of the. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -177,6 +180,7 @@ func (self *InterfaceDampening_Interfaces_Interface) GetEntityData() *types.Comm
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-oper:interface-dampening/interfaces/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -242,6 +246,7 @@ func (ifDampening *InterfaceDampening_Interfaces_Interface_IfDampening) GetEntit
     ifDampening.EntityData.BundleName = "cisco_ios_xr"
     ifDampening.EntityData.ParentYangName = "interface"
     ifDampening.EntityData.SegmentPath = "if-dampening"
+    ifDampening.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-oper:interface-dampening/interfaces/interface/" + ifDampening.EntityData.SegmentPath
     ifDampening.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ifDampening.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ifDampening.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -250,6 +255,7 @@ func (ifDampening *InterfaceDampening_Interfaces_Interface_IfDampening) GetEntit
     ifDampening.EntityData.Children.Append("interface-dampening", types.YChild{"InterfaceDampening", &ifDampening.InterfaceDampening})
     ifDampening.EntityData.Children.Append("capsulation", types.YChild{"Capsulation", nil})
     for i := range ifDampening.Capsulation {
+        types.SetYListKey(ifDampening.Capsulation[i], i)
         ifDampening.EntityData.Children.Append(types.GetSegmentPath(ifDampening.Capsulation[i]), types.YChild{"Capsulation", ifDampening.Capsulation[i]})
     }
     ifDampening.EntityData.Leafs = types.NewOrderedMap()
@@ -298,6 +304,7 @@ func (interfaceDampening *InterfaceDampening_Interfaces_Interface_IfDampening_In
     interfaceDampening.EntityData.BundleName = "cisco_ios_xr"
     interfaceDampening.EntityData.ParentYangName = "if-dampening"
     interfaceDampening.EntityData.SegmentPath = "interface-dampening"
+    interfaceDampening.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-oper:interface-dampening/interfaces/interface/if-dampening/" + interfaceDampening.EntityData.SegmentPath
     interfaceDampening.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceDampening.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceDampening.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -320,6 +327,7 @@ func (interfaceDampening *InterfaceDampening_Interfaces_Interface_IfDampening_In
 type InterfaceDampening_Interfaces_Interface_IfDampening_Capsulation struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Capsulation number. The type is string.
     CapsulationNumber interface{}
@@ -333,7 +341,8 @@ func (capsulation *InterfaceDampening_Interfaces_Interface_IfDampening_Capsulati
     capsulation.EntityData.YangName = "capsulation"
     capsulation.EntityData.BundleName = "cisco_ios_xr"
     capsulation.EntityData.ParentYangName = "if-dampening"
-    capsulation.EntityData.SegmentPath = "capsulation"
+    capsulation.EntityData.SegmentPath = "capsulation" + types.AddNoKeyToken(capsulation)
+    capsulation.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-oper:interface-dampening/interfaces/interface/if-dampening/" + capsulation.EntityData.SegmentPath
     capsulation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     capsulation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     capsulation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -379,6 +388,7 @@ func (capsulationDampening *InterfaceDampening_Interfaces_Interface_IfDampening_
     capsulationDampening.EntityData.BundleName = "cisco_ios_xr"
     capsulationDampening.EntityData.ParentYangName = "capsulation"
     capsulationDampening.EntityData.SegmentPath = "capsulation-dampening"
+    capsulationDampening.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-oper:interface-dampening/interfaces/interface/if-dampening/capsulation/" + capsulationDampening.EntityData.SegmentPath
     capsulationDampening.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     capsulationDampening.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     capsulationDampening.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -413,6 +423,7 @@ func (nodes *InterfaceDampening_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.BundleName = "cisco_ios_xr"
     nodes.EntityData.ParentYangName = "interface-dampening"
     nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-oper:interface-dampening/" + nodes.EntityData.SegmentPath
     nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -434,6 +445,7 @@ func (nodes *InterfaceDampening_Nodes) GetEntityData() *types.CommonEntityData {
 type InterfaceDampening_Nodes_Node struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The location of the interface(s). The type is
     // string with pattern: ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -449,6 +461,7 @@ func (node *InterfaceDampening_Nodes_Node) GetEntityData() *types.CommonEntityDa
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
     node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeName, "node-name")
+    node.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-oper:interface-dampening/nodes/" + node.EntityData.SegmentPath
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -479,6 +492,7 @@ func (show *InterfaceDampening_Nodes_Node_Show) GetEntityData() *types.CommonEnt
     show.EntityData.BundleName = "cisco_ios_xr"
     show.EntityData.ParentYangName = "node"
     show.EntityData.SegmentPath = "show"
+    show.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-oper:interface-dampening/nodes/node/" + show.EntityData.SegmentPath
     show.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     show.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     show.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -512,6 +526,7 @@ func (dampening *InterfaceDampening_Nodes_Node_Show_Dampening) GetEntityData() *
     dampening.EntityData.BundleName = "cisco_ios_xr"
     dampening.EntityData.ParentYangName = "show"
     dampening.EntityData.SegmentPath = "dampening"
+    dampening.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-oper:interface-dampening/nodes/node/show/" + dampening.EntityData.SegmentPath
     dampening.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dampening.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dampening.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -544,6 +559,7 @@ func (ifHandles *InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles) GetEnti
     ifHandles.EntityData.BundleName = "cisco_ios_xr"
     ifHandles.EntityData.ParentYangName = "dampening"
     ifHandles.EntityData.SegmentPath = "if-handles"
+    ifHandles.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-oper:interface-dampening/nodes/node/show/dampening/" + ifHandles.EntityData.SegmentPath
     ifHandles.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ifHandles.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ifHandles.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -565,6 +581,7 @@ func (ifHandles *InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles) GetEnti
 type InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles_IfHandle struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The interface handle. The type is string with
     // pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -615,6 +632,7 @@ func (ifHandle *InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles_IfHandle)
     ifHandle.EntityData.BundleName = "cisco_ios_xr"
     ifHandle.EntityData.ParentYangName = "if-handles"
     ifHandle.EntityData.SegmentPath = "if-handle" + types.AddKeyToken(ifHandle.InterfaceHandleName, "interface-handle-name")
+    ifHandle.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-oper:interface-dampening/nodes/node/show/dampening/if-handles/" + ifHandle.EntityData.SegmentPath
     ifHandle.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ifHandle.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ifHandle.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -623,6 +641,7 @@ func (ifHandle *InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles_IfHandle)
     ifHandle.EntityData.Children.Append("interface-dampening", types.YChild{"InterfaceDampening", &ifHandle.InterfaceDampening})
     ifHandle.EntityData.Children.Append("capsulation", types.YChild{"Capsulation", nil})
     for i := range ifHandle.Capsulation {
+        types.SetYListKey(ifHandle.Capsulation[i], i)
         ifHandle.EntityData.Children.Append(types.GetSegmentPath(ifHandle.Capsulation[i]), types.YChild{"Capsulation", ifHandle.Capsulation[i]})
     }
     ifHandle.EntityData.Leafs = types.NewOrderedMap()
@@ -672,6 +691,7 @@ func (interfaceDampening *InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles
     interfaceDampening.EntityData.BundleName = "cisco_ios_xr"
     interfaceDampening.EntityData.ParentYangName = "if-handle"
     interfaceDampening.EntityData.SegmentPath = "interface-dampening"
+    interfaceDampening.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-oper:interface-dampening/nodes/node/show/dampening/if-handles/if-handle/" + interfaceDampening.EntityData.SegmentPath
     interfaceDampening.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceDampening.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceDampening.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -694,6 +714,7 @@ func (interfaceDampening *InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles
 type InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles_IfHandle_Capsulation struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Capsulation number. The type is string.
     CapsulationNumber interface{}
@@ -707,7 +728,8 @@ func (capsulation *InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles_IfHand
     capsulation.EntityData.YangName = "capsulation"
     capsulation.EntityData.BundleName = "cisco_ios_xr"
     capsulation.EntityData.ParentYangName = "if-handle"
-    capsulation.EntityData.SegmentPath = "capsulation"
+    capsulation.EntityData.SegmentPath = "capsulation" + types.AddNoKeyToken(capsulation)
+    capsulation.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-oper:interface-dampening/nodes/node/show/dampening/if-handles/if-handle/" + capsulation.EntityData.SegmentPath
     capsulation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     capsulation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     capsulation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -753,6 +775,7 @@ func (capsulationDampening *InterfaceDampening_Nodes_Node_Show_Dampening_IfHandl
     capsulationDampening.EntityData.BundleName = "cisco_ios_xr"
     capsulationDampening.EntityData.ParentYangName = "capsulation"
     capsulationDampening.EntityData.SegmentPath = "capsulation-dampening"
+    capsulationDampening.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-oper:interface-dampening/nodes/node/show/dampening/if-handles/if-handle/capsulation/" + capsulationDampening.EntityData.SegmentPath
     capsulationDampening.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     capsulationDampening.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     capsulationDampening.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -788,6 +811,7 @@ func (interfaces *InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces) GetEn
     interfaces.EntityData.BundleName = "cisco_ios_xr"
     interfaces.EntityData.ParentYangName = "dampening"
     interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-oper:interface-dampening/nodes/node/show/dampening/" + interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -809,6 +833,7 @@ func (interfaces *InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces) GetEn
 type InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The name of the. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -859,6 +884,7 @@ func (self *InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces_Interface) G
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-oper:interface-dampening/nodes/node/show/dampening/interfaces/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -867,6 +893,7 @@ func (self *InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces_Interface) G
     self.EntityData.Children.Append("interface-dampening", types.YChild{"InterfaceDampening", &self.InterfaceDampening})
     self.EntityData.Children.Append("capsulation", types.YChild{"Capsulation", nil})
     for i := range self.Capsulation {
+        types.SetYListKey(self.Capsulation[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.Capsulation[i]), types.YChild{"Capsulation", self.Capsulation[i]})
     }
     self.EntityData.Leafs = types.NewOrderedMap()
@@ -916,6 +943,7 @@ func (interfaceDampening *InterfaceDampening_Nodes_Node_Show_Dampening_Interface
     interfaceDampening.EntityData.BundleName = "cisco_ios_xr"
     interfaceDampening.EntityData.ParentYangName = "interface"
     interfaceDampening.EntityData.SegmentPath = "interface-dampening"
+    interfaceDampening.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-oper:interface-dampening/nodes/node/show/dampening/interfaces/interface/" + interfaceDampening.EntityData.SegmentPath
     interfaceDampening.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceDampening.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceDampening.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -938,6 +966,7 @@ func (interfaceDampening *InterfaceDampening_Nodes_Node_Show_Dampening_Interface
 type InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces_Interface_Capsulation struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Capsulation number. The type is string.
     CapsulationNumber interface{}
@@ -951,7 +980,8 @@ func (capsulation *InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces_Inter
     capsulation.EntityData.YangName = "capsulation"
     capsulation.EntityData.BundleName = "cisco_ios_xr"
     capsulation.EntityData.ParentYangName = "interface"
-    capsulation.EntityData.SegmentPath = "capsulation"
+    capsulation.EntityData.SegmentPath = "capsulation" + types.AddNoKeyToken(capsulation)
+    capsulation.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-oper:interface-dampening/nodes/node/show/dampening/interfaces/interface/" + capsulation.EntityData.SegmentPath
     capsulation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     capsulation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     capsulation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -997,6 +1027,7 @@ func (capsulationDampening *InterfaceDampening_Nodes_Node_Show_Dampening_Interfa
     capsulationDampening.EntityData.BundleName = "cisco_ios_xr"
     capsulationDampening.EntityData.ParentYangName = "capsulation"
     capsulationDampening.EntityData.SegmentPath = "capsulation-dampening"
+    capsulationDampening.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-oper:interface-dampening/nodes/node/show/dampening/interfaces/interface/capsulation/" + capsulationDampening.EntityData.SegmentPath
     capsulationDampening.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     capsulationDampening.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     capsulationDampening.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1030,6 +1061,7 @@ func (interfaceProperties *InterfaceProperties) GetEntityData() *types.CommonEnt
     interfaceProperties.EntityData.BundleName = "cisco_ios_xr"
     interfaceProperties.EntityData.ParentYangName = "Cisco-IOS-XR-ifmgr-oper"
     interfaceProperties.EntityData.SegmentPath = "Cisco-IOS-XR-ifmgr-oper:interface-properties"
+    interfaceProperties.EntityData.AbsolutePath = interfaceProperties.EntityData.SegmentPath
     interfaceProperties.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceProperties.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceProperties.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1060,6 +1092,7 @@ func (dataNodes *InterfaceProperties_DataNodes) GetEntityData() *types.CommonEnt
     dataNodes.EntityData.BundleName = "cisco_ios_xr"
     dataNodes.EntityData.ParentYangName = "interface-properties"
     dataNodes.EntityData.SegmentPath = "data-nodes"
+    dataNodes.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-oper:interface-properties/" + dataNodes.EntityData.SegmentPath
     dataNodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dataNodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dataNodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1082,6 +1115,7 @@ func (dataNodes *InterfaceProperties_DataNodes) GetEntityData() *types.CommonEnt
 type InterfaceProperties_DataNodes_DataNode struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The location of the (D)RP. The type is string with
     // pattern: ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -1103,6 +1137,7 @@ func (dataNode *InterfaceProperties_DataNodes_DataNode) GetEntityData() *types.C
     dataNode.EntityData.BundleName = "cisco_ios_xr"
     dataNode.EntityData.ParentYangName = "data-nodes"
     dataNode.EntityData.SegmentPath = "data-node" + types.AddKeyToken(dataNode.DataNodeName, "data-node-name")
+    dataNode.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-oper:interface-properties/data-nodes/" + dataNode.EntityData.SegmentPath
     dataNode.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dataNode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dataNode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1138,6 +1173,7 @@ func (locationviews *InterfaceProperties_DataNodes_DataNode_Locationviews) GetEn
     locationviews.EntityData.BundleName = "cisco_ios_xr"
     locationviews.EntityData.ParentYangName = "data-node"
     locationviews.EntityData.SegmentPath = "locationviews"
+    locationviews.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-oper:interface-properties/data-nodes/data-node/" + locationviews.EntityData.SegmentPath
     locationviews.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     locationviews.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     locationviews.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1160,6 +1196,7 @@ func (locationviews *InterfaceProperties_DataNodes_DataNode_Locationviews) GetEn
 type InterfaceProperties_DataNodes_DataNode_Locationviews_Locationview struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The location to filter on. The type is string with
     // pattern: ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -1175,6 +1212,7 @@ func (locationview *InterfaceProperties_DataNodes_DataNode_Locationviews_Locatio
     locationview.EntityData.BundleName = "cisco_ios_xr"
     locationview.EntityData.ParentYangName = "locationviews"
     locationview.EntityData.SegmentPath = "locationview" + types.AddKeyToken(locationview.LocationviewName, "locationview-name")
+    locationview.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-oper:interface-properties/data-nodes/data-node/locationviews/" + locationview.EntityData.SegmentPath
     locationview.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     locationview.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     locationview.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1207,6 +1245,7 @@ func (interfaces *InterfaceProperties_DataNodes_DataNode_Locationviews_Locationv
     interfaces.EntityData.BundleName = "cisco_ios_xr"
     interfaces.EntityData.ParentYangName = "locationview"
     interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-oper:interface-properties/data-nodes/data-node/locationviews/locationview/" + interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1229,6 +1268,7 @@ func (interfaces *InterfaceProperties_DataNodes_DataNode_Locationviews_Locationv
 type InterfaceProperties_DataNodes_DataNode_Locationviews_Locationview_Interfaces_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The name of the interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -1285,6 +1325,7 @@ func (self *InterfaceProperties_DataNodes_DataNode_Locationviews_Locationview_In
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-oper:interface-properties/data-nodes/data-node/locationviews/locationview/interfaces/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1330,6 +1371,7 @@ func (pqNodeLocations *InterfaceProperties_DataNodes_DataNode_PqNodeLocations) G
     pqNodeLocations.EntityData.BundleName = "cisco_ios_xr"
     pqNodeLocations.EntityData.ParentYangName = "data-node"
     pqNodeLocations.EntityData.SegmentPath = "pq-node-locations"
+    pqNodeLocations.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-oper:interface-properties/data-nodes/data-node/" + pqNodeLocations.EntityData.SegmentPath
     pqNodeLocations.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pqNodeLocations.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pqNodeLocations.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1352,6 +1394,7 @@ func (pqNodeLocations *InterfaceProperties_DataNodes_DataNode_PqNodeLocations) G
 type InterfaceProperties_DataNodes_DataNode_PqNodeLocations_PqNodeLocation struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The partially qualified location to filter on. The
     // type is string with pattern:
@@ -1368,6 +1411,7 @@ func (pqNodeLocation *InterfaceProperties_DataNodes_DataNode_PqNodeLocations_PqN
     pqNodeLocation.EntityData.BundleName = "cisco_ios_xr"
     pqNodeLocation.EntityData.ParentYangName = "pq-node-locations"
     pqNodeLocation.EntityData.SegmentPath = "pq-node-location" + types.AddKeyToken(pqNodeLocation.PqNodeName, "pq-node-name")
+    pqNodeLocation.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-oper:interface-properties/data-nodes/data-node/pq-node-locations/" + pqNodeLocation.EntityData.SegmentPath
     pqNodeLocation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pqNodeLocation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pqNodeLocation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1400,6 +1444,7 @@ func (interfaces *InterfaceProperties_DataNodes_DataNode_PqNodeLocations_PqNodeL
     interfaces.EntityData.BundleName = "cisco_ios_xr"
     interfaces.EntityData.ParentYangName = "pq-node-location"
     interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-oper:interface-properties/data-nodes/data-node/pq-node-locations/pq-node-location/" + interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1422,6 +1467,7 @@ func (interfaces *InterfaceProperties_DataNodes_DataNode_PqNodeLocations_PqNodeL
 type InterfaceProperties_DataNodes_DataNode_PqNodeLocations_PqNodeLocation_Interfaces_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The name of the interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -1478,6 +1524,7 @@ func (self *InterfaceProperties_DataNodes_DataNode_PqNodeLocations_PqNodeLocatio
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-oper:interface-properties/data-nodes/data-node/pq-node-locations/pq-node-location/interfaces/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1520,6 +1567,7 @@ func (systemView *InterfaceProperties_DataNodes_DataNode_SystemView) GetEntityDa
     systemView.EntityData.BundleName = "cisco_ios_xr"
     systemView.EntityData.ParentYangName = "data-node"
     systemView.EntityData.SegmentPath = "system-view"
+    systemView.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-oper:interface-properties/data-nodes/data-node/" + systemView.EntityData.SegmentPath
     systemView.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     systemView.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     systemView.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1551,6 +1599,7 @@ func (interfaces *InterfaceProperties_DataNodes_DataNode_SystemView_Interfaces) 
     interfaces.EntityData.BundleName = "cisco_ios_xr"
     interfaces.EntityData.ParentYangName = "system-view"
     interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-oper:interface-properties/data-nodes/data-node/system-view/" + interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1573,6 +1622,7 @@ func (interfaces *InterfaceProperties_DataNodes_DataNode_SystemView_Interfaces) 
 type InterfaceProperties_DataNodes_DataNode_SystemView_Interfaces_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The name of the interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -1629,6 +1679,7 @@ func (self *InterfaceProperties_DataNodes_DataNode_SystemView_Interfaces_Interfa
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-ifmgr-oper:interface-properties/data-nodes/data-node/system-view/interfaces/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

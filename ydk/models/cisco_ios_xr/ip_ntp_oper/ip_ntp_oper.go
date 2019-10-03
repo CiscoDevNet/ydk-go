@@ -155,6 +155,7 @@ func (ntp *Ntp) GetEntityData() *types.CommonEntityData {
     ntp.EntityData.BundleName = "cisco_ios_xr"
     ntp.EntityData.ParentYangName = "Cisco-IOS-XR-ip-ntp-oper"
     ntp.EntityData.SegmentPath = "Cisco-IOS-XR-ip-ntp-oper:ntp"
+    ntp.EntityData.AbsolutePath = ntp.EntityData.SegmentPath
     ntp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ntp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ntp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -185,6 +186,7 @@ func (nodes *Ntp_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.BundleName = "cisco_ios_xr"
     nodes.EntityData.ParentYangName = "ntp"
     nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-ntp-oper:ntp/" + nodes.EntityData.SegmentPath
     nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -206,6 +208,7 @@ func (nodes *Ntp_Nodes) GetEntityData() *types.CommonEntityData {
 type Ntp_Nodes_Node struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The node identifier. The type is string with
     // pattern: ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -227,6 +230,7 @@ func (node *Ntp_Nodes_Node) GetEntityData() *types.CommonEntityData {
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
     node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.Node, "node")
+    node.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-ntp-oper:ntp/nodes/" + node.EntityData.SegmentPath
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -266,6 +270,7 @@ func (associationsDetail *Ntp_Nodes_Node_AssociationsDetail) GetEntityData() *ty
     associationsDetail.EntityData.BundleName = "cisco_ios_xr"
     associationsDetail.EntityData.ParentYangName = "node"
     associationsDetail.EntityData.SegmentPath = "associations-detail"
+    associationsDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-ntp-oper:ntp/nodes/node/" + associationsDetail.EntityData.SegmentPath
     associationsDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     associationsDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     associationsDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -273,6 +278,7 @@ func (associationsDetail *Ntp_Nodes_Node_AssociationsDetail) GetEntityData() *ty
     associationsDetail.EntityData.Children = types.NewOrderedMap()
     associationsDetail.EntityData.Children.Append("peer-detail-info", types.YChild{"PeerDetailInfo", nil})
     for i := range associationsDetail.PeerDetailInfo {
+        types.SetYListKey(associationsDetail.PeerDetailInfo[i], i)
         associationsDetail.EntityData.Children.Append(types.GetSegmentPath(associationsDetail.PeerDetailInfo[i]), types.YChild{"PeerDetailInfo", associationsDetail.PeerDetailInfo[i]})
     }
     associationsDetail.EntityData.Leafs = types.NewOrderedMap()
@@ -289,6 +295,7 @@ func (associationsDetail *Ntp_Nodes_Node_AssociationsDetail) GetEntityData() *ty
 type Ntp_Nodes_Node_AssociationsDetail_PeerDetailInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Leap. The type is NtpLeap.
     Leap interface{}
@@ -352,7 +359,8 @@ func (peerDetailInfo *Ntp_Nodes_Node_AssociationsDetail_PeerDetailInfo) GetEntit
     peerDetailInfo.EntityData.YangName = "peer-detail-info"
     peerDetailInfo.EntityData.BundleName = "cisco_ios_xr"
     peerDetailInfo.EntityData.ParentYangName = "associations-detail"
-    peerDetailInfo.EntityData.SegmentPath = "peer-detail-info"
+    peerDetailInfo.EntityData.SegmentPath = "peer-detail-info" + types.AddNoKeyToken(peerDetailInfo)
+    peerDetailInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-ntp-oper:ntp/nodes/node/associations-detail/" + peerDetailInfo.EntityData.SegmentPath
     peerDetailInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerDetailInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerDetailInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -365,6 +373,7 @@ func (peerDetailInfo *Ntp_Nodes_Node_AssociationsDetail_PeerDetailInfo) GetEntit
     peerDetailInfo.EntityData.Children.Append("transmit-time", types.YChild{"TransmitTime", &peerDetailInfo.TransmitTime})
     peerDetailInfo.EntityData.Children.Append("filter-detail", types.YChild{"FilterDetail", nil})
     for i := range peerDetailInfo.FilterDetail {
+        types.SetYListKey(peerDetailInfo.FilterDetail[i], i)
         peerDetailInfo.EntityData.Children.Append(types.GetSegmentPath(peerDetailInfo.FilterDetail[i]), types.YChild{"FilterDetail", peerDetailInfo.FilterDetail[i]})
     }
     peerDetailInfo.EntityData.Leafs = types.NewOrderedMap()
@@ -436,6 +445,7 @@ func (peerInfoCommon *Ntp_Nodes_Node_AssociationsDetail_PeerDetailInfo_PeerInfoC
     peerInfoCommon.EntityData.BundleName = "cisco_ios_xr"
     peerInfoCommon.EntityData.ParentYangName = "peer-detail-info"
     peerInfoCommon.EntityData.SegmentPath = "peer-info-common"
+    peerInfoCommon.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-ntp-oper:ntp/nodes/node/associations-detail/peer-detail-info/" + peerInfoCommon.EntityData.SegmentPath
     peerInfoCommon.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerInfoCommon.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerInfoCommon.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -479,6 +489,7 @@ func (refTime *Ntp_Nodes_Node_AssociationsDetail_PeerDetailInfo_RefTime) GetEnti
     refTime.EntityData.BundleName = "cisco_ios_xr"
     refTime.EntityData.ParentYangName = "peer-detail-info"
     refTime.EntityData.SegmentPath = "ref-time"
+    refTime.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-ntp-oper:ntp/nodes/node/associations-detail/peer-detail-info/" + refTime.EntityData.SegmentPath
     refTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     refTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     refTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -510,6 +521,7 @@ func (sec *Ntp_Nodes_Node_AssociationsDetail_PeerDetailInfo_RefTime_Sec) GetEnti
     sec.EntityData.BundleName = "cisco_ios_xr"
     sec.EntityData.ParentYangName = "ref-time"
     sec.EntityData.SegmentPath = "sec"
+    sec.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-ntp-oper:ntp/nodes/node/associations-detail/peer-detail-info/ref-time/" + sec.EntityData.SegmentPath
     sec.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -540,6 +552,7 @@ func (fracSecs *Ntp_Nodes_Node_AssociationsDetail_PeerDetailInfo_RefTime_FracSec
     fracSecs.EntityData.BundleName = "cisco_ios_xr"
     fracSecs.EntityData.ParentYangName = "ref-time"
     fracSecs.EntityData.SegmentPath = "frac-secs"
+    fracSecs.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-ntp-oper:ntp/nodes/node/associations-detail/peer-detail-info/ref-time/" + fracSecs.EntityData.SegmentPath
     fracSecs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fracSecs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fracSecs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -572,6 +585,7 @@ func (originateTime *Ntp_Nodes_Node_AssociationsDetail_PeerDetailInfo_OriginateT
     originateTime.EntityData.BundleName = "cisco_ios_xr"
     originateTime.EntityData.ParentYangName = "peer-detail-info"
     originateTime.EntityData.SegmentPath = "originate-time"
+    originateTime.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-ntp-oper:ntp/nodes/node/associations-detail/peer-detail-info/" + originateTime.EntityData.SegmentPath
     originateTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     originateTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     originateTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -603,6 +617,7 @@ func (sec *Ntp_Nodes_Node_AssociationsDetail_PeerDetailInfo_OriginateTime_Sec) G
     sec.EntityData.BundleName = "cisco_ios_xr"
     sec.EntityData.ParentYangName = "originate-time"
     sec.EntityData.SegmentPath = "sec"
+    sec.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-ntp-oper:ntp/nodes/node/associations-detail/peer-detail-info/originate-time/" + sec.EntityData.SegmentPath
     sec.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -633,6 +648,7 @@ func (fracSecs *Ntp_Nodes_Node_AssociationsDetail_PeerDetailInfo_OriginateTime_F
     fracSecs.EntityData.BundleName = "cisco_ios_xr"
     fracSecs.EntityData.ParentYangName = "originate-time"
     fracSecs.EntityData.SegmentPath = "frac-secs"
+    fracSecs.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-ntp-oper:ntp/nodes/node/associations-detail/peer-detail-info/originate-time/" + fracSecs.EntityData.SegmentPath
     fracSecs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fracSecs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fracSecs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -665,6 +681,7 @@ func (receiveTime *Ntp_Nodes_Node_AssociationsDetail_PeerDetailInfo_ReceiveTime)
     receiveTime.EntityData.BundleName = "cisco_ios_xr"
     receiveTime.EntityData.ParentYangName = "peer-detail-info"
     receiveTime.EntityData.SegmentPath = "receive-time"
+    receiveTime.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-ntp-oper:ntp/nodes/node/associations-detail/peer-detail-info/" + receiveTime.EntityData.SegmentPath
     receiveTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     receiveTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receiveTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -696,6 +713,7 @@ func (sec *Ntp_Nodes_Node_AssociationsDetail_PeerDetailInfo_ReceiveTime_Sec) Get
     sec.EntityData.BundleName = "cisco_ios_xr"
     sec.EntityData.ParentYangName = "receive-time"
     sec.EntityData.SegmentPath = "sec"
+    sec.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-ntp-oper:ntp/nodes/node/associations-detail/peer-detail-info/receive-time/" + sec.EntityData.SegmentPath
     sec.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -726,6 +744,7 @@ func (fracSecs *Ntp_Nodes_Node_AssociationsDetail_PeerDetailInfo_ReceiveTime_Fra
     fracSecs.EntityData.BundleName = "cisco_ios_xr"
     fracSecs.EntityData.ParentYangName = "receive-time"
     fracSecs.EntityData.SegmentPath = "frac-secs"
+    fracSecs.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-ntp-oper:ntp/nodes/node/associations-detail/peer-detail-info/receive-time/" + fracSecs.EntityData.SegmentPath
     fracSecs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fracSecs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fracSecs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -758,6 +777,7 @@ func (transmitTime *Ntp_Nodes_Node_AssociationsDetail_PeerDetailInfo_TransmitTim
     transmitTime.EntityData.BundleName = "cisco_ios_xr"
     transmitTime.EntityData.ParentYangName = "peer-detail-info"
     transmitTime.EntityData.SegmentPath = "transmit-time"
+    transmitTime.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-ntp-oper:ntp/nodes/node/associations-detail/peer-detail-info/" + transmitTime.EntityData.SegmentPath
     transmitTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     transmitTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transmitTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -789,6 +809,7 @@ func (sec *Ntp_Nodes_Node_AssociationsDetail_PeerDetailInfo_TransmitTime_Sec) Ge
     sec.EntityData.BundleName = "cisco_ios_xr"
     sec.EntityData.ParentYangName = "transmit-time"
     sec.EntityData.SegmentPath = "sec"
+    sec.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-ntp-oper:ntp/nodes/node/associations-detail/peer-detail-info/transmit-time/" + sec.EntityData.SegmentPath
     sec.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -819,6 +840,7 @@ func (fracSecs *Ntp_Nodes_Node_AssociationsDetail_PeerDetailInfo_TransmitTime_Fr
     fracSecs.EntityData.BundleName = "cisco_ios_xr"
     fracSecs.EntityData.ParentYangName = "transmit-time"
     fracSecs.EntityData.SegmentPath = "frac-secs"
+    fracSecs.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-ntp-oper:ntp/nodes/node/associations-detail/peer-detail-info/transmit-time/" + fracSecs.EntityData.SegmentPath
     fracSecs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fracSecs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fracSecs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -837,6 +859,7 @@ func (fracSecs *Ntp_Nodes_Node_AssociationsDetail_PeerDetailInfo_TransmitTime_Fr
 type Ntp_Nodes_Node_AssociationsDetail_PeerDetailInfo_FilterDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // filter delay. The type is string.
     FilterDelay interface{}
@@ -853,7 +876,8 @@ func (filterDetail *Ntp_Nodes_Node_AssociationsDetail_PeerDetailInfo_FilterDetai
     filterDetail.EntityData.YangName = "filter-detail"
     filterDetail.EntityData.BundleName = "cisco_ios_xr"
     filterDetail.EntityData.ParentYangName = "peer-detail-info"
-    filterDetail.EntityData.SegmentPath = "filter-detail"
+    filterDetail.EntityData.SegmentPath = "filter-detail" + types.AddNoKeyToken(filterDetail)
+    filterDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-ntp-oper:ntp/nodes/node/associations-detail/peer-detail-info/" + filterDetail.EntityData.SegmentPath
     filterDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     filterDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     filterDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -935,6 +959,7 @@ func (status *Ntp_Nodes_Node_Status) GetEntityData() *types.CommonEntityData {
     status.EntityData.BundleName = "cisco_ios_xr"
     status.EntityData.ParentYangName = "node"
     status.EntityData.SegmentPath = "status"
+    status.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-ntp-oper:ntp/nodes/node/" + status.EntityData.SegmentPath
     status.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     status.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     status.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -983,6 +1008,7 @@ func (sysRefTime *Ntp_Nodes_Node_Status_SysRefTime) GetEntityData() *types.Commo
     sysRefTime.EntityData.BundleName = "cisco_ios_xr"
     sysRefTime.EntityData.ParentYangName = "status"
     sysRefTime.EntityData.SegmentPath = "sys-ref-time"
+    sysRefTime.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-ntp-oper:ntp/nodes/node/status/" + sysRefTime.EntityData.SegmentPath
     sysRefTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sysRefTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sysRefTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1014,6 +1040,7 @@ func (sec *Ntp_Nodes_Node_Status_SysRefTime_Sec) GetEntityData() *types.CommonEn
     sec.EntityData.BundleName = "cisco_ios_xr"
     sec.EntityData.ParentYangName = "sys-ref-time"
     sec.EntityData.SegmentPath = "sec"
+    sec.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-ntp-oper:ntp/nodes/node/status/sys-ref-time/" + sec.EntityData.SegmentPath
     sec.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1044,6 +1071,7 @@ func (fracSecs *Ntp_Nodes_Node_Status_SysRefTime_FracSecs) GetEntityData() *type
     fracSecs.EntityData.BundleName = "cisco_ios_xr"
     fracSecs.EntityData.ParentYangName = "sys-ref-time"
     fracSecs.EntityData.SegmentPath = "frac-secs"
+    fracSecs.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-ntp-oper:ntp/nodes/node/status/sys-ref-time/" + fracSecs.EntityData.SegmentPath
     fracSecs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fracSecs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fracSecs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1076,6 +1104,7 @@ func (sysDrift *Ntp_Nodes_Node_Status_SysDrift) GetEntityData() *types.CommonEnt
     sysDrift.EntityData.BundleName = "cisco_ios_xr"
     sysDrift.EntityData.ParentYangName = "status"
     sysDrift.EntityData.SegmentPath = "sys-drift"
+    sysDrift.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-ntp-oper:ntp/nodes/node/status/" + sysDrift.EntityData.SegmentPath
     sysDrift.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sysDrift.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sysDrift.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1107,6 +1136,7 @@ func (sec *Ntp_Nodes_Node_Status_SysDrift_Sec) GetEntityData() *types.CommonEnti
     sec.EntityData.BundleName = "cisco_ios_xr"
     sec.EntityData.ParentYangName = "sys-drift"
     sec.EntityData.SegmentPath = "sec"
+    sec.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-ntp-oper:ntp/nodes/node/status/sys-drift/" + sec.EntityData.SegmentPath
     sec.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1137,6 +1167,7 @@ func (fracSecs *Ntp_Nodes_Node_Status_SysDrift_FracSecs) GetEntityData() *types.
     fracSecs.EntityData.BundleName = "cisco_ios_xr"
     fracSecs.EntityData.ParentYangName = "sys-drift"
     fracSecs.EntityData.SegmentPath = "frac-secs"
+    fracSecs.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-ntp-oper:ntp/nodes/node/status/sys-drift/" + fracSecs.EntityData.SegmentPath
     fracSecs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fracSecs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fracSecs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1173,6 +1204,7 @@ func (associations *Ntp_Nodes_Node_Associations) GetEntityData() *types.CommonEn
     associations.EntityData.BundleName = "cisco_ios_xr"
     associations.EntityData.ParentYangName = "node"
     associations.EntityData.SegmentPath = "associations"
+    associations.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-ntp-oper:ntp/nodes/node/" + associations.EntityData.SegmentPath
     associations.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     associations.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     associations.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1180,6 +1212,7 @@ func (associations *Ntp_Nodes_Node_Associations) GetEntityData() *types.CommonEn
     associations.EntityData.Children = types.NewOrderedMap()
     associations.EntityData.Children.Append("peer-summary-info", types.YChild{"PeerSummaryInfo", nil})
     for i := range associations.PeerSummaryInfo {
+        types.SetYListKey(associations.PeerSummaryInfo[i], i)
         associations.EntityData.Children.Append(types.GetSegmentPath(associations.PeerSummaryInfo[i]), types.YChild{"PeerSummaryInfo", associations.PeerSummaryInfo[i]})
     }
     associations.EntityData.Leafs = types.NewOrderedMap()
@@ -1196,6 +1229,7 @@ func (associations *Ntp_Nodes_Node_Associations) GetEntityData() *types.CommonEn
 type Ntp_Nodes_Node_Associations_PeerSummaryInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Time since last frame received (-1=none). The type is interface{} with
     // range: -2147483648..2147483647.
@@ -1210,7 +1244,8 @@ func (peerSummaryInfo *Ntp_Nodes_Node_Associations_PeerSummaryInfo) GetEntityDat
     peerSummaryInfo.EntityData.YangName = "peer-summary-info"
     peerSummaryInfo.EntityData.BundleName = "cisco_ios_xr"
     peerSummaryInfo.EntityData.ParentYangName = "associations"
-    peerSummaryInfo.EntityData.SegmentPath = "peer-summary-info"
+    peerSummaryInfo.EntityData.SegmentPath = "peer-summary-info" + types.AddNoKeyToken(peerSummaryInfo)
+    peerSummaryInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-ntp-oper:ntp/nodes/node/associations/" + peerSummaryInfo.EntityData.SegmentPath
     peerSummaryInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerSummaryInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerSummaryInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1275,6 +1310,7 @@ func (peerInfoCommon *Ntp_Nodes_Node_Associations_PeerSummaryInfo_PeerInfoCommon
     peerInfoCommon.EntityData.BundleName = "cisco_ios_xr"
     peerInfoCommon.EntityData.ParentYangName = "peer-summary-info"
     peerInfoCommon.EntityData.SegmentPath = "peer-info-common"
+    peerInfoCommon.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-ntp-oper:ntp/nodes/node/associations/peer-summary-info/" + peerInfoCommon.EntityData.SegmentPath
     peerInfoCommon.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerInfoCommon.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerInfoCommon.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

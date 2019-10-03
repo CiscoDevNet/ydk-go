@@ -99,6 +99,7 @@ func (routingPolicy *RoutingPolicy) GetEntityData() *types.CommonEntityData {
     routingPolicy.EntityData.BundleName = "openconfig"
     routingPolicy.EntityData.ParentYangName = "openconfig-routing-policy"
     routingPolicy.EntityData.SegmentPath = "openconfig-routing-policy:routing-policy"
+    routingPolicy.EntityData.AbsolutePath = routingPolicy.EntityData.SegmentPath
     routingPolicy.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     routingPolicy.EntityData.NamespaceTable = openconfig.GetNamespaces()
     routingPolicy.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -139,6 +140,7 @@ func (definedSets *RoutingPolicy_DefinedSets) GetEntityData() *types.CommonEntit
     definedSets.EntityData.BundleName = "openconfig"
     definedSets.EntityData.ParentYangName = "routing-policy"
     definedSets.EntityData.SegmentPath = "defined-sets"
+    definedSets.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/" + definedSets.EntityData.SegmentPath
     definedSets.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     definedSets.EntityData.NamespaceTable = openconfig.GetNamespaces()
     definedSets.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -172,6 +174,7 @@ func (prefixSets *RoutingPolicy_DefinedSets_PrefixSets) GetEntityData() *types.C
     prefixSets.EntityData.BundleName = "openconfig"
     prefixSets.EntityData.ParentYangName = "defined-sets"
     prefixSets.EntityData.SegmentPath = "prefix-sets"
+    prefixSets.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/defined-sets/" + prefixSets.EntityData.SegmentPath
     prefixSets.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     prefixSets.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixSets.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -193,6 +196,7 @@ func (prefixSets *RoutingPolicy_DefinedSets_PrefixSets) GetEntityData() *types.C
 type RoutingPolicy_DefinedSets_PrefixSets_PrefixSet struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to prefix name list key. The type is
     // string. Refers to
@@ -215,6 +219,7 @@ func (prefixSet *RoutingPolicy_DefinedSets_PrefixSets_PrefixSet) GetEntityData()
     prefixSet.EntityData.BundleName = "openconfig"
     prefixSet.EntityData.ParentYangName = "prefix-sets"
     prefixSet.EntityData.SegmentPath = "prefix-set" + types.AddKeyToken(prefixSet.PrefixSetName, "prefix-set-name")
+    prefixSet.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/defined-sets/prefix-sets/" + prefixSet.EntityData.SegmentPath
     prefixSet.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     prefixSet.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixSet.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -248,6 +253,7 @@ func (config *RoutingPolicy_DefinedSets_PrefixSets_PrefixSet_Config) GetEntityDa
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "prefix-set"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/defined-sets/prefix-sets/prefix-set/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -278,6 +284,7 @@ func (state *RoutingPolicy_DefinedSets_PrefixSets_PrefixSet_State) GetEntityData
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "prefix-set"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/defined-sets/prefix-sets/prefix-set/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -309,6 +316,7 @@ func (prefixes *RoutingPolicy_DefinedSets_PrefixSets_PrefixSet_Prefixes) GetEnti
     prefixes.EntityData.BundleName = "openconfig"
     prefixes.EntityData.ParentYangName = "prefix-set"
     prefixes.EntityData.SegmentPath = "prefixes"
+    prefixes.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/defined-sets/prefix-sets/prefix-set/" + prefixes.EntityData.SegmentPath
     prefixes.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     prefixes.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -330,6 +338,7 @@ func (prefixes *RoutingPolicy_DefinedSets_PrefixSets_PrefixSet_Prefixes) GetEnti
 type RoutingPolicy_DefinedSets_PrefixSets_PrefixSet_Prefixes_Prefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the ip-prefix list key. The type is
     // one of the following types: string with pattern:
@@ -356,6 +365,7 @@ func (prefix *RoutingPolicy_DefinedSets_PrefixSets_PrefixSet_Prefixes_Prefix) Ge
     prefix.EntityData.BundleName = "openconfig"
     prefix.EntityData.ParentYangName = "prefixes"
     prefix.EntityData.SegmentPath = "prefix" + types.AddKeyToken(prefix.IpPrefix, "ip-prefix") + types.AddKeyToken(prefix.MasklengthRange, "masklength-range")
+    prefix.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/defined-sets/prefix-sets/prefix-set/prefixes/" + prefix.EntityData.SegmentPath
     prefix.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     prefix.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefix.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -403,6 +413,7 @@ func (config *RoutingPolicy_DefinedSets_PrefixSets_PrefixSet_Prefixes_Prefix_Con
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "prefix"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/defined-sets/prefix-sets/prefix-set/prefixes/prefix/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -448,6 +459,7 @@ func (state *RoutingPolicy_DefinedSets_PrefixSets_PrefixSet_Prefixes_Prefix_Stat
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "prefix"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/defined-sets/prefix-sets/prefix-set/prefixes/prefix/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -480,6 +492,7 @@ func (neighborSets *RoutingPolicy_DefinedSets_NeighborSets) GetEntityData() *typ
     neighborSets.EntityData.BundleName = "openconfig"
     neighborSets.EntityData.ParentYangName = "defined-sets"
     neighborSets.EntityData.SegmentPath = "neighbor-sets"
+    neighborSets.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/defined-sets/" + neighborSets.EntityData.SegmentPath
     neighborSets.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     neighborSets.EntityData.NamespaceTable = openconfig.GetNamespaces()
     neighborSets.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -501,6 +514,7 @@ func (neighborSets *RoutingPolicy_DefinedSets_NeighborSets) GetEntityData() *typ
 type RoutingPolicy_DefinedSets_NeighborSets_NeighborSet struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the neighbor set name list key. The
     // type is string. Refers to
@@ -520,6 +534,7 @@ func (neighborSet *RoutingPolicy_DefinedSets_NeighborSets_NeighborSet) GetEntity
     neighborSet.EntityData.BundleName = "openconfig"
     neighborSet.EntityData.ParentYangName = "neighbor-sets"
     neighborSet.EntityData.SegmentPath = "neighbor-set" + types.AddKeyToken(neighborSet.NeighborSetName, "neighbor-set-name")
+    neighborSet.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/defined-sets/neighbor-sets/" + neighborSet.EntityData.SegmentPath
     neighborSet.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     neighborSet.EntityData.NamespaceTable = openconfig.GetNamespaces()
     neighborSet.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -559,6 +574,7 @@ func (config *RoutingPolicy_DefinedSets_NeighborSets_NeighborSet_Config) GetEnti
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "neighbor-set"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/defined-sets/neighbor-sets/neighbor-set/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -597,6 +613,7 @@ func (state *RoutingPolicy_DefinedSets_NeighborSets_NeighborSet_State) GetEntity
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "neighbor-set"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/defined-sets/neighbor-sets/neighbor-set/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -628,6 +645,7 @@ func (tagSets *RoutingPolicy_DefinedSets_TagSets) GetEntityData() *types.CommonE
     tagSets.EntityData.BundleName = "openconfig"
     tagSets.EntityData.ParentYangName = "defined-sets"
     tagSets.EntityData.SegmentPath = "tag-sets"
+    tagSets.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/defined-sets/" + tagSets.EntityData.SegmentPath
     tagSets.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     tagSets.EntityData.NamespaceTable = openconfig.GetNamespaces()
     tagSets.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -649,6 +667,7 @@ func (tagSets *RoutingPolicy_DefinedSets_TagSets) GetEntityData() *types.CommonE
 type RoutingPolicy_DefinedSets_TagSets_TagSet struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the tag set name list key. The type
     // is string. Refers to
@@ -668,6 +687,7 @@ func (tagSet *RoutingPolicy_DefinedSets_TagSets_TagSet) GetEntityData() *types.C
     tagSet.EntityData.BundleName = "openconfig"
     tagSet.EntityData.ParentYangName = "tag-sets"
     tagSet.EntityData.SegmentPath = "tag-set" + types.AddKeyToken(tagSet.TagSetName, "tag-set-name")
+    tagSet.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/defined-sets/tag-sets/" + tagSet.EntityData.SegmentPath
     tagSet.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     tagSet.EntityData.NamespaceTable = openconfig.GetNamespaces()
     tagSet.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -705,6 +725,7 @@ func (config *RoutingPolicy_DefinedSets_TagSets_TagSet_Config) GetEntityData() *
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "tag-set"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/defined-sets/tag-sets/tag-set/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -741,6 +762,7 @@ func (state *RoutingPolicy_DefinedSets_TagSets_TagSet_State) GetEntityData() *ty
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "tag-set"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/defined-sets/tag-sets/tag-set/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -777,6 +799,7 @@ func (bgpDefinedSets *RoutingPolicy_DefinedSets_BgpDefinedSets) GetEntityData() 
     bgpDefinedSets.EntityData.BundleName = "openconfig"
     bgpDefinedSets.EntityData.ParentYangName = "defined-sets"
     bgpDefinedSets.EntityData.SegmentPath = "openconfig-bgp-policy:bgp-defined-sets"
+    bgpDefinedSets.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/defined-sets/" + bgpDefinedSets.EntityData.SegmentPath
     bgpDefinedSets.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     bgpDefinedSets.EntityData.NamespaceTable = openconfig.GetNamespaces()
     bgpDefinedSets.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -809,6 +832,7 @@ func (communitySets *RoutingPolicy_DefinedSets_BgpDefinedSets_CommunitySets) Get
     communitySets.EntityData.BundleName = "openconfig"
     communitySets.EntityData.ParentYangName = "bgp-defined-sets"
     communitySets.EntityData.SegmentPath = "community-sets"
+    communitySets.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/defined-sets/openconfig-bgp-policy:bgp-defined-sets/" + communitySets.EntityData.SegmentPath
     communitySets.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     communitySets.EntityData.NamespaceTable = openconfig.GetNamespaces()
     communitySets.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -830,6 +854,7 @@ func (communitySets *RoutingPolicy_DefinedSets_BgpDefinedSets_CommunitySets) Get
 type RoutingPolicy_DefinedSets_BgpDefinedSets_CommunitySets_CommunitySet struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to list key. The type is string. Refers
     // to
@@ -849,6 +874,7 @@ func (communitySet *RoutingPolicy_DefinedSets_BgpDefinedSets_CommunitySets_Commu
     communitySet.EntityData.BundleName = "openconfig"
     communitySet.EntityData.ParentYangName = "community-sets"
     communitySet.EntityData.SegmentPath = "community-set" + types.AddKeyToken(communitySet.CommunitySetName, "community-set-name")
+    communitySet.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/defined-sets/openconfig-bgp-policy:bgp-defined-sets/community-sets/" + communitySet.EntityData.SegmentPath
     communitySet.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     communitySet.EntityData.NamespaceTable = openconfig.GetNamespaces()
     communitySet.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -888,6 +914,7 @@ func (config *RoutingPolicy_DefinedSets_BgpDefinedSets_CommunitySets_CommunitySe
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "community-set"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/defined-sets/openconfig-bgp-policy:bgp-defined-sets/community-sets/community-set/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -926,6 +953,7 @@ func (state *RoutingPolicy_DefinedSets_BgpDefinedSets_CommunitySets_CommunitySet
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "community-set"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/defined-sets/openconfig-bgp-policy:bgp-defined-sets/community-sets/community-set/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -958,6 +986,7 @@ func (extCommunitySets *RoutingPolicy_DefinedSets_BgpDefinedSets_ExtCommunitySet
     extCommunitySets.EntityData.BundleName = "openconfig"
     extCommunitySets.EntityData.ParentYangName = "bgp-defined-sets"
     extCommunitySets.EntityData.SegmentPath = "ext-community-sets"
+    extCommunitySets.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/defined-sets/openconfig-bgp-policy:bgp-defined-sets/" + extCommunitySets.EntityData.SegmentPath
     extCommunitySets.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     extCommunitySets.EntityData.NamespaceTable = openconfig.GetNamespaces()
     extCommunitySets.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -979,6 +1008,7 @@ func (extCommunitySets *RoutingPolicy_DefinedSets_BgpDefinedSets_ExtCommunitySet
 type RoutingPolicy_DefinedSets_BgpDefinedSets_ExtCommunitySets_ExtCommunitySet struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to list key. The type is string. Refers
     // to
@@ -998,6 +1028,7 @@ func (extCommunitySet *RoutingPolicy_DefinedSets_BgpDefinedSets_ExtCommunitySets
     extCommunitySet.EntityData.BundleName = "openconfig"
     extCommunitySet.EntityData.ParentYangName = "ext-community-sets"
     extCommunitySet.EntityData.SegmentPath = "ext-community-set" + types.AddKeyToken(extCommunitySet.ExtCommunitySetName, "ext-community-set-name")
+    extCommunitySet.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/defined-sets/openconfig-bgp-policy:bgp-defined-sets/ext-community-sets/" + extCommunitySet.EntityData.SegmentPath
     extCommunitySet.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     extCommunitySet.EntityData.NamespaceTable = openconfig.GetNamespaces()
     extCommunitySet.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1052,6 +1083,7 @@ func (config *RoutingPolicy_DefinedSets_BgpDefinedSets_ExtCommunitySets_ExtCommu
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "ext-community-set"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/defined-sets/openconfig-bgp-policy:bgp-defined-sets/ext-community-sets/ext-community-set/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1105,6 +1137,7 @@ func (state *RoutingPolicy_DefinedSets_BgpDefinedSets_ExtCommunitySets_ExtCommun
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "ext-community-set"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/defined-sets/openconfig-bgp-policy:bgp-defined-sets/ext-community-sets/ext-community-set/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1136,6 +1169,7 @@ func (asPathSets *RoutingPolicy_DefinedSets_BgpDefinedSets_AsPathSets) GetEntity
     asPathSets.EntityData.BundleName = "openconfig"
     asPathSets.EntityData.ParentYangName = "bgp-defined-sets"
     asPathSets.EntityData.SegmentPath = "as-path-sets"
+    asPathSets.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/defined-sets/openconfig-bgp-policy:bgp-defined-sets/" + asPathSets.EntityData.SegmentPath
     asPathSets.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     asPathSets.EntityData.NamespaceTable = openconfig.GetNamespaces()
     asPathSets.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1157,6 +1191,7 @@ func (asPathSets *RoutingPolicy_DefinedSets_BgpDefinedSets_AsPathSets) GetEntity
 type RoutingPolicy_DefinedSets_BgpDefinedSets_AsPathSets_AsPathSet struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to list key. The type is string. Refers
     // to
@@ -1176,6 +1211,7 @@ func (asPathSet *RoutingPolicy_DefinedSets_BgpDefinedSets_AsPathSets_AsPathSet) 
     asPathSet.EntityData.BundleName = "openconfig"
     asPathSet.EntityData.ParentYangName = "as-path-sets"
     asPathSet.EntityData.SegmentPath = "as-path-set" + types.AddKeyToken(asPathSet.AsPathSetName, "as-path-set-name")
+    asPathSet.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/defined-sets/openconfig-bgp-policy:bgp-defined-sets/as-path-sets/" + asPathSet.EntityData.SegmentPath
     asPathSet.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     asPathSet.EntityData.NamespaceTable = openconfig.GetNamespaces()
     asPathSet.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1211,6 +1247,7 @@ func (config *RoutingPolicy_DefinedSets_BgpDefinedSets_AsPathSets_AsPathSet_Conf
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "as-path-set"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/defined-sets/openconfig-bgp-policy:bgp-defined-sets/as-path-sets/as-path-set/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1245,6 +1282,7 @@ func (state *RoutingPolicy_DefinedSets_BgpDefinedSets_AsPathSets_AsPathSet_State
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "as-path-set"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/defined-sets/openconfig-bgp-policy:bgp-defined-sets/as-path-sets/as-path-set/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1279,6 +1317,7 @@ func (policyDefinitions *RoutingPolicy_PolicyDefinitions) GetEntityData() *types
     policyDefinitions.EntityData.BundleName = "openconfig"
     policyDefinitions.EntityData.ParentYangName = "routing-policy"
     policyDefinitions.EntityData.SegmentPath = "policy-definitions"
+    policyDefinitions.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/" + policyDefinitions.EntityData.SegmentPath
     policyDefinitions.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     policyDefinitions.EntityData.NamespaceTable = openconfig.GetNamespaces()
     policyDefinitions.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1303,6 +1342,7 @@ func (policyDefinitions *RoutingPolicy_PolicyDefinitions) GetEntityData() *types
 type RoutingPolicy_PolicyDefinitions_PolicyDefinition struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the list key. The type is string.
     // Refers to
@@ -1325,6 +1365,7 @@ func (policyDefinition *RoutingPolicy_PolicyDefinitions_PolicyDefinition) GetEnt
     policyDefinition.EntityData.BundleName = "openconfig"
     policyDefinition.EntityData.ParentYangName = "policy-definitions"
     policyDefinition.EntityData.SegmentPath = "policy-definition" + types.AddKeyToken(policyDefinition.Name, "name")
+    policyDefinition.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/policy-definitions/" + policyDefinition.EntityData.SegmentPath
     policyDefinition.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     policyDefinition.EntityData.NamespaceTable = openconfig.GetNamespaces()
     policyDefinition.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1358,6 +1399,7 @@ func (config *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Config) GetEntity
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "policy-definition"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1388,6 +1430,7 @@ func (state *RoutingPolicy_PolicyDefinitions_PolicyDefinition_State) GetEntityDa
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "policy-definition"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1420,6 +1463,7 @@ func (statements *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements) G
     statements.EntityData.BundleName = "openconfig"
     statements.EntityData.ParentYangName = "policy-definition"
     statements.EntityData.SegmentPath = "statements"
+    statements.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/" + statements.EntityData.SegmentPath
     statements.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     statements.EntityData.NamespaceTable = openconfig.GetNamespaces()
     statements.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1444,6 +1488,7 @@ func (statements *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements) G
 type RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to list key. The type is string. Refers
     // to
@@ -1469,6 +1514,7 @@ func (statement *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Sta
     statement.EntityData.BundleName = "openconfig"
     statement.EntityData.ParentYangName = "statements"
     statement.EntityData.SegmentPath = "statement" + types.AddKeyToken(statement.Name, "name")
+    statement.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/" + statement.EntityData.SegmentPath
     statement.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     statement.EntityData.NamespaceTable = openconfig.GetNamespaces()
     statement.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1502,6 +1548,7 @@ func (config *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statem
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "statement"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1531,6 +1578,7 @@ func (state *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Stateme
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "statement"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1574,11 +1622,11 @@ type RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Condi
     // Policy conditions for IGP attributes.
     IgpConditions RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_IgpConditions
 
-    // Top-level container .
-    BgpConditions RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_BgpConditions
-
     // Match conditions relating to the IS-IS protocol.
     IsisConditions RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_IsisConditions
+
+    // Top-level container .
+    BgpConditions RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_BgpConditions
 }
 
 func (conditions *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions) GetEntityData() *types.CommonEntityData {
@@ -1587,6 +1635,7 @@ func (conditions *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_St
     conditions.EntityData.BundleName = "openconfig"
     conditions.EntityData.ParentYangName = "statement"
     conditions.EntityData.SegmentPath = "conditions"
+    conditions.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/" + conditions.EntityData.SegmentPath
     conditions.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     conditions.EntityData.NamespaceTable = openconfig.GetNamespaces()
     conditions.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1599,8 +1648,8 @@ func (conditions *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_St
     conditions.EntityData.Children.Append("match-neighbor-set", types.YChild{"MatchNeighborSet", &conditions.MatchNeighborSet})
     conditions.EntityData.Children.Append("match-tag-set", types.YChild{"MatchTagSet", &conditions.MatchTagSet})
     conditions.EntityData.Children.Append("igp-conditions", types.YChild{"IgpConditions", &conditions.IgpConditions})
-    conditions.EntityData.Children.Append("openconfig-bgp-policy:bgp-conditions", types.YChild{"BgpConditions", &conditions.BgpConditions})
     conditions.EntityData.Children.Append("openconfig-isis-policy:isis-conditions", types.YChild{"IsisConditions", &conditions.IsisConditions})
+    conditions.EntityData.Children.Append("openconfig-bgp-policy:bgp-conditions", types.YChild{"BgpConditions", &conditions.BgpConditions})
     conditions.EntityData.Leafs = types.NewOrderedMap()
 
     conditions.EntityData.YListKeys = []string {}
@@ -1637,6 +1686,7 @@ func (config *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statem
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "conditions"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1680,6 +1730,7 @@ func (state *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Stateme
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "conditions"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1713,6 +1764,7 @@ func (matchInterface *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statement
     matchInterface.EntityData.BundleName = "openconfig"
     matchInterface.EntityData.ParentYangName = "conditions"
     matchInterface.EntityData.SegmentPath = "match-interface"
+    matchInterface.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/" + matchInterface.EntityData.SegmentPath
     matchInterface.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     matchInterface.EntityData.NamespaceTable = openconfig.GetNamespaces()
     matchInterface.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1752,6 +1804,7 @@ func (config *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statem
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "match-interface"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/match-interface/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1791,6 +1844,7 @@ func (state *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Stateme
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "match-interface"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/match-interface/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1825,6 +1879,7 @@ func (matchPrefixSet *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statement
     matchPrefixSet.EntityData.BundleName = "openconfig"
     matchPrefixSet.EntityData.ParentYangName = "conditions"
     matchPrefixSet.EntityData.SegmentPath = "match-prefix-set"
+    matchPrefixSet.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/" + matchPrefixSet.EntityData.SegmentPath
     matchPrefixSet.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     matchPrefixSet.EntityData.NamespaceTable = openconfig.GetNamespaces()
     matchPrefixSet.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1862,6 +1917,7 @@ func (config *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statem
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "match-prefix-set"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/match-prefix-set/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1899,6 +1955,7 @@ func (state *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Stateme
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "match-prefix-set"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/match-prefix-set/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1933,6 +1990,7 @@ func (matchNeighborSet *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Stateme
     matchNeighborSet.EntityData.BundleName = "openconfig"
     matchNeighborSet.EntityData.ParentYangName = "conditions"
     matchNeighborSet.EntityData.SegmentPath = "match-neighbor-set"
+    matchNeighborSet.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/" + matchNeighborSet.EntityData.SegmentPath
     matchNeighborSet.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     matchNeighborSet.EntityData.NamespaceTable = openconfig.GetNamespaces()
     matchNeighborSet.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1970,6 +2028,7 @@ func (config *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statem
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "match-neighbor-set"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/match-neighbor-set/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2007,6 +2066,7 @@ func (state *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Stateme
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "match-neighbor-set"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/match-neighbor-set/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2041,6 +2101,7 @@ func (matchTagSet *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_S
     matchTagSet.EntityData.BundleName = "openconfig"
     matchTagSet.EntityData.ParentYangName = "conditions"
     matchTagSet.EntityData.SegmentPath = "match-tag-set"
+    matchTagSet.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/" + matchTagSet.EntityData.SegmentPath
     matchTagSet.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     matchTagSet.EntityData.NamespaceTable = openconfig.GetNamespaces()
     matchTagSet.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2078,6 +2139,7 @@ func (config *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statem
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "match-tag-set"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/match-tag-set/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2115,6 +2177,7 @@ func (state *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Stateme
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "match-tag-set"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/match-tag-set/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2142,6 +2205,7 @@ func (igpConditions *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements
     igpConditions.EntityData.BundleName = "openconfig"
     igpConditions.EntityData.ParentYangName = "conditions"
     igpConditions.EntityData.SegmentPath = "igp-conditions"
+    igpConditions.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/" + igpConditions.EntityData.SegmentPath
     igpConditions.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     igpConditions.EntityData.NamespaceTable = openconfig.GetNamespaces()
     igpConditions.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2152,6 +2216,108 @@ func (igpConditions *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements
     igpConditions.EntityData.YListKeys = []string {}
 
     return &(igpConditions.EntityData)
+}
+
+// RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_IsisConditions
+// Match conditions relating to the IS-IS protocol
+type RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_IsisConditions struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Configuration parameters relating to IS-IS match conditions.
+    Config RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_IsisConditions_Config
+
+    // Operational state parameters relating to IS-IS match conditions.
+    State RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_IsisConditions_State
+}
+
+func (isisConditions *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_IsisConditions) GetEntityData() *types.CommonEntityData {
+    isisConditions.EntityData.YFilter = isisConditions.YFilter
+    isisConditions.EntityData.YangName = "isis-conditions"
+    isisConditions.EntityData.BundleName = "openconfig"
+    isisConditions.EntityData.ParentYangName = "conditions"
+    isisConditions.EntityData.SegmentPath = "openconfig-isis-policy:isis-conditions"
+    isisConditions.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/" + isisConditions.EntityData.SegmentPath
+    isisConditions.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    isisConditions.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    isisConditions.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+
+    isisConditions.EntityData.Children = types.NewOrderedMap()
+    isisConditions.EntityData.Children.Append("config", types.YChild{"Config", &isisConditions.Config})
+    isisConditions.EntityData.Children.Append("state", types.YChild{"State", &isisConditions.State})
+    isisConditions.EntityData.Leafs = types.NewOrderedMap()
+
+    isisConditions.EntityData.YListKeys = []string {}
+
+    return &(isisConditions.EntityData)
+}
+
+// RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_IsisConditions_Config
+// Configuration parameters relating to IS-IS match
+// conditions
+type RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_IsisConditions_Config struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Match the level that the IS-IS prefix is within. This can be used in the
+    // case that import or export policies refer to an IS-IS instance that has
+    // multiple levels configured within it. The type is interface{} with range:
+    // 1..2.
+    LevelEq interface{}
+}
+
+func (config *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_IsisConditions_Config) GetEntityData() *types.CommonEntityData {
+    config.EntityData.YFilter = config.YFilter
+    config.EntityData.YangName = "config"
+    config.EntityData.BundleName = "openconfig"
+    config.EntityData.ParentYangName = "isis-conditions"
+    config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/openconfig-isis-policy:isis-conditions/" + config.EntityData.SegmentPath
+    config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    config.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("level-eq", types.YLeaf{"LevelEq", config.LevelEq})
+
+    config.EntityData.YListKeys = []string {}
+
+    return &(config.EntityData)
+}
+
+// RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_IsisConditions_State
+// Operational state parameters relating to IS-IS match
+// conditions
+type RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_IsisConditions_State struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Match the level that the IS-IS prefix is within. This can be used in the
+    // case that import or export policies refer to an IS-IS instance that has
+    // multiple levels configured within it. The type is interface{} with range:
+    // 1..2.
+    LevelEq interface{}
+}
+
+func (state *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_IsisConditions_State) GetEntityData() *types.CommonEntityData {
+    state.EntityData.YFilter = state.YFilter
+    state.EntityData.YangName = "state"
+    state.EntityData.BundleName = "openconfig"
+    state.EntityData.ParentYangName = "isis-conditions"
+    state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/openconfig-isis-policy:isis-conditions/" + state.EntityData.SegmentPath
+    state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    state.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("level-eq", types.YLeaf{"LevelEq", state.LevelEq})
+
+    state.EntityData.YListKeys = []string {}
+
+    return &(state.EntityData)
 }
 
 // RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_BgpConditions
@@ -2193,6 +2359,7 @@ func (bgpConditions *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements
     bgpConditions.EntityData.BundleName = "openconfig"
     bgpConditions.EntityData.ParentYangName = "conditions"
     bgpConditions.EntityData.SegmentPath = "openconfig-bgp-policy:bgp-conditions"
+    bgpConditions.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/" + bgpConditions.EntityData.SegmentPath
     bgpConditions.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     bgpConditions.EntityData.NamespaceTable = openconfig.GetNamespaces()
     bgpConditions.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2254,6 +2421,7 @@ func (config *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statem
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "bgp-conditions"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/openconfig-bgp-policy:bgp-conditions/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2326,6 +2494,7 @@ func (state *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Stateme
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "bgp-conditions"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/openconfig-bgp-policy:bgp-conditions/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2375,6 +2544,7 @@ func (communityCount *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statement
     communityCount.EntityData.BundleName = "openconfig"
     communityCount.EntityData.ParentYangName = "bgp-conditions"
     communityCount.EntityData.SegmentPath = "community-count"
+    communityCount.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/openconfig-bgp-policy:bgp-conditions/" + communityCount.EntityData.SegmentPath
     communityCount.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     communityCount.EntityData.NamespaceTable = openconfig.GetNamespaces()
     communityCount.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2410,6 +2580,7 @@ func (config *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statem
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "community-count"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/openconfig-bgp-policy:bgp-conditions/community-count/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2445,6 +2616,7 @@ func (state *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Stateme
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "community-count"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/openconfig-bgp-policy:bgp-conditions/community-count/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2479,6 +2651,7 @@ func (asPathLength *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_
     asPathLength.EntityData.BundleName = "openconfig"
     asPathLength.EntityData.ParentYangName = "bgp-conditions"
     asPathLength.EntityData.SegmentPath = "as-path-length"
+    asPathLength.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/openconfig-bgp-policy:bgp-conditions/" + asPathLength.EntityData.SegmentPath
     asPathLength.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     asPathLength.EntityData.NamespaceTable = openconfig.GetNamespaces()
     asPathLength.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2514,6 +2687,7 @@ func (config *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statem
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "as-path-length"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/openconfig-bgp-policy:bgp-conditions/as-path-length/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2549,6 +2723,7 @@ func (state *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Stateme
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "as-path-length"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/openconfig-bgp-policy:bgp-conditions/as-path-length/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2584,6 +2759,7 @@ func (matchCommunitySet *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statem
     matchCommunitySet.EntityData.BundleName = "openconfig"
     matchCommunitySet.EntityData.ParentYangName = "bgp-conditions"
     matchCommunitySet.EntityData.SegmentPath = "match-community-set"
+    matchCommunitySet.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/openconfig-bgp-policy:bgp-conditions/" + matchCommunitySet.EntityData.SegmentPath
     matchCommunitySet.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     matchCommunitySet.EntityData.NamespaceTable = openconfig.GetNamespaces()
     matchCommunitySet.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2619,6 +2795,7 @@ func (config *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statem
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "match-community-set"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/openconfig-bgp-policy:bgp-conditions/match-community-set/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2654,6 +2831,7 @@ func (state *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Stateme
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "match-community-set"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/openconfig-bgp-policy:bgp-conditions/match-community-set/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2688,6 +2866,7 @@ func (matchExtCommunitySet *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Sta
     matchExtCommunitySet.EntityData.BundleName = "openconfig"
     matchExtCommunitySet.EntityData.ParentYangName = "bgp-conditions"
     matchExtCommunitySet.EntityData.SegmentPath = "match-ext-community-set"
+    matchExtCommunitySet.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/openconfig-bgp-policy:bgp-conditions/" + matchExtCommunitySet.EntityData.SegmentPath
     matchExtCommunitySet.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     matchExtCommunitySet.EntityData.NamespaceTable = openconfig.GetNamespaces()
     matchExtCommunitySet.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2724,6 +2903,7 @@ func (config *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statem
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "match-ext-community-set"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/openconfig-bgp-policy:bgp-conditions/match-ext-community-set/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2760,6 +2940,7 @@ func (state *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Stateme
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "match-ext-community-set"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/openconfig-bgp-policy:bgp-conditions/match-ext-community-set/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2794,6 +2975,7 @@ func (matchAsPathSet *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statement
     matchAsPathSet.EntityData.BundleName = "openconfig"
     matchAsPathSet.EntityData.ParentYangName = "bgp-conditions"
     matchAsPathSet.EntityData.SegmentPath = "match-as-path-set"
+    matchAsPathSet.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/openconfig-bgp-policy:bgp-conditions/" + matchAsPathSet.EntityData.SegmentPath
     matchAsPathSet.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     matchAsPathSet.EntityData.NamespaceTable = openconfig.GetNamespaces()
     matchAsPathSet.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2829,6 +3011,7 @@ func (config *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statem
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "match-as-path-set"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/openconfig-bgp-policy:bgp-conditions/match-as-path-set/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2865,6 +3048,7 @@ func (state *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Stateme
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "match-as-path-set"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/conditions/openconfig-bgp-policy:bgp-conditions/match-as-path-set/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2873,105 +3057,6 @@ func (state *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Stateme
     state.EntityData.Leafs = types.NewOrderedMap()
     state.EntityData.Leafs.Append("as-path-set", types.YLeaf{"AsPathSet", state.AsPathSet})
     state.EntityData.Leafs.Append("match-set-options", types.YLeaf{"MatchSetOptions", state.MatchSetOptions})
-
-    state.EntityData.YListKeys = []string {}
-
-    return &(state.EntityData)
-}
-
-// RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_IsisConditions
-// Match conditions relating to the IS-IS protocol
-type RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_IsisConditions struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Configuration parameters relating to IS-IS match conditions.
-    Config RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_IsisConditions_Config
-
-    // Operational state parameters relating to IS-IS match conditions.
-    State RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_IsisConditions_State
-}
-
-func (isisConditions *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_IsisConditions) GetEntityData() *types.CommonEntityData {
-    isisConditions.EntityData.YFilter = isisConditions.YFilter
-    isisConditions.EntityData.YangName = "isis-conditions"
-    isisConditions.EntityData.BundleName = "openconfig"
-    isisConditions.EntityData.ParentYangName = "conditions"
-    isisConditions.EntityData.SegmentPath = "openconfig-isis-policy:isis-conditions"
-    isisConditions.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
-    isisConditions.EntityData.NamespaceTable = openconfig.GetNamespaces()
-    isisConditions.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
-
-    isisConditions.EntityData.Children = types.NewOrderedMap()
-    isisConditions.EntityData.Children.Append("config", types.YChild{"Config", &isisConditions.Config})
-    isisConditions.EntityData.Children.Append("state", types.YChild{"State", &isisConditions.State})
-    isisConditions.EntityData.Leafs = types.NewOrderedMap()
-
-    isisConditions.EntityData.YListKeys = []string {}
-
-    return &(isisConditions.EntityData)
-}
-
-// RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_IsisConditions_Config
-// Configuration parameters relating to IS-IS match
-// conditions
-type RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_IsisConditions_Config struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Match the level that the IS-IS prefix is within. This can be used in the
-    // case that import or export policies refer to an IS-IS instance that has
-    // multiple levels configured within it. The type is interface{} with range:
-    // 1..2.
-    LevelEq interface{}
-}
-
-func (config *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_IsisConditions_Config) GetEntityData() *types.CommonEntityData {
-    config.EntityData.YFilter = config.YFilter
-    config.EntityData.YangName = "config"
-    config.EntityData.BundleName = "openconfig"
-    config.EntityData.ParentYangName = "isis-conditions"
-    config.EntityData.SegmentPath = "config"
-    config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
-    config.EntityData.NamespaceTable = openconfig.GetNamespaces()
-    config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
-
-    config.EntityData.Children = types.NewOrderedMap()
-    config.EntityData.Leafs = types.NewOrderedMap()
-    config.EntityData.Leafs.Append("level-eq", types.YLeaf{"LevelEq", config.LevelEq})
-
-    config.EntityData.YListKeys = []string {}
-
-    return &(config.EntityData)
-}
-
-// RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_IsisConditions_State
-// Operational state parameters relating to IS-IS match
-// conditions
-type RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_IsisConditions_State struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Match the level that the IS-IS prefix is within. This can be used in the
-    // case that import or export policies refer to an IS-IS instance that has
-    // multiple levels configured within it. The type is interface{} with range:
-    // 1..2.
-    LevelEq interface{}
-}
-
-func (state *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Conditions_IsisConditions_State) GetEntityData() *types.CommonEntityData {
-    state.EntityData.YFilter = state.YFilter
-    state.EntityData.YangName = "state"
-    state.EntityData.BundleName = "openconfig"
-    state.EntityData.ParentYangName = "isis-conditions"
-    state.EntityData.SegmentPath = "state"
-    state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
-    state.EntityData.NamespaceTable = openconfig.GetNamespaces()
-    state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
-
-    state.EntityData.Children = types.NewOrderedMap()
-    state.EntityData.Leafs = types.NewOrderedMap()
-    state.EntityData.Leafs.Append("level-eq", types.YLeaf{"LevelEq", state.LevelEq})
 
     state.EntityData.YListKeys = []string {}
 
@@ -2993,11 +3078,11 @@ type RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actio
     // Actions to set IGP route attributes; these actions apply to multiple IGPs.
     IgpActions RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_IgpActions
 
-    // Top-level container for BGP-specific actions.
-    BgpActions RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_BgpActions
-
     // Actions that can be performed by IS-IS within a policy.
     IsisActions RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_IsisActions
+
+    // Top-level container for BGP-specific actions.
+    BgpActions RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_BgpActions
 }
 
 func (actions *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions) GetEntityData() *types.CommonEntityData {
@@ -3006,6 +3091,7 @@ func (actions *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_State
     actions.EntityData.BundleName = "openconfig"
     actions.EntityData.ParentYangName = "statement"
     actions.EntityData.SegmentPath = "actions"
+    actions.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/" + actions.EntityData.SegmentPath
     actions.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     actions.EntityData.NamespaceTable = openconfig.GetNamespaces()
     actions.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3014,8 +3100,8 @@ func (actions *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_State
     actions.EntityData.Children.Append("config", types.YChild{"Config", &actions.Config})
     actions.EntityData.Children.Append("state", types.YChild{"State", &actions.State})
     actions.EntityData.Children.Append("igp-actions", types.YChild{"IgpActions", &actions.IgpActions})
-    actions.EntityData.Children.Append("openconfig-bgp-policy:bgp-actions", types.YChild{"BgpActions", &actions.BgpActions})
     actions.EntityData.Children.Append("openconfig-isis-policy:isis-actions", types.YChild{"IsisActions", &actions.IsisActions})
+    actions.EntityData.Children.Append("openconfig-bgp-policy:bgp-actions", types.YChild{"BgpActions", &actions.BgpActions})
     actions.EntityData.Leafs = types.NewOrderedMap()
 
     actions.EntityData.YListKeys = []string {}
@@ -3042,6 +3128,7 @@ func (config *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statem
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "actions"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/actions/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3075,6 +3162,7 @@ func (state *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Stateme
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "actions"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/actions/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3109,6 +3197,7 @@ func (igpActions *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_St
     igpActions.EntityData.BundleName = "openconfig"
     igpActions.EntityData.ParentYangName = "actions"
     igpActions.EntityData.SegmentPath = "igp-actions"
+    igpActions.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/actions/" + igpActions.EntityData.SegmentPath
     igpActions.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     igpActions.EntityData.NamespaceTable = openconfig.GetNamespaces()
     igpActions.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3141,6 +3230,7 @@ func (config *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statem
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "igp-actions"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/actions/igp-actions/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3172,6 +3262,7 @@ func (state *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Stateme
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "igp-actions"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/actions/igp-actions/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3179,6 +3270,122 @@ func (state *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Stateme
     state.EntityData.Children = types.NewOrderedMap()
     state.EntityData.Leafs = types.NewOrderedMap()
     state.EntityData.Leafs.Append("set-tag", types.YLeaf{"SetTag", state.SetTag})
+
+    state.EntityData.YListKeys = []string {}
+
+    return &(state.EntityData)
+}
+
+// RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_IsisActions
+// Actions that can be performed by IS-IS within a policy
+type RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_IsisActions struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Configuration parameters relating to IS-IS actions.
+    Config RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_IsisActions_Config
+
+    // Operational state associated with IS-IS actions.
+    State RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_IsisActions_State
+}
+
+func (isisActions *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_IsisActions) GetEntityData() *types.CommonEntityData {
+    isisActions.EntityData.YFilter = isisActions.YFilter
+    isisActions.EntityData.YangName = "isis-actions"
+    isisActions.EntityData.BundleName = "openconfig"
+    isisActions.EntityData.ParentYangName = "actions"
+    isisActions.EntityData.SegmentPath = "openconfig-isis-policy:isis-actions"
+    isisActions.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/actions/" + isisActions.EntityData.SegmentPath
+    isisActions.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    isisActions.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    isisActions.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+
+    isisActions.EntityData.Children = types.NewOrderedMap()
+    isisActions.EntityData.Children.Append("config", types.YChild{"Config", &isisActions.Config})
+    isisActions.EntityData.Children.Append("state", types.YChild{"State", &isisActions.State})
+    isisActions.EntityData.Leafs = types.NewOrderedMap()
+
+    isisActions.EntityData.YListKeys = []string {}
+
+    return &(isisActions.EntityData)
+}
+
+// RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_IsisActions_Config
+// Configuration parameters relating to IS-IS actions
+type RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_IsisActions_Config struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Set the level that a prefix is to be imported into. The type is interface{}
+    // with range: 1..2.
+    SetLevel interface{}
+
+    // Set the type of metric that is to be specified when the set metric leaf is
+    // specified. The type is interface{} with range: 1..2.
+    SetMetricType interface{}
+
+    // Set the metric of the IS-IS prefix. The type is interface{} with range:
+    // 1..16777215.
+    SetMetric interface{}
+}
+
+func (config *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_IsisActions_Config) GetEntityData() *types.CommonEntityData {
+    config.EntityData.YFilter = config.YFilter
+    config.EntityData.YangName = "config"
+    config.EntityData.BundleName = "openconfig"
+    config.EntityData.ParentYangName = "isis-actions"
+    config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/actions/openconfig-isis-policy:isis-actions/" + config.EntityData.SegmentPath
+    config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    config.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("set-level", types.YLeaf{"SetLevel", config.SetLevel})
+    config.EntityData.Leafs.Append("set-metric-type", types.YLeaf{"SetMetricType", config.SetMetricType})
+    config.EntityData.Leafs.Append("set-metric", types.YLeaf{"SetMetric", config.SetMetric})
+
+    config.EntityData.YListKeys = []string {}
+
+    return &(config.EntityData)
+}
+
+// RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_IsisActions_State
+// Operational state associated with IS-IS actions
+type RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_IsisActions_State struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Set the level that a prefix is to be imported into. The type is interface{}
+    // with range: 1..2.
+    SetLevel interface{}
+
+    // Set the type of metric that is to be specified when the set metric leaf is
+    // specified. The type is interface{} with range: 1..2.
+    SetMetricType interface{}
+
+    // Set the metric of the IS-IS prefix. The type is interface{} with range:
+    // 1..16777215.
+    SetMetric interface{}
+}
+
+func (state *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_IsisActions_State) GetEntityData() *types.CommonEntityData {
+    state.EntityData.YFilter = state.YFilter
+    state.EntityData.YangName = "state"
+    state.EntityData.BundleName = "openconfig"
+    state.EntityData.ParentYangName = "isis-actions"
+    state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/actions/openconfig-isis-policy:isis-actions/" + state.EntityData.SegmentPath
+    state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    state.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("set-level", types.YLeaf{"SetLevel", state.SetLevel})
+    state.EntityData.Leafs.Append("set-metric-type", types.YLeaf{"SetMetricType", state.SetMetricType})
+    state.EntityData.Leafs.Append("set-metric", types.YLeaf{"SetMetric", state.SetMetric})
 
     state.EntityData.YListKeys = []string {}
 
@@ -3219,6 +3426,7 @@ func (bgpActions *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_St
     bgpActions.EntityData.BundleName = "openconfig"
     bgpActions.EntityData.ParentYangName = "actions"
     bgpActions.EntityData.SegmentPath = "openconfig-bgp-policy:bgp-actions"
+    bgpActions.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/actions/" + bgpActions.EntityData.SegmentPath
     bgpActions.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     bgpActions.EntityData.NamespaceTable = openconfig.GetNamespaces()
     bgpActions.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3270,6 +3478,7 @@ func (config *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statem
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "bgp-actions"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/actions/openconfig-bgp-policy:bgp-actions/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3320,6 +3529,7 @@ func (state *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Stateme
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "bgp-actions"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/actions/openconfig-bgp-policy:bgp-actions/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3356,6 +3566,7 @@ func (setAsPathPrepend *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Stateme
     setAsPathPrepend.EntityData.BundleName = "openconfig"
     setAsPathPrepend.EntityData.ParentYangName = "bgp-actions"
     setAsPathPrepend.EntityData.SegmentPath = "set-as-path-prepend"
+    setAsPathPrepend.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/actions/openconfig-bgp-policy:bgp-actions/" + setAsPathPrepend.EntityData.SegmentPath
     setAsPathPrepend.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     setAsPathPrepend.EntityData.NamespaceTable = openconfig.GetNamespaces()
     setAsPathPrepend.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3388,6 +3599,7 @@ func (config *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statem
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "set-as-path-prepend"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/actions/openconfig-bgp-policy:bgp-actions/set-as-path-prepend/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3419,6 +3631,7 @@ func (state *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Stateme
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "set-as-path-prepend"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/actions/openconfig-bgp-policy:bgp-actions/set-as-path-prepend/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3461,6 +3674,7 @@ func (setCommunity *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_
     setCommunity.EntityData.BundleName = "openconfig"
     setCommunity.EntityData.ParentYangName = "bgp-actions"
     setCommunity.EntityData.SegmentPath = "set-community"
+    setCommunity.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/actions/openconfig-bgp-policy:bgp-actions/" + setCommunity.EntityData.SegmentPath
     setCommunity.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     setCommunity.EntityData.NamespaceTable = openconfig.GetNamespaces()
     setCommunity.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3499,6 +3713,7 @@ func (config *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statem
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "set-community"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/actions/openconfig-bgp-policy:bgp-actions/set-community/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3548,6 +3763,7 @@ func (state *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Stateme
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "set-community"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/actions/openconfig-bgp-policy:bgp-actions/set-community/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3595,6 +3811,7 @@ func (inline *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statem
     inline.EntityData.BundleName = "openconfig"
     inline.EntityData.ParentYangName = "set-community"
     inline.EntityData.SegmentPath = "inline"
+    inline.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/actions/openconfig-bgp-policy:bgp-actions/set-community/" + inline.EntityData.SegmentPath
     inline.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     inline.EntityData.NamespaceTable = openconfig.GetNamespaces()
     inline.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3631,6 +3848,7 @@ func (config *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statem
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "inline"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/actions/openconfig-bgp-policy:bgp-actions/set-community/inline/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3666,6 +3884,7 @@ func (state *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Stateme
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "inline"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/actions/openconfig-bgp-policy:bgp-actions/set-community/inline/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3701,6 +3920,7 @@ func (reference *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Sta
     reference.EntityData.BundleName = "openconfig"
     reference.EntityData.ParentYangName = "set-community"
     reference.EntityData.SegmentPath = "reference"
+    reference.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/actions/openconfig-bgp-policy:bgp-actions/set-community/" + reference.EntityData.SegmentPath
     reference.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     reference.EntityData.NamespaceTable = openconfig.GetNamespaces()
     reference.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3733,6 +3953,7 @@ func (config *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statem
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "reference"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/actions/openconfig-bgp-policy:bgp-actions/set-community/reference/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3764,6 +3985,7 @@ func (state *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Stateme
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "reference"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/actions/openconfig-bgp-policy:bgp-actions/set-community/reference/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3807,6 +4029,7 @@ func (setExtCommunity *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statemen
     setExtCommunity.EntityData.BundleName = "openconfig"
     setExtCommunity.EntityData.ParentYangName = "bgp-actions"
     setExtCommunity.EntityData.SegmentPath = "set-ext-community"
+    setExtCommunity.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/actions/openconfig-bgp-policy:bgp-actions/" + setExtCommunity.EntityData.SegmentPath
     setExtCommunity.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     setExtCommunity.EntityData.NamespaceTable = openconfig.GetNamespaces()
     setExtCommunity.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3845,6 +4068,7 @@ func (config *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statem
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "set-ext-community"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/actions/openconfig-bgp-policy:bgp-actions/set-ext-community/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3894,6 +4118,7 @@ func (state *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Stateme
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "set-ext-community"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/actions/openconfig-bgp-policy:bgp-actions/set-ext-community/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3941,6 +4166,7 @@ func (inline *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statem
     inline.EntityData.BundleName = "openconfig"
     inline.EntityData.ParentYangName = "set-ext-community"
     inline.EntityData.SegmentPath = "inline"
+    inline.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/actions/openconfig-bgp-policy:bgp-actions/set-ext-community/" + inline.EntityData.SegmentPath
     inline.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     inline.EntityData.NamespaceTable = openconfig.GetNamespaces()
     inline.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3992,6 +4218,7 @@ func (config *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statem
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "inline"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/actions/openconfig-bgp-policy:bgp-actions/set-ext-community/inline/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -4042,6 +4269,7 @@ func (state *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Stateme
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "inline"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/actions/openconfig-bgp-policy:bgp-actions/set-ext-community/inline/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -4077,6 +4305,7 @@ func (reference *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Sta
     reference.EntityData.BundleName = "openconfig"
     reference.EntityData.ParentYangName = "set-ext-community"
     reference.EntityData.SegmentPath = "reference"
+    reference.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/actions/openconfig-bgp-policy:bgp-actions/set-ext-community/" + reference.EntityData.SegmentPath
     reference.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     reference.EntityData.NamespaceTable = openconfig.GetNamespaces()
     reference.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -4110,6 +4339,7 @@ func (config *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statem
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "reference"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/actions/openconfig-bgp-policy:bgp-actions/set-ext-community/reference/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -4142,6 +4372,7 @@ func (state *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Stateme
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "reference"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-routing-policy:routing-policy/policy-definitions/policy-definition/statements/statement/actions/openconfig-bgp-policy:bgp-actions/set-ext-community/reference/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -4149,119 +4380,6 @@ func (state *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Stateme
     state.EntityData.Children = types.NewOrderedMap()
     state.EntityData.Leafs = types.NewOrderedMap()
     state.EntityData.Leafs.Append("ext-community-set-ref", types.YLeaf{"ExtCommunitySetRef", state.ExtCommunitySetRef})
-
-    state.EntityData.YListKeys = []string {}
-
-    return &(state.EntityData)
-}
-
-// RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_IsisActions
-// Actions that can be performed by IS-IS within a policy
-type RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_IsisActions struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Configuration parameters relating to IS-IS actions.
-    Config RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_IsisActions_Config
-
-    // Operational state associated with IS-IS actions.
-    State RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_IsisActions_State
-}
-
-func (isisActions *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_IsisActions) GetEntityData() *types.CommonEntityData {
-    isisActions.EntityData.YFilter = isisActions.YFilter
-    isisActions.EntityData.YangName = "isis-actions"
-    isisActions.EntityData.BundleName = "openconfig"
-    isisActions.EntityData.ParentYangName = "actions"
-    isisActions.EntityData.SegmentPath = "openconfig-isis-policy:isis-actions"
-    isisActions.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
-    isisActions.EntityData.NamespaceTable = openconfig.GetNamespaces()
-    isisActions.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
-
-    isisActions.EntityData.Children = types.NewOrderedMap()
-    isisActions.EntityData.Children.Append("config", types.YChild{"Config", &isisActions.Config})
-    isisActions.EntityData.Children.Append("state", types.YChild{"State", &isisActions.State})
-    isisActions.EntityData.Leafs = types.NewOrderedMap()
-
-    isisActions.EntityData.YListKeys = []string {}
-
-    return &(isisActions.EntityData)
-}
-
-// RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_IsisActions_Config
-// Configuration parameters relating to IS-IS actions
-type RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_IsisActions_Config struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Set the level that a prefix is to be imported into. The type is interface{}
-    // with range: 1..2.
-    SetLevel interface{}
-
-    // Set the type of metric that is to be specified when the set metric leaf is
-    // specified. The type is interface{} with range: 1..2.
-    SetMetricType interface{}
-
-    // Set the metric of the IS-IS prefix. The type is interface{} with range:
-    // 1..16777215.
-    SetMetric interface{}
-}
-
-func (config *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_IsisActions_Config) GetEntityData() *types.CommonEntityData {
-    config.EntityData.YFilter = config.YFilter
-    config.EntityData.YangName = "config"
-    config.EntityData.BundleName = "openconfig"
-    config.EntityData.ParentYangName = "isis-actions"
-    config.EntityData.SegmentPath = "config"
-    config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
-    config.EntityData.NamespaceTable = openconfig.GetNamespaces()
-    config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
-
-    config.EntityData.Children = types.NewOrderedMap()
-    config.EntityData.Leafs = types.NewOrderedMap()
-    config.EntityData.Leafs.Append("set-level", types.YLeaf{"SetLevel", config.SetLevel})
-    config.EntityData.Leafs.Append("set-metric-type", types.YLeaf{"SetMetricType", config.SetMetricType})
-    config.EntityData.Leafs.Append("set-metric", types.YLeaf{"SetMetric", config.SetMetric})
-
-    config.EntityData.YListKeys = []string {}
-
-    return &(config.EntityData)
-}
-
-// RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_IsisActions_State
-// Operational state associated with IS-IS actions
-type RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_IsisActions_State struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Set the level that a prefix is to be imported into. The type is interface{}
-    // with range: 1..2.
-    SetLevel interface{}
-
-    // Set the type of metric that is to be specified when the set metric leaf is
-    // specified. The type is interface{} with range: 1..2.
-    SetMetricType interface{}
-
-    // Set the metric of the IS-IS prefix. The type is interface{} with range:
-    // 1..16777215.
-    SetMetric interface{}
-}
-
-func (state *RoutingPolicy_PolicyDefinitions_PolicyDefinition_Statements_Statement_Actions_IsisActions_State) GetEntityData() *types.CommonEntityData {
-    state.EntityData.YFilter = state.YFilter
-    state.EntityData.YangName = "state"
-    state.EntityData.BundleName = "openconfig"
-    state.EntityData.ParentYangName = "isis-actions"
-    state.EntityData.SegmentPath = "state"
-    state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
-    state.EntityData.NamespaceTable = openconfig.GetNamespaces()
-    state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
-
-    state.EntityData.Children = types.NewOrderedMap()
-    state.EntityData.Leafs = types.NewOrderedMap()
-    state.EntityData.Leafs.Append("set-level", types.YLeaf{"SetLevel", state.SetLevel})
-    state.EntityData.Leafs.Append("set-metric-type", types.YLeaf{"SetMetricType", state.SetMetricType})
-    state.EntityData.Leafs.Append("set-metric", types.YLeaf{"SetMetric", state.SetMetric})
 
     state.EntityData.YListKeys = []string {}
 

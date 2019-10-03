@@ -38,6 +38,7 @@ func (virtualServiceCfgData *VirtualServiceCfgData) GetEntityData() *types.Commo
     virtualServiceCfgData.EntityData.BundleName = "cisco_ios_xe"
     virtualServiceCfgData.EntityData.ParentYangName = "Cisco-IOS-XE-virtual-service-cfg"
     virtualServiceCfgData.EntityData.SegmentPath = "Cisco-IOS-XE-virtual-service-cfg:virtual-service-cfg-data"
+    virtualServiceCfgData.EntityData.AbsolutePath = virtualServiceCfgData.EntityData.SegmentPath
     virtualServiceCfgData.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     virtualServiceCfgData.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     virtualServiceCfgData.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -68,6 +69,7 @@ func (apps *VirtualServiceCfgData_Apps) GetEntityData() *types.CommonEntityData 
     apps.EntityData.BundleName = "cisco_ios_xe"
     apps.EntityData.ParentYangName = "virtual-service-cfg-data"
     apps.EntityData.SegmentPath = "apps"
+    apps.EntityData.AbsolutePath = "Cisco-IOS-XE-virtual-service-cfg:virtual-service-cfg-data/" + apps.EntityData.SegmentPath
     apps.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     apps.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     apps.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -89,9 +91,10 @@ func (apps *VirtualServiceCfgData_Apps) GetEntityData() *types.CommonEntityData 
 type VirtualServiceCfgData_Apps_App struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
-    // This attribute is a key. Application name. The type is string with pattern:
-    // [0-9a-zA-Z]*.
+    // This attribute is a key. Application name. The type is string with length:
+    // 1..128.
     ApplicationName interface{}
 
     // Application Network Resource Information.
@@ -110,6 +113,7 @@ func (app *VirtualServiceCfgData_Apps_App) GetEntityData() *types.CommonEntityDa
     app.EntityData.BundleName = "cisco_ios_xe"
     app.EntityData.ParentYangName = "apps"
     app.EntityData.SegmentPath = "app" + types.AddKeyToken(app.ApplicationName, "application-name")
+    app.EntityData.AbsolutePath = "Cisco-IOS-XE-virtual-service-cfg:virtual-service-cfg-data/apps/" + app.EntityData.SegmentPath
     app.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     app.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     app.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -132,11 +136,11 @@ type VirtualServiceCfgData_Apps_App_ApplicationNetworkResource struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Vnic gateway. The type is string with pattern: [0-9]*.
+    // Vnic gateway. The type is string with length: 1..2.
     VnicGateway0 interface{}
 
     // VirtualPortGroup guest interface name as number in range of 0 .. 3. The
-    // type is string with pattern: [0-3]*.
+    // type is string with length: 1..1.
     VirtualportgroupGuestInterfaceName1 interface{}
 
     // Guest interface IP address. The type is one of the following types: string
@@ -171,11 +175,11 @@ type VirtualServiceCfgData_Apps_App_ApplicationNetworkResource struct {
     // with range: 0..255.
     VirtualportgroupGuestInterfaceDefaultGateway1 interface{}
 
-    // Vnic gateway. The type is string with pattern: [0-9]*.
+    // Vnic gateway. The type is string with length: 1..2.
     VnicGateway1 interface{}
 
     // VirtualPortGroup guest interface name as number in range of 0 .. 3. The
-    // type is string with pattern: [0-3]*.
+    // type is string with length: 1..1.
     VirtualportgroupGuestInterfaceName2 interface{}
 
     // Guest interface IP address. The type is one of the following types: string
@@ -210,11 +214,11 @@ type VirtualServiceCfgData_Apps_App_ApplicationNetworkResource struct {
     // with range: 0..255.
     VirtualportgroupGuestInterfaceDefaultGateway2 interface{}
 
-    // Vnic gateway. The type is string with pattern: [0-9]*.
+    // Vnic gateway. The type is string with length: 1..2.
     VnicGateway2 interface{}
 
     // VirtualPortGroup guest interface name as number in range of 0 .. 3. The
-    // type is string with pattern: [0-3]*.
+    // type is string with length: 1..1.
     VirtualportgroupGuestInterfaceName3 interface{}
 
     // Guest interface IP address. The type is one of the following types: string
@@ -249,11 +253,11 @@ type VirtualServiceCfgData_Apps_App_ApplicationNetworkResource struct {
     // with range: 0..255.
     VirtualportgroupGuestInterfaceDefaultGateway3 interface{}
 
-    // Vnic gateway. The type is string with pattern: [0-9]*.
+    // Vnic gateway. The type is string with length: 1..2.
     VnicGateway3 interface{}
 
     // VirtualPortGroup guest interface name as number in range of 0 .. 3. The
-    // type is string with pattern: [0-3]*.
+    // type is string with length: 1..1.
     VirtualportgroupGuestInterfaceName4 interface{}
 
     // Guest interface IP address. The type is one of the following types: string
@@ -289,7 +293,7 @@ type VirtualServiceCfgData_Apps_App_ApplicationNetworkResource struct {
     VirtualportgroupGuestInterfaceDefaultGateway4 interface{}
 
     // Management port guest interface name as number in range of 0 .. 3. The type
-    // is string with pattern: [0-3]*.
+    // is string with length: 1..1.
     ManagementInterfaceName interface{}
 
     // Guest management port interface IP address. The type is one of the
@@ -334,6 +338,7 @@ func (applicationNetworkResource *VirtualServiceCfgData_Apps_App_ApplicationNetw
     applicationNetworkResource.EntityData.BundleName = "cisco_ios_xe"
     applicationNetworkResource.EntityData.ParentYangName = "app"
     applicationNetworkResource.EntityData.SegmentPath = "application-network-resource"
+    applicationNetworkResource.EntityData.AbsolutePath = "Cisco-IOS-XE-virtual-service-cfg:virtual-service-cfg-data/apps/app/" + applicationNetworkResource.EntityData.SegmentPath
     applicationNetworkResource.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     applicationNetworkResource.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     applicationNetworkResource.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -391,7 +396,7 @@ type VirtualServiceCfgData_Apps_App_ApplicationNetworkResource_ApplicationMacAdd
     // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     MacAddress interface{}
 
-    // MAC interface name. The type is string with pattern: [0-9a-zA-Z]*.
+    // MAC interface name. The type is string with length: 0..32.
     MacInterfaceName interface{}
 }
 
@@ -401,6 +406,7 @@ func (applicationMacAddress *VirtualServiceCfgData_Apps_App_ApplicationNetworkRe
     applicationMacAddress.EntityData.BundleName = "cisco_ios_xe"
     applicationMacAddress.EntityData.ParentYangName = "application-network-resource"
     applicationMacAddress.EntityData.SegmentPath = "application-mac-address"
+    applicationMacAddress.EntityData.AbsolutePath = "Cisco-IOS-XE-virtual-service-cfg:virtual-service-cfg-data/apps/app/application-network-resource/" + applicationMacAddress.EntityData.SegmentPath
     applicationMacAddress.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     applicationMacAddress.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     applicationMacAddress.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -421,7 +427,7 @@ type VirtualServiceCfgData_Apps_App_ApplicationResourceProfile struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Resource profile name. The type is string with pattern: [0-9a-zA-Z]*.
+    // Resource profile name. The type is string with length: 0..64.
     ProfileName interface{}
 
     // Amount of VCPUs allocated for the application. The type is interface{} with
@@ -440,8 +446,7 @@ type VirtualServiceCfgData_Apps_App_ApplicationResourceProfile struct {
     // value is 0.
     DiskSizeMb interface{}
 
-    // Resource package profile name. The type is string with pattern:
-    // [0-9a-zA-Z]*.
+    // Resource package profile name. The type is string with length: 0..64.
     PkgProfileName interface{}
 }
 
@@ -451,6 +456,7 @@ func (applicationResourceProfile *VirtualServiceCfgData_Apps_App_ApplicationReso
     applicationResourceProfile.EntityData.BundleName = "cisco_ios_xe"
     applicationResourceProfile.EntityData.ParentYangName = "app"
     applicationResourceProfile.EntityData.SegmentPath = "application-resource-profile"
+    applicationResourceProfile.EntityData.AbsolutePath = "Cisco-IOS-XE-virtual-service-cfg:virtual-service-cfg-data/apps/app/" + applicationResourceProfile.EntityData.SegmentPath
     applicationResourceProfile.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     applicationResourceProfile.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     applicationResourceProfile.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -475,7 +481,7 @@ type VirtualServiceCfgData_Apps_App_ApplicationAttachedDevice struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // device name. The type is string with pattern: [0-9a-zA-Z]*.
+    // device name. The type is string with length: 0..32.
     DeviceName interface{}
 }
 
@@ -485,6 +491,7 @@ func (applicationAttachedDevice *VirtualServiceCfgData_Apps_App_ApplicationAttac
     applicationAttachedDevice.EntityData.BundleName = "cisco_ios_xe"
     applicationAttachedDevice.EntityData.ParentYangName = "app"
     applicationAttachedDevice.EntityData.SegmentPath = "application-attached-device"
+    applicationAttachedDevice.EntityData.AbsolutePath = "Cisco-IOS-XE-virtual-service-cfg:virtual-service-cfg-data/apps/app/" + applicationAttachedDevice.EntityData.SegmentPath
     applicationAttachedDevice.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     applicationAttachedDevice.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     applicationAttachedDevice.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -517,6 +524,7 @@ func (controls *VirtualServiceCfgData_Controls) GetEntityData() *types.CommonEnt
     controls.EntityData.BundleName = "cisco_ios_xe"
     controls.EntityData.ParentYangName = "virtual-service-cfg-data"
     controls.EntityData.SegmentPath = "controls"
+    controls.EntityData.AbsolutePath = "Cisco-IOS-XE-virtual-service-cfg:virtual-service-cfg-data/" + controls.EntityData.SegmentPath
     controls.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     controls.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     controls.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

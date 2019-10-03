@@ -76,6 +76,7 @@ func (ipv4NetworkGlobal *Ipv4NetworkGlobal) GetEntityData() *types.CommonEntityD
     ipv4NetworkGlobal.EntityData.BundleName = "cisco_ios_xr"
     ipv4NetworkGlobal.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-ma-cfg"
     ipv4NetworkGlobal.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-ma-cfg:ipv4-network-global"
+    ipv4NetworkGlobal.EntityData.AbsolutePath = ipv4NetworkGlobal.EntityData.SegmentPath
     ipv4NetworkGlobal.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4NetworkGlobal.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4NetworkGlobal.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -110,6 +111,7 @@ func (unnumbered *Ipv4NetworkGlobal_Unnumbered) GetEntityData() *types.CommonEnt
     unnumbered.EntityData.BundleName = "cisco_ios_xr"
     unnumbered.EntityData.ParentYangName = "ipv4-network-global"
     unnumbered.EntityData.SegmentPath = "unnumbered"
+    unnumbered.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-ma-cfg:ipv4-network-global/" + unnumbered.EntityData.SegmentPath
     unnumbered.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     unnumbered.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unnumbered.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -139,6 +141,7 @@ func (mpls *Ipv4NetworkGlobal_Unnumbered_Mpls) GetEntityData() *types.CommonEnti
     mpls.EntityData.BundleName = "cisco_ios_xr"
     mpls.EntityData.ParentYangName = "unnumbered"
     mpls.EntityData.SegmentPath = "mpls"
+    mpls.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-ma-cfg:ipv4-network-global/unnumbered/" + mpls.EntityData.SegmentPath
     mpls.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mpls.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mpls.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -169,6 +172,7 @@ func (te *Ipv4NetworkGlobal_Unnumbered_Mpls_Te) GetEntityData() *types.CommonEnt
     te.EntityData.BundleName = "cisco_ios_xr"
     te.EntityData.ParentYangName = "mpls"
     te.EntityData.SegmentPath = "te"
+    te.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-ma-cfg:ipv4-network-global/unnumbered/mpls/" + te.EntityData.SegmentPath
     te.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     te.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     te.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -201,6 +205,7 @@ func (qppb *Ipv4NetworkGlobal_Qppb) GetEntityData() *types.CommonEntityData {
     qppb.EntityData.BundleName = "cisco_ios_xr"
     qppb.EntityData.ParentYangName = "ipv4-network-global"
     qppb.EntityData.SegmentPath = "qppb"
+    qppb.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-ma-cfg:ipv4-network-global/" + qppb.EntityData.SegmentPath
     qppb.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     qppb.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     qppb.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -232,6 +237,7 @@ func (subscriberPta *SubscriberPta) GetEntityData() *types.CommonEntityData {
     subscriberPta.EntityData.BundleName = "cisco_ios_xr"
     subscriberPta.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-ma-cfg"
     subscriberPta.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-ma-cfg:subscriber-pta"
+    subscriberPta.EntityData.AbsolutePath = subscriberPta.EntityData.SegmentPath
     subscriberPta.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     subscriberPta.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     subscriberPta.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

@@ -158,6 +158,7 @@ func (cISCONTPMIB *CISCONTPMIB) GetEntityData() *types.CommonEntityData {
     cISCONTPMIB.EntityData.BundleName = "cisco_ios_xe"
     cISCONTPMIB.EntityData.ParentYangName = "CISCO-NTP-MIB"
     cISCONTPMIB.EntityData.SegmentPath = "CISCO-NTP-MIB:CISCO-NTP-MIB"
+    cISCONTPMIB.EntityData.AbsolutePath = cISCONTPMIB.EntityData.SegmentPath
     cISCONTPMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cISCONTPMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCONTPMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -198,21 +199,21 @@ type CISCONTPMIB_CntpSystem struct {
 
     // A signed fixed-point number indicating the total round-trip delay in
     // seconds, to the primary reference source at the root of the synchronization
-    // subnet. The type is string with length: 4. Units are seconds.
+    // subnet. The type is string with length: 4..4. Units are seconds.
     CntpSysRootDelay interface{}
 
     // The maximum error in seconds, relative to the primary reference source at
     // the root of the synchronization subnet.  Only positive values greater than
-    // zero are possible. The type is string with length: 4. Units are seconds.
+    // zero are possible. The type is string with length: 4..4. Units are seconds.
     CntpSysRootDispersion interface{}
 
     // The reference identifier of the local clock. The type is string with
-    // length: 4.
+    // length: 4..4.
     CntpSysRefId interface{}
 
     // The local time when the local clock was last updated.  If the local clock
     // has never been synchronized, the value is zero. The type is string with
-    // length: 8.
+    // length: 8..8.
     CntpSysRefTime interface{}
 
     // The interval at which the NTP server polls other NTP servers to synchronize
@@ -228,7 +229,7 @@ type CISCONTPMIB_CntpSystem struct {
 
     // The current local time.  Local time is derived from the hardware clock of
     // the particular machine and increments at intervals depending on the design
-    // used. The type is string with length: 8.
+    // used. The type is string with length: 8..8.
     CntpSysClock interface{}
 
     // Current state of the NTP server with values coded as follows: 1: server
@@ -245,6 +246,7 @@ func (cntpSystem *CISCONTPMIB_CntpSystem) GetEntityData() *types.CommonEntityDat
     cntpSystem.EntityData.BundleName = "cisco_ios_xe"
     cntpSystem.EntityData.ParentYangName = "CISCO-NTP-MIB"
     cntpSystem.EntityData.SegmentPath = "cntpSystem"
+    cntpSystem.EntityData.AbsolutePath = "CISCO-NTP-MIB:CISCO-NTP-MIB/" + cntpSystem.EntityData.SegmentPath
     cntpSystem.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cntpSystem.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cntpSystem.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -314,6 +316,7 @@ func (cntpPeersVarTable *CISCONTPMIB_CntpPeersVarTable) GetEntityData() *types.C
     cntpPeersVarTable.EntityData.BundleName = "cisco_ios_xe"
     cntpPeersVarTable.EntityData.ParentYangName = "CISCO-NTP-MIB"
     cntpPeersVarTable.EntityData.SegmentPath = "cntpPeersVarTable"
+    cntpPeersVarTable.EntityData.AbsolutePath = "CISCO-NTP-MIB:CISCO-NTP-MIB/" + cntpPeersVarTable.EntityData.SegmentPath
     cntpPeersVarTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cntpPeersVarTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cntpPeersVarTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -351,6 +354,7 @@ func (cntpPeersVarTable *CISCONTPMIB_CntpPeersVarTable) GetEntityData() *types.C
 type CISCONTPMIB_CntpPeersVarTable_CntpPeersVarEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. An integer value greater than 0 that uniquely
     // identifies a peer with which the local NTP server is associated. The type
@@ -440,36 +444,36 @@ type CISCONTPMIB_CntpPeersVarTable_CntpPeersVarEntry struct {
 
     // A signed fixed-point number indicating the total round-trip delay in
     // seconds, from the peer to the primary reference source at the root of the
-    // synchronization subnet. The type is string with length: 4. Units are
+    // synchronization subnet. The type is string with length: 4..4. Units are
     // seconds.
     CntpPeersRootDelay interface{}
 
     // The maximum error in seconds, of the peer clock relative to the primary
     // reference source at the root of the synchronization subnet.  Only positive
-    // values greater than zero are possible. The type is string with length: 4.
-    // Units are seconds.
+    // values greater than zero are possible. The type is string with length:
+    // 4..4. Units are seconds.
     CntpPeersRootDispersion interface{}
 
-    // The reference identifier of the peer. The type is string with length: 4.
+    // The reference identifier of the peer. The type is string with length: 4..4.
     CntpPeersRefId interface{}
 
     // The local time at the peer when its clock was last updated.  If the peer
     // clock has never been synchronized, the value is zero. The type is string
-    // with length: 8.
+    // with length: 8..8.
     CntpPeersRefTime interface{}
 
     // The local time at the peer, when its latest NTP message was sent.  If the
     // peer becomes unreachable the value is set to zero. The type is string with
-    // length: 8.
+    // length: 8..8.
     CntpPeersOrgTime interface{}
 
     // The local time, when the latest NTP message from the peer arrived.  If the
     // peer becomes unreachable the value is set to zero. The type is string with
-    // length: 8.
+    // length: 8..8.
     CntpPeersReceiveTime interface{}
 
     // The local time at which the NTP message departed the sender. The type is
-    // string with length: 8.
+    // string with length: 8..8.
     CntpPeersTransmitTime interface{}
 
     // The local time, when the most recent NTP message was received from the peer
@@ -493,20 +497,20 @@ type CISCONTPMIB_CntpPeersVarTable_CntpPeersVarEntry struct {
 
     // The estimated offset of the peer clock relative to the local clock, in
     // seconds.  The host determines the value of this object using the NTP
-    // clock-filter algorithm. The type is string with length: 4. Units are
+    // clock-filter algorithm. The type is string with length: 4..4. Units are
     // seconds.
     CntpPeersOffset interface{}
 
     // The estimated round-trip delay of the peer clock relative to the local
     // clock over the network path between them, in seconds.  The host determines
     // the value of this object using the NTP clock-filter algorithm. The type is
-    // string with length: 4. Units are seconds.
+    // string with length: 4..4. Units are seconds.
     CntpPeersDelay interface{}
 
     // The estimated maximum error of the peer clock relative to the local clock
     // over the network path between them, in seconds.  The host determines the
     // value of this object using the NTP clock-filter algorithm. The type is
-    // string with length: 4. Units are seconds.
+    // string with length: 4..4. Units are seconds.
     CntpPeersDispersion interface{}
 
     // The number of valid entries for a peer in the Filter Register Table. Since,
@@ -552,6 +556,7 @@ func (cntpPeersVarEntry *CISCONTPMIB_CntpPeersVarTable_CntpPeersVarEntry) GetEnt
     cntpPeersVarEntry.EntityData.BundleName = "cisco_ios_xe"
     cntpPeersVarEntry.EntityData.ParentYangName = "cntpPeersVarTable"
     cntpPeersVarEntry.EntityData.SegmentPath = "cntpPeersVarEntry" + types.AddKeyToken(cntpPeersVarEntry.CntpPeersAssocId, "cntpPeersAssocId")
+    cntpPeersVarEntry.EntityData.AbsolutePath = "CISCO-NTP-MIB:CISCO-NTP-MIB/cntpPeersVarTable/" + cntpPeersVarEntry.EntityData.SegmentPath
     cntpPeersVarEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cntpPeersVarEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cntpPeersVarEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -653,6 +658,7 @@ func (cntpFilterRegisterTable *CISCONTPMIB_CntpFilterRegisterTable) GetEntityDat
     cntpFilterRegisterTable.EntityData.BundleName = "cisco_ios_xe"
     cntpFilterRegisterTable.EntityData.ParentYangName = "CISCO-NTP-MIB"
     cntpFilterRegisterTable.EntityData.SegmentPath = "cntpFilterRegisterTable"
+    cntpFilterRegisterTable.EntityData.AbsolutePath = "CISCO-NTP-MIB:CISCO-NTP-MIB/" + cntpFilterRegisterTable.EntityData.SegmentPath
     cntpFilterRegisterTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cntpFilterRegisterTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cntpFilterRegisterTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -679,6 +685,7 @@ func (cntpFilterRegisterTable *CISCONTPMIB_CntpFilterRegisterTable) GetEntityDat
 type CISCONTPMIB_CntpFilterRegisterTable_CntpFilterRegisterEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 0..2147483647.
     // Refers to
@@ -695,18 +702,18 @@ type CISCONTPMIB_CntpFilterRegisterTable_CntpFilterRegisterEntry struct {
     CntpFilterIndex interface{}
 
     // The offset of the peer clock relative to the local clock in seconds. The
-    // type is string with length: 4. Units are seconds.
+    // type is string with length: 4..4. Units are seconds.
     CntpFilterPeersOffset interface{}
 
     // Round-trip delay of the peer clock relative to the local clock over the
     // network path between them, in seconds.  This variable can take on both
     // positive and negative values, depending on clock precision and skew-error
-    // accumulation. The type is string with length: 4. Units are seconds.
+    // accumulation. The type is string with length: 4..4. Units are seconds.
     CntpFilterPeersDelay interface{}
 
     // The maximum error of the peer clock relative to the local clock over the
     // network path between them, in seconds.  Only positive values greater than
-    // zero are possible. The type is string with length: 4. Units are seconds.
+    // zero are possible. The type is string with length: 4..4. Units are seconds.
     CntpFilterPeersDispersion interface{}
 }
 
@@ -716,6 +723,7 @@ func (cntpFilterRegisterEntry *CISCONTPMIB_CntpFilterRegisterTable_CntpFilterReg
     cntpFilterRegisterEntry.EntityData.BundleName = "cisco_ios_xe"
     cntpFilterRegisterEntry.EntityData.ParentYangName = "cntpFilterRegisterTable"
     cntpFilterRegisterEntry.EntityData.SegmentPath = "cntpFilterRegisterEntry" + types.AddKeyToken(cntpFilterRegisterEntry.CntpPeersAssocId, "cntpPeersAssocId") + types.AddKeyToken(cntpFilterRegisterEntry.CntpFilterIndex, "cntpFilterIndex")
+    cntpFilterRegisterEntry.EntityData.AbsolutePath = "CISCO-NTP-MIB:CISCO-NTP-MIB/cntpFilterRegisterTable/" + cntpFilterRegisterEntry.EntityData.SegmentPath
     cntpFilterRegisterEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cntpFilterRegisterEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cntpFilterRegisterEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

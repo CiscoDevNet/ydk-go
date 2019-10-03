@@ -75,6 +75,7 @@ func (vdslOperData *VdslOperData) GetEntityData() *types.CommonEntityData {
     vdslOperData.EntityData.BundleName = "cisco_ios_xe"
     vdslOperData.EntityData.ParentYangName = "Cisco-IOS-XE-controller-vdsl-oper"
     vdslOperData.EntityData.SegmentPath = "Cisco-IOS-XE-controller-vdsl-oper:vdsl-oper-data"
+    vdslOperData.EntityData.AbsolutePath = vdslOperData.EntityData.SegmentPath
     vdslOperData.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     vdslOperData.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     vdslOperData.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -96,6 +97,7 @@ func (vdslOperData *VdslOperData) GetEntityData() *types.CommonEntityData {
 type VdslOperData_VdslInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Slot number. The type is interface{} with range:
     // 0..4294967295.
@@ -136,6 +138,7 @@ func (vdslInfo *VdslOperData_VdslInfo) GetEntityData() *types.CommonEntityData {
     vdslInfo.EntityData.BundleName = "cisco_ios_xe"
     vdslInfo.EntityData.ParentYangName = "vdsl-oper-data"
     vdslInfo.EntityData.SegmentPath = "vdsl-info" + types.AddKeyToken(vdslInfo.SlotNum, "slot-num") + types.AddKeyToken(vdslInfo.SubslotNum, "subslot-num")
+    vdslInfo.EntityData.AbsolutePath = "Cisco-IOS-XE-controller-vdsl-oper:vdsl-oper-data/" + vdslInfo.EntityData.SegmentPath
     vdslInfo.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     vdslInfo.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     vdslInfo.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -191,6 +194,7 @@ func (cpeStats *VdslOperData_VdslInfo_CpeStats) GetEntityData() *types.CommonEnt
     cpeStats.EntityData.BundleName = "cisco_ios_xe"
     cpeStats.EntityData.ParentYangName = "vdsl-info"
     cpeStats.EntityData.SegmentPath = "cpe-stats"
+    cpeStats.EntityData.AbsolutePath = "Cisco-IOS-XE-controller-vdsl-oper:vdsl-oper-data/vdsl-info/" + cpeStats.EntityData.SegmentPath
     cpeStats.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cpeStats.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cpeStats.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -242,6 +246,7 @@ func (coStats *VdslOperData_VdslInfo_CoStats) GetEntityData() *types.CommonEntit
     coStats.EntityData.BundleName = "cisco_ios_xe"
     coStats.EntityData.ParentYangName = "vdsl-info"
     coStats.EntityData.SegmentPath = "co-stats"
+    coStats.EntityData.AbsolutePath = "Cisco-IOS-XE-controller-vdsl-oper:vdsl-oper-data/vdsl-info/" + coStats.EntityData.SegmentPath
     coStats.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     coStats.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     coStats.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

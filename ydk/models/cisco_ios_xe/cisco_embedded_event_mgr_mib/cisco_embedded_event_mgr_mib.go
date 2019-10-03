@@ -79,6 +79,7 @@ func (cISCOEMBEDDEDEVENTMGRMIB *CISCOEMBEDDEDEVENTMGRMIB) GetEntityData() *types
     cISCOEMBEDDEDEVENTMGRMIB.EntityData.BundleName = "cisco_ios_xe"
     cISCOEMBEDDEDEVENTMGRMIB.EntityData.ParentYangName = "CISCO-EMBEDDED-EVENT-MGR-MIB"
     cISCOEMBEDDEDEVENTMGRMIB.EntityData.SegmentPath = "CISCO-EMBEDDED-EVENT-MGR-MIB:CISCO-EMBEDDED-EVENT-MGR-MIB"
+    cISCOEMBEDDEDEVENTMGRMIB.EntityData.AbsolutePath = cISCOEMBEDDEDEVENTMGRMIB.EntityData.SegmentPath
     cISCOEMBEDDEDEVENTMGRMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cISCOEMBEDDEDEVENTMGRMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOEMBEDDEDEVENTMGRMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -115,6 +116,7 @@ func (ceemHistory *CISCOEMBEDDEDEVENTMGRMIB_CeemHistory) GetEntityData() *types.
     ceemHistory.EntityData.BundleName = "cisco_ios_xe"
     ceemHistory.EntityData.ParentYangName = "CISCO-EMBEDDED-EVENT-MGR-MIB"
     ceemHistory.EntityData.SegmentPath = "ceemHistory"
+    ceemHistory.EntityData.AbsolutePath = "CISCO-EMBEDDED-EVENT-MGR-MIB:CISCO-EMBEDDED-EVENT-MGR-MIB/" + ceemHistory.EntityData.SegmentPath
     ceemHistory.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ceemHistory.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ceemHistory.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -153,6 +155,7 @@ func (ceemEventMapTable *CISCOEMBEDDEDEVENTMGRMIB_CeemEventMapTable) GetEntityDa
     ceemEventMapTable.EntityData.BundleName = "cisco_ios_xe"
     ceemEventMapTable.EntityData.ParentYangName = "CISCO-EMBEDDED-EVENT-MGR-MIB"
     ceemEventMapTable.EntityData.SegmentPath = "ceemEventMapTable"
+    ceemEventMapTable.EntityData.AbsolutePath = "CISCO-EMBEDDED-EVENT-MGR-MIB:CISCO-EMBEDDED-EVENT-MGR-MIB/" + ceemEventMapTable.EntityData.SegmentPath
     ceemEventMapTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ceemEventMapTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ceemEventMapTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -174,6 +177,7 @@ func (ceemEventMapTable *CISCOEMBEDDEDEVENTMGRMIB_CeemEventMapTable) GetEntityDa
 type CISCOEMBEDDEDEVENTMGRMIB_CeemEventMapTable_CeemEventMapEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. This object uniquely identifies an event.  Events
     // are not persisted across reloads. The type is interface{} with range:
@@ -195,6 +199,7 @@ func (ceemEventMapEntry *CISCOEMBEDDEDEVENTMGRMIB_CeemEventMapTable_CeemEventMap
     ceemEventMapEntry.EntityData.BundleName = "cisco_ios_xe"
     ceemEventMapEntry.EntityData.ParentYangName = "ceemEventMapTable"
     ceemEventMapEntry.EntityData.SegmentPath = "ceemEventMapEntry" + types.AddKeyToken(ceemEventMapEntry.CeemEventIndex, "ceemEventIndex")
+    ceemEventMapEntry.EntityData.AbsolutePath = "CISCO-EMBEDDED-EVENT-MGR-MIB:CISCO-EMBEDDED-EVENT-MGR-MIB/ceemEventMapTable/" + ceemEventMapEntry.EntityData.SegmentPath
     ceemEventMapEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ceemEventMapEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ceemEventMapEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -240,6 +245,7 @@ func (ceemHistoryEventTable *CISCOEMBEDDEDEVENTMGRMIB_CeemHistoryEventTable) Get
     ceemHistoryEventTable.EntityData.BundleName = "cisco_ios_xe"
     ceemHistoryEventTable.EntityData.ParentYangName = "CISCO-EMBEDDED-EVENT-MGR-MIB"
     ceemHistoryEventTable.EntityData.SegmentPath = "ceemHistoryEventTable"
+    ceemHistoryEventTable.EntityData.AbsolutePath = "CISCO-EMBEDDED-EVENT-MGR-MIB:CISCO-EMBEDDED-EVENT-MGR-MIB/" + ceemHistoryEventTable.EntityData.SegmentPath
     ceemHistoryEventTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ceemHistoryEventTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ceemHistoryEventTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -265,6 +271,7 @@ func (ceemHistoryEventTable *CISCOEMBEDDEDEVENTMGRMIB_CeemHistoryEventTable) Get
 type CISCOEMBEDDEDEVENTMGRMIB_CeemHistoryEventTable_CeemHistoryEventEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. A monotonically increasing non-zero integer
     // uniquely identifying a generated event.  When it reaches the  maximum
@@ -358,6 +365,7 @@ func (ceemHistoryEventEntry *CISCOEMBEDDEDEVENTMGRMIB_CeemHistoryEventTable_Ceem
     ceemHistoryEventEntry.EntityData.BundleName = "cisco_ios_xe"
     ceemHistoryEventEntry.EntityData.ParentYangName = "ceemHistoryEventTable"
     ceemHistoryEventEntry.EntityData.SegmentPath = "ceemHistoryEventEntry" + types.AddKeyToken(ceemHistoryEventEntry.CeemHistoryEventIndex, "ceemHistoryEventIndex")
+    ceemHistoryEventEntry.EntityData.AbsolutePath = "CISCO-EMBEDDED-EVENT-MGR-MIB:CISCO-EMBEDDED-EVENT-MGR-MIB/ceemHistoryEventTable/" + ceemHistoryEventEntry.EntityData.SegmentPath
     ceemHistoryEventEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ceemHistoryEventEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ceemHistoryEventEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -409,6 +417,7 @@ func (ceemRegisteredPolicyTable *CISCOEMBEDDEDEVENTMGRMIB_CeemRegisteredPolicyTa
     ceemRegisteredPolicyTable.EntityData.BundleName = "cisco_ios_xe"
     ceemRegisteredPolicyTable.EntityData.ParentYangName = "CISCO-EMBEDDED-EVENT-MGR-MIB"
     ceemRegisteredPolicyTable.EntityData.SegmentPath = "ceemRegisteredPolicyTable"
+    ceemRegisteredPolicyTable.EntityData.AbsolutePath = "CISCO-EMBEDDED-EVENT-MGR-MIB:CISCO-EMBEDDED-EVENT-MGR-MIB/" + ceemRegisteredPolicyTable.EntityData.SegmentPath
     ceemRegisteredPolicyTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ceemRegisteredPolicyTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ceemRegisteredPolicyTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -435,6 +444,7 @@ func (ceemRegisteredPolicyTable *CISCOEMBEDDEDEVENTMGRMIB_CeemRegisteredPolicyTa
 type CISCOEMBEDDEDEVENTMGRMIB_CeemRegisteredPolicyTable_CeemRegisteredPolicyEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. A monotonically increasing non-zero integer
     // uniquely identifying a policy registration.  When it reaches the maximum
@@ -522,6 +532,7 @@ func (ceemRegisteredPolicyEntry *CISCOEMBEDDEDEVENTMGRMIB_CeemRegisteredPolicyTa
     ceemRegisteredPolicyEntry.EntityData.BundleName = "cisco_ios_xe"
     ceemRegisteredPolicyEntry.EntityData.ParentYangName = "ceemRegisteredPolicyTable"
     ceemRegisteredPolicyEntry.EntityData.SegmentPath = "ceemRegisteredPolicyEntry" + types.AddKeyToken(ceemRegisteredPolicyEntry.CeemRegisteredPolicyIndex, "ceemRegisteredPolicyIndex")
+    ceemRegisteredPolicyEntry.EntityData.AbsolutePath = "CISCO-EMBEDDED-EVENT-MGR-MIB:CISCO-EMBEDDED-EVENT-MGR-MIB/ceemRegisteredPolicyTable/" + ceemRegisteredPolicyEntry.EntityData.SegmentPath
     ceemRegisteredPolicyEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ceemRegisteredPolicyEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ceemRegisteredPolicyEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

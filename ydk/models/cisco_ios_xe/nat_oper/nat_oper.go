@@ -38,6 +38,7 @@ func (natData *NatData) GetEntityData() *types.CommonEntityData {
     natData.EntityData.BundleName = "cisco_ios_xe"
     natData.EntityData.ParentYangName = "Cisco-IOS-XE-nat-oper"
     natData.EntityData.SegmentPath = "Cisco-IOS-XE-nat-oper:nat-data"
+    natData.EntityData.AbsolutePath = natData.EntityData.SegmentPath
     natData.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     natData.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     natData.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -156,6 +157,7 @@ func (ipNatStatistics *NatData_IpNatStatistics) GetEntityData() *types.CommonEnt
     ipNatStatistics.EntityData.BundleName = "cisco_ios_xe"
     ipNatStatistics.EntityData.ParentYangName = "nat-data"
     ipNatStatistics.EntityData.SegmentPath = "ip-nat-statistics"
+    ipNatStatistics.EntityData.AbsolutePath = "Cisco-IOS-XE-nat-oper:nat-data/" + ipNatStatistics.EntityData.SegmentPath
     ipNatStatistics.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ipNatStatistics.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ipNatStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -195,6 +197,7 @@ func (ipNatStatistics *NatData_IpNatStatistics) GetEntityData() *types.CommonEnt
 type NatData_IpNatTranslation struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Inside local address. The type is string with
     // pattern:
@@ -252,6 +255,7 @@ func (ipNatTranslation *NatData_IpNatTranslation) GetEntityData() *types.CommonE
     ipNatTranslation.EntityData.BundleName = "cisco_ios_xe"
     ipNatTranslation.EntityData.ParentYangName = "nat-data"
     ipNatTranslation.EntityData.SegmentPath = "ip-nat-translation" + types.AddKeyToken(ipNatTranslation.InsideLocalAddr, "inside-local-addr") + types.AddKeyToken(ipNatTranslation.OutsideLocalAddr, "outside-local-addr") + types.AddKeyToken(ipNatTranslation.InsideLocalPort, "inside-local-port") + types.AddKeyToken(ipNatTranslation.OutsideLocalPort, "outside-local-port") + types.AddKeyToken(ipNatTranslation.Vrfid, "vrfid") + types.AddKeyToken(ipNatTranslation.Protocol, "protocol")
+    ipNatTranslation.EntityData.AbsolutePath = "Cisco-IOS-XE-nat-oper:nat-data/" + ipNatTranslation.EntityData.SegmentPath
     ipNatTranslation.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ipNatTranslation.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ipNatTranslation.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

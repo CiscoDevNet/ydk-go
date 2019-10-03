@@ -1,7 +1,13 @@
+// This module contains definitions
+// for the Calvados model objects.
+// 
 // This module contains a collection of YANG
 // definitions for Cisco IOS-XR SysAdmin configuration.
 // 
 // Copyright(c) 2013-2017 by Cisco Systems, Inc.
+// All rights reserved.
+// 
+// Copyright (c) 2012-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package sysadmin_rvm_mgr
 
@@ -54,6 +60,7 @@ func (rVM *RVM) GetEntityData() *types.CommonEntityData {
     rVM.EntityData.BundleName = "cisco_ios_xr"
     rVM.EntityData.ParentYangName = "Cisco-IOS-XR-sysadmin-rvm-mgr"
     rVM.EntityData.SegmentPath = "Cisco-IOS-XR-sysadmin-rvm-mgr:RVM"
+    rVM.EntityData.AbsolutePath = rVM.EntityData.SegmentPath
     rVM.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rVM.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rVM.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -74,6 +81,7 @@ func (rVM *RVM) GetEntityData() *types.CommonEntityData {
 type RVM_AllLocations struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     Location interface{}
@@ -94,6 +102,7 @@ func (allLocations *RVM_AllLocations) GetEntityData() *types.CommonEntityData {
     allLocations.EntityData.BundleName = "cisco_ios_xr"
     allLocations.EntityData.ParentYangName = "RVM"
     allLocations.EntityData.SegmentPath = "all-locations" + types.AddKeyToken(allLocations.Location, "location")
+    allLocations.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-rvm-mgr:RVM/" + allLocations.EntityData.SegmentPath
     allLocations.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     allLocations.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     allLocations.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -126,6 +135,7 @@ func (objects *RVM_AllLocations_Objects) GetEntityData() *types.CommonEntityData
     objects.EntityData.BundleName = "cisco_ios_xr"
     objects.EntityData.ParentYangName = "all-locations"
     objects.EntityData.SegmentPath = "objects"
+    objects.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-rvm-mgr:RVM/all-locations/" + objects.EntityData.SegmentPath
     objects.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     objects.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     objects.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -146,6 +156,7 @@ func (objects *RVM_AllLocations_Objects) GetEntityData() *types.CommonEntityData
 type RVM_AllLocations_Objects_AllObjs struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Index into obj_db array. The type is interface{}
     // with range: 0..4294967295.
@@ -169,6 +180,7 @@ func (allObjs *RVM_AllLocations_Objects_AllObjs) GetEntityData() *types.CommonEn
     allObjs.EntityData.BundleName = "cisco_ios_xr"
     allObjs.EntityData.ParentYangName = "objects"
     allObjs.EntityData.SegmentPath = "all-objs" + types.AddKeyToken(allObjs.Index, "index")
+    allObjs.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-rvm-mgr:RVM/all-locations/objects/" + allObjs.EntityData.SegmentPath
     allObjs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     allObjs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     allObjs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -201,6 +213,7 @@ func (node *RVM_AllLocations_Node) GetEntityData() *types.CommonEntityData {
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "all-locations"
     node.EntityData.SegmentPath = "node"
+    node.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-rvm-mgr:RVM/all-locations/" + node.EntityData.SegmentPath
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -221,6 +234,7 @@ func (node *RVM_AllLocations_Node) GetEntityData() *types.CommonEntityData {
 type RVM_AllLocations_Node_AllNodes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IP address of the node. The type is interface{}
     // with range: 0..4294967295.
@@ -245,6 +259,7 @@ func (allNodes *RVM_AllLocations_Node_AllNodes) GetEntityData() *types.CommonEnt
     allNodes.EntityData.BundleName = "cisco_ios_xr"
     allNodes.EntityData.ParentYangName = "node"
     allNodes.EntityData.SegmentPath = "all-nodes" + types.AddKeyToken(allNodes.Ipv4Addr, "ipv4_addr")
+    allNodes.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-rvm-mgr:RVM/all-locations/node/" + allNodes.EntityData.SegmentPath
     allNodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     allNodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     allNodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -278,6 +293,7 @@ func (card *RVM_AllLocations_Card) GetEntityData() *types.CommonEntityData {
     card.EntityData.BundleName = "cisco_ios_xr"
     card.EntityData.ParentYangName = "all-locations"
     card.EntityData.SegmentPath = "card"
+    card.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-rvm-mgr:RVM/all-locations/" + card.EntityData.SegmentPath
     card.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     card.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     card.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -298,6 +314,7 @@ func (card *RVM_AllLocations_Card) GetEntityData() *types.CommonEntityData {
 type RVM_AllLocations_Card_AllCards struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Serial number of the card. The type is string.
     SerialNum interface{}
@@ -321,6 +338,7 @@ func (allCards *RVM_AllLocations_Card_AllCards) GetEntityData() *types.CommonEnt
     allCards.EntityData.BundleName = "cisco_ios_xr"
     allCards.EntityData.ParentYangName = "card"
     allCards.EntityData.SegmentPath = "all-cards" + types.AddKeyToken(allCards.SerialNum, "serial_num")
+    allCards.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-rvm-mgr:RVM/all-locations/card/" + allCards.EntityData.SegmentPath
     allCards.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     allCards.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     allCards.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

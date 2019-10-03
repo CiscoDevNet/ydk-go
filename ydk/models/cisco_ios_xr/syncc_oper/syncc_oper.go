@@ -219,6 +219,7 @@ func (timingController *TimingController) GetEntityData() *types.CommonEntityDat
     timingController.EntityData.BundleName = "cisco_ios_xr"
     timingController.EntityData.ParentYangName = "Cisco-IOS-XR-syncc-oper"
     timingController.EntityData.SegmentPath = "Cisco-IOS-XR-syncc-oper:timing-controller"
+    timingController.EntityData.AbsolutePath = timingController.EntityData.SegmentPath
     timingController.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     timingController.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     timingController.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -249,6 +250,7 @@ func (nodes *TimingController_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.BundleName = "cisco_ios_xr"
     nodes.EntityData.ParentYangName = "timing-controller"
     nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.AbsolutePath = "Cisco-IOS-XR-syncc-oper:timing-controller/" + nodes.EntityData.SegmentPath
     nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -270,6 +272,7 @@ func (nodes *TimingController_Nodes) GetEntityData() *types.CommonEntityData {
 type TimingController_Nodes_Node struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Node Name. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -291,6 +294,7 @@ func (node *TimingController_Nodes_Node) GetEntityData() *types.CommonEntityData
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
     node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeName, "node-name")
+    node.EntityData.AbsolutePath = "Cisco-IOS-XR-syncc-oper:timing-controller/nodes/" + node.EntityData.SegmentPath
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -324,6 +328,7 @@ func (state *TimingController_Nodes_Node_State) GetEntityData() *types.CommonEnt
     state.EntityData.BundleName = "cisco_ios_xr"
     state.EntityData.ParentYangName = "node"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "Cisco-IOS-XR-syncc-oper:timing-controller/nodes/node/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     state.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -331,6 +336,7 @@ func (state *TimingController_Nodes_Node_State) GetEntityData() *types.CommonEnt
     state.EntityData.Children = types.NewOrderedMap()
     state.EntityData.Children.Append("syncc-instance", types.YChild{"SynccInstance", nil})
     for i := range state.SynccInstance {
+        types.SetYListKey(state.SynccInstance[i], i)
         state.EntityData.Children.Append(types.GetSegmentPath(state.SynccInstance[i]), types.YChild{"SynccInstance", state.SynccInstance[i]})
     }
     state.EntityData.Leafs = types.NewOrderedMap()
@@ -345,6 +351,7 @@ func (state *TimingController_Nodes_Node_State) GetEntityData() *types.CommonEnt
 type TimingController_Nodes_Node_State_SynccInstance struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Syncc controller state. The type is SynccStates.
     ControllerState interface{}
@@ -413,7 +420,8 @@ func (synccInstance *TimingController_Nodes_Node_State_SynccInstance) GetEntityD
     synccInstance.EntityData.YangName = "syncc-instance"
     synccInstance.EntityData.BundleName = "cisco_ios_xr"
     synccInstance.EntityData.ParentYangName = "state"
-    synccInstance.EntityData.SegmentPath = "syncc-instance"
+    synccInstance.EntityData.SegmentPath = "syncc-instance" + types.AddNoKeyToken(synccInstance)
+    synccInstance.EntityData.AbsolutePath = "Cisco-IOS-XR-syncc-oper:timing-controller/nodes/node/state/" + synccInstance.EntityData.SegmentPath
     synccInstance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     synccInstance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     synccInstance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -460,6 +468,7 @@ func (clock *TimingController_Nodes_Node_Clock) GetEntityData() *types.CommonEnt
     clock.EntityData.BundleName = "cisco_ios_xr"
     clock.EntityData.ParentYangName = "node"
     clock.EntityData.SegmentPath = "clock"
+    clock.EntityData.AbsolutePath = "Cisco-IOS-XR-syncc-oper:timing-controller/nodes/node/" + clock.EntityData.SegmentPath
     clock.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clock.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clock.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -467,6 +476,7 @@ func (clock *TimingController_Nodes_Node_Clock) GetEntityData() *types.CommonEnt
     clock.EntityData.Children = types.NewOrderedMap()
     clock.EntityData.Children.Append("syncc-instance", types.YChild{"SynccInstance", nil})
     for i := range clock.SynccInstance {
+        types.SetYListKey(clock.SynccInstance[i], i)
         clock.EntityData.Children.Append(types.GetSegmentPath(clock.SynccInstance[i]), types.YChild{"SynccInstance", clock.SynccInstance[i]})
     }
     clock.EntityData.Leafs = types.NewOrderedMap()
@@ -481,6 +491,7 @@ func (clock *TimingController_Nodes_Node_Clock) GetEntityData() *types.CommonEnt
 type TimingController_Nodes_Node_Clock_SynccInstance struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Clock table for an RP. The type is slice of
     // TimingController_Nodes_Node_Clock_SynccInstance_Clock.
@@ -492,7 +503,8 @@ func (synccInstance *TimingController_Nodes_Node_Clock_SynccInstance) GetEntityD
     synccInstance.EntityData.YangName = "syncc-instance"
     synccInstance.EntityData.BundleName = "cisco_ios_xr"
     synccInstance.EntityData.ParentYangName = "clock"
-    synccInstance.EntityData.SegmentPath = "syncc-instance"
+    synccInstance.EntityData.SegmentPath = "syncc-instance" + types.AddNoKeyToken(synccInstance)
+    synccInstance.EntityData.AbsolutePath = "Cisco-IOS-XR-syncc-oper:timing-controller/nodes/node/clock/" + synccInstance.EntityData.SegmentPath
     synccInstance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     synccInstance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     synccInstance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -500,6 +512,7 @@ func (synccInstance *TimingController_Nodes_Node_Clock_SynccInstance) GetEntityD
     synccInstance.EntityData.Children = types.NewOrderedMap()
     synccInstance.EntityData.Children.Append("clock", types.YChild{"Clock", nil})
     for i := range synccInstance.Clock {
+        types.SetYListKey(synccInstance.Clock[i], i)
         synccInstance.EntityData.Children.Append(types.GetSegmentPath(synccInstance.Clock[i]), types.YChild{"Clock", synccInstance.Clock[i]})
     }
     synccInstance.EntityData.Leafs = types.NewOrderedMap()
@@ -514,6 +527,7 @@ func (synccInstance *TimingController_Nodes_Node_Clock_SynccInstance) GetEntityD
 type TimingController_Nodes_Node_Clock_SynccInstance_Clock struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // True if clock is configured for port 0. The type is bool.
     IsConfiguredPort0 interface{}
@@ -673,7 +687,8 @@ func (clock *TimingController_Nodes_Node_Clock_SynccInstance_Clock) GetEntityDat
     clock.EntityData.YangName = "clock"
     clock.EntityData.BundleName = "cisco_ios_xr"
     clock.EntityData.ParentYangName = "syncc-instance"
-    clock.EntityData.SegmentPath = "clock"
+    clock.EntityData.SegmentPath = "clock" + types.AddNoKeyToken(clock)
+    clock.EntityData.AbsolutePath = "Cisco-IOS-XR-syncc-oper:timing-controller/nodes/node/clock/syncc-instance/" + clock.EntityData.SegmentPath
     clock.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clock.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clock.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -751,6 +766,7 @@ func (timingSource *TimingController_Nodes_Node_TimingSource) GetEntityData() *t
     timingSource.EntityData.BundleName = "cisco_ios_xr"
     timingSource.EntityData.ParentYangName = "node"
     timingSource.EntityData.SegmentPath = "timing-source"
+    timingSource.EntityData.AbsolutePath = "Cisco-IOS-XR-syncc-oper:timing-controller/nodes/node/" + timingSource.EntityData.SegmentPath
     timingSource.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     timingSource.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     timingSource.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -758,6 +774,7 @@ func (timingSource *TimingController_Nodes_Node_TimingSource) GetEntityData() *t
     timingSource.EntityData.Children = types.NewOrderedMap()
     timingSource.EntityData.Children.Append("syncc-instance", types.YChild{"SynccInstance", nil})
     for i := range timingSource.SynccInstance {
+        types.SetYListKey(timingSource.SynccInstance[i], i)
         timingSource.EntityData.Children.Append(types.GetSegmentPath(timingSource.SynccInstance[i]), types.YChild{"SynccInstance", timingSource.SynccInstance[i]})
     }
     timingSource.EntityData.Leafs = types.NewOrderedMap()
@@ -772,6 +789,7 @@ func (timingSource *TimingController_Nodes_Node_TimingSource) GetEntityData() *t
 type TimingController_Nodes_Node_TimingSource_SynccInstance struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Scheduling PLL T0 . The type is slice of
     // TimingController_Nodes_Node_TimingSource_SynccInstance_TimingStatusT0.
@@ -791,7 +809,8 @@ func (synccInstance *TimingController_Nodes_Node_TimingSource_SynccInstance) Get
     synccInstance.EntityData.YangName = "syncc-instance"
     synccInstance.EntityData.BundleName = "cisco_ios_xr"
     synccInstance.EntityData.ParentYangName = "timing-source"
-    synccInstance.EntityData.SegmentPath = "syncc-instance"
+    synccInstance.EntityData.SegmentPath = "syncc-instance" + types.AddNoKeyToken(synccInstance)
+    synccInstance.EntityData.AbsolutePath = "Cisco-IOS-XR-syncc-oper:timing-controller/nodes/node/timing-source/" + synccInstance.EntityData.SegmentPath
     synccInstance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     synccInstance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     synccInstance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -799,14 +818,17 @@ func (synccInstance *TimingController_Nodes_Node_TimingSource_SynccInstance) Get
     synccInstance.EntityData.Children = types.NewOrderedMap()
     synccInstance.EntityData.Children.Append("timing-status-t0", types.YChild{"TimingStatusT0", nil})
     for i := range synccInstance.TimingStatusT0 {
+        types.SetYListKey(synccInstance.TimingStatusT0[i], i)
         synccInstance.EntityData.Children.Append(types.GetSegmentPath(synccInstance.TimingStatusT0[i]), types.YChild{"TimingStatusT0", synccInstance.TimingStatusT0[i]})
     }
     synccInstance.EntityData.Children.Append("timing-status-t4", types.YChild{"TimingStatusT4", nil})
     for i := range synccInstance.TimingStatusT4 {
+        types.SetYListKey(synccInstance.TimingStatusT4[i], i)
         synccInstance.EntityData.Children.Append(types.GetSegmentPath(synccInstance.TimingStatusT4[i]), types.YChild{"TimingStatusT4", synccInstance.TimingStatusT4[i]})
     }
     synccInstance.EntityData.Children.Append("timing-status1588", types.YChild{"TimingStatus1588", nil})
     for i := range synccInstance.TimingStatus1588 {
+        types.SetYListKey(synccInstance.TimingStatus1588[i], i)
         synccInstance.EntityData.Children.Append(types.GetSegmentPath(synccInstance.TimingStatus1588[i]), types.YChild{"TimingStatus1588", synccInstance.TimingStatus1588[i]})
     }
     synccInstance.EntityData.Leafs = types.NewOrderedMap()
@@ -821,6 +843,7 @@ func (synccInstance *TimingController_Nodes_Node_TimingSource_SynccInstance) Get
 type TimingController_Nodes_Node_TimingSource_SynccInstance_TimingStatusT0 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Input number. The type is interface{} with range: 0..255.
     Input interface{}
@@ -860,7 +883,8 @@ func (timingStatusT0 *TimingController_Nodes_Node_TimingSource_SynccInstance_Tim
     timingStatusT0.EntityData.YangName = "timing-status-t0"
     timingStatusT0.EntityData.BundleName = "cisco_ios_xr"
     timingStatusT0.EntityData.ParentYangName = "syncc-instance"
-    timingStatusT0.EntityData.SegmentPath = "timing-status-t0"
+    timingStatusT0.EntityData.SegmentPath = "timing-status-t0" + types.AddNoKeyToken(timingStatusT0)
+    timingStatusT0.EntityData.AbsolutePath = "Cisco-IOS-XR-syncc-oper:timing-controller/nodes/node/timing-source/syncc-instance/" + timingStatusT0.EntityData.SegmentPath
     timingStatusT0.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     timingStatusT0.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     timingStatusT0.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -888,6 +912,7 @@ func (timingStatusT0 *TimingController_Nodes_Node_TimingSource_SynccInstance_Tim
 type TimingController_Nodes_Node_TimingSource_SynccInstance_TimingStatusT4 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Input number. The type is interface{} with range: 0..255.
     Input interface{}
@@ -927,7 +952,8 @@ func (timingStatusT4 *TimingController_Nodes_Node_TimingSource_SynccInstance_Tim
     timingStatusT4.EntityData.YangName = "timing-status-t4"
     timingStatusT4.EntityData.BundleName = "cisco_ios_xr"
     timingStatusT4.EntityData.ParentYangName = "syncc-instance"
-    timingStatusT4.EntityData.SegmentPath = "timing-status-t4"
+    timingStatusT4.EntityData.SegmentPath = "timing-status-t4" + types.AddNoKeyToken(timingStatusT4)
+    timingStatusT4.EntityData.AbsolutePath = "Cisco-IOS-XR-syncc-oper:timing-controller/nodes/node/timing-source/syncc-instance/" + timingStatusT4.EntityData.SegmentPath
     timingStatusT4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     timingStatusT4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     timingStatusT4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -955,6 +981,7 @@ func (timingStatusT4 *TimingController_Nodes_Node_TimingSource_SynccInstance_Tim
 type TimingController_Nodes_Node_TimingSource_SynccInstance_TimingStatus1588 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Input number. The type is interface{} with range: 0..255.
     Input interface{}
@@ -994,7 +1021,8 @@ func (timingStatus1588 *TimingController_Nodes_Node_TimingSource_SynccInstance_T
     timingStatus1588.EntityData.YangName = "timing-status1588"
     timingStatus1588.EntityData.BundleName = "cisco_ios_xr"
     timingStatus1588.EntityData.ParentYangName = "syncc-instance"
-    timingStatus1588.EntityData.SegmentPath = "timing-status1588"
+    timingStatus1588.EntityData.SegmentPath = "timing-status1588" + types.AddNoKeyToken(timingStatus1588)
+    timingStatus1588.EntityData.AbsolutePath = "Cisco-IOS-XR-syncc-oper:timing-controller/nodes/node/timing-source/syncc-instance/" + timingStatus1588.EntityData.SegmentPath
     timingStatus1588.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     timingStatus1588.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     timingStatus1588.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

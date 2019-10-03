@@ -40,6 +40,7 @@ func (lptsIfib *LptsIfib) GetEntityData() *types.CommonEntityData {
     lptsIfib.EntityData.BundleName = "cisco_ios_xr"
     lptsIfib.EntityData.ParentYangName = "Cisco-IOS-XR-lpts-ifib-oper"
     lptsIfib.EntityData.SegmentPath = "Cisco-IOS-XR-lpts-ifib-oper:lpts-ifib"
+    lptsIfib.EntityData.AbsolutePath = lptsIfib.EntityData.SegmentPath
     lptsIfib.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lptsIfib.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lptsIfib.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -69,6 +70,7 @@ func (nodes *LptsIfib_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.BundleName = "cisco_ios_xr"
     nodes.EntityData.ParentYangName = "lpts-ifib"
     nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.AbsolutePath = "Cisco-IOS-XR-lpts-ifib-oper:lpts-ifib/" + nodes.EntityData.SegmentPath
     nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -90,6 +92,7 @@ func (nodes *LptsIfib_Nodes) GetEntityData() *types.CommonEntityData {
 type LptsIfib_Nodes_Node struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The node name. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -105,6 +108,7 @@ func (node *LptsIfib_Nodes_Node) GetEntityData() *types.CommonEntityData {
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
     node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeName, "node-name")
+    node.EntityData.AbsolutePath = "Cisco-IOS-XR-lpts-ifib-oper:lpts-ifib/nodes/" + node.EntityData.SegmentPath
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -135,6 +139,7 @@ func (sliceIds *LptsIfib_Nodes_Node_SliceIds) GetEntityData() *types.CommonEntit
     sliceIds.EntityData.BundleName = "cisco_ios_xr"
     sliceIds.EntityData.ParentYangName = "node"
     sliceIds.EntityData.SegmentPath = "slice-ids"
+    sliceIds.EntityData.AbsolutePath = "Cisco-IOS-XR-lpts-ifib-oper:lpts-ifib/nodes/node/" + sliceIds.EntityData.SegmentPath
     sliceIds.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sliceIds.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sliceIds.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -156,6 +161,7 @@ func (sliceIds *LptsIfib_Nodes_Node_SliceIds) GetEntityData() *types.CommonEntit
 type LptsIfib_Nodes_Node_SliceIds_SliceId struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Type value. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -172,6 +178,7 @@ func (sliceId *LptsIfib_Nodes_Node_SliceIds_SliceId) GetEntityData() *types.Comm
     sliceId.EntityData.BundleName = "cisco_ios_xr"
     sliceId.EntityData.ParentYangName = "slice-ids"
     sliceId.EntityData.SegmentPath = "slice-id" + types.AddKeyToken(sliceId.SliceName, "slice-name")
+    sliceId.EntityData.AbsolutePath = "Cisco-IOS-XR-lpts-ifib-oper:lpts-ifib/nodes/node/slice-ids/" + sliceId.EntityData.SegmentPath
     sliceId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sliceId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sliceId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -194,6 +201,7 @@ func (sliceId *LptsIfib_Nodes_Node_SliceIds_SliceId) GetEntityData() *types.Comm
 type LptsIfib_Nodes_Node_SliceIds_SliceId_Entry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Single Pre-ifib entry. The type is interface{}
     // with range: 0..4294967295.
@@ -284,6 +292,7 @@ func (entry *LptsIfib_Nodes_Node_SliceIds_SliceId_Entry) GetEntityData() *types.
     entry.EntityData.BundleName = "cisco_ios_xr"
     entry.EntityData.ParentYangName = "slice-id"
     entry.EntityData.SegmentPath = "entry" + types.AddKeyToken(entry.Entry, "entry")
+    entry.EntityData.AbsolutePath = "Cisco-IOS-XR-lpts-ifib-oper:lpts-ifib/nodes/node/slice-ids/slice-id/" + entry.EntityData.SegmentPath
     entry.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     entry.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     entry.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

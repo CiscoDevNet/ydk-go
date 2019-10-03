@@ -5,7 +5,7 @@
 // for the following management objects:
 //   inventory: Inventory information
 // 
-// Copyright (c) 2013-2017 by Cisco Systems, Inc.
+// Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package invmgr_oper
 
@@ -237,6 +237,7 @@ func (inventory *Inventory) GetEntityData() *types.CommonEntityData {
     inventory.EntityData.BundleName = "cisco_ios_xr"
     inventory.EntityData.ParentYangName = "Cisco-IOS-XR-invmgr-oper"
     inventory.EntityData.SegmentPath = "Cisco-IOS-XR-invmgr-oper:inventory"
+    inventory.EntityData.AbsolutePath = inventory.EntityData.SegmentPath
     inventory.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     inventory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inventory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -267,6 +268,7 @@ func (entities *Inventory_Entities) GetEntityData() *types.CommonEntityData {
     entities.EntityData.BundleName = "cisco_ios_xr"
     entities.EntityData.ParentYangName = "inventory"
     entities.EntityData.SegmentPath = "entities"
+    entities.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/" + entities.EntityData.SegmentPath
     entities.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     entities.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     entities.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -288,6 +290,7 @@ func (entities *Inventory_Entities) GetEntityData() *types.CommonEntityData {
 type Inventory_Entities_Entity struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Entity name. The type is string.
     Name interface{}
@@ -305,6 +308,7 @@ func (entity *Inventory_Entities_Entity) GetEntityData() *types.CommonEntityData
     entity.EntityData.BundleName = "cisco_ios_xr"
     entity.EntityData.ParentYangName = "entities"
     entity.EntityData.SegmentPath = "entity" + types.AddKeyToken(entity.Name, "name")
+    entity.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/entities/" + entity.EntityData.SegmentPath
     entity.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     entity.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     entity.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -339,6 +343,7 @@ func (attributes *Inventory_Entities_Entity_Attributes) GetEntityData() *types.C
     attributes.EntityData.BundleName = "cisco_ios_xr"
     attributes.EntityData.ParentYangName = "entity"
     attributes.EntityData.SegmentPath = "attributes"
+    attributes.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/entities/entity/" + attributes.EntityData.SegmentPath
     attributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     attributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -434,8 +439,8 @@ type Inventory_Entities_Entity_Attributes_InvBasicBag struct {
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -455,6 +460,7 @@ func (invBasicBag *Inventory_Entities_Entity_Attributes_InvBasicBag) GetEntityDa
     invBasicBag.EntityData.BundleName = "cisco_ios_xr"
     invBasicBag.EntityData.ParentYangName = "attributes"
     invBasicBag.EntityData.SegmentPath = "inv-basic-bag"
+    invBasicBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/entities/entity/attributes/" + invBasicBag.EntityData.SegmentPath
     invBasicBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invBasicBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invBasicBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -529,6 +535,7 @@ func (invAssetBag *Inventory_Entities_Entity_Attributes_InvAssetBag) GetEntityDa
     invAssetBag.EntityData.BundleName = "cisco_ios_xr"
     invAssetBag.EntityData.ParentYangName = "attributes"
     invAssetBag.EntityData.SegmentPath = "inv-asset-bag"
+    invAssetBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/entities/entity/attributes/" + invAssetBag.EntityData.SegmentPath
     invAssetBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invAssetBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invAssetBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -565,6 +572,7 @@ func (subentities *Inventory_Entities_Entity_Subentities) GetEntityData() *types
     subentities.EntityData.BundleName = "cisco_ios_xr"
     subentities.EntityData.ParentYangName = "entity"
     subentities.EntityData.SegmentPath = "subentities"
+    subentities.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/entities/entity/" + subentities.EntityData.SegmentPath
     subentities.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     subentities.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     subentities.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -586,6 +594,7 @@ func (subentities *Inventory_Entities_Entity_Subentities) GetEntityData() *types
 type Inventory_Entities_Entity_Subentities_Subentity struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Subentity name. The type is string.
     Name interface{}
@@ -600,6 +609,7 @@ func (subentity *Inventory_Entities_Entity_Subentities_Subentity) GetEntityData(
     subentity.EntityData.BundleName = "cisco_ios_xr"
     subentity.EntityData.ParentYangName = "subentities"
     subentity.EntityData.SegmentPath = "subentity" + types.AddKeyToken(subentity.Name, "name")
+    subentity.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/entities/entity/subentities/" + subentity.EntityData.SegmentPath
     subentity.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     subentity.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     subentity.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -630,6 +640,7 @@ func (racks *Inventory_Racks) GetEntityData() *types.CommonEntityData {
     racks.EntityData.BundleName = "cisco_ios_xr"
     racks.EntityData.ParentYangName = "inventory"
     racks.EntityData.SegmentPath = "racks"
+    racks.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/" + racks.EntityData.SegmentPath
     racks.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     racks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     racks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -651,6 +662,7 @@ func (racks *Inventory_Racks) GetEntityData() *types.CommonEntityData {
 type Inventory_Racks_Rack struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Rack name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -675,6 +687,7 @@ func (rack *Inventory_Racks_Rack) GetEntityData() *types.CommonEntityData {
     rack.EntityData.BundleName = "cisco_ios_xr"
     rack.EntityData.ParentYangName = "racks"
     rack.EntityData.SegmentPath = "rack" + types.AddKeyToken(rack.Name, "name")
+    rack.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/" + rack.EntityData.SegmentPath
     rack.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rack.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rack.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -708,6 +721,7 @@ func (entity *Inventory_Racks_Rack_Entity) GetEntityData() *types.CommonEntityDa
     entity.EntityData.BundleName = "cisco_ios_xr"
     entity.EntityData.ParentYangName = "rack"
     entity.EntityData.SegmentPath = "entity"
+    entity.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/" + entity.EntityData.SegmentPath
     entity.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     entity.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     entity.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -729,6 +743,7 @@ func (entity *Inventory_Racks_Rack_Entity) GetEntityData() *types.CommonEntityDa
 type Inventory_Racks_Rack_Entity_Slot struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Slot name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -747,6 +762,7 @@ func (slot *Inventory_Racks_Rack_Entity_Slot) GetEntityData() *types.CommonEntit
     slot.EntityData.BundleName = "cisco_ios_xr"
     slot.EntityData.ParentYangName = "entity"
     slot.EntityData.SegmentPath = "slot" + types.AddKeyToken(slot.Name, "name")
+    slot.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/" + slot.EntityData.SegmentPath
     slot.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     slot.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     slot.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -778,6 +794,7 @@ func (tsi1s *Inventory_Racks_Rack_Entity_Slot_Tsi1s) GetEntityData() *types.Comm
     tsi1s.EntityData.BundleName = "cisco_ios_xr"
     tsi1s.EntityData.ParentYangName = "slot"
     tsi1s.EntityData.SegmentPath = "tsi1s"
+    tsi1s.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/" + tsi1s.EntityData.SegmentPath
     tsi1s.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tsi1s.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tsi1s.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -799,6 +816,7 @@ func (tsi1s *Inventory_Racks_Rack_Entity_Slot_Tsi1s) GetEntityData() *types.Comm
 type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. TSI1. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -817,6 +835,7 @@ func (tsi1 *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1) GetEntityData() *types.
     tsi1.EntityData.BundleName = "cisco_ios_xr"
     tsi1.EntityData.ParentYangName = "tsi1s"
     tsi1.EntityData.SegmentPath = "tsi1" + types.AddKeyToken(tsi1.Name, "name")
+    tsi1.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/" + tsi1.EntityData.SegmentPath
     tsi1.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tsi1.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tsi1.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -849,6 +868,7 @@ func (tsi2s *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s) GetEntityData() 
     tsi2s.EntityData.BundleName = "cisco_ios_xr"
     tsi2s.EntityData.ParentYangName = "tsi1"
     tsi2s.EntityData.SegmentPath = "tsi2s"
+    tsi2s.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/" + tsi2s.EntityData.SegmentPath
     tsi2s.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tsi2s.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tsi2s.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -870,6 +890,7 @@ func (tsi2s *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s) GetEntityData() 
 type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. TSI2. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -888,6 +909,7 @@ func (tsi2 *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2) GetEntityDat
     tsi2.EntityData.BundleName = "cisco_ios_xr"
     tsi2.EntityData.ParentYangName = "tsi2s"
     tsi2.EntityData.SegmentPath = "tsi2" + types.AddKeyToken(tsi2.Name, "name")
+    tsi2.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/" + tsi2.EntityData.SegmentPath
     tsi2.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tsi2.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tsi2.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -920,6 +942,7 @@ func (tsi3s *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s) GetEn
     tsi3s.EntityData.BundleName = "cisco_ios_xr"
     tsi3s.EntityData.ParentYangName = "tsi2"
     tsi3s.EntityData.SegmentPath = "tsi3s"
+    tsi3s.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/" + tsi3s.EntityData.SegmentPath
     tsi3s.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tsi3s.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tsi3s.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -941,6 +964,7 @@ func (tsi3s *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s) GetEn
 type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. TSI3. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -959,6 +983,7 @@ func (tsi3 *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3) G
     tsi3.EntityData.BundleName = "cisco_ios_xr"
     tsi3.EntityData.ParentYangName = "tsi3s"
     tsi3.EntityData.SegmentPath = "tsi3" + types.AddKeyToken(tsi3.Name, "name")
+    tsi3.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/" + tsi3.EntityData.SegmentPath
     tsi3.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tsi3.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tsi3.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -991,6 +1016,7 @@ func (tsi4s *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_T
     tsi4s.EntityData.BundleName = "cisco_ios_xr"
     tsi4s.EntityData.ParentYangName = "tsi3"
     tsi4s.EntityData.SegmentPath = "tsi4s"
+    tsi4s.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/" + tsi4s.EntityData.SegmentPath
     tsi4s.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tsi4s.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tsi4s.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1012,6 +1038,7 @@ func (tsi4s *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_T
 type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. TSI4. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -1030,6 +1057,7 @@ func (tsi4 *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Ts
     tsi4.EntityData.BundleName = "cisco_ios_xr"
     tsi4.EntityData.ParentYangName = "tsi4s"
     tsi4.EntityData.SegmentPath = "tsi4" + types.AddKeyToken(tsi4.Name, "name")
+    tsi4.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/" + tsi4.EntityData.SegmentPath
     tsi4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tsi4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tsi4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1062,6 +1090,7 @@ func (tsi5s *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_T
     tsi5s.EntityData.BundleName = "cisco_ios_xr"
     tsi5s.EntityData.ParentYangName = "tsi4"
     tsi5s.EntityData.SegmentPath = "tsi5s"
+    tsi5s.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/" + tsi5s.EntityData.SegmentPath
     tsi5s.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tsi5s.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tsi5s.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1083,6 +1112,7 @@ func (tsi5s *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_T
 type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. TSI5. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -1101,6 +1131,7 @@ func (tsi5 *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Ts
     tsi5.EntityData.BundleName = "cisco_ios_xr"
     tsi5.EntityData.ParentYangName = "tsi5s"
     tsi5.EntityData.SegmentPath = "tsi5" + types.AddKeyToken(tsi5.Name, "name")
+    tsi5.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/" + tsi5.EntityData.SegmentPath
     tsi5.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tsi5.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tsi5.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1133,6 +1164,7 @@ func (tsi6s *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_T
     tsi6s.EntityData.BundleName = "cisco_ios_xr"
     tsi6s.EntityData.ParentYangName = "tsi5"
     tsi6s.EntityData.SegmentPath = "tsi6s"
+    tsi6s.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/" + tsi6s.EntityData.SegmentPath
     tsi6s.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tsi6s.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tsi6s.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1154,6 +1186,7 @@ func (tsi6s *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_T
 type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. TSI6. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -1172,6 +1205,7 @@ func (tsi6 *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Ts
     tsi6.EntityData.BundleName = "cisco_ios_xr"
     tsi6.EntityData.ParentYangName = "tsi6s"
     tsi6.EntityData.SegmentPath = "tsi6" + types.AddKeyToken(tsi6.Name, "name")
+    tsi6.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/" + tsi6.EntityData.SegmentPath
     tsi6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tsi6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tsi6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1204,6 +1238,7 @@ func (tsi7s *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_T
     tsi7s.EntityData.BundleName = "cisco_ios_xr"
     tsi7s.EntityData.ParentYangName = "tsi6"
     tsi7s.EntityData.SegmentPath = "tsi7s"
+    tsi7s.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/" + tsi7s.EntityData.SegmentPath
     tsi7s.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tsi7s.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tsi7s.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1225,6 +1260,7 @@ func (tsi7s *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_T
 type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. TSI7. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -1243,6 +1279,7 @@ func (tsi7 *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Ts
     tsi7.EntityData.BundleName = "cisco_ios_xr"
     tsi7.EntityData.ParentYangName = "tsi7s"
     tsi7.EntityData.SegmentPath = "tsi7" + types.AddKeyToken(tsi7.Name, "name")
+    tsi7.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/" + tsi7.EntityData.SegmentPath
     tsi7.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tsi7.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tsi7.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1275,6 +1312,7 @@ func (tsi8s *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_T
     tsi8s.EntityData.BundleName = "cisco_ios_xr"
     tsi8s.EntityData.ParentYangName = "tsi7"
     tsi8s.EntityData.SegmentPath = "tsi8s"
+    tsi8s.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/" + tsi8s.EntityData.SegmentPath
     tsi8s.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tsi8s.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tsi8s.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1296,6 +1334,7 @@ func (tsi8s *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_T
 type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. TSI8. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -1314,6 +1353,7 @@ func (tsi8 *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Ts
     tsi8.EntityData.BundleName = "cisco_ios_xr"
     tsi8.EntityData.ParentYangName = "tsi8s"
     tsi8.EntityData.SegmentPath = "tsi8" + types.AddKeyToken(tsi8.Name, "name")
+    tsi8.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/" + tsi8.EntityData.SegmentPath
     tsi8.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tsi8.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tsi8.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1346,6 +1386,7 @@ func (tsi9s *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_T
     tsi9s.EntityData.BundleName = "cisco_ios_xr"
     tsi9s.EntityData.ParentYangName = "tsi8"
     tsi9s.EntityData.SegmentPath = "tsi9s"
+    tsi9s.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/" + tsi9s.EntityData.SegmentPath
     tsi9s.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tsi9s.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tsi9s.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1367,6 +1408,7 @@ func (tsi9s *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_T
 type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Tsi9s_Tsi9 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. TSI9. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -1385,6 +1427,7 @@ func (tsi9 *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Ts
     tsi9.EntityData.BundleName = "cisco_ios_xr"
     tsi9.EntityData.ParentYangName = "tsi9s"
     tsi9.EntityData.SegmentPath = "tsi9" + types.AddKeyToken(tsi9.Name, "name")
+    tsi9.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/" + tsi9.EntityData.SegmentPath
     tsi9.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tsi9.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tsi9.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1417,6 +1460,7 @@ func (tsi10s *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_
     tsi10s.EntityData.BundleName = "cisco_ios_xr"
     tsi10s.EntityData.ParentYangName = "tsi9"
     tsi10s.EntityData.SegmentPath = "tsi10s"
+    tsi10s.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/" + tsi10s.EntityData.SegmentPath
     tsi10s.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tsi10s.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tsi10s.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1438,6 +1482,7 @@ func (tsi10s *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_
 type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Tsi9s_Tsi9_Tsi10s_Tsi10 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. TSI10. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -1456,6 +1501,7 @@ func (tsi10 *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_T
     tsi10.EntityData.BundleName = "cisco_ios_xr"
     tsi10.EntityData.ParentYangName = "tsi10s"
     tsi10.EntityData.SegmentPath = "tsi10" + types.AddKeyToken(tsi10.Name, "name")
+    tsi10.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/" + tsi10.EntityData.SegmentPath
     tsi10.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tsi10.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tsi10.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1488,6 +1534,7 @@ func (tsi11s *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_
     tsi11s.EntityData.BundleName = "cisco_ios_xr"
     tsi11s.EntityData.ParentYangName = "tsi10"
     tsi11s.EntityData.SegmentPath = "tsi11s"
+    tsi11s.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/" + tsi11s.EntityData.SegmentPath
     tsi11s.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tsi11s.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tsi11s.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1509,6 +1556,7 @@ func (tsi11s *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_
 type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Tsi9s_Tsi9_Tsi10s_Tsi10_Tsi11s_Tsi11 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. TSI11. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -1524,6 +1572,7 @@ func (tsi11 *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_T
     tsi11.EntityData.BundleName = "cisco_ios_xr"
     tsi11.EntityData.ParentYangName = "tsi11s"
     tsi11.EntityData.SegmentPath = "tsi11" + types.AddKeyToken(tsi11.Name, "name")
+    tsi11.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/tsi11s/" + tsi11.EntityData.SegmentPath
     tsi11.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tsi11.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tsi11.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1543,19 +1592,6 @@ func (tsi11 *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_T
 type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Tsi9s_Tsi9_Tsi10s_Tsi10_Tsi11s_Tsi11_Attributes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
-
-    // Inventory EDM Module Done Tuple. The type is interface{} with range:
-    // 0..4294967295. The default value is 1.
-    ModuleDone interface{}
-
-    // VM Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    VmNodeId interface{}
-
-    // VM Done Tuple. The type is interface{} with range: 0..4294967295.
-    VmDone interface{}
-
-    // Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    NodeId interface{}
 
     // Inventory Basic Bag.
     InvBasicBag Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Tsi9s_Tsi9_Tsi10s_Tsi10_Tsi11s_Tsi11_Attributes_InvBasicBag
@@ -1588,6 +1624,7 @@ func (attributes *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     attributes.EntityData.BundleName = "cisco_ios_xr"
     attributes.EntityData.ParentYangName = "tsi11"
     attributes.EntityData.SegmentPath = "attributes"
+    attributes.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/tsi11s/tsi11/" + attributes.EntityData.SegmentPath
     attributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     attributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1602,10 +1639,6 @@ func (attributes *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     attributes.EntityData.Children.Append("fru-info", types.YChild{"FruInfo", &attributes.FruInfo})
     attributes.EntityData.Children.Append("inv-eeprom-info", types.YChild{"InvEepromInfo", &attributes.InvEepromInfo})
     attributes.EntityData.Leafs = types.NewOrderedMap()
-    attributes.EntityData.Leafs.Append("module-done", types.YLeaf{"ModuleDone", attributes.ModuleDone})
-    attributes.EntityData.Leafs.Append("vm-node-id", types.YLeaf{"VmNodeId", attributes.VmNodeId})
-    attributes.EntityData.Leafs.Append("vm-done", types.YLeaf{"VmDone", attributes.VmDone})
-    attributes.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", attributes.NodeId})
 
     attributes.EntityData.YListKeys = []string {}
 
@@ -1693,8 +1726,8 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -1714,6 +1747,7 @@ func (invBasicBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     invBasicBag.EntityData.BundleName = "cisco_ios_xr"
     invBasicBag.EntityData.ParentYangName = "attributes"
     invBasicBag.EntityData.SegmentPath = "inv-basic-bag"
+    invBasicBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/tsi11s/tsi11/attributes/" + invBasicBag.EntityData.SegmentPath
     invBasicBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invBasicBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invBasicBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1807,6 +1841,7 @@ func (envSensorInfo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     envSensorInfo.EntityData.BundleName = "cisco_ios_xr"
     envSensorInfo.EntityData.ParentYangName = "attributes"
     envSensorInfo.EntityData.SegmentPath = "env-sensor-info"
+    envSensorInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/tsi11s/tsi11/attributes/" + envSensorInfo.EntityData.SegmentPath
     envSensorInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     envSensorInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     envSensorInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1858,6 +1893,7 @@ func (pwgInfo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3
     pwgInfo.EntityData.BundleName = "cisco_ios_xr"
     pwgInfo.EntityData.ParentYangName = "attributes"
     pwgInfo.EntityData.SegmentPath = "pwg-info"
+    pwgInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/tsi11s/tsi11/attributes/" + pwgInfo.EntityData.SegmentPath
     pwgInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pwgInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pwgInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1910,6 +1946,7 @@ func (envSensorInfoXml *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_T
     envSensorInfoXml.EntityData.BundleName = "cisco_ios_xr"
     envSensorInfoXml.EntityData.ParentYangName = "attributes"
     envSensorInfoXml.EntityData.SegmentPath = "env-sensor-info-xml"
+    envSensorInfoXml.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/tsi11s/tsi11/attributes/" + envSensorInfoXml.EntityData.SegmentPath
     envSensorInfoXml.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     envSensorInfoXml.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     envSensorInfoXml.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1946,6 +1983,7 @@ func (threshold *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
     threshold.EntityData.BundleName = "cisco_ios_xr"
     threshold.EntityData.ParentYangName = "env-sensor-info-xml"
     threshold.EntityData.SegmentPath = "threshold"
+    threshold.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/tsi11s/tsi11/attributes/env-sensor-info-xml/" + threshold.EntityData.SegmentPath
     threshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1953,6 +1991,7 @@ func (threshold *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
     threshold.EntityData.Children = types.NewOrderedMap()
     threshold.EntityData.Children.Append("threshold-array", types.YChild{"ThresholdArray", nil})
     for i := range threshold.ThresholdArray {
+        types.SetYListKey(threshold.ThresholdArray[i], i)
         threshold.EntityData.Children.Append(types.GetSegmentPath(threshold.ThresholdArray[i]), types.YChild{"ThresholdArray", threshold.ThresholdArray[i]})
     }
     threshold.EntityData.Leafs = types.NewOrderedMap()
@@ -1967,6 +2006,7 @@ func (threshold *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
 type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Tsi9s_Tsi9_Tsi10s_Tsi10_Tsi11s_Tsi11_Attributes_EnvSensorInfoXml_Threshold_ThresholdArray struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Indicates minor, major, critical severities. The type is ThresholdSeverity.
     ThresholdSeverity interface{}
@@ -1988,7 +2028,8 @@ func (thresholdArray *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi
     thresholdArray.EntityData.YangName = "threshold-array"
     thresholdArray.EntityData.BundleName = "cisco_ios_xr"
     thresholdArray.EntityData.ParentYangName = "threshold"
-    thresholdArray.EntityData.SegmentPath = "threshold-array"
+    thresholdArray.EntityData.SegmentPath = "threshold-array" + types.AddNoKeyToken(thresholdArray)
+    thresholdArray.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/tsi11s/tsi11/attributes/env-sensor-info-xml/threshold/" + thresholdArray.EntityData.SegmentPath
     thresholdArray.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     thresholdArray.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     thresholdArray.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2041,6 +2082,7 @@ func (invAssetBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     invAssetBag.EntityData.BundleName = "cisco_ios_xr"
     invAssetBag.EntityData.ParentYangName = "attributes"
     invAssetBag.EntityData.SegmentPath = "inv-asset-bag"
+    invAssetBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/tsi11s/tsi11/attributes/" + invAssetBag.EntityData.SegmentPath
     invAssetBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invAssetBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invAssetBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2091,6 +2133,7 @@ func (threshold *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
     threshold.EntityData.BundleName = "cisco_ios_xr"
     threshold.EntityData.ParentYangName = "attributes"
     threshold.EntityData.SegmentPath = "threshold"
+    threshold.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/tsi11s/tsi11/attributes/" + threshold.EntityData.SegmentPath
     threshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2125,6 +2168,7 @@ func (majorLo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3
     majorLo.EntityData.BundleName = "cisco_ios_xr"
     majorLo.EntityData.ParentYangName = "threshold"
     majorLo.EntityData.SegmentPath = "major-lo"
+    majorLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/tsi11s/tsi11/attributes/threshold/" + majorLo.EntityData.SegmentPath
     majorLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     majorLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     majorLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2171,6 +2215,7 @@ func (threshBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "major-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/tsi11s/tsi11/attributes/threshold/major-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2204,6 +2249,7 @@ func (criticalHi *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     criticalHi.EntityData.BundleName = "cisco_ios_xr"
     criticalHi.EntityData.ParentYangName = "threshold"
     criticalHi.EntityData.SegmentPath = "critical-hi"
+    criticalHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/tsi11s/tsi11/attributes/threshold/" + criticalHi.EntityData.SegmentPath
     criticalHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     criticalHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     criticalHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2250,6 +2296,7 @@ func (threshBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "critical-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/tsi11s/tsi11/attributes/threshold/critical-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2283,6 +2330,7 @@ func (minorHi *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3
     minorHi.EntityData.BundleName = "cisco_ios_xr"
     minorHi.EntityData.ParentYangName = "threshold"
     minorHi.EntityData.SegmentPath = "minor-hi"
+    minorHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/tsi11s/tsi11/attributes/threshold/" + minorHi.EntityData.SegmentPath
     minorHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     minorHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     minorHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2329,6 +2377,7 @@ func (threshBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "minor-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/tsi11s/tsi11/attributes/threshold/minor-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2362,6 +2411,7 @@ func (majorHi *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3
     majorHi.EntityData.BundleName = "cisco_ios_xr"
     majorHi.EntityData.ParentYangName = "threshold"
     majorHi.EntityData.SegmentPath = "major-hi"
+    majorHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/tsi11s/tsi11/attributes/threshold/" + majorHi.EntityData.SegmentPath
     majorHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     majorHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     majorHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2408,6 +2458,7 @@ func (threshBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "major-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/tsi11s/tsi11/attributes/threshold/major-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2441,6 +2492,7 @@ func (criticalLo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     criticalLo.EntityData.BundleName = "cisco_ios_xr"
     criticalLo.EntityData.ParentYangName = "threshold"
     criticalLo.EntityData.SegmentPath = "critical-lo"
+    criticalLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/tsi11s/tsi11/attributes/threshold/" + criticalLo.EntityData.SegmentPath
     criticalLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     criticalLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     criticalLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2487,6 +2539,7 @@ func (threshBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "critical-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/tsi11s/tsi11/attributes/threshold/critical-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2520,6 +2573,7 @@ func (minorLo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3
     minorLo.EntityData.BundleName = "cisco_ios_xr"
     minorLo.EntityData.ParentYangName = "threshold"
     minorLo.EntityData.SegmentPath = "minor-lo"
+    minorLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/tsi11s/tsi11/attributes/threshold/" + minorLo.EntityData.SegmentPath
     minorLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     minorLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     minorLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2566,6 +2620,7 @@ func (threshBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "minor-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/tsi11s/tsi11/attributes/threshold/minor-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2629,6 +2684,7 @@ func (fruInfo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3
     fruInfo.EntityData.BundleName = "cisco_ios_xr"
     fruInfo.EntityData.ParentYangName = "attributes"
     fruInfo.EntityData.SegmentPath = "fru-info"
+    fruInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/tsi11s/tsi11/attributes/" + fruInfo.EntityData.SegmentPath
     fruInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fruInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fruInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2671,6 +2727,7 @@ func (lastOperationalStateChange *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Ts
     lastOperationalStateChange.EntityData.BundleName = "cisco_ios_xr"
     lastOperationalStateChange.EntityData.ParentYangName = "fru-info"
     lastOperationalStateChange.EntityData.SegmentPath = "last-operational-state-change"
+    lastOperationalStateChange.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/tsi11s/tsi11/attributes/fru-info/" + lastOperationalStateChange.EntityData.SegmentPath
     lastOperationalStateChange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastOperationalStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastOperationalStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2706,6 +2763,7 @@ func (cardUpTime *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     cardUpTime.EntityData.BundleName = "cisco_ios_xr"
     cardUpTime.EntityData.ParentYangName = "fru-info"
     cardUpTime.EntityData.SegmentPath = "card-up-time"
+    cardUpTime.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/tsi11s/tsi11/attributes/fru-info/" + cardUpTime.EntityData.SegmentPath
     cardUpTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cardUpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cardUpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2755,6 +2813,7 @@ func (invEepromInfo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     invEepromInfo.EntityData.BundleName = "cisco_ios_xr"
     invEepromInfo.EntityData.ParentYangName = "attributes"
     invEepromInfo.EntityData.SegmentPath = "inv-eeprom-info"
+    invEepromInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/tsi11s/tsi11/attributes/" + invEepromInfo.EntityData.SegmentPath
     invEepromInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invEepromInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invEepromInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2960,6 +3019,7 @@ func (eeprom *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_
     eeprom.EntityData.BundleName = "cisco_ios_xr"
     eeprom.EntityData.ParentYangName = "inv-eeprom-info"
     eeprom.EntityData.SegmentPath = "eeprom"
+    eeprom.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/tsi11s/tsi11/attributes/inv-eeprom-info/" + eeprom.EntityData.SegmentPath
     eeprom.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eeprom.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eeprom.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3052,6 +3112,7 @@ func (rma *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi
     rma.EntityData.BundleName = "cisco_ios_xr"
     rma.EntityData.ParentYangName = "eeprom"
     rma.EntityData.SegmentPath = "rma"
+    rma.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/tsi11s/tsi11/attributes/inv-eeprom-info/eeprom/" + rma.EntityData.SegmentPath
     rma.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rma.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rma.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3072,19 +3133,6 @@ func (rma *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi
 type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Tsi9s_Tsi9_Tsi10s_Tsi10_Attributes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
-
-    // Inventory EDM Module Done Tuple. The type is interface{} with range:
-    // 0..4294967295. The default value is 1.
-    ModuleDone interface{}
-
-    // VM Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    VmNodeId interface{}
-
-    // VM Done Tuple. The type is interface{} with range: 0..4294967295.
-    VmDone interface{}
-
-    // Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    NodeId interface{}
 
     // Inventory Basic Bag.
     InvBasicBag Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Tsi9s_Tsi9_Tsi10s_Tsi10_Attributes_InvBasicBag
@@ -3117,6 +3165,7 @@ func (attributes *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     attributes.EntityData.BundleName = "cisco_ios_xr"
     attributes.EntityData.ParentYangName = "tsi10"
     attributes.EntityData.SegmentPath = "attributes"
+    attributes.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/" + attributes.EntityData.SegmentPath
     attributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     attributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3131,10 +3180,6 @@ func (attributes *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     attributes.EntityData.Children.Append("fru-info", types.YChild{"FruInfo", &attributes.FruInfo})
     attributes.EntityData.Children.Append("inv-eeprom-info", types.YChild{"InvEepromInfo", &attributes.InvEepromInfo})
     attributes.EntityData.Leafs = types.NewOrderedMap()
-    attributes.EntityData.Leafs.Append("module-done", types.YLeaf{"ModuleDone", attributes.ModuleDone})
-    attributes.EntityData.Leafs.Append("vm-node-id", types.YLeaf{"VmNodeId", attributes.VmNodeId})
-    attributes.EntityData.Leafs.Append("vm-done", types.YLeaf{"VmDone", attributes.VmDone})
-    attributes.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", attributes.NodeId})
 
     attributes.EntityData.YListKeys = []string {}
 
@@ -3222,8 +3267,8 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -3243,6 +3288,7 @@ func (invBasicBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     invBasicBag.EntityData.BundleName = "cisco_ios_xr"
     invBasicBag.EntityData.ParentYangName = "attributes"
     invBasicBag.EntityData.SegmentPath = "inv-basic-bag"
+    invBasicBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/attributes/" + invBasicBag.EntityData.SegmentPath
     invBasicBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invBasicBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invBasicBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3336,6 +3382,7 @@ func (envSensorInfo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     envSensorInfo.EntityData.BundleName = "cisco_ios_xr"
     envSensorInfo.EntityData.ParentYangName = "attributes"
     envSensorInfo.EntityData.SegmentPath = "env-sensor-info"
+    envSensorInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/attributes/" + envSensorInfo.EntityData.SegmentPath
     envSensorInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     envSensorInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     envSensorInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3387,6 +3434,7 @@ func (pwgInfo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3
     pwgInfo.EntityData.BundleName = "cisco_ios_xr"
     pwgInfo.EntityData.ParentYangName = "attributes"
     pwgInfo.EntityData.SegmentPath = "pwg-info"
+    pwgInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/attributes/" + pwgInfo.EntityData.SegmentPath
     pwgInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pwgInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pwgInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3439,6 +3487,7 @@ func (envSensorInfoXml *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_T
     envSensorInfoXml.EntityData.BundleName = "cisco_ios_xr"
     envSensorInfoXml.EntityData.ParentYangName = "attributes"
     envSensorInfoXml.EntityData.SegmentPath = "env-sensor-info-xml"
+    envSensorInfoXml.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/attributes/" + envSensorInfoXml.EntityData.SegmentPath
     envSensorInfoXml.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     envSensorInfoXml.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     envSensorInfoXml.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3475,6 +3524,7 @@ func (threshold *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
     threshold.EntityData.BundleName = "cisco_ios_xr"
     threshold.EntityData.ParentYangName = "env-sensor-info-xml"
     threshold.EntityData.SegmentPath = "threshold"
+    threshold.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/attributes/env-sensor-info-xml/" + threshold.EntityData.SegmentPath
     threshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3482,6 +3532,7 @@ func (threshold *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
     threshold.EntityData.Children = types.NewOrderedMap()
     threshold.EntityData.Children.Append("threshold-array", types.YChild{"ThresholdArray", nil})
     for i := range threshold.ThresholdArray {
+        types.SetYListKey(threshold.ThresholdArray[i], i)
         threshold.EntityData.Children.Append(types.GetSegmentPath(threshold.ThresholdArray[i]), types.YChild{"ThresholdArray", threshold.ThresholdArray[i]})
     }
     threshold.EntityData.Leafs = types.NewOrderedMap()
@@ -3496,6 +3547,7 @@ func (threshold *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
 type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Tsi9s_Tsi9_Tsi10s_Tsi10_Attributes_EnvSensorInfoXml_Threshold_ThresholdArray struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Indicates minor, major, critical severities. The type is ThresholdSeverity.
     ThresholdSeverity interface{}
@@ -3517,7 +3569,8 @@ func (thresholdArray *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi
     thresholdArray.EntityData.YangName = "threshold-array"
     thresholdArray.EntityData.BundleName = "cisco_ios_xr"
     thresholdArray.EntityData.ParentYangName = "threshold"
-    thresholdArray.EntityData.SegmentPath = "threshold-array"
+    thresholdArray.EntityData.SegmentPath = "threshold-array" + types.AddNoKeyToken(thresholdArray)
+    thresholdArray.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/attributes/env-sensor-info-xml/threshold/" + thresholdArray.EntityData.SegmentPath
     thresholdArray.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     thresholdArray.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     thresholdArray.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3570,6 +3623,7 @@ func (invAssetBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     invAssetBag.EntityData.BundleName = "cisco_ios_xr"
     invAssetBag.EntityData.ParentYangName = "attributes"
     invAssetBag.EntityData.SegmentPath = "inv-asset-bag"
+    invAssetBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/attributes/" + invAssetBag.EntityData.SegmentPath
     invAssetBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invAssetBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invAssetBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3620,6 +3674,7 @@ func (threshold *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
     threshold.EntityData.BundleName = "cisco_ios_xr"
     threshold.EntityData.ParentYangName = "attributes"
     threshold.EntityData.SegmentPath = "threshold"
+    threshold.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/attributes/" + threshold.EntityData.SegmentPath
     threshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3654,6 +3709,7 @@ func (majorLo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3
     majorLo.EntityData.BundleName = "cisco_ios_xr"
     majorLo.EntityData.ParentYangName = "threshold"
     majorLo.EntityData.SegmentPath = "major-lo"
+    majorLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/attributes/threshold/" + majorLo.EntityData.SegmentPath
     majorLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     majorLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     majorLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3700,6 +3756,7 @@ func (threshBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "major-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/attributes/threshold/major-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3733,6 +3790,7 @@ func (criticalHi *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     criticalHi.EntityData.BundleName = "cisco_ios_xr"
     criticalHi.EntityData.ParentYangName = "threshold"
     criticalHi.EntityData.SegmentPath = "critical-hi"
+    criticalHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/attributes/threshold/" + criticalHi.EntityData.SegmentPath
     criticalHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     criticalHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     criticalHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3779,6 +3837,7 @@ func (threshBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "critical-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/attributes/threshold/critical-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3812,6 +3871,7 @@ func (minorHi *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3
     minorHi.EntityData.BundleName = "cisco_ios_xr"
     minorHi.EntityData.ParentYangName = "threshold"
     minorHi.EntityData.SegmentPath = "minor-hi"
+    minorHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/attributes/threshold/" + minorHi.EntityData.SegmentPath
     minorHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     minorHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     minorHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3858,6 +3918,7 @@ func (threshBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "minor-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/attributes/threshold/minor-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3891,6 +3952,7 @@ func (majorHi *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3
     majorHi.EntityData.BundleName = "cisco_ios_xr"
     majorHi.EntityData.ParentYangName = "threshold"
     majorHi.EntityData.SegmentPath = "major-hi"
+    majorHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/attributes/threshold/" + majorHi.EntityData.SegmentPath
     majorHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     majorHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     majorHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3937,6 +3999,7 @@ func (threshBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "major-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/attributes/threshold/major-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3970,6 +4033,7 @@ func (criticalLo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     criticalLo.EntityData.BundleName = "cisco_ios_xr"
     criticalLo.EntityData.ParentYangName = "threshold"
     criticalLo.EntityData.SegmentPath = "critical-lo"
+    criticalLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/attributes/threshold/" + criticalLo.EntityData.SegmentPath
     criticalLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     criticalLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     criticalLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4016,6 +4080,7 @@ func (threshBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "critical-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/attributes/threshold/critical-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4049,6 +4114,7 @@ func (minorLo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3
     minorLo.EntityData.BundleName = "cisco_ios_xr"
     minorLo.EntityData.ParentYangName = "threshold"
     minorLo.EntityData.SegmentPath = "minor-lo"
+    minorLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/attributes/threshold/" + minorLo.EntityData.SegmentPath
     minorLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     minorLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     minorLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4095,6 +4161,7 @@ func (threshBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "minor-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/attributes/threshold/minor-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4158,6 +4225,7 @@ func (fruInfo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3
     fruInfo.EntityData.BundleName = "cisco_ios_xr"
     fruInfo.EntityData.ParentYangName = "attributes"
     fruInfo.EntityData.SegmentPath = "fru-info"
+    fruInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/attributes/" + fruInfo.EntityData.SegmentPath
     fruInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fruInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fruInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4200,6 +4268,7 @@ func (lastOperationalStateChange *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Ts
     lastOperationalStateChange.EntityData.BundleName = "cisco_ios_xr"
     lastOperationalStateChange.EntityData.ParentYangName = "fru-info"
     lastOperationalStateChange.EntityData.SegmentPath = "last-operational-state-change"
+    lastOperationalStateChange.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/attributes/fru-info/" + lastOperationalStateChange.EntityData.SegmentPath
     lastOperationalStateChange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastOperationalStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastOperationalStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4235,6 +4304,7 @@ func (cardUpTime *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     cardUpTime.EntityData.BundleName = "cisco_ios_xr"
     cardUpTime.EntityData.ParentYangName = "fru-info"
     cardUpTime.EntityData.SegmentPath = "card-up-time"
+    cardUpTime.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/attributes/fru-info/" + cardUpTime.EntityData.SegmentPath
     cardUpTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cardUpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cardUpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4284,6 +4354,7 @@ func (invEepromInfo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     invEepromInfo.EntityData.BundleName = "cisco_ios_xr"
     invEepromInfo.EntityData.ParentYangName = "attributes"
     invEepromInfo.EntityData.SegmentPath = "inv-eeprom-info"
+    invEepromInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/attributes/" + invEepromInfo.EntityData.SegmentPath
     invEepromInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invEepromInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invEepromInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4489,6 +4560,7 @@ func (eeprom *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_
     eeprom.EntityData.BundleName = "cisco_ios_xr"
     eeprom.EntityData.ParentYangName = "inv-eeprom-info"
     eeprom.EntityData.SegmentPath = "eeprom"
+    eeprom.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/attributes/inv-eeprom-info/" + eeprom.EntityData.SegmentPath
     eeprom.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eeprom.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eeprom.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4581,6 +4653,7 @@ func (rma *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi
     rma.EntityData.BundleName = "cisco_ios_xr"
     rma.EntityData.ParentYangName = "eeprom"
     rma.EntityData.SegmentPath = "rma"
+    rma.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/attributes/inv-eeprom-info/eeprom/" + rma.EntityData.SegmentPath
     rma.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rma.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rma.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4601,19 +4674,6 @@ func (rma *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi
 type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Tsi9s_Tsi9_Attributes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
-
-    // Inventory EDM Module Done Tuple. The type is interface{} with range:
-    // 0..4294967295. The default value is 1.
-    ModuleDone interface{}
-
-    // VM Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    VmNodeId interface{}
-
-    // VM Done Tuple. The type is interface{} with range: 0..4294967295.
-    VmDone interface{}
-
-    // Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    NodeId interface{}
 
     // Inventory Basic Bag.
     InvBasicBag Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Tsi9s_Tsi9_Attributes_InvBasicBag
@@ -4646,6 +4706,7 @@ func (attributes *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     attributes.EntityData.BundleName = "cisco_ios_xr"
     attributes.EntityData.ParentYangName = "tsi9"
     attributes.EntityData.SegmentPath = "attributes"
+    attributes.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/" + attributes.EntityData.SegmentPath
     attributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     attributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4660,10 +4721,6 @@ func (attributes *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     attributes.EntityData.Children.Append("fru-info", types.YChild{"FruInfo", &attributes.FruInfo})
     attributes.EntityData.Children.Append("inv-eeprom-info", types.YChild{"InvEepromInfo", &attributes.InvEepromInfo})
     attributes.EntityData.Leafs = types.NewOrderedMap()
-    attributes.EntityData.Leafs.Append("module-done", types.YLeaf{"ModuleDone", attributes.ModuleDone})
-    attributes.EntityData.Leafs.Append("vm-node-id", types.YLeaf{"VmNodeId", attributes.VmNodeId})
-    attributes.EntityData.Leafs.Append("vm-done", types.YLeaf{"VmDone", attributes.VmDone})
-    attributes.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", attributes.NodeId})
 
     attributes.EntityData.YListKeys = []string {}
 
@@ -4751,8 +4808,8 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -4772,6 +4829,7 @@ func (invBasicBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     invBasicBag.EntityData.BundleName = "cisco_ios_xr"
     invBasicBag.EntityData.ParentYangName = "attributes"
     invBasicBag.EntityData.SegmentPath = "inv-basic-bag"
+    invBasicBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/attributes/" + invBasicBag.EntityData.SegmentPath
     invBasicBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invBasicBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invBasicBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4865,6 +4923,7 @@ func (envSensorInfo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     envSensorInfo.EntityData.BundleName = "cisco_ios_xr"
     envSensorInfo.EntityData.ParentYangName = "attributes"
     envSensorInfo.EntityData.SegmentPath = "env-sensor-info"
+    envSensorInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/attributes/" + envSensorInfo.EntityData.SegmentPath
     envSensorInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     envSensorInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     envSensorInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4916,6 +4975,7 @@ func (pwgInfo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3
     pwgInfo.EntityData.BundleName = "cisco_ios_xr"
     pwgInfo.EntityData.ParentYangName = "attributes"
     pwgInfo.EntityData.SegmentPath = "pwg-info"
+    pwgInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/attributes/" + pwgInfo.EntityData.SegmentPath
     pwgInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pwgInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pwgInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4968,6 +5028,7 @@ func (envSensorInfoXml *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_T
     envSensorInfoXml.EntityData.BundleName = "cisco_ios_xr"
     envSensorInfoXml.EntityData.ParentYangName = "attributes"
     envSensorInfoXml.EntityData.SegmentPath = "env-sensor-info-xml"
+    envSensorInfoXml.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/attributes/" + envSensorInfoXml.EntityData.SegmentPath
     envSensorInfoXml.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     envSensorInfoXml.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     envSensorInfoXml.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5004,6 +5065,7 @@ func (threshold *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
     threshold.EntityData.BundleName = "cisco_ios_xr"
     threshold.EntityData.ParentYangName = "env-sensor-info-xml"
     threshold.EntityData.SegmentPath = "threshold"
+    threshold.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/attributes/env-sensor-info-xml/" + threshold.EntityData.SegmentPath
     threshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5011,6 +5073,7 @@ func (threshold *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
     threshold.EntityData.Children = types.NewOrderedMap()
     threshold.EntityData.Children.Append("threshold-array", types.YChild{"ThresholdArray", nil})
     for i := range threshold.ThresholdArray {
+        types.SetYListKey(threshold.ThresholdArray[i], i)
         threshold.EntityData.Children.Append(types.GetSegmentPath(threshold.ThresholdArray[i]), types.YChild{"ThresholdArray", threshold.ThresholdArray[i]})
     }
     threshold.EntityData.Leafs = types.NewOrderedMap()
@@ -5025,6 +5088,7 @@ func (threshold *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
 type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Tsi9s_Tsi9_Attributes_EnvSensorInfoXml_Threshold_ThresholdArray struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Indicates minor, major, critical severities. The type is ThresholdSeverity.
     ThresholdSeverity interface{}
@@ -5046,7 +5110,8 @@ func (thresholdArray *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi
     thresholdArray.EntityData.YangName = "threshold-array"
     thresholdArray.EntityData.BundleName = "cisco_ios_xr"
     thresholdArray.EntityData.ParentYangName = "threshold"
-    thresholdArray.EntityData.SegmentPath = "threshold-array"
+    thresholdArray.EntityData.SegmentPath = "threshold-array" + types.AddNoKeyToken(thresholdArray)
+    thresholdArray.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/attributes/env-sensor-info-xml/threshold/" + thresholdArray.EntityData.SegmentPath
     thresholdArray.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     thresholdArray.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     thresholdArray.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5099,6 +5164,7 @@ func (invAssetBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     invAssetBag.EntityData.BundleName = "cisco_ios_xr"
     invAssetBag.EntityData.ParentYangName = "attributes"
     invAssetBag.EntityData.SegmentPath = "inv-asset-bag"
+    invAssetBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/attributes/" + invAssetBag.EntityData.SegmentPath
     invAssetBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invAssetBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invAssetBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5149,6 +5215,7 @@ func (threshold *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
     threshold.EntityData.BundleName = "cisco_ios_xr"
     threshold.EntityData.ParentYangName = "attributes"
     threshold.EntityData.SegmentPath = "threshold"
+    threshold.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/attributes/" + threshold.EntityData.SegmentPath
     threshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5183,6 +5250,7 @@ func (majorLo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3
     majorLo.EntityData.BundleName = "cisco_ios_xr"
     majorLo.EntityData.ParentYangName = "threshold"
     majorLo.EntityData.SegmentPath = "major-lo"
+    majorLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/attributes/threshold/" + majorLo.EntityData.SegmentPath
     majorLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     majorLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     majorLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5229,6 +5297,7 @@ func (threshBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "major-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/attributes/threshold/major-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5262,6 +5331,7 @@ func (criticalHi *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     criticalHi.EntityData.BundleName = "cisco_ios_xr"
     criticalHi.EntityData.ParentYangName = "threshold"
     criticalHi.EntityData.SegmentPath = "critical-hi"
+    criticalHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/attributes/threshold/" + criticalHi.EntityData.SegmentPath
     criticalHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     criticalHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     criticalHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5308,6 +5378,7 @@ func (threshBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "critical-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/attributes/threshold/critical-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5341,6 +5412,7 @@ func (minorHi *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3
     minorHi.EntityData.BundleName = "cisco_ios_xr"
     minorHi.EntityData.ParentYangName = "threshold"
     minorHi.EntityData.SegmentPath = "minor-hi"
+    minorHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/attributes/threshold/" + minorHi.EntityData.SegmentPath
     minorHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     minorHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     minorHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5387,6 +5459,7 @@ func (threshBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "minor-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/attributes/threshold/minor-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5420,6 +5493,7 @@ func (majorHi *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3
     majorHi.EntityData.BundleName = "cisco_ios_xr"
     majorHi.EntityData.ParentYangName = "threshold"
     majorHi.EntityData.SegmentPath = "major-hi"
+    majorHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/attributes/threshold/" + majorHi.EntityData.SegmentPath
     majorHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     majorHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     majorHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5466,6 +5540,7 @@ func (threshBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "major-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/attributes/threshold/major-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5499,6 +5574,7 @@ func (criticalLo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     criticalLo.EntityData.BundleName = "cisco_ios_xr"
     criticalLo.EntityData.ParentYangName = "threshold"
     criticalLo.EntityData.SegmentPath = "critical-lo"
+    criticalLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/attributes/threshold/" + criticalLo.EntityData.SegmentPath
     criticalLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     criticalLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     criticalLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5545,6 +5621,7 @@ func (threshBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "critical-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/attributes/threshold/critical-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5578,6 +5655,7 @@ func (minorLo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3
     minorLo.EntityData.BundleName = "cisco_ios_xr"
     minorLo.EntityData.ParentYangName = "threshold"
     minorLo.EntityData.SegmentPath = "minor-lo"
+    minorLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/attributes/threshold/" + minorLo.EntityData.SegmentPath
     minorLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     minorLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     minorLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5624,6 +5702,7 @@ func (threshBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "minor-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/attributes/threshold/minor-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5687,6 +5766,7 @@ func (fruInfo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3
     fruInfo.EntityData.BundleName = "cisco_ios_xr"
     fruInfo.EntityData.ParentYangName = "attributes"
     fruInfo.EntityData.SegmentPath = "fru-info"
+    fruInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/attributes/" + fruInfo.EntityData.SegmentPath
     fruInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fruInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fruInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5729,6 +5809,7 @@ func (lastOperationalStateChange *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Ts
     lastOperationalStateChange.EntityData.BundleName = "cisco_ios_xr"
     lastOperationalStateChange.EntityData.ParentYangName = "fru-info"
     lastOperationalStateChange.EntityData.SegmentPath = "last-operational-state-change"
+    lastOperationalStateChange.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/attributes/fru-info/" + lastOperationalStateChange.EntityData.SegmentPath
     lastOperationalStateChange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastOperationalStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastOperationalStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5764,6 +5845,7 @@ func (cardUpTime *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     cardUpTime.EntityData.BundleName = "cisco_ios_xr"
     cardUpTime.EntityData.ParentYangName = "fru-info"
     cardUpTime.EntityData.SegmentPath = "card-up-time"
+    cardUpTime.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/attributes/fru-info/" + cardUpTime.EntityData.SegmentPath
     cardUpTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cardUpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cardUpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5813,6 +5895,7 @@ func (invEepromInfo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     invEepromInfo.EntityData.BundleName = "cisco_ios_xr"
     invEepromInfo.EntityData.ParentYangName = "attributes"
     invEepromInfo.EntityData.SegmentPath = "inv-eeprom-info"
+    invEepromInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/attributes/" + invEepromInfo.EntityData.SegmentPath
     invEepromInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invEepromInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invEepromInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6018,6 +6101,7 @@ func (eeprom *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_
     eeprom.EntityData.BundleName = "cisco_ios_xr"
     eeprom.EntityData.ParentYangName = "inv-eeprom-info"
     eeprom.EntityData.SegmentPath = "eeprom"
+    eeprom.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/attributes/inv-eeprom-info/" + eeprom.EntityData.SegmentPath
     eeprom.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eeprom.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eeprom.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6110,6 +6194,7 @@ func (rma *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi
     rma.EntityData.BundleName = "cisco_ios_xr"
     rma.EntityData.ParentYangName = "eeprom"
     rma.EntityData.SegmentPath = "rma"
+    rma.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/attributes/inv-eeprom-info/eeprom/" + rma.EntityData.SegmentPath
     rma.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rma.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rma.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6130,19 +6215,6 @@ func (rma *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi
 type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Attributes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
-
-    // Inventory EDM Module Done Tuple. The type is interface{} with range:
-    // 0..4294967295. The default value is 1.
-    ModuleDone interface{}
-
-    // VM Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    VmNodeId interface{}
-
-    // VM Done Tuple. The type is interface{} with range: 0..4294967295.
-    VmDone interface{}
-
-    // Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    NodeId interface{}
 
     // Inventory Basic Bag.
     InvBasicBag Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Attributes_InvBasicBag
@@ -6175,6 +6247,7 @@ func (attributes *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     attributes.EntityData.BundleName = "cisco_ios_xr"
     attributes.EntityData.ParentYangName = "tsi8"
     attributes.EntityData.SegmentPath = "attributes"
+    attributes.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/" + attributes.EntityData.SegmentPath
     attributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     attributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6189,10 +6262,6 @@ func (attributes *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     attributes.EntityData.Children.Append("fru-info", types.YChild{"FruInfo", &attributes.FruInfo})
     attributes.EntityData.Children.Append("inv-eeprom-info", types.YChild{"InvEepromInfo", &attributes.InvEepromInfo})
     attributes.EntityData.Leafs = types.NewOrderedMap()
-    attributes.EntityData.Leafs.Append("module-done", types.YLeaf{"ModuleDone", attributes.ModuleDone})
-    attributes.EntityData.Leafs.Append("vm-node-id", types.YLeaf{"VmNodeId", attributes.VmNodeId})
-    attributes.EntityData.Leafs.Append("vm-done", types.YLeaf{"VmDone", attributes.VmDone})
-    attributes.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", attributes.NodeId})
 
     attributes.EntityData.YListKeys = []string {}
 
@@ -6280,8 +6349,8 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -6301,6 +6370,7 @@ func (invBasicBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     invBasicBag.EntityData.BundleName = "cisco_ios_xr"
     invBasicBag.EntityData.ParentYangName = "attributes"
     invBasicBag.EntityData.SegmentPath = "inv-basic-bag"
+    invBasicBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/attributes/" + invBasicBag.EntityData.SegmentPath
     invBasicBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invBasicBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invBasicBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6394,6 +6464,7 @@ func (envSensorInfo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     envSensorInfo.EntityData.BundleName = "cisco_ios_xr"
     envSensorInfo.EntityData.ParentYangName = "attributes"
     envSensorInfo.EntityData.SegmentPath = "env-sensor-info"
+    envSensorInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/attributes/" + envSensorInfo.EntityData.SegmentPath
     envSensorInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     envSensorInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     envSensorInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6445,6 +6516,7 @@ func (pwgInfo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3
     pwgInfo.EntityData.BundleName = "cisco_ios_xr"
     pwgInfo.EntityData.ParentYangName = "attributes"
     pwgInfo.EntityData.SegmentPath = "pwg-info"
+    pwgInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/attributes/" + pwgInfo.EntityData.SegmentPath
     pwgInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pwgInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pwgInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6497,6 +6569,7 @@ func (envSensorInfoXml *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_T
     envSensorInfoXml.EntityData.BundleName = "cisco_ios_xr"
     envSensorInfoXml.EntityData.ParentYangName = "attributes"
     envSensorInfoXml.EntityData.SegmentPath = "env-sensor-info-xml"
+    envSensorInfoXml.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/attributes/" + envSensorInfoXml.EntityData.SegmentPath
     envSensorInfoXml.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     envSensorInfoXml.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     envSensorInfoXml.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6533,6 +6606,7 @@ func (threshold *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
     threshold.EntityData.BundleName = "cisco_ios_xr"
     threshold.EntityData.ParentYangName = "env-sensor-info-xml"
     threshold.EntityData.SegmentPath = "threshold"
+    threshold.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/attributes/env-sensor-info-xml/" + threshold.EntityData.SegmentPath
     threshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6540,6 +6614,7 @@ func (threshold *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
     threshold.EntityData.Children = types.NewOrderedMap()
     threshold.EntityData.Children.Append("threshold-array", types.YChild{"ThresholdArray", nil})
     for i := range threshold.ThresholdArray {
+        types.SetYListKey(threshold.ThresholdArray[i], i)
         threshold.EntityData.Children.Append(types.GetSegmentPath(threshold.ThresholdArray[i]), types.YChild{"ThresholdArray", threshold.ThresholdArray[i]})
     }
     threshold.EntityData.Leafs = types.NewOrderedMap()
@@ -6554,6 +6629,7 @@ func (threshold *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
 type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Attributes_EnvSensorInfoXml_Threshold_ThresholdArray struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Indicates minor, major, critical severities. The type is ThresholdSeverity.
     ThresholdSeverity interface{}
@@ -6575,7 +6651,8 @@ func (thresholdArray *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi
     thresholdArray.EntityData.YangName = "threshold-array"
     thresholdArray.EntityData.BundleName = "cisco_ios_xr"
     thresholdArray.EntityData.ParentYangName = "threshold"
-    thresholdArray.EntityData.SegmentPath = "threshold-array"
+    thresholdArray.EntityData.SegmentPath = "threshold-array" + types.AddNoKeyToken(thresholdArray)
+    thresholdArray.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/attributes/env-sensor-info-xml/threshold/" + thresholdArray.EntityData.SegmentPath
     thresholdArray.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     thresholdArray.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     thresholdArray.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6628,6 +6705,7 @@ func (invAssetBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     invAssetBag.EntityData.BundleName = "cisco_ios_xr"
     invAssetBag.EntityData.ParentYangName = "attributes"
     invAssetBag.EntityData.SegmentPath = "inv-asset-bag"
+    invAssetBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/attributes/" + invAssetBag.EntityData.SegmentPath
     invAssetBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invAssetBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invAssetBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6678,6 +6756,7 @@ func (threshold *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
     threshold.EntityData.BundleName = "cisco_ios_xr"
     threshold.EntityData.ParentYangName = "attributes"
     threshold.EntityData.SegmentPath = "threshold"
+    threshold.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/attributes/" + threshold.EntityData.SegmentPath
     threshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6712,6 +6791,7 @@ func (majorLo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3
     majorLo.EntityData.BundleName = "cisco_ios_xr"
     majorLo.EntityData.ParentYangName = "threshold"
     majorLo.EntityData.SegmentPath = "major-lo"
+    majorLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/attributes/threshold/" + majorLo.EntityData.SegmentPath
     majorLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     majorLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     majorLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6758,6 +6838,7 @@ func (threshBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "major-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/attributes/threshold/major-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6791,6 +6872,7 @@ func (criticalHi *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     criticalHi.EntityData.BundleName = "cisco_ios_xr"
     criticalHi.EntityData.ParentYangName = "threshold"
     criticalHi.EntityData.SegmentPath = "critical-hi"
+    criticalHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/attributes/threshold/" + criticalHi.EntityData.SegmentPath
     criticalHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     criticalHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     criticalHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6837,6 +6919,7 @@ func (threshBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "critical-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/attributes/threshold/critical-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6870,6 +6953,7 @@ func (minorHi *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3
     minorHi.EntityData.BundleName = "cisco_ios_xr"
     minorHi.EntityData.ParentYangName = "threshold"
     minorHi.EntityData.SegmentPath = "minor-hi"
+    minorHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/attributes/threshold/" + minorHi.EntityData.SegmentPath
     minorHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     minorHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     minorHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6916,6 +7000,7 @@ func (threshBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "minor-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/attributes/threshold/minor-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6949,6 +7034,7 @@ func (majorHi *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3
     majorHi.EntityData.BundleName = "cisco_ios_xr"
     majorHi.EntityData.ParentYangName = "threshold"
     majorHi.EntityData.SegmentPath = "major-hi"
+    majorHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/attributes/threshold/" + majorHi.EntityData.SegmentPath
     majorHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     majorHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     majorHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6995,6 +7081,7 @@ func (threshBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "major-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/attributes/threshold/major-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7028,6 +7115,7 @@ func (criticalLo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     criticalLo.EntityData.BundleName = "cisco_ios_xr"
     criticalLo.EntityData.ParentYangName = "threshold"
     criticalLo.EntityData.SegmentPath = "critical-lo"
+    criticalLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/attributes/threshold/" + criticalLo.EntityData.SegmentPath
     criticalLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     criticalLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     criticalLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7074,6 +7162,7 @@ func (threshBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "critical-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/attributes/threshold/critical-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7107,6 +7196,7 @@ func (minorLo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3
     minorLo.EntityData.BundleName = "cisco_ios_xr"
     minorLo.EntityData.ParentYangName = "threshold"
     minorLo.EntityData.SegmentPath = "minor-lo"
+    minorLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/attributes/threshold/" + minorLo.EntityData.SegmentPath
     minorLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     minorLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     minorLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7153,6 +7243,7 @@ func (threshBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "minor-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/attributes/threshold/minor-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7216,6 +7307,7 @@ func (fruInfo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3
     fruInfo.EntityData.BundleName = "cisco_ios_xr"
     fruInfo.EntityData.ParentYangName = "attributes"
     fruInfo.EntityData.SegmentPath = "fru-info"
+    fruInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/attributes/" + fruInfo.EntityData.SegmentPath
     fruInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fruInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fruInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7258,6 +7350,7 @@ func (lastOperationalStateChange *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Ts
     lastOperationalStateChange.EntityData.BundleName = "cisco_ios_xr"
     lastOperationalStateChange.EntityData.ParentYangName = "fru-info"
     lastOperationalStateChange.EntityData.SegmentPath = "last-operational-state-change"
+    lastOperationalStateChange.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/attributes/fru-info/" + lastOperationalStateChange.EntityData.SegmentPath
     lastOperationalStateChange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastOperationalStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastOperationalStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7293,6 +7386,7 @@ func (cardUpTime *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     cardUpTime.EntityData.BundleName = "cisco_ios_xr"
     cardUpTime.EntityData.ParentYangName = "fru-info"
     cardUpTime.EntityData.SegmentPath = "card-up-time"
+    cardUpTime.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/attributes/fru-info/" + cardUpTime.EntityData.SegmentPath
     cardUpTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cardUpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cardUpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7342,6 +7436,7 @@ func (invEepromInfo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     invEepromInfo.EntityData.BundleName = "cisco_ios_xr"
     invEepromInfo.EntityData.ParentYangName = "attributes"
     invEepromInfo.EntityData.SegmentPath = "inv-eeprom-info"
+    invEepromInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/attributes/" + invEepromInfo.EntityData.SegmentPath
     invEepromInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invEepromInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invEepromInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7547,6 +7642,7 @@ func (eeprom *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_
     eeprom.EntityData.BundleName = "cisco_ios_xr"
     eeprom.EntityData.ParentYangName = "inv-eeprom-info"
     eeprom.EntityData.SegmentPath = "eeprom"
+    eeprom.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/attributes/inv-eeprom-info/" + eeprom.EntityData.SegmentPath
     eeprom.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eeprom.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eeprom.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7639,6 +7735,7 @@ func (rma *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi
     rma.EntityData.BundleName = "cisco_ios_xr"
     rma.EntityData.ParentYangName = "eeprom"
     rma.EntityData.SegmentPath = "rma"
+    rma.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/attributes/inv-eeprom-info/eeprom/" + rma.EntityData.SegmentPath
     rma.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rma.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rma.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7659,19 +7756,6 @@ func (rma *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi
 type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Attributes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
-
-    // Inventory EDM Module Done Tuple. The type is interface{} with range:
-    // 0..4294967295. The default value is 1.
-    ModuleDone interface{}
-
-    // VM Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    VmNodeId interface{}
-
-    // VM Done Tuple. The type is interface{} with range: 0..4294967295.
-    VmDone interface{}
-
-    // Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    NodeId interface{}
 
     // Inventory Basic Bag.
     InvBasicBag Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Attributes_InvBasicBag
@@ -7704,6 +7788,7 @@ func (attributes *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     attributes.EntityData.BundleName = "cisco_ios_xr"
     attributes.EntityData.ParentYangName = "tsi7"
     attributes.EntityData.SegmentPath = "attributes"
+    attributes.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/" + attributes.EntityData.SegmentPath
     attributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     attributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7718,10 +7803,6 @@ func (attributes *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     attributes.EntityData.Children.Append("fru-info", types.YChild{"FruInfo", &attributes.FruInfo})
     attributes.EntityData.Children.Append("inv-eeprom-info", types.YChild{"InvEepromInfo", &attributes.InvEepromInfo})
     attributes.EntityData.Leafs = types.NewOrderedMap()
-    attributes.EntityData.Leafs.Append("module-done", types.YLeaf{"ModuleDone", attributes.ModuleDone})
-    attributes.EntityData.Leafs.Append("vm-node-id", types.YLeaf{"VmNodeId", attributes.VmNodeId})
-    attributes.EntityData.Leafs.Append("vm-done", types.YLeaf{"VmDone", attributes.VmDone})
-    attributes.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", attributes.NodeId})
 
     attributes.EntityData.YListKeys = []string {}
 
@@ -7809,8 +7890,8 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -7830,6 +7911,7 @@ func (invBasicBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     invBasicBag.EntityData.BundleName = "cisco_ios_xr"
     invBasicBag.EntityData.ParentYangName = "attributes"
     invBasicBag.EntityData.SegmentPath = "inv-basic-bag"
+    invBasicBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/attributes/" + invBasicBag.EntityData.SegmentPath
     invBasicBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invBasicBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invBasicBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7923,6 +8005,7 @@ func (envSensorInfo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     envSensorInfo.EntityData.BundleName = "cisco_ios_xr"
     envSensorInfo.EntityData.ParentYangName = "attributes"
     envSensorInfo.EntityData.SegmentPath = "env-sensor-info"
+    envSensorInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/attributes/" + envSensorInfo.EntityData.SegmentPath
     envSensorInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     envSensorInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     envSensorInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7974,6 +8057,7 @@ func (pwgInfo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3
     pwgInfo.EntityData.BundleName = "cisco_ios_xr"
     pwgInfo.EntityData.ParentYangName = "attributes"
     pwgInfo.EntityData.SegmentPath = "pwg-info"
+    pwgInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/attributes/" + pwgInfo.EntityData.SegmentPath
     pwgInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pwgInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pwgInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8026,6 +8110,7 @@ func (envSensorInfoXml *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_T
     envSensorInfoXml.EntityData.BundleName = "cisco_ios_xr"
     envSensorInfoXml.EntityData.ParentYangName = "attributes"
     envSensorInfoXml.EntityData.SegmentPath = "env-sensor-info-xml"
+    envSensorInfoXml.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/attributes/" + envSensorInfoXml.EntityData.SegmentPath
     envSensorInfoXml.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     envSensorInfoXml.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     envSensorInfoXml.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8062,6 +8147,7 @@ func (threshold *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
     threshold.EntityData.BundleName = "cisco_ios_xr"
     threshold.EntityData.ParentYangName = "env-sensor-info-xml"
     threshold.EntityData.SegmentPath = "threshold"
+    threshold.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/attributes/env-sensor-info-xml/" + threshold.EntityData.SegmentPath
     threshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8069,6 +8155,7 @@ func (threshold *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
     threshold.EntityData.Children = types.NewOrderedMap()
     threshold.EntityData.Children.Append("threshold-array", types.YChild{"ThresholdArray", nil})
     for i := range threshold.ThresholdArray {
+        types.SetYListKey(threshold.ThresholdArray[i], i)
         threshold.EntityData.Children.Append(types.GetSegmentPath(threshold.ThresholdArray[i]), types.YChild{"ThresholdArray", threshold.ThresholdArray[i]})
     }
     threshold.EntityData.Leafs = types.NewOrderedMap()
@@ -8083,6 +8170,7 @@ func (threshold *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
 type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Attributes_EnvSensorInfoXml_Threshold_ThresholdArray struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Indicates minor, major, critical severities. The type is ThresholdSeverity.
     ThresholdSeverity interface{}
@@ -8104,7 +8192,8 @@ func (thresholdArray *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi
     thresholdArray.EntityData.YangName = "threshold-array"
     thresholdArray.EntityData.BundleName = "cisco_ios_xr"
     thresholdArray.EntityData.ParentYangName = "threshold"
-    thresholdArray.EntityData.SegmentPath = "threshold-array"
+    thresholdArray.EntityData.SegmentPath = "threshold-array" + types.AddNoKeyToken(thresholdArray)
+    thresholdArray.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/attributes/env-sensor-info-xml/threshold/" + thresholdArray.EntityData.SegmentPath
     thresholdArray.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     thresholdArray.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     thresholdArray.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8157,6 +8246,7 @@ func (invAssetBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     invAssetBag.EntityData.BundleName = "cisco_ios_xr"
     invAssetBag.EntityData.ParentYangName = "attributes"
     invAssetBag.EntityData.SegmentPath = "inv-asset-bag"
+    invAssetBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/attributes/" + invAssetBag.EntityData.SegmentPath
     invAssetBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invAssetBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invAssetBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8207,6 +8297,7 @@ func (threshold *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
     threshold.EntityData.BundleName = "cisco_ios_xr"
     threshold.EntityData.ParentYangName = "attributes"
     threshold.EntityData.SegmentPath = "threshold"
+    threshold.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/attributes/" + threshold.EntityData.SegmentPath
     threshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8241,6 +8332,7 @@ func (majorLo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3
     majorLo.EntityData.BundleName = "cisco_ios_xr"
     majorLo.EntityData.ParentYangName = "threshold"
     majorLo.EntityData.SegmentPath = "major-lo"
+    majorLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/attributes/threshold/" + majorLo.EntityData.SegmentPath
     majorLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     majorLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     majorLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8287,6 +8379,7 @@ func (threshBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "major-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/attributes/threshold/major-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8320,6 +8413,7 @@ func (criticalHi *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     criticalHi.EntityData.BundleName = "cisco_ios_xr"
     criticalHi.EntityData.ParentYangName = "threshold"
     criticalHi.EntityData.SegmentPath = "critical-hi"
+    criticalHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/attributes/threshold/" + criticalHi.EntityData.SegmentPath
     criticalHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     criticalHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     criticalHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8366,6 +8460,7 @@ func (threshBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "critical-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/attributes/threshold/critical-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8399,6 +8494,7 @@ func (minorHi *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3
     minorHi.EntityData.BundleName = "cisco_ios_xr"
     minorHi.EntityData.ParentYangName = "threshold"
     minorHi.EntityData.SegmentPath = "minor-hi"
+    minorHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/attributes/threshold/" + minorHi.EntityData.SegmentPath
     minorHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     minorHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     minorHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8445,6 +8541,7 @@ func (threshBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "minor-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/attributes/threshold/minor-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8478,6 +8575,7 @@ func (majorHi *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3
     majorHi.EntityData.BundleName = "cisco_ios_xr"
     majorHi.EntityData.ParentYangName = "threshold"
     majorHi.EntityData.SegmentPath = "major-hi"
+    majorHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/attributes/threshold/" + majorHi.EntityData.SegmentPath
     majorHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     majorHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     majorHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8524,6 +8622,7 @@ func (threshBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "major-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/attributes/threshold/major-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8557,6 +8656,7 @@ func (criticalLo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     criticalLo.EntityData.BundleName = "cisco_ios_xr"
     criticalLo.EntityData.ParentYangName = "threshold"
     criticalLo.EntityData.SegmentPath = "critical-lo"
+    criticalLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/attributes/threshold/" + criticalLo.EntityData.SegmentPath
     criticalLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     criticalLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     criticalLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8603,6 +8703,7 @@ func (threshBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "critical-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/attributes/threshold/critical-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8636,6 +8737,7 @@ func (minorLo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3
     minorLo.EntityData.BundleName = "cisco_ios_xr"
     minorLo.EntityData.ParentYangName = "threshold"
     minorLo.EntityData.SegmentPath = "minor-lo"
+    minorLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/attributes/threshold/" + minorLo.EntityData.SegmentPath
     minorLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     minorLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     minorLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8682,6 +8784,7 @@ func (threshBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "minor-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/attributes/threshold/minor-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8745,6 +8848,7 @@ func (fruInfo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3
     fruInfo.EntityData.BundleName = "cisco_ios_xr"
     fruInfo.EntityData.ParentYangName = "attributes"
     fruInfo.EntityData.SegmentPath = "fru-info"
+    fruInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/attributes/" + fruInfo.EntityData.SegmentPath
     fruInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fruInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fruInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8787,6 +8891,7 @@ func (lastOperationalStateChange *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Ts
     lastOperationalStateChange.EntityData.BundleName = "cisco_ios_xr"
     lastOperationalStateChange.EntityData.ParentYangName = "fru-info"
     lastOperationalStateChange.EntityData.SegmentPath = "last-operational-state-change"
+    lastOperationalStateChange.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/attributes/fru-info/" + lastOperationalStateChange.EntityData.SegmentPath
     lastOperationalStateChange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastOperationalStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastOperationalStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8822,6 +8927,7 @@ func (cardUpTime *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     cardUpTime.EntityData.BundleName = "cisco_ios_xr"
     cardUpTime.EntityData.ParentYangName = "fru-info"
     cardUpTime.EntityData.SegmentPath = "card-up-time"
+    cardUpTime.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/attributes/fru-info/" + cardUpTime.EntityData.SegmentPath
     cardUpTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cardUpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cardUpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8871,6 +8977,7 @@ func (invEepromInfo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     invEepromInfo.EntityData.BundleName = "cisco_ios_xr"
     invEepromInfo.EntityData.ParentYangName = "attributes"
     invEepromInfo.EntityData.SegmentPath = "inv-eeprom-info"
+    invEepromInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/attributes/" + invEepromInfo.EntityData.SegmentPath
     invEepromInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invEepromInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invEepromInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9076,6 +9183,7 @@ func (eeprom *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_
     eeprom.EntityData.BundleName = "cisco_ios_xr"
     eeprom.EntityData.ParentYangName = "inv-eeprom-info"
     eeprom.EntityData.SegmentPath = "eeprom"
+    eeprom.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/attributes/inv-eeprom-info/" + eeprom.EntityData.SegmentPath
     eeprom.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eeprom.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eeprom.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9168,6 +9276,7 @@ func (rma *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi
     rma.EntityData.BundleName = "cisco_ios_xr"
     rma.EntityData.ParentYangName = "eeprom"
     rma.EntityData.SegmentPath = "rma"
+    rma.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/attributes/inv-eeprom-info/eeprom/" + rma.EntityData.SegmentPath
     rma.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rma.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rma.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9188,19 +9297,6 @@ func (rma *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi
 type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Attributes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
-
-    // Inventory EDM Module Done Tuple. The type is interface{} with range:
-    // 0..4294967295. The default value is 1.
-    ModuleDone interface{}
-
-    // VM Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    VmNodeId interface{}
-
-    // VM Done Tuple. The type is interface{} with range: 0..4294967295.
-    VmDone interface{}
-
-    // Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    NodeId interface{}
 
     // Inventory Basic Bag.
     InvBasicBag Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Attributes_InvBasicBag
@@ -9233,6 +9329,7 @@ func (attributes *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     attributes.EntityData.BundleName = "cisco_ios_xr"
     attributes.EntityData.ParentYangName = "tsi6"
     attributes.EntityData.SegmentPath = "attributes"
+    attributes.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/" + attributes.EntityData.SegmentPath
     attributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     attributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9247,10 +9344,6 @@ func (attributes *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     attributes.EntityData.Children.Append("fru-info", types.YChild{"FruInfo", &attributes.FruInfo})
     attributes.EntityData.Children.Append("inv-eeprom-info", types.YChild{"InvEepromInfo", &attributes.InvEepromInfo})
     attributes.EntityData.Leafs = types.NewOrderedMap()
-    attributes.EntityData.Leafs.Append("module-done", types.YLeaf{"ModuleDone", attributes.ModuleDone})
-    attributes.EntityData.Leafs.Append("vm-node-id", types.YLeaf{"VmNodeId", attributes.VmNodeId})
-    attributes.EntityData.Leafs.Append("vm-done", types.YLeaf{"VmDone", attributes.VmDone})
-    attributes.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", attributes.NodeId})
 
     attributes.EntityData.YListKeys = []string {}
 
@@ -9338,8 +9431,8 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -9359,6 +9452,7 @@ func (invBasicBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     invBasicBag.EntityData.BundleName = "cisco_ios_xr"
     invBasicBag.EntityData.ParentYangName = "attributes"
     invBasicBag.EntityData.SegmentPath = "inv-basic-bag"
+    invBasicBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/attributes/" + invBasicBag.EntityData.SegmentPath
     invBasicBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invBasicBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invBasicBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9452,6 +9546,7 @@ func (envSensorInfo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     envSensorInfo.EntityData.BundleName = "cisco_ios_xr"
     envSensorInfo.EntityData.ParentYangName = "attributes"
     envSensorInfo.EntityData.SegmentPath = "env-sensor-info"
+    envSensorInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/attributes/" + envSensorInfo.EntityData.SegmentPath
     envSensorInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     envSensorInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     envSensorInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9503,6 +9598,7 @@ func (pwgInfo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3
     pwgInfo.EntityData.BundleName = "cisco_ios_xr"
     pwgInfo.EntityData.ParentYangName = "attributes"
     pwgInfo.EntityData.SegmentPath = "pwg-info"
+    pwgInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/attributes/" + pwgInfo.EntityData.SegmentPath
     pwgInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pwgInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pwgInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9555,6 +9651,7 @@ func (envSensorInfoXml *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_T
     envSensorInfoXml.EntityData.BundleName = "cisco_ios_xr"
     envSensorInfoXml.EntityData.ParentYangName = "attributes"
     envSensorInfoXml.EntityData.SegmentPath = "env-sensor-info-xml"
+    envSensorInfoXml.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/attributes/" + envSensorInfoXml.EntityData.SegmentPath
     envSensorInfoXml.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     envSensorInfoXml.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     envSensorInfoXml.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9591,6 +9688,7 @@ func (threshold *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
     threshold.EntityData.BundleName = "cisco_ios_xr"
     threshold.EntityData.ParentYangName = "env-sensor-info-xml"
     threshold.EntityData.SegmentPath = "threshold"
+    threshold.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/attributes/env-sensor-info-xml/" + threshold.EntityData.SegmentPath
     threshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9598,6 +9696,7 @@ func (threshold *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
     threshold.EntityData.Children = types.NewOrderedMap()
     threshold.EntityData.Children.Append("threshold-array", types.YChild{"ThresholdArray", nil})
     for i := range threshold.ThresholdArray {
+        types.SetYListKey(threshold.ThresholdArray[i], i)
         threshold.EntityData.Children.Append(types.GetSegmentPath(threshold.ThresholdArray[i]), types.YChild{"ThresholdArray", threshold.ThresholdArray[i]})
     }
     threshold.EntityData.Leafs = types.NewOrderedMap()
@@ -9612,6 +9711,7 @@ func (threshold *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
 type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Attributes_EnvSensorInfoXml_Threshold_ThresholdArray struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Indicates minor, major, critical severities. The type is ThresholdSeverity.
     ThresholdSeverity interface{}
@@ -9633,7 +9733,8 @@ func (thresholdArray *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi
     thresholdArray.EntityData.YangName = "threshold-array"
     thresholdArray.EntityData.BundleName = "cisco_ios_xr"
     thresholdArray.EntityData.ParentYangName = "threshold"
-    thresholdArray.EntityData.SegmentPath = "threshold-array"
+    thresholdArray.EntityData.SegmentPath = "threshold-array" + types.AddNoKeyToken(thresholdArray)
+    thresholdArray.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/attributes/env-sensor-info-xml/threshold/" + thresholdArray.EntityData.SegmentPath
     thresholdArray.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     thresholdArray.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     thresholdArray.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9686,6 +9787,7 @@ func (invAssetBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     invAssetBag.EntityData.BundleName = "cisco_ios_xr"
     invAssetBag.EntityData.ParentYangName = "attributes"
     invAssetBag.EntityData.SegmentPath = "inv-asset-bag"
+    invAssetBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/attributes/" + invAssetBag.EntityData.SegmentPath
     invAssetBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invAssetBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invAssetBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9736,6 +9838,7 @@ func (threshold *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
     threshold.EntityData.BundleName = "cisco_ios_xr"
     threshold.EntityData.ParentYangName = "attributes"
     threshold.EntityData.SegmentPath = "threshold"
+    threshold.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/attributes/" + threshold.EntityData.SegmentPath
     threshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9770,6 +9873,7 @@ func (majorLo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3
     majorLo.EntityData.BundleName = "cisco_ios_xr"
     majorLo.EntityData.ParentYangName = "threshold"
     majorLo.EntityData.SegmentPath = "major-lo"
+    majorLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/attributes/threshold/" + majorLo.EntityData.SegmentPath
     majorLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     majorLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     majorLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9816,6 +9920,7 @@ func (threshBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "major-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/attributes/threshold/major-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9849,6 +9954,7 @@ func (criticalHi *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     criticalHi.EntityData.BundleName = "cisco_ios_xr"
     criticalHi.EntityData.ParentYangName = "threshold"
     criticalHi.EntityData.SegmentPath = "critical-hi"
+    criticalHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/attributes/threshold/" + criticalHi.EntityData.SegmentPath
     criticalHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     criticalHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     criticalHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9895,6 +10001,7 @@ func (threshBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "critical-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/attributes/threshold/critical-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9928,6 +10035,7 @@ func (minorHi *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3
     minorHi.EntityData.BundleName = "cisco_ios_xr"
     minorHi.EntityData.ParentYangName = "threshold"
     minorHi.EntityData.SegmentPath = "minor-hi"
+    minorHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/attributes/threshold/" + minorHi.EntityData.SegmentPath
     minorHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     minorHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     minorHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9974,6 +10082,7 @@ func (threshBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "minor-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/attributes/threshold/minor-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10007,6 +10116,7 @@ func (majorHi *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3
     majorHi.EntityData.BundleName = "cisco_ios_xr"
     majorHi.EntityData.ParentYangName = "threshold"
     majorHi.EntityData.SegmentPath = "major-hi"
+    majorHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/attributes/threshold/" + majorHi.EntityData.SegmentPath
     majorHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     majorHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     majorHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10053,6 +10163,7 @@ func (threshBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "major-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/attributes/threshold/major-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10086,6 +10197,7 @@ func (criticalLo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     criticalLo.EntityData.BundleName = "cisco_ios_xr"
     criticalLo.EntityData.ParentYangName = "threshold"
     criticalLo.EntityData.SegmentPath = "critical-lo"
+    criticalLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/attributes/threshold/" + criticalLo.EntityData.SegmentPath
     criticalLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     criticalLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     criticalLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10132,6 +10244,7 @@ func (threshBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "critical-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/attributes/threshold/critical-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10165,6 +10278,7 @@ func (minorLo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3
     minorLo.EntityData.BundleName = "cisco_ios_xr"
     minorLo.EntityData.ParentYangName = "threshold"
     minorLo.EntityData.SegmentPath = "minor-lo"
+    minorLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/attributes/threshold/" + minorLo.EntityData.SegmentPath
     minorLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     minorLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     minorLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10211,6 +10325,7 @@ func (threshBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "minor-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/attributes/threshold/minor-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10274,6 +10389,7 @@ func (fruInfo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3
     fruInfo.EntityData.BundleName = "cisco_ios_xr"
     fruInfo.EntityData.ParentYangName = "attributes"
     fruInfo.EntityData.SegmentPath = "fru-info"
+    fruInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/attributes/" + fruInfo.EntityData.SegmentPath
     fruInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fruInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fruInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10316,6 +10432,7 @@ func (lastOperationalStateChange *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Ts
     lastOperationalStateChange.EntityData.BundleName = "cisco_ios_xr"
     lastOperationalStateChange.EntityData.ParentYangName = "fru-info"
     lastOperationalStateChange.EntityData.SegmentPath = "last-operational-state-change"
+    lastOperationalStateChange.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/attributes/fru-info/" + lastOperationalStateChange.EntityData.SegmentPath
     lastOperationalStateChange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastOperationalStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastOperationalStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10351,6 +10468,7 @@ func (cardUpTime *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     cardUpTime.EntityData.BundleName = "cisco_ios_xr"
     cardUpTime.EntityData.ParentYangName = "fru-info"
     cardUpTime.EntityData.SegmentPath = "card-up-time"
+    cardUpTime.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/attributes/fru-info/" + cardUpTime.EntityData.SegmentPath
     cardUpTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cardUpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cardUpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10400,6 +10518,7 @@ func (invEepromInfo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     invEepromInfo.EntityData.BundleName = "cisco_ios_xr"
     invEepromInfo.EntityData.ParentYangName = "attributes"
     invEepromInfo.EntityData.SegmentPath = "inv-eeprom-info"
+    invEepromInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/attributes/" + invEepromInfo.EntityData.SegmentPath
     invEepromInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invEepromInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invEepromInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10605,6 +10724,7 @@ func (eeprom *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_
     eeprom.EntityData.BundleName = "cisco_ios_xr"
     eeprom.EntityData.ParentYangName = "inv-eeprom-info"
     eeprom.EntityData.SegmentPath = "eeprom"
+    eeprom.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/attributes/inv-eeprom-info/" + eeprom.EntityData.SegmentPath
     eeprom.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eeprom.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eeprom.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10697,6 +10817,7 @@ func (rma *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi
     rma.EntityData.BundleName = "cisco_ios_xr"
     rma.EntityData.ParentYangName = "eeprom"
     rma.EntityData.SegmentPath = "rma"
+    rma.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/attributes/inv-eeprom-info/eeprom/" + rma.EntityData.SegmentPath
     rma.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rma.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rma.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10717,19 +10838,6 @@ func (rma *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi
 type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Attributes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
-
-    // Inventory EDM Module Done Tuple. The type is interface{} with range:
-    // 0..4294967295. The default value is 1.
-    ModuleDone interface{}
-
-    // VM Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    VmNodeId interface{}
-
-    // VM Done Tuple. The type is interface{} with range: 0..4294967295.
-    VmDone interface{}
-
-    // Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    NodeId interface{}
 
     // Inventory Basic Bag.
     InvBasicBag Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Attributes_InvBasicBag
@@ -10762,6 +10870,7 @@ func (attributes *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     attributes.EntityData.BundleName = "cisco_ios_xr"
     attributes.EntityData.ParentYangName = "tsi5"
     attributes.EntityData.SegmentPath = "attributes"
+    attributes.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/" + attributes.EntityData.SegmentPath
     attributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     attributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10776,10 +10885,6 @@ func (attributes *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     attributes.EntityData.Children.Append("fru-info", types.YChild{"FruInfo", &attributes.FruInfo})
     attributes.EntityData.Children.Append("inv-eeprom-info", types.YChild{"InvEepromInfo", &attributes.InvEepromInfo})
     attributes.EntityData.Leafs = types.NewOrderedMap()
-    attributes.EntityData.Leafs.Append("module-done", types.YLeaf{"ModuleDone", attributes.ModuleDone})
-    attributes.EntityData.Leafs.Append("vm-node-id", types.YLeaf{"VmNodeId", attributes.VmNodeId})
-    attributes.EntityData.Leafs.Append("vm-done", types.YLeaf{"VmDone", attributes.VmDone})
-    attributes.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", attributes.NodeId})
 
     attributes.EntityData.YListKeys = []string {}
 
@@ -10867,8 +10972,8 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -10888,6 +10993,7 @@ func (invBasicBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     invBasicBag.EntityData.BundleName = "cisco_ios_xr"
     invBasicBag.EntityData.ParentYangName = "attributes"
     invBasicBag.EntityData.SegmentPath = "inv-basic-bag"
+    invBasicBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/attributes/" + invBasicBag.EntityData.SegmentPath
     invBasicBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invBasicBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invBasicBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10981,6 +11087,7 @@ func (envSensorInfo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     envSensorInfo.EntityData.BundleName = "cisco_ios_xr"
     envSensorInfo.EntityData.ParentYangName = "attributes"
     envSensorInfo.EntityData.SegmentPath = "env-sensor-info"
+    envSensorInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/attributes/" + envSensorInfo.EntityData.SegmentPath
     envSensorInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     envSensorInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     envSensorInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11032,6 +11139,7 @@ func (pwgInfo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3
     pwgInfo.EntityData.BundleName = "cisco_ios_xr"
     pwgInfo.EntityData.ParentYangName = "attributes"
     pwgInfo.EntityData.SegmentPath = "pwg-info"
+    pwgInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/attributes/" + pwgInfo.EntityData.SegmentPath
     pwgInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pwgInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pwgInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11084,6 +11192,7 @@ func (envSensorInfoXml *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_T
     envSensorInfoXml.EntityData.BundleName = "cisco_ios_xr"
     envSensorInfoXml.EntityData.ParentYangName = "attributes"
     envSensorInfoXml.EntityData.SegmentPath = "env-sensor-info-xml"
+    envSensorInfoXml.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/attributes/" + envSensorInfoXml.EntityData.SegmentPath
     envSensorInfoXml.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     envSensorInfoXml.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     envSensorInfoXml.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11120,6 +11229,7 @@ func (threshold *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
     threshold.EntityData.BundleName = "cisco_ios_xr"
     threshold.EntityData.ParentYangName = "env-sensor-info-xml"
     threshold.EntityData.SegmentPath = "threshold"
+    threshold.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/attributes/env-sensor-info-xml/" + threshold.EntityData.SegmentPath
     threshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11127,6 +11237,7 @@ func (threshold *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
     threshold.EntityData.Children = types.NewOrderedMap()
     threshold.EntityData.Children.Append("threshold-array", types.YChild{"ThresholdArray", nil})
     for i := range threshold.ThresholdArray {
+        types.SetYListKey(threshold.ThresholdArray[i], i)
         threshold.EntityData.Children.Append(types.GetSegmentPath(threshold.ThresholdArray[i]), types.YChild{"ThresholdArray", threshold.ThresholdArray[i]})
     }
     threshold.EntityData.Leafs = types.NewOrderedMap()
@@ -11141,6 +11252,7 @@ func (threshold *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
 type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Attributes_EnvSensorInfoXml_Threshold_ThresholdArray struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Indicates minor, major, critical severities. The type is ThresholdSeverity.
     ThresholdSeverity interface{}
@@ -11162,7 +11274,8 @@ func (thresholdArray *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi
     thresholdArray.EntityData.YangName = "threshold-array"
     thresholdArray.EntityData.BundleName = "cisco_ios_xr"
     thresholdArray.EntityData.ParentYangName = "threshold"
-    thresholdArray.EntityData.SegmentPath = "threshold-array"
+    thresholdArray.EntityData.SegmentPath = "threshold-array" + types.AddNoKeyToken(thresholdArray)
+    thresholdArray.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/attributes/env-sensor-info-xml/threshold/" + thresholdArray.EntityData.SegmentPath
     thresholdArray.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     thresholdArray.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     thresholdArray.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11215,6 +11328,7 @@ func (invAssetBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     invAssetBag.EntityData.BundleName = "cisco_ios_xr"
     invAssetBag.EntityData.ParentYangName = "attributes"
     invAssetBag.EntityData.SegmentPath = "inv-asset-bag"
+    invAssetBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/attributes/" + invAssetBag.EntityData.SegmentPath
     invAssetBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invAssetBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invAssetBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11265,6 +11379,7 @@ func (threshold *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
     threshold.EntityData.BundleName = "cisco_ios_xr"
     threshold.EntityData.ParentYangName = "attributes"
     threshold.EntityData.SegmentPath = "threshold"
+    threshold.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/attributes/" + threshold.EntityData.SegmentPath
     threshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11299,6 +11414,7 @@ func (majorLo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3
     majorLo.EntityData.BundleName = "cisco_ios_xr"
     majorLo.EntityData.ParentYangName = "threshold"
     majorLo.EntityData.SegmentPath = "major-lo"
+    majorLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/attributes/threshold/" + majorLo.EntityData.SegmentPath
     majorLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     majorLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     majorLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11345,6 +11461,7 @@ func (threshBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "major-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/attributes/threshold/major-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11378,6 +11495,7 @@ func (criticalHi *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     criticalHi.EntityData.BundleName = "cisco_ios_xr"
     criticalHi.EntityData.ParentYangName = "threshold"
     criticalHi.EntityData.SegmentPath = "critical-hi"
+    criticalHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/attributes/threshold/" + criticalHi.EntityData.SegmentPath
     criticalHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     criticalHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     criticalHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11424,6 +11542,7 @@ func (threshBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "critical-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/attributes/threshold/critical-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11457,6 +11576,7 @@ func (minorHi *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3
     minorHi.EntityData.BundleName = "cisco_ios_xr"
     minorHi.EntityData.ParentYangName = "threshold"
     minorHi.EntityData.SegmentPath = "minor-hi"
+    minorHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/attributes/threshold/" + minorHi.EntityData.SegmentPath
     minorHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     minorHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     minorHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11503,6 +11623,7 @@ func (threshBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "minor-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/attributes/threshold/minor-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11536,6 +11657,7 @@ func (majorHi *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3
     majorHi.EntityData.BundleName = "cisco_ios_xr"
     majorHi.EntityData.ParentYangName = "threshold"
     majorHi.EntityData.SegmentPath = "major-hi"
+    majorHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/attributes/threshold/" + majorHi.EntityData.SegmentPath
     majorHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     majorHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     majorHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11582,6 +11704,7 @@ func (threshBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "major-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/attributes/threshold/major-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11615,6 +11738,7 @@ func (criticalLo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     criticalLo.EntityData.BundleName = "cisco_ios_xr"
     criticalLo.EntityData.ParentYangName = "threshold"
     criticalLo.EntityData.SegmentPath = "critical-lo"
+    criticalLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/attributes/threshold/" + criticalLo.EntityData.SegmentPath
     criticalLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     criticalLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     criticalLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11661,6 +11785,7 @@ func (threshBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "critical-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/attributes/threshold/critical-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11694,6 +11819,7 @@ func (minorLo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3
     minorLo.EntityData.BundleName = "cisco_ios_xr"
     minorLo.EntityData.ParentYangName = "threshold"
     minorLo.EntityData.SegmentPath = "minor-lo"
+    minorLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/attributes/threshold/" + minorLo.EntityData.SegmentPath
     minorLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     minorLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     minorLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11740,6 +11866,7 @@ func (threshBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "minor-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/attributes/threshold/minor-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11803,6 +11930,7 @@ func (fruInfo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3
     fruInfo.EntityData.BundleName = "cisco_ios_xr"
     fruInfo.EntityData.ParentYangName = "attributes"
     fruInfo.EntityData.SegmentPath = "fru-info"
+    fruInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/attributes/" + fruInfo.EntityData.SegmentPath
     fruInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fruInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fruInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11845,6 +11973,7 @@ func (lastOperationalStateChange *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Ts
     lastOperationalStateChange.EntityData.BundleName = "cisco_ios_xr"
     lastOperationalStateChange.EntityData.ParentYangName = "fru-info"
     lastOperationalStateChange.EntityData.SegmentPath = "last-operational-state-change"
+    lastOperationalStateChange.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/attributes/fru-info/" + lastOperationalStateChange.EntityData.SegmentPath
     lastOperationalStateChange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastOperationalStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastOperationalStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11880,6 +12009,7 @@ func (cardUpTime *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     cardUpTime.EntityData.BundleName = "cisco_ios_xr"
     cardUpTime.EntityData.ParentYangName = "fru-info"
     cardUpTime.EntityData.SegmentPath = "card-up-time"
+    cardUpTime.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/attributes/fru-info/" + cardUpTime.EntityData.SegmentPath
     cardUpTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cardUpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cardUpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11929,6 +12059,7 @@ func (invEepromInfo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     invEepromInfo.EntityData.BundleName = "cisco_ios_xr"
     invEepromInfo.EntityData.ParentYangName = "attributes"
     invEepromInfo.EntityData.SegmentPath = "inv-eeprom-info"
+    invEepromInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/attributes/" + invEepromInfo.EntityData.SegmentPath
     invEepromInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invEepromInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invEepromInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12134,6 +12265,7 @@ func (eeprom *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_
     eeprom.EntityData.BundleName = "cisco_ios_xr"
     eeprom.EntityData.ParentYangName = "inv-eeprom-info"
     eeprom.EntityData.SegmentPath = "eeprom"
+    eeprom.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/attributes/inv-eeprom-info/" + eeprom.EntityData.SegmentPath
     eeprom.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eeprom.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eeprom.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12226,6 +12358,7 @@ func (rma *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi
     rma.EntityData.BundleName = "cisco_ios_xr"
     rma.EntityData.ParentYangName = "eeprom"
     rma.EntityData.SegmentPath = "rma"
+    rma.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/attributes/inv-eeprom-info/eeprom/" + rma.EntityData.SegmentPath
     rma.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rma.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rma.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12246,19 +12379,6 @@ func (rma *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi
 type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Attributes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
-
-    // Inventory EDM Module Done Tuple. The type is interface{} with range:
-    // 0..4294967295. The default value is 1.
-    ModuleDone interface{}
-
-    // VM Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    VmNodeId interface{}
-
-    // VM Done Tuple. The type is interface{} with range: 0..4294967295.
-    VmDone interface{}
-
-    // Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    NodeId interface{}
 
     // Inventory Basic Bag.
     InvBasicBag Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Attributes_InvBasicBag
@@ -12291,6 +12411,7 @@ func (attributes *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     attributes.EntityData.BundleName = "cisco_ios_xr"
     attributes.EntityData.ParentYangName = "tsi4"
     attributes.EntityData.SegmentPath = "attributes"
+    attributes.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/" + attributes.EntityData.SegmentPath
     attributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     attributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12305,10 +12426,6 @@ func (attributes *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     attributes.EntityData.Children.Append("fru-info", types.YChild{"FruInfo", &attributes.FruInfo})
     attributes.EntityData.Children.Append("inv-eeprom-info", types.YChild{"InvEepromInfo", &attributes.InvEepromInfo})
     attributes.EntityData.Leafs = types.NewOrderedMap()
-    attributes.EntityData.Leafs.Append("module-done", types.YLeaf{"ModuleDone", attributes.ModuleDone})
-    attributes.EntityData.Leafs.Append("vm-node-id", types.YLeaf{"VmNodeId", attributes.VmNodeId})
-    attributes.EntityData.Leafs.Append("vm-done", types.YLeaf{"VmDone", attributes.VmDone})
-    attributes.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", attributes.NodeId})
 
     attributes.EntityData.YListKeys = []string {}
 
@@ -12396,8 +12513,8 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -12417,6 +12534,7 @@ func (invBasicBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     invBasicBag.EntityData.BundleName = "cisco_ios_xr"
     invBasicBag.EntityData.ParentYangName = "attributes"
     invBasicBag.EntityData.SegmentPath = "inv-basic-bag"
+    invBasicBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/attributes/" + invBasicBag.EntityData.SegmentPath
     invBasicBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invBasicBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invBasicBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12510,6 +12628,7 @@ func (envSensorInfo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     envSensorInfo.EntityData.BundleName = "cisco_ios_xr"
     envSensorInfo.EntityData.ParentYangName = "attributes"
     envSensorInfo.EntityData.SegmentPath = "env-sensor-info"
+    envSensorInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/attributes/" + envSensorInfo.EntityData.SegmentPath
     envSensorInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     envSensorInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     envSensorInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12561,6 +12680,7 @@ func (pwgInfo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3
     pwgInfo.EntityData.BundleName = "cisco_ios_xr"
     pwgInfo.EntityData.ParentYangName = "attributes"
     pwgInfo.EntityData.SegmentPath = "pwg-info"
+    pwgInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/attributes/" + pwgInfo.EntityData.SegmentPath
     pwgInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pwgInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pwgInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12613,6 +12733,7 @@ func (envSensorInfoXml *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_T
     envSensorInfoXml.EntityData.BundleName = "cisco_ios_xr"
     envSensorInfoXml.EntityData.ParentYangName = "attributes"
     envSensorInfoXml.EntityData.SegmentPath = "env-sensor-info-xml"
+    envSensorInfoXml.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/attributes/" + envSensorInfoXml.EntityData.SegmentPath
     envSensorInfoXml.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     envSensorInfoXml.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     envSensorInfoXml.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12649,6 +12770,7 @@ func (threshold *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
     threshold.EntityData.BundleName = "cisco_ios_xr"
     threshold.EntityData.ParentYangName = "env-sensor-info-xml"
     threshold.EntityData.SegmentPath = "threshold"
+    threshold.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/attributes/env-sensor-info-xml/" + threshold.EntityData.SegmentPath
     threshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12656,6 +12778,7 @@ func (threshold *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
     threshold.EntityData.Children = types.NewOrderedMap()
     threshold.EntityData.Children.Append("threshold-array", types.YChild{"ThresholdArray", nil})
     for i := range threshold.ThresholdArray {
+        types.SetYListKey(threshold.ThresholdArray[i], i)
         threshold.EntityData.Children.Append(types.GetSegmentPath(threshold.ThresholdArray[i]), types.YChild{"ThresholdArray", threshold.ThresholdArray[i]})
     }
     threshold.EntityData.Leafs = types.NewOrderedMap()
@@ -12670,6 +12793,7 @@ func (threshold *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
 type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Attributes_EnvSensorInfoXml_Threshold_ThresholdArray struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Indicates minor, major, critical severities. The type is ThresholdSeverity.
     ThresholdSeverity interface{}
@@ -12691,7 +12815,8 @@ func (thresholdArray *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi
     thresholdArray.EntityData.YangName = "threshold-array"
     thresholdArray.EntityData.BundleName = "cisco_ios_xr"
     thresholdArray.EntityData.ParentYangName = "threshold"
-    thresholdArray.EntityData.SegmentPath = "threshold-array"
+    thresholdArray.EntityData.SegmentPath = "threshold-array" + types.AddNoKeyToken(thresholdArray)
+    thresholdArray.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/attributes/env-sensor-info-xml/threshold/" + thresholdArray.EntityData.SegmentPath
     thresholdArray.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     thresholdArray.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     thresholdArray.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12744,6 +12869,7 @@ func (invAssetBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     invAssetBag.EntityData.BundleName = "cisco_ios_xr"
     invAssetBag.EntityData.ParentYangName = "attributes"
     invAssetBag.EntityData.SegmentPath = "inv-asset-bag"
+    invAssetBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/attributes/" + invAssetBag.EntityData.SegmentPath
     invAssetBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invAssetBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invAssetBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12794,6 +12920,7 @@ func (threshold *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
     threshold.EntityData.BundleName = "cisco_ios_xr"
     threshold.EntityData.ParentYangName = "attributes"
     threshold.EntityData.SegmentPath = "threshold"
+    threshold.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/attributes/" + threshold.EntityData.SegmentPath
     threshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12828,6 +12955,7 @@ func (majorLo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3
     majorLo.EntityData.BundleName = "cisco_ios_xr"
     majorLo.EntityData.ParentYangName = "threshold"
     majorLo.EntityData.SegmentPath = "major-lo"
+    majorLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/attributes/threshold/" + majorLo.EntityData.SegmentPath
     majorLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     majorLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     majorLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12874,6 +13002,7 @@ func (threshBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "major-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/attributes/threshold/major-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12907,6 +13036,7 @@ func (criticalHi *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     criticalHi.EntityData.BundleName = "cisco_ios_xr"
     criticalHi.EntityData.ParentYangName = "threshold"
     criticalHi.EntityData.SegmentPath = "critical-hi"
+    criticalHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/attributes/threshold/" + criticalHi.EntityData.SegmentPath
     criticalHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     criticalHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     criticalHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12953,6 +13083,7 @@ func (threshBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "critical-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/attributes/threshold/critical-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12986,6 +13117,7 @@ func (minorHi *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3
     minorHi.EntityData.BundleName = "cisco_ios_xr"
     minorHi.EntityData.ParentYangName = "threshold"
     minorHi.EntityData.SegmentPath = "minor-hi"
+    minorHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/attributes/threshold/" + minorHi.EntityData.SegmentPath
     minorHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     minorHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     minorHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13032,6 +13164,7 @@ func (threshBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "minor-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/attributes/threshold/minor-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13065,6 +13198,7 @@ func (majorHi *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3
     majorHi.EntityData.BundleName = "cisco_ios_xr"
     majorHi.EntityData.ParentYangName = "threshold"
     majorHi.EntityData.SegmentPath = "major-hi"
+    majorHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/attributes/threshold/" + majorHi.EntityData.SegmentPath
     majorHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     majorHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     majorHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13111,6 +13245,7 @@ func (threshBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "major-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/attributes/threshold/major-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13144,6 +13279,7 @@ func (criticalLo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     criticalLo.EntityData.BundleName = "cisco_ios_xr"
     criticalLo.EntityData.ParentYangName = "threshold"
     criticalLo.EntityData.SegmentPath = "critical-lo"
+    criticalLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/attributes/threshold/" + criticalLo.EntityData.SegmentPath
     criticalLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     criticalLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     criticalLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13190,6 +13326,7 @@ func (threshBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "critical-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/attributes/threshold/critical-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13223,6 +13360,7 @@ func (minorLo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3
     minorLo.EntityData.BundleName = "cisco_ios_xr"
     minorLo.EntityData.ParentYangName = "threshold"
     minorLo.EntityData.SegmentPath = "minor-lo"
+    minorLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/attributes/threshold/" + minorLo.EntityData.SegmentPath
     minorLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     minorLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     minorLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13269,6 +13407,7 @@ func (threshBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "minor-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/attributes/threshold/minor-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13332,6 +13471,7 @@ func (fruInfo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3
     fruInfo.EntityData.BundleName = "cisco_ios_xr"
     fruInfo.EntityData.ParentYangName = "attributes"
     fruInfo.EntityData.SegmentPath = "fru-info"
+    fruInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/attributes/" + fruInfo.EntityData.SegmentPath
     fruInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fruInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fruInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13374,6 +13514,7 @@ func (lastOperationalStateChange *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Ts
     lastOperationalStateChange.EntityData.BundleName = "cisco_ios_xr"
     lastOperationalStateChange.EntityData.ParentYangName = "fru-info"
     lastOperationalStateChange.EntityData.SegmentPath = "last-operational-state-change"
+    lastOperationalStateChange.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/attributes/fru-info/" + lastOperationalStateChange.EntityData.SegmentPath
     lastOperationalStateChange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastOperationalStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastOperationalStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13409,6 +13550,7 @@ func (cardUpTime *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     cardUpTime.EntityData.BundleName = "cisco_ios_xr"
     cardUpTime.EntityData.ParentYangName = "fru-info"
     cardUpTime.EntityData.SegmentPath = "card-up-time"
+    cardUpTime.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/attributes/fru-info/" + cardUpTime.EntityData.SegmentPath
     cardUpTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cardUpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cardUpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13458,6 +13600,7 @@ func (invEepromInfo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     invEepromInfo.EntityData.BundleName = "cisco_ios_xr"
     invEepromInfo.EntityData.ParentYangName = "attributes"
     invEepromInfo.EntityData.SegmentPath = "inv-eeprom-info"
+    invEepromInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/attributes/" + invEepromInfo.EntityData.SegmentPath
     invEepromInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invEepromInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invEepromInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13663,6 +13806,7 @@ func (eeprom *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_
     eeprom.EntityData.BundleName = "cisco_ios_xr"
     eeprom.EntityData.ParentYangName = "inv-eeprom-info"
     eeprom.EntityData.SegmentPath = "eeprom"
+    eeprom.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/attributes/inv-eeprom-info/" + eeprom.EntityData.SegmentPath
     eeprom.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eeprom.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eeprom.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13755,6 +13899,7 @@ func (rma *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi
     rma.EntityData.BundleName = "cisco_ios_xr"
     rma.EntityData.ParentYangName = "eeprom"
     rma.EntityData.SegmentPath = "rma"
+    rma.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/attributes/inv-eeprom-info/eeprom/" + rma.EntityData.SegmentPath
     rma.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rma.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rma.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13775,19 +13920,6 @@ func (rma *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi
 type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Attributes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
-
-    // Inventory EDM Module Done Tuple. The type is interface{} with range:
-    // 0..4294967295. The default value is 1.
-    ModuleDone interface{}
-
-    // VM Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    VmNodeId interface{}
-
-    // VM Done Tuple. The type is interface{} with range: 0..4294967295.
-    VmDone interface{}
-
-    // Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    NodeId interface{}
 
     // Inventory Basic Bag.
     InvBasicBag Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Attributes_InvBasicBag
@@ -13820,6 +13952,7 @@ func (attributes *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     attributes.EntityData.BundleName = "cisco_ios_xr"
     attributes.EntityData.ParentYangName = "tsi3"
     attributes.EntityData.SegmentPath = "attributes"
+    attributes.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/" + attributes.EntityData.SegmentPath
     attributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     attributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13834,10 +13967,6 @@ func (attributes *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     attributes.EntityData.Children.Append("fru-info", types.YChild{"FruInfo", &attributes.FruInfo})
     attributes.EntityData.Children.Append("inv-eeprom-info", types.YChild{"InvEepromInfo", &attributes.InvEepromInfo})
     attributes.EntityData.Leafs = types.NewOrderedMap()
-    attributes.EntityData.Leafs.Append("module-done", types.YLeaf{"ModuleDone", attributes.ModuleDone})
-    attributes.EntityData.Leafs.Append("vm-node-id", types.YLeaf{"VmNodeId", attributes.VmNodeId})
-    attributes.EntityData.Leafs.Append("vm-done", types.YLeaf{"VmDone", attributes.VmDone})
-    attributes.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", attributes.NodeId})
 
     attributes.EntityData.YListKeys = []string {}
 
@@ -13925,8 +14054,8 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Attribute
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -13946,6 +14075,7 @@ func (invBasicBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     invBasicBag.EntityData.BundleName = "cisco_ios_xr"
     invBasicBag.EntityData.ParentYangName = "attributes"
     invBasicBag.EntityData.SegmentPath = "inv-basic-bag"
+    invBasicBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/attributes/" + invBasicBag.EntityData.SegmentPath
     invBasicBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invBasicBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invBasicBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14039,6 +14169,7 @@ func (envSensorInfo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     envSensorInfo.EntityData.BundleName = "cisco_ios_xr"
     envSensorInfo.EntityData.ParentYangName = "attributes"
     envSensorInfo.EntityData.SegmentPath = "env-sensor-info"
+    envSensorInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/attributes/" + envSensorInfo.EntityData.SegmentPath
     envSensorInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     envSensorInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     envSensorInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14090,6 +14221,7 @@ func (pwgInfo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3
     pwgInfo.EntityData.BundleName = "cisco_ios_xr"
     pwgInfo.EntityData.ParentYangName = "attributes"
     pwgInfo.EntityData.SegmentPath = "pwg-info"
+    pwgInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/attributes/" + pwgInfo.EntityData.SegmentPath
     pwgInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pwgInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pwgInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14142,6 +14274,7 @@ func (envSensorInfoXml *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_T
     envSensorInfoXml.EntityData.BundleName = "cisco_ios_xr"
     envSensorInfoXml.EntityData.ParentYangName = "attributes"
     envSensorInfoXml.EntityData.SegmentPath = "env-sensor-info-xml"
+    envSensorInfoXml.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/attributes/" + envSensorInfoXml.EntityData.SegmentPath
     envSensorInfoXml.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     envSensorInfoXml.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     envSensorInfoXml.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14178,6 +14311,7 @@ func (threshold *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
     threshold.EntityData.BundleName = "cisco_ios_xr"
     threshold.EntityData.ParentYangName = "env-sensor-info-xml"
     threshold.EntityData.SegmentPath = "threshold"
+    threshold.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/attributes/env-sensor-info-xml/" + threshold.EntityData.SegmentPath
     threshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14185,6 +14319,7 @@ func (threshold *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
     threshold.EntityData.Children = types.NewOrderedMap()
     threshold.EntityData.Children.Append("threshold-array", types.YChild{"ThresholdArray", nil})
     for i := range threshold.ThresholdArray {
+        types.SetYListKey(threshold.ThresholdArray[i], i)
         threshold.EntityData.Children.Append(types.GetSegmentPath(threshold.ThresholdArray[i]), types.YChild{"ThresholdArray", threshold.ThresholdArray[i]})
     }
     threshold.EntityData.Leafs = types.NewOrderedMap()
@@ -14199,6 +14334,7 @@ func (threshold *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
 type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Attributes_EnvSensorInfoXml_Threshold_ThresholdArray struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Indicates minor, major, critical severities. The type is ThresholdSeverity.
     ThresholdSeverity interface{}
@@ -14220,7 +14356,8 @@ func (thresholdArray *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi
     thresholdArray.EntityData.YangName = "threshold-array"
     thresholdArray.EntityData.BundleName = "cisco_ios_xr"
     thresholdArray.EntityData.ParentYangName = "threshold"
-    thresholdArray.EntityData.SegmentPath = "threshold-array"
+    thresholdArray.EntityData.SegmentPath = "threshold-array" + types.AddNoKeyToken(thresholdArray)
+    thresholdArray.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/attributes/env-sensor-info-xml/threshold/" + thresholdArray.EntityData.SegmentPath
     thresholdArray.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     thresholdArray.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     thresholdArray.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14273,6 +14410,7 @@ func (invAssetBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     invAssetBag.EntityData.BundleName = "cisco_ios_xr"
     invAssetBag.EntityData.ParentYangName = "attributes"
     invAssetBag.EntityData.SegmentPath = "inv-asset-bag"
+    invAssetBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/attributes/" + invAssetBag.EntityData.SegmentPath
     invAssetBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invAssetBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invAssetBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14323,6 +14461,7 @@ func (threshold *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
     threshold.EntityData.BundleName = "cisco_ios_xr"
     threshold.EntityData.ParentYangName = "attributes"
     threshold.EntityData.SegmentPath = "threshold"
+    threshold.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/attributes/" + threshold.EntityData.SegmentPath
     threshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14357,6 +14496,7 @@ func (majorLo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3
     majorLo.EntityData.BundleName = "cisco_ios_xr"
     majorLo.EntityData.ParentYangName = "threshold"
     majorLo.EntityData.SegmentPath = "major-lo"
+    majorLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/attributes/threshold/" + majorLo.EntityData.SegmentPath
     majorLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     majorLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     majorLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14403,6 +14543,7 @@ func (threshBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "major-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/attributes/threshold/major-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14436,6 +14577,7 @@ func (criticalHi *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     criticalHi.EntityData.BundleName = "cisco_ios_xr"
     criticalHi.EntityData.ParentYangName = "threshold"
     criticalHi.EntityData.SegmentPath = "critical-hi"
+    criticalHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/attributes/threshold/" + criticalHi.EntityData.SegmentPath
     criticalHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     criticalHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     criticalHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14482,6 +14624,7 @@ func (threshBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "critical-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/attributes/threshold/critical-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14515,6 +14658,7 @@ func (minorHi *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3
     minorHi.EntityData.BundleName = "cisco_ios_xr"
     minorHi.EntityData.ParentYangName = "threshold"
     minorHi.EntityData.SegmentPath = "minor-hi"
+    minorHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/attributes/threshold/" + minorHi.EntityData.SegmentPath
     minorHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     minorHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     minorHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14561,6 +14705,7 @@ func (threshBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "minor-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/attributes/threshold/minor-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14594,6 +14739,7 @@ func (majorHi *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3
     majorHi.EntityData.BundleName = "cisco_ios_xr"
     majorHi.EntityData.ParentYangName = "threshold"
     majorHi.EntityData.SegmentPath = "major-hi"
+    majorHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/attributes/threshold/" + majorHi.EntityData.SegmentPath
     majorHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     majorHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     majorHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14640,6 +14786,7 @@ func (threshBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "major-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/attributes/threshold/major-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14673,6 +14820,7 @@ func (criticalLo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     criticalLo.EntityData.BundleName = "cisco_ios_xr"
     criticalLo.EntityData.ParentYangName = "threshold"
     criticalLo.EntityData.SegmentPath = "critical-lo"
+    criticalLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/attributes/threshold/" + criticalLo.EntityData.SegmentPath
     criticalLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     criticalLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     criticalLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14719,6 +14867,7 @@ func (threshBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "critical-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/attributes/threshold/critical-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14752,6 +14901,7 @@ func (minorLo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3
     minorLo.EntityData.BundleName = "cisco_ios_xr"
     minorLo.EntityData.ParentYangName = "threshold"
     minorLo.EntityData.SegmentPath = "minor-lo"
+    minorLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/attributes/threshold/" + minorLo.EntityData.SegmentPath
     minorLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     minorLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     minorLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14798,6 +14948,7 @@ func (threshBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "minor-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/attributes/threshold/minor-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14861,6 +15012,7 @@ func (fruInfo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3
     fruInfo.EntityData.BundleName = "cisco_ios_xr"
     fruInfo.EntityData.ParentYangName = "attributes"
     fruInfo.EntityData.SegmentPath = "fru-info"
+    fruInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/attributes/" + fruInfo.EntityData.SegmentPath
     fruInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fruInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fruInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14903,6 +15055,7 @@ func (lastOperationalStateChange *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Ts
     lastOperationalStateChange.EntityData.BundleName = "cisco_ios_xr"
     lastOperationalStateChange.EntityData.ParentYangName = "fru-info"
     lastOperationalStateChange.EntityData.SegmentPath = "last-operational-state-change"
+    lastOperationalStateChange.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/attributes/fru-info/" + lastOperationalStateChange.EntityData.SegmentPath
     lastOperationalStateChange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastOperationalStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastOperationalStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14938,6 +15091,7 @@ func (cardUpTime *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     cardUpTime.EntityData.BundleName = "cisco_ios_xr"
     cardUpTime.EntityData.ParentYangName = "fru-info"
     cardUpTime.EntityData.SegmentPath = "card-up-time"
+    cardUpTime.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/attributes/fru-info/" + cardUpTime.EntityData.SegmentPath
     cardUpTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cardUpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cardUpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14987,6 +15141,7 @@ func (invEepromInfo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     invEepromInfo.EntityData.BundleName = "cisco_ios_xr"
     invEepromInfo.EntityData.ParentYangName = "attributes"
     invEepromInfo.EntityData.SegmentPath = "inv-eeprom-info"
+    invEepromInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/attributes/" + invEepromInfo.EntityData.SegmentPath
     invEepromInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invEepromInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invEepromInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15192,6 +15347,7 @@ func (eeprom *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_
     eeprom.EntityData.BundleName = "cisco_ios_xr"
     eeprom.EntityData.ParentYangName = "inv-eeprom-info"
     eeprom.EntityData.SegmentPath = "eeprom"
+    eeprom.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/attributes/inv-eeprom-info/" + eeprom.EntityData.SegmentPath
     eeprom.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eeprom.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eeprom.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15284,6 +15440,7 @@ func (rma *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Att
     rma.EntityData.BundleName = "cisco_ios_xr"
     rma.EntityData.ParentYangName = "eeprom"
     rma.EntityData.SegmentPath = "rma"
+    rma.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/attributes/inv-eeprom-info/eeprom/" + rma.EntityData.SegmentPath
     rma.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rma.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rma.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15304,19 +15461,6 @@ func (rma *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Att
 type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attributes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
-
-    // Inventory EDM Module Done Tuple. The type is interface{} with range:
-    // 0..4294967295. The default value is 1.
-    ModuleDone interface{}
-
-    // VM Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    VmNodeId interface{}
-
-    // VM Done Tuple. The type is interface{} with range: 0..4294967295.
-    VmDone interface{}
-
-    // Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    NodeId interface{}
 
     // Inventory Basic Bag.
     InvBasicBag Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attributes_InvBasicBag
@@ -15349,6 +15493,7 @@ func (attributes *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attribu
     attributes.EntityData.BundleName = "cisco_ios_xr"
     attributes.EntityData.ParentYangName = "tsi2"
     attributes.EntityData.SegmentPath = "attributes"
+    attributes.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/" + attributes.EntityData.SegmentPath
     attributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     attributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15363,10 +15508,6 @@ func (attributes *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attribu
     attributes.EntityData.Children.Append("fru-info", types.YChild{"FruInfo", &attributes.FruInfo})
     attributes.EntityData.Children.Append("inv-eeprom-info", types.YChild{"InvEepromInfo", &attributes.InvEepromInfo})
     attributes.EntityData.Leafs = types.NewOrderedMap()
-    attributes.EntityData.Leafs.Append("module-done", types.YLeaf{"ModuleDone", attributes.ModuleDone})
-    attributes.EntityData.Leafs.Append("vm-node-id", types.YLeaf{"VmNodeId", attributes.VmNodeId})
-    attributes.EntityData.Leafs.Append("vm-done", types.YLeaf{"VmDone", attributes.VmDone})
-    attributes.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", attributes.NodeId})
 
     attributes.EntityData.YListKeys = []string {}
 
@@ -15454,8 +15595,8 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attributes_InvBasicB
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -15475,6 +15616,7 @@ func (invBasicBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attrib
     invBasicBag.EntityData.BundleName = "cisco_ios_xr"
     invBasicBag.EntityData.ParentYangName = "attributes"
     invBasicBag.EntityData.SegmentPath = "inv-basic-bag"
+    invBasicBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/attributes/" + invBasicBag.EntityData.SegmentPath
     invBasicBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invBasicBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invBasicBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15568,6 +15710,7 @@ func (envSensorInfo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attr
     envSensorInfo.EntityData.BundleName = "cisco_ios_xr"
     envSensorInfo.EntityData.ParentYangName = "attributes"
     envSensorInfo.EntityData.SegmentPath = "env-sensor-info"
+    envSensorInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/attributes/" + envSensorInfo.EntityData.SegmentPath
     envSensorInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     envSensorInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     envSensorInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15619,6 +15762,7 @@ func (pwgInfo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attributes
     pwgInfo.EntityData.BundleName = "cisco_ios_xr"
     pwgInfo.EntityData.ParentYangName = "attributes"
     pwgInfo.EntityData.SegmentPath = "pwg-info"
+    pwgInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/attributes/" + pwgInfo.EntityData.SegmentPath
     pwgInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pwgInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pwgInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15671,6 +15815,7 @@ func (envSensorInfoXml *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_A
     envSensorInfoXml.EntityData.BundleName = "cisco_ios_xr"
     envSensorInfoXml.EntityData.ParentYangName = "attributes"
     envSensorInfoXml.EntityData.SegmentPath = "env-sensor-info-xml"
+    envSensorInfoXml.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/attributes/" + envSensorInfoXml.EntityData.SegmentPath
     envSensorInfoXml.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     envSensorInfoXml.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     envSensorInfoXml.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15707,6 +15852,7 @@ func (threshold *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attribut
     threshold.EntityData.BundleName = "cisco_ios_xr"
     threshold.EntityData.ParentYangName = "env-sensor-info-xml"
     threshold.EntityData.SegmentPath = "threshold"
+    threshold.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/attributes/env-sensor-info-xml/" + threshold.EntityData.SegmentPath
     threshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15714,6 +15860,7 @@ func (threshold *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attribut
     threshold.EntityData.Children = types.NewOrderedMap()
     threshold.EntityData.Children.Append("threshold-array", types.YChild{"ThresholdArray", nil})
     for i := range threshold.ThresholdArray {
+        types.SetYListKey(threshold.ThresholdArray[i], i)
         threshold.EntityData.Children.Append(types.GetSegmentPath(threshold.ThresholdArray[i]), types.YChild{"ThresholdArray", threshold.ThresholdArray[i]})
     }
     threshold.EntityData.Leafs = types.NewOrderedMap()
@@ -15728,6 +15875,7 @@ func (threshold *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attribut
 type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attributes_EnvSensorInfoXml_Threshold_ThresholdArray struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Indicates minor, major, critical severities. The type is ThresholdSeverity.
     ThresholdSeverity interface{}
@@ -15749,7 +15897,8 @@ func (thresholdArray *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Att
     thresholdArray.EntityData.YangName = "threshold-array"
     thresholdArray.EntityData.BundleName = "cisco_ios_xr"
     thresholdArray.EntityData.ParentYangName = "threshold"
-    thresholdArray.EntityData.SegmentPath = "threshold-array"
+    thresholdArray.EntityData.SegmentPath = "threshold-array" + types.AddNoKeyToken(thresholdArray)
+    thresholdArray.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/attributes/env-sensor-info-xml/threshold/" + thresholdArray.EntityData.SegmentPath
     thresholdArray.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     thresholdArray.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     thresholdArray.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15802,6 +15951,7 @@ func (invAssetBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attrib
     invAssetBag.EntityData.BundleName = "cisco_ios_xr"
     invAssetBag.EntityData.ParentYangName = "attributes"
     invAssetBag.EntityData.SegmentPath = "inv-asset-bag"
+    invAssetBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/attributes/" + invAssetBag.EntityData.SegmentPath
     invAssetBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invAssetBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invAssetBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15852,6 +16002,7 @@ func (threshold *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attribut
     threshold.EntityData.BundleName = "cisco_ios_xr"
     threshold.EntityData.ParentYangName = "attributes"
     threshold.EntityData.SegmentPath = "threshold"
+    threshold.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/attributes/" + threshold.EntityData.SegmentPath
     threshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15886,6 +16037,7 @@ func (majorLo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attributes
     majorLo.EntityData.BundleName = "cisco_ios_xr"
     majorLo.EntityData.ParentYangName = "threshold"
     majorLo.EntityData.SegmentPath = "major-lo"
+    majorLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/attributes/threshold/" + majorLo.EntityData.SegmentPath
     majorLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     majorLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     majorLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15932,6 +16084,7 @@ func (threshBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attribut
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "major-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/attributes/threshold/major-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15965,6 +16118,7 @@ func (criticalHi *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attribu
     criticalHi.EntityData.BundleName = "cisco_ios_xr"
     criticalHi.EntityData.ParentYangName = "threshold"
     criticalHi.EntityData.SegmentPath = "critical-hi"
+    criticalHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/attributes/threshold/" + criticalHi.EntityData.SegmentPath
     criticalHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     criticalHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     criticalHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16011,6 +16165,7 @@ func (threshBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attribut
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "critical-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/attributes/threshold/critical-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16044,6 +16199,7 @@ func (minorHi *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attributes
     minorHi.EntityData.BundleName = "cisco_ios_xr"
     minorHi.EntityData.ParentYangName = "threshold"
     minorHi.EntityData.SegmentPath = "minor-hi"
+    minorHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/attributes/threshold/" + minorHi.EntityData.SegmentPath
     minorHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     minorHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     minorHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16090,6 +16246,7 @@ func (threshBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attribut
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "minor-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/attributes/threshold/minor-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16123,6 +16280,7 @@ func (majorHi *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attributes
     majorHi.EntityData.BundleName = "cisco_ios_xr"
     majorHi.EntityData.ParentYangName = "threshold"
     majorHi.EntityData.SegmentPath = "major-hi"
+    majorHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/attributes/threshold/" + majorHi.EntityData.SegmentPath
     majorHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     majorHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     majorHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16169,6 +16327,7 @@ func (threshBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attribut
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "major-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/attributes/threshold/major-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16202,6 +16361,7 @@ func (criticalLo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attribu
     criticalLo.EntityData.BundleName = "cisco_ios_xr"
     criticalLo.EntityData.ParentYangName = "threshold"
     criticalLo.EntityData.SegmentPath = "critical-lo"
+    criticalLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/attributes/threshold/" + criticalLo.EntityData.SegmentPath
     criticalLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     criticalLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     criticalLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16248,6 +16408,7 @@ func (threshBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attribut
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "critical-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/attributes/threshold/critical-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16281,6 +16442,7 @@ func (minorLo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attributes
     minorLo.EntityData.BundleName = "cisco_ios_xr"
     minorLo.EntityData.ParentYangName = "threshold"
     minorLo.EntityData.SegmentPath = "minor-lo"
+    minorLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/attributes/threshold/" + minorLo.EntityData.SegmentPath
     minorLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     minorLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     minorLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16327,6 +16489,7 @@ func (threshBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attribut
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "minor-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/attributes/threshold/minor-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16390,6 +16553,7 @@ func (fruInfo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attributes
     fruInfo.EntityData.BundleName = "cisco_ios_xr"
     fruInfo.EntityData.ParentYangName = "attributes"
     fruInfo.EntityData.SegmentPath = "fru-info"
+    fruInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/attributes/" + fruInfo.EntityData.SegmentPath
     fruInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fruInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fruInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16432,6 +16596,7 @@ func (lastOperationalStateChange *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Ts
     lastOperationalStateChange.EntityData.BundleName = "cisco_ios_xr"
     lastOperationalStateChange.EntityData.ParentYangName = "fru-info"
     lastOperationalStateChange.EntityData.SegmentPath = "last-operational-state-change"
+    lastOperationalStateChange.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/attributes/fru-info/" + lastOperationalStateChange.EntityData.SegmentPath
     lastOperationalStateChange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastOperationalStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastOperationalStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16467,6 +16632,7 @@ func (cardUpTime *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attribu
     cardUpTime.EntityData.BundleName = "cisco_ios_xr"
     cardUpTime.EntityData.ParentYangName = "fru-info"
     cardUpTime.EntityData.SegmentPath = "card-up-time"
+    cardUpTime.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/attributes/fru-info/" + cardUpTime.EntityData.SegmentPath
     cardUpTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cardUpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cardUpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16516,6 +16682,7 @@ func (invEepromInfo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attr
     invEepromInfo.EntityData.BundleName = "cisco_ios_xr"
     invEepromInfo.EntityData.ParentYangName = "attributes"
     invEepromInfo.EntityData.SegmentPath = "inv-eeprom-info"
+    invEepromInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/attributes/" + invEepromInfo.EntityData.SegmentPath
     invEepromInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invEepromInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invEepromInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16721,6 +16888,7 @@ func (eeprom *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attributes_
     eeprom.EntityData.BundleName = "cisco_ios_xr"
     eeprom.EntityData.ParentYangName = "inv-eeprom-info"
     eeprom.EntityData.SegmentPath = "eeprom"
+    eeprom.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/attributes/inv-eeprom-info/" + eeprom.EntityData.SegmentPath
     eeprom.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eeprom.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eeprom.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16813,6 +16981,7 @@ func (rma *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attributes_Inv
     rma.EntityData.BundleName = "cisco_ios_xr"
     rma.EntityData.ParentYangName = "eeprom"
     rma.EntityData.SegmentPath = "rma"
+    rma.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/tsi2s/tsi2/attributes/inv-eeprom-info/eeprom/" + rma.EntityData.SegmentPath
     rma.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rma.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rma.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16833,19 +17002,6 @@ func (rma *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attributes_Inv
 type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Attributes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
-
-    // Inventory EDM Module Done Tuple. The type is interface{} with range:
-    // 0..4294967295. The default value is 1.
-    ModuleDone interface{}
-
-    // VM Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    VmNodeId interface{}
-
-    // VM Done Tuple. The type is interface{} with range: 0..4294967295.
-    VmDone interface{}
-
-    // Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    NodeId interface{}
 
     // Inventory Basic Bag.
     InvBasicBag Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Attributes_InvBasicBag
@@ -16878,6 +17034,7 @@ func (attributes *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Attributes) GetEnt
     attributes.EntityData.BundleName = "cisco_ios_xr"
     attributes.EntityData.ParentYangName = "tsi1"
     attributes.EntityData.SegmentPath = "attributes"
+    attributes.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/" + attributes.EntityData.SegmentPath
     attributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     attributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16892,10 +17049,6 @@ func (attributes *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Attributes) GetEnt
     attributes.EntityData.Children.Append("fru-info", types.YChild{"FruInfo", &attributes.FruInfo})
     attributes.EntityData.Children.Append("inv-eeprom-info", types.YChild{"InvEepromInfo", &attributes.InvEepromInfo})
     attributes.EntityData.Leafs = types.NewOrderedMap()
-    attributes.EntityData.Leafs.Append("module-done", types.YLeaf{"ModuleDone", attributes.ModuleDone})
-    attributes.EntityData.Leafs.Append("vm-node-id", types.YLeaf{"VmNodeId", attributes.VmNodeId})
-    attributes.EntityData.Leafs.Append("vm-done", types.YLeaf{"VmDone", attributes.VmDone})
-    attributes.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", attributes.NodeId})
 
     attributes.EntityData.YListKeys = []string {}
 
@@ -16983,8 +17136,8 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Attributes_InvBasicBag struct {
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -17004,6 +17157,7 @@ func (invBasicBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Attributes_InvBas
     invBasicBag.EntityData.BundleName = "cisco_ios_xr"
     invBasicBag.EntityData.ParentYangName = "attributes"
     invBasicBag.EntityData.SegmentPath = "inv-basic-bag"
+    invBasicBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/attributes/" + invBasicBag.EntityData.SegmentPath
     invBasicBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invBasicBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invBasicBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17097,6 +17251,7 @@ func (envSensorInfo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Attributes_EnvS
     envSensorInfo.EntityData.BundleName = "cisco_ios_xr"
     envSensorInfo.EntityData.ParentYangName = "attributes"
     envSensorInfo.EntityData.SegmentPath = "env-sensor-info"
+    envSensorInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/attributes/" + envSensorInfo.EntityData.SegmentPath
     envSensorInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     envSensorInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     envSensorInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17148,6 +17303,7 @@ func (pwgInfo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Attributes_PwgInfo) G
     pwgInfo.EntityData.BundleName = "cisco_ios_xr"
     pwgInfo.EntityData.ParentYangName = "attributes"
     pwgInfo.EntityData.SegmentPath = "pwg-info"
+    pwgInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/attributes/" + pwgInfo.EntityData.SegmentPath
     pwgInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pwgInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pwgInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17200,6 +17356,7 @@ func (envSensorInfoXml *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Attributes_E
     envSensorInfoXml.EntityData.BundleName = "cisco_ios_xr"
     envSensorInfoXml.EntityData.ParentYangName = "attributes"
     envSensorInfoXml.EntityData.SegmentPath = "env-sensor-info-xml"
+    envSensorInfoXml.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/attributes/" + envSensorInfoXml.EntityData.SegmentPath
     envSensorInfoXml.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     envSensorInfoXml.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     envSensorInfoXml.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17236,6 +17393,7 @@ func (threshold *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Attributes_EnvSenso
     threshold.EntityData.BundleName = "cisco_ios_xr"
     threshold.EntityData.ParentYangName = "env-sensor-info-xml"
     threshold.EntityData.SegmentPath = "threshold"
+    threshold.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/attributes/env-sensor-info-xml/" + threshold.EntityData.SegmentPath
     threshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17243,6 +17401,7 @@ func (threshold *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Attributes_EnvSenso
     threshold.EntityData.Children = types.NewOrderedMap()
     threshold.EntityData.Children.Append("threshold-array", types.YChild{"ThresholdArray", nil})
     for i := range threshold.ThresholdArray {
+        types.SetYListKey(threshold.ThresholdArray[i], i)
         threshold.EntityData.Children.Append(types.GetSegmentPath(threshold.ThresholdArray[i]), types.YChild{"ThresholdArray", threshold.ThresholdArray[i]})
     }
     threshold.EntityData.Leafs = types.NewOrderedMap()
@@ -17257,6 +17416,7 @@ func (threshold *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Attributes_EnvSenso
 type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Attributes_EnvSensorInfoXml_Threshold_ThresholdArray struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Indicates minor, major, critical severities. The type is ThresholdSeverity.
     ThresholdSeverity interface{}
@@ -17278,7 +17438,8 @@ func (thresholdArray *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Attributes_Env
     thresholdArray.EntityData.YangName = "threshold-array"
     thresholdArray.EntityData.BundleName = "cisco_ios_xr"
     thresholdArray.EntityData.ParentYangName = "threshold"
-    thresholdArray.EntityData.SegmentPath = "threshold-array"
+    thresholdArray.EntityData.SegmentPath = "threshold-array" + types.AddNoKeyToken(thresholdArray)
+    thresholdArray.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/attributes/env-sensor-info-xml/threshold/" + thresholdArray.EntityData.SegmentPath
     thresholdArray.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     thresholdArray.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     thresholdArray.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17331,6 +17492,7 @@ func (invAssetBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Attributes_InvAss
     invAssetBag.EntityData.BundleName = "cisco_ios_xr"
     invAssetBag.EntityData.ParentYangName = "attributes"
     invAssetBag.EntityData.SegmentPath = "inv-asset-bag"
+    invAssetBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/attributes/" + invAssetBag.EntityData.SegmentPath
     invAssetBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invAssetBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invAssetBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17381,6 +17543,7 @@ func (threshold *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Attributes_Threshol
     threshold.EntityData.BundleName = "cisco_ios_xr"
     threshold.EntityData.ParentYangName = "attributes"
     threshold.EntityData.SegmentPath = "threshold"
+    threshold.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/attributes/" + threshold.EntityData.SegmentPath
     threshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17415,6 +17578,7 @@ func (majorLo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Attributes_Threshold_
     majorLo.EntityData.BundleName = "cisco_ios_xr"
     majorLo.EntityData.ParentYangName = "threshold"
     majorLo.EntityData.SegmentPath = "major-lo"
+    majorLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/attributes/threshold/" + majorLo.EntityData.SegmentPath
     majorLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     majorLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     majorLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17461,6 +17625,7 @@ func (threshBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Attributes_Threshol
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "major-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/attributes/threshold/major-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17494,6 +17659,7 @@ func (criticalHi *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Attributes_Thresho
     criticalHi.EntityData.BundleName = "cisco_ios_xr"
     criticalHi.EntityData.ParentYangName = "threshold"
     criticalHi.EntityData.SegmentPath = "critical-hi"
+    criticalHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/attributes/threshold/" + criticalHi.EntityData.SegmentPath
     criticalHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     criticalHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     criticalHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17540,6 +17706,7 @@ func (threshBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Attributes_Threshol
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "critical-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/attributes/threshold/critical-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17573,6 +17740,7 @@ func (minorHi *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Attributes_Threshold_
     minorHi.EntityData.BundleName = "cisco_ios_xr"
     minorHi.EntityData.ParentYangName = "threshold"
     minorHi.EntityData.SegmentPath = "minor-hi"
+    minorHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/attributes/threshold/" + minorHi.EntityData.SegmentPath
     minorHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     minorHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     minorHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17619,6 +17787,7 @@ func (threshBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Attributes_Threshol
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "minor-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/attributes/threshold/minor-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17652,6 +17821,7 @@ func (majorHi *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Attributes_Threshold_
     majorHi.EntityData.BundleName = "cisco_ios_xr"
     majorHi.EntityData.ParentYangName = "threshold"
     majorHi.EntityData.SegmentPath = "major-hi"
+    majorHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/attributes/threshold/" + majorHi.EntityData.SegmentPath
     majorHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     majorHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     majorHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17698,6 +17868,7 @@ func (threshBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Attributes_Threshol
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "major-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/attributes/threshold/major-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17731,6 +17902,7 @@ func (criticalLo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Attributes_Thresho
     criticalLo.EntityData.BundleName = "cisco_ios_xr"
     criticalLo.EntityData.ParentYangName = "threshold"
     criticalLo.EntityData.SegmentPath = "critical-lo"
+    criticalLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/attributes/threshold/" + criticalLo.EntityData.SegmentPath
     criticalLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     criticalLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     criticalLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17777,6 +17949,7 @@ func (threshBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Attributes_Threshol
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "critical-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/attributes/threshold/critical-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17810,6 +17983,7 @@ func (minorLo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Attributes_Threshold_
     minorLo.EntityData.BundleName = "cisco_ios_xr"
     minorLo.EntityData.ParentYangName = "threshold"
     minorLo.EntityData.SegmentPath = "minor-lo"
+    minorLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/attributes/threshold/" + minorLo.EntityData.SegmentPath
     minorLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     minorLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     minorLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17856,6 +18030,7 @@ func (threshBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Attributes_Threshol
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "minor-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/attributes/threshold/minor-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17919,6 +18094,7 @@ func (fruInfo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Attributes_FruInfo) G
     fruInfo.EntityData.BundleName = "cisco_ios_xr"
     fruInfo.EntityData.ParentYangName = "attributes"
     fruInfo.EntityData.SegmentPath = "fru-info"
+    fruInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/attributes/" + fruInfo.EntityData.SegmentPath
     fruInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fruInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fruInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17961,6 +18137,7 @@ func (lastOperationalStateChange *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_At
     lastOperationalStateChange.EntityData.BundleName = "cisco_ios_xr"
     lastOperationalStateChange.EntityData.ParentYangName = "fru-info"
     lastOperationalStateChange.EntityData.SegmentPath = "last-operational-state-change"
+    lastOperationalStateChange.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/attributes/fru-info/" + lastOperationalStateChange.EntityData.SegmentPath
     lastOperationalStateChange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastOperationalStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastOperationalStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17996,6 +18173,7 @@ func (cardUpTime *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Attributes_FruInfo
     cardUpTime.EntityData.BundleName = "cisco_ios_xr"
     cardUpTime.EntityData.ParentYangName = "fru-info"
     cardUpTime.EntityData.SegmentPath = "card-up-time"
+    cardUpTime.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/attributes/fru-info/" + cardUpTime.EntityData.SegmentPath
     cardUpTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cardUpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cardUpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18045,6 +18223,7 @@ func (invEepromInfo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Attributes_InvE
     invEepromInfo.EntityData.BundleName = "cisco_ios_xr"
     invEepromInfo.EntityData.ParentYangName = "attributes"
     invEepromInfo.EntityData.SegmentPath = "inv-eeprom-info"
+    invEepromInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/attributes/" + invEepromInfo.EntityData.SegmentPath
     invEepromInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invEepromInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invEepromInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18250,6 +18429,7 @@ func (eeprom *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Attributes_InvEepromIn
     eeprom.EntityData.BundleName = "cisco_ios_xr"
     eeprom.EntityData.ParentYangName = "inv-eeprom-info"
     eeprom.EntityData.SegmentPath = "eeprom"
+    eeprom.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/attributes/inv-eeprom-info/" + eeprom.EntityData.SegmentPath
     eeprom.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eeprom.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eeprom.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18342,6 +18522,7 @@ func (rma *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Attributes_InvEepromInfo_
     rma.EntityData.BundleName = "cisco_ios_xr"
     rma.EntityData.ParentYangName = "eeprom"
     rma.EntityData.SegmentPath = "rma"
+    rma.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/tsi1s/tsi1/attributes/inv-eeprom-info/eeprom/" + rma.EntityData.SegmentPath
     rma.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rma.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rma.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18362,19 +18543,6 @@ func (rma *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Attributes_InvEepromInfo_
 type Inventory_Racks_Rack_Entity_Slot_Attributes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
-
-    // Inventory EDM Module Done Tuple. The type is interface{} with range:
-    // 0..4294967295. The default value is 1.
-    ModuleDone interface{}
-
-    // VM Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    VmNodeId interface{}
-
-    // VM Done Tuple. The type is interface{} with range: 0..4294967295.
-    VmDone interface{}
-
-    // Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    NodeId interface{}
 
     // Inventory Basic Bag.
     InvBasicBag Inventory_Racks_Rack_Entity_Slot_Attributes_InvBasicBag
@@ -18407,6 +18575,7 @@ func (attributes *Inventory_Racks_Rack_Entity_Slot_Attributes) GetEntityData() *
     attributes.EntityData.BundleName = "cisco_ios_xr"
     attributes.EntityData.ParentYangName = "slot"
     attributes.EntityData.SegmentPath = "attributes"
+    attributes.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/" + attributes.EntityData.SegmentPath
     attributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     attributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18421,10 +18590,6 @@ func (attributes *Inventory_Racks_Rack_Entity_Slot_Attributes) GetEntityData() *
     attributes.EntityData.Children.Append("fru-info", types.YChild{"FruInfo", &attributes.FruInfo})
     attributes.EntityData.Children.Append("inv-eeprom-info", types.YChild{"InvEepromInfo", &attributes.InvEepromInfo})
     attributes.EntityData.Leafs = types.NewOrderedMap()
-    attributes.EntityData.Leafs.Append("module-done", types.YLeaf{"ModuleDone", attributes.ModuleDone})
-    attributes.EntityData.Leafs.Append("vm-node-id", types.YLeaf{"VmNodeId", attributes.VmNodeId})
-    attributes.EntityData.Leafs.Append("vm-done", types.YLeaf{"VmDone", attributes.VmDone})
-    attributes.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", attributes.NodeId})
 
     attributes.EntityData.YListKeys = []string {}
 
@@ -18512,8 +18677,8 @@ type Inventory_Racks_Rack_Entity_Slot_Attributes_InvBasicBag struct {
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -18533,6 +18698,7 @@ func (invBasicBag *Inventory_Racks_Rack_Entity_Slot_Attributes_InvBasicBag) GetE
     invBasicBag.EntityData.BundleName = "cisco_ios_xr"
     invBasicBag.EntityData.ParentYangName = "attributes"
     invBasicBag.EntityData.SegmentPath = "inv-basic-bag"
+    invBasicBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/attributes/" + invBasicBag.EntityData.SegmentPath
     invBasicBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invBasicBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invBasicBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18626,6 +18792,7 @@ func (envSensorInfo *Inventory_Racks_Rack_Entity_Slot_Attributes_EnvSensorInfo) 
     envSensorInfo.EntityData.BundleName = "cisco_ios_xr"
     envSensorInfo.EntityData.ParentYangName = "attributes"
     envSensorInfo.EntityData.SegmentPath = "env-sensor-info"
+    envSensorInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/attributes/" + envSensorInfo.EntityData.SegmentPath
     envSensorInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     envSensorInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     envSensorInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18677,6 +18844,7 @@ func (pwgInfo *Inventory_Racks_Rack_Entity_Slot_Attributes_PwgInfo) GetEntityDat
     pwgInfo.EntityData.BundleName = "cisco_ios_xr"
     pwgInfo.EntityData.ParentYangName = "attributes"
     pwgInfo.EntityData.SegmentPath = "pwg-info"
+    pwgInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/attributes/" + pwgInfo.EntityData.SegmentPath
     pwgInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pwgInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pwgInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18729,6 +18897,7 @@ func (envSensorInfoXml *Inventory_Racks_Rack_Entity_Slot_Attributes_EnvSensorInf
     envSensorInfoXml.EntityData.BundleName = "cisco_ios_xr"
     envSensorInfoXml.EntityData.ParentYangName = "attributes"
     envSensorInfoXml.EntityData.SegmentPath = "env-sensor-info-xml"
+    envSensorInfoXml.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/attributes/" + envSensorInfoXml.EntityData.SegmentPath
     envSensorInfoXml.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     envSensorInfoXml.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     envSensorInfoXml.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18765,6 +18934,7 @@ func (threshold *Inventory_Racks_Rack_Entity_Slot_Attributes_EnvSensorInfoXml_Th
     threshold.EntityData.BundleName = "cisco_ios_xr"
     threshold.EntityData.ParentYangName = "env-sensor-info-xml"
     threshold.EntityData.SegmentPath = "threshold"
+    threshold.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/attributes/env-sensor-info-xml/" + threshold.EntityData.SegmentPath
     threshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18772,6 +18942,7 @@ func (threshold *Inventory_Racks_Rack_Entity_Slot_Attributes_EnvSensorInfoXml_Th
     threshold.EntityData.Children = types.NewOrderedMap()
     threshold.EntityData.Children.Append("threshold-array", types.YChild{"ThresholdArray", nil})
     for i := range threshold.ThresholdArray {
+        types.SetYListKey(threshold.ThresholdArray[i], i)
         threshold.EntityData.Children.Append(types.GetSegmentPath(threshold.ThresholdArray[i]), types.YChild{"ThresholdArray", threshold.ThresholdArray[i]})
     }
     threshold.EntityData.Leafs = types.NewOrderedMap()
@@ -18786,6 +18957,7 @@ func (threshold *Inventory_Racks_Rack_Entity_Slot_Attributes_EnvSensorInfoXml_Th
 type Inventory_Racks_Rack_Entity_Slot_Attributes_EnvSensorInfoXml_Threshold_ThresholdArray struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Indicates minor, major, critical severities. The type is ThresholdSeverity.
     ThresholdSeverity interface{}
@@ -18807,7 +18979,8 @@ func (thresholdArray *Inventory_Racks_Rack_Entity_Slot_Attributes_EnvSensorInfoX
     thresholdArray.EntityData.YangName = "threshold-array"
     thresholdArray.EntityData.BundleName = "cisco_ios_xr"
     thresholdArray.EntityData.ParentYangName = "threshold"
-    thresholdArray.EntityData.SegmentPath = "threshold-array"
+    thresholdArray.EntityData.SegmentPath = "threshold-array" + types.AddNoKeyToken(thresholdArray)
+    thresholdArray.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/attributes/env-sensor-info-xml/threshold/" + thresholdArray.EntityData.SegmentPath
     thresholdArray.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     thresholdArray.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     thresholdArray.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18860,6 +19033,7 @@ func (invAssetBag *Inventory_Racks_Rack_Entity_Slot_Attributes_InvAssetBag) GetE
     invAssetBag.EntityData.BundleName = "cisco_ios_xr"
     invAssetBag.EntityData.ParentYangName = "attributes"
     invAssetBag.EntityData.SegmentPath = "inv-asset-bag"
+    invAssetBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/attributes/" + invAssetBag.EntityData.SegmentPath
     invAssetBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invAssetBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invAssetBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18910,6 +19084,7 @@ func (threshold *Inventory_Racks_Rack_Entity_Slot_Attributes_Threshold) GetEntit
     threshold.EntityData.BundleName = "cisco_ios_xr"
     threshold.EntityData.ParentYangName = "attributes"
     threshold.EntityData.SegmentPath = "threshold"
+    threshold.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/attributes/" + threshold.EntityData.SegmentPath
     threshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18944,6 +19119,7 @@ func (majorLo *Inventory_Racks_Rack_Entity_Slot_Attributes_Threshold_MajorLo) Ge
     majorLo.EntityData.BundleName = "cisco_ios_xr"
     majorLo.EntityData.ParentYangName = "threshold"
     majorLo.EntityData.SegmentPath = "major-lo"
+    majorLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/attributes/threshold/" + majorLo.EntityData.SegmentPath
     majorLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     majorLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     majorLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18990,6 +19166,7 @@ func (threshBag *Inventory_Racks_Rack_Entity_Slot_Attributes_Threshold_MajorLo_T
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "major-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/attributes/threshold/major-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19023,6 +19200,7 @@ func (criticalHi *Inventory_Racks_Rack_Entity_Slot_Attributes_Threshold_Critical
     criticalHi.EntityData.BundleName = "cisco_ios_xr"
     criticalHi.EntityData.ParentYangName = "threshold"
     criticalHi.EntityData.SegmentPath = "critical-hi"
+    criticalHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/attributes/threshold/" + criticalHi.EntityData.SegmentPath
     criticalHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     criticalHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     criticalHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19069,6 +19247,7 @@ func (threshBag *Inventory_Racks_Rack_Entity_Slot_Attributes_Threshold_CriticalH
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "critical-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/attributes/threshold/critical-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19102,6 +19281,7 @@ func (minorHi *Inventory_Racks_Rack_Entity_Slot_Attributes_Threshold_MinorHi) Ge
     minorHi.EntityData.BundleName = "cisco_ios_xr"
     minorHi.EntityData.ParentYangName = "threshold"
     minorHi.EntityData.SegmentPath = "minor-hi"
+    minorHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/attributes/threshold/" + minorHi.EntityData.SegmentPath
     minorHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     minorHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     minorHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19148,6 +19328,7 @@ func (threshBag *Inventory_Racks_Rack_Entity_Slot_Attributes_Threshold_MinorHi_T
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "minor-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/attributes/threshold/minor-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19181,6 +19362,7 @@ func (majorHi *Inventory_Racks_Rack_Entity_Slot_Attributes_Threshold_MajorHi) Ge
     majorHi.EntityData.BundleName = "cisco_ios_xr"
     majorHi.EntityData.ParentYangName = "threshold"
     majorHi.EntityData.SegmentPath = "major-hi"
+    majorHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/attributes/threshold/" + majorHi.EntityData.SegmentPath
     majorHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     majorHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     majorHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19227,6 +19409,7 @@ func (threshBag *Inventory_Racks_Rack_Entity_Slot_Attributes_Threshold_MajorHi_T
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "major-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/attributes/threshold/major-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19260,6 +19443,7 @@ func (criticalLo *Inventory_Racks_Rack_Entity_Slot_Attributes_Threshold_Critical
     criticalLo.EntityData.BundleName = "cisco_ios_xr"
     criticalLo.EntityData.ParentYangName = "threshold"
     criticalLo.EntityData.SegmentPath = "critical-lo"
+    criticalLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/attributes/threshold/" + criticalLo.EntityData.SegmentPath
     criticalLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     criticalLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     criticalLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19306,6 +19490,7 @@ func (threshBag *Inventory_Racks_Rack_Entity_Slot_Attributes_Threshold_CriticalL
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "critical-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/attributes/threshold/critical-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19339,6 +19524,7 @@ func (minorLo *Inventory_Racks_Rack_Entity_Slot_Attributes_Threshold_MinorLo) Ge
     minorLo.EntityData.BundleName = "cisco_ios_xr"
     minorLo.EntityData.ParentYangName = "threshold"
     minorLo.EntityData.SegmentPath = "minor-lo"
+    minorLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/attributes/threshold/" + minorLo.EntityData.SegmentPath
     minorLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     minorLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     minorLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19385,6 +19571,7 @@ func (threshBag *Inventory_Racks_Rack_Entity_Slot_Attributes_Threshold_MinorLo_T
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "minor-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/attributes/threshold/minor-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19448,6 +19635,7 @@ func (fruInfo *Inventory_Racks_Rack_Entity_Slot_Attributes_FruInfo) GetEntityDat
     fruInfo.EntityData.BundleName = "cisco_ios_xr"
     fruInfo.EntityData.ParentYangName = "attributes"
     fruInfo.EntityData.SegmentPath = "fru-info"
+    fruInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/attributes/" + fruInfo.EntityData.SegmentPath
     fruInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fruInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fruInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19490,6 +19678,7 @@ func (lastOperationalStateChange *Inventory_Racks_Rack_Entity_Slot_Attributes_Fr
     lastOperationalStateChange.EntityData.BundleName = "cisco_ios_xr"
     lastOperationalStateChange.EntityData.ParentYangName = "fru-info"
     lastOperationalStateChange.EntityData.SegmentPath = "last-operational-state-change"
+    lastOperationalStateChange.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/attributes/fru-info/" + lastOperationalStateChange.EntityData.SegmentPath
     lastOperationalStateChange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastOperationalStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastOperationalStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19525,6 +19714,7 @@ func (cardUpTime *Inventory_Racks_Rack_Entity_Slot_Attributes_FruInfo_CardUpTime
     cardUpTime.EntityData.BundleName = "cisco_ios_xr"
     cardUpTime.EntityData.ParentYangName = "fru-info"
     cardUpTime.EntityData.SegmentPath = "card-up-time"
+    cardUpTime.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/attributes/fru-info/" + cardUpTime.EntityData.SegmentPath
     cardUpTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cardUpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cardUpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19574,6 +19764,7 @@ func (invEepromInfo *Inventory_Racks_Rack_Entity_Slot_Attributes_InvEepromInfo) 
     invEepromInfo.EntityData.BundleName = "cisco_ios_xr"
     invEepromInfo.EntityData.ParentYangName = "attributes"
     invEepromInfo.EntityData.SegmentPath = "inv-eeprom-info"
+    invEepromInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/attributes/" + invEepromInfo.EntityData.SegmentPath
     invEepromInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invEepromInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invEepromInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19779,6 +19970,7 @@ func (eeprom *Inventory_Racks_Rack_Entity_Slot_Attributes_InvEepromInfo_Eeprom) 
     eeprom.EntityData.BundleName = "cisco_ios_xr"
     eeprom.EntityData.ParentYangName = "inv-eeprom-info"
     eeprom.EntityData.SegmentPath = "eeprom"
+    eeprom.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/attributes/inv-eeprom-info/" + eeprom.EntityData.SegmentPath
     eeprom.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eeprom.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eeprom.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19871,6 +20063,7 @@ func (rma *Inventory_Racks_Rack_Entity_Slot_Attributes_InvEepromInfo_Eeprom_Rma)
     rma.EntityData.BundleName = "cisco_ios_xr"
     rma.EntityData.ParentYangName = "eeprom"
     rma.EntityData.SegmentPath = "rma"
+    rma.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/entity/slot/attributes/inv-eeprom-info/eeprom/" + rma.EntityData.SegmentPath
     rma.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rma.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rma.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19902,6 +20095,7 @@ func (powershelf *Inventory_Racks_Rack_Powershelf) GetEntityData() *types.Common
     powershelf.EntityData.BundleName = "cisco_ios_xr"
     powershelf.EntityData.ParentYangName = "rack"
     powershelf.EntityData.SegmentPath = "powershelf"
+    powershelf.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/" + powershelf.EntityData.SegmentPath
     powershelf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     powershelf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     powershelf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19923,6 +20117,7 @@ func (powershelf *Inventory_Racks_Rack_Powershelf) GetEntityData() *types.Common
 type Inventory_Racks_Rack_Powershelf_Slot struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Slot name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -19941,6 +20136,7 @@ func (slot *Inventory_Racks_Rack_Powershelf_Slot) GetEntityData() *types.CommonE
     slot.EntityData.BundleName = "cisco_ios_xr"
     slot.EntityData.ParentYangName = "powershelf"
     slot.EntityData.SegmentPath = "slot" + types.AddKeyToken(slot.Name, "name")
+    slot.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/" + slot.EntityData.SegmentPath
     slot.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     slot.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     slot.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19972,6 +20168,7 @@ func (tsi1s *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s) GetEntityData() *types.
     tsi1s.EntityData.BundleName = "cisco_ios_xr"
     tsi1s.EntityData.ParentYangName = "slot"
     tsi1s.EntityData.SegmentPath = "tsi1s"
+    tsi1s.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/" + tsi1s.EntityData.SegmentPath
     tsi1s.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tsi1s.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tsi1s.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19993,6 +20190,7 @@ func (tsi1s *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s) GetEntityData() *types.
 type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. TSI1. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -20011,6 +20209,7 @@ func (tsi1 *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1) GetEntityData() *ty
     tsi1.EntityData.BundleName = "cisco_ios_xr"
     tsi1.EntityData.ParentYangName = "tsi1s"
     tsi1.EntityData.SegmentPath = "tsi1" + types.AddKeyToken(tsi1.Name, "name")
+    tsi1.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/" + tsi1.EntityData.SegmentPath
     tsi1.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tsi1.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tsi1.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20043,6 +20242,7 @@ func (tsi2s *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s) GetEntityDat
     tsi2s.EntityData.BundleName = "cisco_ios_xr"
     tsi2s.EntityData.ParentYangName = "tsi1"
     tsi2s.EntityData.SegmentPath = "tsi2s"
+    tsi2s.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/" + tsi2s.EntityData.SegmentPath
     tsi2s.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tsi2s.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tsi2s.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20064,6 +20264,7 @@ func (tsi2s *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s) GetEntityDat
 type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. TSI2. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -20082,6 +20283,7 @@ func (tsi2 *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2) GetEntit
     tsi2.EntityData.BundleName = "cisco_ios_xr"
     tsi2.EntityData.ParentYangName = "tsi2s"
     tsi2.EntityData.SegmentPath = "tsi2" + types.AddKeyToken(tsi2.Name, "name")
+    tsi2.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/" + tsi2.EntityData.SegmentPath
     tsi2.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tsi2.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tsi2.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20114,6 +20316,7 @@ func (tsi3s *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s) G
     tsi3s.EntityData.BundleName = "cisco_ios_xr"
     tsi3s.EntityData.ParentYangName = "tsi2"
     tsi3s.EntityData.SegmentPath = "tsi3s"
+    tsi3s.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/" + tsi3s.EntityData.SegmentPath
     tsi3s.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tsi3s.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tsi3s.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20135,6 +20338,7 @@ func (tsi3s *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s) G
 type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. TSI3. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -20153,6 +20357,7 @@ func (tsi3 *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi
     tsi3.EntityData.BundleName = "cisco_ios_xr"
     tsi3.EntityData.ParentYangName = "tsi3s"
     tsi3.EntityData.SegmentPath = "tsi3" + types.AddKeyToken(tsi3.Name, "name")
+    tsi3.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/" + tsi3.EntityData.SegmentPath
     tsi3.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tsi3.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tsi3.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20185,6 +20390,7 @@ func (tsi4s *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
     tsi4s.EntityData.BundleName = "cisco_ios_xr"
     tsi4s.EntityData.ParentYangName = "tsi3"
     tsi4s.EntityData.SegmentPath = "tsi4s"
+    tsi4s.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/" + tsi4s.EntityData.SegmentPath
     tsi4s.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tsi4s.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tsi4s.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20206,6 +20412,7 @@ func (tsi4s *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
 type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. TSI4. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -20224,6 +20431,7 @@ func (tsi4 *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi
     tsi4.EntityData.BundleName = "cisco_ios_xr"
     tsi4.EntityData.ParentYangName = "tsi4s"
     tsi4.EntityData.SegmentPath = "tsi4" + types.AddKeyToken(tsi4.Name, "name")
+    tsi4.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/" + tsi4.EntityData.SegmentPath
     tsi4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tsi4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tsi4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20256,6 +20464,7 @@ func (tsi5s *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
     tsi5s.EntityData.BundleName = "cisco_ios_xr"
     tsi5s.EntityData.ParentYangName = "tsi4"
     tsi5s.EntityData.SegmentPath = "tsi5s"
+    tsi5s.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/" + tsi5s.EntityData.SegmentPath
     tsi5s.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tsi5s.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tsi5s.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20277,6 +20486,7 @@ func (tsi5s *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
 type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. TSI5. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -20295,6 +20505,7 @@ func (tsi5 *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi
     tsi5.EntityData.BundleName = "cisco_ios_xr"
     tsi5.EntityData.ParentYangName = "tsi5s"
     tsi5.EntityData.SegmentPath = "tsi5" + types.AddKeyToken(tsi5.Name, "name")
+    tsi5.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/" + tsi5.EntityData.SegmentPath
     tsi5.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tsi5.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tsi5.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20327,6 +20538,7 @@ func (tsi6s *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
     tsi6s.EntityData.BundleName = "cisco_ios_xr"
     tsi6s.EntityData.ParentYangName = "tsi5"
     tsi6s.EntityData.SegmentPath = "tsi6s"
+    tsi6s.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/" + tsi6s.EntityData.SegmentPath
     tsi6s.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tsi6s.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tsi6s.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20348,6 +20560,7 @@ func (tsi6s *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
 type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. TSI6. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -20366,6 +20579,7 @@ func (tsi6 *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi
     tsi6.EntityData.BundleName = "cisco_ios_xr"
     tsi6.EntityData.ParentYangName = "tsi6s"
     tsi6.EntityData.SegmentPath = "tsi6" + types.AddKeyToken(tsi6.Name, "name")
+    tsi6.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/" + tsi6.EntityData.SegmentPath
     tsi6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tsi6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tsi6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20398,6 +20612,7 @@ func (tsi7s *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
     tsi7s.EntityData.BundleName = "cisco_ios_xr"
     tsi7s.EntityData.ParentYangName = "tsi6"
     tsi7s.EntityData.SegmentPath = "tsi7s"
+    tsi7s.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/" + tsi7s.EntityData.SegmentPath
     tsi7s.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tsi7s.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tsi7s.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20419,6 +20634,7 @@ func (tsi7s *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
 type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. TSI7. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -20437,6 +20653,7 @@ func (tsi7 *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi
     tsi7.EntityData.BundleName = "cisco_ios_xr"
     tsi7.EntityData.ParentYangName = "tsi7s"
     tsi7.EntityData.SegmentPath = "tsi7" + types.AddKeyToken(tsi7.Name, "name")
+    tsi7.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/" + tsi7.EntityData.SegmentPath
     tsi7.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tsi7.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tsi7.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20469,6 +20686,7 @@ func (tsi8s *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
     tsi8s.EntityData.BundleName = "cisco_ios_xr"
     tsi8s.EntityData.ParentYangName = "tsi7"
     tsi8s.EntityData.SegmentPath = "tsi8s"
+    tsi8s.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/" + tsi8s.EntityData.SegmentPath
     tsi8s.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tsi8s.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tsi8s.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20490,6 +20708,7 @@ func (tsi8s *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
 type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. TSI8. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -20508,6 +20727,7 @@ func (tsi8 *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi
     tsi8.EntityData.BundleName = "cisco_ios_xr"
     tsi8.EntityData.ParentYangName = "tsi8s"
     tsi8.EntityData.SegmentPath = "tsi8" + types.AddKeyToken(tsi8.Name, "name")
+    tsi8.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/" + tsi8.EntityData.SegmentPath
     tsi8.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tsi8.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tsi8.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20540,6 +20760,7 @@ func (tsi9s *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
     tsi9s.EntityData.BundleName = "cisco_ios_xr"
     tsi9s.EntityData.ParentYangName = "tsi8"
     tsi9s.EntityData.SegmentPath = "tsi9s"
+    tsi9s.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/" + tsi9s.EntityData.SegmentPath
     tsi9s.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tsi9s.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tsi9s.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20561,6 +20782,7 @@ func (tsi9s *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
 type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Tsi9s_Tsi9 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. TSI9. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -20579,6 +20801,7 @@ func (tsi9 *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi
     tsi9.EntityData.BundleName = "cisco_ios_xr"
     tsi9.EntityData.ParentYangName = "tsi9s"
     tsi9.EntityData.SegmentPath = "tsi9" + types.AddKeyToken(tsi9.Name, "name")
+    tsi9.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/" + tsi9.EntityData.SegmentPath
     tsi9.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tsi9.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tsi9.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20611,6 +20834,7 @@ func (tsi10s *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     tsi10s.EntityData.BundleName = "cisco_ios_xr"
     tsi10s.EntityData.ParentYangName = "tsi9"
     tsi10s.EntityData.SegmentPath = "tsi10s"
+    tsi10s.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/" + tsi10s.EntityData.SegmentPath
     tsi10s.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tsi10s.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tsi10s.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20632,6 +20856,7 @@ func (tsi10s *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
 type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Tsi9s_Tsi9_Tsi10s_Tsi10 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. TSI10. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -20650,6 +20875,7 @@ func (tsi10 *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
     tsi10.EntityData.BundleName = "cisco_ios_xr"
     tsi10.EntityData.ParentYangName = "tsi10s"
     tsi10.EntityData.SegmentPath = "tsi10" + types.AddKeyToken(tsi10.Name, "name")
+    tsi10.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/" + tsi10.EntityData.SegmentPath
     tsi10.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tsi10.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tsi10.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20682,6 +20908,7 @@ func (tsi11s *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     tsi11s.EntityData.BundleName = "cisco_ios_xr"
     tsi11s.EntityData.ParentYangName = "tsi10"
     tsi11s.EntityData.SegmentPath = "tsi11s"
+    tsi11s.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/" + tsi11s.EntityData.SegmentPath
     tsi11s.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tsi11s.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tsi11s.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20703,6 +20930,7 @@ func (tsi11s *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
 type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Tsi9s_Tsi9_Tsi10s_Tsi10_Tsi11s_Tsi11 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. TSI11. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -20718,6 +20946,7 @@ func (tsi11 *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
     tsi11.EntityData.BundleName = "cisco_ios_xr"
     tsi11.EntityData.ParentYangName = "tsi11s"
     tsi11.EntityData.SegmentPath = "tsi11" + types.AddKeyToken(tsi11.Name, "name")
+    tsi11.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/tsi11s/" + tsi11.EntityData.SegmentPath
     tsi11.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tsi11.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tsi11.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20737,19 +20966,6 @@ func (tsi11 *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Ts
 type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Tsi9s_Tsi9_Tsi10s_Tsi10_Tsi11s_Tsi11_Attributes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
-
-    // Inventory EDM Module Done Tuple. The type is interface{} with range:
-    // 0..4294967295. The default value is 1.
-    ModuleDone interface{}
-
-    // VM Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    VmNodeId interface{}
-
-    // VM Done Tuple. The type is interface{} with range: 0..4294967295.
-    VmDone interface{}
-
-    // Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    NodeId interface{}
 
     // Inventory Basic Bag.
     InvBasicBag Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Tsi9s_Tsi9_Tsi10s_Tsi10_Tsi11s_Tsi11_Attributes_InvBasicBag
@@ -20782,6 +20998,7 @@ func (attributes *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi
     attributes.EntityData.BundleName = "cisco_ios_xr"
     attributes.EntityData.ParentYangName = "tsi11"
     attributes.EntityData.SegmentPath = "attributes"
+    attributes.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/tsi11s/tsi11/" + attributes.EntityData.SegmentPath
     attributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     attributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20796,10 +21013,6 @@ func (attributes *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi
     attributes.EntityData.Children.Append("fru-info", types.YChild{"FruInfo", &attributes.FruInfo})
     attributes.EntityData.Children.Append("inv-eeprom-info", types.YChild{"InvEepromInfo", &attributes.InvEepromInfo})
     attributes.EntityData.Leafs = types.NewOrderedMap()
-    attributes.EntityData.Leafs.Append("module-done", types.YLeaf{"ModuleDone", attributes.ModuleDone})
-    attributes.EntityData.Leafs.Append("vm-node-id", types.YLeaf{"VmNodeId", attributes.VmNodeId})
-    attributes.EntityData.Leafs.Append("vm-done", types.YLeaf{"VmDone", attributes.VmDone})
-    attributes.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", attributes.NodeId})
 
     attributes.EntityData.YListKeys = []string {}
 
@@ -20887,8 +21100,8 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -20908,6 +21121,7 @@ func (invBasicBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Ts
     invBasicBag.EntityData.BundleName = "cisco_ios_xr"
     invBasicBag.EntityData.ParentYangName = "attributes"
     invBasicBag.EntityData.SegmentPath = "inv-basic-bag"
+    invBasicBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/tsi11s/tsi11/attributes/" + invBasicBag.EntityData.SegmentPath
     invBasicBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invBasicBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invBasicBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21001,6 +21215,7 @@ func (envSensorInfo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_
     envSensorInfo.EntityData.BundleName = "cisco_ios_xr"
     envSensorInfo.EntityData.ParentYangName = "attributes"
     envSensorInfo.EntityData.SegmentPath = "env-sensor-info"
+    envSensorInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/tsi11s/tsi11/attributes/" + envSensorInfo.EntityData.SegmentPath
     envSensorInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     envSensorInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     envSensorInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21052,6 +21267,7 @@ func (pwgInfo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     pwgInfo.EntityData.BundleName = "cisco_ios_xr"
     pwgInfo.EntityData.ParentYangName = "attributes"
     pwgInfo.EntityData.SegmentPath = "pwg-info"
+    pwgInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/tsi11s/tsi11/attributes/" + pwgInfo.EntityData.SegmentPath
     pwgInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pwgInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pwgInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21104,6 +21320,7 @@ func (envSensorInfoXml *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Ts
     envSensorInfoXml.EntityData.BundleName = "cisco_ios_xr"
     envSensorInfoXml.EntityData.ParentYangName = "attributes"
     envSensorInfoXml.EntityData.SegmentPath = "env-sensor-info-xml"
+    envSensorInfoXml.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/tsi11s/tsi11/attributes/" + envSensorInfoXml.EntityData.SegmentPath
     envSensorInfoXml.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     envSensorInfoXml.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     envSensorInfoXml.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21140,6 +21357,7 @@ func (threshold *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     threshold.EntityData.BundleName = "cisco_ios_xr"
     threshold.EntityData.ParentYangName = "env-sensor-info-xml"
     threshold.EntityData.SegmentPath = "threshold"
+    threshold.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/tsi11s/tsi11/attributes/env-sensor-info-xml/" + threshold.EntityData.SegmentPath
     threshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21147,6 +21365,7 @@ func (threshold *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     threshold.EntityData.Children = types.NewOrderedMap()
     threshold.EntityData.Children.Append("threshold-array", types.YChild{"ThresholdArray", nil})
     for i := range threshold.ThresholdArray {
+        types.SetYListKey(threshold.ThresholdArray[i], i)
         threshold.EntityData.Children.Append(types.GetSegmentPath(threshold.ThresholdArray[i]), types.YChild{"ThresholdArray", threshold.ThresholdArray[i]})
     }
     threshold.EntityData.Leafs = types.NewOrderedMap()
@@ -21161,6 +21380,7 @@ func (threshold *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
 type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Tsi9s_Tsi9_Tsi10s_Tsi10_Tsi11s_Tsi11_Attributes_EnvSensorInfoXml_Threshold_ThresholdArray struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Indicates minor, major, critical severities. The type is ThresholdSeverity.
     ThresholdSeverity interface{}
@@ -21182,7 +21402,8 @@ func (thresholdArray *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2
     thresholdArray.EntityData.YangName = "threshold-array"
     thresholdArray.EntityData.BundleName = "cisco_ios_xr"
     thresholdArray.EntityData.ParentYangName = "threshold"
-    thresholdArray.EntityData.SegmentPath = "threshold-array"
+    thresholdArray.EntityData.SegmentPath = "threshold-array" + types.AddNoKeyToken(thresholdArray)
+    thresholdArray.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/tsi11s/tsi11/attributes/env-sensor-info-xml/threshold/" + thresholdArray.EntityData.SegmentPath
     thresholdArray.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     thresholdArray.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     thresholdArray.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21235,6 +21456,7 @@ func (invAssetBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Ts
     invAssetBag.EntityData.BundleName = "cisco_ios_xr"
     invAssetBag.EntityData.ParentYangName = "attributes"
     invAssetBag.EntityData.SegmentPath = "inv-asset-bag"
+    invAssetBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/tsi11s/tsi11/attributes/" + invAssetBag.EntityData.SegmentPath
     invAssetBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invAssetBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invAssetBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21285,6 +21507,7 @@ func (threshold *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     threshold.EntityData.BundleName = "cisco_ios_xr"
     threshold.EntityData.ParentYangName = "attributes"
     threshold.EntityData.SegmentPath = "threshold"
+    threshold.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/tsi11s/tsi11/attributes/" + threshold.EntityData.SegmentPath
     threshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21319,6 +21542,7 @@ func (majorLo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     majorLo.EntityData.BundleName = "cisco_ios_xr"
     majorLo.EntityData.ParentYangName = "threshold"
     majorLo.EntityData.SegmentPath = "major-lo"
+    majorLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/tsi11s/tsi11/attributes/threshold/" + majorLo.EntityData.SegmentPath
     majorLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     majorLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     majorLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21365,6 +21589,7 @@ func (threshBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "major-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/tsi11s/tsi11/attributes/threshold/major-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21398,6 +21623,7 @@ func (criticalHi *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi
     criticalHi.EntityData.BundleName = "cisco_ios_xr"
     criticalHi.EntityData.ParentYangName = "threshold"
     criticalHi.EntityData.SegmentPath = "critical-hi"
+    criticalHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/tsi11s/tsi11/attributes/threshold/" + criticalHi.EntityData.SegmentPath
     criticalHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     criticalHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     criticalHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21444,6 +21670,7 @@ func (threshBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "critical-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/tsi11s/tsi11/attributes/threshold/critical-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21477,6 +21704,7 @@ func (minorHi *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     minorHi.EntityData.BundleName = "cisco_ios_xr"
     minorHi.EntityData.ParentYangName = "threshold"
     minorHi.EntityData.SegmentPath = "minor-hi"
+    minorHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/tsi11s/tsi11/attributes/threshold/" + minorHi.EntityData.SegmentPath
     minorHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     minorHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     minorHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21523,6 +21751,7 @@ func (threshBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "minor-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/tsi11s/tsi11/attributes/threshold/minor-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21556,6 +21785,7 @@ func (majorHi *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     majorHi.EntityData.BundleName = "cisco_ios_xr"
     majorHi.EntityData.ParentYangName = "threshold"
     majorHi.EntityData.SegmentPath = "major-hi"
+    majorHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/tsi11s/tsi11/attributes/threshold/" + majorHi.EntityData.SegmentPath
     majorHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     majorHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     majorHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21602,6 +21832,7 @@ func (threshBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "major-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/tsi11s/tsi11/attributes/threshold/major-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21635,6 +21866,7 @@ func (criticalLo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi
     criticalLo.EntityData.BundleName = "cisco_ios_xr"
     criticalLo.EntityData.ParentYangName = "threshold"
     criticalLo.EntityData.SegmentPath = "critical-lo"
+    criticalLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/tsi11s/tsi11/attributes/threshold/" + criticalLo.EntityData.SegmentPath
     criticalLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     criticalLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     criticalLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21681,6 +21913,7 @@ func (threshBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "critical-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/tsi11s/tsi11/attributes/threshold/critical-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21714,6 +21947,7 @@ func (minorLo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     minorLo.EntityData.BundleName = "cisco_ios_xr"
     minorLo.EntityData.ParentYangName = "threshold"
     minorLo.EntityData.SegmentPath = "minor-lo"
+    minorLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/tsi11s/tsi11/attributes/threshold/" + minorLo.EntityData.SegmentPath
     minorLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     minorLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     minorLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21760,6 +21994,7 @@ func (threshBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "minor-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/tsi11s/tsi11/attributes/threshold/minor-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21823,6 +22058,7 @@ func (fruInfo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     fruInfo.EntityData.BundleName = "cisco_ios_xr"
     fruInfo.EntityData.ParentYangName = "attributes"
     fruInfo.EntityData.SegmentPath = "fru-info"
+    fruInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/tsi11s/tsi11/attributes/" + fruInfo.EntityData.SegmentPath
     fruInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fruInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fruInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21865,6 +22101,7 @@ func (lastOperationalStateChange *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi
     lastOperationalStateChange.EntityData.BundleName = "cisco_ios_xr"
     lastOperationalStateChange.EntityData.ParentYangName = "fru-info"
     lastOperationalStateChange.EntityData.SegmentPath = "last-operational-state-change"
+    lastOperationalStateChange.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/tsi11s/tsi11/attributes/fru-info/" + lastOperationalStateChange.EntityData.SegmentPath
     lastOperationalStateChange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastOperationalStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastOperationalStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21900,6 +22137,7 @@ func (cardUpTime *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi
     cardUpTime.EntityData.BundleName = "cisco_ios_xr"
     cardUpTime.EntityData.ParentYangName = "fru-info"
     cardUpTime.EntityData.SegmentPath = "card-up-time"
+    cardUpTime.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/tsi11s/tsi11/attributes/fru-info/" + cardUpTime.EntityData.SegmentPath
     cardUpTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cardUpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cardUpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21949,6 +22187,7 @@ func (invEepromInfo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_
     invEepromInfo.EntityData.BundleName = "cisco_ios_xr"
     invEepromInfo.EntityData.ParentYangName = "attributes"
     invEepromInfo.EntityData.SegmentPath = "inv-eeprom-info"
+    invEepromInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/tsi11s/tsi11/attributes/" + invEepromInfo.EntityData.SegmentPath
     invEepromInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invEepromInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invEepromInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22154,6 +22393,7 @@ func (eeprom *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     eeprom.EntityData.BundleName = "cisco_ios_xr"
     eeprom.EntityData.ParentYangName = "inv-eeprom-info"
     eeprom.EntityData.SegmentPath = "eeprom"
+    eeprom.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/tsi11s/tsi11/attributes/inv-eeprom-info/" + eeprom.EntityData.SegmentPath
     eeprom.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eeprom.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eeprom.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22246,6 +22486,7 @@ func (rma *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3
     rma.EntityData.BundleName = "cisco_ios_xr"
     rma.EntityData.ParentYangName = "eeprom"
     rma.EntityData.SegmentPath = "rma"
+    rma.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/tsi11s/tsi11/attributes/inv-eeprom-info/eeprom/" + rma.EntityData.SegmentPath
     rma.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rma.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rma.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22266,19 +22507,6 @@ func (rma *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3
 type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Tsi9s_Tsi9_Tsi10s_Tsi10_Attributes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
-
-    // Inventory EDM Module Done Tuple. The type is interface{} with range:
-    // 0..4294967295. The default value is 1.
-    ModuleDone interface{}
-
-    // VM Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    VmNodeId interface{}
-
-    // VM Done Tuple. The type is interface{} with range: 0..4294967295.
-    VmDone interface{}
-
-    // Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    NodeId interface{}
 
     // Inventory Basic Bag.
     InvBasicBag Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Tsi9s_Tsi9_Tsi10s_Tsi10_Attributes_InvBasicBag
@@ -22311,6 +22539,7 @@ func (attributes *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi
     attributes.EntityData.BundleName = "cisco_ios_xr"
     attributes.EntityData.ParentYangName = "tsi10"
     attributes.EntityData.SegmentPath = "attributes"
+    attributes.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/" + attributes.EntityData.SegmentPath
     attributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     attributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22325,10 +22554,6 @@ func (attributes *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi
     attributes.EntityData.Children.Append("fru-info", types.YChild{"FruInfo", &attributes.FruInfo})
     attributes.EntityData.Children.Append("inv-eeprom-info", types.YChild{"InvEepromInfo", &attributes.InvEepromInfo})
     attributes.EntityData.Leafs = types.NewOrderedMap()
-    attributes.EntityData.Leafs.Append("module-done", types.YLeaf{"ModuleDone", attributes.ModuleDone})
-    attributes.EntityData.Leafs.Append("vm-node-id", types.YLeaf{"VmNodeId", attributes.VmNodeId})
-    attributes.EntityData.Leafs.Append("vm-done", types.YLeaf{"VmDone", attributes.VmDone})
-    attributes.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", attributes.NodeId})
 
     attributes.EntityData.YListKeys = []string {}
 
@@ -22416,8 +22641,8 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -22437,6 +22662,7 @@ func (invBasicBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Ts
     invBasicBag.EntityData.BundleName = "cisco_ios_xr"
     invBasicBag.EntityData.ParentYangName = "attributes"
     invBasicBag.EntityData.SegmentPath = "inv-basic-bag"
+    invBasicBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/attributes/" + invBasicBag.EntityData.SegmentPath
     invBasicBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invBasicBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invBasicBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22530,6 +22756,7 @@ func (envSensorInfo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_
     envSensorInfo.EntityData.BundleName = "cisco_ios_xr"
     envSensorInfo.EntityData.ParentYangName = "attributes"
     envSensorInfo.EntityData.SegmentPath = "env-sensor-info"
+    envSensorInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/attributes/" + envSensorInfo.EntityData.SegmentPath
     envSensorInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     envSensorInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     envSensorInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22581,6 +22808,7 @@ func (pwgInfo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     pwgInfo.EntityData.BundleName = "cisco_ios_xr"
     pwgInfo.EntityData.ParentYangName = "attributes"
     pwgInfo.EntityData.SegmentPath = "pwg-info"
+    pwgInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/attributes/" + pwgInfo.EntityData.SegmentPath
     pwgInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pwgInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pwgInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22633,6 +22861,7 @@ func (envSensorInfoXml *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Ts
     envSensorInfoXml.EntityData.BundleName = "cisco_ios_xr"
     envSensorInfoXml.EntityData.ParentYangName = "attributes"
     envSensorInfoXml.EntityData.SegmentPath = "env-sensor-info-xml"
+    envSensorInfoXml.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/attributes/" + envSensorInfoXml.EntityData.SegmentPath
     envSensorInfoXml.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     envSensorInfoXml.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     envSensorInfoXml.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22669,6 +22898,7 @@ func (threshold *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     threshold.EntityData.BundleName = "cisco_ios_xr"
     threshold.EntityData.ParentYangName = "env-sensor-info-xml"
     threshold.EntityData.SegmentPath = "threshold"
+    threshold.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/attributes/env-sensor-info-xml/" + threshold.EntityData.SegmentPath
     threshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22676,6 +22906,7 @@ func (threshold *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     threshold.EntityData.Children = types.NewOrderedMap()
     threshold.EntityData.Children.Append("threshold-array", types.YChild{"ThresholdArray", nil})
     for i := range threshold.ThresholdArray {
+        types.SetYListKey(threshold.ThresholdArray[i], i)
         threshold.EntityData.Children.Append(types.GetSegmentPath(threshold.ThresholdArray[i]), types.YChild{"ThresholdArray", threshold.ThresholdArray[i]})
     }
     threshold.EntityData.Leafs = types.NewOrderedMap()
@@ -22690,6 +22921,7 @@ func (threshold *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
 type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Tsi9s_Tsi9_Tsi10s_Tsi10_Attributes_EnvSensorInfoXml_Threshold_ThresholdArray struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Indicates minor, major, critical severities. The type is ThresholdSeverity.
     ThresholdSeverity interface{}
@@ -22711,7 +22943,8 @@ func (thresholdArray *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2
     thresholdArray.EntityData.YangName = "threshold-array"
     thresholdArray.EntityData.BundleName = "cisco_ios_xr"
     thresholdArray.EntityData.ParentYangName = "threshold"
-    thresholdArray.EntityData.SegmentPath = "threshold-array"
+    thresholdArray.EntityData.SegmentPath = "threshold-array" + types.AddNoKeyToken(thresholdArray)
+    thresholdArray.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/attributes/env-sensor-info-xml/threshold/" + thresholdArray.EntityData.SegmentPath
     thresholdArray.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     thresholdArray.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     thresholdArray.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22764,6 +22997,7 @@ func (invAssetBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Ts
     invAssetBag.EntityData.BundleName = "cisco_ios_xr"
     invAssetBag.EntityData.ParentYangName = "attributes"
     invAssetBag.EntityData.SegmentPath = "inv-asset-bag"
+    invAssetBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/attributes/" + invAssetBag.EntityData.SegmentPath
     invAssetBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invAssetBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invAssetBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22814,6 +23048,7 @@ func (threshold *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     threshold.EntityData.BundleName = "cisco_ios_xr"
     threshold.EntityData.ParentYangName = "attributes"
     threshold.EntityData.SegmentPath = "threshold"
+    threshold.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/attributes/" + threshold.EntityData.SegmentPath
     threshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22848,6 +23083,7 @@ func (majorLo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     majorLo.EntityData.BundleName = "cisco_ios_xr"
     majorLo.EntityData.ParentYangName = "threshold"
     majorLo.EntityData.SegmentPath = "major-lo"
+    majorLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/attributes/threshold/" + majorLo.EntityData.SegmentPath
     majorLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     majorLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     majorLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22894,6 +23130,7 @@ func (threshBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "major-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/attributes/threshold/major-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22927,6 +23164,7 @@ func (criticalHi *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi
     criticalHi.EntityData.BundleName = "cisco_ios_xr"
     criticalHi.EntityData.ParentYangName = "threshold"
     criticalHi.EntityData.SegmentPath = "critical-hi"
+    criticalHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/attributes/threshold/" + criticalHi.EntityData.SegmentPath
     criticalHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     criticalHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     criticalHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22973,6 +23211,7 @@ func (threshBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "critical-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/attributes/threshold/critical-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23006,6 +23245,7 @@ func (minorHi *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     minorHi.EntityData.BundleName = "cisco_ios_xr"
     minorHi.EntityData.ParentYangName = "threshold"
     minorHi.EntityData.SegmentPath = "minor-hi"
+    minorHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/attributes/threshold/" + minorHi.EntityData.SegmentPath
     minorHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     minorHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     minorHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23052,6 +23292,7 @@ func (threshBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "minor-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/attributes/threshold/minor-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23085,6 +23326,7 @@ func (majorHi *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     majorHi.EntityData.BundleName = "cisco_ios_xr"
     majorHi.EntityData.ParentYangName = "threshold"
     majorHi.EntityData.SegmentPath = "major-hi"
+    majorHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/attributes/threshold/" + majorHi.EntityData.SegmentPath
     majorHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     majorHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     majorHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23131,6 +23373,7 @@ func (threshBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "major-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/attributes/threshold/major-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23164,6 +23407,7 @@ func (criticalLo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi
     criticalLo.EntityData.BundleName = "cisco_ios_xr"
     criticalLo.EntityData.ParentYangName = "threshold"
     criticalLo.EntityData.SegmentPath = "critical-lo"
+    criticalLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/attributes/threshold/" + criticalLo.EntityData.SegmentPath
     criticalLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     criticalLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     criticalLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23210,6 +23454,7 @@ func (threshBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "critical-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/attributes/threshold/critical-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23243,6 +23488,7 @@ func (minorLo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     minorLo.EntityData.BundleName = "cisco_ios_xr"
     minorLo.EntityData.ParentYangName = "threshold"
     minorLo.EntityData.SegmentPath = "minor-lo"
+    minorLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/attributes/threshold/" + minorLo.EntityData.SegmentPath
     minorLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     minorLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     minorLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23289,6 +23535,7 @@ func (threshBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "minor-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/attributes/threshold/minor-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23352,6 +23599,7 @@ func (fruInfo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     fruInfo.EntityData.BundleName = "cisco_ios_xr"
     fruInfo.EntityData.ParentYangName = "attributes"
     fruInfo.EntityData.SegmentPath = "fru-info"
+    fruInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/attributes/" + fruInfo.EntityData.SegmentPath
     fruInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fruInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fruInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23394,6 +23642,7 @@ func (lastOperationalStateChange *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi
     lastOperationalStateChange.EntityData.BundleName = "cisco_ios_xr"
     lastOperationalStateChange.EntityData.ParentYangName = "fru-info"
     lastOperationalStateChange.EntityData.SegmentPath = "last-operational-state-change"
+    lastOperationalStateChange.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/attributes/fru-info/" + lastOperationalStateChange.EntityData.SegmentPath
     lastOperationalStateChange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastOperationalStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastOperationalStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23429,6 +23678,7 @@ func (cardUpTime *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi
     cardUpTime.EntityData.BundleName = "cisco_ios_xr"
     cardUpTime.EntityData.ParentYangName = "fru-info"
     cardUpTime.EntityData.SegmentPath = "card-up-time"
+    cardUpTime.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/attributes/fru-info/" + cardUpTime.EntityData.SegmentPath
     cardUpTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cardUpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cardUpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23478,6 +23728,7 @@ func (invEepromInfo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_
     invEepromInfo.EntityData.BundleName = "cisco_ios_xr"
     invEepromInfo.EntityData.ParentYangName = "attributes"
     invEepromInfo.EntityData.SegmentPath = "inv-eeprom-info"
+    invEepromInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/attributes/" + invEepromInfo.EntityData.SegmentPath
     invEepromInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invEepromInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invEepromInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23683,6 +23934,7 @@ func (eeprom *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     eeprom.EntityData.BundleName = "cisco_ios_xr"
     eeprom.EntityData.ParentYangName = "inv-eeprom-info"
     eeprom.EntityData.SegmentPath = "eeprom"
+    eeprom.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/attributes/inv-eeprom-info/" + eeprom.EntityData.SegmentPath
     eeprom.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eeprom.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eeprom.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23775,6 +24027,7 @@ func (rma *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3
     rma.EntityData.BundleName = "cisco_ios_xr"
     rma.EntityData.ParentYangName = "eeprom"
     rma.EntityData.SegmentPath = "rma"
+    rma.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/attributes/inv-eeprom-info/eeprom/" + rma.EntityData.SegmentPath
     rma.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rma.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rma.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23795,19 +24048,6 @@ func (rma *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3
 type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Tsi9s_Tsi9_Attributes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
-
-    // Inventory EDM Module Done Tuple. The type is interface{} with range:
-    // 0..4294967295. The default value is 1.
-    ModuleDone interface{}
-
-    // VM Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    VmNodeId interface{}
-
-    // VM Done Tuple. The type is interface{} with range: 0..4294967295.
-    VmDone interface{}
-
-    // Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    NodeId interface{}
 
     // Inventory Basic Bag.
     InvBasicBag Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Tsi9s_Tsi9_Attributes_InvBasicBag
@@ -23840,6 +24080,7 @@ func (attributes *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi
     attributes.EntityData.BundleName = "cisco_ios_xr"
     attributes.EntityData.ParentYangName = "tsi9"
     attributes.EntityData.SegmentPath = "attributes"
+    attributes.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/" + attributes.EntityData.SegmentPath
     attributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     attributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23854,10 +24095,6 @@ func (attributes *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi
     attributes.EntityData.Children.Append("fru-info", types.YChild{"FruInfo", &attributes.FruInfo})
     attributes.EntityData.Children.Append("inv-eeprom-info", types.YChild{"InvEepromInfo", &attributes.InvEepromInfo})
     attributes.EntityData.Leafs = types.NewOrderedMap()
-    attributes.EntityData.Leafs.Append("module-done", types.YLeaf{"ModuleDone", attributes.ModuleDone})
-    attributes.EntityData.Leafs.Append("vm-node-id", types.YLeaf{"VmNodeId", attributes.VmNodeId})
-    attributes.EntityData.Leafs.Append("vm-done", types.YLeaf{"VmDone", attributes.VmDone})
-    attributes.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", attributes.NodeId})
 
     attributes.EntityData.YListKeys = []string {}
 
@@ -23945,8 +24182,8 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -23966,6 +24203,7 @@ func (invBasicBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Ts
     invBasicBag.EntityData.BundleName = "cisco_ios_xr"
     invBasicBag.EntityData.ParentYangName = "attributes"
     invBasicBag.EntityData.SegmentPath = "inv-basic-bag"
+    invBasicBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/attributes/" + invBasicBag.EntityData.SegmentPath
     invBasicBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invBasicBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invBasicBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24059,6 +24297,7 @@ func (envSensorInfo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_
     envSensorInfo.EntityData.BundleName = "cisco_ios_xr"
     envSensorInfo.EntityData.ParentYangName = "attributes"
     envSensorInfo.EntityData.SegmentPath = "env-sensor-info"
+    envSensorInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/attributes/" + envSensorInfo.EntityData.SegmentPath
     envSensorInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     envSensorInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     envSensorInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24110,6 +24349,7 @@ func (pwgInfo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     pwgInfo.EntityData.BundleName = "cisco_ios_xr"
     pwgInfo.EntityData.ParentYangName = "attributes"
     pwgInfo.EntityData.SegmentPath = "pwg-info"
+    pwgInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/attributes/" + pwgInfo.EntityData.SegmentPath
     pwgInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pwgInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pwgInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24162,6 +24402,7 @@ func (envSensorInfoXml *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Ts
     envSensorInfoXml.EntityData.BundleName = "cisco_ios_xr"
     envSensorInfoXml.EntityData.ParentYangName = "attributes"
     envSensorInfoXml.EntityData.SegmentPath = "env-sensor-info-xml"
+    envSensorInfoXml.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/attributes/" + envSensorInfoXml.EntityData.SegmentPath
     envSensorInfoXml.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     envSensorInfoXml.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     envSensorInfoXml.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24198,6 +24439,7 @@ func (threshold *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     threshold.EntityData.BundleName = "cisco_ios_xr"
     threshold.EntityData.ParentYangName = "env-sensor-info-xml"
     threshold.EntityData.SegmentPath = "threshold"
+    threshold.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/attributes/env-sensor-info-xml/" + threshold.EntityData.SegmentPath
     threshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24205,6 +24447,7 @@ func (threshold *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     threshold.EntityData.Children = types.NewOrderedMap()
     threshold.EntityData.Children.Append("threshold-array", types.YChild{"ThresholdArray", nil})
     for i := range threshold.ThresholdArray {
+        types.SetYListKey(threshold.ThresholdArray[i], i)
         threshold.EntityData.Children.Append(types.GetSegmentPath(threshold.ThresholdArray[i]), types.YChild{"ThresholdArray", threshold.ThresholdArray[i]})
     }
     threshold.EntityData.Leafs = types.NewOrderedMap()
@@ -24219,6 +24462,7 @@ func (threshold *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
 type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Tsi9s_Tsi9_Attributes_EnvSensorInfoXml_Threshold_ThresholdArray struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Indicates minor, major, critical severities. The type is ThresholdSeverity.
     ThresholdSeverity interface{}
@@ -24240,7 +24484,8 @@ func (thresholdArray *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2
     thresholdArray.EntityData.YangName = "threshold-array"
     thresholdArray.EntityData.BundleName = "cisco_ios_xr"
     thresholdArray.EntityData.ParentYangName = "threshold"
-    thresholdArray.EntityData.SegmentPath = "threshold-array"
+    thresholdArray.EntityData.SegmentPath = "threshold-array" + types.AddNoKeyToken(thresholdArray)
+    thresholdArray.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/attributes/env-sensor-info-xml/threshold/" + thresholdArray.EntityData.SegmentPath
     thresholdArray.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     thresholdArray.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     thresholdArray.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24293,6 +24538,7 @@ func (invAssetBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Ts
     invAssetBag.EntityData.BundleName = "cisco_ios_xr"
     invAssetBag.EntityData.ParentYangName = "attributes"
     invAssetBag.EntityData.SegmentPath = "inv-asset-bag"
+    invAssetBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/attributes/" + invAssetBag.EntityData.SegmentPath
     invAssetBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invAssetBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invAssetBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24343,6 +24589,7 @@ func (threshold *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     threshold.EntityData.BundleName = "cisco_ios_xr"
     threshold.EntityData.ParentYangName = "attributes"
     threshold.EntityData.SegmentPath = "threshold"
+    threshold.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/attributes/" + threshold.EntityData.SegmentPath
     threshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24377,6 +24624,7 @@ func (majorLo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     majorLo.EntityData.BundleName = "cisco_ios_xr"
     majorLo.EntityData.ParentYangName = "threshold"
     majorLo.EntityData.SegmentPath = "major-lo"
+    majorLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/attributes/threshold/" + majorLo.EntityData.SegmentPath
     majorLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     majorLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     majorLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24423,6 +24671,7 @@ func (threshBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "major-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/attributes/threshold/major-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24456,6 +24705,7 @@ func (criticalHi *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi
     criticalHi.EntityData.BundleName = "cisco_ios_xr"
     criticalHi.EntityData.ParentYangName = "threshold"
     criticalHi.EntityData.SegmentPath = "critical-hi"
+    criticalHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/attributes/threshold/" + criticalHi.EntityData.SegmentPath
     criticalHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     criticalHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     criticalHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24502,6 +24752,7 @@ func (threshBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "critical-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/attributes/threshold/critical-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24535,6 +24786,7 @@ func (minorHi *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     minorHi.EntityData.BundleName = "cisco_ios_xr"
     minorHi.EntityData.ParentYangName = "threshold"
     minorHi.EntityData.SegmentPath = "minor-hi"
+    minorHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/attributes/threshold/" + minorHi.EntityData.SegmentPath
     minorHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     minorHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     minorHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24581,6 +24833,7 @@ func (threshBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "minor-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/attributes/threshold/minor-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24614,6 +24867,7 @@ func (majorHi *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     majorHi.EntityData.BundleName = "cisco_ios_xr"
     majorHi.EntityData.ParentYangName = "threshold"
     majorHi.EntityData.SegmentPath = "major-hi"
+    majorHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/attributes/threshold/" + majorHi.EntityData.SegmentPath
     majorHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     majorHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     majorHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24660,6 +24914,7 @@ func (threshBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "major-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/attributes/threshold/major-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24693,6 +24948,7 @@ func (criticalLo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi
     criticalLo.EntityData.BundleName = "cisco_ios_xr"
     criticalLo.EntityData.ParentYangName = "threshold"
     criticalLo.EntityData.SegmentPath = "critical-lo"
+    criticalLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/attributes/threshold/" + criticalLo.EntityData.SegmentPath
     criticalLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     criticalLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     criticalLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24739,6 +24995,7 @@ func (threshBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "critical-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/attributes/threshold/critical-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24772,6 +25029,7 @@ func (minorLo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     minorLo.EntityData.BundleName = "cisco_ios_xr"
     minorLo.EntityData.ParentYangName = "threshold"
     minorLo.EntityData.SegmentPath = "minor-lo"
+    minorLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/attributes/threshold/" + minorLo.EntityData.SegmentPath
     minorLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     minorLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     minorLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24818,6 +25076,7 @@ func (threshBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "minor-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/attributes/threshold/minor-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24881,6 +25140,7 @@ func (fruInfo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     fruInfo.EntityData.BundleName = "cisco_ios_xr"
     fruInfo.EntityData.ParentYangName = "attributes"
     fruInfo.EntityData.SegmentPath = "fru-info"
+    fruInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/attributes/" + fruInfo.EntityData.SegmentPath
     fruInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fruInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fruInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24923,6 +25183,7 @@ func (lastOperationalStateChange *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi
     lastOperationalStateChange.EntityData.BundleName = "cisco_ios_xr"
     lastOperationalStateChange.EntityData.ParentYangName = "fru-info"
     lastOperationalStateChange.EntityData.SegmentPath = "last-operational-state-change"
+    lastOperationalStateChange.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/attributes/fru-info/" + lastOperationalStateChange.EntityData.SegmentPath
     lastOperationalStateChange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastOperationalStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastOperationalStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24958,6 +25219,7 @@ func (cardUpTime *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi
     cardUpTime.EntityData.BundleName = "cisco_ios_xr"
     cardUpTime.EntityData.ParentYangName = "fru-info"
     cardUpTime.EntityData.SegmentPath = "card-up-time"
+    cardUpTime.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/attributes/fru-info/" + cardUpTime.EntityData.SegmentPath
     cardUpTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cardUpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cardUpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25007,6 +25269,7 @@ func (invEepromInfo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_
     invEepromInfo.EntityData.BundleName = "cisco_ios_xr"
     invEepromInfo.EntityData.ParentYangName = "attributes"
     invEepromInfo.EntityData.SegmentPath = "inv-eeprom-info"
+    invEepromInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/attributes/" + invEepromInfo.EntityData.SegmentPath
     invEepromInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invEepromInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invEepromInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25212,6 +25475,7 @@ func (eeprom *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     eeprom.EntityData.BundleName = "cisco_ios_xr"
     eeprom.EntityData.ParentYangName = "inv-eeprom-info"
     eeprom.EntityData.SegmentPath = "eeprom"
+    eeprom.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/attributes/inv-eeprom-info/" + eeprom.EntityData.SegmentPath
     eeprom.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eeprom.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eeprom.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25304,6 +25568,7 @@ func (rma *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3
     rma.EntityData.BundleName = "cisco_ios_xr"
     rma.EntityData.ParentYangName = "eeprom"
     rma.EntityData.SegmentPath = "rma"
+    rma.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/attributes/inv-eeprom-info/eeprom/" + rma.EntityData.SegmentPath
     rma.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rma.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rma.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25324,19 +25589,6 @@ func (rma *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3
 type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Attributes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
-
-    // Inventory EDM Module Done Tuple. The type is interface{} with range:
-    // 0..4294967295. The default value is 1.
-    ModuleDone interface{}
-
-    // VM Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    VmNodeId interface{}
-
-    // VM Done Tuple. The type is interface{} with range: 0..4294967295.
-    VmDone interface{}
-
-    // Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    NodeId interface{}
 
     // Inventory Basic Bag.
     InvBasicBag Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Attributes_InvBasicBag
@@ -25369,6 +25621,7 @@ func (attributes *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi
     attributes.EntityData.BundleName = "cisco_ios_xr"
     attributes.EntityData.ParentYangName = "tsi8"
     attributes.EntityData.SegmentPath = "attributes"
+    attributes.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/" + attributes.EntityData.SegmentPath
     attributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     attributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25383,10 +25636,6 @@ func (attributes *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi
     attributes.EntityData.Children.Append("fru-info", types.YChild{"FruInfo", &attributes.FruInfo})
     attributes.EntityData.Children.Append("inv-eeprom-info", types.YChild{"InvEepromInfo", &attributes.InvEepromInfo})
     attributes.EntityData.Leafs = types.NewOrderedMap()
-    attributes.EntityData.Leafs.Append("module-done", types.YLeaf{"ModuleDone", attributes.ModuleDone})
-    attributes.EntityData.Leafs.Append("vm-node-id", types.YLeaf{"VmNodeId", attributes.VmNodeId})
-    attributes.EntityData.Leafs.Append("vm-done", types.YLeaf{"VmDone", attributes.VmDone})
-    attributes.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", attributes.NodeId})
 
     attributes.EntityData.YListKeys = []string {}
 
@@ -25474,8 +25723,8 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -25495,6 +25744,7 @@ func (invBasicBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Ts
     invBasicBag.EntityData.BundleName = "cisco_ios_xr"
     invBasicBag.EntityData.ParentYangName = "attributes"
     invBasicBag.EntityData.SegmentPath = "inv-basic-bag"
+    invBasicBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/attributes/" + invBasicBag.EntityData.SegmentPath
     invBasicBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invBasicBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invBasicBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25588,6 +25838,7 @@ func (envSensorInfo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_
     envSensorInfo.EntityData.BundleName = "cisco_ios_xr"
     envSensorInfo.EntityData.ParentYangName = "attributes"
     envSensorInfo.EntityData.SegmentPath = "env-sensor-info"
+    envSensorInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/attributes/" + envSensorInfo.EntityData.SegmentPath
     envSensorInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     envSensorInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     envSensorInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25639,6 +25890,7 @@ func (pwgInfo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     pwgInfo.EntityData.BundleName = "cisco_ios_xr"
     pwgInfo.EntityData.ParentYangName = "attributes"
     pwgInfo.EntityData.SegmentPath = "pwg-info"
+    pwgInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/attributes/" + pwgInfo.EntityData.SegmentPath
     pwgInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pwgInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pwgInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25691,6 +25943,7 @@ func (envSensorInfoXml *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Ts
     envSensorInfoXml.EntityData.BundleName = "cisco_ios_xr"
     envSensorInfoXml.EntityData.ParentYangName = "attributes"
     envSensorInfoXml.EntityData.SegmentPath = "env-sensor-info-xml"
+    envSensorInfoXml.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/attributes/" + envSensorInfoXml.EntityData.SegmentPath
     envSensorInfoXml.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     envSensorInfoXml.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     envSensorInfoXml.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25727,6 +25980,7 @@ func (threshold *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     threshold.EntityData.BundleName = "cisco_ios_xr"
     threshold.EntityData.ParentYangName = "env-sensor-info-xml"
     threshold.EntityData.SegmentPath = "threshold"
+    threshold.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/attributes/env-sensor-info-xml/" + threshold.EntityData.SegmentPath
     threshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25734,6 +25988,7 @@ func (threshold *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     threshold.EntityData.Children = types.NewOrderedMap()
     threshold.EntityData.Children.Append("threshold-array", types.YChild{"ThresholdArray", nil})
     for i := range threshold.ThresholdArray {
+        types.SetYListKey(threshold.ThresholdArray[i], i)
         threshold.EntityData.Children.Append(types.GetSegmentPath(threshold.ThresholdArray[i]), types.YChild{"ThresholdArray", threshold.ThresholdArray[i]})
     }
     threshold.EntityData.Leafs = types.NewOrderedMap()
@@ -25748,6 +26003,7 @@ func (threshold *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
 type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Attributes_EnvSensorInfoXml_Threshold_ThresholdArray struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Indicates minor, major, critical severities. The type is ThresholdSeverity.
     ThresholdSeverity interface{}
@@ -25769,7 +26025,8 @@ func (thresholdArray *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2
     thresholdArray.EntityData.YangName = "threshold-array"
     thresholdArray.EntityData.BundleName = "cisco_ios_xr"
     thresholdArray.EntityData.ParentYangName = "threshold"
-    thresholdArray.EntityData.SegmentPath = "threshold-array"
+    thresholdArray.EntityData.SegmentPath = "threshold-array" + types.AddNoKeyToken(thresholdArray)
+    thresholdArray.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/attributes/env-sensor-info-xml/threshold/" + thresholdArray.EntityData.SegmentPath
     thresholdArray.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     thresholdArray.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     thresholdArray.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25822,6 +26079,7 @@ func (invAssetBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Ts
     invAssetBag.EntityData.BundleName = "cisco_ios_xr"
     invAssetBag.EntityData.ParentYangName = "attributes"
     invAssetBag.EntityData.SegmentPath = "inv-asset-bag"
+    invAssetBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/attributes/" + invAssetBag.EntityData.SegmentPath
     invAssetBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invAssetBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invAssetBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25872,6 +26130,7 @@ func (threshold *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     threshold.EntityData.BundleName = "cisco_ios_xr"
     threshold.EntityData.ParentYangName = "attributes"
     threshold.EntityData.SegmentPath = "threshold"
+    threshold.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/attributes/" + threshold.EntityData.SegmentPath
     threshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25906,6 +26165,7 @@ func (majorLo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     majorLo.EntityData.BundleName = "cisco_ios_xr"
     majorLo.EntityData.ParentYangName = "threshold"
     majorLo.EntityData.SegmentPath = "major-lo"
+    majorLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/attributes/threshold/" + majorLo.EntityData.SegmentPath
     majorLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     majorLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     majorLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25952,6 +26212,7 @@ func (threshBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "major-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/attributes/threshold/major-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25985,6 +26246,7 @@ func (criticalHi *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi
     criticalHi.EntityData.BundleName = "cisco_ios_xr"
     criticalHi.EntityData.ParentYangName = "threshold"
     criticalHi.EntityData.SegmentPath = "critical-hi"
+    criticalHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/attributes/threshold/" + criticalHi.EntityData.SegmentPath
     criticalHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     criticalHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     criticalHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26031,6 +26293,7 @@ func (threshBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "critical-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/attributes/threshold/critical-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26064,6 +26327,7 @@ func (minorHi *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     minorHi.EntityData.BundleName = "cisco_ios_xr"
     minorHi.EntityData.ParentYangName = "threshold"
     minorHi.EntityData.SegmentPath = "minor-hi"
+    minorHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/attributes/threshold/" + minorHi.EntityData.SegmentPath
     minorHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     minorHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     minorHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26110,6 +26374,7 @@ func (threshBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "minor-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/attributes/threshold/minor-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26143,6 +26408,7 @@ func (majorHi *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     majorHi.EntityData.BundleName = "cisco_ios_xr"
     majorHi.EntityData.ParentYangName = "threshold"
     majorHi.EntityData.SegmentPath = "major-hi"
+    majorHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/attributes/threshold/" + majorHi.EntityData.SegmentPath
     majorHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     majorHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     majorHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26189,6 +26455,7 @@ func (threshBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "major-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/attributes/threshold/major-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26222,6 +26489,7 @@ func (criticalLo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi
     criticalLo.EntityData.BundleName = "cisco_ios_xr"
     criticalLo.EntityData.ParentYangName = "threshold"
     criticalLo.EntityData.SegmentPath = "critical-lo"
+    criticalLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/attributes/threshold/" + criticalLo.EntityData.SegmentPath
     criticalLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     criticalLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     criticalLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26268,6 +26536,7 @@ func (threshBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "critical-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/attributes/threshold/critical-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26301,6 +26570,7 @@ func (minorLo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     minorLo.EntityData.BundleName = "cisco_ios_xr"
     minorLo.EntityData.ParentYangName = "threshold"
     minorLo.EntityData.SegmentPath = "minor-lo"
+    minorLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/attributes/threshold/" + minorLo.EntityData.SegmentPath
     minorLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     minorLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     minorLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26347,6 +26617,7 @@ func (threshBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "minor-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/attributes/threshold/minor-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26410,6 +26681,7 @@ func (fruInfo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     fruInfo.EntityData.BundleName = "cisco_ios_xr"
     fruInfo.EntityData.ParentYangName = "attributes"
     fruInfo.EntityData.SegmentPath = "fru-info"
+    fruInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/attributes/" + fruInfo.EntityData.SegmentPath
     fruInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fruInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fruInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26452,6 +26724,7 @@ func (lastOperationalStateChange *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi
     lastOperationalStateChange.EntityData.BundleName = "cisco_ios_xr"
     lastOperationalStateChange.EntityData.ParentYangName = "fru-info"
     lastOperationalStateChange.EntityData.SegmentPath = "last-operational-state-change"
+    lastOperationalStateChange.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/attributes/fru-info/" + lastOperationalStateChange.EntityData.SegmentPath
     lastOperationalStateChange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastOperationalStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastOperationalStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26487,6 +26760,7 @@ func (cardUpTime *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi
     cardUpTime.EntityData.BundleName = "cisco_ios_xr"
     cardUpTime.EntityData.ParentYangName = "fru-info"
     cardUpTime.EntityData.SegmentPath = "card-up-time"
+    cardUpTime.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/attributes/fru-info/" + cardUpTime.EntityData.SegmentPath
     cardUpTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cardUpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cardUpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26536,6 +26810,7 @@ func (invEepromInfo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_
     invEepromInfo.EntityData.BundleName = "cisco_ios_xr"
     invEepromInfo.EntityData.ParentYangName = "attributes"
     invEepromInfo.EntityData.SegmentPath = "inv-eeprom-info"
+    invEepromInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/attributes/" + invEepromInfo.EntityData.SegmentPath
     invEepromInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invEepromInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invEepromInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26741,6 +27016,7 @@ func (eeprom *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     eeprom.EntityData.BundleName = "cisco_ios_xr"
     eeprom.EntityData.ParentYangName = "inv-eeprom-info"
     eeprom.EntityData.SegmentPath = "eeprom"
+    eeprom.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/attributes/inv-eeprom-info/" + eeprom.EntityData.SegmentPath
     eeprom.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eeprom.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eeprom.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26833,6 +27109,7 @@ func (rma *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3
     rma.EntityData.BundleName = "cisco_ios_xr"
     rma.EntityData.ParentYangName = "eeprom"
     rma.EntityData.SegmentPath = "rma"
+    rma.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/attributes/inv-eeprom-info/eeprom/" + rma.EntityData.SegmentPath
     rma.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rma.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rma.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26853,19 +27130,6 @@ func (rma *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3
 type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Attributes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
-
-    // Inventory EDM Module Done Tuple. The type is interface{} with range:
-    // 0..4294967295. The default value is 1.
-    ModuleDone interface{}
-
-    // VM Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    VmNodeId interface{}
-
-    // VM Done Tuple. The type is interface{} with range: 0..4294967295.
-    VmDone interface{}
-
-    // Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    NodeId interface{}
 
     // Inventory Basic Bag.
     InvBasicBag Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Attributes_InvBasicBag
@@ -26898,6 +27162,7 @@ func (attributes *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi
     attributes.EntityData.BundleName = "cisco_ios_xr"
     attributes.EntityData.ParentYangName = "tsi7"
     attributes.EntityData.SegmentPath = "attributes"
+    attributes.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/" + attributes.EntityData.SegmentPath
     attributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     attributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26912,10 +27177,6 @@ func (attributes *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi
     attributes.EntityData.Children.Append("fru-info", types.YChild{"FruInfo", &attributes.FruInfo})
     attributes.EntityData.Children.Append("inv-eeprom-info", types.YChild{"InvEepromInfo", &attributes.InvEepromInfo})
     attributes.EntityData.Leafs = types.NewOrderedMap()
-    attributes.EntityData.Leafs.Append("module-done", types.YLeaf{"ModuleDone", attributes.ModuleDone})
-    attributes.EntityData.Leafs.Append("vm-node-id", types.YLeaf{"VmNodeId", attributes.VmNodeId})
-    attributes.EntityData.Leafs.Append("vm-done", types.YLeaf{"VmDone", attributes.VmDone})
-    attributes.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", attributes.NodeId})
 
     attributes.EntityData.YListKeys = []string {}
 
@@ -27003,8 +27264,8 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -27024,6 +27285,7 @@ func (invBasicBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Ts
     invBasicBag.EntityData.BundleName = "cisco_ios_xr"
     invBasicBag.EntityData.ParentYangName = "attributes"
     invBasicBag.EntityData.SegmentPath = "inv-basic-bag"
+    invBasicBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/attributes/" + invBasicBag.EntityData.SegmentPath
     invBasicBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invBasicBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invBasicBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27117,6 +27379,7 @@ func (envSensorInfo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_
     envSensorInfo.EntityData.BundleName = "cisco_ios_xr"
     envSensorInfo.EntityData.ParentYangName = "attributes"
     envSensorInfo.EntityData.SegmentPath = "env-sensor-info"
+    envSensorInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/attributes/" + envSensorInfo.EntityData.SegmentPath
     envSensorInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     envSensorInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     envSensorInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27168,6 +27431,7 @@ func (pwgInfo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     pwgInfo.EntityData.BundleName = "cisco_ios_xr"
     pwgInfo.EntityData.ParentYangName = "attributes"
     pwgInfo.EntityData.SegmentPath = "pwg-info"
+    pwgInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/attributes/" + pwgInfo.EntityData.SegmentPath
     pwgInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pwgInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pwgInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27220,6 +27484,7 @@ func (envSensorInfoXml *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Ts
     envSensorInfoXml.EntityData.BundleName = "cisco_ios_xr"
     envSensorInfoXml.EntityData.ParentYangName = "attributes"
     envSensorInfoXml.EntityData.SegmentPath = "env-sensor-info-xml"
+    envSensorInfoXml.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/attributes/" + envSensorInfoXml.EntityData.SegmentPath
     envSensorInfoXml.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     envSensorInfoXml.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     envSensorInfoXml.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27256,6 +27521,7 @@ func (threshold *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     threshold.EntityData.BundleName = "cisco_ios_xr"
     threshold.EntityData.ParentYangName = "env-sensor-info-xml"
     threshold.EntityData.SegmentPath = "threshold"
+    threshold.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/attributes/env-sensor-info-xml/" + threshold.EntityData.SegmentPath
     threshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27263,6 +27529,7 @@ func (threshold *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     threshold.EntityData.Children = types.NewOrderedMap()
     threshold.EntityData.Children.Append("threshold-array", types.YChild{"ThresholdArray", nil})
     for i := range threshold.ThresholdArray {
+        types.SetYListKey(threshold.ThresholdArray[i], i)
         threshold.EntityData.Children.Append(types.GetSegmentPath(threshold.ThresholdArray[i]), types.YChild{"ThresholdArray", threshold.ThresholdArray[i]})
     }
     threshold.EntityData.Leafs = types.NewOrderedMap()
@@ -27277,6 +27544,7 @@ func (threshold *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
 type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Attributes_EnvSensorInfoXml_Threshold_ThresholdArray struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Indicates minor, major, critical severities. The type is ThresholdSeverity.
     ThresholdSeverity interface{}
@@ -27298,7 +27566,8 @@ func (thresholdArray *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2
     thresholdArray.EntityData.YangName = "threshold-array"
     thresholdArray.EntityData.BundleName = "cisco_ios_xr"
     thresholdArray.EntityData.ParentYangName = "threshold"
-    thresholdArray.EntityData.SegmentPath = "threshold-array"
+    thresholdArray.EntityData.SegmentPath = "threshold-array" + types.AddNoKeyToken(thresholdArray)
+    thresholdArray.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/attributes/env-sensor-info-xml/threshold/" + thresholdArray.EntityData.SegmentPath
     thresholdArray.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     thresholdArray.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     thresholdArray.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27351,6 +27620,7 @@ func (invAssetBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Ts
     invAssetBag.EntityData.BundleName = "cisco_ios_xr"
     invAssetBag.EntityData.ParentYangName = "attributes"
     invAssetBag.EntityData.SegmentPath = "inv-asset-bag"
+    invAssetBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/attributes/" + invAssetBag.EntityData.SegmentPath
     invAssetBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invAssetBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invAssetBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27401,6 +27671,7 @@ func (threshold *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     threshold.EntityData.BundleName = "cisco_ios_xr"
     threshold.EntityData.ParentYangName = "attributes"
     threshold.EntityData.SegmentPath = "threshold"
+    threshold.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/attributes/" + threshold.EntityData.SegmentPath
     threshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27435,6 +27706,7 @@ func (majorLo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     majorLo.EntityData.BundleName = "cisco_ios_xr"
     majorLo.EntityData.ParentYangName = "threshold"
     majorLo.EntityData.SegmentPath = "major-lo"
+    majorLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/attributes/threshold/" + majorLo.EntityData.SegmentPath
     majorLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     majorLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     majorLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27481,6 +27753,7 @@ func (threshBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "major-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/attributes/threshold/major-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27514,6 +27787,7 @@ func (criticalHi *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi
     criticalHi.EntityData.BundleName = "cisco_ios_xr"
     criticalHi.EntityData.ParentYangName = "threshold"
     criticalHi.EntityData.SegmentPath = "critical-hi"
+    criticalHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/attributes/threshold/" + criticalHi.EntityData.SegmentPath
     criticalHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     criticalHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     criticalHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27560,6 +27834,7 @@ func (threshBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "critical-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/attributes/threshold/critical-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27593,6 +27868,7 @@ func (minorHi *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     minorHi.EntityData.BundleName = "cisco_ios_xr"
     minorHi.EntityData.ParentYangName = "threshold"
     minorHi.EntityData.SegmentPath = "minor-hi"
+    minorHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/attributes/threshold/" + minorHi.EntityData.SegmentPath
     minorHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     minorHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     minorHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27639,6 +27915,7 @@ func (threshBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "minor-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/attributes/threshold/minor-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27672,6 +27949,7 @@ func (majorHi *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     majorHi.EntityData.BundleName = "cisco_ios_xr"
     majorHi.EntityData.ParentYangName = "threshold"
     majorHi.EntityData.SegmentPath = "major-hi"
+    majorHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/attributes/threshold/" + majorHi.EntityData.SegmentPath
     majorHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     majorHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     majorHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27718,6 +27996,7 @@ func (threshBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "major-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/attributes/threshold/major-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27751,6 +28030,7 @@ func (criticalLo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi
     criticalLo.EntityData.BundleName = "cisco_ios_xr"
     criticalLo.EntityData.ParentYangName = "threshold"
     criticalLo.EntityData.SegmentPath = "critical-lo"
+    criticalLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/attributes/threshold/" + criticalLo.EntityData.SegmentPath
     criticalLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     criticalLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     criticalLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27797,6 +28077,7 @@ func (threshBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "critical-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/attributes/threshold/critical-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27830,6 +28111,7 @@ func (minorLo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     minorLo.EntityData.BundleName = "cisco_ios_xr"
     minorLo.EntityData.ParentYangName = "threshold"
     minorLo.EntityData.SegmentPath = "minor-lo"
+    minorLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/attributes/threshold/" + minorLo.EntityData.SegmentPath
     minorLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     minorLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     minorLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27876,6 +28158,7 @@ func (threshBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "minor-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/attributes/threshold/minor-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27939,6 +28222,7 @@ func (fruInfo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     fruInfo.EntityData.BundleName = "cisco_ios_xr"
     fruInfo.EntityData.ParentYangName = "attributes"
     fruInfo.EntityData.SegmentPath = "fru-info"
+    fruInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/attributes/" + fruInfo.EntityData.SegmentPath
     fruInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fruInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fruInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27981,6 +28265,7 @@ func (lastOperationalStateChange *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi
     lastOperationalStateChange.EntityData.BundleName = "cisco_ios_xr"
     lastOperationalStateChange.EntityData.ParentYangName = "fru-info"
     lastOperationalStateChange.EntityData.SegmentPath = "last-operational-state-change"
+    lastOperationalStateChange.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/attributes/fru-info/" + lastOperationalStateChange.EntityData.SegmentPath
     lastOperationalStateChange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastOperationalStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastOperationalStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28016,6 +28301,7 @@ func (cardUpTime *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi
     cardUpTime.EntityData.BundleName = "cisco_ios_xr"
     cardUpTime.EntityData.ParentYangName = "fru-info"
     cardUpTime.EntityData.SegmentPath = "card-up-time"
+    cardUpTime.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/attributes/fru-info/" + cardUpTime.EntityData.SegmentPath
     cardUpTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cardUpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cardUpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28065,6 +28351,7 @@ func (invEepromInfo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_
     invEepromInfo.EntityData.BundleName = "cisco_ios_xr"
     invEepromInfo.EntityData.ParentYangName = "attributes"
     invEepromInfo.EntityData.SegmentPath = "inv-eeprom-info"
+    invEepromInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/attributes/" + invEepromInfo.EntityData.SegmentPath
     invEepromInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invEepromInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invEepromInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28270,6 +28557,7 @@ func (eeprom *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     eeprom.EntityData.BundleName = "cisco_ios_xr"
     eeprom.EntityData.ParentYangName = "inv-eeprom-info"
     eeprom.EntityData.SegmentPath = "eeprom"
+    eeprom.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/attributes/inv-eeprom-info/" + eeprom.EntityData.SegmentPath
     eeprom.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eeprom.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eeprom.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28362,6 +28650,7 @@ func (rma *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3
     rma.EntityData.BundleName = "cisco_ios_xr"
     rma.EntityData.ParentYangName = "eeprom"
     rma.EntityData.SegmentPath = "rma"
+    rma.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/attributes/inv-eeprom-info/eeprom/" + rma.EntityData.SegmentPath
     rma.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rma.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rma.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28382,19 +28671,6 @@ func (rma *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3
 type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Attributes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
-
-    // Inventory EDM Module Done Tuple. The type is interface{} with range:
-    // 0..4294967295. The default value is 1.
-    ModuleDone interface{}
-
-    // VM Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    VmNodeId interface{}
-
-    // VM Done Tuple. The type is interface{} with range: 0..4294967295.
-    VmDone interface{}
-
-    // Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    NodeId interface{}
 
     // Inventory Basic Bag.
     InvBasicBag Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Attributes_InvBasicBag
@@ -28427,6 +28703,7 @@ func (attributes *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi
     attributes.EntityData.BundleName = "cisco_ios_xr"
     attributes.EntityData.ParentYangName = "tsi6"
     attributes.EntityData.SegmentPath = "attributes"
+    attributes.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/" + attributes.EntityData.SegmentPath
     attributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     attributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28441,10 +28718,6 @@ func (attributes *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi
     attributes.EntityData.Children.Append("fru-info", types.YChild{"FruInfo", &attributes.FruInfo})
     attributes.EntityData.Children.Append("inv-eeprom-info", types.YChild{"InvEepromInfo", &attributes.InvEepromInfo})
     attributes.EntityData.Leafs = types.NewOrderedMap()
-    attributes.EntityData.Leafs.Append("module-done", types.YLeaf{"ModuleDone", attributes.ModuleDone})
-    attributes.EntityData.Leafs.Append("vm-node-id", types.YLeaf{"VmNodeId", attributes.VmNodeId})
-    attributes.EntityData.Leafs.Append("vm-done", types.YLeaf{"VmDone", attributes.VmDone})
-    attributes.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", attributes.NodeId})
 
     attributes.EntityData.YListKeys = []string {}
 
@@ -28532,8 +28805,8 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -28553,6 +28826,7 @@ func (invBasicBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Ts
     invBasicBag.EntityData.BundleName = "cisco_ios_xr"
     invBasicBag.EntityData.ParentYangName = "attributes"
     invBasicBag.EntityData.SegmentPath = "inv-basic-bag"
+    invBasicBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/attributes/" + invBasicBag.EntityData.SegmentPath
     invBasicBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invBasicBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invBasicBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28646,6 +28920,7 @@ func (envSensorInfo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_
     envSensorInfo.EntityData.BundleName = "cisco_ios_xr"
     envSensorInfo.EntityData.ParentYangName = "attributes"
     envSensorInfo.EntityData.SegmentPath = "env-sensor-info"
+    envSensorInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/attributes/" + envSensorInfo.EntityData.SegmentPath
     envSensorInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     envSensorInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     envSensorInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28697,6 +28972,7 @@ func (pwgInfo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     pwgInfo.EntityData.BundleName = "cisco_ios_xr"
     pwgInfo.EntityData.ParentYangName = "attributes"
     pwgInfo.EntityData.SegmentPath = "pwg-info"
+    pwgInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/attributes/" + pwgInfo.EntityData.SegmentPath
     pwgInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pwgInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pwgInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28749,6 +29025,7 @@ func (envSensorInfoXml *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Ts
     envSensorInfoXml.EntityData.BundleName = "cisco_ios_xr"
     envSensorInfoXml.EntityData.ParentYangName = "attributes"
     envSensorInfoXml.EntityData.SegmentPath = "env-sensor-info-xml"
+    envSensorInfoXml.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/attributes/" + envSensorInfoXml.EntityData.SegmentPath
     envSensorInfoXml.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     envSensorInfoXml.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     envSensorInfoXml.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28785,6 +29062,7 @@ func (threshold *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     threshold.EntityData.BundleName = "cisco_ios_xr"
     threshold.EntityData.ParentYangName = "env-sensor-info-xml"
     threshold.EntityData.SegmentPath = "threshold"
+    threshold.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/attributes/env-sensor-info-xml/" + threshold.EntityData.SegmentPath
     threshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28792,6 +29070,7 @@ func (threshold *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     threshold.EntityData.Children = types.NewOrderedMap()
     threshold.EntityData.Children.Append("threshold-array", types.YChild{"ThresholdArray", nil})
     for i := range threshold.ThresholdArray {
+        types.SetYListKey(threshold.ThresholdArray[i], i)
         threshold.EntityData.Children.Append(types.GetSegmentPath(threshold.ThresholdArray[i]), types.YChild{"ThresholdArray", threshold.ThresholdArray[i]})
     }
     threshold.EntityData.Leafs = types.NewOrderedMap()
@@ -28806,6 +29085,7 @@ func (threshold *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
 type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Attributes_EnvSensorInfoXml_Threshold_ThresholdArray struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Indicates minor, major, critical severities. The type is ThresholdSeverity.
     ThresholdSeverity interface{}
@@ -28827,7 +29107,8 @@ func (thresholdArray *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2
     thresholdArray.EntityData.YangName = "threshold-array"
     thresholdArray.EntityData.BundleName = "cisco_ios_xr"
     thresholdArray.EntityData.ParentYangName = "threshold"
-    thresholdArray.EntityData.SegmentPath = "threshold-array"
+    thresholdArray.EntityData.SegmentPath = "threshold-array" + types.AddNoKeyToken(thresholdArray)
+    thresholdArray.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/attributes/env-sensor-info-xml/threshold/" + thresholdArray.EntityData.SegmentPath
     thresholdArray.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     thresholdArray.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     thresholdArray.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28880,6 +29161,7 @@ func (invAssetBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Ts
     invAssetBag.EntityData.BundleName = "cisco_ios_xr"
     invAssetBag.EntityData.ParentYangName = "attributes"
     invAssetBag.EntityData.SegmentPath = "inv-asset-bag"
+    invAssetBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/attributes/" + invAssetBag.EntityData.SegmentPath
     invAssetBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invAssetBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invAssetBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28930,6 +29212,7 @@ func (threshold *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     threshold.EntityData.BundleName = "cisco_ios_xr"
     threshold.EntityData.ParentYangName = "attributes"
     threshold.EntityData.SegmentPath = "threshold"
+    threshold.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/attributes/" + threshold.EntityData.SegmentPath
     threshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28964,6 +29247,7 @@ func (majorLo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     majorLo.EntityData.BundleName = "cisco_ios_xr"
     majorLo.EntityData.ParentYangName = "threshold"
     majorLo.EntityData.SegmentPath = "major-lo"
+    majorLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/attributes/threshold/" + majorLo.EntityData.SegmentPath
     majorLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     majorLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     majorLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29010,6 +29294,7 @@ func (threshBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "major-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/attributes/threshold/major-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29043,6 +29328,7 @@ func (criticalHi *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi
     criticalHi.EntityData.BundleName = "cisco_ios_xr"
     criticalHi.EntityData.ParentYangName = "threshold"
     criticalHi.EntityData.SegmentPath = "critical-hi"
+    criticalHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/attributes/threshold/" + criticalHi.EntityData.SegmentPath
     criticalHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     criticalHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     criticalHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29089,6 +29375,7 @@ func (threshBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "critical-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/attributes/threshold/critical-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29122,6 +29409,7 @@ func (minorHi *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     minorHi.EntityData.BundleName = "cisco_ios_xr"
     minorHi.EntityData.ParentYangName = "threshold"
     minorHi.EntityData.SegmentPath = "minor-hi"
+    minorHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/attributes/threshold/" + minorHi.EntityData.SegmentPath
     minorHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     minorHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     minorHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29168,6 +29456,7 @@ func (threshBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "minor-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/attributes/threshold/minor-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29201,6 +29490,7 @@ func (majorHi *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     majorHi.EntityData.BundleName = "cisco_ios_xr"
     majorHi.EntityData.ParentYangName = "threshold"
     majorHi.EntityData.SegmentPath = "major-hi"
+    majorHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/attributes/threshold/" + majorHi.EntityData.SegmentPath
     majorHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     majorHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     majorHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29247,6 +29537,7 @@ func (threshBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "major-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/attributes/threshold/major-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29280,6 +29571,7 @@ func (criticalLo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi
     criticalLo.EntityData.BundleName = "cisco_ios_xr"
     criticalLo.EntityData.ParentYangName = "threshold"
     criticalLo.EntityData.SegmentPath = "critical-lo"
+    criticalLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/attributes/threshold/" + criticalLo.EntityData.SegmentPath
     criticalLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     criticalLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     criticalLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29326,6 +29618,7 @@ func (threshBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "critical-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/attributes/threshold/critical-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29359,6 +29652,7 @@ func (minorLo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     minorLo.EntityData.BundleName = "cisco_ios_xr"
     minorLo.EntityData.ParentYangName = "threshold"
     minorLo.EntityData.SegmentPath = "minor-lo"
+    minorLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/attributes/threshold/" + minorLo.EntityData.SegmentPath
     minorLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     minorLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     minorLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29405,6 +29699,7 @@ func (threshBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "minor-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/attributes/threshold/minor-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29468,6 +29763,7 @@ func (fruInfo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     fruInfo.EntityData.BundleName = "cisco_ios_xr"
     fruInfo.EntityData.ParentYangName = "attributes"
     fruInfo.EntityData.SegmentPath = "fru-info"
+    fruInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/attributes/" + fruInfo.EntityData.SegmentPath
     fruInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fruInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fruInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29510,6 +29806,7 @@ func (lastOperationalStateChange *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi
     lastOperationalStateChange.EntityData.BundleName = "cisco_ios_xr"
     lastOperationalStateChange.EntityData.ParentYangName = "fru-info"
     lastOperationalStateChange.EntityData.SegmentPath = "last-operational-state-change"
+    lastOperationalStateChange.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/attributes/fru-info/" + lastOperationalStateChange.EntityData.SegmentPath
     lastOperationalStateChange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastOperationalStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastOperationalStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29545,6 +29842,7 @@ func (cardUpTime *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi
     cardUpTime.EntityData.BundleName = "cisco_ios_xr"
     cardUpTime.EntityData.ParentYangName = "fru-info"
     cardUpTime.EntityData.SegmentPath = "card-up-time"
+    cardUpTime.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/attributes/fru-info/" + cardUpTime.EntityData.SegmentPath
     cardUpTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cardUpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cardUpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29594,6 +29892,7 @@ func (invEepromInfo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_
     invEepromInfo.EntityData.BundleName = "cisco_ios_xr"
     invEepromInfo.EntityData.ParentYangName = "attributes"
     invEepromInfo.EntityData.SegmentPath = "inv-eeprom-info"
+    invEepromInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/attributes/" + invEepromInfo.EntityData.SegmentPath
     invEepromInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invEepromInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invEepromInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29799,6 +30098,7 @@ func (eeprom *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     eeprom.EntityData.BundleName = "cisco_ios_xr"
     eeprom.EntityData.ParentYangName = "inv-eeprom-info"
     eeprom.EntityData.SegmentPath = "eeprom"
+    eeprom.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/attributes/inv-eeprom-info/" + eeprom.EntityData.SegmentPath
     eeprom.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eeprom.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eeprom.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29891,6 +30191,7 @@ func (rma *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3
     rma.EntityData.BundleName = "cisco_ios_xr"
     rma.EntityData.ParentYangName = "eeprom"
     rma.EntityData.SegmentPath = "rma"
+    rma.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/attributes/inv-eeprom-info/eeprom/" + rma.EntityData.SegmentPath
     rma.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rma.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rma.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29911,19 +30212,6 @@ func (rma *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3
 type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Attributes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
-
-    // Inventory EDM Module Done Tuple. The type is interface{} with range:
-    // 0..4294967295. The default value is 1.
-    ModuleDone interface{}
-
-    // VM Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    VmNodeId interface{}
-
-    // VM Done Tuple. The type is interface{} with range: 0..4294967295.
-    VmDone interface{}
-
-    // Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    NodeId interface{}
 
     // Inventory Basic Bag.
     InvBasicBag Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Attributes_InvBasicBag
@@ -29956,6 +30244,7 @@ func (attributes *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi
     attributes.EntityData.BundleName = "cisco_ios_xr"
     attributes.EntityData.ParentYangName = "tsi5"
     attributes.EntityData.SegmentPath = "attributes"
+    attributes.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/" + attributes.EntityData.SegmentPath
     attributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     attributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29970,10 +30259,6 @@ func (attributes *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi
     attributes.EntityData.Children.Append("fru-info", types.YChild{"FruInfo", &attributes.FruInfo})
     attributes.EntityData.Children.Append("inv-eeprom-info", types.YChild{"InvEepromInfo", &attributes.InvEepromInfo})
     attributes.EntityData.Leafs = types.NewOrderedMap()
-    attributes.EntityData.Leafs.Append("module-done", types.YLeaf{"ModuleDone", attributes.ModuleDone})
-    attributes.EntityData.Leafs.Append("vm-node-id", types.YLeaf{"VmNodeId", attributes.VmNodeId})
-    attributes.EntityData.Leafs.Append("vm-done", types.YLeaf{"VmDone", attributes.VmDone})
-    attributes.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", attributes.NodeId})
 
     attributes.EntityData.YListKeys = []string {}
 
@@ -30061,8 +30346,8 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -30082,6 +30367,7 @@ func (invBasicBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Ts
     invBasicBag.EntityData.BundleName = "cisco_ios_xr"
     invBasicBag.EntityData.ParentYangName = "attributes"
     invBasicBag.EntityData.SegmentPath = "inv-basic-bag"
+    invBasicBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/attributes/" + invBasicBag.EntityData.SegmentPath
     invBasicBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invBasicBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invBasicBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30175,6 +30461,7 @@ func (envSensorInfo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_
     envSensorInfo.EntityData.BundleName = "cisco_ios_xr"
     envSensorInfo.EntityData.ParentYangName = "attributes"
     envSensorInfo.EntityData.SegmentPath = "env-sensor-info"
+    envSensorInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/attributes/" + envSensorInfo.EntityData.SegmentPath
     envSensorInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     envSensorInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     envSensorInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30226,6 +30513,7 @@ func (pwgInfo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     pwgInfo.EntityData.BundleName = "cisco_ios_xr"
     pwgInfo.EntityData.ParentYangName = "attributes"
     pwgInfo.EntityData.SegmentPath = "pwg-info"
+    pwgInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/attributes/" + pwgInfo.EntityData.SegmentPath
     pwgInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pwgInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pwgInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30278,6 +30566,7 @@ func (envSensorInfoXml *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Ts
     envSensorInfoXml.EntityData.BundleName = "cisco_ios_xr"
     envSensorInfoXml.EntityData.ParentYangName = "attributes"
     envSensorInfoXml.EntityData.SegmentPath = "env-sensor-info-xml"
+    envSensorInfoXml.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/attributes/" + envSensorInfoXml.EntityData.SegmentPath
     envSensorInfoXml.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     envSensorInfoXml.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     envSensorInfoXml.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30314,6 +30603,7 @@ func (threshold *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     threshold.EntityData.BundleName = "cisco_ios_xr"
     threshold.EntityData.ParentYangName = "env-sensor-info-xml"
     threshold.EntityData.SegmentPath = "threshold"
+    threshold.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/attributes/env-sensor-info-xml/" + threshold.EntityData.SegmentPath
     threshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30321,6 +30611,7 @@ func (threshold *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     threshold.EntityData.Children = types.NewOrderedMap()
     threshold.EntityData.Children.Append("threshold-array", types.YChild{"ThresholdArray", nil})
     for i := range threshold.ThresholdArray {
+        types.SetYListKey(threshold.ThresholdArray[i], i)
         threshold.EntityData.Children.Append(types.GetSegmentPath(threshold.ThresholdArray[i]), types.YChild{"ThresholdArray", threshold.ThresholdArray[i]})
     }
     threshold.EntityData.Leafs = types.NewOrderedMap()
@@ -30335,6 +30626,7 @@ func (threshold *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
 type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Attributes_EnvSensorInfoXml_Threshold_ThresholdArray struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Indicates minor, major, critical severities. The type is ThresholdSeverity.
     ThresholdSeverity interface{}
@@ -30356,7 +30648,8 @@ func (thresholdArray *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2
     thresholdArray.EntityData.YangName = "threshold-array"
     thresholdArray.EntityData.BundleName = "cisco_ios_xr"
     thresholdArray.EntityData.ParentYangName = "threshold"
-    thresholdArray.EntityData.SegmentPath = "threshold-array"
+    thresholdArray.EntityData.SegmentPath = "threshold-array" + types.AddNoKeyToken(thresholdArray)
+    thresholdArray.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/attributes/env-sensor-info-xml/threshold/" + thresholdArray.EntityData.SegmentPath
     thresholdArray.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     thresholdArray.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     thresholdArray.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30409,6 +30702,7 @@ func (invAssetBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Ts
     invAssetBag.EntityData.BundleName = "cisco_ios_xr"
     invAssetBag.EntityData.ParentYangName = "attributes"
     invAssetBag.EntityData.SegmentPath = "inv-asset-bag"
+    invAssetBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/attributes/" + invAssetBag.EntityData.SegmentPath
     invAssetBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invAssetBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invAssetBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30459,6 +30753,7 @@ func (threshold *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     threshold.EntityData.BundleName = "cisco_ios_xr"
     threshold.EntityData.ParentYangName = "attributes"
     threshold.EntityData.SegmentPath = "threshold"
+    threshold.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/attributes/" + threshold.EntityData.SegmentPath
     threshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30493,6 +30788,7 @@ func (majorLo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     majorLo.EntityData.BundleName = "cisco_ios_xr"
     majorLo.EntityData.ParentYangName = "threshold"
     majorLo.EntityData.SegmentPath = "major-lo"
+    majorLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/attributes/threshold/" + majorLo.EntityData.SegmentPath
     majorLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     majorLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     majorLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30539,6 +30835,7 @@ func (threshBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "major-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/attributes/threshold/major-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30572,6 +30869,7 @@ func (criticalHi *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi
     criticalHi.EntityData.BundleName = "cisco_ios_xr"
     criticalHi.EntityData.ParentYangName = "threshold"
     criticalHi.EntityData.SegmentPath = "critical-hi"
+    criticalHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/attributes/threshold/" + criticalHi.EntityData.SegmentPath
     criticalHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     criticalHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     criticalHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30618,6 +30916,7 @@ func (threshBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "critical-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/attributes/threshold/critical-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30651,6 +30950,7 @@ func (minorHi *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     minorHi.EntityData.BundleName = "cisco_ios_xr"
     minorHi.EntityData.ParentYangName = "threshold"
     minorHi.EntityData.SegmentPath = "minor-hi"
+    minorHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/attributes/threshold/" + minorHi.EntityData.SegmentPath
     minorHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     minorHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     minorHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30697,6 +30997,7 @@ func (threshBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "minor-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/attributes/threshold/minor-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30730,6 +31031,7 @@ func (majorHi *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     majorHi.EntityData.BundleName = "cisco_ios_xr"
     majorHi.EntityData.ParentYangName = "threshold"
     majorHi.EntityData.SegmentPath = "major-hi"
+    majorHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/attributes/threshold/" + majorHi.EntityData.SegmentPath
     majorHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     majorHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     majorHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30776,6 +31078,7 @@ func (threshBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "major-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/attributes/threshold/major-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30809,6 +31112,7 @@ func (criticalLo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi
     criticalLo.EntityData.BundleName = "cisco_ios_xr"
     criticalLo.EntityData.ParentYangName = "threshold"
     criticalLo.EntityData.SegmentPath = "critical-lo"
+    criticalLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/attributes/threshold/" + criticalLo.EntityData.SegmentPath
     criticalLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     criticalLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     criticalLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30855,6 +31159,7 @@ func (threshBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "critical-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/attributes/threshold/critical-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30888,6 +31193,7 @@ func (minorLo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     minorLo.EntityData.BundleName = "cisco_ios_xr"
     minorLo.EntityData.ParentYangName = "threshold"
     minorLo.EntityData.SegmentPath = "minor-lo"
+    minorLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/attributes/threshold/" + minorLo.EntityData.SegmentPath
     minorLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     minorLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     minorLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30934,6 +31240,7 @@ func (threshBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "minor-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/attributes/threshold/minor-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30997,6 +31304,7 @@ func (fruInfo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     fruInfo.EntityData.BundleName = "cisco_ios_xr"
     fruInfo.EntityData.ParentYangName = "attributes"
     fruInfo.EntityData.SegmentPath = "fru-info"
+    fruInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/attributes/" + fruInfo.EntityData.SegmentPath
     fruInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fruInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fruInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31039,6 +31347,7 @@ func (lastOperationalStateChange *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi
     lastOperationalStateChange.EntityData.BundleName = "cisco_ios_xr"
     lastOperationalStateChange.EntityData.ParentYangName = "fru-info"
     lastOperationalStateChange.EntityData.SegmentPath = "last-operational-state-change"
+    lastOperationalStateChange.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/attributes/fru-info/" + lastOperationalStateChange.EntityData.SegmentPath
     lastOperationalStateChange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastOperationalStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastOperationalStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31074,6 +31383,7 @@ func (cardUpTime *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi
     cardUpTime.EntityData.BundleName = "cisco_ios_xr"
     cardUpTime.EntityData.ParentYangName = "fru-info"
     cardUpTime.EntityData.SegmentPath = "card-up-time"
+    cardUpTime.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/attributes/fru-info/" + cardUpTime.EntityData.SegmentPath
     cardUpTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cardUpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cardUpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31123,6 +31433,7 @@ func (invEepromInfo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_
     invEepromInfo.EntityData.BundleName = "cisco_ios_xr"
     invEepromInfo.EntityData.ParentYangName = "attributes"
     invEepromInfo.EntityData.SegmentPath = "inv-eeprom-info"
+    invEepromInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/attributes/" + invEepromInfo.EntityData.SegmentPath
     invEepromInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invEepromInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invEepromInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31328,6 +31639,7 @@ func (eeprom *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     eeprom.EntityData.BundleName = "cisco_ios_xr"
     eeprom.EntityData.ParentYangName = "inv-eeprom-info"
     eeprom.EntityData.SegmentPath = "eeprom"
+    eeprom.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/attributes/inv-eeprom-info/" + eeprom.EntityData.SegmentPath
     eeprom.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eeprom.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eeprom.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31420,6 +31732,7 @@ func (rma *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3
     rma.EntityData.BundleName = "cisco_ios_xr"
     rma.EntityData.ParentYangName = "eeprom"
     rma.EntityData.SegmentPath = "rma"
+    rma.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/attributes/inv-eeprom-info/eeprom/" + rma.EntityData.SegmentPath
     rma.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rma.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rma.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31440,19 +31753,6 @@ func (rma *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3
 type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Attributes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
-
-    // Inventory EDM Module Done Tuple. The type is interface{} with range:
-    // 0..4294967295. The default value is 1.
-    ModuleDone interface{}
-
-    // VM Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    VmNodeId interface{}
-
-    // VM Done Tuple. The type is interface{} with range: 0..4294967295.
-    VmDone interface{}
-
-    // Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    NodeId interface{}
 
     // Inventory Basic Bag.
     InvBasicBag Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Attributes_InvBasicBag
@@ -31485,6 +31785,7 @@ func (attributes *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi
     attributes.EntityData.BundleName = "cisco_ios_xr"
     attributes.EntityData.ParentYangName = "tsi4"
     attributes.EntityData.SegmentPath = "attributes"
+    attributes.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/" + attributes.EntityData.SegmentPath
     attributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     attributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31499,10 +31800,6 @@ func (attributes *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi
     attributes.EntityData.Children.Append("fru-info", types.YChild{"FruInfo", &attributes.FruInfo})
     attributes.EntityData.Children.Append("inv-eeprom-info", types.YChild{"InvEepromInfo", &attributes.InvEepromInfo})
     attributes.EntityData.Leafs = types.NewOrderedMap()
-    attributes.EntityData.Leafs.Append("module-done", types.YLeaf{"ModuleDone", attributes.ModuleDone})
-    attributes.EntityData.Leafs.Append("vm-node-id", types.YLeaf{"VmNodeId", attributes.VmNodeId})
-    attributes.EntityData.Leafs.Append("vm-done", types.YLeaf{"VmDone", attributes.VmDone})
-    attributes.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", attributes.NodeId})
 
     attributes.EntityData.YListKeys = []string {}
 
@@ -31590,8 +31887,8 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -31611,6 +31908,7 @@ func (invBasicBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Ts
     invBasicBag.EntityData.BundleName = "cisco_ios_xr"
     invBasicBag.EntityData.ParentYangName = "attributes"
     invBasicBag.EntityData.SegmentPath = "inv-basic-bag"
+    invBasicBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/attributes/" + invBasicBag.EntityData.SegmentPath
     invBasicBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invBasicBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invBasicBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31704,6 +32002,7 @@ func (envSensorInfo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_
     envSensorInfo.EntityData.BundleName = "cisco_ios_xr"
     envSensorInfo.EntityData.ParentYangName = "attributes"
     envSensorInfo.EntityData.SegmentPath = "env-sensor-info"
+    envSensorInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/attributes/" + envSensorInfo.EntityData.SegmentPath
     envSensorInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     envSensorInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     envSensorInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31755,6 +32054,7 @@ func (pwgInfo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     pwgInfo.EntityData.BundleName = "cisco_ios_xr"
     pwgInfo.EntityData.ParentYangName = "attributes"
     pwgInfo.EntityData.SegmentPath = "pwg-info"
+    pwgInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/attributes/" + pwgInfo.EntityData.SegmentPath
     pwgInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pwgInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pwgInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31807,6 +32107,7 @@ func (envSensorInfoXml *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Ts
     envSensorInfoXml.EntityData.BundleName = "cisco_ios_xr"
     envSensorInfoXml.EntityData.ParentYangName = "attributes"
     envSensorInfoXml.EntityData.SegmentPath = "env-sensor-info-xml"
+    envSensorInfoXml.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/attributes/" + envSensorInfoXml.EntityData.SegmentPath
     envSensorInfoXml.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     envSensorInfoXml.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     envSensorInfoXml.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31843,6 +32144,7 @@ func (threshold *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     threshold.EntityData.BundleName = "cisco_ios_xr"
     threshold.EntityData.ParentYangName = "env-sensor-info-xml"
     threshold.EntityData.SegmentPath = "threshold"
+    threshold.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/attributes/env-sensor-info-xml/" + threshold.EntityData.SegmentPath
     threshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31850,6 +32152,7 @@ func (threshold *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     threshold.EntityData.Children = types.NewOrderedMap()
     threshold.EntityData.Children.Append("threshold-array", types.YChild{"ThresholdArray", nil})
     for i := range threshold.ThresholdArray {
+        types.SetYListKey(threshold.ThresholdArray[i], i)
         threshold.EntityData.Children.Append(types.GetSegmentPath(threshold.ThresholdArray[i]), types.YChild{"ThresholdArray", threshold.ThresholdArray[i]})
     }
     threshold.EntityData.Leafs = types.NewOrderedMap()
@@ -31864,6 +32167,7 @@ func (threshold *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
 type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Attributes_EnvSensorInfoXml_Threshold_ThresholdArray struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Indicates minor, major, critical severities. The type is ThresholdSeverity.
     ThresholdSeverity interface{}
@@ -31885,7 +32189,8 @@ func (thresholdArray *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2
     thresholdArray.EntityData.YangName = "threshold-array"
     thresholdArray.EntityData.BundleName = "cisco_ios_xr"
     thresholdArray.EntityData.ParentYangName = "threshold"
-    thresholdArray.EntityData.SegmentPath = "threshold-array"
+    thresholdArray.EntityData.SegmentPath = "threshold-array" + types.AddNoKeyToken(thresholdArray)
+    thresholdArray.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/attributes/env-sensor-info-xml/threshold/" + thresholdArray.EntityData.SegmentPath
     thresholdArray.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     thresholdArray.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     thresholdArray.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31938,6 +32243,7 @@ func (invAssetBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Ts
     invAssetBag.EntityData.BundleName = "cisco_ios_xr"
     invAssetBag.EntityData.ParentYangName = "attributes"
     invAssetBag.EntityData.SegmentPath = "inv-asset-bag"
+    invAssetBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/attributes/" + invAssetBag.EntityData.SegmentPath
     invAssetBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invAssetBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invAssetBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31988,6 +32294,7 @@ func (threshold *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     threshold.EntityData.BundleName = "cisco_ios_xr"
     threshold.EntityData.ParentYangName = "attributes"
     threshold.EntityData.SegmentPath = "threshold"
+    threshold.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/attributes/" + threshold.EntityData.SegmentPath
     threshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32022,6 +32329,7 @@ func (majorLo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     majorLo.EntityData.BundleName = "cisco_ios_xr"
     majorLo.EntityData.ParentYangName = "threshold"
     majorLo.EntityData.SegmentPath = "major-lo"
+    majorLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/attributes/threshold/" + majorLo.EntityData.SegmentPath
     majorLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     majorLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     majorLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32068,6 +32376,7 @@ func (threshBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "major-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/attributes/threshold/major-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32101,6 +32410,7 @@ func (criticalHi *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi
     criticalHi.EntityData.BundleName = "cisco_ios_xr"
     criticalHi.EntityData.ParentYangName = "threshold"
     criticalHi.EntityData.SegmentPath = "critical-hi"
+    criticalHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/attributes/threshold/" + criticalHi.EntityData.SegmentPath
     criticalHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     criticalHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     criticalHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32147,6 +32457,7 @@ func (threshBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "critical-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/attributes/threshold/critical-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32180,6 +32491,7 @@ func (minorHi *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     minorHi.EntityData.BundleName = "cisco_ios_xr"
     minorHi.EntityData.ParentYangName = "threshold"
     minorHi.EntityData.SegmentPath = "minor-hi"
+    minorHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/attributes/threshold/" + minorHi.EntityData.SegmentPath
     minorHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     minorHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     minorHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32226,6 +32538,7 @@ func (threshBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "minor-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/attributes/threshold/minor-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32259,6 +32572,7 @@ func (majorHi *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     majorHi.EntityData.BundleName = "cisco_ios_xr"
     majorHi.EntityData.ParentYangName = "threshold"
     majorHi.EntityData.SegmentPath = "major-hi"
+    majorHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/attributes/threshold/" + majorHi.EntityData.SegmentPath
     majorHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     majorHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     majorHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32305,6 +32619,7 @@ func (threshBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "major-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/attributes/threshold/major-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32338,6 +32653,7 @@ func (criticalLo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi
     criticalLo.EntityData.BundleName = "cisco_ios_xr"
     criticalLo.EntityData.ParentYangName = "threshold"
     criticalLo.EntityData.SegmentPath = "critical-lo"
+    criticalLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/attributes/threshold/" + criticalLo.EntityData.SegmentPath
     criticalLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     criticalLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     criticalLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32384,6 +32700,7 @@ func (threshBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "critical-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/attributes/threshold/critical-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32417,6 +32734,7 @@ func (minorLo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     minorLo.EntityData.BundleName = "cisco_ios_xr"
     minorLo.EntityData.ParentYangName = "threshold"
     minorLo.EntityData.SegmentPath = "minor-lo"
+    minorLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/attributes/threshold/" + minorLo.EntityData.SegmentPath
     minorLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     minorLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     minorLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32463,6 +32781,7 @@ func (threshBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "minor-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/attributes/threshold/minor-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32526,6 +32845,7 @@ func (fruInfo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     fruInfo.EntityData.BundleName = "cisco_ios_xr"
     fruInfo.EntityData.ParentYangName = "attributes"
     fruInfo.EntityData.SegmentPath = "fru-info"
+    fruInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/attributes/" + fruInfo.EntityData.SegmentPath
     fruInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fruInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fruInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32568,6 +32888,7 @@ func (lastOperationalStateChange *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi
     lastOperationalStateChange.EntityData.BundleName = "cisco_ios_xr"
     lastOperationalStateChange.EntityData.ParentYangName = "fru-info"
     lastOperationalStateChange.EntityData.SegmentPath = "last-operational-state-change"
+    lastOperationalStateChange.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/attributes/fru-info/" + lastOperationalStateChange.EntityData.SegmentPath
     lastOperationalStateChange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastOperationalStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastOperationalStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32603,6 +32924,7 @@ func (cardUpTime *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi
     cardUpTime.EntityData.BundleName = "cisco_ios_xr"
     cardUpTime.EntityData.ParentYangName = "fru-info"
     cardUpTime.EntityData.SegmentPath = "card-up-time"
+    cardUpTime.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/attributes/fru-info/" + cardUpTime.EntityData.SegmentPath
     cardUpTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cardUpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cardUpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32652,6 +32974,7 @@ func (invEepromInfo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_
     invEepromInfo.EntityData.BundleName = "cisco_ios_xr"
     invEepromInfo.EntityData.ParentYangName = "attributes"
     invEepromInfo.EntityData.SegmentPath = "inv-eeprom-info"
+    invEepromInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/attributes/" + invEepromInfo.EntityData.SegmentPath
     invEepromInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invEepromInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invEepromInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32857,6 +33180,7 @@ func (eeprom *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     eeprom.EntityData.BundleName = "cisco_ios_xr"
     eeprom.EntityData.ParentYangName = "inv-eeprom-info"
     eeprom.EntityData.SegmentPath = "eeprom"
+    eeprom.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/attributes/inv-eeprom-info/" + eeprom.EntityData.SegmentPath
     eeprom.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eeprom.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eeprom.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32949,6 +33273,7 @@ func (rma *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3
     rma.EntityData.BundleName = "cisco_ios_xr"
     rma.EntityData.ParentYangName = "eeprom"
     rma.EntityData.SegmentPath = "rma"
+    rma.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/attributes/inv-eeprom-info/eeprom/" + rma.EntityData.SegmentPath
     rma.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rma.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rma.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32969,19 +33294,6 @@ func (rma *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3
 type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Attributes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
-
-    // Inventory EDM Module Done Tuple. The type is interface{} with range:
-    // 0..4294967295. The default value is 1.
-    ModuleDone interface{}
-
-    // VM Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    VmNodeId interface{}
-
-    // VM Done Tuple. The type is interface{} with range: 0..4294967295.
-    VmDone interface{}
-
-    // Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    NodeId interface{}
 
     // Inventory Basic Bag.
     InvBasicBag Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Attributes_InvBasicBag
@@ -33014,6 +33326,7 @@ func (attributes *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi
     attributes.EntityData.BundleName = "cisco_ios_xr"
     attributes.EntityData.ParentYangName = "tsi3"
     attributes.EntityData.SegmentPath = "attributes"
+    attributes.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/" + attributes.EntityData.SegmentPath
     attributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     attributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33028,10 +33341,6 @@ func (attributes *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi
     attributes.EntityData.Children.Append("fru-info", types.YChild{"FruInfo", &attributes.FruInfo})
     attributes.EntityData.Children.Append("inv-eeprom-info", types.YChild{"InvEepromInfo", &attributes.InvEepromInfo})
     attributes.EntityData.Leafs = types.NewOrderedMap()
-    attributes.EntityData.Leafs.Append("module-done", types.YLeaf{"ModuleDone", attributes.ModuleDone})
-    attributes.EntityData.Leafs.Append("vm-node-id", types.YLeaf{"VmNodeId", attributes.VmNodeId})
-    attributes.EntityData.Leafs.Append("vm-done", types.YLeaf{"VmDone", attributes.VmDone})
-    attributes.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", attributes.NodeId})
 
     attributes.EntityData.YListKeys = []string {}
 
@@ -33119,8 +33428,8 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Attri
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -33140,6 +33449,7 @@ func (invBasicBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Ts
     invBasicBag.EntityData.BundleName = "cisco_ios_xr"
     invBasicBag.EntityData.ParentYangName = "attributes"
     invBasicBag.EntityData.SegmentPath = "inv-basic-bag"
+    invBasicBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/attributes/" + invBasicBag.EntityData.SegmentPath
     invBasicBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invBasicBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invBasicBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33233,6 +33543,7 @@ func (envSensorInfo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_
     envSensorInfo.EntityData.BundleName = "cisco_ios_xr"
     envSensorInfo.EntityData.ParentYangName = "attributes"
     envSensorInfo.EntityData.SegmentPath = "env-sensor-info"
+    envSensorInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/attributes/" + envSensorInfo.EntityData.SegmentPath
     envSensorInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     envSensorInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     envSensorInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33284,6 +33595,7 @@ func (pwgInfo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     pwgInfo.EntityData.BundleName = "cisco_ios_xr"
     pwgInfo.EntityData.ParentYangName = "attributes"
     pwgInfo.EntityData.SegmentPath = "pwg-info"
+    pwgInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/attributes/" + pwgInfo.EntityData.SegmentPath
     pwgInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pwgInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pwgInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33336,6 +33648,7 @@ func (envSensorInfoXml *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Ts
     envSensorInfoXml.EntityData.BundleName = "cisco_ios_xr"
     envSensorInfoXml.EntityData.ParentYangName = "attributes"
     envSensorInfoXml.EntityData.SegmentPath = "env-sensor-info-xml"
+    envSensorInfoXml.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/attributes/" + envSensorInfoXml.EntityData.SegmentPath
     envSensorInfoXml.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     envSensorInfoXml.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     envSensorInfoXml.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33372,6 +33685,7 @@ func (threshold *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     threshold.EntityData.BundleName = "cisco_ios_xr"
     threshold.EntityData.ParentYangName = "env-sensor-info-xml"
     threshold.EntityData.SegmentPath = "threshold"
+    threshold.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/attributes/env-sensor-info-xml/" + threshold.EntityData.SegmentPath
     threshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33379,6 +33693,7 @@ func (threshold *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     threshold.EntityData.Children = types.NewOrderedMap()
     threshold.EntityData.Children.Append("threshold-array", types.YChild{"ThresholdArray", nil})
     for i := range threshold.ThresholdArray {
+        types.SetYListKey(threshold.ThresholdArray[i], i)
         threshold.EntityData.Children.Append(types.GetSegmentPath(threshold.ThresholdArray[i]), types.YChild{"ThresholdArray", threshold.ThresholdArray[i]})
     }
     threshold.EntityData.Leafs = types.NewOrderedMap()
@@ -33393,6 +33708,7 @@ func (threshold *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
 type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Attributes_EnvSensorInfoXml_Threshold_ThresholdArray struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Indicates minor, major, critical severities. The type is ThresholdSeverity.
     ThresholdSeverity interface{}
@@ -33414,7 +33730,8 @@ func (thresholdArray *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2
     thresholdArray.EntityData.YangName = "threshold-array"
     thresholdArray.EntityData.BundleName = "cisco_ios_xr"
     thresholdArray.EntityData.ParentYangName = "threshold"
-    thresholdArray.EntityData.SegmentPath = "threshold-array"
+    thresholdArray.EntityData.SegmentPath = "threshold-array" + types.AddNoKeyToken(thresholdArray)
+    thresholdArray.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/attributes/env-sensor-info-xml/threshold/" + thresholdArray.EntityData.SegmentPath
     thresholdArray.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     thresholdArray.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     thresholdArray.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33467,6 +33784,7 @@ func (invAssetBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Ts
     invAssetBag.EntityData.BundleName = "cisco_ios_xr"
     invAssetBag.EntityData.ParentYangName = "attributes"
     invAssetBag.EntityData.SegmentPath = "inv-asset-bag"
+    invAssetBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/attributes/" + invAssetBag.EntityData.SegmentPath
     invAssetBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invAssetBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invAssetBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33517,6 +33835,7 @@ func (threshold *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     threshold.EntityData.BundleName = "cisco_ios_xr"
     threshold.EntityData.ParentYangName = "attributes"
     threshold.EntityData.SegmentPath = "threshold"
+    threshold.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/attributes/" + threshold.EntityData.SegmentPath
     threshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33551,6 +33870,7 @@ func (majorLo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     majorLo.EntityData.BundleName = "cisco_ios_xr"
     majorLo.EntityData.ParentYangName = "threshold"
     majorLo.EntityData.SegmentPath = "major-lo"
+    majorLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/attributes/threshold/" + majorLo.EntityData.SegmentPath
     majorLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     majorLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     majorLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33597,6 +33917,7 @@ func (threshBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "major-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/attributes/threshold/major-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33630,6 +33951,7 @@ func (criticalHi *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi
     criticalHi.EntityData.BundleName = "cisco_ios_xr"
     criticalHi.EntityData.ParentYangName = "threshold"
     criticalHi.EntityData.SegmentPath = "critical-hi"
+    criticalHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/attributes/threshold/" + criticalHi.EntityData.SegmentPath
     criticalHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     criticalHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     criticalHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33676,6 +33998,7 @@ func (threshBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "critical-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/attributes/threshold/critical-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33709,6 +34032,7 @@ func (minorHi *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     minorHi.EntityData.BundleName = "cisco_ios_xr"
     minorHi.EntityData.ParentYangName = "threshold"
     minorHi.EntityData.SegmentPath = "minor-hi"
+    minorHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/attributes/threshold/" + minorHi.EntityData.SegmentPath
     minorHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     minorHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     minorHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33755,6 +34079,7 @@ func (threshBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "minor-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/attributes/threshold/minor-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33788,6 +34113,7 @@ func (majorHi *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     majorHi.EntityData.BundleName = "cisco_ios_xr"
     majorHi.EntityData.ParentYangName = "threshold"
     majorHi.EntityData.SegmentPath = "major-hi"
+    majorHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/attributes/threshold/" + majorHi.EntityData.SegmentPath
     majorHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     majorHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     majorHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33834,6 +34160,7 @@ func (threshBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "major-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/attributes/threshold/major-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33867,6 +34194,7 @@ func (criticalLo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi
     criticalLo.EntityData.BundleName = "cisco_ios_xr"
     criticalLo.EntityData.ParentYangName = "threshold"
     criticalLo.EntityData.SegmentPath = "critical-lo"
+    criticalLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/attributes/threshold/" + criticalLo.EntityData.SegmentPath
     criticalLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     criticalLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     criticalLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33913,6 +34241,7 @@ func (threshBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "critical-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/attributes/threshold/critical-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33946,6 +34275,7 @@ func (minorLo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     minorLo.EntityData.BundleName = "cisco_ios_xr"
     minorLo.EntityData.ParentYangName = "threshold"
     minorLo.EntityData.SegmentPath = "minor-lo"
+    minorLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/attributes/threshold/" + minorLo.EntityData.SegmentPath
     minorLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     minorLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     minorLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33992,6 +34322,7 @@ func (threshBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "minor-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/attributes/threshold/minor-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34055,6 +34386,7 @@ func (fruInfo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     fruInfo.EntityData.BundleName = "cisco_ios_xr"
     fruInfo.EntityData.ParentYangName = "attributes"
     fruInfo.EntityData.SegmentPath = "fru-info"
+    fruInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/attributes/" + fruInfo.EntityData.SegmentPath
     fruInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fruInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fruInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34097,6 +34429,7 @@ func (lastOperationalStateChange *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi
     lastOperationalStateChange.EntityData.BundleName = "cisco_ios_xr"
     lastOperationalStateChange.EntityData.ParentYangName = "fru-info"
     lastOperationalStateChange.EntityData.SegmentPath = "last-operational-state-change"
+    lastOperationalStateChange.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/attributes/fru-info/" + lastOperationalStateChange.EntityData.SegmentPath
     lastOperationalStateChange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastOperationalStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastOperationalStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34132,6 +34465,7 @@ func (cardUpTime *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi
     cardUpTime.EntityData.BundleName = "cisco_ios_xr"
     cardUpTime.EntityData.ParentYangName = "fru-info"
     cardUpTime.EntityData.SegmentPath = "card-up-time"
+    cardUpTime.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/attributes/fru-info/" + cardUpTime.EntityData.SegmentPath
     cardUpTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cardUpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cardUpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34181,6 +34515,7 @@ func (invEepromInfo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_
     invEepromInfo.EntityData.BundleName = "cisco_ios_xr"
     invEepromInfo.EntityData.ParentYangName = "attributes"
     invEepromInfo.EntityData.SegmentPath = "inv-eeprom-info"
+    invEepromInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/attributes/" + invEepromInfo.EntityData.SegmentPath
     invEepromInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invEepromInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invEepromInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34386,6 +34721,7 @@ func (eeprom *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     eeprom.EntityData.BundleName = "cisco_ios_xr"
     eeprom.EntityData.ParentYangName = "inv-eeprom-info"
     eeprom.EntityData.SegmentPath = "eeprom"
+    eeprom.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/attributes/inv-eeprom-info/" + eeprom.EntityData.SegmentPath
     eeprom.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eeprom.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eeprom.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34478,6 +34814,7 @@ func (rma *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3
     rma.EntityData.BundleName = "cisco_ios_xr"
     rma.EntityData.ParentYangName = "eeprom"
     rma.EntityData.SegmentPath = "rma"
+    rma.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/attributes/inv-eeprom-info/eeprom/" + rma.EntityData.SegmentPath
     rma.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rma.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rma.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34498,19 +34835,6 @@ func (rma *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3
 type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attributes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
-
-    // Inventory EDM Module Done Tuple. The type is interface{} with range:
-    // 0..4294967295. The default value is 1.
-    ModuleDone interface{}
-
-    // VM Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    VmNodeId interface{}
-
-    // VM Done Tuple. The type is interface{} with range: 0..4294967295.
-    VmDone interface{}
-
-    // Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    NodeId interface{}
 
     // Inventory Basic Bag.
     InvBasicBag Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attributes_InvBasicBag
@@ -34543,6 +34867,7 @@ func (attributes *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Att
     attributes.EntityData.BundleName = "cisco_ios_xr"
     attributes.EntityData.ParentYangName = "tsi2"
     attributes.EntityData.SegmentPath = "attributes"
+    attributes.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/" + attributes.EntityData.SegmentPath
     attributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     attributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34557,10 +34882,6 @@ func (attributes *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Att
     attributes.EntityData.Children.Append("fru-info", types.YChild{"FruInfo", &attributes.FruInfo})
     attributes.EntityData.Children.Append("inv-eeprom-info", types.YChild{"InvEepromInfo", &attributes.InvEepromInfo})
     attributes.EntityData.Leafs = types.NewOrderedMap()
-    attributes.EntityData.Leafs.Append("module-done", types.YLeaf{"ModuleDone", attributes.ModuleDone})
-    attributes.EntityData.Leafs.Append("vm-node-id", types.YLeaf{"VmNodeId", attributes.VmNodeId})
-    attributes.EntityData.Leafs.Append("vm-done", types.YLeaf{"VmDone", attributes.VmDone})
-    attributes.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", attributes.NodeId})
 
     attributes.EntityData.YListKeys = []string {}
 
@@ -34648,8 +34969,8 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attributes_InvBa
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -34669,6 +34990,7 @@ func (invBasicBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_At
     invBasicBag.EntityData.BundleName = "cisco_ios_xr"
     invBasicBag.EntityData.ParentYangName = "attributes"
     invBasicBag.EntityData.SegmentPath = "inv-basic-bag"
+    invBasicBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/attributes/" + invBasicBag.EntityData.SegmentPath
     invBasicBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invBasicBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invBasicBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34762,6 +35084,7 @@ func (envSensorInfo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_
     envSensorInfo.EntityData.BundleName = "cisco_ios_xr"
     envSensorInfo.EntityData.ParentYangName = "attributes"
     envSensorInfo.EntityData.SegmentPath = "env-sensor-info"
+    envSensorInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/attributes/" + envSensorInfo.EntityData.SegmentPath
     envSensorInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     envSensorInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     envSensorInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34813,6 +35136,7 @@ func (pwgInfo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attrib
     pwgInfo.EntityData.BundleName = "cisco_ios_xr"
     pwgInfo.EntityData.ParentYangName = "attributes"
     pwgInfo.EntityData.SegmentPath = "pwg-info"
+    pwgInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/attributes/" + pwgInfo.EntityData.SegmentPath
     pwgInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pwgInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pwgInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34865,6 +35189,7 @@ func (envSensorInfoXml *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Ts
     envSensorInfoXml.EntityData.BundleName = "cisco_ios_xr"
     envSensorInfoXml.EntityData.ParentYangName = "attributes"
     envSensorInfoXml.EntityData.SegmentPath = "env-sensor-info-xml"
+    envSensorInfoXml.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/attributes/" + envSensorInfoXml.EntityData.SegmentPath
     envSensorInfoXml.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     envSensorInfoXml.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     envSensorInfoXml.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34901,6 +35226,7 @@ func (threshold *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attr
     threshold.EntityData.BundleName = "cisco_ios_xr"
     threshold.EntityData.ParentYangName = "env-sensor-info-xml"
     threshold.EntityData.SegmentPath = "threshold"
+    threshold.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/attributes/env-sensor-info-xml/" + threshold.EntityData.SegmentPath
     threshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34908,6 +35234,7 @@ func (threshold *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attr
     threshold.EntityData.Children = types.NewOrderedMap()
     threshold.EntityData.Children.Append("threshold-array", types.YChild{"ThresholdArray", nil})
     for i := range threshold.ThresholdArray {
+        types.SetYListKey(threshold.ThresholdArray[i], i)
         threshold.EntityData.Children.Append(types.GetSegmentPath(threshold.ThresholdArray[i]), types.YChild{"ThresholdArray", threshold.ThresholdArray[i]})
     }
     threshold.EntityData.Leafs = types.NewOrderedMap()
@@ -34922,6 +35249,7 @@ func (threshold *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attr
 type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attributes_EnvSensorInfoXml_Threshold_ThresholdArray struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Indicates minor, major, critical severities. The type is ThresholdSeverity.
     ThresholdSeverity interface{}
@@ -34943,7 +35271,8 @@ func (thresholdArray *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2
     thresholdArray.EntityData.YangName = "threshold-array"
     thresholdArray.EntityData.BundleName = "cisco_ios_xr"
     thresholdArray.EntityData.ParentYangName = "threshold"
-    thresholdArray.EntityData.SegmentPath = "threshold-array"
+    thresholdArray.EntityData.SegmentPath = "threshold-array" + types.AddNoKeyToken(thresholdArray)
+    thresholdArray.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/attributes/env-sensor-info-xml/threshold/" + thresholdArray.EntityData.SegmentPath
     thresholdArray.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     thresholdArray.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     thresholdArray.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34996,6 +35325,7 @@ func (invAssetBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_At
     invAssetBag.EntityData.BundleName = "cisco_ios_xr"
     invAssetBag.EntityData.ParentYangName = "attributes"
     invAssetBag.EntityData.SegmentPath = "inv-asset-bag"
+    invAssetBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/attributes/" + invAssetBag.EntityData.SegmentPath
     invAssetBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invAssetBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invAssetBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35046,6 +35376,7 @@ func (threshold *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attr
     threshold.EntityData.BundleName = "cisco_ios_xr"
     threshold.EntityData.ParentYangName = "attributes"
     threshold.EntityData.SegmentPath = "threshold"
+    threshold.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/attributes/" + threshold.EntityData.SegmentPath
     threshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35080,6 +35411,7 @@ func (majorLo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attrib
     majorLo.EntityData.BundleName = "cisco_ios_xr"
     majorLo.EntityData.ParentYangName = "threshold"
     majorLo.EntityData.SegmentPath = "major-lo"
+    majorLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/attributes/threshold/" + majorLo.EntityData.SegmentPath
     majorLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     majorLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     majorLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35126,6 +35458,7 @@ func (threshBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attr
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "major-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/attributes/threshold/major-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35159,6 +35492,7 @@ func (criticalHi *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Att
     criticalHi.EntityData.BundleName = "cisco_ios_xr"
     criticalHi.EntityData.ParentYangName = "threshold"
     criticalHi.EntityData.SegmentPath = "critical-hi"
+    criticalHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/attributes/threshold/" + criticalHi.EntityData.SegmentPath
     criticalHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     criticalHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     criticalHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35205,6 +35539,7 @@ func (threshBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attr
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "critical-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/attributes/threshold/critical-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35238,6 +35573,7 @@ func (minorHi *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attrib
     minorHi.EntityData.BundleName = "cisco_ios_xr"
     minorHi.EntityData.ParentYangName = "threshold"
     minorHi.EntityData.SegmentPath = "minor-hi"
+    minorHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/attributes/threshold/" + minorHi.EntityData.SegmentPath
     minorHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     minorHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     minorHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35284,6 +35620,7 @@ func (threshBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attr
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "minor-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/attributes/threshold/minor-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35317,6 +35654,7 @@ func (majorHi *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attrib
     majorHi.EntityData.BundleName = "cisco_ios_xr"
     majorHi.EntityData.ParentYangName = "threshold"
     majorHi.EntityData.SegmentPath = "major-hi"
+    majorHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/attributes/threshold/" + majorHi.EntityData.SegmentPath
     majorHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     majorHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     majorHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35363,6 +35701,7 @@ func (threshBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attr
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "major-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/attributes/threshold/major-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35396,6 +35735,7 @@ func (criticalLo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Att
     criticalLo.EntityData.BundleName = "cisco_ios_xr"
     criticalLo.EntityData.ParentYangName = "threshold"
     criticalLo.EntityData.SegmentPath = "critical-lo"
+    criticalLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/attributes/threshold/" + criticalLo.EntityData.SegmentPath
     criticalLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     criticalLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     criticalLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35442,6 +35782,7 @@ func (threshBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attr
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "critical-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/attributes/threshold/critical-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35475,6 +35816,7 @@ func (minorLo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attrib
     minorLo.EntityData.BundleName = "cisco_ios_xr"
     minorLo.EntityData.ParentYangName = "threshold"
     minorLo.EntityData.SegmentPath = "minor-lo"
+    minorLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/attributes/threshold/" + minorLo.EntityData.SegmentPath
     minorLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     minorLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     minorLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35521,6 +35863,7 @@ func (threshBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attr
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "minor-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/attributes/threshold/minor-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35584,6 +35927,7 @@ func (fruInfo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attrib
     fruInfo.EntityData.BundleName = "cisco_ios_xr"
     fruInfo.EntityData.ParentYangName = "attributes"
     fruInfo.EntityData.SegmentPath = "fru-info"
+    fruInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/attributes/" + fruInfo.EntityData.SegmentPath
     fruInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fruInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fruInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35626,6 +35970,7 @@ func (lastOperationalStateChange *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi
     lastOperationalStateChange.EntityData.BundleName = "cisco_ios_xr"
     lastOperationalStateChange.EntityData.ParentYangName = "fru-info"
     lastOperationalStateChange.EntityData.SegmentPath = "last-operational-state-change"
+    lastOperationalStateChange.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/attributes/fru-info/" + lastOperationalStateChange.EntityData.SegmentPath
     lastOperationalStateChange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastOperationalStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastOperationalStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35661,6 +36006,7 @@ func (cardUpTime *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Att
     cardUpTime.EntityData.BundleName = "cisco_ios_xr"
     cardUpTime.EntityData.ParentYangName = "fru-info"
     cardUpTime.EntityData.SegmentPath = "card-up-time"
+    cardUpTime.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/attributes/fru-info/" + cardUpTime.EntityData.SegmentPath
     cardUpTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cardUpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cardUpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35710,6 +36056,7 @@ func (invEepromInfo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_
     invEepromInfo.EntityData.BundleName = "cisco_ios_xr"
     invEepromInfo.EntityData.ParentYangName = "attributes"
     invEepromInfo.EntityData.SegmentPath = "inv-eeprom-info"
+    invEepromInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/attributes/" + invEepromInfo.EntityData.SegmentPath
     invEepromInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invEepromInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invEepromInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35915,6 +36262,7 @@ func (eeprom *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attribu
     eeprom.EntityData.BundleName = "cisco_ios_xr"
     eeprom.EntityData.ParentYangName = "inv-eeprom-info"
     eeprom.EntityData.SegmentPath = "eeprom"
+    eeprom.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/attributes/inv-eeprom-info/" + eeprom.EntityData.SegmentPath
     eeprom.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eeprom.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eeprom.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36007,6 +36355,7 @@ func (rma *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attributes
     rma.EntityData.BundleName = "cisco_ios_xr"
     rma.EntityData.ParentYangName = "eeprom"
     rma.EntityData.SegmentPath = "rma"
+    rma.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/tsi2s/tsi2/attributes/inv-eeprom-info/eeprom/" + rma.EntityData.SegmentPath
     rma.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rma.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rma.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36027,19 +36376,6 @@ func (rma *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attributes
 type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Attributes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
-
-    // Inventory EDM Module Done Tuple. The type is interface{} with range:
-    // 0..4294967295. The default value is 1.
-    ModuleDone interface{}
-
-    // VM Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    VmNodeId interface{}
-
-    // VM Done Tuple. The type is interface{} with range: 0..4294967295.
-    VmDone interface{}
-
-    // Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    NodeId interface{}
 
     // Inventory Basic Bag.
     InvBasicBag Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Attributes_InvBasicBag
@@ -36072,6 +36408,7 @@ func (attributes *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Attributes) Ge
     attributes.EntityData.BundleName = "cisco_ios_xr"
     attributes.EntityData.ParentYangName = "tsi1"
     attributes.EntityData.SegmentPath = "attributes"
+    attributes.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/" + attributes.EntityData.SegmentPath
     attributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     attributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36086,10 +36423,6 @@ func (attributes *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Attributes) Ge
     attributes.EntityData.Children.Append("fru-info", types.YChild{"FruInfo", &attributes.FruInfo})
     attributes.EntityData.Children.Append("inv-eeprom-info", types.YChild{"InvEepromInfo", &attributes.InvEepromInfo})
     attributes.EntityData.Leafs = types.NewOrderedMap()
-    attributes.EntityData.Leafs.Append("module-done", types.YLeaf{"ModuleDone", attributes.ModuleDone})
-    attributes.EntityData.Leafs.Append("vm-node-id", types.YLeaf{"VmNodeId", attributes.VmNodeId})
-    attributes.EntityData.Leafs.Append("vm-done", types.YLeaf{"VmDone", attributes.VmDone})
-    attributes.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", attributes.NodeId})
 
     attributes.EntityData.YListKeys = []string {}
 
@@ -36177,8 +36510,8 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Attributes_InvBasicBag stru
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -36198,6 +36531,7 @@ func (invBasicBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Attributes_In
     invBasicBag.EntityData.BundleName = "cisco_ios_xr"
     invBasicBag.EntityData.ParentYangName = "attributes"
     invBasicBag.EntityData.SegmentPath = "inv-basic-bag"
+    invBasicBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/attributes/" + invBasicBag.EntityData.SegmentPath
     invBasicBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invBasicBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invBasicBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36291,6 +36625,7 @@ func (envSensorInfo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Attributes_
     envSensorInfo.EntityData.BundleName = "cisco_ios_xr"
     envSensorInfo.EntityData.ParentYangName = "attributes"
     envSensorInfo.EntityData.SegmentPath = "env-sensor-info"
+    envSensorInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/attributes/" + envSensorInfo.EntityData.SegmentPath
     envSensorInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     envSensorInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     envSensorInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36342,6 +36677,7 @@ func (pwgInfo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Attributes_PwgInf
     pwgInfo.EntityData.BundleName = "cisco_ios_xr"
     pwgInfo.EntityData.ParentYangName = "attributes"
     pwgInfo.EntityData.SegmentPath = "pwg-info"
+    pwgInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/attributes/" + pwgInfo.EntityData.SegmentPath
     pwgInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pwgInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pwgInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36394,6 +36730,7 @@ func (envSensorInfoXml *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Attribut
     envSensorInfoXml.EntityData.BundleName = "cisco_ios_xr"
     envSensorInfoXml.EntityData.ParentYangName = "attributes"
     envSensorInfoXml.EntityData.SegmentPath = "env-sensor-info-xml"
+    envSensorInfoXml.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/attributes/" + envSensorInfoXml.EntityData.SegmentPath
     envSensorInfoXml.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     envSensorInfoXml.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     envSensorInfoXml.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36430,6 +36767,7 @@ func (threshold *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Attributes_EnvS
     threshold.EntityData.BundleName = "cisco_ios_xr"
     threshold.EntityData.ParentYangName = "env-sensor-info-xml"
     threshold.EntityData.SegmentPath = "threshold"
+    threshold.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/attributes/env-sensor-info-xml/" + threshold.EntityData.SegmentPath
     threshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36437,6 +36775,7 @@ func (threshold *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Attributes_EnvS
     threshold.EntityData.Children = types.NewOrderedMap()
     threshold.EntityData.Children.Append("threshold-array", types.YChild{"ThresholdArray", nil})
     for i := range threshold.ThresholdArray {
+        types.SetYListKey(threshold.ThresholdArray[i], i)
         threshold.EntityData.Children.Append(types.GetSegmentPath(threshold.ThresholdArray[i]), types.YChild{"ThresholdArray", threshold.ThresholdArray[i]})
     }
     threshold.EntityData.Leafs = types.NewOrderedMap()
@@ -36451,6 +36790,7 @@ func (threshold *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Attributes_EnvS
 type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Attributes_EnvSensorInfoXml_Threshold_ThresholdArray struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Indicates minor, major, critical severities. The type is ThresholdSeverity.
     ThresholdSeverity interface{}
@@ -36472,7 +36812,8 @@ func (thresholdArray *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Attributes
     thresholdArray.EntityData.YangName = "threshold-array"
     thresholdArray.EntityData.BundleName = "cisco_ios_xr"
     thresholdArray.EntityData.ParentYangName = "threshold"
-    thresholdArray.EntityData.SegmentPath = "threshold-array"
+    thresholdArray.EntityData.SegmentPath = "threshold-array" + types.AddNoKeyToken(thresholdArray)
+    thresholdArray.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/attributes/env-sensor-info-xml/threshold/" + thresholdArray.EntityData.SegmentPath
     thresholdArray.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     thresholdArray.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     thresholdArray.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36525,6 +36866,7 @@ func (invAssetBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Attributes_In
     invAssetBag.EntityData.BundleName = "cisco_ios_xr"
     invAssetBag.EntityData.ParentYangName = "attributes"
     invAssetBag.EntityData.SegmentPath = "inv-asset-bag"
+    invAssetBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/attributes/" + invAssetBag.EntityData.SegmentPath
     invAssetBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invAssetBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invAssetBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36575,6 +36917,7 @@ func (threshold *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Attributes_Thre
     threshold.EntityData.BundleName = "cisco_ios_xr"
     threshold.EntityData.ParentYangName = "attributes"
     threshold.EntityData.SegmentPath = "threshold"
+    threshold.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/attributes/" + threshold.EntityData.SegmentPath
     threshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36609,6 +36952,7 @@ func (majorLo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Attributes_Thresh
     majorLo.EntityData.BundleName = "cisco_ios_xr"
     majorLo.EntityData.ParentYangName = "threshold"
     majorLo.EntityData.SegmentPath = "major-lo"
+    majorLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/attributes/threshold/" + majorLo.EntityData.SegmentPath
     majorLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     majorLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     majorLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36655,6 +36999,7 @@ func (threshBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Attributes_Thre
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "major-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/attributes/threshold/major-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36688,6 +37033,7 @@ func (criticalHi *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Attributes_Thr
     criticalHi.EntityData.BundleName = "cisco_ios_xr"
     criticalHi.EntityData.ParentYangName = "threshold"
     criticalHi.EntityData.SegmentPath = "critical-hi"
+    criticalHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/attributes/threshold/" + criticalHi.EntityData.SegmentPath
     criticalHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     criticalHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     criticalHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36734,6 +37080,7 @@ func (threshBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Attributes_Thre
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "critical-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/attributes/threshold/critical-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36767,6 +37114,7 @@ func (minorHi *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Attributes_Thresh
     minorHi.EntityData.BundleName = "cisco_ios_xr"
     minorHi.EntityData.ParentYangName = "threshold"
     minorHi.EntityData.SegmentPath = "minor-hi"
+    minorHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/attributes/threshold/" + minorHi.EntityData.SegmentPath
     minorHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     minorHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     minorHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36813,6 +37161,7 @@ func (threshBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Attributes_Thre
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "minor-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/attributes/threshold/minor-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36846,6 +37195,7 @@ func (majorHi *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Attributes_Thresh
     majorHi.EntityData.BundleName = "cisco_ios_xr"
     majorHi.EntityData.ParentYangName = "threshold"
     majorHi.EntityData.SegmentPath = "major-hi"
+    majorHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/attributes/threshold/" + majorHi.EntityData.SegmentPath
     majorHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     majorHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     majorHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36892,6 +37242,7 @@ func (threshBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Attributes_Thre
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "major-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/attributes/threshold/major-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36925,6 +37276,7 @@ func (criticalLo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Attributes_Thr
     criticalLo.EntityData.BundleName = "cisco_ios_xr"
     criticalLo.EntityData.ParentYangName = "threshold"
     criticalLo.EntityData.SegmentPath = "critical-lo"
+    criticalLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/attributes/threshold/" + criticalLo.EntityData.SegmentPath
     criticalLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     criticalLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     criticalLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36971,6 +37323,7 @@ func (threshBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Attributes_Thre
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "critical-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/attributes/threshold/critical-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37004,6 +37357,7 @@ func (minorLo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Attributes_Thresh
     minorLo.EntityData.BundleName = "cisco_ios_xr"
     minorLo.EntityData.ParentYangName = "threshold"
     minorLo.EntityData.SegmentPath = "minor-lo"
+    minorLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/attributes/threshold/" + minorLo.EntityData.SegmentPath
     minorLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     minorLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     minorLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37050,6 +37404,7 @@ func (threshBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Attributes_Thre
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "minor-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/attributes/threshold/minor-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37113,6 +37468,7 @@ func (fruInfo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Attributes_FruInf
     fruInfo.EntityData.BundleName = "cisco_ios_xr"
     fruInfo.EntityData.ParentYangName = "attributes"
     fruInfo.EntityData.SegmentPath = "fru-info"
+    fruInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/attributes/" + fruInfo.EntityData.SegmentPath
     fruInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fruInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fruInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37155,6 +37511,7 @@ func (lastOperationalStateChange *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi
     lastOperationalStateChange.EntityData.BundleName = "cisco_ios_xr"
     lastOperationalStateChange.EntityData.ParentYangName = "fru-info"
     lastOperationalStateChange.EntityData.SegmentPath = "last-operational-state-change"
+    lastOperationalStateChange.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/attributes/fru-info/" + lastOperationalStateChange.EntityData.SegmentPath
     lastOperationalStateChange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastOperationalStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastOperationalStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37190,6 +37547,7 @@ func (cardUpTime *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Attributes_Fru
     cardUpTime.EntityData.BundleName = "cisco_ios_xr"
     cardUpTime.EntityData.ParentYangName = "fru-info"
     cardUpTime.EntityData.SegmentPath = "card-up-time"
+    cardUpTime.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/attributes/fru-info/" + cardUpTime.EntityData.SegmentPath
     cardUpTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cardUpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cardUpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37239,6 +37597,7 @@ func (invEepromInfo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Attributes_
     invEepromInfo.EntityData.BundleName = "cisco_ios_xr"
     invEepromInfo.EntityData.ParentYangName = "attributes"
     invEepromInfo.EntityData.SegmentPath = "inv-eeprom-info"
+    invEepromInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/attributes/" + invEepromInfo.EntityData.SegmentPath
     invEepromInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invEepromInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invEepromInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37444,6 +37803,7 @@ func (eeprom *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Attributes_InvEepr
     eeprom.EntityData.BundleName = "cisco_ios_xr"
     eeprom.EntityData.ParentYangName = "inv-eeprom-info"
     eeprom.EntityData.SegmentPath = "eeprom"
+    eeprom.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/attributes/inv-eeprom-info/" + eeprom.EntityData.SegmentPath
     eeprom.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eeprom.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eeprom.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37536,6 +37896,7 @@ func (rma *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Attributes_InvEepromI
     rma.EntityData.BundleName = "cisco_ios_xr"
     rma.EntityData.ParentYangName = "eeprom"
     rma.EntityData.SegmentPath = "rma"
+    rma.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/tsi1s/tsi1/attributes/inv-eeprom-info/eeprom/" + rma.EntityData.SegmentPath
     rma.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rma.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rma.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37556,19 +37917,6 @@ func (rma *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Attributes_InvEepromI
 type Inventory_Racks_Rack_Powershelf_Slot_Attributes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
-
-    // Inventory EDM Module Done Tuple. The type is interface{} with range:
-    // 0..4294967295. The default value is 1.
-    ModuleDone interface{}
-
-    // VM Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    VmNodeId interface{}
-
-    // VM Done Tuple. The type is interface{} with range: 0..4294967295.
-    VmDone interface{}
-
-    // Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    NodeId interface{}
 
     // Inventory Basic Bag.
     InvBasicBag Inventory_Racks_Rack_Powershelf_Slot_Attributes_InvBasicBag
@@ -37601,6 +37949,7 @@ func (attributes *Inventory_Racks_Rack_Powershelf_Slot_Attributes) GetEntityData
     attributes.EntityData.BundleName = "cisco_ios_xr"
     attributes.EntityData.ParentYangName = "slot"
     attributes.EntityData.SegmentPath = "attributes"
+    attributes.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/" + attributes.EntityData.SegmentPath
     attributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     attributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37615,10 +37964,6 @@ func (attributes *Inventory_Racks_Rack_Powershelf_Slot_Attributes) GetEntityData
     attributes.EntityData.Children.Append("fru-info", types.YChild{"FruInfo", &attributes.FruInfo})
     attributes.EntityData.Children.Append("inv-eeprom-info", types.YChild{"InvEepromInfo", &attributes.InvEepromInfo})
     attributes.EntityData.Leafs = types.NewOrderedMap()
-    attributes.EntityData.Leafs.Append("module-done", types.YLeaf{"ModuleDone", attributes.ModuleDone})
-    attributes.EntityData.Leafs.Append("vm-node-id", types.YLeaf{"VmNodeId", attributes.VmNodeId})
-    attributes.EntityData.Leafs.Append("vm-done", types.YLeaf{"VmDone", attributes.VmDone})
-    attributes.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", attributes.NodeId})
 
     attributes.EntityData.YListKeys = []string {}
 
@@ -37706,8 +38051,8 @@ type Inventory_Racks_Rack_Powershelf_Slot_Attributes_InvBasicBag struct {
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -37727,6 +38072,7 @@ func (invBasicBag *Inventory_Racks_Rack_Powershelf_Slot_Attributes_InvBasicBag) 
     invBasicBag.EntityData.BundleName = "cisco_ios_xr"
     invBasicBag.EntityData.ParentYangName = "attributes"
     invBasicBag.EntityData.SegmentPath = "inv-basic-bag"
+    invBasicBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/attributes/" + invBasicBag.EntityData.SegmentPath
     invBasicBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invBasicBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invBasicBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37820,6 +38166,7 @@ func (envSensorInfo *Inventory_Racks_Rack_Powershelf_Slot_Attributes_EnvSensorIn
     envSensorInfo.EntityData.BundleName = "cisco_ios_xr"
     envSensorInfo.EntityData.ParentYangName = "attributes"
     envSensorInfo.EntityData.SegmentPath = "env-sensor-info"
+    envSensorInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/attributes/" + envSensorInfo.EntityData.SegmentPath
     envSensorInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     envSensorInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     envSensorInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37871,6 +38218,7 @@ func (pwgInfo *Inventory_Racks_Rack_Powershelf_Slot_Attributes_PwgInfo) GetEntit
     pwgInfo.EntityData.BundleName = "cisco_ios_xr"
     pwgInfo.EntityData.ParentYangName = "attributes"
     pwgInfo.EntityData.SegmentPath = "pwg-info"
+    pwgInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/attributes/" + pwgInfo.EntityData.SegmentPath
     pwgInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pwgInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pwgInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37923,6 +38271,7 @@ func (envSensorInfoXml *Inventory_Racks_Rack_Powershelf_Slot_Attributes_EnvSenso
     envSensorInfoXml.EntityData.BundleName = "cisco_ios_xr"
     envSensorInfoXml.EntityData.ParentYangName = "attributes"
     envSensorInfoXml.EntityData.SegmentPath = "env-sensor-info-xml"
+    envSensorInfoXml.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/attributes/" + envSensorInfoXml.EntityData.SegmentPath
     envSensorInfoXml.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     envSensorInfoXml.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     envSensorInfoXml.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37959,6 +38308,7 @@ func (threshold *Inventory_Racks_Rack_Powershelf_Slot_Attributes_EnvSensorInfoXm
     threshold.EntityData.BundleName = "cisco_ios_xr"
     threshold.EntityData.ParentYangName = "env-sensor-info-xml"
     threshold.EntityData.SegmentPath = "threshold"
+    threshold.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/attributes/env-sensor-info-xml/" + threshold.EntityData.SegmentPath
     threshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37966,6 +38316,7 @@ func (threshold *Inventory_Racks_Rack_Powershelf_Slot_Attributes_EnvSensorInfoXm
     threshold.EntityData.Children = types.NewOrderedMap()
     threshold.EntityData.Children.Append("threshold-array", types.YChild{"ThresholdArray", nil})
     for i := range threshold.ThresholdArray {
+        types.SetYListKey(threshold.ThresholdArray[i], i)
         threshold.EntityData.Children.Append(types.GetSegmentPath(threshold.ThresholdArray[i]), types.YChild{"ThresholdArray", threshold.ThresholdArray[i]})
     }
     threshold.EntityData.Leafs = types.NewOrderedMap()
@@ -37980,6 +38331,7 @@ func (threshold *Inventory_Racks_Rack_Powershelf_Slot_Attributes_EnvSensorInfoXm
 type Inventory_Racks_Rack_Powershelf_Slot_Attributes_EnvSensorInfoXml_Threshold_ThresholdArray struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Indicates minor, major, critical severities. The type is ThresholdSeverity.
     ThresholdSeverity interface{}
@@ -38001,7 +38353,8 @@ func (thresholdArray *Inventory_Racks_Rack_Powershelf_Slot_Attributes_EnvSensorI
     thresholdArray.EntityData.YangName = "threshold-array"
     thresholdArray.EntityData.BundleName = "cisco_ios_xr"
     thresholdArray.EntityData.ParentYangName = "threshold"
-    thresholdArray.EntityData.SegmentPath = "threshold-array"
+    thresholdArray.EntityData.SegmentPath = "threshold-array" + types.AddNoKeyToken(thresholdArray)
+    thresholdArray.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/attributes/env-sensor-info-xml/threshold/" + thresholdArray.EntityData.SegmentPath
     thresholdArray.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     thresholdArray.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     thresholdArray.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38054,6 +38407,7 @@ func (invAssetBag *Inventory_Racks_Rack_Powershelf_Slot_Attributes_InvAssetBag) 
     invAssetBag.EntityData.BundleName = "cisco_ios_xr"
     invAssetBag.EntityData.ParentYangName = "attributes"
     invAssetBag.EntityData.SegmentPath = "inv-asset-bag"
+    invAssetBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/attributes/" + invAssetBag.EntityData.SegmentPath
     invAssetBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invAssetBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invAssetBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38104,6 +38458,7 @@ func (threshold *Inventory_Racks_Rack_Powershelf_Slot_Attributes_Threshold) GetE
     threshold.EntityData.BundleName = "cisco_ios_xr"
     threshold.EntityData.ParentYangName = "attributes"
     threshold.EntityData.SegmentPath = "threshold"
+    threshold.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/attributes/" + threshold.EntityData.SegmentPath
     threshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38138,6 +38493,7 @@ func (majorLo *Inventory_Racks_Rack_Powershelf_Slot_Attributes_Threshold_MajorLo
     majorLo.EntityData.BundleName = "cisco_ios_xr"
     majorLo.EntityData.ParentYangName = "threshold"
     majorLo.EntityData.SegmentPath = "major-lo"
+    majorLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/attributes/threshold/" + majorLo.EntityData.SegmentPath
     majorLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     majorLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     majorLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38184,6 +38540,7 @@ func (threshBag *Inventory_Racks_Rack_Powershelf_Slot_Attributes_Threshold_Major
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "major-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/attributes/threshold/major-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38217,6 +38574,7 @@ func (criticalHi *Inventory_Racks_Rack_Powershelf_Slot_Attributes_Threshold_Crit
     criticalHi.EntityData.BundleName = "cisco_ios_xr"
     criticalHi.EntityData.ParentYangName = "threshold"
     criticalHi.EntityData.SegmentPath = "critical-hi"
+    criticalHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/attributes/threshold/" + criticalHi.EntityData.SegmentPath
     criticalHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     criticalHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     criticalHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38263,6 +38621,7 @@ func (threshBag *Inventory_Racks_Rack_Powershelf_Slot_Attributes_Threshold_Criti
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "critical-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/attributes/threshold/critical-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38296,6 +38655,7 @@ func (minorHi *Inventory_Racks_Rack_Powershelf_Slot_Attributes_Threshold_MinorHi
     minorHi.EntityData.BundleName = "cisco_ios_xr"
     minorHi.EntityData.ParentYangName = "threshold"
     minorHi.EntityData.SegmentPath = "minor-hi"
+    minorHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/attributes/threshold/" + minorHi.EntityData.SegmentPath
     minorHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     minorHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     minorHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38342,6 +38702,7 @@ func (threshBag *Inventory_Racks_Rack_Powershelf_Slot_Attributes_Threshold_Minor
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "minor-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/attributes/threshold/minor-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38375,6 +38736,7 @@ func (majorHi *Inventory_Racks_Rack_Powershelf_Slot_Attributes_Threshold_MajorHi
     majorHi.EntityData.BundleName = "cisco_ios_xr"
     majorHi.EntityData.ParentYangName = "threshold"
     majorHi.EntityData.SegmentPath = "major-hi"
+    majorHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/attributes/threshold/" + majorHi.EntityData.SegmentPath
     majorHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     majorHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     majorHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38421,6 +38783,7 @@ func (threshBag *Inventory_Racks_Rack_Powershelf_Slot_Attributes_Threshold_Major
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "major-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/attributes/threshold/major-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38454,6 +38817,7 @@ func (criticalLo *Inventory_Racks_Rack_Powershelf_Slot_Attributes_Threshold_Crit
     criticalLo.EntityData.BundleName = "cisco_ios_xr"
     criticalLo.EntityData.ParentYangName = "threshold"
     criticalLo.EntityData.SegmentPath = "critical-lo"
+    criticalLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/attributes/threshold/" + criticalLo.EntityData.SegmentPath
     criticalLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     criticalLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     criticalLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38500,6 +38864,7 @@ func (threshBag *Inventory_Racks_Rack_Powershelf_Slot_Attributes_Threshold_Criti
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "critical-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/attributes/threshold/critical-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38533,6 +38898,7 @@ func (minorLo *Inventory_Racks_Rack_Powershelf_Slot_Attributes_Threshold_MinorLo
     minorLo.EntityData.BundleName = "cisco_ios_xr"
     minorLo.EntityData.ParentYangName = "threshold"
     minorLo.EntityData.SegmentPath = "minor-lo"
+    minorLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/attributes/threshold/" + minorLo.EntityData.SegmentPath
     minorLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     minorLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     minorLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38579,6 +38945,7 @@ func (threshBag *Inventory_Racks_Rack_Powershelf_Slot_Attributes_Threshold_Minor
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "minor-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/attributes/threshold/minor-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38642,6 +39009,7 @@ func (fruInfo *Inventory_Racks_Rack_Powershelf_Slot_Attributes_FruInfo) GetEntit
     fruInfo.EntityData.BundleName = "cisco_ios_xr"
     fruInfo.EntityData.ParentYangName = "attributes"
     fruInfo.EntityData.SegmentPath = "fru-info"
+    fruInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/attributes/" + fruInfo.EntityData.SegmentPath
     fruInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fruInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fruInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38684,6 +39052,7 @@ func (lastOperationalStateChange *Inventory_Racks_Rack_Powershelf_Slot_Attribute
     lastOperationalStateChange.EntityData.BundleName = "cisco_ios_xr"
     lastOperationalStateChange.EntityData.ParentYangName = "fru-info"
     lastOperationalStateChange.EntityData.SegmentPath = "last-operational-state-change"
+    lastOperationalStateChange.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/attributes/fru-info/" + lastOperationalStateChange.EntityData.SegmentPath
     lastOperationalStateChange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastOperationalStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastOperationalStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38719,6 +39088,7 @@ func (cardUpTime *Inventory_Racks_Rack_Powershelf_Slot_Attributes_FruInfo_CardUp
     cardUpTime.EntityData.BundleName = "cisco_ios_xr"
     cardUpTime.EntityData.ParentYangName = "fru-info"
     cardUpTime.EntityData.SegmentPath = "card-up-time"
+    cardUpTime.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/attributes/fru-info/" + cardUpTime.EntityData.SegmentPath
     cardUpTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cardUpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cardUpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38768,6 +39138,7 @@ func (invEepromInfo *Inventory_Racks_Rack_Powershelf_Slot_Attributes_InvEepromIn
     invEepromInfo.EntityData.BundleName = "cisco_ios_xr"
     invEepromInfo.EntityData.ParentYangName = "attributes"
     invEepromInfo.EntityData.SegmentPath = "inv-eeprom-info"
+    invEepromInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/attributes/" + invEepromInfo.EntityData.SegmentPath
     invEepromInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invEepromInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invEepromInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38973,6 +39344,7 @@ func (eeprom *Inventory_Racks_Rack_Powershelf_Slot_Attributes_InvEepromInfo_Eepr
     eeprom.EntityData.BundleName = "cisco_ios_xr"
     eeprom.EntityData.ParentYangName = "inv-eeprom-info"
     eeprom.EntityData.SegmentPath = "eeprom"
+    eeprom.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/attributes/inv-eeprom-info/" + eeprom.EntityData.SegmentPath
     eeprom.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eeprom.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eeprom.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -39065,6 +39437,7 @@ func (rma *Inventory_Racks_Rack_Powershelf_Slot_Attributes_InvEepromInfo_Eeprom_
     rma.EntityData.BundleName = "cisco_ios_xr"
     rma.EntityData.ParentYangName = "eeprom"
     rma.EntityData.SegmentPath = "rma"
+    rma.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/powershelf/slot/attributes/inv-eeprom-info/eeprom/" + rma.EntityData.SegmentPath
     rma.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rma.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rma.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -39096,6 +39469,7 @@ func (fantray *Inventory_Racks_Rack_Fantray) GetEntityData() *types.CommonEntity
     fantray.EntityData.BundleName = "cisco_ios_xr"
     fantray.EntityData.ParentYangName = "rack"
     fantray.EntityData.SegmentPath = "fantray"
+    fantray.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/" + fantray.EntityData.SegmentPath
     fantray.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fantray.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fantray.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -39117,6 +39491,7 @@ func (fantray *Inventory_Racks_Rack_Fantray) GetEntityData() *types.CommonEntity
 type Inventory_Racks_Rack_Fantray_Slot struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Slot name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -39135,6 +39510,7 @@ func (slot *Inventory_Racks_Rack_Fantray_Slot) GetEntityData() *types.CommonEnti
     slot.EntityData.BundleName = "cisco_ios_xr"
     slot.EntityData.ParentYangName = "fantray"
     slot.EntityData.SegmentPath = "slot" + types.AddKeyToken(slot.Name, "name")
+    slot.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/" + slot.EntityData.SegmentPath
     slot.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     slot.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     slot.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -39166,6 +39542,7 @@ func (tsi1s *Inventory_Racks_Rack_Fantray_Slot_Tsi1s) GetEntityData() *types.Com
     tsi1s.EntityData.BundleName = "cisco_ios_xr"
     tsi1s.EntityData.ParentYangName = "slot"
     tsi1s.EntityData.SegmentPath = "tsi1s"
+    tsi1s.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/" + tsi1s.EntityData.SegmentPath
     tsi1s.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tsi1s.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tsi1s.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -39187,6 +39564,7 @@ func (tsi1s *Inventory_Racks_Rack_Fantray_Slot_Tsi1s) GetEntityData() *types.Com
 type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. TSI1. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -39205,6 +39583,7 @@ func (tsi1 *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1) GetEntityData() *types
     tsi1.EntityData.BundleName = "cisco_ios_xr"
     tsi1.EntityData.ParentYangName = "tsi1s"
     tsi1.EntityData.SegmentPath = "tsi1" + types.AddKeyToken(tsi1.Name, "name")
+    tsi1.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/" + tsi1.EntityData.SegmentPath
     tsi1.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tsi1.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tsi1.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -39237,6 +39616,7 @@ func (tsi2s *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s) GetEntityData()
     tsi2s.EntityData.BundleName = "cisco_ios_xr"
     tsi2s.EntityData.ParentYangName = "tsi1"
     tsi2s.EntityData.SegmentPath = "tsi2s"
+    tsi2s.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/" + tsi2s.EntityData.SegmentPath
     tsi2s.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tsi2s.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tsi2s.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -39258,6 +39638,7 @@ func (tsi2s *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s) GetEntityData()
 type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. TSI2. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -39276,6 +39657,7 @@ func (tsi2 *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2) GetEntityDa
     tsi2.EntityData.BundleName = "cisco_ios_xr"
     tsi2.EntityData.ParentYangName = "tsi2s"
     tsi2.EntityData.SegmentPath = "tsi2" + types.AddKeyToken(tsi2.Name, "name")
+    tsi2.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/" + tsi2.EntityData.SegmentPath
     tsi2.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tsi2.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tsi2.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -39308,6 +39690,7 @@ func (tsi3s *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s) GetE
     tsi3s.EntityData.BundleName = "cisco_ios_xr"
     tsi3s.EntityData.ParentYangName = "tsi2"
     tsi3s.EntityData.SegmentPath = "tsi3s"
+    tsi3s.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/" + tsi3s.EntityData.SegmentPath
     tsi3s.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tsi3s.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tsi3s.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -39329,6 +39712,7 @@ func (tsi3s *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s) GetE
 type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. TSI3. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -39347,6 +39731,7 @@ func (tsi3 *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3) 
     tsi3.EntityData.BundleName = "cisco_ios_xr"
     tsi3.EntityData.ParentYangName = "tsi3s"
     tsi3.EntityData.SegmentPath = "tsi3" + types.AddKeyToken(tsi3.Name, "name")
+    tsi3.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/" + tsi3.EntityData.SegmentPath
     tsi3.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tsi3.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tsi3.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -39379,6 +39764,7 @@ func (tsi4s *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_
     tsi4s.EntityData.BundleName = "cisco_ios_xr"
     tsi4s.EntityData.ParentYangName = "tsi3"
     tsi4s.EntityData.SegmentPath = "tsi4s"
+    tsi4s.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/" + tsi4s.EntityData.SegmentPath
     tsi4s.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tsi4s.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tsi4s.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -39400,6 +39786,7 @@ func (tsi4s *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_
 type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. TSI4. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -39418,6 +39805,7 @@ func (tsi4 *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_T
     tsi4.EntityData.BundleName = "cisco_ios_xr"
     tsi4.EntityData.ParentYangName = "tsi4s"
     tsi4.EntityData.SegmentPath = "tsi4" + types.AddKeyToken(tsi4.Name, "name")
+    tsi4.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/" + tsi4.EntityData.SegmentPath
     tsi4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tsi4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tsi4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -39450,6 +39838,7 @@ func (tsi5s *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_
     tsi5s.EntityData.BundleName = "cisco_ios_xr"
     tsi5s.EntityData.ParentYangName = "tsi4"
     tsi5s.EntityData.SegmentPath = "tsi5s"
+    tsi5s.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/" + tsi5s.EntityData.SegmentPath
     tsi5s.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tsi5s.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tsi5s.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -39471,6 +39860,7 @@ func (tsi5s *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_
 type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. TSI5. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -39489,6 +39879,7 @@ func (tsi5 *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_T
     tsi5.EntityData.BundleName = "cisco_ios_xr"
     tsi5.EntityData.ParentYangName = "tsi5s"
     tsi5.EntityData.SegmentPath = "tsi5" + types.AddKeyToken(tsi5.Name, "name")
+    tsi5.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/" + tsi5.EntityData.SegmentPath
     tsi5.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tsi5.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tsi5.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -39521,6 +39912,7 @@ func (tsi6s *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_
     tsi6s.EntityData.BundleName = "cisco_ios_xr"
     tsi6s.EntityData.ParentYangName = "tsi5"
     tsi6s.EntityData.SegmentPath = "tsi6s"
+    tsi6s.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/" + tsi6s.EntityData.SegmentPath
     tsi6s.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tsi6s.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tsi6s.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -39542,6 +39934,7 @@ func (tsi6s *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_
 type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. TSI6. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -39560,6 +39953,7 @@ func (tsi6 *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_T
     tsi6.EntityData.BundleName = "cisco_ios_xr"
     tsi6.EntityData.ParentYangName = "tsi6s"
     tsi6.EntityData.SegmentPath = "tsi6" + types.AddKeyToken(tsi6.Name, "name")
+    tsi6.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/" + tsi6.EntityData.SegmentPath
     tsi6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tsi6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tsi6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -39592,6 +39986,7 @@ func (tsi7s *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_
     tsi7s.EntityData.BundleName = "cisco_ios_xr"
     tsi7s.EntityData.ParentYangName = "tsi6"
     tsi7s.EntityData.SegmentPath = "tsi7s"
+    tsi7s.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/" + tsi7s.EntityData.SegmentPath
     tsi7s.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tsi7s.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tsi7s.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -39613,6 +40008,7 @@ func (tsi7s *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_
 type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. TSI7. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -39631,6 +40027,7 @@ func (tsi7 *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_T
     tsi7.EntityData.BundleName = "cisco_ios_xr"
     tsi7.EntityData.ParentYangName = "tsi7s"
     tsi7.EntityData.SegmentPath = "tsi7" + types.AddKeyToken(tsi7.Name, "name")
+    tsi7.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/" + tsi7.EntityData.SegmentPath
     tsi7.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tsi7.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tsi7.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -39663,6 +40060,7 @@ func (tsi8s *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_
     tsi8s.EntityData.BundleName = "cisco_ios_xr"
     tsi8s.EntityData.ParentYangName = "tsi7"
     tsi8s.EntityData.SegmentPath = "tsi8s"
+    tsi8s.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/" + tsi8s.EntityData.SegmentPath
     tsi8s.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tsi8s.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tsi8s.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -39684,6 +40082,7 @@ func (tsi8s *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_
 type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. TSI8. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -39702,6 +40101,7 @@ func (tsi8 *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_T
     tsi8.EntityData.BundleName = "cisco_ios_xr"
     tsi8.EntityData.ParentYangName = "tsi8s"
     tsi8.EntityData.SegmentPath = "tsi8" + types.AddKeyToken(tsi8.Name, "name")
+    tsi8.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/" + tsi8.EntityData.SegmentPath
     tsi8.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tsi8.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tsi8.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -39734,6 +40134,7 @@ func (tsi9s *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_
     tsi9s.EntityData.BundleName = "cisco_ios_xr"
     tsi9s.EntityData.ParentYangName = "tsi8"
     tsi9s.EntityData.SegmentPath = "tsi9s"
+    tsi9s.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/" + tsi9s.EntityData.SegmentPath
     tsi9s.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tsi9s.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tsi9s.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -39755,6 +40156,7 @@ func (tsi9s *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_
 type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Tsi9s_Tsi9 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. TSI9. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -39773,6 +40175,7 @@ func (tsi9 *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_T
     tsi9.EntityData.BundleName = "cisco_ios_xr"
     tsi9.EntityData.ParentYangName = "tsi9s"
     tsi9.EntityData.SegmentPath = "tsi9" + types.AddKeyToken(tsi9.Name, "name")
+    tsi9.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/" + tsi9.EntityData.SegmentPath
     tsi9.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tsi9.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tsi9.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -39805,6 +40208,7 @@ func (tsi10s *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3
     tsi10s.EntityData.BundleName = "cisco_ios_xr"
     tsi10s.EntityData.ParentYangName = "tsi9"
     tsi10s.EntityData.SegmentPath = "tsi10s"
+    tsi10s.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/" + tsi10s.EntityData.SegmentPath
     tsi10s.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tsi10s.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tsi10s.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -39826,6 +40230,7 @@ func (tsi10s *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3
 type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Tsi9s_Tsi9_Tsi10s_Tsi10 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. TSI10. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -39844,6 +40249,7 @@ func (tsi10 *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_
     tsi10.EntityData.BundleName = "cisco_ios_xr"
     tsi10.EntityData.ParentYangName = "tsi10s"
     tsi10.EntityData.SegmentPath = "tsi10" + types.AddKeyToken(tsi10.Name, "name")
+    tsi10.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/" + tsi10.EntityData.SegmentPath
     tsi10.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tsi10.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tsi10.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -39876,6 +40282,7 @@ func (tsi11s *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3
     tsi11s.EntityData.BundleName = "cisco_ios_xr"
     tsi11s.EntityData.ParentYangName = "tsi10"
     tsi11s.EntityData.SegmentPath = "tsi11s"
+    tsi11s.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/" + tsi11s.EntityData.SegmentPath
     tsi11s.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tsi11s.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tsi11s.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -39897,6 +40304,7 @@ func (tsi11s *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3
 type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Tsi9s_Tsi9_Tsi10s_Tsi10_Tsi11s_Tsi11 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. TSI11. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -39912,6 +40320,7 @@ func (tsi11 *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_
     tsi11.EntityData.BundleName = "cisco_ios_xr"
     tsi11.EntityData.ParentYangName = "tsi11s"
     tsi11.EntityData.SegmentPath = "tsi11" + types.AddKeyToken(tsi11.Name, "name")
+    tsi11.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/tsi11s/" + tsi11.EntityData.SegmentPath
     tsi11.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tsi11.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tsi11.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -39931,19 +40340,6 @@ func (tsi11 *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_
 type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Tsi9s_Tsi9_Tsi10s_Tsi10_Tsi11s_Tsi11_Attributes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
-
-    // Inventory EDM Module Done Tuple. The type is interface{} with range:
-    // 0..4294967295. The default value is 1.
-    ModuleDone interface{}
-
-    // VM Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    VmNodeId interface{}
-
-    // VM Done Tuple. The type is interface{} with range: 0..4294967295.
-    VmDone interface{}
-
-    // Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    NodeId interface{}
 
     // Inventory Basic Bag.
     InvBasicBag Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Tsi9s_Tsi9_Tsi10s_Tsi10_Tsi11s_Tsi11_Attributes_InvBasicBag
@@ -39976,6 +40372,7 @@ func (attributes *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     attributes.EntityData.BundleName = "cisco_ios_xr"
     attributes.EntityData.ParentYangName = "tsi11"
     attributes.EntityData.SegmentPath = "attributes"
+    attributes.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/tsi11s/tsi11/" + attributes.EntityData.SegmentPath
     attributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     attributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -39990,10 +40387,6 @@ func (attributes *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     attributes.EntityData.Children.Append("fru-info", types.YChild{"FruInfo", &attributes.FruInfo})
     attributes.EntityData.Children.Append("inv-eeprom-info", types.YChild{"InvEepromInfo", &attributes.InvEepromInfo})
     attributes.EntityData.Leafs = types.NewOrderedMap()
-    attributes.EntityData.Leafs.Append("module-done", types.YLeaf{"ModuleDone", attributes.ModuleDone})
-    attributes.EntityData.Leafs.Append("vm-node-id", types.YLeaf{"VmNodeId", attributes.VmNodeId})
-    attributes.EntityData.Leafs.Append("vm-done", types.YLeaf{"VmDone", attributes.VmDone})
-    attributes.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", attributes.NodeId})
 
     attributes.EntityData.YListKeys = []string {}
 
@@ -40081,8 +40474,8 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Ts
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -40102,6 +40495,7 @@ func (invBasicBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s
     invBasicBag.EntityData.BundleName = "cisco_ios_xr"
     invBasicBag.EntityData.ParentYangName = "attributes"
     invBasicBag.EntityData.SegmentPath = "inv-basic-bag"
+    invBasicBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/tsi11s/tsi11/attributes/" + invBasicBag.EntityData.SegmentPath
     invBasicBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invBasicBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invBasicBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -40195,6 +40589,7 @@ func (envSensorInfo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi
     envSensorInfo.EntityData.BundleName = "cisco_ios_xr"
     envSensorInfo.EntityData.ParentYangName = "attributes"
     envSensorInfo.EntityData.SegmentPath = "env-sensor-info"
+    envSensorInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/tsi11s/tsi11/attributes/" + envSensorInfo.EntityData.SegmentPath
     envSensorInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     envSensorInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     envSensorInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -40246,6 +40641,7 @@ func (pwgInfo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi
     pwgInfo.EntityData.BundleName = "cisco_ios_xr"
     pwgInfo.EntityData.ParentYangName = "attributes"
     pwgInfo.EntityData.SegmentPath = "pwg-info"
+    pwgInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/tsi11s/tsi11/attributes/" + pwgInfo.EntityData.SegmentPath
     pwgInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pwgInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pwgInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -40298,6 +40694,7 @@ func (envSensorInfoXml *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_
     envSensorInfoXml.EntityData.BundleName = "cisco_ios_xr"
     envSensorInfoXml.EntityData.ParentYangName = "attributes"
     envSensorInfoXml.EntityData.SegmentPath = "env-sensor-info-xml"
+    envSensorInfoXml.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/tsi11s/tsi11/attributes/" + envSensorInfoXml.EntityData.SegmentPath
     envSensorInfoXml.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     envSensorInfoXml.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     envSensorInfoXml.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -40334,6 +40731,7 @@ func (threshold *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     threshold.EntityData.BundleName = "cisco_ios_xr"
     threshold.EntityData.ParentYangName = "env-sensor-info-xml"
     threshold.EntityData.SegmentPath = "threshold"
+    threshold.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/tsi11s/tsi11/attributes/env-sensor-info-xml/" + threshold.EntityData.SegmentPath
     threshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -40341,6 +40739,7 @@ func (threshold *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     threshold.EntityData.Children = types.NewOrderedMap()
     threshold.EntityData.Children.Append("threshold-array", types.YChild{"ThresholdArray", nil})
     for i := range threshold.ThresholdArray {
+        types.SetYListKey(threshold.ThresholdArray[i], i)
         threshold.EntityData.Children.Append(types.GetSegmentPath(threshold.ThresholdArray[i]), types.YChild{"ThresholdArray", threshold.ThresholdArray[i]})
     }
     threshold.EntityData.Leafs = types.NewOrderedMap()
@@ -40355,6 +40754,7 @@ func (threshold *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
 type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Tsi9s_Tsi9_Tsi10s_Tsi10_Tsi11s_Tsi11_Attributes_EnvSensorInfoXml_Threshold_ThresholdArray struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Indicates minor, major, critical severities. The type is ThresholdSeverity.
     ThresholdSeverity interface{}
@@ -40376,7 +40776,8 @@ func (thresholdArray *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Ts
     thresholdArray.EntityData.YangName = "threshold-array"
     thresholdArray.EntityData.BundleName = "cisco_ios_xr"
     thresholdArray.EntityData.ParentYangName = "threshold"
-    thresholdArray.EntityData.SegmentPath = "threshold-array"
+    thresholdArray.EntityData.SegmentPath = "threshold-array" + types.AddNoKeyToken(thresholdArray)
+    thresholdArray.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/tsi11s/tsi11/attributes/env-sensor-info-xml/threshold/" + thresholdArray.EntityData.SegmentPath
     thresholdArray.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     thresholdArray.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     thresholdArray.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -40429,6 +40830,7 @@ func (invAssetBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s
     invAssetBag.EntityData.BundleName = "cisco_ios_xr"
     invAssetBag.EntityData.ParentYangName = "attributes"
     invAssetBag.EntityData.SegmentPath = "inv-asset-bag"
+    invAssetBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/tsi11s/tsi11/attributes/" + invAssetBag.EntityData.SegmentPath
     invAssetBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invAssetBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invAssetBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -40479,6 +40881,7 @@ func (threshold *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     threshold.EntityData.BundleName = "cisco_ios_xr"
     threshold.EntityData.ParentYangName = "attributes"
     threshold.EntityData.SegmentPath = "threshold"
+    threshold.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/tsi11s/tsi11/attributes/" + threshold.EntityData.SegmentPath
     threshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -40513,6 +40916,7 @@ func (majorLo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi
     majorLo.EntityData.BundleName = "cisco_ios_xr"
     majorLo.EntityData.ParentYangName = "threshold"
     majorLo.EntityData.SegmentPath = "major-lo"
+    majorLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/tsi11s/tsi11/attributes/threshold/" + majorLo.EntityData.SegmentPath
     majorLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     majorLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     majorLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -40559,6 +40963,7 @@ func (threshBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "major-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/tsi11s/tsi11/attributes/threshold/major-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -40592,6 +40997,7 @@ func (criticalHi *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     criticalHi.EntityData.BundleName = "cisco_ios_xr"
     criticalHi.EntityData.ParentYangName = "threshold"
     criticalHi.EntityData.SegmentPath = "critical-hi"
+    criticalHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/tsi11s/tsi11/attributes/threshold/" + criticalHi.EntityData.SegmentPath
     criticalHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     criticalHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     criticalHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -40638,6 +41044,7 @@ func (threshBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "critical-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/tsi11s/tsi11/attributes/threshold/critical-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -40671,6 +41078,7 @@ func (minorHi *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi
     minorHi.EntityData.BundleName = "cisco_ios_xr"
     minorHi.EntityData.ParentYangName = "threshold"
     minorHi.EntityData.SegmentPath = "minor-hi"
+    minorHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/tsi11s/tsi11/attributes/threshold/" + minorHi.EntityData.SegmentPath
     minorHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     minorHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     minorHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -40717,6 +41125,7 @@ func (threshBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "minor-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/tsi11s/tsi11/attributes/threshold/minor-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -40750,6 +41159,7 @@ func (majorHi *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi
     majorHi.EntityData.BundleName = "cisco_ios_xr"
     majorHi.EntityData.ParentYangName = "threshold"
     majorHi.EntityData.SegmentPath = "major-hi"
+    majorHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/tsi11s/tsi11/attributes/threshold/" + majorHi.EntityData.SegmentPath
     majorHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     majorHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     majorHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -40796,6 +41206,7 @@ func (threshBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "major-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/tsi11s/tsi11/attributes/threshold/major-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -40829,6 +41240,7 @@ func (criticalLo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     criticalLo.EntityData.BundleName = "cisco_ios_xr"
     criticalLo.EntityData.ParentYangName = "threshold"
     criticalLo.EntityData.SegmentPath = "critical-lo"
+    criticalLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/tsi11s/tsi11/attributes/threshold/" + criticalLo.EntityData.SegmentPath
     criticalLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     criticalLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     criticalLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -40875,6 +41287,7 @@ func (threshBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "critical-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/tsi11s/tsi11/attributes/threshold/critical-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -40908,6 +41321,7 @@ func (minorLo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi
     minorLo.EntityData.BundleName = "cisco_ios_xr"
     minorLo.EntityData.ParentYangName = "threshold"
     minorLo.EntityData.SegmentPath = "minor-lo"
+    minorLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/tsi11s/tsi11/attributes/threshold/" + minorLo.EntityData.SegmentPath
     minorLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     minorLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     minorLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -40954,6 +41368,7 @@ func (threshBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "minor-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/tsi11s/tsi11/attributes/threshold/minor-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -41017,6 +41432,7 @@ func (fruInfo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi
     fruInfo.EntityData.BundleName = "cisco_ios_xr"
     fruInfo.EntityData.ParentYangName = "attributes"
     fruInfo.EntityData.SegmentPath = "fru-info"
+    fruInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/tsi11s/tsi11/attributes/" + fruInfo.EntityData.SegmentPath
     fruInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fruInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fruInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -41059,6 +41475,7 @@ func (lastOperationalStateChange *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_T
     lastOperationalStateChange.EntityData.BundleName = "cisco_ios_xr"
     lastOperationalStateChange.EntityData.ParentYangName = "fru-info"
     lastOperationalStateChange.EntityData.SegmentPath = "last-operational-state-change"
+    lastOperationalStateChange.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/tsi11s/tsi11/attributes/fru-info/" + lastOperationalStateChange.EntityData.SegmentPath
     lastOperationalStateChange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastOperationalStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastOperationalStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -41094,6 +41511,7 @@ func (cardUpTime *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     cardUpTime.EntityData.BundleName = "cisco_ios_xr"
     cardUpTime.EntityData.ParentYangName = "fru-info"
     cardUpTime.EntityData.SegmentPath = "card-up-time"
+    cardUpTime.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/tsi11s/tsi11/attributes/fru-info/" + cardUpTime.EntityData.SegmentPath
     cardUpTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cardUpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cardUpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -41143,6 +41561,7 @@ func (invEepromInfo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi
     invEepromInfo.EntityData.BundleName = "cisco_ios_xr"
     invEepromInfo.EntityData.ParentYangName = "attributes"
     invEepromInfo.EntityData.SegmentPath = "inv-eeprom-info"
+    invEepromInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/tsi11s/tsi11/attributes/" + invEepromInfo.EntityData.SegmentPath
     invEepromInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invEepromInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invEepromInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -41348,6 +41767,7 @@ func (eeprom *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3
     eeprom.EntityData.BundleName = "cisco_ios_xr"
     eeprom.EntityData.ParentYangName = "inv-eeprom-info"
     eeprom.EntityData.SegmentPath = "eeprom"
+    eeprom.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/tsi11s/tsi11/attributes/inv-eeprom-info/" + eeprom.EntityData.SegmentPath
     eeprom.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eeprom.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eeprom.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -41440,6 +41860,7 @@ func (rma *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Ts
     rma.EntityData.BundleName = "cisco_ios_xr"
     rma.EntityData.ParentYangName = "eeprom"
     rma.EntityData.SegmentPath = "rma"
+    rma.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/tsi11s/tsi11/attributes/inv-eeprom-info/eeprom/" + rma.EntityData.SegmentPath
     rma.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rma.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rma.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -41460,19 +41881,6 @@ func (rma *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Ts
 type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Tsi9s_Tsi9_Tsi10s_Tsi10_Attributes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
-
-    // Inventory EDM Module Done Tuple. The type is interface{} with range:
-    // 0..4294967295. The default value is 1.
-    ModuleDone interface{}
-
-    // VM Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    VmNodeId interface{}
-
-    // VM Done Tuple. The type is interface{} with range: 0..4294967295.
-    VmDone interface{}
-
-    // Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    NodeId interface{}
 
     // Inventory Basic Bag.
     InvBasicBag Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Tsi9s_Tsi9_Tsi10s_Tsi10_Attributes_InvBasicBag
@@ -41505,6 +41913,7 @@ func (attributes *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     attributes.EntityData.BundleName = "cisco_ios_xr"
     attributes.EntityData.ParentYangName = "tsi10"
     attributes.EntityData.SegmentPath = "attributes"
+    attributes.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/" + attributes.EntityData.SegmentPath
     attributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     attributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -41519,10 +41928,6 @@ func (attributes *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     attributes.EntityData.Children.Append("fru-info", types.YChild{"FruInfo", &attributes.FruInfo})
     attributes.EntityData.Children.Append("inv-eeprom-info", types.YChild{"InvEepromInfo", &attributes.InvEepromInfo})
     attributes.EntityData.Leafs = types.NewOrderedMap()
-    attributes.EntityData.Leafs.Append("module-done", types.YLeaf{"ModuleDone", attributes.ModuleDone})
-    attributes.EntityData.Leafs.Append("vm-node-id", types.YLeaf{"VmNodeId", attributes.VmNodeId})
-    attributes.EntityData.Leafs.Append("vm-done", types.YLeaf{"VmDone", attributes.VmDone})
-    attributes.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", attributes.NodeId})
 
     attributes.EntityData.YListKeys = []string {}
 
@@ -41610,8 +42015,8 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Ts
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -41631,6 +42036,7 @@ func (invBasicBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s
     invBasicBag.EntityData.BundleName = "cisco_ios_xr"
     invBasicBag.EntityData.ParentYangName = "attributes"
     invBasicBag.EntityData.SegmentPath = "inv-basic-bag"
+    invBasicBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/attributes/" + invBasicBag.EntityData.SegmentPath
     invBasicBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invBasicBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invBasicBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -41724,6 +42130,7 @@ func (envSensorInfo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi
     envSensorInfo.EntityData.BundleName = "cisco_ios_xr"
     envSensorInfo.EntityData.ParentYangName = "attributes"
     envSensorInfo.EntityData.SegmentPath = "env-sensor-info"
+    envSensorInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/attributes/" + envSensorInfo.EntityData.SegmentPath
     envSensorInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     envSensorInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     envSensorInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -41775,6 +42182,7 @@ func (pwgInfo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi
     pwgInfo.EntityData.BundleName = "cisco_ios_xr"
     pwgInfo.EntityData.ParentYangName = "attributes"
     pwgInfo.EntityData.SegmentPath = "pwg-info"
+    pwgInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/attributes/" + pwgInfo.EntityData.SegmentPath
     pwgInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pwgInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pwgInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -41827,6 +42235,7 @@ func (envSensorInfoXml *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_
     envSensorInfoXml.EntityData.BundleName = "cisco_ios_xr"
     envSensorInfoXml.EntityData.ParentYangName = "attributes"
     envSensorInfoXml.EntityData.SegmentPath = "env-sensor-info-xml"
+    envSensorInfoXml.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/attributes/" + envSensorInfoXml.EntityData.SegmentPath
     envSensorInfoXml.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     envSensorInfoXml.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     envSensorInfoXml.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -41863,6 +42272,7 @@ func (threshold *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     threshold.EntityData.BundleName = "cisco_ios_xr"
     threshold.EntityData.ParentYangName = "env-sensor-info-xml"
     threshold.EntityData.SegmentPath = "threshold"
+    threshold.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/attributes/env-sensor-info-xml/" + threshold.EntityData.SegmentPath
     threshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -41870,6 +42280,7 @@ func (threshold *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     threshold.EntityData.Children = types.NewOrderedMap()
     threshold.EntityData.Children.Append("threshold-array", types.YChild{"ThresholdArray", nil})
     for i := range threshold.ThresholdArray {
+        types.SetYListKey(threshold.ThresholdArray[i], i)
         threshold.EntityData.Children.Append(types.GetSegmentPath(threshold.ThresholdArray[i]), types.YChild{"ThresholdArray", threshold.ThresholdArray[i]})
     }
     threshold.EntityData.Leafs = types.NewOrderedMap()
@@ -41884,6 +42295,7 @@ func (threshold *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
 type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Tsi9s_Tsi9_Tsi10s_Tsi10_Attributes_EnvSensorInfoXml_Threshold_ThresholdArray struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Indicates minor, major, critical severities. The type is ThresholdSeverity.
     ThresholdSeverity interface{}
@@ -41905,7 +42317,8 @@ func (thresholdArray *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Ts
     thresholdArray.EntityData.YangName = "threshold-array"
     thresholdArray.EntityData.BundleName = "cisco_ios_xr"
     thresholdArray.EntityData.ParentYangName = "threshold"
-    thresholdArray.EntityData.SegmentPath = "threshold-array"
+    thresholdArray.EntityData.SegmentPath = "threshold-array" + types.AddNoKeyToken(thresholdArray)
+    thresholdArray.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/attributes/env-sensor-info-xml/threshold/" + thresholdArray.EntityData.SegmentPath
     thresholdArray.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     thresholdArray.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     thresholdArray.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -41958,6 +42371,7 @@ func (invAssetBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s
     invAssetBag.EntityData.BundleName = "cisco_ios_xr"
     invAssetBag.EntityData.ParentYangName = "attributes"
     invAssetBag.EntityData.SegmentPath = "inv-asset-bag"
+    invAssetBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/attributes/" + invAssetBag.EntityData.SegmentPath
     invAssetBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invAssetBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invAssetBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -42008,6 +42422,7 @@ func (threshold *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     threshold.EntityData.BundleName = "cisco_ios_xr"
     threshold.EntityData.ParentYangName = "attributes"
     threshold.EntityData.SegmentPath = "threshold"
+    threshold.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/attributes/" + threshold.EntityData.SegmentPath
     threshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -42042,6 +42457,7 @@ func (majorLo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi
     majorLo.EntityData.BundleName = "cisco_ios_xr"
     majorLo.EntityData.ParentYangName = "threshold"
     majorLo.EntityData.SegmentPath = "major-lo"
+    majorLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/attributes/threshold/" + majorLo.EntityData.SegmentPath
     majorLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     majorLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     majorLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -42088,6 +42504,7 @@ func (threshBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "major-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/attributes/threshold/major-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -42121,6 +42538,7 @@ func (criticalHi *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     criticalHi.EntityData.BundleName = "cisco_ios_xr"
     criticalHi.EntityData.ParentYangName = "threshold"
     criticalHi.EntityData.SegmentPath = "critical-hi"
+    criticalHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/attributes/threshold/" + criticalHi.EntityData.SegmentPath
     criticalHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     criticalHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     criticalHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -42167,6 +42585,7 @@ func (threshBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "critical-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/attributes/threshold/critical-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -42200,6 +42619,7 @@ func (minorHi *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi
     minorHi.EntityData.BundleName = "cisco_ios_xr"
     minorHi.EntityData.ParentYangName = "threshold"
     minorHi.EntityData.SegmentPath = "minor-hi"
+    minorHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/attributes/threshold/" + minorHi.EntityData.SegmentPath
     minorHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     minorHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     minorHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -42246,6 +42666,7 @@ func (threshBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "minor-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/attributes/threshold/minor-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -42279,6 +42700,7 @@ func (majorHi *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi
     majorHi.EntityData.BundleName = "cisco_ios_xr"
     majorHi.EntityData.ParentYangName = "threshold"
     majorHi.EntityData.SegmentPath = "major-hi"
+    majorHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/attributes/threshold/" + majorHi.EntityData.SegmentPath
     majorHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     majorHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     majorHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -42325,6 +42747,7 @@ func (threshBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "major-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/attributes/threshold/major-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -42358,6 +42781,7 @@ func (criticalLo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     criticalLo.EntityData.BundleName = "cisco_ios_xr"
     criticalLo.EntityData.ParentYangName = "threshold"
     criticalLo.EntityData.SegmentPath = "critical-lo"
+    criticalLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/attributes/threshold/" + criticalLo.EntityData.SegmentPath
     criticalLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     criticalLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     criticalLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -42404,6 +42828,7 @@ func (threshBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "critical-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/attributes/threshold/critical-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -42437,6 +42862,7 @@ func (minorLo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi
     minorLo.EntityData.BundleName = "cisco_ios_xr"
     minorLo.EntityData.ParentYangName = "threshold"
     minorLo.EntityData.SegmentPath = "minor-lo"
+    minorLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/attributes/threshold/" + minorLo.EntityData.SegmentPath
     minorLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     minorLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     minorLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -42483,6 +42909,7 @@ func (threshBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "minor-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/attributes/threshold/minor-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -42546,6 +42973,7 @@ func (fruInfo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi
     fruInfo.EntityData.BundleName = "cisco_ios_xr"
     fruInfo.EntityData.ParentYangName = "attributes"
     fruInfo.EntityData.SegmentPath = "fru-info"
+    fruInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/attributes/" + fruInfo.EntityData.SegmentPath
     fruInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fruInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fruInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -42588,6 +43016,7 @@ func (lastOperationalStateChange *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_T
     lastOperationalStateChange.EntityData.BundleName = "cisco_ios_xr"
     lastOperationalStateChange.EntityData.ParentYangName = "fru-info"
     lastOperationalStateChange.EntityData.SegmentPath = "last-operational-state-change"
+    lastOperationalStateChange.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/attributes/fru-info/" + lastOperationalStateChange.EntityData.SegmentPath
     lastOperationalStateChange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastOperationalStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastOperationalStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -42623,6 +43052,7 @@ func (cardUpTime *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     cardUpTime.EntityData.BundleName = "cisco_ios_xr"
     cardUpTime.EntityData.ParentYangName = "fru-info"
     cardUpTime.EntityData.SegmentPath = "card-up-time"
+    cardUpTime.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/attributes/fru-info/" + cardUpTime.EntityData.SegmentPath
     cardUpTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cardUpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cardUpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -42672,6 +43102,7 @@ func (invEepromInfo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi
     invEepromInfo.EntityData.BundleName = "cisco_ios_xr"
     invEepromInfo.EntityData.ParentYangName = "attributes"
     invEepromInfo.EntityData.SegmentPath = "inv-eeprom-info"
+    invEepromInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/attributes/" + invEepromInfo.EntityData.SegmentPath
     invEepromInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invEepromInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invEepromInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -42877,6 +43308,7 @@ func (eeprom *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3
     eeprom.EntityData.BundleName = "cisco_ios_xr"
     eeprom.EntityData.ParentYangName = "inv-eeprom-info"
     eeprom.EntityData.SegmentPath = "eeprom"
+    eeprom.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/attributes/inv-eeprom-info/" + eeprom.EntityData.SegmentPath
     eeprom.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eeprom.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eeprom.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -42969,6 +43401,7 @@ func (rma *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Ts
     rma.EntityData.BundleName = "cisco_ios_xr"
     rma.EntityData.ParentYangName = "eeprom"
     rma.EntityData.SegmentPath = "rma"
+    rma.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/tsi10s/tsi10/attributes/inv-eeprom-info/eeprom/" + rma.EntityData.SegmentPath
     rma.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rma.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rma.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -42989,19 +43422,6 @@ func (rma *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Ts
 type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Tsi9s_Tsi9_Attributes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
-
-    // Inventory EDM Module Done Tuple. The type is interface{} with range:
-    // 0..4294967295. The default value is 1.
-    ModuleDone interface{}
-
-    // VM Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    VmNodeId interface{}
-
-    // VM Done Tuple. The type is interface{} with range: 0..4294967295.
-    VmDone interface{}
-
-    // Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    NodeId interface{}
 
     // Inventory Basic Bag.
     InvBasicBag Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Tsi9s_Tsi9_Attributes_InvBasicBag
@@ -43034,6 +43454,7 @@ func (attributes *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     attributes.EntityData.BundleName = "cisco_ios_xr"
     attributes.EntityData.ParentYangName = "tsi9"
     attributes.EntityData.SegmentPath = "attributes"
+    attributes.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/" + attributes.EntityData.SegmentPath
     attributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     attributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -43048,10 +43469,6 @@ func (attributes *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     attributes.EntityData.Children.Append("fru-info", types.YChild{"FruInfo", &attributes.FruInfo})
     attributes.EntityData.Children.Append("inv-eeprom-info", types.YChild{"InvEepromInfo", &attributes.InvEepromInfo})
     attributes.EntityData.Leafs = types.NewOrderedMap()
-    attributes.EntityData.Leafs.Append("module-done", types.YLeaf{"ModuleDone", attributes.ModuleDone})
-    attributes.EntityData.Leafs.Append("vm-node-id", types.YLeaf{"VmNodeId", attributes.VmNodeId})
-    attributes.EntityData.Leafs.Append("vm-done", types.YLeaf{"VmDone", attributes.VmDone})
-    attributes.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", attributes.NodeId})
 
     attributes.EntityData.YListKeys = []string {}
 
@@ -43139,8 +43556,8 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Ts
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -43160,6 +43577,7 @@ func (invBasicBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s
     invBasicBag.EntityData.BundleName = "cisco_ios_xr"
     invBasicBag.EntityData.ParentYangName = "attributes"
     invBasicBag.EntityData.SegmentPath = "inv-basic-bag"
+    invBasicBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/attributes/" + invBasicBag.EntityData.SegmentPath
     invBasicBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invBasicBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invBasicBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -43253,6 +43671,7 @@ func (envSensorInfo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi
     envSensorInfo.EntityData.BundleName = "cisco_ios_xr"
     envSensorInfo.EntityData.ParentYangName = "attributes"
     envSensorInfo.EntityData.SegmentPath = "env-sensor-info"
+    envSensorInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/attributes/" + envSensorInfo.EntityData.SegmentPath
     envSensorInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     envSensorInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     envSensorInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -43304,6 +43723,7 @@ func (pwgInfo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi
     pwgInfo.EntityData.BundleName = "cisco_ios_xr"
     pwgInfo.EntityData.ParentYangName = "attributes"
     pwgInfo.EntityData.SegmentPath = "pwg-info"
+    pwgInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/attributes/" + pwgInfo.EntityData.SegmentPath
     pwgInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pwgInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pwgInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -43356,6 +43776,7 @@ func (envSensorInfoXml *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_
     envSensorInfoXml.EntityData.BundleName = "cisco_ios_xr"
     envSensorInfoXml.EntityData.ParentYangName = "attributes"
     envSensorInfoXml.EntityData.SegmentPath = "env-sensor-info-xml"
+    envSensorInfoXml.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/attributes/" + envSensorInfoXml.EntityData.SegmentPath
     envSensorInfoXml.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     envSensorInfoXml.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     envSensorInfoXml.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -43392,6 +43813,7 @@ func (threshold *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     threshold.EntityData.BundleName = "cisco_ios_xr"
     threshold.EntityData.ParentYangName = "env-sensor-info-xml"
     threshold.EntityData.SegmentPath = "threshold"
+    threshold.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/attributes/env-sensor-info-xml/" + threshold.EntityData.SegmentPath
     threshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -43399,6 +43821,7 @@ func (threshold *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     threshold.EntityData.Children = types.NewOrderedMap()
     threshold.EntityData.Children.Append("threshold-array", types.YChild{"ThresholdArray", nil})
     for i := range threshold.ThresholdArray {
+        types.SetYListKey(threshold.ThresholdArray[i], i)
         threshold.EntityData.Children.Append(types.GetSegmentPath(threshold.ThresholdArray[i]), types.YChild{"ThresholdArray", threshold.ThresholdArray[i]})
     }
     threshold.EntityData.Leafs = types.NewOrderedMap()
@@ -43413,6 +43836,7 @@ func (threshold *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
 type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Tsi9s_Tsi9_Attributes_EnvSensorInfoXml_Threshold_ThresholdArray struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Indicates minor, major, critical severities. The type is ThresholdSeverity.
     ThresholdSeverity interface{}
@@ -43434,7 +43858,8 @@ func (thresholdArray *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Ts
     thresholdArray.EntityData.YangName = "threshold-array"
     thresholdArray.EntityData.BundleName = "cisco_ios_xr"
     thresholdArray.EntityData.ParentYangName = "threshold"
-    thresholdArray.EntityData.SegmentPath = "threshold-array"
+    thresholdArray.EntityData.SegmentPath = "threshold-array" + types.AddNoKeyToken(thresholdArray)
+    thresholdArray.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/attributes/env-sensor-info-xml/threshold/" + thresholdArray.EntityData.SegmentPath
     thresholdArray.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     thresholdArray.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     thresholdArray.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -43487,6 +43912,7 @@ func (invAssetBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s
     invAssetBag.EntityData.BundleName = "cisco_ios_xr"
     invAssetBag.EntityData.ParentYangName = "attributes"
     invAssetBag.EntityData.SegmentPath = "inv-asset-bag"
+    invAssetBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/attributes/" + invAssetBag.EntityData.SegmentPath
     invAssetBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invAssetBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invAssetBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -43537,6 +43963,7 @@ func (threshold *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     threshold.EntityData.BundleName = "cisco_ios_xr"
     threshold.EntityData.ParentYangName = "attributes"
     threshold.EntityData.SegmentPath = "threshold"
+    threshold.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/attributes/" + threshold.EntityData.SegmentPath
     threshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -43571,6 +43998,7 @@ func (majorLo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi
     majorLo.EntityData.BundleName = "cisco_ios_xr"
     majorLo.EntityData.ParentYangName = "threshold"
     majorLo.EntityData.SegmentPath = "major-lo"
+    majorLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/attributes/threshold/" + majorLo.EntityData.SegmentPath
     majorLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     majorLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     majorLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -43617,6 +44045,7 @@ func (threshBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "major-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/attributes/threshold/major-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -43650,6 +44079,7 @@ func (criticalHi *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     criticalHi.EntityData.BundleName = "cisco_ios_xr"
     criticalHi.EntityData.ParentYangName = "threshold"
     criticalHi.EntityData.SegmentPath = "critical-hi"
+    criticalHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/attributes/threshold/" + criticalHi.EntityData.SegmentPath
     criticalHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     criticalHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     criticalHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -43696,6 +44126,7 @@ func (threshBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "critical-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/attributes/threshold/critical-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -43729,6 +44160,7 @@ func (minorHi *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi
     minorHi.EntityData.BundleName = "cisco_ios_xr"
     minorHi.EntityData.ParentYangName = "threshold"
     minorHi.EntityData.SegmentPath = "minor-hi"
+    minorHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/attributes/threshold/" + minorHi.EntityData.SegmentPath
     minorHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     minorHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     minorHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -43775,6 +44207,7 @@ func (threshBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "minor-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/attributes/threshold/minor-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -43808,6 +44241,7 @@ func (majorHi *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi
     majorHi.EntityData.BundleName = "cisco_ios_xr"
     majorHi.EntityData.ParentYangName = "threshold"
     majorHi.EntityData.SegmentPath = "major-hi"
+    majorHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/attributes/threshold/" + majorHi.EntityData.SegmentPath
     majorHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     majorHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     majorHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -43854,6 +44288,7 @@ func (threshBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "major-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/attributes/threshold/major-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -43887,6 +44322,7 @@ func (criticalLo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     criticalLo.EntityData.BundleName = "cisco_ios_xr"
     criticalLo.EntityData.ParentYangName = "threshold"
     criticalLo.EntityData.SegmentPath = "critical-lo"
+    criticalLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/attributes/threshold/" + criticalLo.EntityData.SegmentPath
     criticalLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     criticalLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     criticalLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -43933,6 +44369,7 @@ func (threshBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "critical-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/attributes/threshold/critical-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -43966,6 +44403,7 @@ func (minorLo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi
     minorLo.EntityData.BundleName = "cisco_ios_xr"
     minorLo.EntityData.ParentYangName = "threshold"
     minorLo.EntityData.SegmentPath = "minor-lo"
+    minorLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/attributes/threshold/" + minorLo.EntityData.SegmentPath
     minorLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     minorLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     minorLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -44012,6 +44450,7 @@ func (threshBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "minor-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/attributes/threshold/minor-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -44075,6 +44514,7 @@ func (fruInfo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi
     fruInfo.EntityData.BundleName = "cisco_ios_xr"
     fruInfo.EntityData.ParentYangName = "attributes"
     fruInfo.EntityData.SegmentPath = "fru-info"
+    fruInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/attributes/" + fruInfo.EntityData.SegmentPath
     fruInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fruInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fruInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -44117,6 +44557,7 @@ func (lastOperationalStateChange *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_T
     lastOperationalStateChange.EntityData.BundleName = "cisco_ios_xr"
     lastOperationalStateChange.EntityData.ParentYangName = "fru-info"
     lastOperationalStateChange.EntityData.SegmentPath = "last-operational-state-change"
+    lastOperationalStateChange.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/attributes/fru-info/" + lastOperationalStateChange.EntityData.SegmentPath
     lastOperationalStateChange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastOperationalStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastOperationalStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -44152,6 +44593,7 @@ func (cardUpTime *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     cardUpTime.EntityData.BundleName = "cisco_ios_xr"
     cardUpTime.EntityData.ParentYangName = "fru-info"
     cardUpTime.EntityData.SegmentPath = "card-up-time"
+    cardUpTime.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/attributes/fru-info/" + cardUpTime.EntityData.SegmentPath
     cardUpTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cardUpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cardUpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -44201,6 +44643,7 @@ func (invEepromInfo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi
     invEepromInfo.EntityData.BundleName = "cisco_ios_xr"
     invEepromInfo.EntityData.ParentYangName = "attributes"
     invEepromInfo.EntityData.SegmentPath = "inv-eeprom-info"
+    invEepromInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/attributes/" + invEepromInfo.EntityData.SegmentPath
     invEepromInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invEepromInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invEepromInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -44406,6 +44849,7 @@ func (eeprom *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3
     eeprom.EntityData.BundleName = "cisco_ios_xr"
     eeprom.EntityData.ParentYangName = "inv-eeprom-info"
     eeprom.EntityData.SegmentPath = "eeprom"
+    eeprom.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/attributes/inv-eeprom-info/" + eeprom.EntityData.SegmentPath
     eeprom.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eeprom.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eeprom.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -44498,6 +44942,7 @@ func (rma *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Ts
     rma.EntityData.BundleName = "cisco_ios_xr"
     rma.EntityData.ParentYangName = "eeprom"
     rma.EntityData.SegmentPath = "rma"
+    rma.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/tsi9s/tsi9/attributes/inv-eeprom-info/eeprom/" + rma.EntityData.SegmentPath
     rma.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rma.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rma.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -44518,19 +44963,6 @@ func (rma *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Ts
 type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Attributes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
-
-    // Inventory EDM Module Done Tuple. The type is interface{} with range:
-    // 0..4294967295. The default value is 1.
-    ModuleDone interface{}
-
-    // VM Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    VmNodeId interface{}
-
-    // VM Done Tuple. The type is interface{} with range: 0..4294967295.
-    VmDone interface{}
-
-    // Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    NodeId interface{}
 
     // Inventory Basic Bag.
     InvBasicBag Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Attributes_InvBasicBag
@@ -44563,6 +44995,7 @@ func (attributes *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     attributes.EntityData.BundleName = "cisco_ios_xr"
     attributes.EntityData.ParentYangName = "tsi8"
     attributes.EntityData.SegmentPath = "attributes"
+    attributes.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/" + attributes.EntityData.SegmentPath
     attributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     attributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -44577,10 +45010,6 @@ func (attributes *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     attributes.EntityData.Children.Append("fru-info", types.YChild{"FruInfo", &attributes.FruInfo})
     attributes.EntityData.Children.Append("inv-eeprom-info", types.YChild{"InvEepromInfo", &attributes.InvEepromInfo})
     attributes.EntityData.Leafs = types.NewOrderedMap()
-    attributes.EntityData.Leafs.Append("module-done", types.YLeaf{"ModuleDone", attributes.ModuleDone})
-    attributes.EntityData.Leafs.Append("vm-node-id", types.YLeaf{"VmNodeId", attributes.VmNodeId})
-    attributes.EntityData.Leafs.Append("vm-done", types.YLeaf{"VmDone", attributes.VmDone})
-    attributes.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", attributes.NodeId})
 
     attributes.EntityData.YListKeys = []string {}
 
@@ -44668,8 +45097,8 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Ts
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -44689,6 +45118,7 @@ func (invBasicBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s
     invBasicBag.EntityData.BundleName = "cisco_ios_xr"
     invBasicBag.EntityData.ParentYangName = "attributes"
     invBasicBag.EntityData.SegmentPath = "inv-basic-bag"
+    invBasicBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/attributes/" + invBasicBag.EntityData.SegmentPath
     invBasicBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invBasicBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invBasicBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -44782,6 +45212,7 @@ func (envSensorInfo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi
     envSensorInfo.EntityData.BundleName = "cisco_ios_xr"
     envSensorInfo.EntityData.ParentYangName = "attributes"
     envSensorInfo.EntityData.SegmentPath = "env-sensor-info"
+    envSensorInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/attributes/" + envSensorInfo.EntityData.SegmentPath
     envSensorInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     envSensorInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     envSensorInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -44833,6 +45264,7 @@ func (pwgInfo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi
     pwgInfo.EntityData.BundleName = "cisco_ios_xr"
     pwgInfo.EntityData.ParentYangName = "attributes"
     pwgInfo.EntityData.SegmentPath = "pwg-info"
+    pwgInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/attributes/" + pwgInfo.EntityData.SegmentPath
     pwgInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pwgInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pwgInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -44885,6 +45317,7 @@ func (envSensorInfoXml *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_
     envSensorInfoXml.EntityData.BundleName = "cisco_ios_xr"
     envSensorInfoXml.EntityData.ParentYangName = "attributes"
     envSensorInfoXml.EntityData.SegmentPath = "env-sensor-info-xml"
+    envSensorInfoXml.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/attributes/" + envSensorInfoXml.EntityData.SegmentPath
     envSensorInfoXml.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     envSensorInfoXml.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     envSensorInfoXml.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -44921,6 +45354,7 @@ func (threshold *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     threshold.EntityData.BundleName = "cisco_ios_xr"
     threshold.EntityData.ParentYangName = "env-sensor-info-xml"
     threshold.EntityData.SegmentPath = "threshold"
+    threshold.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/attributes/env-sensor-info-xml/" + threshold.EntityData.SegmentPath
     threshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -44928,6 +45362,7 @@ func (threshold *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     threshold.EntityData.Children = types.NewOrderedMap()
     threshold.EntityData.Children.Append("threshold-array", types.YChild{"ThresholdArray", nil})
     for i := range threshold.ThresholdArray {
+        types.SetYListKey(threshold.ThresholdArray[i], i)
         threshold.EntityData.Children.Append(types.GetSegmentPath(threshold.ThresholdArray[i]), types.YChild{"ThresholdArray", threshold.ThresholdArray[i]})
     }
     threshold.EntityData.Leafs = types.NewOrderedMap()
@@ -44942,6 +45377,7 @@ func (threshold *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
 type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Attributes_EnvSensorInfoXml_Threshold_ThresholdArray struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Indicates minor, major, critical severities. The type is ThresholdSeverity.
     ThresholdSeverity interface{}
@@ -44963,7 +45399,8 @@ func (thresholdArray *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Ts
     thresholdArray.EntityData.YangName = "threshold-array"
     thresholdArray.EntityData.BundleName = "cisco_ios_xr"
     thresholdArray.EntityData.ParentYangName = "threshold"
-    thresholdArray.EntityData.SegmentPath = "threshold-array"
+    thresholdArray.EntityData.SegmentPath = "threshold-array" + types.AddNoKeyToken(thresholdArray)
+    thresholdArray.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/attributes/env-sensor-info-xml/threshold/" + thresholdArray.EntityData.SegmentPath
     thresholdArray.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     thresholdArray.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     thresholdArray.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -45016,6 +45453,7 @@ func (invAssetBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s
     invAssetBag.EntityData.BundleName = "cisco_ios_xr"
     invAssetBag.EntityData.ParentYangName = "attributes"
     invAssetBag.EntityData.SegmentPath = "inv-asset-bag"
+    invAssetBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/attributes/" + invAssetBag.EntityData.SegmentPath
     invAssetBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invAssetBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invAssetBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -45066,6 +45504,7 @@ func (threshold *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     threshold.EntityData.BundleName = "cisco_ios_xr"
     threshold.EntityData.ParentYangName = "attributes"
     threshold.EntityData.SegmentPath = "threshold"
+    threshold.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/attributes/" + threshold.EntityData.SegmentPath
     threshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -45100,6 +45539,7 @@ func (majorLo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi
     majorLo.EntityData.BundleName = "cisco_ios_xr"
     majorLo.EntityData.ParentYangName = "threshold"
     majorLo.EntityData.SegmentPath = "major-lo"
+    majorLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/attributes/threshold/" + majorLo.EntityData.SegmentPath
     majorLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     majorLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     majorLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -45146,6 +45586,7 @@ func (threshBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "major-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/attributes/threshold/major-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -45179,6 +45620,7 @@ func (criticalHi *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     criticalHi.EntityData.BundleName = "cisco_ios_xr"
     criticalHi.EntityData.ParentYangName = "threshold"
     criticalHi.EntityData.SegmentPath = "critical-hi"
+    criticalHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/attributes/threshold/" + criticalHi.EntityData.SegmentPath
     criticalHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     criticalHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     criticalHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -45225,6 +45667,7 @@ func (threshBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "critical-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/attributes/threshold/critical-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -45258,6 +45701,7 @@ func (minorHi *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi
     minorHi.EntityData.BundleName = "cisco_ios_xr"
     minorHi.EntityData.ParentYangName = "threshold"
     minorHi.EntityData.SegmentPath = "minor-hi"
+    minorHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/attributes/threshold/" + minorHi.EntityData.SegmentPath
     minorHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     minorHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     minorHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -45304,6 +45748,7 @@ func (threshBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "minor-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/attributes/threshold/minor-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -45337,6 +45782,7 @@ func (majorHi *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi
     majorHi.EntityData.BundleName = "cisco_ios_xr"
     majorHi.EntityData.ParentYangName = "threshold"
     majorHi.EntityData.SegmentPath = "major-hi"
+    majorHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/attributes/threshold/" + majorHi.EntityData.SegmentPath
     majorHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     majorHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     majorHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -45383,6 +45829,7 @@ func (threshBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "major-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/attributes/threshold/major-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -45416,6 +45863,7 @@ func (criticalLo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     criticalLo.EntityData.BundleName = "cisco_ios_xr"
     criticalLo.EntityData.ParentYangName = "threshold"
     criticalLo.EntityData.SegmentPath = "critical-lo"
+    criticalLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/attributes/threshold/" + criticalLo.EntityData.SegmentPath
     criticalLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     criticalLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     criticalLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -45462,6 +45910,7 @@ func (threshBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "critical-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/attributes/threshold/critical-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -45495,6 +45944,7 @@ func (minorLo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi
     minorLo.EntityData.BundleName = "cisco_ios_xr"
     minorLo.EntityData.ParentYangName = "threshold"
     minorLo.EntityData.SegmentPath = "minor-lo"
+    minorLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/attributes/threshold/" + minorLo.EntityData.SegmentPath
     minorLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     minorLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     minorLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -45541,6 +45991,7 @@ func (threshBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "minor-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/attributes/threshold/minor-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -45604,6 +46055,7 @@ func (fruInfo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi
     fruInfo.EntityData.BundleName = "cisco_ios_xr"
     fruInfo.EntityData.ParentYangName = "attributes"
     fruInfo.EntityData.SegmentPath = "fru-info"
+    fruInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/attributes/" + fruInfo.EntityData.SegmentPath
     fruInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fruInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fruInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -45646,6 +46098,7 @@ func (lastOperationalStateChange *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_T
     lastOperationalStateChange.EntityData.BundleName = "cisco_ios_xr"
     lastOperationalStateChange.EntityData.ParentYangName = "fru-info"
     lastOperationalStateChange.EntityData.SegmentPath = "last-operational-state-change"
+    lastOperationalStateChange.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/attributes/fru-info/" + lastOperationalStateChange.EntityData.SegmentPath
     lastOperationalStateChange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastOperationalStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastOperationalStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -45681,6 +46134,7 @@ func (cardUpTime *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     cardUpTime.EntityData.BundleName = "cisco_ios_xr"
     cardUpTime.EntityData.ParentYangName = "fru-info"
     cardUpTime.EntityData.SegmentPath = "card-up-time"
+    cardUpTime.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/attributes/fru-info/" + cardUpTime.EntityData.SegmentPath
     cardUpTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cardUpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cardUpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -45730,6 +46184,7 @@ func (invEepromInfo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi
     invEepromInfo.EntityData.BundleName = "cisco_ios_xr"
     invEepromInfo.EntityData.ParentYangName = "attributes"
     invEepromInfo.EntityData.SegmentPath = "inv-eeprom-info"
+    invEepromInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/attributes/" + invEepromInfo.EntityData.SegmentPath
     invEepromInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invEepromInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invEepromInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -45935,6 +46390,7 @@ func (eeprom *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3
     eeprom.EntityData.BundleName = "cisco_ios_xr"
     eeprom.EntityData.ParentYangName = "inv-eeprom-info"
     eeprom.EntityData.SegmentPath = "eeprom"
+    eeprom.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/attributes/inv-eeprom-info/" + eeprom.EntityData.SegmentPath
     eeprom.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eeprom.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eeprom.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -46027,6 +46483,7 @@ func (rma *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Ts
     rma.EntityData.BundleName = "cisco_ios_xr"
     rma.EntityData.ParentYangName = "eeprom"
     rma.EntityData.SegmentPath = "rma"
+    rma.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/tsi8s/tsi8/attributes/inv-eeprom-info/eeprom/" + rma.EntityData.SegmentPath
     rma.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rma.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rma.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -46047,19 +46504,6 @@ func (rma *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Ts
 type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Attributes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
-
-    // Inventory EDM Module Done Tuple. The type is interface{} with range:
-    // 0..4294967295. The default value is 1.
-    ModuleDone interface{}
-
-    // VM Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    VmNodeId interface{}
-
-    // VM Done Tuple. The type is interface{} with range: 0..4294967295.
-    VmDone interface{}
-
-    // Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    NodeId interface{}
 
     // Inventory Basic Bag.
     InvBasicBag Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Attributes_InvBasicBag
@@ -46092,6 +46536,7 @@ func (attributes *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     attributes.EntityData.BundleName = "cisco_ios_xr"
     attributes.EntityData.ParentYangName = "tsi7"
     attributes.EntityData.SegmentPath = "attributes"
+    attributes.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/" + attributes.EntityData.SegmentPath
     attributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     attributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -46106,10 +46551,6 @@ func (attributes *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     attributes.EntityData.Children.Append("fru-info", types.YChild{"FruInfo", &attributes.FruInfo})
     attributes.EntityData.Children.Append("inv-eeprom-info", types.YChild{"InvEepromInfo", &attributes.InvEepromInfo})
     attributes.EntityData.Leafs = types.NewOrderedMap()
-    attributes.EntityData.Leafs.Append("module-done", types.YLeaf{"ModuleDone", attributes.ModuleDone})
-    attributes.EntityData.Leafs.Append("vm-node-id", types.YLeaf{"VmNodeId", attributes.VmNodeId})
-    attributes.EntityData.Leafs.Append("vm-done", types.YLeaf{"VmDone", attributes.VmDone})
-    attributes.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", attributes.NodeId})
 
     attributes.EntityData.YListKeys = []string {}
 
@@ -46197,8 +46638,8 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Ts
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -46218,6 +46659,7 @@ func (invBasicBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s
     invBasicBag.EntityData.BundleName = "cisco_ios_xr"
     invBasicBag.EntityData.ParentYangName = "attributes"
     invBasicBag.EntityData.SegmentPath = "inv-basic-bag"
+    invBasicBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/attributes/" + invBasicBag.EntityData.SegmentPath
     invBasicBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invBasicBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invBasicBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -46311,6 +46753,7 @@ func (envSensorInfo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi
     envSensorInfo.EntityData.BundleName = "cisco_ios_xr"
     envSensorInfo.EntityData.ParentYangName = "attributes"
     envSensorInfo.EntityData.SegmentPath = "env-sensor-info"
+    envSensorInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/attributes/" + envSensorInfo.EntityData.SegmentPath
     envSensorInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     envSensorInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     envSensorInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -46362,6 +46805,7 @@ func (pwgInfo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi
     pwgInfo.EntityData.BundleName = "cisco_ios_xr"
     pwgInfo.EntityData.ParentYangName = "attributes"
     pwgInfo.EntityData.SegmentPath = "pwg-info"
+    pwgInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/attributes/" + pwgInfo.EntityData.SegmentPath
     pwgInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pwgInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pwgInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -46414,6 +46858,7 @@ func (envSensorInfoXml *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_
     envSensorInfoXml.EntityData.BundleName = "cisco_ios_xr"
     envSensorInfoXml.EntityData.ParentYangName = "attributes"
     envSensorInfoXml.EntityData.SegmentPath = "env-sensor-info-xml"
+    envSensorInfoXml.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/attributes/" + envSensorInfoXml.EntityData.SegmentPath
     envSensorInfoXml.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     envSensorInfoXml.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     envSensorInfoXml.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -46450,6 +46895,7 @@ func (threshold *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     threshold.EntityData.BundleName = "cisco_ios_xr"
     threshold.EntityData.ParentYangName = "env-sensor-info-xml"
     threshold.EntityData.SegmentPath = "threshold"
+    threshold.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/attributes/env-sensor-info-xml/" + threshold.EntityData.SegmentPath
     threshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -46457,6 +46903,7 @@ func (threshold *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     threshold.EntityData.Children = types.NewOrderedMap()
     threshold.EntityData.Children.Append("threshold-array", types.YChild{"ThresholdArray", nil})
     for i := range threshold.ThresholdArray {
+        types.SetYListKey(threshold.ThresholdArray[i], i)
         threshold.EntityData.Children.Append(types.GetSegmentPath(threshold.ThresholdArray[i]), types.YChild{"ThresholdArray", threshold.ThresholdArray[i]})
     }
     threshold.EntityData.Leafs = types.NewOrderedMap()
@@ -46471,6 +46918,7 @@ func (threshold *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
 type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Attributes_EnvSensorInfoXml_Threshold_ThresholdArray struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Indicates minor, major, critical severities. The type is ThresholdSeverity.
     ThresholdSeverity interface{}
@@ -46492,7 +46940,8 @@ func (thresholdArray *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Ts
     thresholdArray.EntityData.YangName = "threshold-array"
     thresholdArray.EntityData.BundleName = "cisco_ios_xr"
     thresholdArray.EntityData.ParentYangName = "threshold"
-    thresholdArray.EntityData.SegmentPath = "threshold-array"
+    thresholdArray.EntityData.SegmentPath = "threshold-array" + types.AddNoKeyToken(thresholdArray)
+    thresholdArray.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/attributes/env-sensor-info-xml/threshold/" + thresholdArray.EntityData.SegmentPath
     thresholdArray.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     thresholdArray.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     thresholdArray.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -46545,6 +46994,7 @@ func (invAssetBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s
     invAssetBag.EntityData.BundleName = "cisco_ios_xr"
     invAssetBag.EntityData.ParentYangName = "attributes"
     invAssetBag.EntityData.SegmentPath = "inv-asset-bag"
+    invAssetBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/attributes/" + invAssetBag.EntityData.SegmentPath
     invAssetBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invAssetBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invAssetBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -46595,6 +47045,7 @@ func (threshold *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     threshold.EntityData.BundleName = "cisco_ios_xr"
     threshold.EntityData.ParentYangName = "attributes"
     threshold.EntityData.SegmentPath = "threshold"
+    threshold.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/attributes/" + threshold.EntityData.SegmentPath
     threshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -46629,6 +47080,7 @@ func (majorLo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi
     majorLo.EntityData.BundleName = "cisco_ios_xr"
     majorLo.EntityData.ParentYangName = "threshold"
     majorLo.EntityData.SegmentPath = "major-lo"
+    majorLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/attributes/threshold/" + majorLo.EntityData.SegmentPath
     majorLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     majorLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     majorLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -46675,6 +47127,7 @@ func (threshBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "major-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/attributes/threshold/major-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -46708,6 +47161,7 @@ func (criticalHi *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     criticalHi.EntityData.BundleName = "cisco_ios_xr"
     criticalHi.EntityData.ParentYangName = "threshold"
     criticalHi.EntityData.SegmentPath = "critical-hi"
+    criticalHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/attributes/threshold/" + criticalHi.EntityData.SegmentPath
     criticalHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     criticalHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     criticalHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -46754,6 +47208,7 @@ func (threshBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "critical-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/attributes/threshold/critical-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -46787,6 +47242,7 @@ func (minorHi *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi
     minorHi.EntityData.BundleName = "cisco_ios_xr"
     minorHi.EntityData.ParentYangName = "threshold"
     minorHi.EntityData.SegmentPath = "minor-hi"
+    minorHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/attributes/threshold/" + minorHi.EntityData.SegmentPath
     minorHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     minorHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     minorHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -46833,6 +47289,7 @@ func (threshBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "minor-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/attributes/threshold/minor-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -46866,6 +47323,7 @@ func (majorHi *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi
     majorHi.EntityData.BundleName = "cisco_ios_xr"
     majorHi.EntityData.ParentYangName = "threshold"
     majorHi.EntityData.SegmentPath = "major-hi"
+    majorHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/attributes/threshold/" + majorHi.EntityData.SegmentPath
     majorHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     majorHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     majorHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -46912,6 +47370,7 @@ func (threshBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "major-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/attributes/threshold/major-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -46945,6 +47404,7 @@ func (criticalLo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     criticalLo.EntityData.BundleName = "cisco_ios_xr"
     criticalLo.EntityData.ParentYangName = "threshold"
     criticalLo.EntityData.SegmentPath = "critical-lo"
+    criticalLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/attributes/threshold/" + criticalLo.EntityData.SegmentPath
     criticalLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     criticalLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     criticalLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -46991,6 +47451,7 @@ func (threshBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "critical-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/attributes/threshold/critical-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -47024,6 +47485,7 @@ func (minorLo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi
     minorLo.EntityData.BundleName = "cisco_ios_xr"
     minorLo.EntityData.ParentYangName = "threshold"
     minorLo.EntityData.SegmentPath = "minor-lo"
+    minorLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/attributes/threshold/" + minorLo.EntityData.SegmentPath
     minorLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     minorLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     minorLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -47070,6 +47532,7 @@ func (threshBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "minor-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/attributes/threshold/minor-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -47133,6 +47596,7 @@ func (fruInfo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi
     fruInfo.EntityData.BundleName = "cisco_ios_xr"
     fruInfo.EntityData.ParentYangName = "attributes"
     fruInfo.EntityData.SegmentPath = "fru-info"
+    fruInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/attributes/" + fruInfo.EntityData.SegmentPath
     fruInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fruInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fruInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -47175,6 +47639,7 @@ func (lastOperationalStateChange *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_T
     lastOperationalStateChange.EntityData.BundleName = "cisco_ios_xr"
     lastOperationalStateChange.EntityData.ParentYangName = "fru-info"
     lastOperationalStateChange.EntityData.SegmentPath = "last-operational-state-change"
+    lastOperationalStateChange.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/attributes/fru-info/" + lastOperationalStateChange.EntityData.SegmentPath
     lastOperationalStateChange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastOperationalStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastOperationalStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -47210,6 +47675,7 @@ func (cardUpTime *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     cardUpTime.EntityData.BundleName = "cisco_ios_xr"
     cardUpTime.EntityData.ParentYangName = "fru-info"
     cardUpTime.EntityData.SegmentPath = "card-up-time"
+    cardUpTime.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/attributes/fru-info/" + cardUpTime.EntityData.SegmentPath
     cardUpTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cardUpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cardUpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -47259,6 +47725,7 @@ func (invEepromInfo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi
     invEepromInfo.EntityData.BundleName = "cisco_ios_xr"
     invEepromInfo.EntityData.ParentYangName = "attributes"
     invEepromInfo.EntityData.SegmentPath = "inv-eeprom-info"
+    invEepromInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/attributes/" + invEepromInfo.EntityData.SegmentPath
     invEepromInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invEepromInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invEepromInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -47464,6 +47931,7 @@ func (eeprom *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3
     eeprom.EntityData.BundleName = "cisco_ios_xr"
     eeprom.EntityData.ParentYangName = "inv-eeprom-info"
     eeprom.EntityData.SegmentPath = "eeprom"
+    eeprom.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/attributes/inv-eeprom-info/" + eeprom.EntityData.SegmentPath
     eeprom.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eeprom.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eeprom.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -47556,6 +48024,7 @@ func (rma *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Ts
     rma.EntityData.BundleName = "cisco_ios_xr"
     rma.EntityData.ParentYangName = "eeprom"
     rma.EntityData.SegmentPath = "rma"
+    rma.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/tsi7s/tsi7/attributes/inv-eeprom-info/eeprom/" + rma.EntityData.SegmentPath
     rma.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rma.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rma.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -47576,19 +48045,6 @@ func (rma *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Ts
 type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Attributes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
-
-    // Inventory EDM Module Done Tuple. The type is interface{} with range:
-    // 0..4294967295. The default value is 1.
-    ModuleDone interface{}
-
-    // VM Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    VmNodeId interface{}
-
-    // VM Done Tuple. The type is interface{} with range: 0..4294967295.
-    VmDone interface{}
-
-    // Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    NodeId interface{}
 
     // Inventory Basic Bag.
     InvBasicBag Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Attributes_InvBasicBag
@@ -47621,6 +48077,7 @@ func (attributes *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     attributes.EntityData.BundleName = "cisco_ios_xr"
     attributes.EntityData.ParentYangName = "tsi6"
     attributes.EntityData.SegmentPath = "attributes"
+    attributes.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/" + attributes.EntityData.SegmentPath
     attributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     attributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -47635,10 +48092,6 @@ func (attributes *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     attributes.EntityData.Children.Append("fru-info", types.YChild{"FruInfo", &attributes.FruInfo})
     attributes.EntityData.Children.Append("inv-eeprom-info", types.YChild{"InvEepromInfo", &attributes.InvEepromInfo})
     attributes.EntityData.Leafs = types.NewOrderedMap()
-    attributes.EntityData.Leafs.Append("module-done", types.YLeaf{"ModuleDone", attributes.ModuleDone})
-    attributes.EntityData.Leafs.Append("vm-node-id", types.YLeaf{"VmNodeId", attributes.VmNodeId})
-    attributes.EntityData.Leafs.Append("vm-done", types.YLeaf{"VmDone", attributes.VmDone})
-    attributes.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", attributes.NodeId})
 
     attributes.EntityData.YListKeys = []string {}
 
@@ -47726,8 +48179,8 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Ts
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -47747,6 +48200,7 @@ func (invBasicBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s
     invBasicBag.EntityData.BundleName = "cisco_ios_xr"
     invBasicBag.EntityData.ParentYangName = "attributes"
     invBasicBag.EntityData.SegmentPath = "inv-basic-bag"
+    invBasicBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/attributes/" + invBasicBag.EntityData.SegmentPath
     invBasicBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invBasicBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invBasicBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -47840,6 +48294,7 @@ func (envSensorInfo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi
     envSensorInfo.EntityData.BundleName = "cisco_ios_xr"
     envSensorInfo.EntityData.ParentYangName = "attributes"
     envSensorInfo.EntityData.SegmentPath = "env-sensor-info"
+    envSensorInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/attributes/" + envSensorInfo.EntityData.SegmentPath
     envSensorInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     envSensorInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     envSensorInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -47891,6 +48346,7 @@ func (pwgInfo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi
     pwgInfo.EntityData.BundleName = "cisco_ios_xr"
     pwgInfo.EntityData.ParentYangName = "attributes"
     pwgInfo.EntityData.SegmentPath = "pwg-info"
+    pwgInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/attributes/" + pwgInfo.EntityData.SegmentPath
     pwgInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pwgInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pwgInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -47943,6 +48399,7 @@ func (envSensorInfoXml *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_
     envSensorInfoXml.EntityData.BundleName = "cisco_ios_xr"
     envSensorInfoXml.EntityData.ParentYangName = "attributes"
     envSensorInfoXml.EntityData.SegmentPath = "env-sensor-info-xml"
+    envSensorInfoXml.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/attributes/" + envSensorInfoXml.EntityData.SegmentPath
     envSensorInfoXml.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     envSensorInfoXml.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     envSensorInfoXml.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -47979,6 +48436,7 @@ func (threshold *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     threshold.EntityData.BundleName = "cisco_ios_xr"
     threshold.EntityData.ParentYangName = "env-sensor-info-xml"
     threshold.EntityData.SegmentPath = "threshold"
+    threshold.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/attributes/env-sensor-info-xml/" + threshold.EntityData.SegmentPath
     threshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -47986,6 +48444,7 @@ func (threshold *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     threshold.EntityData.Children = types.NewOrderedMap()
     threshold.EntityData.Children.Append("threshold-array", types.YChild{"ThresholdArray", nil})
     for i := range threshold.ThresholdArray {
+        types.SetYListKey(threshold.ThresholdArray[i], i)
         threshold.EntityData.Children.Append(types.GetSegmentPath(threshold.ThresholdArray[i]), types.YChild{"ThresholdArray", threshold.ThresholdArray[i]})
     }
     threshold.EntityData.Leafs = types.NewOrderedMap()
@@ -48000,6 +48459,7 @@ func (threshold *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
 type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Attributes_EnvSensorInfoXml_Threshold_ThresholdArray struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Indicates minor, major, critical severities. The type is ThresholdSeverity.
     ThresholdSeverity interface{}
@@ -48021,7 +48481,8 @@ func (thresholdArray *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Ts
     thresholdArray.EntityData.YangName = "threshold-array"
     thresholdArray.EntityData.BundleName = "cisco_ios_xr"
     thresholdArray.EntityData.ParentYangName = "threshold"
-    thresholdArray.EntityData.SegmentPath = "threshold-array"
+    thresholdArray.EntityData.SegmentPath = "threshold-array" + types.AddNoKeyToken(thresholdArray)
+    thresholdArray.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/attributes/env-sensor-info-xml/threshold/" + thresholdArray.EntityData.SegmentPath
     thresholdArray.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     thresholdArray.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     thresholdArray.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -48074,6 +48535,7 @@ func (invAssetBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s
     invAssetBag.EntityData.BundleName = "cisco_ios_xr"
     invAssetBag.EntityData.ParentYangName = "attributes"
     invAssetBag.EntityData.SegmentPath = "inv-asset-bag"
+    invAssetBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/attributes/" + invAssetBag.EntityData.SegmentPath
     invAssetBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invAssetBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invAssetBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -48124,6 +48586,7 @@ func (threshold *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     threshold.EntityData.BundleName = "cisco_ios_xr"
     threshold.EntityData.ParentYangName = "attributes"
     threshold.EntityData.SegmentPath = "threshold"
+    threshold.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/attributes/" + threshold.EntityData.SegmentPath
     threshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -48158,6 +48621,7 @@ func (majorLo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi
     majorLo.EntityData.BundleName = "cisco_ios_xr"
     majorLo.EntityData.ParentYangName = "threshold"
     majorLo.EntityData.SegmentPath = "major-lo"
+    majorLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/attributes/threshold/" + majorLo.EntityData.SegmentPath
     majorLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     majorLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     majorLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -48204,6 +48668,7 @@ func (threshBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "major-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/attributes/threshold/major-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -48237,6 +48702,7 @@ func (criticalHi *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     criticalHi.EntityData.BundleName = "cisco_ios_xr"
     criticalHi.EntityData.ParentYangName = "threshold"
     criticalHi.EntityData.SegmentPath = "critical-hi"
+    criticalHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/attributes/threshold/" + criticalHi.EntityData.SegmentPath
     criticalHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     criticalHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     criticalHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -48283,6 +48749,7 @@ func (threshBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "critical-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/attributes/threshold/critical-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -48316,6 +48783,7 @@ func (minorHi *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi
     minorHi.EntityData.BundleName = "cisco_ios_xr"
     minorHi.EntityData.ParentYangName = "threshold"
     minorHi.EntityData.SegmentPath = "minor-hi"
+    minorHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/attributes/threshold/" + minorHi.EntityData.SegmentPath
     minorHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     minorHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     minorHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -48362,6 +48830,7 @@ func (threshBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "minor-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/attributes/threshold/minor-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -48395,6 +48864,7 @@ func (majorHi *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi
     majorHi.EntityData.BundleName = "cisco_ios_xr"
     majorHi.EntityData.ParentYangName = "threshold"
     majorHi.EntityData.SegmentPath = "major-hi"
+    majorHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/attributes/threshold/" + majorHi.EntityData.SegmentPath
     majorHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     majorHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     majorHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -48441,6 +48911,7 @@ func (threshBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "major-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/attributes/threshold/major-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -48474,6 +48945,7 @@ func (criticalLo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     criticalLo.EntityData.BundleName = "cisco_ios_xr"
     criticalLo.EntityData.ParentYangName = "threshold"
     criticalLo.EntityData.SegmentPath = "critical-lo"
+    criticalLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/attributes/threshold/" + criticalLo.EntityData.SegmentPath
     criticalLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     criticalLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     criticalLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -48520,6 +48992,7 @@ func (threshBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "critical-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/attributes/threshold/critical-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -48553,6 +49026,7 @@ func (minorLo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi
     minorLo.EntityData.BundleName = "cisco_ios_xr"
     minorLo.EntityData.ParentYangName = "threshold"
     minorLo.EntityData.SegmentPath = "minor-lo"
+    minorLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/attributes/threshold/" + minorLo.EntityData.SegmentPath
     minorLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     minorLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     minorLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -48599,6 +49073,7 @@ func (threshBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "minor-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/attributes/threshold/minor-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -48662,6 +49137,7 @@ func (fruInfo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi
     fruInfo.EntityData.BundleName = "cisco_ios_xr"
     fruInfo.EntityData.ParentYangName = "attributes"
     fruInfo.EntityData.SegmentPath = "fru-info"
+    fruInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/attributes/" + fruInfo.EntityData.SegmentPath
     fruInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fruInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fruInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -48704,6 +49180,7 @@ func (lastOperationalStateChange *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_T
     lastOperationalStateChange.EntityData.BundleName = "cisco_ios_xr"
     lastOperationalStateChange.EntityData.ParentYangName = "fru-info"
     lastOperationalStateChange.EntityData.SegmentPath = "last-operational-state-change"
+    lastOperationalStateChange.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/attributes/fru-info/" + lastOperationalStateChange.EntityData.SegmentPath
     lastOperationalStateChange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastOperationalStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastOperationalStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -48739,6 +49216,7 @@ func (cardUpTime *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     cardUpTime.EntityData.BundleName = "cisco_ios_xr"
     cardUpTime.EntityData.ParentYangName = "fru-info"
     cardUpTime.EntityData.SegmentPath = "card-up-time"
+    cardUpTime.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/attributes/fru-info/" + cardUpTime.EntityData.SegmentPath
     cardUpTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cardUpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cardUpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -48788,6 +49266,7 @@ func (invEepromInfo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi
     invEepromInfo.EntityData.BundleName = "cisco_ios_xr"
     invEepromInfo.EntityData.ParentYangName = "attributes"
     invEepromInfo.EntityData.SegmentPath = "inv-eeprom-info"
+    invEepromInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/attributes/" + invEepromInfo.EntityData.SegmentPath
     invEepromInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invEepromInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invEepromInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -48993,6 +49472,7 @@ func (eeprom *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3
     eeprom.EntityData.BundleName = "cisco_ios_xr"
     eeprom.EntityData.ParentYangName = "inv-eeprom-info"
     eeprom.EntityData.SegmentPath = "eeprom"
+    eeprom.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/attributes/inv-eeprom-info/" + eeprom.EntityData.SegmentPath
     eeprom.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eeprom.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eeprom.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -49085,6 +49565,7 @@ func (rma *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Ts
     rma.EntityData.BundleName = "cisco_ios_xr"
     rma.EntityData.ParentYangName = "eeprom"
     rma.EntityData.SegmentPath = "rma"
+    rma.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/tsi6s/tsi6/attributes/inv-eeprom-info/eeprom/" + rma.EntityData.SegmentPath
     rma.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rma.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rma.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -49105,19 +49586,6 @@ func (rma *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Ts
 type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Attributes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
-
-    // Inventory EDM Module Done Tuple. The type is interface{} with range:
-    // 0..4294967295. The default value is 1.
-    ModuleDone interface{}
-
-    // VM Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    VmNodeId interface{}
-
-    // VM Done Tuple. The type is interface{} with range: 0..4294967295.
-    VmDone interface{}
-
-    // Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    NodeId interface{}
 
     // Inventory Basic Bag.
     InvBasicBag Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Attributes_InvBasicBag
@@ -49150,6 +49618,7 @@ func (attributes *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     attributes.EntityData.BundleName = "cisco_ios_xr"
     attributes.EntityData.ParentYangName = "tsi5"
     attributes.EntityData.SegmentPath = "attributes"
+    attributes.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/" + attributes.EntityData.SegmentPath
     attributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     attributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -49164,10 +49633,6 @@ func (attributes *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     attributes.EntityData.Children.Append("fru-info", types.YChild{"FruInfo", &attributes.FruInfo})
     attributes.EntityData.Children.Append("inv-eeprom-info", types.YChild{"InvEepromInfo", &attributes.InvEepromInfo})
     attributes.EntityData.Leafs = types.NewOrderedMap()
-    attributes.EntityData.Leafs.Append("module-done", types.YLeaf{"ModuleDone", attributes.ModuleDone})
-    attributes.EntityData.Leafs.Append("vm-node-id", types.YLeaf{"VmNodeId", attributes.VmNodeId})
-    attributes.EntityData.Leafs.Append("vm-done", types.YLeaf{"VmDone", attributes.VmDone})
-    attributes.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", attributes.NodeId})
 
     attributes.EntityData.YListKeys = []string {}
 
@@ -49255,8 +49720,8 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Ts
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -49276,6 +49741,7 @@ func (invBasicBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s
     invBasicBag.EntityData.BundleName = "cisco_ios_xr"
     invBasicBag.EntityData.ParentYangName = "attributes"
     invBasicBag.EntityData.SegmentPath = "inv-basic-bag"
+    invBasicBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/attributes/" + invBasicBag.EntityData.SegmentPath
     invBasicBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invBasicBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invBasicBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -49369,6 +49835,7 @@ func (envSensorInfo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi
     envSensorInfo.EntityData.BundleName = "cisco_ios_xr"
     envSensorInfo.EntityData.ParentYangName = "attributes"
     envSensorInfo.EntityData.SegmentPath = "env-sensor-info"
+    envSensorInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/attributes/" + envSensorInfo.EntityData.SegmentPath
     envSensorInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     envSensorInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     envSensorInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -49420,6 +49887,7 @@ func (pwgInfo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi
     pwgInfo.EntityData.BundleName = "cisco_ios_xr"
     pwgInfo.EntityData.ParentYangName = "attributes"
     pwgInfo.EntityData.SegmentPath = "pwg-info"
+    pwgInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/attributes/" + pwgInfo.EntityData.SegmentPath
     pwgInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pwgInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pwgInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -49472,6 +49940,7 @@ func (envSensorInfoXml *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_
     envSensorInfoXml.EntityData.BundleName = "cisco_ios_xr"
     envSensorInfoXml.EntityData.ParentYangName = "attributes"
     envSensorInfoXml.EntityData.SegmentPath = "env-sensor-info-xml"
+    envSensorInfoXml.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/attributes/" + envSensorInfoXml.EntityData.SegmentPath
     envSensorInfoXml.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     envSensorInfoXml.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     envSensorInfoXml.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -49508,6 +49977,7 @@ func (threshold *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     threshold.EntityData.BundleName = "cisco_ios_xr"
     threshold.EntityData.ParentYangName = "env-sensor-info-xml"
     threshold.EntityData.SegmentPath = "threshold"
+    threshold.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/attributes/env-sensor-info-xml/" + threshold.EntityData.SegmentPath
     threshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -49515,6 +49985,7 @@ func (threshold *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     threshold.EntityData.Children = types.NewOrderedMap()
     threshold.EntityData.Children.Append("threshold-array", types.YChild{"ThresholdArray", nil})
     for i := range threshold.ThresholdArray {
+        types.SetYListKey(threshold.ThresholdArray[i], i)
         threshold.EntityData.Children.Append(types.GetSegmentPath(threshold.ThresholdArray[i]), types.YChild{"ThresholdArray", threshold.ThresholdArray[i]})
     }
     threshold.EntityData.Leafs = types.NewOrderedMap()
@@ -49529,6 +50000,7 @@ func (threshold *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
 type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Attributes_EnvSensorInfoXml_Threshold_ThresholdArray struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Indicates minor, major, critical severities. The type is ThresholdSeverity.
     ThresholdSeverity interface{}
@@ -49550,7 +50022,8 @@ func (thresholdArray *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Ts
     thresholdArray.EntityData.YangName = "threshold-array"
     thresholdArray.EntityData.BundleName = "cisco_ios_xr"
     thresholdArray.EntityData.ParentYangName = "threshold"
-    thresholdArray.EntityData.SegmentPath = "threshold-array"
+    thresholdArray.EntityData.SegmentPath = "threshold-array" + types.AddNoKeyToken(thresholdArray)
+    thresholdArray.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/attributes/env-sensor-info-xml/threshold/" + thresholdArray.EntityData.SegmentPath
     thresholdArray.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     thresholdArray.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     thresholdArray.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -49603,6 +50076,7 @@ func (invAssetBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s
     invAssetBag.EntityData.BundleName = "cisco_ios_xr"
     invAssetBag.EntityData.ParentYangName = "attributes"
     invAssetBag.EntityData.SegmentPath = "inv-asset-bag"
+    invAssetBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/attributes/" + invAssetBag.EntityData.SegmentPath
     invAssetBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invAssetBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invAssetBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -49653,6 +50127,7 @@ func (threshold *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     threshold.EntityData.BundleName = "cisco_ios_xr"
     threshold.EntityData.ParentYangName = "attributes"
     threshold.EntityData.SegmentPath = "threshold"
+    threshold.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/attributes/" + threshold.EntityData.SegmentPath
     threshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -49687,6 +50162,7 @@ func (majorLo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi
     majorLo.EntityData.BundleName = "cisco_ios_xr"
     majorLo.EntityData.ParentYangName = "threshold"
     majorLo.EntityData.SegmentPath = "major-lo"
+    majorLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/attributes/threshold/" + majorLo.EntityData.SegmentPath
     majorLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     majorLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     majorLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -49733,6 +50209,7 @@ func (threshBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "major-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/attributes/threshold/major-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -49766,6 +50243,7 @@ func (criticalHi *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     criticalHi.EntityData.BundleName = "cisco_ios_xr"
     criticalHi.EntityData.ParentYangName = "threshold"
     criticalHi.EntityData.SegmentPath = "critical-hi"
+    criticalHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/attributes/threshold/" + criticalHi.EntityData.SegmentPath
     criticalHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     criticalHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     criticalHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -49812,6 +50290,7 @@ func (threshBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "critical-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/attributes/threshold/critical-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -49845,6 +50324,7 @@ func (minorHi *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi
     minorHi.EntityData.BundleName = "cisco_ios_xr"
     minorHi.EntityData.ParentYangName = "threshold"
     minorHi.EntityData.SegmentPath = "minor-hi"
+    minorHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/attributes/threshold/" + minorHi.EntityData.SegmentPath
     minorHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     minorHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     minorHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -49891,6 +50371,7 @@ func (threshBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "minor-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/attributes/threshold/minor-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -49924,6 +50405,7 @@ func (majorHi *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi
     majorHi.EntityData.BundleName = "cisco_ios_xr"
     majorHi.EntityData.ParentYangName = "threshold"
     majorHi.EntityData.SegmentPath = "major-hi"
+    majorHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/attributes/threshold/" + majorHi.EntityData.SegmentPath
     majorHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     majorHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     majorHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -49970,6 +50452,7 @@ func (threshBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "major-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/attributes/threshold/major-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -50003,6 +50486,7 @@ func (criticalLo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     criticalLo.EntityData.BundleName = "cisco_ios_xr"
     criticalLo.EntityData.ParentYangName = "threshold"
     criticalLo.EntityData.SegmentPath = "critical-lo"
+    criticalLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/attributes/threshold/" + criticalLo.EntityData.SegmentPath
     criticalLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     criticalLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     criticalLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -50049,6 +50533,7 @@ func (threshBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "critical-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/attributes/threshold/critical-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -50082,6 +50567,7 @@ func (minorLo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi
     minorLo.EntityData.BundleName = "cisco_ios_xr"
     minorLo.EntityData.ParentYangName = "threshold"
     minorLo.EntityData.SegmentPath = "minor-lo"
+    minorLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/attributes/threshold/" + minorLo.EntityData.SegmentPath
     minorLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     minorLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     minorLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -50128,6 +50614,7 @@ func (threshBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "minor-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/attributes/threshold/minor-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -50191,6 +50678,7 @@ func (fruInfo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi
     fruInfo.EntityData.BundleName = "cisco_ios_xr"
     fruInfo.EntityData.ParentYangName = "attributes"
     fruInfo.EntityData.SegmentPath = "fru-info"
+    fruInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/attributes/" + fruInfo.EntityData.SegmentPath
     fruInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fruInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fruInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -50233,6 +50721,7 @@ func (lastOperationalStateChange *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_T
     lastOperationalStateChange.EntityData.BundleName = "cisco_ios_xr"
     lastOperationalStateChange.EntityData.ParentYangName = "fru-info"
     lastOperationalStateChange.EntityData.SegmentPath = "last-operational-state-change"
+    lastOperationalStateChange.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/attributes/fru-info/" + lastOperationalStateChange.EntityData.SegmentPath
     lastOperationalStateChange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastOperationalStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastOperationalStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -50268,6 +50757,7 @@ func (cardUpTime *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     cardUpTime.EntityData.BundleName = "cisco_ios_xr"
     cardUpTime.EntityData.ParentYangName = "fru-info"
     cardUpTime.EntityData.SegmentPath = "card-up-time"
+    cardUpTime.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/attributes/fru-info/" + cardUpTime.EntityData.SegmentPath
     cardUpTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cardUpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cardUpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -50317,6 +50807,7 @@ func (invEepromInfo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi
     invEepromInfo.EntityData.BundleName = "cisco_ios_xr"
     invEepromInfo.EntityData.ParentYangName = "attributes"
     invEepromInfo.EntityData.SegmentPath = "inv-eeprom-info"
+    invEepromInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/attributes/" + invEepromInfo.EntityData.SegmentPath
     invEepromInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invEepromInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invEepromInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -50522,6 +51013,7 @@ func (eeprom *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3
     eeprom.EntityData.BundleName = "cisco_ios_xr"
     eeprom.EntityData.ParentYangName = "inv-eeprom-info"
     eeprom.EntityData.SegmentPath = "eeprom"
+    eeprom.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/attributes/inv-eeprom-info/" + eeprom.EntityData.SegmentPath
     eeprom.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eeprom.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eeprom.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -50614,6 +51106,7 @@ func (rma *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Ts
     rma.EntityData.BundleName = "cisco_ios_xr"
     rma.EntityData.ParentYangName = "eeprom"
     rma.EntityData.SegmentPath = "rma"
+    rma.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/tsi5s/tsi5/attributes/inv-eeprom-info/eeprom/" + rma.EntityData.SegmentPath
     rma.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rma.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rma.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -50634,19 +51127,6 @@ func (rma *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Ts
 type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Attributes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
-
-    // Inventory EDM Module Done Tuple. The type is interface{} with range:
-    // 0..4294967295. The default value is 1.
-    ModuleDone interface{}
-
-    // VM Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    VmNodeId interface{}
-
-    // VM Done Tuple. The type is interface{} with range: 0..4294967295.
-    VmDone interface{}
-
-    // Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    NodeId interface{}
 
     // Inventory Basic Bag.
     InvBasicBag Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Attributes_InvBasicBag
@@ -50679,6 +51159,7 @@ func (attributes *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     attributes.EntityData.BundleName = "cisco_ios_xr"
     attributes.EntityData.ParentYangName = "tsi4"
     attributes.EntityData.SegmentPath = "attributes"
+    attributes.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/" + attributes.EntityData.SegmentPath
     attributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     attributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -50693,10 +51174,6 @@ func (attributes *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     attributes.EntityData.Children.Append("fru-info", types.YChild{"FruInfo", &attributes.FruInfo})
     attributes.EntityData.Children.Append("inv-eeprom-info", types.YChild{"InvEepromInfo", &attributes.InvEepromInfo})
     attributes.EntityData.Leafs = types.NewOrderedMap()
-    attributes.EntityData.Leafs.Append("module-done", types.YLeaf{"ModuleDone", attributes.ModuleDone})
-    attributes.EntityData.Leafs.Append("vm-node-id", types.YLeaf{"VmNodeId", attributes.VmNodeId})
-    attributes.EntityData.Leafs.Append("vm-done", types.YLeaf{"VmDone", attributes.VmDone})
-    attributes.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", attributes.NodeId})
 
     attributes.EntityData.YListKeys = []string {}
 
@@ -50784,8 +51261,8 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Ts
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -50805,6 +51282,7 @@ func (invBasicBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s
     invBasicBag.EntityData.BundleName = "cisco_ios_xr"
     invBasicBag.EntityData.ParentYangName = "attributes"
     invBasicBag.EntityData.SegmentPath = "inv-basic-bag"
+    invBasicBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/attributes/" + invBasicBag.EntityData.SegmentPath
     invBasicBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invBasicBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invBasicBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -50898,6 +51376,7 @@ func (envSensorInfo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi
     envSensorInfo.EntityData.BundleName = "cisco_ios_xr"
     envSensorInfo.EntityData.ParentYangName = "attributes"
     envSensorInfo.EntityData.SegmentPath = "env-sensor-info"
+    envSensorInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/attributes/" + envSensorInfo.EntityData.SegmentPath
     envSensorInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     envSensorInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     envSensorInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -50949,6 +51428,7 @@ func (pwgInfo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi
     pwgInfo.EntityData.BundleName = "cisco_ios_xr"
     pwgInfo.EntityData.ParentYangName = "attributes"
     pwgInfo.EntityData.SegmentPath = "pwg-info"
+    pwgInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/attributes/" + pwgInfo.EntityData.SegmentPath
     pwgInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pwgInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pwgInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -51001,6 +51481,7 @@ func (envSensorInfoXml *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_
     envSensorInfoXml.EntityData.BundleName = "cisco_ios_xr"
     envSensorInfoXml.EntityData.ParentYangName = "attributes"
     envSensorInfoXml.EntityData.SegmentPath = "env-sensor-info-xml"
+    envSensorInfoXml.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/attributes/" + envSensorInfoXml.EntityData.SegmentPath
     envSensorInfoXml.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     envSensorInfoXml.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     envSensorInfoXml.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -51037,6 +51518,7 @@ func (threshold *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     threshold.EntityData.BundleName = "cisco_ios_xr"
     threshold.EntityData.ParentYangName = "env-sensor-info-xml"
     threshold.EntityData.SegmentPath = "threshold"
+    threshold.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/attributes/env-sensor-info-xml/" + threshold.EntityData.SegmentPath
     threshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -51044,6 +51526,7 @@ func (threshold *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     threshold.EntityData.Children = types.NewOrderedMap()
     threshold.EntityData.Children.Append("threshold-array", types.YChild{"ThresholdArray", nil})
     for i := range threshold.ThresholdArray {
+        types.SetYListKey(threshold.ThresholdArray[i], i)
         threshold.EntityData.Children.Append(types.GetSegmentPath(threshold.ThresholdArray[i]), types.YChild{"ThresholdArray", threshold.ThresholdArray[i]})
     }
     threshold.EntityData.Leafs = types.NewOrderedMap()
@@ -51058,6 +51541,7 @@ func (threshold *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
 type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Attributes_EnvSensorInfoXml_Threshold_ThresholdArray struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Indicates minor, major, critical severities. The type is ThresholdSeverity.
     ThresholdSeverity interface{}
@@ -51079,7 +51563,8 @@ func (thresholdArray *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Ts
     thresholdArray.EntityData.YangName = "threshold-array"
     thresholdArray.EntityData.BundleName = "cisco_ios_xr"
     thresholdArray.EntityData.ParentYangName = "threshold"
-    thresholdArray.EntityData.SegmentPath = "threshold-array"
+    thresholdArray.EntityData.SegmentPath = "threshold-array" + types.AddNoKeyToken(thresholdArray)
+    thresholdArray.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/attributes/env-sensor-info-xml/threshold/" + thresholdArray.EntityData.SegmentPath
     thresholdArray.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     thresholdArray.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     thresholdArray.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -51132,6 +51617,7 @@ func (invAssetBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s
     invAssetBag.EntityData.BundleName = "cisco_ios_xr"
     invAssetBag.EntityData.ParentYangName = "attributes"
     invAssetBag.EntityData.SegmentPath = "inv-asset-bag"
+    invAssetBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/attributes/" + invAssetBag.EntityData.SegmentPath
     invAssetBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invAssetBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invAssetBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -51182,6 +51668,7 @@ func (threshold *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     threshold.EntityData.BundleName = "cisco_ios_xr"
     threshold.EntityData.ParentYangName = "attributes"
     threshold.EntityData.SegmentPath = "threshold"
+    threshold.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/attributes/" + threshold.EntityData.SegmentPath
     threshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -51216,6 +51703,7 @@ func (majorLo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi
     majorLo.EntityData.BundleName = "cisco_ios_xr"
     majorLo.EntityData.ParentYangName = "threshold"
     majorLo.EntityData.SegmentPath = "major-lo"
+    majorLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/attributes/threshold/" + majorLo.EntityData.SegmentPath
     majorLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     majorLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     majorLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -51262,6 +51750,7 @@ func (threshBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "major-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/attributes/threshold/major-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -51295,6 +51784,7 @@ func (criticalHi *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     criticalHi.EntityData.BundleName = "cisco_ios_xr"
     criticalHi.EntityData.ParentYangName = "threshold"
     criticalHi.EntityData.SegmentPath = "critical-hi"
+    criticalHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/attributes/threshold/" + criticalHi.EntityData.SegmentPath
     criticalHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     criticalHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     criticalHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -51341,6 +51831,7 @@ func (threshBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "critical-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/attributes/threshold/critical-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -51374,6 +51865,7 @@ func (minorHi *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi
     minorHi.EntityData.BundleName = "cisco_ios_xr"
     minorHi.EntityData.ParentYangName = "threshold"
     minorHi.EntityData.SegmentPath = "minor-hi"
+    minorHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/attributes/threshold/" + minorHi.EntityData.SegmentPath
     minorHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     minorHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     minorHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -51420,6 +51912,7 @@ func (threshBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "minor-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/attributes/threshold/minor-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -51453,6 +51946,7 @@ func (majorHi *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi
     majorHi.EntityData.BundleName = "cisco_ios_xr"
     majorHi.EntityData.ParentYangName = "threshold"
     majorHi.EntityData.SegmentPath = "major-hi"
+    majorHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/attributes/threshold/" + majorHi.EntityData.SegmentPath
     majorHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     majorHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     majorHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -51499,6 +51993,7 @@ func (threshBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "major-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/attributes/threshold/major-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -51532,6 +52027,7 @@ func (criticalLo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     criticalLo.EntityData.BundleName = "cisco_ios_xr"
     criticalLo.EntityData.ParentYangName = "threshold"
     criticalLo.EntityData.SegmentPath = "critical-lo"
+    criticalLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/attributes/threshold/" + criticalLo.EntityData.SegmentPath
     criticalLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     criticalLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     criticalLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -51578,6 +52074,7 @@ func (threshBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "critical-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/attributes/threshold/critical-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -51611,6 +52108,7 @@ func (minorLo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi
     minorLo.EntityData.BundleName = "cisco_ios_xr"
     minorLo.EntityData.ParentYangName = "threshold"
     minorLo.EntityData.SegmentPath = "minor-lo"
+    minorLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/attributes/threshold/" + minorLo.EntityData.SegmentPath
     minorLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     minorLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     minorLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -51657,6 +52155,7 @@ func (threshBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "minor-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/attributes/threshold/minor-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -51720,6 +52219,7 @@ func (fruInfo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi
     fruInfo.EntityData.BundleName = "cisco_ios_xr"
     fruInfo.EntityData.ParentYangName = "attributes"
     fruInfo.EntityData.SegmentPath = "fru-info"
+    fruInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/attributes/" + fruInfo.EntityData.SegmentPath
     fruInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fruInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fruInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -51762,6 +52262,7 @@ func (lastOperationalStateChange *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_T
     lastOperationalStateChange.EntityData.BundleName = "cisco_ios_xr"
     lastOperationalStateChange.EntityData.ParentYangName = "fru-info"
     lastOperationalStateChange.EntityData.SegmentPath = "last-operational-state-change"
+    lastOperationalStateChange.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/attributes/fru-info/" + lastOperationalStateChange.EntityData.SegmentPath
     lastOperationalStateChange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastOperationalStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastOperationalStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -51797,6 +52298,7 @@ func (cardUpTime *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     cardUpTime.EntityData.BundleName = "cisco_ios_xr"
     cardUpTime.EntityData.ParentYangName = "fru-info"
     cardUpTime.EntityData.SegmentPath = "card-up-time"
+    cardUpTime.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/attributes/fru-info/" + cardUpTime.EntityData.SegmentPath
     cardUpTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cardUpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cardUpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -51846,6 +52348,7 @@ func (invEepromInfo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi
     invEepromInfo.EntityData.BundleName = "cisco_ios_xr"
     invEepromInfo.EntityData.ParentYangName = "attributes"
     invEepromInfo.EntityData.SegmentPath = "inv-eeprom-info"
+    invEepromInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/attributes/" + invEepromInfo.EntityData.SegmentPath
     invEepromInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invEepromInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invEepromInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -52051,6 +52554,7 @@ func (eeprom *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3
     eeprom.EntityData.BundleName = "cisco_ios_xr"
     eeprom.EntityData.ParentYangName = "inv-eeprom-info"
     eeprom.EntityData.SegmentPath = "eeprom"
+    eeprom.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/attributes/inv-eeprom-info/" + eeprom.EntityData.SegmentPath
     eeprom.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eeprom.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eeprom.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -52143,6 +52647,7 @@ func (rma *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Ts
     rma.EntityData.BundleName = "cisco_ios_xr"
     rma.EntityData.ParentYangName = "eeprom"
     rma.EntityData.SegmentPath = "rma"
+    rma.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/tsi4s/tsi4/attributes/inv-eeprom-info/eeprom/" + rma.EntityData.SegmentPath
     rma.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rma.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rma.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -52163,19 +52668,6 @@ func (rma *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Ts
 type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Attributes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
-
-    // Inventory EDM Module Done Tuple. The type is interface{} with range:
-    // 0..4294967295. The default value is 1.
-    ModuleDone interface{}
-
-    // VM Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    VmNodeId interface{}
-
-    // VM Done Tuple. The type is interface{} with range: 0..4294967295.
-    VmDone interface{}
-
-    // Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    NodeId interface{}
 
     // Inventory Basic Bag.
     InvBasicBag Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Attributes_InvBasicBag
@@ -52208,6 +52700,7 @@ func (attributes *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     attributes.EntityData.BundleName = "cisco_ios_xr"
     attributes.EntityData.ParentYangName = "tsi3"
     attributes.EntityData.SegmentPath = "attributes"
+    attributes.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/" + attributes.EntityData.SegmentPath
     attributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     attributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -52222,10 +52715,6 @@ func (attributes *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     attributes.EntityData.Children.Append("fru-info", types.YChild{"FruInfo", &attributes.FruInfo})
     attributes.EntityData.Children.Append("inv-eeprom-info", types.YChild{"InvEepromInfo", &attributes.InvEepromInfo})
     attributes.EntityData.Leafs = types.NewOrderedMap()
-    attributes.EntityData.Leafs.Append("module-done", types.YLeaf{"ModuleDone", attributes.ModuleDone})
-    attributes.EntityData.Leafs.Append("vm-node-id", types.YLeaf{"VmNodeId", attributes.VmNodeId})
-    attributes.EntityData.Leafs.Append("vm-done", types.YLeaf{"VmDone", attributes.VmDone})
-    attributes.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", attributes.NodeId})
 
     attributes.EntityData.YListKeys = []string {}
 
@@ -52313,8 +52802,8 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Attribut
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -52334,6 +52823,7 @@ func (invBasicBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s
     invBasicBag.EntityData.BundleName = "cisco_ios_xr"
     invBasicBag.EntityData.ParentYangName = "attributes"
     invBasicBag.EntityData.SegmentPath = "inv-basic-bag"
+    invBasicBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/attributes/" + invBasicBag.EntityData.SegmentPath
     invBasicBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invBasicBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invBasicBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -52427,6 +52917,7 @@ func (envSensorInfo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi
     envSensorInfo.EntityData.BundleName = "cisco_ios_xr"
     envSensorInfo.EntityData.ParentYangName = "attributes"
     envSensorInfo.EntityData.SegmentPath = "env-sensor-info"
+    envSensorInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/attributes/" + envSensorInfo.EntityData.SegmentPath
     envSensorInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     envSensorInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     envSensorInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -52478,6 +52969,7 @@ func (pwgInfo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi
     pwgInfo.EntityData.BundleName = "cisco_ios_xr"
     pwgInfo.EntityData.ParentYangName = "attributes"
     pwgInfo.EntityData.SegmentPath = "pwg-info"
+    pwgInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/attributes/" + pwgInfo.EntityData.SegmentPath
     pwgInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pwgInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pwgInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -52530,6 +53022,7 @@ func (envSensorInfoXml *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_
     envSensorInfoXml.EntityData.BundleName = "cisco_ios_xr"
     envSensorInfoXml.EntityData.ParentYangName = "attributes"
     envSensorInfoXml.EntityData.SegmentPath = "env-sensor-info-xml"
+    envSensorInfoXml.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/attributes/" + envSensorInfoXml.EntityData.SegmentPath
     envSensorInfoXml.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     envSensorInfoXml.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     envSensorInfoXml.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -52566,6 +53059,7 @@ func (threshold *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     threshold.EntityData.BundleName = "cisco_ios_xr"
     threshold.EntityData.ParentYangName = "env-sensor-info-xml"
     threshold.EntityData.SegmentPath = "threshold"
+    threshold.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/attributes/env-sensor-info-xml/" + threshold.EntityData.SegmentPath
     threshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -52573,6 +53067,7 @@ func (threshold *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     threshold.EntityData.Children = types.NewOrderedMap()
     threshold.EntityData.Children.Append("threshold-array", types.YChild{"ThresholdArray", nil})
     for i := range threshold.ThresholdArray {
+        types.SetYListKey(threshold.ThresholdArray[i], i)
         threshold.EntityData.Children.Append(types.GetSegmentPath(threshold.ThresholdArray[i]), types.YChild{"ThresholdArray", threshold.ThresholdArray[i]})
     }
     threshold.EntityData.Leafs = types.NewOrderedMap()
@@ -52587,6 +53082,7 @@ func (threshold *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
 type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Attributes_EnvSensorInfoXml_Threshold_ThresholdArray struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Indicates minor, major, critical severities. The type is ThresholdSeverity.
     ThresholdSeverity interface{}
@@ -52608,7 +53104,8 @@ func (thresholdArray *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Ts
     thresholdArray.EntityData.YangName = "threshold-array"
     thresholdArray.EntityData.BundleName = "cisco_ios_xr"
     thresholdArray.EntityData.ParentYangName = "threshold"
-    thresholdArray.EntityData.SegmentPath = "threshold-array"
+    thresholdArray.EntityData.SegmentPath = "threshold-array" + types.AddNoKeyToken(thresholdArray)
+    thresholdArray.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/attributes/env-sensor-info-xml/threshold/" + thresholdArray.EntityData.SegmentPath
     thresholdArray.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     thresholdArray.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     thresholdArray.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -52661,6 +53158,7 @@ func (invAssetBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s
     invAssetBag.EntityData.BundleName = "cisco_ios_xr"
     invAssetBag.EntityData.ParentYangName = "attributes"
     invAssetBag.EntityData.SegmentPath = "inv-asset-bag"
+    invAssetBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/attributes/" + invAssetBag.EntityData.SegmentPath
     invAssetBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invAssetBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invAssetBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -52711,6 +53209,7 @@ func (threshold *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     threshold.EntityData.BundleName = "cisco_ios_xr"
     threshold.EntityData.ParentYangName = "attributes"
     threshold.EntityData.SegmentPath = "threshold"
+    threshold.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/attributes/" + threshold.EntityData.SegmentPath
     threshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -52745,6 +53244,7 @@ func (majorLo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi
     majorLo.EntityData.BundleName = "cisco_ios_xr"
     majorLo.EntityData.ParentYangName = "threshold"
     majorLo.EntityData.SegmentPath = "major-lo"
+    majorLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/attributes/threshold/" + majorLo.EntityData.SegmentPath
     majorLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     majorLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     majorLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -52791,6 +53291,7 @@ func (threshBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "major-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/attributes/threshold/major-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -52824,6 +53325,7 @@ func (criticalHi *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     criticalHi.EntityData.BundleName = "cisco_ios_xr"
     criticalHi.EntityData.ParentYangName = "threshold"
     criticalHi.EntityData.SegmentPath = "critical-hi"
+    criticalHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/attributes/threshold/" + criticalHi.EntityData.SegmentPath
     criticalHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     criticalHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     criticalHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -52870,6 +53372,7 @@ func (threshBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "critical-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/attributes/threshold/critical-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -52903,6 +53406,7 @@ func (minorHi *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi
     minorHi.EntityData.BundleName = "cisco_ios_xr"
     minorHi.EntityData.ParentYangName = "threshold"
     minorHi.EntityData.SegmentPath = "minor-hi"
+    minorHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/attributes/threshold/" + minorHi.EntityData.SegmentPath
     minorHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     minorHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     minorHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -52949,6 +53453,7 @@ func (threshBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "minor-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/attributes/threshold/minor-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -52982,6 +53487,7 @@ func (majorHi *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi
     majorHi.EntityData.BundleName = "cisco_ios_xr"
     majorHi.EntityData.ParentYangName = "threshold"
     majorHi.EntityData.SegmentPath = "major-hi"
+    majorHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/attributes/threshold/" + majorHi.EntityData.SegmentPath
     majorHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     majorHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     majorHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -53028,6 +53534,7 @@ func (threshBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "major-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/attributes/threshold/major-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -53061,6 +53568,7 @@ func (criticalLo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     criticalLo.EntityData.BundleName = "cisco_ios_xr"
     criticalLo.EntityData.ParentYangName = "threshold"
     criticalLo.EntityData.SegmentPath = "critical-lo"
+    criticalLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/attributes/threshold/" + criticalLo.EntityData.SegmentPath
     criticalLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     criticalLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     criticalLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -53107,6 +53615,7 @@ func (threshBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "critical-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/attributes/threshold/critical-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -53140,6 +53649,7 @@ func (minorLo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi
     minorLo.EntityData.BundleName = "cisco_ios_xr"
     minorLo.EntityData.ParentYangName = "threshold"
     minorLo.EntityData.SegmentPath = "minor-lo"
+    minorLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/attributes/threshold/" + minorLo.EntityData.SegmentPath
     minorLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     minorLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     minorLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -53186,6 +53696,7 @@ func (threshBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "minor-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/attributes/threshold/minor-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -53249,6 +53760,7 @@ func (fruInfo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi
     fruInfo.EntityData.BundleName = "cisco_ios_xr"
     fruInfo.EntityData.ParentYangName = "attributes"
     fruInfo.EntityData.SegmentPath = "fru-info"
+    fruInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/attributes/" + fruInfo.EntityData.SegmentPath
     fruInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fruInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fruInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -53291,6 +53803,7 @@ func (lastOperationalStateChange *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_T
     lastOperationalStateChange.EntityData.BundleName = "cisco_ios_xr"
     lastOperationalStateChange.EntityData.ParentYangName = "fru-info"
     lastOperationalStateChange.EntityData.SegmentPath = "last-operational-state-change"
+    lastOperationalStateChange.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/attributes/fru-info/" + lastOperationalStateChange.EntityData.SegmentPath
     lastOperationalStateChange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastOperationalStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastOperationalStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -53326,6 +53839,7 @@ func (cardUpTime *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     cardUpTime.EntityData.BundleName = "cisco_ios_xr"
     cardUpTime.EntityData.ParentYangName = "fru-info"
     cardUpTime.EntityData.SegmentPath = "card-up-time"
+    cardUpTime.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/attributes/fru-info/" + cardUpTime.EntityData.SegmentPath
     cardUpTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cardUpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cardUpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -53375,6 +53889,7 @@ func (invEepromInfo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi
     invEepromInfo.EntityData.BundleName = "cisco_ios_xr"
     invEepromInfo.EntityData.ParentYangName = "attributes"
     invEepromInfo.EntityData.SegmentPath = "inv-eeprom-info"
+    invEepromInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/attributes/" + invEepromInfo.EntityData.SegmentPath
     invEepromInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invEepromInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invEepromInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -53580,6 +54095,7 @@ func (eeprom *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3
     eeprom.EntityData.BundleName = "cisco_ios_xr"
     eeprom.EntityData.ParentYangName = "inv-eeprom-info"
     eeprom.EntityData.SegmentPath = "eeprom"
+    eeprom.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/attributes/inv-eeprom-info/" + eeprom.EntityData.SegmentPath
     eeprom.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eeprom.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eeprom.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -53672,6 +54188,7 @@ func (rma *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_At
     rma.EntityData.BundleName = "cisco_ios_xr"
     rma.EntityData.ParentYangName = "eeprom"
     rma.EntityData.SegmentPath = "rma"
+    rma.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/tsi3s/tsi3/attributes/inv-eeprom-info/eeprom/" + rma.EntityData.SegmentPath
     rma.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rma.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rma.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -53692,19 +54209,6 @@ func (rma *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_At
 type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attributes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
-
-    // Inventory EDM Module Done Tuple. The type is interface{} with range:
-    // 0..4294967295. The default value is 1.
-    ModuleDone interface{}
-
-    // VM Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    VmNodeId interface{}
-
-    // VM Done Tuple. The type is interface{} with range: 0..4294967295.
-    VmDone interface{}
-
-    // Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    NodeId interface{}
 
     // Inventory Basic Bag.
     InvBasicBag Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attributes_InvBasicBag
@@ -53737,6 +54241,7 @@ func (attributes *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attrib
     attributes.EntityData.BundleName = "cisco_ios_xr"
     attributes.EntityData.ParentYangName = "tsi2"
     attributes.EntityData.SegmentPath = "attributes"
+    attributes.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/" + attributes.EntityData.SegmentPath
     attributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     attributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -53751,10 +54256,6 @@ func (attributes *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attrib
     attributes.EntityData.Children.Append("fru-info", types.YChild{"FruInfo", &attributes.FruInfo})
     attributes.EntityData.Children.Append("inv-eeprom-info", types.YChild{"InvEepromInfo", &attributes.InvEepromInfo})
     attributes.EntityData.Leafs = types.NewOrderedMap()
-    attributes.EntityData.Leafs.Append("module-done", types.YLeaf{"ModuleDone", attributes.ModuleDone})
-    attributes.EntityData.Leafs.Append("vm-node-id", types.YLeaf{"VmNodeId", attributes.VmNodeId})
-    attributes.EntityData.Leafs.Append("vm-done", types.YLeaf{"VmDone", attributes.VmDone})
-    attributes.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", attributes.NodeId})
 
     attributes.EntityData.YListKeys = []string {}
 
@@ -53842,8 +54343,8 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attributes_InvBasic
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -53863,6 +54364,7 @@ func (invBasicBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attri
     invBasicBag.EntityData.BundleName = "cisco_ios_xr"
     invBasicBag.EntityData.ParentYangName = "attributes"
     invBasicBag.EntityData.SegmentPath = "inv-basic-bag"
+    invBasicBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/attributes/" + invBasicBag.EntityData.SegmentPath
     invBasicBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invBasicBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invBasicBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -53956,6 +54458,7 @@ func (envSensorInfo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Att
     envSensorInfo.EntityData.BundleName = "cisco_ios_xr"
     envSensorInfo.EntityData.ParentYangName = "attributes"
     envSensorInfo.EntityData.SegmentPath = "env-sensor-info"
+    envSensorInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/attributes/" + envSensorInfo.EntityData.SegmentPath
     envSensorInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     envSensorInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     envSensorInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -54007,6 +54510,7 @@ func (pwgInfo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attribute
     pwgInfo.EntityData.BundleName = "cisco_ios_xr"
     pwgInfo.EntityData.ParentYangName = "attributes"
     pwgInfo.EntityData.SegmentPath = "pwg-info"
+    pwgInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/attributes/" + pwgInfo.EntityData.SegmentPath
     pwgInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pwgInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pwgInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -54059,6 +54563,7 @@ func (envSensorInfoXml *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_
     envSensorInfoXml.EntityData.BundleName = "cisco_ios_xr"
     envSensorInfoXml.EntityData.ParentYangName = "attributes"
     envSensorInfoXml.EntityData.SegmentPath = "env-sensor-info-xml"
+    envSensorInfoXml.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/attributes/" + envSensorInfoXml.EntityData.SegmentPath
     envSensorInfoXml.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     envSensorInfoXml.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     envSensorInfoXml.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -54095,6 +54600,7 @@ func (threshold *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attribu
     threshold.EntityData.BundleName = "cisco_ios_xr"
     threshold.EntityData.ParentYangName = "env-sensor-info-xml"
     threshold.EntityData.SegmentPath = "threshold"
+    threshold.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/attributes/env-sensor-info-xml/" + threshold.EntityData.SegmentPath
     threshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -54102,6 +54608,7 @@ func (threshold *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attribu
     threshold.EntityData.Children = types.NewOrderedMap()
     threshold.EntityData.Children.Append("threshold-array", types.YChild{"ThresholdArray", nil})
     for i := range threshold.ThresholdArray {
+        types.SetYListKey(threshold.ThresholdArray[i], i)
         threshold.EntityData.Children.Append(types.GetSegmentPath(threshold.ThresholdArray[i]), types.YChild{"ThresholdArray", threshold.ThresholdArray[i]})
     }
     threshold.EntityData.Leafs = types.NewOrderedMap()
@@ -54116,6 +54623,7 @@ func (threshold *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attribu
 type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attributes_EnvSensorInfoXml_Threshold_ThresholdArray struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Indicates minor, major, critical severities. The type is ThresholdSeverity.
     ThresholdSeverity interface{}
@@ -54137,7 +54645,8 @@ func (thresholdArray *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_At
     thresholdArray.EntityData.YangName = "threshold-array"
     thresholdArray.EntityData.BundleName = "cisco_ios_xr"
     thresholdArray.EntityData.ParentYangName = "threshold"
-    thresholdArray.EntityData.SegmentPath = "threshold-array"
+    thresholdArray.EntityData.SegmentPath = "threshold-array" + types.AddNoKeyToken(thresholdArray)
+    thresholdArray.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/attributes/env-sensor-info-xml/threshold/" + thresholdArray.EntityData.SegmentPath
     thresholdArray.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     thresholdArray.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     thresholdArray.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -54190,6 +54699,7 @@ func (invAssetBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attri
     invAssetBag.EntityData.BundleName = "cisco_ios_xr"
     invAssetBag.EntityData.ParentYangName = "attributes"
     invAssetBag.EntityData.SegmentPath = "inv-asset-bag"
+    invAssetBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/attributes/" + invAssetBag.EntityData.SegmentPath
     invAssetBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invAssetBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invAssetBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -54240,6 +54750,7 @@ func (threshold *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attribu
     threshold.EntityData.BundleName = "cisco_ios_xr"
     threshold.EntityData.ParentYangName = "attributes"
     threshold.EntityData.SegmentPath = "threshold"
+    threshold.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/attributes/" + threshold.EntityData.SegmentPath
     threshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -54274,6 +54785,7 @@ func (majorLo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attribute
     majorLo.EntityData.BundleName = "cisco_ios_xr"
     majorLo.EntityData.ParentYangName = "threshold"
     majorLo.EntityData.SegmentPath = "major-lo"
+    majorLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/attributes/threshold/" + majorLo.EntityData.SegmentPath
     majorLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     majorLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     majorLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -54320,6 +54832,7 @@ func (threshBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attribu
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "major-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/attributes/threshold/major-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -54353,6 +54866,7 @@ func (criticalHi *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attrib
     criticalHi.EntityData.BundleName = "cisco_ios_xr"
     criticalHi.EntityData.ParentYangName = "threshold"
     criticalHi.EntityData.SegmentPath = "critical-hi"
+    criticalHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/attributes/threshold/" + criticalHi.EntityData.SegmentPath
     criticalHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     criticalHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     criticalHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -54399,6 +54913,7 @@ func (threshBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attribu
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "critical-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/attributes/threshold/critical-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -54432,6 +54947,7 @@ func (minorHi *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attribute
     minorHi.EntityData.BundleName = "cisco_ios_xr"
     minorHi.EntityData.ParentYangName = "threshold"
     minorHi.EntityData.SegmentPath = "minor-hi"
+    minorHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/attributes/threshold/" + minorHi.EntityData.SegmentPath
     minorHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     minorHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     minorHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -54478,6 +54994,7 @@ func (threshBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attribu
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "minor-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/attributes/threshold/minor-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -54511,6 +55028,7 @@ func (majorHi *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attribute
     majorHi.EntityData.BundleName = "cisco_ios_xr"
     majorHi.EntityData.ParentYangName = "threshold"
     majorHi.EntityData.SegmentPath = "major-hi"
+    majorHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/attributes/threshold/" + majorHi.EntityData.SegmentPath
     majorHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     majorHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     majorHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -54557,6 +55075,7 @@ func (threshBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attribu
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "major-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/attributes/threshold/major-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -54590,6 +55109,7 @@ func (criticalLo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attrib
     criticalLo.EntityData.BundleName = "cisco_ios_xr"
     criticalLo.EntityData.ParentYangName = "threshold"
     criticalLo.EntityData.SegmentPath = "critical-lo"
+    criticalLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/attributes/threshold/" + criticalLo.EntityData.SegmentPath
     criticalLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     criticalLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     criticalLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -54636,6 +55156,7 @@ func (threshBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attribu
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "critical-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/attributes/threshold/critical-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -54669,6 +55190,7 @@ func (minorLo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attribute
     minorLo.EntityData.BundleName = "cisco_ios_xr"
     minorLo.EntityData.ParentYangName = "threshold"
     minorLo.EntityData.SegmentPath = "minor-lo"
+    minorLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/attributes/threshold/" + minorLo.EntityData.SegmentPath
     minorLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     minorLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     minorLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -54715,6 +55237,7 @@ func (threshBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attribu
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "minor-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/attributes/threshold/minor-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -54778,6 +55301,7 @@ func (fruInfo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attribute
     fruInfo.EntityData.BundleName = "cisco_ios_xr"
     fruInfo.EntityData.ParentYangName = "attributes"
     fruInfo.EntityData.SegmentPath = "fru-info"
+    fruInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/attributes/" + fruInfo.EntityData.SegmentPath
     fruInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fruInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fruInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -54820,6 +55344,7 @@ func (lastOperationalStateChange *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_T
     lastOperationalStateChange.EntityData.BundleName = "cisco_ios_xr"
     lastOperationalStateChange.EntityData.ParentYangName = "fru-info"
     lastOperationalStateChange.EntityData.SegmentPath = "last-operational-state-change"
+    lastOperationalStateChange.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/attributes/fru-info/" + lastOperationalStateChange.EntityData.SegmentPath
     lastOperationalStateChange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastOperationalStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastOperationalStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -54855,6 +55380,7 @@ func (cardUpTime *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attrib
     cardUpTime.EntityData.BundleName = "cisco_ios_xr"
     cardUpTime.EntityData.ParentYangName = "fru-info"
     cardUpTime.EntityData.SegmentPath = "card-up-time"
+    cardUpTime.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/attributes/fru-info/" + cardUpTime.EntityData.SegmentPath
     cardUpTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cardUpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cardUpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -54904,6 +55430,7 @@ func (invEepromInfo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Att
     invEepromInfo.EntityData.BundleName = "cisco_ios_xr"
     invEepromInfo.EntityData.ParentYangName = "attributes"
     invEepromInfo.EntityData.SegmentPath = "inv-eeprom-info"
+    invEepromInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/attributes/" + invEepromInfo.EntityData.SegmentPath
     invEepromInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invEepromInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invEepromInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -55109,6 +55636,7 @@ func (eeprom *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attributes
     eeprom.EntityData.BundleName = "cisco_ios_xr"
     eeprom.EntityData.ParentYangName = "inv-eeprom-info"
     eeprom.EntityData.SegmentPath = "eeprom"
+    eeprom.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/attributes/inv-eeprom-info/" + eeprom.EntityData.SegmentPath
     eeprom.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eeprom.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eeprom.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -55201,6 +55729,7 @@ func (rma *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attributes_In
     rma.EntityData.BundleName = "cisco_ios_xr"
     rma.EntityData.ParentYangName = "eeprom"
     rma.EntityData.SegmentPath = "rma"
+    rma.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/tsi2s/tsi2/attributes/inv-eeprom-info/eeprom/" + rma.EntityData.SegmentPath
     rma.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rma.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rma.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -55221,19 +55750,6 @@ func (rma *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attributes_In
 type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Attributes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
-
-    // Inventory EDM Module Done Tuple. The type is interface{} with range:
-    // 0..4294967295. The default value is 1.
-    ModuleDone interface{}
-
-    // VM Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    VmNodeId interface{}
-
-    // VM Done Tuple. The type is interface{} with range: 0..4294967295.
-    VmDone interface{}
-
-    // Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    NodeId interface{}
 
     // Inventory Basic Bag.
     InvBasicBag Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Attributes_InvBasicBag
@@ -55266,6 +55782,7 @@ func (attributes *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Attributes) GetEn
     attributes.EntityData.BundleName = "cisco_ios_xr"
     attributes.EntityData.ParentYangName = "tsi1"
     attributes.EntityData.SegmentPath = "attributes"
+    attributes.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/" + attributes.EntityData.SegmentPath
     attributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     attributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -55280,10 +55797,6 @@ func (attributes *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Attributes) GetEn
     attributes.EntityData.Children.Append("fru-info", types.YChild{"FruInfo", &attributes.FruInfo})
     attributes.EntityData.Children.Append("inv-eeprom-info", types.YChild{"InvEepromInfo", &attributes.InvEepromInfo})
     attributes.EntityData.Leafs = types.NewOrderedMap()
-    attributes.EntityData.Leafs.Append("module-done", types.YLeaf{"ModuleDone", attributes.ModuleDone})
-    attributes.EntityData.Leafs.Append("vm-node-id", types.YLeaf{"VmNodeId", attributes.VmNodeId})
-    attributes.EntityData.Leafs.Append("vm-done", types.YLeaf{"VmDone", attributes.VmDone})
-    attributes.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", attributes.NodeId})
 
     attributes.EntityData.YListKeys = []string {}
 
@@ -55371,8 +55884,8 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Attributes_InvBasicBag struct 
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -55392,6 +55905,7 @@ func (invBasicBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Attributes_InvBa
     invBasicBag.EntityData.BundleName = "cisco_ios_xr"
     invBasicBag.EntityData.ParentYangName = "attributes"
     invBasicBag.EntityData.SegmentPath = "inv-basic-bag"
+    invBasicBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/attributes/" + invBasicBag.EntityData.SegmentPath
     invBasicBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invBasicBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invBasicBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -55485,6 +55999,7 @@ func (envSensorInfo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Attributes_Env
     envSensorInfo.EntityData.BundleName = "cisco_ios_xr"
     envSensorInfo.EntityData.ParentYangName = "attributes"
     envSensorInfo.EntityData.SegmentPath = "env-sensor-info"
+    envSensorInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/attributes/" + envSensorInfo.EntityData.SegmentPath
     envSensorInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     envSensorInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     envSensorInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -55536,6 +56051,7 @@ func (pwgInfo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Attributes_PwgInfo) 
     pwgInfo.EntityData.BundleName = "cisco_ios_xr"
     pwgInfo.EntityData.ParentYangName = "attributes"
     pwgInfo.EntityData.SegmentPath = "pwg-info"
+    pwgInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/attributes/" + pwgInfo.EntityData.SegmentPath
     pwgInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pwgInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pwgInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -55588,6 +56104,7 @@ func (envSensorInfoXml *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Attributes_
     envSensorInfoXml.EntityData.BundleName = "cisco_ios_xr"
     envSensorInfoXml.EntityData.ParentYangName = "attributes"
     envSensorInfoXml.EntityData.SegmentPath = "env-sensor-info-xml"
+    envSensorInfoXml.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/attributes/" + envSensorInfoXml.EntityData.SegmentPath
     envSensorInfoXml.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     envSensorInfoXml.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     envSensorInfoXml.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -55624,6 +56141,7 @@ func (threshold *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Attributes_EnvSens
     threshold.EntityData.BundleName = "cisco_ios_xr"
     threshold.EntityData.ParentYangName = "env-sensor-info-xml"
     threshold.EntityData.SegmentPath = "threshold"
+    threshold.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/attributes/env-sensor-info-xml/" + threshold.EntityData.SegmentPath
     threshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -55631,6 +56149,7 @@ func (threshold *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Attributes_EnvSens
     threshold.EntityData.Children = types.NewOrderedMap()
     threshold.EntityData.Children.Append("threshold-array", types.YChild{"ThresholdArray", nil})
     for i := range threshold.ThresholdArray {
+        types.SetYListKey(threshold.ThresholdArray[i], i)
         threshold.EntityData.Children.Append(types.GetSegmentPath(threshold.ThresholdArray[i]), types.YChild{"ThresholdArray", threshold.ThresholdArray[i]})
     }
     threshold.EntityData.Leafs = types.NewOrderedMap()
@@ -55645,6 +56164,7 @@ func (threshold *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Attributes_EnvSens
 type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Attributes_EnvSensorInfoXml_Threshold_ThresholdArray struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Indicates minor, major, critical severities. The type is ThresholdSeverity.
     ThresholdSeverity interface{}
@@ -55666,7 +56186,8 @@ func (thresholdArray *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Attributes_En
     thresholdArray.EntityData.YangName = "threshold-array"
     thresholdArray.EntityData.BundleName = "cisco_ios_xr"
     thresholdArray.EntityData.ParentYangName = "threshold"
-    thresholdArray.EntityData.SegmentPath = "threshold-array"
+    thresholdArray.EntityData.SegmentPath = "threshold-array" + types.AddNoKeyToken(thresholdArray)
+    thresholdArray.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/attributes/env-sensor-info-xml/threshold/" + thresholdArray.EntityData.SegmentPath
     thresholdArray.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     thresholdArray.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     thresholdArray.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -55719,6 +56240,7 @@ func (invAssetBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Attributes_InvAs
     invAssetBag.EntityData.BundleName = "cisco_ios_xr"
     invAssetBag.EntityData.ParentYangName = "attributes"
     invAssetBag.EntityData.SegmentPath = "inv-asset-bag"
+    invAssetBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/attributes/" + invAssetBag.EntityData.SegmentPath
     invAssetBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invAssetBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invAssetBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -55769,6 +56291,7 @@ func (threshold *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Attributes_Thresho
     threshold.EntityData.BundleName = "cisco_ios_xr"
     threshold.EntityData.ParentYangName = "attributes"
     threshold.EntityData.SegmentPath = "threshold"
+    threshold.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/attributes/" + threshold.EntityData.SegmentPath
     threshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -55803,6 +56326,7 @@ func (majorLo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Attributes_Threshold
     majorLo.EntityData.BundleName = "cisco_ios_xr"
     majorLo.EntityData.ParentYangName = "threshold"
     majorLo.EntityData.SegmentPath = "major-lo"
+    majorLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/attributes/threshold/" + majorLo.EntityData.SegmentPath
     majorLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     majorLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     majorLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -55849,6 +56373,7 @@ func (threshBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Attributes_Thresho
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "major-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/attributes/threshold/major-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -55882,6 +56407,7 @@ func (criticalHi *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Attributes_Thresh
     criticalHi.EntityData.BundleName = "cisco_ios_xr"
     criticalHi.EntityData.ParentYangName = "threshold"
     criticalHi.EntityData.SegmentPath = "critical-hi"
+    criticalHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/attributes/threshold/" + criticalHi.EntityData.SegmentPath
     criticalHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     criticalHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     criticalHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -55928,6 +56454,7 @@ func (threshBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Attributes_Thresho
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "critical-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/attributes/threshold/critical-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -55961,6 +56488,7 @@ func (minorHi *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Attributes_Threshold
     minorHi.EntityData.BundleName = "cisco_ios_xr"
     minorHi.EntityData.ParentYangName = "threshold"
     minorHi.EntityData.SegmentPath = "minor-hi"
+    minorHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/attributes/threshold/" + minorHi.EntityData.SegmentPath
     minorHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     minorHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     minorHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -56007,6 +56535,7 @@ func (threshBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Attributes_Thresho
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "minor-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/attributes/threshold/minor-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -56040,6 +56569,7 @@ func (majorHi *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Attributes_Threshold
     majorHi.EntityData.BundleName = "cisco_ios_xr"
     majorHi.EntityData.ParentYangName = "threshold"
     majorHi.EntityData.SegmentPath = "major-hi"
+    majorHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/attributes/threshold/" + majorHi.EntityData.SegmentPath
     majorHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     majorHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     majorHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -56086,6 +56616,7 @@ func (threshBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Attributes_Thresho
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "major-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/attributes/threshold/major-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -56119,6 +56650,7 @@ func (criticalLo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Attributes_Thresh
     criticalLo.EntityData.BundleName = "cisco_ios_xr"
     criticalLo.EntityData.ParentYangName = "threshold"
     criticalLo.EntityData.SegmentPath = "critical-lo"
+    criticalLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/attributes/threshold/" + criticalLo.EntityData.SegmentPath
     criticalLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     criticalLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     criticalLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -56165,6 +56697,7 @@ func (threshBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Attributes_Thresho
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "critical-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/attributes/threshold/critical-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -56198,6 +56731,7 @@ func (minorLo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Attributes_Threshold
     minorLo.EntityData.BundleName = "cisco_ios_xr"
     minorLo.EntityData.ParentYangName = "threshold"
     minorLo.EntityData.SegmentPath = "minor-lo"
+    minorLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/attributes/threshold/" + minorLo.EntityData.SegmentPath
     minorLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     minorLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     minorLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -56244,6 +56778,7 @@ func (threshBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Attributes_Thresho
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "minor-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/attributes/threshold/minor-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -56307,6 +56842,7 @@ func (fruInfo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Attributes_FruInfo) 
     fruInfo.EntityData.BundleName = "cisco_ios_xr"
     fruInfo.EntityData.ParentYangName = "attributes"
     fruInfo.EntityData.SegmentPath = "fru-info"
+    fruInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/attributes/" + fruInfo.EntityData.SegmentPath
     fruInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fruInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fruInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -56349,6 +56885,7 @@ func (lastOperationalStateChange *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_A
     lastOperationalStateChange.EntityData.BundleName = "cisco_ios_xr"
     lastOperationalStateChange.EntityData.ParentYangName = "fru-info"
     lastOperationalStateChange.EntityData.SegmentPath = "last-operational-state-change"
+    lastOperationalStateChange.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/attributes/fru-info/" + lastOperationalStateChange.EntityData.SegmentPath
     lastOperationalStateChange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastOperationalStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastOperationalStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -56384,6 +56921,7 @@ func (cardUpTime *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Attributes_FruInf
     cardUpTime.EntityData.BundleName = "cisco_ios_xr"
     cardUpTime.EntityData.ParentYangName = "fru-info"
     cardUpTime.EntityData.SegmentPath = "card-up-time"
+    cardUpTime.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/attributes/fru-info/" + cardUpTime.EntityData.SegmentPath
     cardUpTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cardUpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cardUpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -56433,6 +56971,7 @@ func (invEepromInfo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Attributes_Inv
     invEepromInfo.EntityData.BundleName = "cisco_ios_xr"
     invEepromInfo.EntityData.ParentYangName = "attributes"
     invEepromInfo.EntityData.SegmentPath = "inv-eeprom-info"
+    invEepromInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/attributes/" + invEepromInfo.EntityData.SegmentPath
     invEepromInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invEepromInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invEepromInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -56638,6 +57177,7 @@ func (eeprom *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Attributes_InvEepromI
     eeprom.EntityData.BundleName = "cisco_ios_xr"
     eeprom.EntityData.ParentYangName = "inv-eeprom-info"
     eeprom.EntityData.SegmentPath = "eeprom"
+    eeprom.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/attributes/inv-eeprom-info/" + eeprom.EntityData.SegmentPath
     eeprom.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eeprom.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eeprom.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -56730,6 +57270,7 @@ func (rma *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Attributes_InvEepromInfo
     rma.EntityData.BundleName = "cisco_ios_xr"
     rma.EntityData.ParentYangName = "eeprom"
     rma.EntityData.SegmentPath = "rma"
+    rma.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/tsi1s/tsi1/attributes/inv-eeprom-info/eeprom/" + rma.EntityData.SegmentPath
     rma.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rma.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rma.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -56750,19 +57291,6 @@ func (rma *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Attributes_InvEepromInfo
 type Inventory_Racks_Rack_Fantray_Slot_Attributes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
-
-    // Inventory EDM Module Done Tuple. The type is interface{} with range:
-    // 0..4294967295. The default value is 1.
-    ModuleDone interface{}
-
-    // VM Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    VmNodeId interface{}
-
-    // VM Done Tuple. The type is interface{} with range: 0..4294967295.
-    VmDone interface{}
-
-    // Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    NodeId interface{}
 
     // Inventory Basic Bag.
     InvBasicBag Inventory_Racks_Rack_Fantray_Slot_Attributes_InvBasicBag
@@ -56795,6 +57323,7 @@ func (attributes *Inventory_Racks_Rack_Fantray_Slot_Attributes) GetEntityData() 
     attributes.EntityData.BundleName = "cisco_ios_xr"
     attributes.EntityData.ParentYangName = "slot"
     attributes.EntityData.SegmentPath = "attributes"
+    attributes.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/" + attributes.EntityData.SegmentPath
     attributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     attributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -56809,10 +57338,6 @@ func (attributes *Inventory_Racks_Rack_Fantray_Slot_Attributes) GetEntityData() 
     attributes.EntityData.Children.Append("fru-info", types.YChild{"FruInfo", &attributes.FruInfo})
     attributes.EntityData.Children.Append("inv-eeprom-info", types.YChild{"InvEepromInfo", &attributes.InvEepromInfo})
     attributes.EntityData.Leafs = types.NewOrderedMap()
-    attributes.EntityData.Leafs.Append("module-done", types.YLeaf{"ModuleDone", attributes.ModuleDone})
-    attributes.EntityData.Leafs.Append("vm-node-id", types.YLeaf{"VmNodeId", attributes.VmNodeId})
-    attributes.EntityData.Leafs.Append("vm-done", types.YLeaf{"VmDone", attributes.VmDone})
-    attributes.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", attributes.NodeId})
 
     attributes.EntityData.YListKeys = []string {}
 
@@ -56900,8 +57425,8 @@ type Inventory_Racks_Rack_Fantray_Slot_Attributes_InvBasicBag struct {
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -56921,6 +57446,7 @@ func (invBasicBag *Inventory_Racks_Rack_Fantray_Slot_Attributes_InvBasicBag) Get
     invBasicBag.EntityData.BundleName = "cisco_ios_xr"
     invBasicBag.EntityData.ParentYangName = "attributes"
     invBasicBag.EntityData.SegmentPath = "inv-basic-bag"
+    invBasicBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/attributes/" + invBasicBag.EntityData.SegmentPath
     invBasicBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invBasicBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invBasicBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -57014,6 +57540,7 @@ func (envSensorInfo *Inventory_Racks_Rack_Fantray_Slot_Attributes_EnvSensorInfo)
     envSensorInfo.EntityData.BundleName = "cisco_ios_xr"
     envSensorInfo.EntityData.ParentYangName = "attributes"
     envSensorInfo.EntityData.SegmentPath = "env-sensor-info"
+    envSensorInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/attributes/" + envSensorInfo.EntityData.SegmentPath
     envSensorInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     envSensorInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     envSensorInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -57065,6 +57592,7 @@ func (pwgInfo *Inventory_Racks_Rack_Fantray_Slot_Attributes_PwgInfo) GetEntityDa
     pwgInfo.EntityData.BundleName = "cisco_ios_xr"
     pwgInfo.EntityData.ParentYangName = "attributes"
     pwgInfo.EntityData.SegmentPath = "pwg-info"
+    pwgInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/attributes/" + pwgInfo.EntityData.SegmentPath
     pwgInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pwgInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pwgInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -57117,6 +57645,7 @@ func (envSensorInfoXml *Inventory_Racks_Rack_Fantray_Slot_Attributes_EnvSensorIn
     envSensorInfoXml.EntityData.BundleName = "cisco_ios_xr"
     envSensorInfoXml.EntityData.ParentYangName = "attributes"
     envSensorInfoXml.EntityData.SegmentPath = "env-sensor-info-xml"
+    envSensorInfoXml.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/attributes/" + envSensorInfoXml.EntityData.SegmentPath
     envSensorInfoXml.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     envSensorInfoXml.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     envSensorInfoXml.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -57153,6 +57682,7 @@ func (threshold *Inventory_Racks_Rack_Fantray_Slot_Attributes_EnvSensorInfoXml_T
     threshold.EntityData.BundleName = "cisco_ios_xr"
     threshold.EntityData.ParentYangName = "env-sensor-info-xml"
     threshold.EntityData.SegmentPath = "threshold"
+    threshold.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/attributes/env-sensor-info-xml/" + threshold.EntityData.SegmentPath
     threshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -57160,6 +57690,7 @@ func (threshold *Inventory_Racks_Rack_Fantray_Slot_Attributes_EnvSensorInfoXml_T
     threshold.EntityData.Children = types.NewOrderedMap()
     threshold.EntityData.Children.Append("threshold-array", types.YChild{"ThresholdArray", nil})
     for i := range threshold.ThresholdArray {
+        types.SetYListKey(threshold.ThresholdArray[i], i)
         threshold.EntityData.Children.Append(types.GetSegmentPath(threshold.ThresholdArray[i]), types.YChild{"ThresholdArray", threshold.ThresholdArray[i]})
     }
     threshold.EntityData.Leafs = types.NewOrderedMap()
@@ -57174,6 +57705,7 @@ func (threshold *Inventory_Racks_Rack_Fantray_Slot_Attributes_EnvSensorInfoXml_T
 type Inventory_Racks_Rack_Fantray_Slot_Attributes_EnvSensorInfoXml_Threshold_ThresholdArray struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Indicates minor, major, critical severities. The type is ThresholdSeverity.
     ThresholdSeverity interface{}
@@ -57195,7 +57727,8 @@ func (thresholdArray *Inventory_Racks_Rack_Fantray_Slot_Attributes_EnvSensorInfo
     thresholdArray.EntityData.YangName = "threshold-array"
     thresholdArray.EntityData.BundleName = "cisco_ios_xr"
     thresholdArray.EntityData.ParentYangName = "threshold"
-    thresholdArray.EntityData.SegmentPath = "threshold-array"
+    thresholdArray.EntityData.SegmentPath = "threshold-array" + types.AddNoKeyToken(thresholdArray)
+    thresholdArray.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/attributes/env-sensor-info-xml/threshold/" + thresholdArray.EntityData.SegmentPath
     thresholdArray.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     thresholdArray.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     thresholdArray.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -57248,6 +57781,7 @@ func (invAssetBag *Inventory_Racks_Rack_Fantray_Slot_Attributes_InvAssetBag) Get
     invAssetBag.EntityData.BundleName = "cisco_ios_xr"
     invAssetBag.EntityData.ParentYangName = "attributes"
     invAssetBag.EntityData.SegmentPath = "inv-asset-bag"
+    invAssetBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/attributes/" + invAssetBag.EntityData.SegmentPath
     invAssetBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invAssetBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invAssetBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -57298,6 +57832,7 @@ func (threshold *Inventory_Racks_Rack_Fantray_Slot_Attributes_Threshold) GetEnti
     threshold.EntityData.BundleName = "cisco_ios_xr"
     threshold.EntityData.ParentYangName = "attributes"
     threshold.EntityData.SegmentPath = "threshold"
+    threshold.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/attributes/" + threshold.EntityData.SegmentPath
     threshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -57332,6 +57867,7 @@ func (majorLo *Inventory_Racks_Rack_Fantray_Slot_Attributes_Threshold_MajorLo) G
     majorLo.EntityData.BundleName = "cisco_ios_xr"
     majorLo.EntityData.ParentYangName = "threshold"
     majorLo.EntityData.SegmentPath = "major-lo"
+    majorLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/attributes/threshold/" + majorLo.EntityData.SegmentPath
     majorLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     majorLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     majorLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -57378,6 +57914,7 @@ func (threshBag *Inventory_Racks_Rack_Fantray_Slot_Attributes_Threshold_MajorLo_
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "major-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/attributes/threshold/major-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -57411,6 +57948,7 @@ func (criticalHi *Inventory_Racks_Rack_Fantray_Slot_Attributes_Threshold_Critica
     criticalHi.EntityData.BundleName = "cisco_ios_xr"
     criticalHi.EntityData.ParentYangName = "threshold"
     criticalHi.EntityData.SegmentPath = "critical-hi"
+    criticalHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/attributes/threshold/" + criticalHi.EntityData.SegmentPath
     criticalHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     criticalHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     criticalHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -57457,6 +57995,7 @@ func (threshBag *Inventory_Racks_Rack_Fantray_Slot_Attributes_Threshold_Critical
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "critical-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/attributes/threshold/critical-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -57490,6 +58029,7 @@ func (minorHi *Inventory_Racks_Rack_Fantray_Slot_Attributes_Threshold_MinorHi) G
     minorHi.EntityData.BundleName = "cisco_ios_xr"
     minorHi.EntityData.ParentYangName = "threshold"
     minorHi.EntityData.SegmentPath = "minor-hi"
+    minorHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/attributes/threshold/" + minorHi.EntityData.SegmentPath
     minorHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     minorHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     minorHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -57536,6 +58076,7 @@ func (threshBag *Inventory_Racks_Rack_Fantray_Slot_Attributes_Threshold_MinorHi_
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "minor-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/attributes/threshold/minor-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -57569,6 +58110,7 @@ func (majorHi *Inventory_Racks_Rack_Fantray_Slot_Attributes_Threshold_MajorHi) G
     majorHi.EntityData.BundleName = "cisco_ios_xr"
     majorHi.EntityData.ParentYangName = "threshold"
     majorHi.EntityData.SegmentPath = "major-hi"
+    majorHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/attributes/threshold/" + majorHi.EntityData.SegmentPath
     majorHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     majorHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     majorHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -57615,6 +58157,7 @@ func (threshBag *Inventory_Racks_Rack_Fantray_Slot_Attributes_Threshold_MajorHi_
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "major-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/attributes/threshold/major-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -57648,6 +58191,7 @@ func (criticalLo *Inventory_Racks_Rack_Fantray_Slot_Attributes_Threshold_Critica
     criticalLo.EntityData.BundleName = "cisco_ios_xr"
     criticalLo.EntityData.ParentYangName = "threshold"
     criticalLo.EntityData.SegmentPath = "critical-lo"
+    criticalLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/attributes/threshold/" + criticalLo.EntityData.SegmentPath
     criticalLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     criticalLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     criticalLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -57694,6 +58238,7 @@ func (threshBag *Inventory_Racks_Rack_Fantray_Slot_Attributes_Threshold_Critical
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "critical-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/attributes/threshold/critical-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -57727,6 +58272,7 @@ func (minorLo *Inventory_Racks_Rack_Fantray_Slot_Attributes_Threshold_MinorLo) G
     minorLo.EntityData.BundleName = "cisco_ios_xr"
     minorLo.EntityData.ParentYangName = "threshold"
     minorLo.EntityData.SegmentPath = "minor-lo"
+    minorLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/attributes/threshold/" + minorLo.EntityData.SegmentPath
     minorLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     minorLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     minorLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -57773,6 +58319,7 @@ func (threshBag *Inventory_Racks_Rack_Fantray_Slot_Attributes_Threshold_MinorLo_
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "minor-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/attributes/threshold/minor-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -57836,6 +58383,7 @@ func (fruInfo *Inventory_Racks_Rack_Fantray_Slot_Attributes_FruInfo) GetEntityDa
     fruInfo.EntityData.BundleName = "cisco_ios_xr"
     fruInfo.EntityData.ParentYangName = "attributes"
     fruInfo.EntityData.SegmentPath = "fru-info"
+    fruInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/attributes/" + fruInfo.EntityData.SegmentPath
     fruInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fruInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fruInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -57878,6 +58426,7 @@ func (lastOperationalStateChange *Inventory_Racks_Rack_Fantray_Slot_Attributes_F
     lastOperationalStateChange.EntityData.BundleName = "cisco_ios_xr"
     lastOperationalStateChange.EntityData.ParentYangName = "fru-info"
     lastOperationalStateChange.EntityData.SegmentPath = "last-operational-state-change"
+    lastOperationalStateChange.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/attributes/fru-info/" + lastOperationalStateChange.EntityData.SegmentPath
     lastOperationalStateChange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastOperationalStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastOperationalStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -57913,6 +58462,7 @@ func (cardUpTime *Inventory_Racks_Rack_Fantray_Slot_Attributes_FruInfo_CardUpTim
     cardUpTime.EntityData.BundleName = "cisco_ios_xr"
     cardUpTime.EntityData.ParentYangName = "fru-info"
     cardUpTime.EntityData.SegmentPath = "card-up-time"
+    cardUpTime.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/attributes/fru-info/" + cardUpTime.EntityData.SegmentPath
     cardUpTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cardUpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cardUpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -57962,6 +58512,7 @@ func (invEepromInfo *Inventory_Racks_Rack_Fantray_Slot_Attributes_InvEepromInfo)
     invEepromInfo.EntityData.BundleName = "cisco_ios_xr"
     invEepromInfo.EntityData.ParentYangName = "attributes"
     invEepromInfo.EntityData.SegmentPath = "inv-eeprom-info"
+    invEepromInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/attributes/" + invEepromInfo.EntityData.SegmentPath
     invEepromInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invEepromInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invEepromInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -58167,6 +58718,7 @@ func (eeprom *Inventory_Racks_Rack_Fantray_Slot_Attributes_InvEepromInfo_Eeprom)
     eeprom.EntityData.BundleName = "cisco_ios_xr"
     eeprom.EntityData.ParentYangName = "inv-eeprom-info"
     eeprom.EntityData.SegmentPath = "eeprom"
+    eeprom.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/attributes/inv-eeprom-info/" + eeprom.EntityData.SegmentPath
     eeprom.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eeprom.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eeprom.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -58259,6 +58811,7 @@ func (rma *Inventory_Racks_Rack_Fantray_Slot_Attributes_InvEepromInfo_Eeprom_Rma
     rma.EntityData.BundleName = "cisco_ios_xr"
     rma.EntityData.ParentYangName = "eeprom"
     rma.EntityData.SegmentPath = "rma"
+    rma.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/fantray/slot/attributes/inv-eeprom-info/eeprom/" + rma.EntityData.SegmentPath
     rma.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rma.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rma.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -58279,19 +58832,6 @@ func (rma *Inventory_Racks_Rack_Fantray_Slot_Attributes_InvEepromInfo_Eeprom_Rma
 type Inventory_Racks_Rack_Attributes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
-
-    // Inventory EDM Module Done Tuple. The type is interface{} with range:
-    // 0..4294967295. The default value is 1.
-    ModuleDone interface{}
-
-    // VM Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    VmNodeId interface{}
-
-    // VM Done Tuple. The type is interface{} with range: 0..4294967295.
-    VmDone interface{}
-
-    // Node ID Tuple. The type is interface{} with range: 0..4294967295.
-    NodeId interface{}
 
     // Inventory Basic Bag.
     InvBasicBag Inventory_Racks_Rack_Attributes_InvBasicBag
@@ -58324,6 +58864,7 @@ func (attributes *Inventory_Racks_Rack_Attributes) GetEntityData() *types.Common
     attributes.EntityData.BundleName = "cisco_ios_xr"
     attributes.EntityData.ParentYangName = "rack"
     attributes.EntityData.SegmentPath = "attributes"
+    attributes.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/" + attributes.EntityData.SegmentPath
     attributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     attributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -58338,10 +58879,6 @@ func (attributes *Inventory_Racks_Rack_Attributes) GetEntityData() *types.Common
     attributes.EntityData.Children.Append("fru-info", types.YChild{"FruInfo", &attributes.FruInfo})
     attributes.EntityData.Children.Append("inv-eeprom-info", types.YChild{"InvEepromInfo", &attributes.InvEepromInfo})
     attributes.EntityData.Leafs = types.NewOrderedMap()
-    attributes.EntityData.Leafs.Append("module-done", types.YLeaf{"ModuleDone", attributes.ModuleDone})
-    attributes.EntityData.Leafs.Append("vm-node-id", types.YLeaf{"VmNodeId", attributes.VmNodeId})
-    attributes.EntityData.Leafs.Append("vm-done", types.YLeaf{"VmDone", attributes.VmDone})
-    attributes.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", attributes.NodeId})
 
     attributes.EntityData.YListKeys = []string {}
 
@@ -58429,8 +58966,8 @@ type Inventory_Racks_Rack_Attributes_InvBasicBag struct {
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -58450,6 +58987,7 @@ func (invBasicBag *Inventory_Racks_Rack_Attributes_InvBasicBag) GetEntityData() 
     invBasicBag.EntityData.BundleName = "cisco_ios_xr"
     invBasicBag.EntityData.ParentYangName = "attributes"
     invBasicBag.EntityData.SegmentPath = "inv-basic-bag"
+    invBasicBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/attributes/" + invBasicBag.EntityData.SegmentPath
     invBasicBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invBasicBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invBasicBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -58543,6 +59081,7 @@ func (envSensorInfo *Inventory_Racks_Rack_Attributes_EnvSensorInfo) GetEntityDat
     envSensorInfo.EntityData.BundleName = "cisco_ios_xr"
     envSensorInfo.EntityData.ParentYangName = "attributes"
     envSensorInfo.EntityData.SegmentPath = "env-sensor-info"
+    envSensorInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/attributes/" + envSensorInfo.EntityData.SegmentPath
     envSensorInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     envSensorInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     envSensorInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -58594,6 +59133,7 @@ func (pwgInfo *Inventory_Racks_Rack_Attributes_PwgInfo) GetEntityData() *types.C
     pwgInfo.EntityData.BundleName = "cisco_ios_xr"
     pwgInfo.EntityData.ParentYangName = "attributes"
     pwgInfo.EntityData.SegmentPath = "pwg-info"
+    pwgInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/attributes/" + pwgInfo.EntityData.SegmentPath
     pwgInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pwgInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pwgInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -58646,6 +59186,7 @@ func (envSensorInfoXml *Inventory_Racks_Rack_Attributes_EnvSensorInfoXml) GetEnt
     envSensorInfoXml.EntityData.BundleName = "cisco_ios_xr"
     envSensorInfoXml.EntityData.ParentYangName = "attributes"
     envSensorInfoXml.EntityData.SegmentPath = "env-sensor-info-xml"
+    envSensorInfoXml.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/attributes/" + envSensorInfoXml.EntityData.SegmentPath
     envSensorInfoXml.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     envSensorInfoXml.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     envSensorInfoXml.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -58682,6 +59223,7 @@ func (threshold *Inventory_Racks_Rack_Attributes_EnvSensorInfoXml_Threshold) Get
     threshold.EntityData.BundleName = "cisco_ios_xr"
     threshold.EntityData.ParentYangName = "env-sensor-info-xml"
     threshold.EntityData.SegmentPath = "threshold"
+    threshold.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/attributes/env-sensor-info-xml/" + threshold.EntityData.SegmentPath
     threshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -58689,6 +59231,7 @@ func (threshold *Inventory_Racks_Rack_Attributes_EnvSensorInfoXml_Threshold) Get
     threshold.EntityData.Children = types.NewOrderedMap()
     threshold.EntityData.Children.Append("threshold-array", types.YChild{"ThresholdArray", nil})
     for i := range threshold.ThresholdArray {
+        types.SetYListKey(threshold.ThresholdArray[i], i)
         threshold.EntityData.Children.Append(types.GetSegmentPath(threshold.ThresholdArray[i]), types.YChild{"ThresholdArray", threshold.ThresholdArray[i]})
     }
     threshold.EntityData.Leafs = types.NewOrderedMap()
@@ -58703,6 +59246,7 @@ func (threshold *Inventory_Racks_Rack_Attributes_EnvSensorInfoXml_Threshold) Get
 type Inventory_Racks_Rack_Attributes_EnvSensorInfoXml_Threshold_ThresholdArray struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Indicates minor, major, critical severities. The type is ThresholdSeverity.
     ThresholdSeverity interface{}
@@ -58724,7 +59268,8 @@ func (thresholdArray *Inventory_Racks_Rack_Attributes_EnvSensorInfoXml_Threshold
     thresholdArray.EntityData.YangName = "threshold-array"
     thresholdArray.EntityData.BundleName = "cisco_ios_xr"
     thresholdArray.EntityData.ParentYangName = "threshold"
-    thresholdArray.EntityData.SegmentPath = "threshold-array"
+    thresholdArray.EntityData.SegmentPath = "threshold-array" + types.AddNoKeyToken(thresholdArray)
+    thresholdArray.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/attributes/env-sensor-info-xml/threshold/" + thresholdArray.EntityData.SegmentPath
     thresholdArray.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     thresholdArray.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     thresholdArray.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -58777,6 +59322,7 @@ func (invAssetBag *Inventory_Racks_Rack_Attributes_InvAssetBag) GetEntityData() 
     invAssetBag.EntityData.BundleName = "cisco_ios_xr"
     invAssetBag.EntityData.ParentYangName = "attributes"
     invAssetBag.EntityData.SegmentPath = "inv-asset-bag"
+    invAssetBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/attributes/" + invAssetBag.EntityData.SegmentPath
     invAssetBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invAssetBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invAssetBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -58827,6 +59373,7 @@ func (threshold *Inventory_Racks_Rack_Attributes_Threshold) GetEntityData() *typ
     threshold.EntityData.BundleName = "cisco_ios_xr"
     threshold.EntityData.ParentYangName = "attributes"
     threshold.EntityData.SegmentPath = "threshold"
+    threshold.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/attributes/" + threshold.EntityData.SegmentPath
     threshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -58861,6 +59408,7 @@ func (majorLo *Inventory_Racks_Rack_Attributes_Threshold_MajorLo) GetEntityData(
     majorLo.EntityData.BundleName = "cisco_ios_xr"
     majorLo.EntityData.ParentYangName = "threshold"
     majorLo.EntityData.SegmentPath = "major-lo"
+    majorLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/attributes/threshold/" + majorLo.EntityData.SegmentPath
     majorLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     majorLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     majorLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -58907,6 +59455,7 @@ func (threshBag *Inventory_Racks_Rack_Attributes_Threshold_MajorLo_ThreshBag) Ge
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "major-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/attributes/threshold/major-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -58940,6 +59489,7 @@ func (criticalHi *Inventory_Racks_Rack_Attributes_Threshold_CriticalHi) GetEntit
     criticalHi.EntityData.BundleName = "cisco_ios_xr"
     criticalHi.EntityData.ParentYangName = "threshold"
     criticalHi.EntityData.SegmentPath = "critical-hi"
+    criticalHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/attributes/threshold/" + criticalHi.EntityData.SegmentPath
     criticalHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     criticalHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     criticalHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -58986,6 +59536,7 @@ func (threshBag *Inventory_Racks_Rack_Attributes_Threshold_CriticalHi_ThreshBag)
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "critical-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/attributes/threshold/critical-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -59019,6 +59570,7 @@ func (minorHi *Inventory_Racks_Rack_Attributes_Threshold_MinorHi) GetEntityData(
     minorHi.EntityData.BundleName = "cisco_ios_xr"
     minorHi.EntityData.ParentYangName = "threshold"
     minorHi.EntityData.SegmentPath = "minor-hi"
+    minorHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/attributes/threshold/" + minorHi.EntityData.SegmentPath
     minorHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     minorHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     minorHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -59065,6 +59617,7 @@ func (threshBag *Inventory_Racks_Rack_Attributes_Threshold_MinorHi_ThreshBag) Ge
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "minor-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/attributes/threshold/minor-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -59098,6 +59651,7 @@ func (majorHi *Inventory_Racks_Rack_Attributes_Threshold_MajorHi) GetEntityData(
     majorHi.EntityData.BundleName = "cisco_ios_xr"
     majorHi.EntityData.ParentYangName = "threshold"
     majorHi.EntityData.SegmentPath = "major-hi"
+    majorHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/attributes/threshold/" + majorHi.EntityData.SegmentPath
     majorHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     majorHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     majorHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -59144,6 +59698,7 @@ func (threshBag *Inventory_Racks_Rack_Attributes_Threshold_MajorHi_ThreshBag) Ge
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "major-hi"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/attributes/threshold/major-hi/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -59177,6 +59732,7 @@ func (criticalLo *Inventory_Racks_Rack_Attributes_Threshold_CriticalLo) GetEntit
     criticalLo.EntityData.BundleName = "cisco_ios_xr"
     criticalLo.EntityData.ParentYangName = "threshold"
     criticalLo.EntityData.SegmentPath = "critical-lo"
+    criticalLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/attributes/threshold/" + criticalLo.EntityData.SegmentPath
     criticalLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     criticalLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     criticalLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -59223,6 +59779,7 @@ func (threshBag *Inventory_Racks_Rack_Attributes_Threshold_CriticalLo_ThreshBag)
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "critical-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/attributes/threshold/critical-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -59256,6 +59813,7 @@ func (minorLo *Inventory_Racks_Rack_Attributes_Threshold_MinorLo) GetEntityData(
     minorLo.EntityData.BundleName = "cisco_ios_xr"
     minorLo.EntityData.ParentYangName = "threshold"
     minorLo.EntityData.SegmentPath = "minor-lo"
+    minorLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/attributes/threshold/" + minorLo.EntityData.SegmentPath
     minorLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     minorLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     minorLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -59302,6 +59860,7 @@ func (threshBag *Inventory_Racks_Rack_Attributes_Threshold_MinorLo_ThreshBag) Ge
     threshBag.EntityData.BundleName = "cisco_ios_xr"
     threshBag.EntityData.ParentYangName = "minor-lo"
     threshBag.EntityData.SegmentPath = "thresh-bag"
+    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/attributes/threshold/minor-lo/" + threshBag.EntityData.SegmentPath
     threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -59365,6 +59924,7 @@ func (fruInfo *Inventory_Racks_Rack_Attributes_FruInfo) GetEntityData() *types.C
     fruInfo.EntityData.BundleName = "cisco_ios_xr"
     fruInfo.EntityData.ParentYangName = "attributes"
     fruInfo.EntityData.SegmentPath = "fru-info"
+    fruInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/attributes/" + fruInfo.EntityData.SegmentPath
     fruInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fruInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fruInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -59407,6 +59967,7 @@ func (lastOperationalStateChange *Inventory_Racks_Rack_Attributes_FruInfo_LastOp
     lastOperationalStateChange.EntityData.BundleName = "cisco_ios_xr"
     lastOperationalStateChange.EntityData.ParentYangName = "fru-info"
     lastOperationalStateChange.EntityData.SegmentPath = "last-operational-state-change"
+    lastOperationalStateChange.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/attributes/fru-info/" + lastOperationalStateChange.EntityData.SegmentPath
     lastOperationalStateChange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastOperationalStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastOperationalStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -59442,6 +60003,7 @@ func (cardUpTime *Inventory_Racks_Rack_Attributes_FruInfo_CardUpTime) GetEntityD
     cardUpTime.EntityData.BundleName = "cisco_ios_xr"
     cardUpTime.EntityData.ParentYangName = "fru-info"
     cardUpTime.EntityData.SegmentPath = "card-up-time"
+    cardUpTime.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/attributes/fru-info/" + cardUpTime.EntityData.SegmentPath
     cardUpTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cardUpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cardUpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -59491,6 +60053,7 @@ func (invEepromInfo *Inventory_Racks_Rack_Attributes_InvEepromInfo) GetEntityDat
     invEepromInfo.EntityData.BundleName = "cisco_ios_xr"
     invEepromInfo.EntityData.ParentYangName = "attributes"
     invEepromInfo.EntityData.SegmentPath = "inv-eeprom-info"
+    invEepromInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/attributes/" + invEepromInfo.EntityData.SegmentPath
     invEepromInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invEepromInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invEepromInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -59696,6 +60259,7 @@ func (eeprom *Inventory_Racks_Rack_Attributes_InvEepromInfo_Eeprom) GetEntityDat
     eeprom.EntityData.BundleName = "cisco_ios_xr"
     eeprom.EntityData.ParentYangName = "inv-eeprom-info"
     eeprom.EntityData.SegmentPath = "eeprom"
+    eeprom.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/attributes/inv-eeprom-info/" + eeprom.EntityData.SegmentPath
     eeprom.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eeprom.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eeprom.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -59788,6 +60352,7 @@ func (rma *Inventory_Racks_Rack_Attributes_InvEepromInfo_Eeprom_Rma) GetEntityDa
     rma.EntityData.BundleName = "cisco_ios_xr"
     rma.EntityData.ParentYangName = "eeprom"
     rma.EntityData.SegmentPath = "rma"
+    rma.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/racks/rack/attributes/inv-eeprom-info/eeprom/" + rma.EntityData.SegmentPath
     rma.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rma.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rma.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

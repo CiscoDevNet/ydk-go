@@ -32,6 +32,7 @@ func (netconfYang *NetconfYang) GetEntityData() *types.CommonEntityData {
     netconfYang.EntityData.BundleName = "cisco_ios_xe"
     netconfYang.EntityData.ParentYangName = "cisco-self-mgmt"
     netconfYang.EntityData.SegmentPath = "cisco-self-mgmt:netconf-yang"
+    netconfYang.EntityData.AbsolutePath = netconfYang.EntityData.SegmentPath
     netconfYang.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     netconfYang.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     netconfYang.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -91,6 +92,12 @@ type NetconfYang_CiscoIa struct {
     // The type is bool. The default value is true.
     ProcessMissingPrc interface{}
 
+    // Process any parser output from configuration changes and compare against
+    // either a known set of errors  (blacklist) or a known set of messages to
+    // ignore  (whitelist). The type is ParserMsgProcessingMethod. The default
+    // value is blacklist.
+    MissingPrcMethod interface{}
+
     // The community string for communication with the SNMP         agent. The
     // type is string. The default value is private.
     SnmpCommunityString interface{}
@@ -127,6 +134,17 @@ type NetconfYang_CiscoIa struct {
     // error. The type is slice of NetconfYang_CiscoIa_ConfParserMsgIgnore.
     ConfParserMsgIgnore []*NetconfYang_CiscoIa_ConfParserMsgIgnore
 
+    // Parser output from configuration  change that indicates an error that
+    // cannot be ignored (must abort the transaction). This is a read only list
+    // containing known error messages. The type is slice of
+    // NetconfYang_CiscoIa_ParserMsgError.
+    ParserMsgError []*NetconfYang_CiscoIa_ParserMsgError
+
+    // Parser output from configuration  change that indicates an error that
+    // cannot be ignored (must abort the transaction). The type is slice of
+    // NetconfYang_CiscoIa_ConfParserMsgError.
+    ConfParserMsgError []*NetconfYang_CiscoIa_ConfParserMsgError
+
     // IOS commands that result in other automatic configurations being applied
     // for which a complete sync is required. The type is slice of
     // NetconfYang_CiscoIa_FullSyncCli.
@@ -143,6 +161,14 @@ type NetconfYang_CiscoIa struct {
     // Controls blocking of command lines, either  from the NE to Confd or
     // disallowing manual input from the console/vty.
     Blocking NetconfYang_CiscoIa_Blocking
+
+    // WARNING: These configuration commands should not be used unless         
+    // directed to by Cisco. Some IOS configuration commands may have a vitally
+    // important relationship to other IOS configuration commands. These so called
+    // pivotal commands have to be handled as an  execption to the normal
+    // processing flow. The pivotal commands and their special handling actions
+    // are described in this list.
+    PivotCommands NetconfYang_CiscoIa_PivotCommands
 }
 
 func (ciscoIa *NetconfYang_CiscoIa) GetEntityData() *types.CommonEntityData {
@@ -151,6 +177,7 @@ func (ciscoIa *NetconfYang_CiscoIa) GetEntityData() *types.CommonEntityData {
     ciscoIa.EntityData.BundleName = "cisco_ios_xe"
     ciscoIa.EntityData.ParentYangName = "netconf-yang"
     ciscoIa.EntityData.SegmentPath = "cisco-ia:cisco-ia"
+    ciscoIa.EntityData.AbsolutePath = "cisco-self-mgmt:netconf-yang/" + ciscoIa.EntityData.SegmentPath
     ciscoIa.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ciscoIa.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ciscoIa.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -169,6 +196,14 @@ func (ciscoIa *NetconfYang_CiscoIa) GetEntityData() *types.CommonEntityData {
     for i := range ciscoIa.ConfParserMsgIgnore {
         ciscoIa.EntityData.Children.Append(types.GetSegmentPath(ciscoIa.ConfParserMsgIgnore[i]), types.YChild{"ConfParserMsgIgnore", ciscoIa.ConfParserMsgIgnore[i]})
     }
+    ciscoIa.EntityData.Children.Append("parser-msg-error", types.YChild{"ParserMsgError", nil})
+    for i := range ciscoIa.ParserMsgError {
+        ciscoIa.EntityData.Children.Append(types.GetSegmentPath(ciscoIa.ParserMsgError[i]), types.YChild{"ParserMsgError", ciscoIa.ParserMsgError[i]})
+    }
+    ciscoIa.EntityData.Children.Append("conf-parser-msg-error", types.YChild{"ConfParserMsgError", nil})
+    for i := range ciscoIa.ConfParserMsgError {
+        ciscoIa.EntityData.Children.Append(types.GetSegmentPath(ciscoIa.ConfParserMsgError[i]), types.YChild{"ConfParserMsgError", ciscoIa.ConfParserMsgError[i]})
+    }
     ciscoIa.EntityData.Children.Append("full-sync-cli", types.YChild{"FullSyncCli", nil})
     for i := range ciscoIa.FullSyncCli {
         ciscoIa.EntityData.Children.Append(types.GetSegmentPath(ciscoIa.FullSyncCli[i]), types.YChild{"FullSyncCli", ciscoIa.FullSyncCli[i]})
@@ -179,6 +214,7 @@ func (ciscoIa *NetconfYang_CiscoIa) GetEntityData() *types.CommonEntityData {
     }
     ciscoIa.EntityData.Children.Append("logging", types.YChild{"Logging", &ciscoIa.Logging})
     ciscoIa.EntityData.Children.Append("blocking", types.YChild{"Blocking", &ciscoIa.Blocking})
+    ciscoIa.EntityData.Children.Append("pivot-commands", types.YChild{"PivotCommands", &ciscoIa.PivotCommands})
     ciscoIa.EntityData.Leafs = types.NewOrderedMap()
     ciscoIa.EntityData.Leafs.Append("auto-sync", types.YLeaf{"AutoSync", ciscoIa.AutoSync})
     ciscoIa.EntityData.Leafs.Append("init-sync", types.YLeaf{"InitSync", ciscoIa.InitSync})
@@ -188,6 +224,7 @@ func (ciscoIa *NetconfYang_CiscoIa) GetEntityData() *types.CommonEntityData {
     ciscoIa.EntityData.Leafs.Append("post-sync-acl-process", types.YLeaf{"PostSyncAclProcess", ciscoIa.PostSyncAclProcess})
     ciscoIa.EntityData.Leafs.Append("config-change-delay", types.YLeaf{"ConfigChangeDelay", ciscoIa.ConfigChangeDelay})
     ciscoIa.EntityData.Leafs.Append("process-missing-prc", types.YLeaf{"ProcessMissingPrc", ciscoIa.ProcessMissingPrc})
+    ciscoIa.EntityData.Leafs.Append("missing-prc-method", types.YLeaf{"MissingPrcMethod", ciscoIa.MissingPrcMethod})
     ciscoIa.EntityData.Leafs.Append("snmp-community-string", types.YLeaf{"SnmpCommunityString", ciscoIa.SnmpCommunityString})
     ciscoIa.EntityData.Leafs.Append("preserve-paths-enabled", types.YLeaf{"PreservePathsEnabled", ciscoIa.PreservePathsEnabled})
     ciscoIa.EntityData.Leafs.Append("nes-ttynum", types.YLeaf{"NesTtynum", ciscoIa.NesTtynum})
@@ -221,6 +258,7 @@ func (snmpTrapControl *NetconfYang_CiscoIa_SnmpTrapControl) GetEntityData() *typ
     snmpTrapControl.EntityData.BundleName = "cisco_ios_xe"
     snmpTrapControl.EntityData.ParentYangName = "cisco-ia"
     snmpTrapControl.EntityData.SegmentPath = "snmp-trap-control"
+    snmpTrapControl.EntityData.AbsolutePath = "cisco-self-mgmt:netconf-yang/cisco-ia:cisco-ia/" + snmpTrapControl.EntityData.SegmentPath
     snmpTrapControl.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     snmpTrapControl.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     snmpTrapControl.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -245,6 +283,7 @@ func (snmpTrapControl *NetconfYang_CiscoIa_SnmpTrapControl) GetEntityData() *typ
 type NetconfYang_CiscoIa_SnmpTrapControl_TrapList struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. This leaf contains the OID for the  SNMP trap to
     // be forwarded. The type is string with pattern:
@@ -266,6 +305,7 @@ func (trapList *NetconfYang_CiscoIa_SnmpTrapControl_TrapList) GetEntityData() *t
     trapList.EntityData.BundleName = "cisco_ios_xe"
     trapList.EntityData.ParentYangName = "snmp-trap-control"
     trapList.EntityData.SegmentPath = "trap-list" + types.AddKeyToken(trapList.TrapOid, "trap-oid")
+    trapList.EntityData.AbsolutePath = "cisco-self-mgmt:netconf-yang/cisco-ia:cisco-ia/snmp-trap-control/" + trapList.EntityData.SegmentPath
     trapList.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     trapList.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     trapList.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -291,6 +331,7 @@ func (trapList *NetconfYang_CiscoIa_SnmpTrapControl_TrapList) GetEntityData() *t
 type NetconfYang_CiscoIa_PreserveNedPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. An XPath from the NED model. The type is string
     // with length: 1..1024.
@@ -303,6 +344,7 @@ func (preserveNedPath *NetconfYang_CiscoIa_PreserveNedPath) GetEntityData() *typ
     preserveNedPath.EntityData.BundleName = "cisco_ios_xe"
     preserveNedPath.EntityData.ParentYangName = "cisco-ia"
     preserveNedPath.EntityData.SegmentPath = "preserve-ned-path" + types.AddKeyToken(preserveNedPath.Xpath, "xpath")
+    preserveNedPath.EntityData.AbsolutePath = "cisco-self-mgmt:netconf-yang/cisco-ia:cisco-ia/" + preserveNedPath.EntityData.SegmentPath
     preserveNedPath.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     preserveNedPath.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     preserveNedPath.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -325,6 +367,7 @@ func (preserveNedPath *NetconfYang_CiscoIa_PreserveNedPath) GetEntityData() *typ
 type NetconfYang_CiscoIa_ParserMsgIgnore struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. A regular expression to match parser output to be
     // ignored. The type is string with length: 1..255.
@@ -337,6 +380,7 @@ func (parserMsgIgnore *NetconfYang_CiscoIa_ParserMsgIgnore) GetEntityData() *typ
     parserMsgIgnore.EntityData.BundleName = "cisco_ios_xe"
     parserMsgIgnore.EntityData.ParentYangName = "cisco-ia"
     parserMsgIgnore.EntityData.SegmentPath = "parser-msg-ignore" + types.AddKeyToken(parserMsgIgnore.Message, "message")
+    parserMsgIgnore.EntityData.AbsolutePath = "cisco-self-mgmt:netconf-yang/cisco-ia:cisco-ia/" + parserMsgIgnore.EntityData.SegmentPath
     parserMsgIgnore.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     parserMsgIgnore.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     parserMsgIgnore.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -357,6 +401,7 @@ func (parserMsgIgnore *NetconfYang_CiscoIa_ParserMsgIgnore) GetEntityData() *typ
 type NetconfYang_CiscoIa_ConfParserMsgIgnore struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. A regular expression to match parser output to be
     // ignored. The type is string with length: 1..255.
@@ -369,6 +414,7 @@ func (confParserMsgIgnore *NetconfYang_CiscoIa_ConfParserMsgIgnore) GetEntityDat
     confParserMsgIgnore.EntityData.BundleName = "cisco_ios_xe"
     confParserMsgIgnore.EntityData.ParentYangName = "cisco-ia"
     confParserMsgIgnore.EntityData.SegmentPath = "conf-parser-msg-ignore" + types.AddKeyToken(confParserMsgIgnore.Message, "message")
+    confParserMsgIgnore.EntityData.AbsolutePath = "cisco-self-mgmt:netconf-yang/cisco-ia:cisco-ia/" + confParserMsgIgnore.EntityData.SegmentPath
     confParserMsgIgnore.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     confParserMsgIgnore.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     confParserMsgIgnore.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -382,6 +428,77 @@ func (confParserMsgIgnore *NetconfYang_CiscoIa_ConfParserMsgIgnore) GetEntityDat
     return &(confParserMsgIgnore.EntityData)
 }
 
+// NetconfYang_CiscoIa_ParserMsgError
+// Parser output from configuration 
+// change that indicates an error
+// that cannot be ignored (must abort
+// the transaction). This is a read only
+// list containing known error messages.
+type NetconfYang_CiscoIa_ParserMsgError struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. A regular expression to match parser output to be
+    // considered an error. The type is string with length: 1..255.
+    Message interface{}
+}
+
+func (parserMsgError *NetconfYang_CiscoIa_ParserMsgError) GetEntityData() *types.CommonEntityData {
+    parserMsgError.EntityData.YFilter = parserMsgError.YFilter
+    parserMsgError.EntityData.YangName = "parser-msg-error"
+    parserMsgError.EntityData.BundleName = "cisco_ios_xe"
+    parserMsgError.EntityData.ParentYangName = "cisco-ia"
+    parserMsgError.EntityData.SegmentPath = "parser-msg-error" + types.AddKeyToken(parserMsgError.Message, "message")
+    parserMsgError.EntityData.AbsolutePath = "cisco-self-mgmt:netconf-yang/cisco-ia:cisco-ia/" + parserMsgError.EntityData.SegmentPath
+    parserMsgError.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    parserMsgError.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    parserMsgError.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    parserMsgError.EntityData.Children = types.NewOrderedMap()
+    parserMsgError.EntityData.Leafs = types.NewOrderedMap()
+    parserMsgError.EntityData.Leafs.Append("message", types.YLeaf{"Message", parserMsgError.Message})
+
+    parserMsgError.EntityData.YListKeys = []string {"Message"}
+
+    return &(parserMsgError.EntityData)
+}
+
+// NetconfYang_CiscoIa_ConfParserMsgError
+// Parser output from configuration 
+// change that indicates an error
+// that cannot be ignored (must abort
+// the transaction).
+type NetconfYang_CiscoIa_ConfParserMsgError struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. A regular expression to match parser output to be
+    // considered an error. The type is string with length: 1..255.
+    Message interface{}
+}
+
+func (confParserMsgError *NetconfYang_CiscoIa_ConfParserMsgError) GetEntityData() *types.CommonEntityData {
+    confParserMsgError.EntityData.YFilter = confParserMsgError.YFilter
+    confParserMsgError.EntityData.YangName = "conf-parser-msg-error"
+    confParserMsgError.EntityData.BundleName = "cisco_ios_xe"
+    confParserMsgError.EntityData.ParentYangName = "cisco-ia"
+    confParserMsgError.EntityData.SegmentPath = "conf-parser-msg-error" + types.AddKeyToken(confParserMsgError.Message, "message")
+    confParserMsgError.EntityData.AbsolutePath = "cisco-self-mgmt:netconf-yang/cisco-ia:cisco-ia/" + confParserMsgError.EntityData.SegmentPath
+    confParserMsgError.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    confParserMsgError.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    confParserMsgError.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    confParserMsgError.EntityData.Children = types.NewOrderedMap()
+    confParserMsgError.EntityData.Leafs = types.NewOrderedMap()
+    confParserMsgError.EntityData.Leafs.Append("message", types.YLeaf{"Message", confParserMsgError.Message})
+
+    confParserMsgError.EntityData.YListKeys = []string {"Message"}
+
+    return &(confParserMsgError.EntityData)
+}
+
 // NetconfYang_CiscoIa_FullSyncCli
 // IOS commands that result in other
 // automatic configurations being applied
@@ -389,6 +506,7 @@ func (confParserMsgIgnore *NetconfYang_CiscoIa_ConfParserMsgIgnore) GetEntityDat
 type NetconfYang_CiscoIa_FullSyncCli struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. A regular expression matching command lines which
     // cause other automatic configuration changes. The type is string with
@@ -402,6 +520,7 @@ func (fullSyncCli *NetconfYang_CiscoIa_FullSyncCli) GetEntityData() *types.Commo
     fullSyncCli.EntityData.BundleName = "cisco_ios_xe"
     fullSyncCli.EntityData.ParentYangName = "cisco-ia"
     fullSyncCli.EntityData.SegmentPath = "full-sync-cli" + types.AddKeyToken(fullSyncCli.Command, "command")
+    fullSyncCli.EntityData.AbsolutePath = "cisco-self-mgmt:netconf-yang/cisco-ia:cisco-ia/" + fullSyncCli.EntityData.SegmentPath
     fullSyncCli.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     fullSyncCli.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     fullSyncCli.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -423,6 +542,7 @@ func (fullSyncCli *NetconfYang_CiscoIa_FullSyncCli) GetEntityData() *types.Commo
 type NetconfYang_CiscoIa_ConfFullSyncCli struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. A regular expression matching command lines which
     // cause other automatic configuration changes. The type is string with
@@ -436,6 +556,7 @@ func (confFullSyncCli *NetconfYang_CiscoIa_ConfFullSyncCli) GetEntityData() *typ
     confFullSyncCli.EntityData.BundleName = "cisco_ios_xe"
     confFullSyncCli.EntityData.ParentYangName = "cisco-ia"
     confFullSyncCli.EntityData.SegmentPath = "conf-full-sync-cli" + types.AddKeyToken(confFullSyncCli.Command, "command")
+    confFullSyncCli.EntityData.AbsolutePath = "cisco-self-mgmt:netconf-yang/cisco-ia:cisco-ia/" + confFullSyncCli.EntityData.SegmentPath
     confFullSyncCli.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     confFullSyncCli.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     confFullSyncCli.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -486,6 +607,7 @@ func (logging *NetconfYang_CiscoIa_Logging) GetEntityData() *types.CommonEntityD
     logging.EntityData.BundleName = "cisco_ios_xe"
     logging.EntityData.ParentYangName = "cisco-ia"
     logging.EntityData.SegmentPath = "logging"
+    logging.EntityData.AbsolutePath = "cisco-self-mgmt:netconf-yang/cisco-ia:cisco-ia/" + logging.EntityData.SegmentPath
     logging.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     logging.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     logging.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -535,6 +657,7 @@ func (blocking *NetconfYang_CiscoIa_Blocking) GetEntityData() *types.CommonEntit
     blocking.EntityData.BundleName = "cisco_ios_xe"
     blocking.EntityData.ParentYangName = "cisco-ia"
     blocking.EntityData.SegmentPath = "blocking"
+    blocking.EntityData.AbsolutePath = "cisco-self-mgmt:netconf-yang/cisco-ia:cisco-ia/" + blocking.EntityData.SegmentPath
     blocking.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     blocking.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     blocking.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -563,6 +686,7 @@ func (blocking *NetconfYang_CiscoIa_Blocking) GetEntityData() *types.CommonEntit
 type NetconfYang_CiscoIa_Blocking_NetworkElementCommand struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. A regular expression matching command lines which
     // should be blocked from entry via console/vty. The type is string with
@@ -576,6 +700,7 @@ func (networkElementCommand *NetconfYang_CiscoIa_Blocking_NetworkElementCommand)
     networkElementCommand.EntityData.BundleName = "cisco_ios_xe"
     networkElementCommand.EntityData.ParentYangName = "blocking"
     networkElementCommand.EntityData.SegmentPath = "network-element-command" + types.AddKeyToken(networkElementCommand.Command, "command")
+    networkElementCommand.EntityData.AbsolutePath = "cisco-self-mgmt:netconf-yang/cisco-ia:cisco-ia/blocking/" + networkElementCommand.EntityData.SegmentPath
     networkElementCommand.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     networkElementCommand.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     networkElementCommand.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -594,6 +719,7 @@ func (networkElementCommand *NetconfYang_CiscoIa_Blocking_NetworkElementCommand)
 type NetconfYang_CiscoIa_Blocking_ConfdCfgCommand struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. A regular expression matching command lines which
     // should be blocked from being sent to Confd from the network element. The
@@ -607,6 +733,7 @@ func (confdCfgCommand *NetconfYang_CiscoIa_Blocking_ConfdCfgCommand) GetEntityDa
     confdCfgCommand.EntityData.BundleName = "cisco_ios_xe"
     confdCfgCommand.EntityData.ParentYangName = "blocking"
     confdCfgCommand.EntityData.SegmentPath = "confd-cfg-command" + types.AddKeyToken(confdCfgCommand.Command, "command")
+    confdCfgCommand.EntityData.AbsolutePath = "cisco-self-mgmt:netconf-yang/cisco-ia:cisco-ia/blocking/" + confdCfgCommand.EntityData.SegmentPath
     confdCfgCommand.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     confdCfgCommand.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     confdCfgCommand.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -618,5 +745,123 @@ func (confdCfgCommand *NetconfYang_CiscoIa_Blocking_ConfdCfgCommand) GetEntityDa
     confdCfgCommand.EntityData.YListKeys = []string {"Command"}
 
     return &(confdCfgCommand.EntityData)
+}
+
+// NetconfYang_CiscoIa_PivotCommands
+// WARNING: These configuration commands should not be used unless
+//          directed to by Cisco.
+// Some IOS configuration commands may have a vitally important
+// relationship to other IOS configuration commands.
+// These so called pivotal commands have to be handled as an 
+// execption to the normal processing flow. The pivotal commands
+// and their special handling actions are described in this list.
+type NetconfYang_CiscoIa_PivotCommands struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Static list of pivot commands. The type is slice of
+    // NetconfYang_CiscoIa_PivotCommands_PivotCommand.
+    PivotCommand []*NetconfYang_CiscoIa_PivotCommands_PivotCommand
+}
+
+func (pivotCommands *NetconfYang_CiscoIa_PivotCommands) GetEntityData() *types.CommonEntityData {
+    pivotCommands.EntityData.YFilter = pivotCommands.YFilter
+    pivotCommands.EntityData.YangName = "pivot-commands"
+    pivotCommands.EntityData.BundleName = "cisco_ios_xe"
+    pivotCommands.EntityData.ParentYangName = "cisco-ia"
+    pivotCommands.EntityData.SegmentPath = "pivot-commands"
+    pivotCommands.EntityData.AbsolutePath = "cisco-self-mgmt:netconf-yang/cisco-ia:cisco-ia/" + pivotCommands.EntityData.SegmentPath
+    pivotCommands.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    pivotCommands.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    pivotCommands.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    pivotCommands.EntityData.Children = types.NewOrderedMap()
+    pivotCommands.EntityData.Children.Append("pivot-command", types.YChild{"PivotCommand", nil})
+    for i := range pivotCommands.PivotCommand {
+        pivotCommands.EntityData.Children.Append(types.GetSegmentPath(pivotCommands.PivotCommand[i]), types.YChild{"PivotCommand", pivotCommands.PivotCommand[i]})
+    }
+    pivotCommands.EntityData.Leafs = types.NewOrderedMap()
+
+    pivotCommands.EntityData.YListKeys = []string {}
+
+    return &(pivotCommands.EntityData)
+}
+
+// NetconfYang_CiscoIa_PivotCommands_PivotCommand
+// Static list of pivot commands.
+type NetconfYang_CiscoIa_PivotCommands_PivotCommand struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. The command prefix to match.  Leading spaces are
+    // counted towards the match. The type is string with length: 1..255.
+    Command interface{}
+
+    // Whether or not the command will be retried if it fails and associated
+    // parameters.
+    Retry NetconfYang_CiscoIa_PivotCommands_PivotCommand_Retry
+}
+
+func (pivotCommand *NetconfYang_CiscoIa_PivotCommands_PivotCommand) GetEntityData() *types.CommonEntityData {
+    pivotCommand.EntityData.YFilter = pivotCommand.YFilter
+    pivotCommand.EntityData.YangName = "pivot-command"
+    pivotCommand.EntityData.BundleName = "cisco_ios_xe"
+    pivotCommand.EntityData.ParentYangName = "pivot-commands"
+    pivotCommand.EntityData.SegmentPath = "pivot-command" + types.AddKeyToken(pivotCommand.Command, "command")
+    pivotCommand.EntityData.AbsolutePath = "cisco-self-mgmt:netconf-yang/cisco-ia:cisco-ia/pivot-commands/" + pivotCommand.EntityData.SegmentPath
+    pivotCommand.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    pivotCommand.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    pivotCommand.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    pivotCommand.EntityData.Children = types.NewOrderedMap()
+    pivotCommand.EntityData.Children.Append("retry", types.YChild{"Retry", &pivotCommand.Retry})
+    pivotCommand.EntityData.Leafs = types.NewOrderedMap()
+    pivotCommand.EntityData.Leafs.Append("command", types.YLeaf{"Command", pivotCommand.Command})
+
+    pivotCommand.EntityData.YListKeys = []string {"Command"}
+
+    return &(pivotCommand.EntityData)
+}
+
+// NetconfYang_CiscoIa_PivotCommands_PivotCommand_Retry
+// Whether or not the command will be retried if it
+// fails and associated parameters.
+// This type is a presence type.
+type NetconfYang_CiscoIa_PivotCommands_PivotCommand_Retry struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YPresence bool
+
+    // The minimum time to wait before retrying a failed command. The type is
+    // interface{} with range: 10..60000. Units are milliseconds.
+    MinRetryTime interface{}
+
+    // The maximum time to wait before retrying a failed command.  Commands that
+    // continue to fail after having waited this amount of time are considered to
+    // have permanently failed. The type is interface{} with range: 10..60000.
+    // Units are milliseconds.
+    MaxRetryTime interface{}
+}
+
+func (retry *NetconfYang_CiscoIa_PivotCommands_PivotCommand_Retry) GetEntityData() *types.CommonEntityData {
+    retry.EntityData.YFilter = retry.YFilter
+    retry.EntityData.YangName = "retry"
+    retry.EntityData.BundleName = "cisco_ios_xe"
+    retry.EntityData.ParentYangName = "pivot-command"
+    retry.EntityData.SegmentPath = "retry"
+    retry.EntityData.AbsolutePath = "cisco-self-mgmt:netconf-yang/cisco-ia:cisco-ia/pivot-commands/pivot-command/" + retry.EntityData.SegmentPath
+    retry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    retry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    retry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    retry.EntityData.Children = types.NewOrderedMap()
+    retry.EntityData.Leafs = types.NewOrderedMap()
+    retry.EntityData.Leafs.Append("min-retry-time", types.YLeaf{"MinRetryTime", retry.MinRetryTime})
+    retry.EntityData.Leafs.Append("max-retry-time", types.YLeaf{"MaxRetryTime", retry.MaxRetryTime})
+
+    retry.EntityData.YListKeys = []string {}
+
+    return &(retry.EntityData)
 }
 

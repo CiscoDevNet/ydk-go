@@ -1,4 +1,10 @@
+// This module contains definitions
+// for the Calvados model objects.
+// 
 // This module defines the Tail-f AAA data model.
+// 
+// Copyright (c) 2012-2018 by Cisco Systems, Inc.
+// All rights reserved.
 package tailf_aaa
 
 import (
@@ -145,19 +151,22 @@ type Aaa struct {
     Authorization Aaa_Authorization
 
     
+    Accounting Aaa_Accounting
+
+    
     Ios Aaa_Ios
+
+    
+    DisasterRecovery Aaa_DisasterRecovery
 
     
     PrivilegedAccess Aaa_PrivilegedAccess
 
     
-    Accounting Aaa_Accounting
+    CiscoIOSXRSysadminAaaAaaShowAccounting Aaa_CiscoIOSXRSysadminAaaAaaShowAccounting
 
     
     UserGroup Aaa_UserGroup
-
-    
-    DisasterRecovery Aaa_DisasterRecovery
 }
 
 func (aaa *Aaa) GetEntityData() *types.CommonEntityData {
@@ -166,6 +175,7 @@ func (aaa *Aaa) GetEntityData() *types.CommonEntityData {
     aaa.EntityData.BundleName = "cisco_ios_xr"
     aaa.EntityData.ParentYangName = "tailf-aaa"
     aaa.EntityData.SegmentPath = "tailf-aaa:aaa"
+    aaa.EntityData.AbsolutePath = aaa.EntityData.SegmentPath
     aaa.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     aaa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     aaa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -173,11 +183,12 @@ func (aaa *Aaa) GetEntityData() *types.CommonEntityData {
     aaa.EntityData.Children = types.NewOrderedMap()
     aaa.EntityData.Children.Append("authentication", types.YChild{"Authentication", &aaa.Authentication})
     aaa.EntityData.Children.Append("authorization", types.YChild{"Authorization", &aaa.Authorization})
+    aaa.EntityData.Children.Append("accounting", types.YChild{"Accounting", &aaa.Accounting})
     aaa.EntityData.Children.Append("ios", types.YChild{"Ios", &aaa.Ios})
-    aaa.EntityData.Children.Append("Cisco-IOS-XR-sysadmin-aaa-aaa-show:privileged-access", types.YChild{"PrivilegedAccess", &aaa.PrivilegedAccess})
-    aaa.EntityData.Children.Append("Cisco-IOS-XR-sysadmin-aaa-aaa-show:accounting", types.YChild{"Accounting", &aaa.Accounting})
-    aaa.EntityData.Children.Append("Cisco-IOS-XR-sysadmin-aaa-aaa-show:user-group", types.YChild{"UserGroup", &aaa.UserGroup})
     aaa.EntityData.Children.Append("Cisco-IOS-XR-sysadmin-aaa-disaster-recovery:disaster-recovery", types.YChild{"DisasterRecovery", &aaa.DisasterRecovery})
+    aaa.EntityData.Children.Append("Cisco-IOS-XR-sysadmin-aaa-aaa-show:privileged-access", types.YChild{"PrivilegedAccess", &aaa.PrivilegedAccess})
+    aaa.EntityData.Children.Append("Cisco-IOS-XR-sysadmin-aaa-aaa-show:accounting", types.YChild{"CiscoIOSXRSysadminAaaAaaShowAccounting", &aaa.CiscoIOSXRSysadminAaaAaaShowAccounting})
+    aaa.EntityData.Children.Append("Cisco-IOS-XR-sysadmin-aaa-aaa-show:user-group", types.YChild{"UserGroup", &aaa.UserGroup})
     aaa.EntityData.Leafs = types.NewOrderedMap()
 
     aaa.EntityData.YListKeys = []string {}
@@ -195,6 +206,9 @@ type Aaa_Authentication struct {
 
     
     Groups Aaa_Authentication_Groups
+
+    
+    Login Aaa_Authentication_Login
 }
 
 func (authentication *Aaa_Authentication) GetEntityData() *types.CommonEntityData {
@@ -203,6 +217,7 @@ func (authentication *Aaa_Authentication) GetEntityData() *types.CommonEntityDat
     authentication.EntityData.BundleName = "cisco_ios_xr"
     authentication.EntityData.ParentYangName = "aaa"
     authentication.EntityData.SegmentPath = "authentication"
+    authentication.EntityData.AbsolutePath = "tailf-aaa:aaa/" + authentication.EntityData.SegmentPath
     authentication.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     authentication.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     authentication.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -210,6 +225,7 @@ func (authentication *Aaa_Authentication) GetEntityData() *types.CommonEntityDat
     authentication.EntityData.Children = types.NewOrderedMap()
     authentication.EntityData.Children.Append("users", types.YChild{"Users", &authentication.Users})
     authentication.EntityData.Children.Append("groups", types.YChild{"Groups", &authentication.Groups})
+    authentication.EntityData.Children.Append("login", types.YChild{"Login", &authentication.Login})
     authentication.EntityData.Leafs = types.NewOrderedMap()
 
     authentication.EntityData.YListKeys = []string {}
@@ -232,6 +248,7 @@ func (users *Aaa_Authentication_Users) GetEntityData() *types.CommonEntityData {
     users.EntityData.BundleName = "cisco_ios_xr"
     users.EntityData.ParentYangName = "authentication"
     users.EntityData.SegmentPath = "users"
+    users.EntityData.AbsolutePath = "tailf-aaa:aaa/authentication/" + users.EntityData.SegmentPath
     users.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     users.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     users.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -252,25 +269,26 @@ func (users *Aaa_Authentication_Users) GetEntityData() *types.CommonEntityData {
 type Aaa_Authentication_Users_User struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     Name interface{}
 
-    // The type is interface{} with range: -2147483648..2147483647. This attribute
-    // is mandatory.
+    // The type is interface{} with range: 0..4294967295. The default value is
+    // 9000.
     Uid interface{}
 
-    // The type is interface{} with range: -2147483648..2147483647. This attribute
-    // is mandatory.
+    // The type is interface{} with range: 0..4294967295. The default value is
+    // 100.
     Gid interface{}
 
     // The type is string. This attribute is mandatory.
     Password interface{}
 
-    // The type is string. This attribute is mandatory.
+    // The type is string. The default value is /home/sshdir.
     SshKeydir interface{}
 
-    // The type is string. This attribute is mandatory.
+    // The type is string. The default value is /home/homedir.
     Homedir interface{}
 }
 
@@ -280,6 +298,7 @@ func (user *Aaa_Authentication_Users_User) GetEntityData() *types.CommonEntityDa
     user.EntityData.BundleName = "cisco_ios_xr"
     user.EntityData.ParentYangName = "users"
     user.EntityData.SegmentPath = "user" + types.AddKeyToken(user.Name, "name")
+    user.EntityData.AbsolutePath = "tailf-aaa:aaa/authentication/users/" + user.EntityData.SegmentPath
     user.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     user.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     user.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -313,6 +332,7 @@ func (groups *Aaa_Authentication_Groups) GetEntityData() *types.CommonEntityData
     groups.EntityData.BundleName = "cisco_ios_xr"
     groups.EntityData.ParentYangName = "authentication"
     groups.EntityData.SegmentPath = "groups"
+    groups.EntityData.AbsolutePath = "tailf-aaa:aaa/authentication/" + groups.EntityData.SegmentPath
     groups.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     groups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     groups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -333,14 +353,16 @@ func (groups *Aaa_Authentication_Groups) GetEntityData() *types.CommonEntityData
 type Aaa_Authentication_Groups_Group struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     Name interface{}
 
-    // The type is interface{} with range: -2147483648..2147483647.
+    // The type is interface{} with range: 0..4294967295. The default value is
+    // 100.
     Gid interface{}
 
-    // The type is string. This attribute is mandatory.
+    // The type is string. The default value is %%__system_user__%%.
     Users interface{}
 }
 
@@ -350,6 +372,7 @@ func (group *Aaa_Authentication_Groups_Group) GetEntityData() *types.CommonEntit
     group.EntityData.BundleName = "cisco_ios_xr"
     group.EntityData.ParentYangName = "groups"
     group.EntityData.SegmentPath = "group" + types.AddKeyToken(group.Name, "name")
+    group.EntityData.AbsolutePath = "tailf-aaa:aaa/authentication/groups/" + group.EntityData.SegmentPath
     group.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     group.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     group.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -365,6 +388,64 @@ func (group *Aaa_Authentication_Groups_Group) GetEntityData() *types.CommonEntit
     return &(group.EntityData)
 }
 
+// Aaa_Authentication_Login
+type Aaa_Authentication_Login struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    
+    Group Aaa_Authentication_Login_Group
+}
+
+func (login *Aaa_Authentication_Login) GetEntityData() *types.CommonEntityData {
+    login.EntityData.YFilter = login.YFilter
+    login.EntityData.YangName = "login"
+    login.EntityData.BundleName = "cisco_ios_xr"
+    login.EntityData.ParentYangName = "authentication"
+    login.EntityData.SegmentPath = "login"
+    login.EntityData.AbsolutePath = "tailf-aaa:aaa/authentication/" + login.EntityData.SegmentPath
+    login.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    login.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    login.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    login.EntityData.Children = types.NewOrderedMap()
+    login.EntityData.Children.Append("group", types.YChild{"Group", &login.Group})
+    login.EntityData.Leafs = types.NewOrderedMap()
+
+    login.EntityData.YListKeys = []string {}
+
+    return &(login.EntityData)
+}
+
+// Aaa_Authentication_Login_Group
+type Aaa_Authentication_Login_Group struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // The type is interface{}.
+    Tacacs interface{}
+}
+
+func (group *Aaa_Authentication_Login_Group) GetEntityData() *types.CommonEntityData {
+    group.EntityData.YFilter = group.YFilter
+    group.EntityData.YangName = "group"
+    group.EntityData.BundleName = "cisco_ios_xr"
+    group.EntityData.ParentYangName = "login"
+    group.EntityData.SegmentPath = "group"
+    group.EntityData.AbsolutePath = "tailf-aaa:aaa/authentication/login/" + group.EntityData.SegmentPath
+    group.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    group.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    group.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    group.EntityData.Children = types.NewOrderedMap()
+    group.EntityData.Leafs = types.NewOrderedMap()
+    group.EntityData.Leafs.Append("tacacs", types.YLeaf{"Tacacs", group.Tacacs})
+
+    group.EntityData.YListKeys = []string {}
+
+    return &(group.EntityData)
+}
+
 // Aaa_Authorization
 type Aaa_Authorization struct {
     EntityData types.CommonEntityData
@@ -375,6 +456,9 @@ type Aaa_Authorization struct {
 
     
     Datarules Aaa_Authorization_Datarules
+
+    
+    Commands Aaa_Authorization_Commands
 }
 
 func (authorization *Aaa_Authorization) GetEntityData() *types.CommonEntityData {
@@ -383,6 +467,7 @@ func (authorization *Aaa_Authorization) GetEntityData() *types.CommonEntityData 
     authorization.EntityData.BundleName = "cisco_ios_xr"
     authorization.EntityData.ParentYangName = "aaa"
     authorization.EntityData.SegmentPath = "authorization"
+    authorization.EntityData.AbsolutePath = "tailf-aaa:aaa/" + authorization.EntityData.SegmentPath
     authorization.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     authorization.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     authorization.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -390,6 +475,7 @@ func (authorization *Aaa_Authorization) GetEntityData() *types.CommonEntityData 
     authorization.EntityData.Children = types.NewOrderedMap()
     authorization.EntityData.Children.Append("cmdrules", types.YChild{"Cmdrules", &authorization.Cmdrules})
     authorization.EntityData.Children.Append("datarules", types.YChild{"Datarules", &authorization.Datarules})
+    authorization.EntityData.Children.Append("commands", types.YChild{"Commands", &authorization.Commands})
     authorization.EntityData.Leafs = types.NewOrderedMap()
 
     authorization.EntityData.YListKeys = []string {}
@@ -412,6 +498,7 @@ func (cmdrules *Aaa_Authorization_Cmdrules) GetEntityData() *types.CommonEntityD
     cmdrules.EntityData.BundleName = "cisco_ios_xr"
     cmdrules.EntityData.ParentYangName = "authorization"
     cmdrules.EntityData.SegmentPath = "cmdrules"
+    cmdrules.EntityData.AbsolutePath = "tailf-aaa:aaa/authorization/" + cmdrules.EntityData.SegmentPath
     cmdrules.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cmdrules.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cmdrules.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -432,6 +519,7 @@ func (cmdrules *Aaa_Authorization_Cmdrules) GetEntityData() *types.CommonEntityD
 type Aaa_Authorization_Cmdrules_Cmdrule struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is interface{} with range: 0..4294967295.
     Index interface{}
@@ -458,6 +546,7 @@ func (cmdrule *Aaa_Authorization_Cmdrules_Cmdrule) GetEntityData() *types.Common
     cmdrule.EntityData.BundleName = "cisco_ios_xr"
     cmdrule.EntityData.ParentYangName = "cmdrules"
     cmdrule.EntityData.SegmentPath = "cmdrule" + types.AddKeyToken(cmdrule.Index, "index")
+    cmdrule.EntityData.AbsolutePath = "tailf-aaa:aaa/authorization/cmdrules/" + cmdrule.EntityData.SegmentPath
     cmdrule.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cmdrule.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cmdrule.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -491,6 +580,7 @@ func (datarules *Aaa_Authorization_Datarules) GetEntityData() *types.CommonEntit
     datarules.EntityData.BundleName = "cisco_ios_xr"
     datarules.EntityData.ParentYangName = "authorization"
     datarules.EntityData.SegmentPath = "datarules"
+    datarules.EntityData.AbsolutePath = "tailf-aaa:aaa/authorization/" + datarules.EntityData.SegmentPath
     datarules.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     datarules.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     datarules.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -511,6 +601,7 @@ func (datarules *Aaa_Authorization_Datarules) GetEntityData() *types.CommonEntit
 type Aaa_Authorization_Datarules_Datarule struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is interface{} with range: 0..4294967295.
     Index interface{}
@@ -540,6 +631,7 @@ func (datarule *Aaa_Authorization_Datarules_Datarule) GetEntityData() *types.Com
     datarule.EntityData.BundleName = "cisco_ios_xr"
     datarule.EntityData.ParentYangName = "datarules"
     datarule.EntityData.SegmentPath = "datarule" + types.AddKeyToken(datarule.Index, "index")
+    datarule.EntityData.AbsolutePath = "tailf-aaa:aaa/authorization/datarules/" + datarule.EntityData.SegmentPath
     datarule.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     datarule.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     datarule.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -557,6 +649,155 @@ func (datarule *Aaa_Authorization_Datarules_Datarule) GetEntityData() *types.Com
     datarule.EntityData.YListKeys = []string {"Index"}
 
     return &(datarule.EntityData)
+}
+
+// Aaa_Authorization_Commands
+type Aaa_Authorization_Commands struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    
+    Group Aaa_Authorization_Commands_Group
+}
+
+func (commands *Aaa_Authorization_Commands) GetEntityData() *types.CommonEntityData {
+    commands.EntityData.YFilter = commands.YFilter
+    commands.EntityData.YangName = "commands"
+    commands.EntityData.BundleName = "cisco_ios_xr"
+    commands.EntityData.ParentYangName = "authorization"
+    commands.EntityData.SegmentPath = "commands"
+    commands.EntityData.AbsolutePath = "tailf-aaa:aaa/authorization/" + commands.EntityData.SegmentPath
+    commands.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    commands.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    commands.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    commands.EntityData.Children = types.NewOrderedMap()
+    commands.EntityData.Children.Append("group", types.YChild{"Group", &commands.Group})
+    commands.EntityData.Leafs = types.NewOrderedMap()
+
+    commands.EntityData.YListKeys = []string {}
+
+    return &(commands.EntityData)
+}
+
+// Aaa_Authorization_Commands_Group
+type Aaa_Authorization_Commands_Group struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // The type is interface{}.
+    Tacacs interface{}
+
+    // The type is interface{}.
+    None interface{}
+}
+
+func (group *Aaa_Authorization_Commands_Group) GetEntityData() *types.CommonEntityData {
+    group.EntityData.YFilter = group.YFilter
+    group.EntityData.YangName = "group"
+    group.EntityData.BundleName = "cisco_ios_xr"
+    group.EntityData.ParentYangName = "commands"
+    group.EntityData.SegmentPath = "group"
+    group.EntityData.AbsolutePath = "tailf-aaa:aaa/authorization/commands/" + group.EntityData.SegmentPath
+    group.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    group.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    group.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    group.EntityData.Children = types.NewOrderedMap()
+    group.EntityData.Leafs = types.NewOrderedMap()
+    group.EntityData.Leafs.Append("tacacs", types.YLeaf{"Tacacs", group.Tacacs})
+    group.EntityData.Leafs.Append("none", types.YLeaf{"None", group.None})
+
+    group.EntityData.YListKeys = []string {}
+
+    return &(group.EntityData)
+}
+
+// Aaa_Accounting
+type Aaa_Accounting struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    
+    Commands Aaa_Accounting_Commands
+}
+
+func (accounting *Aaa_Accounting) GetEntityData() *types.CommonEntityData {
+    accounting.EntityData.YFilter = accounting.YFilter
+    accounting.EntityData.YangName = "accounting"
+    accounting.EntityData.BundleName = "cisco_ios_xr"
+    accounting.EntityData.ParentYangName = "aaa"
+    accounting.EntityData.SegmentPath = "accounting"
+    accounting.EntityData.AbsolutePath = "tailf-aaa:aaa/" + accounting.EntityData.SegmentPath
+    accounting.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    accounting.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    accounting.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    accounting.EntityData.Children = types.NewOrderedMap()
+    accounting.EntityData.Children.Append("commands", types.YChild{"Commands", &accounting.Commands})
+    accounting.EntityData.Leafs = types.NewOrderedMap()
+
+    accounting.EntityData.YListKeys = []string {}
+
+    return &(accounting.EntityData)
+}
+
+// Aaa_Accounting_Commands
+type Aaa_Accounting_Commands struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    
+    Group Aaa_Accounting_Commands_Group
+}
+
+func (commands *Aaa_Accounting_Commands) GetEntityData() *types.CommonEntityData {
+    commands.EntityData.YFilter = commands.YFilter
+    commands.EntityData.YangName = "commands"
+    commands.EntityData.BundleName = "cisco_ios_xr"
+    commands.EntityData.ParentYangName = "accounting"
+    commands.EntityData.SegmentPath = "commands"
+    commands.EntityData.AbsolutePath = "tailf-aaa:aaa/accounting/" + commands.EntityData.SegmentPath
+    commands.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    commands.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    commands.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    commands.EntityData.Children = types.NewOrderedMap()
+    commands.EntityData.Children.Append("group", types.YChild{"Group", &commands.Group})
+    commands.EntityData.Leafs = types.NewOrderedMap()
+
+    commands.EntityData.YListKeys = []string {}
+
+    return &(commands.EntityData)
+}
+
+// Aaa_Accounting_Commands_Group
+type Aaa_Accounting_Commands_Group struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // The type is interface{}.
+    Tacacs interface{}
+}
+
+func (group *Aaa_Accounting_Commands_Group) GetEntityData() *types.CommonEntityData {
+    group.EntityData.YFilter = group.YFilter
+    group.EntityData.YangName = "group"
+    group.EntityData.BundleName = "cisco_ios_xr"
+    group.EntityData.ParentYangName = "commands"
+    group.EntityData.SegmentPath = "group"
+    group.EntityData.AbsolutePath = "tailf-aaa:aaa/accounting/commands/" + group.EntityData.SegmentPath
+    group.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    group.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    group.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    group.EntityData.Children = types.NewOrderedMap()
+    group.EntityData.Leafs = types.NewOrderedMap()
+    group.EntityData.Leafs.Append("tacacs", types.YLeaf{"Tacacs", group.Tacacs})
+
+    group.EntityData.YListKeys = []string {}
+
+    return &(group.EntityData)
 }
 
 // Aaa_Ios
@@ -579,6 +820,7 @@ func (ios *Aaa_Ios) GetEntityData() *types.CommonEntityData {
     ios.EntityData.BundleName = "cisco_ios_xr"
     ios.EntityData.ParentYangName = "aaa"
     ios.EntityData.SegmentPath = "ios"
+    ios.EntityData.AbsolutePath = "tailf-aaa:aaa/" + ios.EntityData.SegmentPath
     ios.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ios.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ios.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -603,6 +845,7 @@ func (ios *Aaa_Ios) GetEntityData() *types.CommonEntityData {
 type Aaa_Ios_Level struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is interface{} with range: 0..15.
     Nr interface{}
@@ -623,6 +866,7 @@ func (level *Aaa_Ios_Level) GetEntityData() *types.CommonEntityData {
     level.EntityData.BundleName = "cisco_ios_xr"
     level.EntityData.ParentYangName = "ios"
     level.EntityData.SegmentPath = "level" + types.AddKeyToken(level.Nr, "nr")
+    level.EntityData.AbsolutePath = "tailf-aaa:aaa/ios/" + level.EntityData.SegmentPath
     level.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     level.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     level.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -643,6 +887,7 @@ func (level *Aaa_Ios_Level) GetEntityData() *types.CommonEntityData {
 type Aaa_Ios_Privilege struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is one of the following types: string, or
     // enumeration BuiltinModes_.
@@ -658,6 +903,7 @@ func (privilege *Aaa_Ios_Privilege) GetEntityData() *types.CommonEntityData {
     privilege.EntityData.BundleName = "cisco_ios_xr"
     privilege.EntityData.ParentYangName = "ios"
     privilege.EntityData.SegmentPath = "privilege" + types.AddKeyToken(privilege.Mode, "mode")
+    privilege.EntityData.AbsolutePath = "tailf-aaa:aaa/ios/" + privilege.EntityData.SegmentPath
     privilege.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     privilege.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     privilege.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -679,6 +925,7 @@ func (privilege *Aaa_Ios_Privilege) GetEntityData() *types.CommonEntityData {
 type Aaa_Ios_Privilege_Level struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is interface{} with range: 0..15.
     Nr interface{}
@@ -693,6 +940,7 @@ func (level *Aaa_Ios_Privilege_Level) GetEntityData() *types.CommonEntityData {
     level.EntityData.BundleName = "cisco_ios_xr"
     level.EntityData.ParentYangName = "privilege"
     level.EntityData.SegmentPath = "level" + types.AddKeyToken(level.Nr, "nr")
+    level.EntityData.AbsolutePath = "tailf-aaa:aaa/ios/privilege/" + level.EntityData.SegmentPath
     level.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     level.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     level.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -714,6 +962,7 @@ func (level *Aaa_Ios_Privilege_Level) GetEntityData() *types.CommonEntityData {
 type Aaa_Ios_Privilege_Level_Command struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     Name interface{}
@@ -725,6 +974,7 @@ func (command *Aaa_Ios_Privilege_Level_Command) GetEntityData() *types.CommonEnt
     command.EntityData.BundleName = "cisco_ios_xr"
     command.EntityData.ParentYangName = "level"
     command.EntityData.SegmentPath = "command" + types.AddKeyToken(command.Name, "name")
+    command.EntityData.AbsolutePath = "tailf-aaa:aaa/ios/privilege/level/" + command.EntityData.SegmentPath
     command.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     command.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     command.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -736,6 +986,39 @@ func (command *Aaa_Ios_Privilege_Level_Command) GetEntityData() *types.CommonEnt
     command.EntityData.YListKeys = []string {"Name"}
 
     return &(command.EntityData)
+}
+
+// Aaa_DisasterRecovery
+type Aaa_DisasterRecovery struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // The type is string. Refers to tailf_aaa.Aaa_Authentication_Users_User_Name
+    Username interface{}
+
+    // The type is string.
+    Password interface{}
+}
+
+func (disasterRecovery *Aaa_DisasterRecovery) GetEntityData() *types.CommonEntityData {
+    disasterRecovery.EntityData.YFilter = disasterRecovery.YFilter
+    disasterRecovery.EntityData.YangName = "disaster-recovery"
+    disasterRecovery.EntityData.BundleName = "cisco_ios_xr"
+    disasterRecovery.EntityData.ParentYangName = "aaa"
+    disasterRecovery.EntityData.SegmentPath = "Cisco-IOS-XR-sysadmin-aaa-disaster-recovery:disaster-recovery"
+    disasterRecovery.EntityData.AbsolutePath = "tailf-aaa:aaa/" + disasterRecovery.EntityData.SegmentPath
+    disasterRecovery.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    disasterRecovery.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    disasterRecovery.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    disasterRecovery.EntityData.Children = types.NewOrderedMap()
+    disasterRecovery.EntityData.Leafs = types.NewOrderedMap()
+    disasterRecovery.EntityData.Leafs.Append("username", types.YLeaf{"Username", disasterRecovery.Username})
+    disasterRecovery.EntityData.Leafs.Append("password", types.YLeaf{"Password", disasterRecovery.Password})
+
+    disasterRecovery.EntityData.YListKeys = []string {}
+
+    return &(disasterRecovery.EntityData)
 }
 
 // Aaa_PrivilegedAccess
@@ -762,6 +1045,7 @@ func (privilegedAccess *Aaa_PrivilegedAccess) GetEntityData() *types.CommonEntit
     privilegedAccess.EntityData.BundleName = "cisco_ios_xr"
     privilegedAccess.EntityData.ParentYangName = "aaa"
     privilegedAccess.EntityData.SegmentPath = "Cisco-IOS-XR-sysadmin-aaa-aaa-show:privileged-access"
+    privilegedAccess.EntityData.AbsolutePath = "tailf-aaa:aaa/" + privilegedAccess.EntityData.SegmentPath
     privilegedAccess.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     privilegedAccess.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     privilegedAccess.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -778,8 +1062,8 @@ func (privilegedAccess *Aaa_PrivilegedAccess) GetEntityData() *types.CommonEntit
     return &(privilegedAccess.EntityData)
 }
 
-// Aaa_Accounting
-type Aaa_Accounting struct {
+// Aaa_CiscoIOSXRSysadminAaaAaaShowAccounting
+type Aaa_CiscoIOSXRSysadminAaaAaaShowAccounting struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -787,23 +1071,24 @@ type Aaa_Accounting struct {
     LogData interface{}
 }
 
-func (accounting *Aaa_Accounting) GetEntityData() *types.CommonEntityData {
-    accounting.EntityData.YFilter = accounting.YFilter
-    accounting.EntityData.YangName = "accounting"
-    accounting.EntityData.BundleName = "cisco_ios_xr"
-    accounting.EntityData.ParentYangName = "aaa"
-    accounting.EntityData.SegmentPath = "Cisco-IOS-XR-sysadmin-aaa-aaa-show:accounting"
-    accounting.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    accounting.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    accounting.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (ciscoIOSXRSysadminAaaAaaShowAccounting *Aaa_CiscoIOSXRSysadminAaaAaaShowAccounting) GetEntityData() *types.CommonEntityData {
+    ciscoIOSXRSysadminAaaAaaShowAccounting.EntityData.YFilter = ciscoIOSXRSysadminAaaAaaShowAccounting.YFilter
+    ciscoIOSXRSysadminAaaAaaShowAccounting.EntityData.YangName = "accounting"
+    ciscoIOSXRSysadminAaaAaaShowAccounting.EntityData.BundleName = "cisco_ios_xr"
+    ciscoIOSXRSysadminAaaAaaShowAccounting.EntityData.ParentYangName = "aaa"
+    ciscoIOSXRSysadminAaaAaaShowAccounting.EntityData.SegmentPath = "Cisco-IOS-XR-sysadmin-aaa-aaa-show:accounting"
+    ciscoIOSXRSysadminAaaAaaShowAccounting.EntityData.AbsolutePath = "tailf-aaa:aaa/" + ciscoIOSXRSysadminAaaAaaShowAccounting.EntityData.SegmentPath
+    ciscoIOSXRSysadminAaaAaaShowAccounting.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ciscoIOSXRSysadminAaaAaaShowAccounting.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ciscoIOSXRSysadminAaaAaaShowAccounting.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    accounting.EntityData.Children = types.NewOrderedMap()
-    accounting.EntityData.Leafs = types.NewOrderedMap()
-    accounting.EntityData.Leafs.Append("log-data", types.YLeaf{"LogData", accounting.LogData})
+    ciscoIOSXRSysadminAaaAaaShowAccounting.EntityData.Children = types.NewOrderedMap()
+    ciscoIOSXRSysadminAaaAaaShowAccounting.EntityData.Leafs = types.NewOrderedMap()
+    ciscoIOSXRSysadminAaaAaaShowAccounting.EntityData.Leafs.Append("log-data", types.YLeaf{"LogData", ciscoIOSXRSysadminAaaAaaShowAccounting.LogData})
 
-    accounting.EntityData.YListKeys = []string {}
+    ciscoIOSXRSysadminAaaAaaShowAccounting.EntityData.YListKeys = []string {}
 
-    return &(accounting.EntityData)
+    return &(ciscoIOSXRSysadminAaaAaaShowAccounting.EntityData)
 }
 
 // Aaa_UserGroup
@@ -821,6 +1106,7 @@ func (userGroup *Aaa_UserGroup) GetEntityData() *types.CommonEntityData {
     userGroup.EntityData.BundleName = "cisco_ios_xr"
     userGroup.EntityData.ParentYangName = "aaa"
     userGroup.EntityData.SegmentPath = "Cisco-IOS-XR-sysadmin-aaa-aaa-show:user-group"
+    userGroup.EntityData.AbsolutePath = "tailf-aaa:aaa/" + userGroup.EntityData.SegmentPath
     userGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     userGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     userGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -834,42 +1120,11 @@ func (userGroup *Aaa_UserGroup) GetEntityData() *types.CommonEntityData {
     return &(userGroup.EntityData)
 }
 
-// Aaa_DisasterRecovery
-type Aaa_DisasterRecovery struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // The type is string. Refers to tailf_aaa.Aaa_Authentication_Users_User_Name
-    Username interface{}
-
-    // The type is string.
-    Password interface{}
-}
-
-func (disasterRecovery *Aaa_DisasterRecovery) GetEntityData() *types.CommonEntityData {
-    disasterRecovery.EntityData.YFilter = disasterRecovery.YFilter
-    disasterRecovery.EntityData.YangName = "disaster-recovery"
-    disasterRecovery.EntityData.BundleName = "cisco_ios_xr"
-    disasterRecovery.EntityData.ParentYangName = "aaa"
-    disasterRecovery.EntityData.SegmentPath = "Cisco-IOS-XR-sysadmin-aaa-disaster-recovery:disaster-recovery"
-    disasterRecovery.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    disasterRecovery.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    disasterRecovery.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    disasterRecovery.EntityData.Children = types.NewOrderedMap()
-    disasterRecovery.EntityData.Leafs = types.NewOrderedMap()
-    disasterRecovery.EntityData.Leafs.Append("username", types.YLeaf{"Username", disasterRecovery.Username})
-    disasterRecovery.EntityData.Leafs.Append("password", types.YLeaf{"Password", disasterRecovery.Password})
-
-    disasterRecovery.EntityData.YListKeys = []string {}
-
-    return &(disasterRecovery.EntityData)
-}
-
 // Alias
 type Alias struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     Name interface{}
@@ -884,6 +1139,7 @@ func (alias *Alias) GetEntityData() *types.CommonEntityData {
     alias.EntityData.BundleName = "cisco_ios_xr"
     alias.EntityData.ParentYangName = "tailf-aaa"
     alias.EntityData.SegmentPath = "tailf-aaa:alias" + types.AddKeyToken(alias.Name, "name")
+    alias.EntityData.AbsolutePath = alias.EntityData.SegmentPath
     alias.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     alias.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     alias.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -942,6 +1198,7 @@ func (session *Session) GetEntityData() *types.CommonEntityData {
     session.EntityData.BundleName = "cisco_ios_xr"
     session.EntityData.ParentYangName = "tailf-aaa"
     session.EntityData.SegmentPath = "tailf-aaa:session"
+    session.EntityData.AbsolutePath = session.EntityData.SegmentPath
     session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -968,6 +1225,7 @@ func (session *Session) GetEntityData() *types.CommonEntityData {
 type User struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     Name interface{}
@@ -988,6 +1246,7 @@ func (user *User) GetEntityData() *types.CommonEntityData {
     user.EntityData.BundleName = "cisco_ios_xr"
     user.EntityData.ParentYangName = "tailf-aaa"
     user.EntityData.SegmentPath = "tailf-aaa:user" + types.AddKeyToken(user.Name, "name")
+    user.EntityData.AbsolutePath = user.EntityData.SegmentPath
     user.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     user.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     user.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1011,6 +1270,7 @@ func (user *User) GetEntityData() *types.CommonEntityData {
 type User_Alias struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     Name interface{}
@@ -1025,6 +1285,7 @@ func (alias *User_Alias) GetEntityData() *types.CommonEntityData {
     alias.EntityData.BundleName = "cisco_ios_xr"
     alias.EntityData.ParentYangName = "user"
     alias.EntityData.SegmentPath = "alias" + types.AddKeyToken(alias.Name, "name")
+    alias.EntityData.AbsolutePath = "tailf-aaa:user/" + alias.EntityData.SegmentPath
     alias.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     alias.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     alias.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1081,6 +1342,7 @@ func (session *User_Session) GetEntityData() *types.CommonEntityData {
     session.EntityData.BundleName = "cisco_ios_xr"
     session.EntityData.ParentYangName = "user"
     session.EntityData.SegmentPath = "session"
+    session.EntityData.AbsolutePath = "tailf-aaa:user/" + session.EntityData.SegmentPath
     session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

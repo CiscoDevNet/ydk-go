@@ -136,6 +136,7 @@ func (trustsecState *TrustsecState) GetEntityData() *types.CommonEntityData {
     trustsecState.EntityData.BundleName = "cisco_ios_xe"
     trustsecState.EntityData.ParentYangName = "Cisco-IOS-XE-trustsec-oper"
     trustsecState.EntityData.SegmentPath = "Cisco-IOS-XE-trustsec-oper:trustsec-state"
+    trustsecState.EntityData.AbsolutePath = trustsecState.EntityData.SegmentPath
     trustsecState.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     trustsecState.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     trustsecState.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -171,6 +172,7 @@ func (ctsRolebasedSgtmaps *TrustsecState_CtsRolebasedSgtmaps) GetEntityData() *t
     ctsRolebasedSgtmaps.EntityData.BundleName = "cisco_ios_xe"
     ctsRolebasedSgtmaps.EntityData.ParentYangName = "trustsec-state"
     ctsRolebasedSgtmaps.EntityData.SegmentPath = "cts-rolebased-sgtmaps"
+    ctsRolebasedSgtmaps.EntityData.AbsolutePath = "Cisco-IOS-XE-trustsec-oper:trustsec-state/" + ctsRolebasedSgtmaps.EntityData.SegmentPath
     ctsRolebasedSgtmaps.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ctsRolebasedSgtmaps.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ctsRolebasedSgtmaps.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -195,6 +197,7 @@ func (ctsRolebasedSgtmaps *TrustsecState_CtsRolebasedSgtmaps) GetEntityData() *t
 type TrustsecState_CtsRolebasedSgtmaps_CtsRolebasedSgtmap struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IP-Prefix information to find its corresponding
     // Secure Group Tag. Only IPv4 prefix information is supported currently to
@@ -226,6 +229,7 @@ func (ctsRolebasedSgtmap *TrustsecState_CtsRolebasedSgtmaps_CtsRolebasedSgtmap) 
     ctsRolebasedSgtmap.EntityData.BundleName = "cisco_ios_xe"
     ctsRolebasedSgtmap.EntityData.ParentYangName = "cts-rolebased-sgtmaps"
     ctsRolebasedSgtmap.EntityData.SegmentPath = "cts-rolebased-sgtmap" + types.AddKeyToken(ctsRolebasedSgtmap.Ip, "ip") + types.AddKeyToken(ctsRolebasedSgtmap.VrfName, "vrf-name")
+    ctsRolebasedSgtmap.EntityData.AbsolutePath = "Cisco-IOS-XE-trustsec-oper:trustsec-state/cts-rolebased-sgtmaps/" + ctsRolebasedSgtmap.EntityData.SegmentPath
     ctsRolebasedSgtmap.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ctsRolebasedSgtmap.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ctsRolebasedSgtmap.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -263,6 +267,7 @@ func (ctsRolebasedPolicies *TrustsecState_CtsRolebasedPolicies) GetEntityData() 
     ctsRolebasedPolicies.EntityData.BundleName = "cisco_ios_xe"
     ctsRolebasedPolicies.EntityData.ParentYangName = "trustsec-state"
     ctsRolebasedPolicies.EntityData.SegmentPath = "cts-rolebased-policies"
+    ctsRolebasedPolicies.EntityData.AbsolutePath = "Cisco-IOS-XE-trustsec-oper:trustsec-state/" + ctsRolebasedPolicies.EntityData.SegmentPath
     ctsRolebasedPolicies.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ctsRolebasedPolicies.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ctsRolebasedPolicies.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -287,6 +292,7 @@ func (ctsRolebasedPolicies *TrustsecState_CtsRolebasedPolicies) GetEntityData() 
 type TrustsecState_CtsRolebasedPolicies_CtsRolebasedPolicy struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Source Security Group Tag number. This value must
     // be in the inclusive range of -1 to 65519. The type is interface{} with
@@ -385,6 +391,7 @@ func (ctsRolebasedPolicy *TrustsecState_CtsRolebasedPolicies_CtsRolebasedPolicy)
     ctsRolebasedPolicy.EntityData.BundleName = "cisco_ios_xe"
     ctsRolebasedPolicy.EntityData.ParentYangName = "cts-rolebased-policies"
     ctsRolebasedPolicy.EntityData.SegmentPath = "cts-rolebased-policy" + types.AddKeyToken(ctsRolebasedPolicy.SrcSgt, "src-sgt") + types.AddKeyToken(ctsRolebasedPolicy.DstSgt, "dst-sgt")
+    ctsRolebasedPolicy.EntityData.AbsolutePath = "Cisco-IOS-XE-trustsec-oper:trustsec-state/cts-rolebased-policies/" + ctsRolebasedPolicy.EntityData.SegmentPath
     ctsRolebasedPolicy.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ctsRolebasedPolicy.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ctsRolebasedPolicy.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -435,6 +442,7 @@ func (ctsSxpConnections *TrustsecState_CtsSxpConnections) GetEntityData() *types
     ctsSxpConnections.EntityData.BundleName = "cisco_ios_xe"
     ctsSxpConnections.EntityData.ParentYangName = "trustsec-state"
     ctsSxpConnections.EntityData.SegmentPath = "cts-sxp-connections"
+    ctsSxpConnections.EntityData.AbsolutePath = "Cisco-IOS-XE-trustsec-oper:trustsec-state/" + ctsSxpConnections.EntityData.SegmentPath
     ctsSxpConnections.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ctsSxpConnections.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ctsSxpConnections.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -459,6 +467,7 @@ func (ctsSxpConnections *TrustsecState_CtsSxpConnections) GetEntityData() *types
 type TrustsecState_CtsSxpConnections_CtsSxpConnection struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IP-Address information of the peer of an SXP
     // connection in this device. Only IPv4 address is currently supported. The
@@ -512,6 +521,7 @@ func (ctsSxpConnection *TrustsecState_CtsSxpConnections_CtsSxpConnection) GetEnt
     ctsSxpConnection.EntityData.BundleName = "cisco_ios_xe"
     ctsSxpConnection.EntityData.ParentYangName = "cts-sxp-connections"
     ctsSxpConnection.EntityData.SegmentPath = "cts-sxp-connection" + types.AddKeyToken(ctsSxpConnection.PeerIp, "peer-ip") + types.AddKeyToken(ctsSxpConnection.VrfName, "vrf-name")
+    ctsSxpConnection.EntityData.AbsolutePath = "Cisco-IOS-XE-trustsec-oper:trustsec-state/cts-sxp-connections/" + ctsSxpConnection.EntityData.SegmentPath
     ctsSxpConnection.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ctsSxpConnection.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ctsSxpConnection.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

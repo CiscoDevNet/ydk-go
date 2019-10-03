@@ -124,6 +124,7 @@ func (mPLSTESTDMIB *MPLSTESTDMIB) GetEntityData() *types.CommonEntityData {
     mPLSTESTDMIB.EntityData.BundleName = "cisco_ios_xe"
     mPLSTESTDMIB.EntityData.ParentYangName = "MPLS-TE-STD-MIB"
     mPLSTESTDMIB.EntityData.SegmentPath = "MPLS-TE-STD-MIB:MPLS-TE-STD-MIB"
+    mPLSTESTDMIB.EntityData.AbsolutePath = mPLSTESTDMIB.EntityData.SegmentPath
     mPLSTESTDMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     mPLSTESTDMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mPLSTESTDMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -183,6 +184,7 @@ func (mplsTeScalars *MPLSTESTDMIB_MplsTeScalars) GetEntityData() *types.CommonEn
     mplsTeScalars.EntityData.BundleName = "cisco_ios_xe"
     mplsTeScalars.EntityData.ParentYangName = "MPLS-TE-STD-MIB"
     mplsTeScalars.EntityData.SegmentPath = "mplsTeScalars"
+    mplsTeScalars.EntityData.AbsolutePath = "MPLS-TE-STD-MIB:MPLS-TE-STD-MIB/" + mplsTeScalars.EntityData.SegmentPath
     mplsTeScalars.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     mplsTeScalars.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mplsTeScalars.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -266,6 +268,7 @@ func (mplsTeObjects *MPLSTESTDMIB_MplsTeObjects) GetEntityData() *types.CommonEn
     mplsTeObjects.EntityData.BundleName = "cisco_ios_xe"
     mplsTeObjects.EntityData.ParentYangName = "MPLS-TE-STD-MIB"
     mplsTeObjects.EntityData.SegmentPath = "mplsTeObjects"
+    mplsTeObjects.EntityData.AbsolutePath = "MPLS-TE-STD-MIB:MPLS-TE-STD-MIB/" + mplsTeObjects.EntityData.SegmentPath
     mplsTeObjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     mplsTeObjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mplsTeObjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -317,6 +320,7 @@ func (mplsTunnelTable *MPLSTESTDMIB_MplsTunnelTable) GetEntityData() *types.Comm
     mplsTunnelTable.EntityData.BundleName = "cisco_ios_xe"
     mplsTunnelTable.EntityData.ParentYangName = "MPLS-TE-STD-MIB"
     mplsTunnelTable.EntityData.SegmentPath = "mplsTunnelTable"
+    mplsTunnelTable.EntityData.AbsolutePath = "MPLS-TE-STD-MIB:MPLS-TE-STD-MIB/" + mplsTunnelTable.EntityData.SegmentPath
     mplsTunnelTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     mplsTunnelTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mplsTunnelTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -355,6 +359,7 @@ func (mplsTunnelTable *MPLSTESTDMIB_MplsTunnelTable) GetEntityData() *types.Comm
 type MPLSTESTDMIB_MplsTunnelTable_MplsTunnelEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Uniquely identifies a set of tunnel instances
     // between a pair of ingress and egress LSRs. Managers should obtain new
@@ -623,6 +628,7 @@ func (mplsTunnelEntry *MPLSTESTDMIB_MplsTunnelTable_MplsTunnelEntry) GetEntityDa
     mplsTunnelEntry.EntityData.BundleName = "cisco_ios_xe"
     mplsTunnelEntry.EntityData.ParentYangName = "mplsTunnelTable"
     mplsTunnelEntry.EntityData.SegmentPath = "mplsTunnelEntry" + types.AddKeyToken(mplsTunnelEntry.MplsTunnelIndex, "mplsTunnelIndex") + types.AddKeyToken(mplsTunnelEntry.MplsTunnelInstance, "mplsTunnelInstance") + types.AddKeyToken(mplsTunnelEntry.MplsTunnelIngressLSRId, "mplsTunnelIngressLSRId") + types.AddKeyToken(mplsTunnelEntry.MplsTunnelEgressLSRId, "mplsTunnelEgressLSRId")
+    mplsTunnelEntry.EntityData.AbsolutePath = "MPLS-TE-STD-MIB:MPLS-TE-STD-MIB/mplsTunnelTable/" + mplsTunnelEntry.EntityData.SegmentPath
     mplsTunnelEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     mplsTunnelEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mplsTunnelEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -769,6 +775,7 @@ func (mplsTunnelHopTable *MPLSTESTDMIB_MplsTunnelHopTable) GetEntityData() *type
     mplsTunnelHopTable.EntityData.BundleName = "cisco_ios_xe"
     mplsTunnelHopTable.EntityData.ParentYangName = "MPLS-TE-STD-MIB"
     mplsTunnelHopTable.EntityData.SegmentPath = "mplsTunnelHopTable"
+    mplsTunnelHopTable.EntityData.AbsolutePath = "MPLS-TE-STD-MIB:MPLS-TE-STD-MIB/" + mplsTunnelHopTable.EntityData.SegmentPath
     mplsTunnelHopTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     mplsTunnelHopTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mplsTunnelHopTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -793,6 +800,7 @@ func (mplsTunnelHopTable *MPLSTESTDMIB_MplsTunnelHopTable) GetEntityData() *type
 type MPLSTESTDMIB_MplsTunnelHopTable_MplsTunnelHopEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Primary index into this table identifying a
     // particular explicit route object. The type is interface{} with range:
@@ -831,7 +839,7 @@ type MPLSTESTDMIB_MplsTunnelHopTable_MplsTunnelHopEntry struct {
     // If mplsTunnelHopAddrType is set to asnumber(3), then this value will
     // contain the AS number of this hop. Otherwise the agent should set this
     // object to zero- length string and the manager should ignore this. The type
-    // is string with length: 4.
+    // is string with length: 4..4.
     MplsTunnelHopAsNumber interface{}
 
     // If mplsTunnelHopAddrType is set to unnum(4), then this value will contain
@@ -839,14 +847,14 @@ type MPLSTESTDMIB_MplsTunnelHopTable_MplsTunnelHopEntry struct {
     // object should be used in conjunction with mplsTunnelHopIpAddress which
     // would contain the LSR Router ID in this case. Otherwise the agent should
     // set this object to zero-length string and the manager should ignore this.
-    // The type is string with length: 4.
+    // The type is string with length: 4..4.
     MplsTunnelHopAddrUnnum interface{}
 
     // If mplsTunnelHopAddrType is set to lspid(5), then this value will contain
     // the LSPID of a tunnel of this hop. The present tunnel being configured is
     // tunneled through this hop (using label stacking). This object is otherwise
     // insignificant and should contain a value of 0 to indicate this fact. The
-    // type is string with length: 2 | 6.
+    // type is string with length: 2..2 | 6..6.
     MplsTunnelHopLspId interface{}
 
     // Denotes whether this tunnel hop is routed in a strict or loose fashion. The
@@ -893,6 +901,7 @@ func (mplsTunnelHopEntry *MPLSTESTDMIB_MplsTunnelHopTable_MplsTunnelHopEntry) Ge
     mplsTunnelHopEntry.EntityData.BundleName = "cisco_ios_xe"
     mplsTunnelHopEntry.EntityData.ParentYangName = "mplsTunnelHopTable"
     mplsTunnelHopEntry.EntityData.SegmentPath = "mplsTunnelHopEntry" + types.AddKeyToken(mplsTunnelHopEntry.MplsTunnelHopListIndex, "mplsTunnelHopListIndex") + types.AddKeyToken(mplsTunnelHopEntry.MplsTunnelHopPathOptionIndex, "mplsTunnelHopPathOptionIndex") + types.AddKeyToken(mplsTunnelHopEntry.MplsTunnelHopIndex, "mplsTunnelHopIndex")
+    mplsTunnelHopEntry.EntityData.AbsolutePath = "MPLS-TE-STD-MIB:MPLS-TE-STD-MIB/mplsTunnelHopTable/" + mplsTunnelHopEntry.EntityData.SegmentPath
     mplsTunnelHopEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     mplsTunnelHopEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mplsTunnelHopEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -966,6 +975,7 @@ func (mplsTunnelResourceTable *MPLSTESTDMIB_MplsTunnelResourceTable) GetEntityDa
     mplsTunnelResourceTable.EntityData.BundleName = "cisco_ios_xe"
     mplsTunnelResourceTable.EntityData.ParentYangName = "MPLS-TE-STD-MIB"
     mplsTunnelResourceTable.EntityData.SegmentPath = "mplsTunnelResourceTable"
+    mplsTunnelResourceTable.EntityData.AbsolutePath = "MPLS-TE-STD-MIB:MPLS-TE-STD-MIB/" + mplsTunnelResourceTable.EntityData.SegmentPath
     mplsTunnelResourceTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     mplsTunnelResourceTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mplsTunnelResourceTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -998,6 +1008,7 @@ func (mplsTunnelResourceTable *MPLSTESTDMIB_MplsTunnelResourceTable) GetEntityDa
 type MPLSTESTDMIB_MplsTunnelResourceTable_MplsTunnelResourceEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Uniquely identifies this row. The type is
     // interface{} with range: 1..2147483647.
@@ -1061,6 +1072,7 @@ func (mplsTunnelResourceEntry *MPLSTESTDMIB_MplsTunnelResourceTable_MplsTunnelRe
     mplsTunnelResourceEntry.EntityData.BundleName = "cisco_ios_xe"
     mplsTunnelResourceEntry.EntityData.ParentYangName = "mplsTunnelResourceTable"
     mplsTunnelResourceEntry.EntityData.SegmentPath = "mplsTunnelResourceEntry" + types.AddKeyToken(mplsTunnelResourceEntry.MplsTunnelResourceIndex, "mplsTunnelResourceIndex")
+    mplsTunnelResourceEntry.EntityData.AbsolutePath = "MPLS-TE-STD-MIB:MPLS-TE-STD-MIB/mplsTunnelResourceTable/" + mplsTunnelResourceEntry.EntityData.SegmentPath
     mplsTunnelResourceEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     mplsTunnelResourceEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mplsTunnelResourceEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1143,6 +1155,7 @@ func (mplsTunnelARHopTable *MPLSTESTDMIB_MplsTunnelARHopTable) GetEntityData() *
     mplsTunnelARHopTable.EntityData.BundleName = "cisco_ios_xe"
     mplsTunnelARHopTable.EntityData.ParentYangName = "MPLS-TE-STD-MIB"
     mplsTunnelARHopTable.EntityData.SegmentPath = "mplsTunnelARHopTable"
+    mplsTunnelARHopTable.EntityData.AbsolutePath = "MPLS-TE-STD-MIB:MPLS-TE-STD-MIB/" + mplsTunnelARHopTable.EntityData.SegmentPath
     mplsTunnelARHopTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     mplsTunnelARHopTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mplsTunnelARHopTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1166,6 +1179,7 @@ func (mplsTunnelARHopTable *MPLSTESTDMIB_MplsTunnelARHopTable) GetEntityData() *
 type MPLSTESTDMIB_MplsTunnelARHopTable_MplsTunnelARHopEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Primary index into this table identifying a
     // particular recorded hop list. The type is interface{} with range:
@@ -1193,13 +1207,13 @@ type MPLSTESTDMIB_MplsTunnelARHopTable_MplsTunnelARHopEntry struct {
     // object should be used in conjunction with mplsTunnelARHopIpAddr which would
     // contain the LSR Router ID in this case. Otherwise the agent should set this
     // object to zero-length string and the manager should ignore this. The type
-    // is string with length: 4.
+    // is string with length: 4..4.
     MplsTunnelARHopAddrUnnum interface{}
 
     // If mplsTunnelARHopAddrType is set to lspid(5), then this value will contain
     // the LSP ID of this hop. This object is otherwise insignificant and should
     // contain a value of 0 to indicate this fact. The type is string with length:
-    // 2 | 6.
+    // 2..2 | 6..6.
     MplsTunnelARHopLspId interface{}
 }
 
@@ -1209,6 +1223,7 @@ func (mplsTunnelARHopEntry *MPLSTESTDMIB_MplsTunnelARHopTable_MplsTunnelARHopEnt
     mplsTunnelARHopEntry.EntityData.BundleName = "cisco_ios_xe"
     mplsTunnelARHopEntry.EntityData.ParentYangName = "mplsTunnelARHopTable"
     mplsTunnelARHopEntry.EntityData.SegmentPath = "mplsTunnelARHopEntry" + types.AddKeyToken(mplsTunnelARHopEntry.MplsTunnelARHopListIndex, "mplsTunnelARHopListIndex") + types.AddKeyToken(mplsTunnelARHopEntry.MplsTunnelARHopIndex, "mplsTunnelARHopIndex")
+    mplsTunnelARHopEntry.EntityData.AbsolutePath = "MPLS-TE-STD-MIB:MPLS-TE-STD-MIB/mplsTunnelARHopTable/" + mplsTunnelARHopEntry.EntityData.SegmentPath
     mplsTunnelARHopEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     mplsTunnelARHopEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mplsTunnelARHopEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1271,6 +1286,7 @@ func (mplsTunnelCHopTable *MPLSTESTDMIB_MplsTunnelCHopTable) GetEntityData() *ty
     mplsTunnelCHopTable.EntityData.BundleName = "cisco_ios_xe"
     mplsTunnelCHopTable.EntityData.ParentYangName = "MPLS-TE-STD-MIB"
     mplsTunnelCHopTable.EntityData.SegmentPath = "mplsTunnelCHopTable"
+    mplsTunnelCHopTable.EntityData.AbsolutePath = "MPLS-TE-STD-MIB:MPLS-TE-STD-MIB/" + mplsTunnelCHopTable.EntityData.SegmentPath
     mplsTunnelCHopTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     mplsTunnelCHopTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mplsTunnelCHopTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1297,6 +1313,7 @@ func (mplsTunnelCHopTable *MPLSTESTDMIB_MplsTunnelCHopTable) GetEntityData() *ty
 type MPLSTESTDMIB_MplsTunnelCHopTable_MplsTunnelCHopEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Primary index into this table identifying a
     // particular computed hop list. The type is interface{} with range:
@@ -1328,7 +1345,7 @@ type MPLSTESTDMIB_MplsTunnelCHopTable_MplsTunnelCHopEntry struct {
     // If mplsTunnelCHopAddrType is set to asnumber(3), then this value will
     // contain the AS number of this hop. Otherwise the agent should set this
     // object to zero-length string and the manager should ignore this. The type
-    // is string with length: 4.
+    // is string with length: 4..4.
     MplsTunnelCHopAsNumber interface{}
 
     // If mplsTunnelCHopAddrType is set to unnum(4), then this value will contain
@@ -1336,13 +1353,13 @@ type MPLSTESTDMIB_MplsTunnelCHopTable_MplsTunnelCHopEntry struct {
     // in conjunction with mplsTunnelCHopIpAddr which would contain the LSR Router
     // ID in this case. Otherwise the agent should set this object to zero- length
     // string and the manager should ignore this. The type is string with length:
-    // 4.
+    // 4..4.
     MplsTunnelCHopAddrUnnum interface{}
 
     // If mplsTunnelCHopAddrType is set to lspid(5), then this value will contain
     // the LSP ID of this hop. This object is otherwise insignificant and should
     // contain a value of 0 to indicate this fact. The type is string with length:
-    // 2 | 6.
+    // 2..2 | 6..6.
     MplsTunnelCHopLspId interface{}
 
     // Denotes whether this is tunnel hop is routed in a strict or loose fashion.
@@ -1356,6 +1373,7 @@ func (mplsTunnelCHopEntry *MPLSTESTDMIB_MplsTunnelCHopTable_MplsTunnelCHopEntry)
     mplsTunnelCHopEntry.EntityData.BundleName = "cisco_ios_xe"
     mplsTunnelCHopEntry.EntityData.ParentYangName = "mplsTunnelCHopTable"
     mplsTunnelCHopEntry.EntityData.SegmentPath = "mplsTunnelCHopEntry" + types.AddKeyToken(mplsTunnelCHopEntry.MplsTunnelCHopListIndex, "mplsTunnelCHopListIndex") + types.AddKeyToken(mplsTunnelCHopEntry.MplsTunnelCHopIndex, "mplsTunnelCHopIndex")
+    mplsTunnelCHopEntry.EntityData.AbsolutePath = "MPLS-TE-STD-MIB:MPLS-TE-STD-MIB/mplsTunnelCHopTable/" + mplsTunnelCHopEntry.EntityData.SegmentPath
     mplsTunnelCHopEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     mplsTunnelCHopEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mplsTunnelCHopEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1413,6 +1431,7 @@ func (mplsTunnelCRLDPResTable *MPLSTESTDMIB_MplsTunnelCRLDPResTable) GetEntityDa
     mplsTunnelCRLDPResTable.EntityData.BundleName = "cisco_ios_xe"
     mplsTunnelCRLDPResTable.EntityData.ParentYangName = "MPLS-TE-STD-MIB"
     mplsTunnelCRLDPResTable.EntityData.SegmentPath = "mplsTunnelCRLDPResTable"
+    mplsTunnelCRLDPResTable.EntityData.AbsolutePath = "MPLS-TE-STD-MIB:MPLS-TE-STD-MIB/" + mplsTunnelCRLDPResTable.EntityData.SegmentPath
     mplsTunnelCRLDPResTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     mplsTunnelCRLDPResTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mplsTunnelCRLDPResTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1439,6 +1458,7 @@ func (mplsTunnelCRLDPResTable *MPLSTESTDMIB_MplsTunnelCRLDPResTable) GetEntityDa
 type MPLSTESTDMIB_MplsTunnelCRLDPResTable_MplsTunnelCRLDPResEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -1492,6 +1512,7 @@ func (mplsTunnelCRLDPResEntry *MPLSTESTDMIB_MplsTunnelCRLDPResTable_MplsTunnelCR
     mplsTunnelCRLDPResEntry.EntityData.BundleName = "cisco_ios_xe"
     mplsTunnelCRLDPResEntry.EntityData.ParentYangName = "mplsTunnelCRLDPResTable"
     mplsTunnelCRLDPResEntry.EntityData.SegmentPath = "mplsTunnelCRLDPResEntry" + types.AddKeyToken(mplsTunnelCRLDPResEntry.MplsTunnelResourceIndex, "mplsTunnelResourceIndex")
+    mplsTunnelCRLDPResEntry.EntityData.AbsolutePath = "MPLS-TE-STD-MIB:MPLS-TE-STD-MIB/mplsTunnelCRLDPResTable/" + mplsTunnelCRLDPResEntry.EntityData.SegmentPath
     mplsTunnelCRLDPResEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     mplsTunnelCRLDPResEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mplsTunnelCRLDPResEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

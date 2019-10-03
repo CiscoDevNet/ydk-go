@@ -23,8 +23,8 @@
 package path
 
 // #cgo CXXFLAGS: -g -std=c++11
-// #cgo darwin LDFLAGS:  -fprofile-arcs -ftest-coverage -lydk -lxml2 -lxslt -lpcre -lssh -lssh_threads -lcurl -lpython -lc++
-// #cgo linux LDFLAGS:  -fprofile-arcs -ftest-coverage --coverage -lydk -lxml2 -lxslt -lpcre -lssh -lssh_threads -lcurl -lstdc++ -lpython2.7 -lm -ldl
+// #cgo darwin LDFLAGS: -lydk -lxml2 -lxslt -lpcre -lssh -lssh_threads -lcurl -lc++
+// #cgo linux LDFLAGS:  -fprofile-arcs -ftest-coverage --coverage -lydk -lxml2 -lxslt -lpcre -lssh -lssh_threads -lcurl -lstdc++ -lm -ldl
 // #include <ydk/ydk.h>
 // #include <stdlib.h>
 import "C"
@@ -116,13 +116,19 @@ func GetDataPayload(
 		if datanode == nil {
 			return nil
 		}
+		
+		topDatanode := C.DataNodeGetTopDataNode(datanode)
+		if topDatanode == nil {
+			dnPath := C.GoString(C.DataNodeGetPath(datanode))
+			panic(fmt.Sprintf("path.GetDataPayload: Failed to get top level datanode from datanode with path '%s'", dnPath))
+		}
 
-		var data *C.char = C.CodecEncode(*GetCState(state), codec, datanode, cencoding, 0)
+		var data *C.char = C.CodecEncode(*GetCState(state), codec, topDatanode, cencoding, 0)
 		PanicOnCStateError(GetCState(state))
 		
 		if cencoding == C.JSON {
 			// YG: So far there is no support for multiple JSON encoded entities
-			return data;
+			return data
 		}
 		retString += C.GoString(data)
 		C.free(unsafe.Pointer(data))
@@ -253,13 +259,81 @@ func createFromChildren(
 	}
 }
 
-func getTopEntityFromFilter(filter types.Entity) types.Entity {
-	parent := types.GetParent(filter)
-	if parent == nil {
-		return filter
+// GetTopEntity traverses the entity hierarchy up to the top-level entity.
+// Develops error if Parent for non-top-level entity is not set.
+func GetTopEntity(entity types.Entity) types.Entity {
+	if types.IsEntityCollection(entity) {
+		entCollection := types.EntityToCollection(entity)
+		topEntityCollection := types.NewEntityCollection()
+	        for _, ent := range entCollection.Entities() {
+	        	topEntity := GetTopEntity(ent)
+	        	if topEntity != nil {
+		        	topEntityCollection.Add(topEntity)
+	        	}
+	        }
+	        return topEntityCollection
+	} else {
+		parent := types.GetParent(entity)
+		if parent == nil {
+			if types.IsTopLevelEntity(entity) {
+				return entity
+			} else {
+				entData := entity.GetEntityData()
+				msg := fmt.Sprintf("Parent is not set for non-top entity '%s'", entData.SegmentPath)
+				ydk.YLogError(msg)
+				return nil
+			}
+		}
+		return GetTopEntity(parent)
+	}
+}
+
+func findEntityInChildren(parentEntity types.Entity, filterAbsPath string) types.Entity {
+	parentAbsPath := types.GetAbsolutePath(parentEntity)
+	if (filterAbsPath == parentAbsPath) {
+		ydk.YLogDebug("path.findEntityInChildren: Filter matches with parent entity, returning")
+		return parentEntity
 	}
 
-	return getTopEntityFromFilter(parent)
+	// Traverse parentEntity tree for search of matching filter entity
+	ydk.YLogDebug(fmt.Sprintf("path.findEntityInChildren: Searching for filter entity '%s' under parent entity '%s'", filterAbsPath, parentAbsPath))
+	ychildren := types.GetYChildren(parentEntity.GetEntityData())
+	for _, ychild := range(ychildren) {
+		child := ychild.Value
+		if child == nil {
+			continue
+	    	}
+	    	childAbsPath := types.GetAbsolutePath(child)
+	        if childAbsPath == filterAbsPath {
+	            return child
+	        }
+	        if strings.Index(filterAbsPath, childAbsPath) == 0 {
+	        	ch := findEntityInChildren(child, filterAbsPath)
+	        	if ch != nil {
+				return ch
+			}
+	        }
+	}
+        return nil
+}
+
+func findChildEntity(topEntity types.Entity, filterAbsPath string) types.Entity {
+
+        ydk.YLogDebug(fmt.Sprintf("path.findChildEntity: Searching for child entity matching non-top level filter '%s'", filterAbsPath))
+        childEntity := findEntityInChildren(topEntity, filterAbsPath)
+        if childEntity != nil {
+        	ydk.YLogDebug("Found matching child entity!!")
+
+		// Set paren of found entity to nil
+		s := reflect.ValueOf(childEntity).Elem()
+		v := s.FieldByName("Parent")
+		if v.IsValid() {
+			v.Set(reflect.ValueOf(nil))
+		}
+        } else {
+        	ydk.YLogDebug("Matching child entity was not found")
+        }
+	return childEntity
 }
 
 // ReadDatanode populates entity by reading the top level entity from a given data node.
@@ -268,39 +342,57 @@ func ReadDatanode(filter types.Entity, readDataNode types.DataNode) types.Entity
 
 	ec := types.NewEntityCollection()
 
-	if readDataNode.Private == nil {
-		ydk.YLogError("path.ReadDatanode: The readDataNode is nil; returning empty EntityCollection")
-		return ec
+	isFilterEC := types.IsEntityCollection(filter)
+	cdn := readDataNode.Private.(C.DataNode)
+	if cdn == nil {
+		if isFilterEC {
+			ydk.YLogDebug("path.ReadDatanode: The readDataNode is nil; returning empty collection")
+			return ec
+		} else {
+			ydk.YLogDebug("path.ReadDatanode: The readDataNode is nil, returning nil")
+			return nil
+		}
 	}
 
-	cchildren := C.DataNodeGetChildren(readDataNode.Private.(C.DataNode))
-
+	cchildren := C.DataNodeGetChildren(cdn)
 	if cchildren.count == C.int(0) {
-		return filter;
+		return filter
 	}
-
 	children := (*[1 << 30]C.DataNode)(
 		unsafe.Pointer(cchildren.datanodes))[:cchildren.count:cchildren.count]
 
 	// Need keep order of filters.
-	isFilterEC := types.IsEntityCollection(filter)
 	filterEC := types.EntityToCollection(filter)
 	ydk.YLogDebug(fmt.Sprintf("path.ReadDatanode: Number of entities in the filter: %v", filterEC.Len()))
 	if filterEC.Len() > 0 {
 		// Follow filter order
-		// Build map of all children then itterate by filter.
-		childrenMap := make(map[string]C.DataNode)
-		for _, dn := range children {
-			path := C.GoString(C.DataNodeGetPath(dn))[1:]	// Strip '/' in the beginning of the path
-			childrenMap[path] = dn
-		}
 		for _, key := range filterEC.Keys() {
-			topEntity, _ := filterEC.Get(key)
-			dn := childrenMap[key]
-			if dn != nil {
-				getEntityFromDataNode(dn, topEntity)
+			filterEntity, _ := filterEC.Get(key)
+			filterAbsPath := types.GetAbsolutePath(filterEntity)
+			topEntity := filterEntity
+			for _, dn := range children {
+				path := C.GoString(C.DataNodeGetPath(dn))[1:]
+				bracketPos := strings.Index(path, "[")
+				if bracketPos > 0 {
+					path = path[0:bracketPos-1]
+				}
+				if strings.Index(filterAbsPath, path) == 0 {			
+					if dn != nil {
+						if types.IsTopLevelEntity(filterEntity) {
+							// Top level Entity
+							getEntityFromDataNode(dn, topEntity)
+						} else {
+							// Non-top level Entity
+							topEntity = DatanodeToEntity(dn)
+							if topEntity == nil {
+								continue
+							}
+							topEntity = findChildEntity(topEntity, filterAbsPath)
+						}
+					}
+					ec.Add(topEntity)
+				}
 			}
-			ec.Add(topEntity)
 		}
 	} else {
 		// Itterate over Datanodes
@@ -315,7 +407,11 @@ func ReadDatanode(filter types.Entity, readDataNode types.DataNode) types.Entity
 	if ec.Len() > 1 || isFilterEC {
 		return ec
 	}
-	return ec.GetItem(0)
+	if ec.Len() == 1 {
+		return ec.GetItem(0)
+	} else {
+		return nil
+	}
 }
 
 // ConnectToNetconfProvider connects to NETCONF service provider by creating a
@@ -651,7 +747,7 @@ func CodecServiceDecode(
 			topEntity.GetEntityData().SegmentPath, cchildren.count))
 	if cchildren.count == C.int(0) {
 		ydk.YLogDebug("path.CodecServiceDecode: Returning top entity")
-		return topEntity;
+		return topEntity
 	}
 	if cchildren.count == C.int(1) {
 		ydk.YLogDebug("path.CodecServiceDecode: Getting entity from single datanode")
@@ -659,7 +755,7 @@ func CodecServiceDecode(
 	}
 	// Payload contains multiple containers and or listleafs
 	ydk.YLogDebug("path.CodecServiceDecode: Getting collection of entities")
-	emptyCollection := types.NewFilter();
+	emptyCollection := types.NewFilter()
 	return ReadDatanode(emptyCollection, dataNode)
 }
 
@@ -668,7 +764,7 @@ func DatanodeToEntity(node C.DataNode) types.Entity {
 	nodeName := C.GoString(C.DataNodeGetArgument(node))
     moduleName := C.GoString(C.DataNodeGetModuleName(node))
     path := fmt.Sprintf("%s:%s", moduleName, nodeName)
-    ydk.YLogDebug(fmt.Sprintf("Got datanode with path: '%s'", path))
+    ydk.YLogDebug(fmt.Sprintf("path.DatanodeToEntity: Got datanode with path: '%s'", path))
     
     topEntity, ok := ydk.GetTopEntity(path)
     if ok {
@@ -786,18 +882,21 @@ func getDataNodeFromEntity(
 		parent = types.GetParent(entity)
 	}
 
-	rootPath := types.GetEntityPath(entity)
-	path := C.CString(rootPath.Path)
+	entPath := types.GetEntityPath(entity)
+	entAbsPath := types.GetAbsolutePath(entity)
+	path := C.CString(entAbsPath)
 	defer C.free(unsafe.Pointer(path))
 
-	rootDataNode := C.RootSchemaNodeCreate(*GetCState(state), rootSchema, path)
+	cdn := C.RootSchemaNodeCreate(*GetCState(state), rootSchema, path)
 	PanicOnCStateError(GetCState(state))
+	dnPath := C.GoString(C.DataNodeGetPath(cdn))[1:]
+	ydk.YLogDebug(fmt.Sprintf("path.getDataNodeFromEntity: Created datanode with path '%s'", dnPath))
 
-	addDataNodeFilterAnnotation(&rootDataNode, entity.GetEntityData().YFilter)
+	addDataNodeFilterAnnotation(&cdn, entity.GetEntityData().YFilter)
 
-	populateNameValues(state, rootDataNode, rootPath)
-	walkChildren(state, entity, rootDataNode)
-	return rootDataNode
+	populateNameValues(state, cdn, entPath)
+	walkChildren(state, entity, cdn)
+	return cdn
 }
 
 func walkChildren(
@@ -839,6 +938,8 @@ func populateDataNode(
 
 	addDataNodeFilterAnnotation(&dataNode, entity.GetEntityData().YFilter)
 
+	dnPath := C.GoString(C.DataNodeGetPath(dataNode))[1:]
+	ydk.YLogDebug(fmt.Sprintf("path.populateDataNode: Populating leafs in datanode with path '%s'", dnPath))
 	populateNameValues(state, dataNode, path)
 	walkChildren(state, entity, dataNode)
 }
@@ -851,7 +952,7 @@ func populateNameValues(
 		leafData := nameValue.Data
 		p := C.CString(nameValue.Name)
 		ydk.YLogDebug(fmt.Sprintf(
-			"got leaf {%s: %s}", nameValue.Name, nameValue.Data.Value))
+			"path.populateNameValues: Got leaf {%s: %s}", nameValue.Name, nameValue.Data.Value))
 
 		if leafData.IsSet {
 			p1 := C.CString(leafData.Value)
@@ -877,16 +978,16 @@ func getEntityFromDataNode(node C.DataNode, entity types.Entity) {
 	children := (*[1 << 30]C.DataNode)(
 		unsafe.Pointer(cchildren.datanodes))[:cchildren.count:cchildren.count]
 	nodeName := C.GoString(C.DataNodeGetArgument(node))
-	ydk.YLogDebug(fmt.Sprintf("Got %d datanode children for %v", cchildren.count, nodeName))
+	ydk.YLogDebug(fmt.Sprintf("path.getEntityFromDataNode: Got %d children in datanode '%s'", cchildren.count, nodeName))
 	moduleName := C.GoString(C.DataNodeGetModuleName(node))
 
 	for _, childDataNode := range children {
 		childName := C.GoString(C.DataNodeGetArgument(childDataNode))
-        childModuleName := C.GoString(C.DataNodeGetModuleName(childDataNode))
+	        childModuleName := C.GoString(C.DataNodeGetModuleName(childDataNode))
 		ydk.YLogDebug(fmt.Sprintf("Looking at child datanode: '%s'", childName))
-        if(moduleName != childModuleName) {
-            childName = childModuleName + ":" + childName;
-        }
+	        if(moduleName != childModuleName) {
+	            childName = childModuleName + ":" + childName
+	        }
 
 		if dataNodeIsLeaf(childDataNode) {
 
@@ -899,10 +1000,10 @@ func getEntityFromDataNode(node C.DataNode, entity types.Entity) {
 			var childEntity types.Entity
 			if dataNodeIsList(childDataNode) {
 				segmentPath := C.GoString(C.DataNodeGetSegmentPath(childDataNode))
-				ydk.YLogDebug(fmt.Sprintf("Creating child list instance '%s' '%s'", childName, segmentPath))
+				ydk.YLogDebug(fmt.Sprintf("Creating child list instance '%s' with path '%s'", childName, segmentPath))
 				childEntity = types.GetChildByName(entity, childName, segmentPath)
 			} else {
-				ydk.YLogDebug(fmt.Sprintf("Creating child node '%s'", childName))
+				ydk.YLogDebug(fmt.Sprintf("Creating child entity '%s'", childName))
 				childEntity = types.GetChildByName(entity, childName, "")
 			}
 			if childEntity == nil {
@@ -1087,7 +1188,7 @@ func GetRootSchemaNode(provider types.CServiceProvider) types.RootSchemaNode {
 	rootSchema := C.ServiceProviderGetRootSchemaNode(*cstate, realProvider)
 	PanicOnCStateError(cstate)
 	if rootSchema == nil {
-        ydk.YLogError("Root schema is nil!")
+	        ydk.YLogError("Root schema is nil!")
 		panic(1)
 	}
 

@@ -1,7 +1,13 @@
+// This module contains definitions
+// for the Calvados model objects.
+// 
 // This module contains a collection of YANG
 // definitions for Cisco IOS-XR SysAdmin configuration.
 // 
 // Copyright(c) 2012-2017 by Cisco Systems, Inc.
+// All rights reserved.
+// 
+// Copyright (c) 2012-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package sysadmin_show_trace_vmm
 
@@ -35,6 +41,7 @@ func (vmm *Vmm) GetEntityData() *types.CommonEntityData {
     vmm.EntityData.BundleName = "cisco_ios_xr"
     vmm.EntityData.ParentYangName = "Cisco-IOS-XR-sysadmin-show-trace-vmm"
     vmm.EntityData.SegmentPath = "Cisco-IOS-XR-sysadmin-show-trace-vmm:vmm"
+    vmm.EntityData.AbsolutePath = vmm.EntityData.SegmentPath
     vmm.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vmm.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vmm.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -63,6 +70,7 @@ func (vmManager *Vmm_VmManager) GetEntityData() *types.CommonEntityData {
     vmManager.EntityData.BundleName = "cisco_ios_xr"
     vmManager.EntityData.ParentYangName = "vmm"
     vmManager.EntityData.SegmentPath = "vm_manager"
+    vmManager.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-show-trace-vmm:vmm/" + vmManager.EntityData.SegmentPath
     vmManager.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vmManager.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vmManager.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -84,6 +92,7 @@ func (vmManager *Vmm_VmManager) GetEntityData() *types.CommonEntityData {
 type Vmm_VmManager_Trace struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     Buffer interface{}
@@ -98,6 +107,7 @@ func (trace *Vmm_VmManager_Trace) GetEntityData() *types.CommonEntityData {
     trace.EntityData.BundleName = "cisco_ios_xr"
     trace.EntityData.ParentYangName = "vm_manager"
     trace.EntityData.SegmentPath = "trace" + types.AddKeyToken(trace.Buffer, "buffer")
+    trace.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-show-trace-vmm:vmm/vm_manager/" + trace.EntityData.SegmentPath
     trace.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trace.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trace.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -119,6 +129,7 @@ func (trace *Vmm_VmManager_Trace) GetEntityData() *types.CommonEntityData {
 type Vmm_VmManager_Trace_Location struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     LocationName interface{}
@@ -133,6 +144,7 @@ func (location *Vmm_VmManager_Trace_Location) GetEntityData() *types.CommonEntit
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "trace"
     location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.LocationName, "location_name")
+    location.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-show-trace-vmm:vmm/vm_manager/trace/" + location.EntityData.SegmentPath
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -154,6 +166,7 @@ func (location *Vmm_VmManager_Trace_Location) GetEntityData() *types.CommonEntit
 type Vmm_VmManager_Trace_Location_AllOptions struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     Option interface{}
@@ -168,6 +181,7 @@ func (allOptions *Vmm_VmManager_Trace_Location_AllOptions) GetEntityData() *type
     allOptions.EntityData.BundleName = "cisco_ios_xr"
     allOptions.EntityData.ParentYangName = "location"
     allOptions.EntityData.SegmentPath = "all-options" + types.AddKeyToken(allOptions.Option, "option")
+    allOptions.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-show-trace-vmm:vmm/vm_manager/trace/location/" + allOptions.EntityData.SegmentPath
     allOptions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     allOptions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     allOptions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -175,6 +189,7 @@ func (allOptions *Vmm_VmManager_Trace_Location_AllOptions) GetEntityData() *type
     allOptions.EntityData.Children = types.NewOrderedMap()
     allOptions.EntityData.Children.Append("trace-blocks", types.YChild{"TraceBlocks", nil})
     for i := range allOptions.TraceBlocks {
+        types.SetYListKey(allOptions.TraceBlocks[i], i)
         allOptions.EntityData.Children.Append(types.GetSegmentPath(allOptions.TraceBlocks[i]), types.YChild{"TraceBlocks", allOptions.TraceBlocks[i]})
     }
     allOptions.EntityData.Leafs = types.NewOrderedMap()
@@ -189,6 +204,7 @@ func (allOptions *Vmm_VmManager_Trace_Location_AllOptions) GetEntityData() *type
 type Vmm_VmManager_Trace_Location_AllOptions_TraceBlocks struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Trace output block. The type is string.
     Data interface{}
@@ -199,7 +215,8 @@ func (traceBlocks *Vmm_VmManager_Trace_Location_AllOptions_TraceBlocks) GetEntit
     traceBlocks.EntityData.YangName = "trace-blocks"
     traceBlocks.EntityData.BundleName = "cisco_ios_xr"
     traceBlocks.EntityData.ParentYangName = "all-options"
-    traceBlocks.EntityData.SegmentPath = "trace-blocks"
+    traceBlocks.EntityData.SegmentPath = "trace-blocks" + types.AddNoKeyToken(traceBlocks)
+    traceBlocks.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-show-trace-vmm:vmm/vm_manager/trace/location/all-options/" + traceBlocks.EntityData.SegmentPath
     traceBlocks.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     traceBlocks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     traceBlocks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

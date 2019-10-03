@@ -4,7 +4,7 @@
 // This module contains a collection of YANG
 // definitions for Cisco IOS-XR SysAdmin configuration.
 // 
-// This module contains a collection of derived 
+// This module contains a collection of derived
 // YANG data types specific to Sysadmin.
 // 
 // Copyright(c) 2011-2016 by Cisco Systems, Inc.

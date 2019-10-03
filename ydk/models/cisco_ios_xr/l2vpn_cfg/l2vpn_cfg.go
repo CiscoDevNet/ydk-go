@@ -696,6 +696,7 @@ func (l2vpn *L2vpn) GetEntityData() *types.CommonEntityData {
     l2vpn.EntityData.BundleName = "cisco_ios_xr"
     l2vpn.EntityData.ParentYangName = "Cisco-IOS-XR-l2vpn-cfg"
     l2vpn.EntityData.SegmentPath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn"
+    l2vpn.EntityData.AbsolutePath = l2vpn.EntityData.SegmentPath
     l2vpn.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     l2vpn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     l2vpn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -747,6 +748,7 @@ func (pwRouting *L2vpn_PwRouting) GetEntityData() *types.CommonEntityData {
     pwRouting.EntityData.BundleName = "cisco_ios_xr"
     pwRouting.EntityData.ParentYangName = "l2vpn"
     pwRouting.EntityData.SegmentPath = "pw-routing"
+    pwRouting.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/" + pwRouting.EntityData.SegmentPath
     pwRouting.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pwRouting.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pwRouting.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -780,6 +782,7 @@ func (pwRoutingBgp *L2vpn_PwRouting_PwRoutingBgp) GetEntityData() *types.CommonE
     pwRoutingBgp.EntityData.BundleName = "cisco_ios_xr"
     pwRoutingBgp.EntityData.ParentYangName = "pw-routing"
     pwRoutingBgp.EntityData.SegmentPath = "pw-routing-bgp"
+    pwRoutingBgp.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/pw-routing/" + pwRoutingBgp.EntityData.SegmentPath
     pwRoutingBgp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pwRoutingBgp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pwRoutingBgp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -825,6 +828,7 @@ func (evpnRouteDistinguisher *L2vpn_PwRouting_PwRoutingBgp_EvpnRouteDistinguishe
     evpnRouteDistinguisher.EntityData.BundleName = "cisco_ios_xr"
     evpnRouteDistinguisher.EntityData.ParentYangName = "pw-routing-bgp"
     evpnRouteDistinguisher.EntityData.SegmentPath = "evpn-route-distinguisher"
+    evpnRouteDistinguisher.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/pw-routing/pw-routing-bgp/" + evpnRouteDistinguisher.EntityData.SegmentPath
     evpnRouteDistinguisher.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     evpnRouteDistinguisher.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     evpnRouteDistinguisher.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -858,6 +862,7 @@ func (neighbor *L2vpn_Neighbor) GetEntityData() *types.CommonEntityData {
     neighbor.EntityData.BundleName = "cisco_ios_xr"
     neighbor.EntityData.ParentYangName = "l2vpn"
     neighbor.EntityData.SegmentPath = "neighbor"
+    neighbor.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/" + neighbor.EntityData.SegmentPath
     neighbor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighbor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighbor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -905,6 +910,7 @@ func (database *L2vpn_Database) GetEntityData() *types.CommonEntityData {
     database.EntityData.BundleName = "cisco_ios_xr"
     database.EntityData.ParentYangName = "l2vpn"
     database.EntityData.SegmentPath = "database"
+    database.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/" + database.EntityData.SegmentPath
     database.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     database.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     database.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -940,6 +946,7 @@ func (g8032Rings *L2vpn_Database_G8032Rings) GetEntityData() *types.CommonEntity
     g8032Rings.EntityData.BundleName = "cisco_ios_xr"
     g8032Rings.EntityData.ParentYangName = "database"
     g8032Rings.EntityData.SegmentPath = "g8032-rings"
+    g8032Rings.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/" + g8032Rings.EntityData.SegmentPath
     g8032Rings.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     g8032Rings.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     g8032Rings.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -961,6 +968,7 @@ func (g8032Rings *L2vpn_Database_G8032Rings) GetEntityData() *types.CommonEntity
 type L2vpn_Database_G8032Rings_G8032Ring struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of the G8032 ring. The type is string with
     // length: 1..32.
@@ -991,6 +999,7 @@ func (g8032Ring *L2vpn_Database_G8032Rings_G8032Ring) GetEntityData() *types.Com
     g8032Ring.EntityData.BundleName = "cisco_ios_xr"
     g8032Ring.EntityData.ParentYangName = "g8032-rings"
     g8032Ring.EntityData.SegmentPath = "g8032-ring" + types.AddKeyToken(g8032Ring.G8032RingName, "g8032-ring-name")
+    g8032Ring.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/g8032-rings/" + g8032Ring.EntityData.SegmentPath
     g8032Ring.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     g8032Ring.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     g8032Ring.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1027,6 +1036,7 @@ func (erpPort0s *L2vpn_Database_G8032Rings_G8032Ring_ErpPort0s) GetEntityData() 
     erpPort0s.EntityData.BundleName = "cisco_ios_xr"
     erpPort0s.EntityData.ParentYangName = "g8032-ring"
     erpPort0s.EntityData.SegmentPath = "erp-port0s"
+    erpPort0s.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/g8032-rings/g8032-ring/" + erpPort0s.EntityData.SegmentPath
     erpPort0s.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     erpPort0s.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     erpPort0s.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1048,6 +1058,7 @@ func (erpPort0s *L2vpn_Database_G8032Rings_G8032Ring_ErpPort0s) GetEntityData() 
 type L2vpn_Database_G8032Rings_G8032Ring_ErpPort0s_ErpPort0 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Port0 interface. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -1064,6 +1075,7 @@ func (erpPort0 *L2vpn_Database_G8032Rings_G8032Ring_ErpPort0s_ErpPort0) GetEntit
     erpPort0.EntityData.BundleName = "cisco_ios_xr"
     erpPort0.EntityData.ParentYangName = "erp-port0s"
     erpPort0.EntityData.SegmentPath = "erp-port0" + types.AddKeyToken(erpPort0.InterfaceName, "interface-name")
+    erpPort0.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/g8032-rings/g8032-ring/erp-port0s/" + erpPort0.EntityData.SegmentPath
     erpPort0.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     erpPort0.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     erpPort0.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1095,6 +1107,7 @@ func (erpInstances *L2vpn_Database_G8032Rings_G8032Ring_ErpInstances) GetEntityD
     erpInstances.EntityData.BundleName = "cisco_ios_xr"
     erpInstances.EntityData.ParentYangName = "g8032-ring"
     erpInstances.EntityData.SegmentPath = "erp-instances"
+    erpInstances.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/g8032-rings/g8032-ring/" + erpInstances.EntityData.SegmentPath
     erpInstances.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     erpInstances.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     erpInstances.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1116,6 +1129,7 @@ func (erpInstances *L2vpn_Database_G8032Rings_G8032Ring_ErpInstances) GetEntityD
 type L2vpn_Database_G8032Rings_G8032Ring_ErpInstances_ErpInstance struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. ERP instance number. The type is interface{} with
     // range: 1..2.
@@ -1145,6 +1159,7 @@ func (erpInstance *L2vpn_Database_G8032Rings_G8032Ring_ErpInstances_ErpInstance)
     erpInstance.EntityData.BundleName = "cisco_ios_xr"
     erpInstance.EntityData.ParentYangName = "erp-instances"
     erpInstance.EntityData.SegmentPath = "erp-instance" + types.AddKeyToken(erpInstance.ErpInstanceId, "erp-instance-id")
+    erpInstance.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/g8032-rings/g8032-ring/erp-instances/" + erpInstance.EntityData.SegmentPath
     erpInstance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     erpInstance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     erpInstance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1182,6 +1197,7 @@ func (rpl *L2vpn_Database_G8032Rings_G8032Ring_ErpInstances_ErpInstance_Rpl) Get
     rpl.EntityData.BundleName = "cisco_ios_xr"
     rpl.EntityData.ParentYangName = "erp-instance"
     rpl.EntityData.SegmentPath = "rpl"
+    rpl.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/g8032-rings/g8032-ring/erp-instances/erp-instance/" + rpl.EntityData.SegmentPath
     rpl.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rpl.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rpl.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1222,6 +1238,7 @@ func (aps *L2vpn_Database_G8032Rings_G8032Ring_ErpInstances_ErpInstance_Aps) Get
     aps.EntityData.BundleName = "cisco_ios_xr"
     aps.EntityData.ParentYangName = "erp-instance"
     aps.EntityData.SegmentPath = "aps"
+    aps.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/g8032-rings/g8032-ring/erp-instances/erp-instance/" + aps.EntityData.SegmentPath
     aps.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     aps.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     aps.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1258,6 +1275,7 @@ func (port1 *L2vpn_Database_G8032Rings_G8032Ring_ErpInstances_ErpInstance_Aps_Po
     port1.EntityData.BundleName = "cisco_ios_xr"
     port1.EntityData.ParentYangName = "aps"
     port1.EntityData.SegmentPath = "port1"
+    port1.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/g8032-rings/g8032-ring/erp-instances/erp-instance/aps/" + port1.EntityData.SegmentPath
     port1.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     port1.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     port1.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1289,6 +1307,7 @@ func (erpPort1s *L2vpn_Database_G8032Rings_G8032Ring_ErpPort1s) GetEntityData() 
     erpPort1s.EntityData.BundleName = "cisco_ios_xr"
     erpPort1s.EntityData.ParentYangName = "g8032-ring"
     erpPort1s.EntityData.SegmentPath = "erp-port1s"
+    erpPort1s.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/g8032-rings/g8032-ring/" + erpPort1s.EntityData.SegmentPath
     erpPort1s.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     erpPort1s.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     erpPort1s.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1310,6 +1329,7 @@ func (erpPort1s *L2vpn_Database_G8032Rings_G8032Ring_ErpPort1s) GetEntityData() 
 type L2vpn_Database_G8032Rings_G8032Ring_ErpPort1s_ErpPort1 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Port1 type. The type is ErpPort.
     ErpPortType interface{}
@@ -1328,6 +1348,7 @@ func (erpPort1 *L2vpn_Database_G8032Rings_G8032Ring_ErpPort1s_ErpPort1) GetEntit
     erpPort1.EntityData.BundleName = "cisco_ios_xr"
     erpPort1.EntityData.ParentYangName = "erp-port1s"
     erpPort1.EntityData.SegmentPath = "erp-port1" + types.AddKeyToken(erpPort1.ErpPortType, "erp-port-type")
+    erpPort1.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/g8032-rings/g8032-ring/erp-port1s/" + erpPort1.EntityData.SegmentPath
     erpPort1.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     erpPort1.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     erpPort1.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1365,6 +1386,7 @@ func (noneOrVirtual *L2vpn_Database_G8032Rings_G8032Ring_ErpPort1s_ErpPort1_None
     noneOrVirtual.EntityData.BundleName = "cisco_ios_xr"
     noneOrVirtual.EntityData.ParentYangName = "erp-port1"
     noneOrVirtual.EntityData.SegmentPath = "none-or-virtual"
+    noneOrVirtual.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/g8032-rings/g8032-ring/erp-port1s/erp-port1/" + noneOrVirtual.EntityData.SegmentPath
     noneOrVirtual.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     noneOrVirtual.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     noneOrVirtual.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1383,6 +1405,7 @@ func (noneOrVirtual *L2vpn_Database_G8032Rings_G8032Ring_ErpPort1s_ErpPort1_None
 type L2vpn_Database_G8032Rings_G8032Ring_ErpPort1s_ErpPort1_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Port1 interface. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -1399,6 +1422,7 @@ func (self *L2vpn_Database_G8032Rings_G8032Ring_ErpPort1s_ErpPort1_Interface) Ge
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "erp-port1"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/g8032-rings/g8032-ring/erp-port1s/erp-port1/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1430,6 +1454,7 @@ func (xconnectGroups *L2vpn_Database_XconnectGroups) GetEntityData() *types.Comm
     xconnectGroups.EntityData.BundleName = "cisco_ios_xr"
     xconnectGroups.EntityData.ParentYangName = "database"
     xconnectGroups.EntityData.SegmentPath = "xconnect-groups"
+    xconnectGroups.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/" + xconnectGroups.EntityData.SegmentPath
     xconnectGroups.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     xconnectGroups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     xconnectGroups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1451,6 +1476,7 @@ func (xconnectGroups *L2vpn_Database_XconnectGroups) GetEntityData() *types.Comm
 type L2vpn_Database_XconnectGroups_XconnectGroup struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of the xconnect group. The type is string
     // with length: 1..32.
@@ -1469,6 +1495,7 @@ func (xconnectGroup *L2vpn_Database_XconnectGroups_XconnectGroup) GetEntityData(
     xconnectGroup.EntityData.BundleName = "cisco_ios_xr"
     xconnectGroup.EntityData.ParentYangName = "xconnect-groups"
     xconnectGroup.EntityData.SegmentPath = "xconnect-group" + types.AddKeyToken(xconnectGroup.Name, "name")
+    xconnectGroup.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/xconnect-groups/" + xconnectGroup.EntityData.SegmentPath
     xconnectGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     xconnectGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     xconnectGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1501,6 +1528,7 @@ func (p2pXconnects *L2vpn_Database_XconnectGroups_XconnectGroup_P2pXconnects) Ge
     p2pXconnects.EntityData.BundleName = "cisco_ios_xr"
     p2pXconnects.EntityData.ParentYangName = "xconnect-group"
     p2pXconnects.EntityData.SegmentPath = "p2p-xconnects"
+    p2pXconnects.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/xconnect-groups/xconnect-group/" + p2pXconnects.EntityData.SegmentPath
     p2pXconnects.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     p2pXconnects.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     p2pXconnects.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1522,6 +1550,7 @@ func (p2pXconnects *L2vpn_Database_XconnectGroups_XconnectGroup_P2pXconnects) Ge
 type L2vpn_Database_XconnectGroups_XconnectGroup_P2pXconnects_P2pXconnect struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of the point to point xconnect. The type is
     // string with length: 1..38.
@@ -1558,6 +1587,7 @@ func (p2pXconnect *L2vpn_Database_XconnectGroups_XconnectGroup_P2pXconnects_P2pX
     p2pXconnect.EntityData.BundleName = "cisco_ios_xr"
     p2pXconnect.EntityData.ParentYangName = "p2p-xconnects"
     p2pXconnect.EntityData.SegmentPath = "p2p-xconnect" + types.AddKeyToken(p2pXconnect.Name, "name")
+    p2pXconnect.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/xconnect-groups/xconnect-group/p2p-xconnects/" + p2pXconnect.EntityData.SegmentPath
     p2pXconnect.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     p2pXconnect.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     p2pXconnect.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1596,6 +1626,7 @@ func (backupAttachmentCircuits *L2vpn_Database_XconnectGroups_XconnectGroup_P2pX
     backupAttachmentCircuits.EntityData.BundleName = "cisco_ios_xr"
     backupAttachmentCircuits.EntityData.ParentYangName = "p2p-xconnect"
     backupAttachmentCircuits.EntityData.SegmentPath = "backup-attachment-circuits"
+    backupAttachmentCircuits.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/xconnect-groups/xconnect-group/p2p-xconnects/p2p-xconnect/" + backupAttachmentCircuits.EntityData.SegmentPath
     backupAttachmentCircuits.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     backupAttachmentCircuits.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     backupAttachmentCircuits.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1617,6 +1648,7 @@ func (backupAttachmentCircuits *L2vpn_Database_XconnectGroups_XconnectGroup_P2pX
 type L2vpn_Database_XconnectGroups_XconnectGroup_P2pXconnects_P2pXconnect_BackupAttachmentCircuits_BackupAttachmentCircuit struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of the attachment circuit interface. The type
     // is string with pattern: [a-zA-Z0-9._/-]+.
@@ -1629,6 +1661,7 @@ func (backupAttachmentCircuit *L2vpn_Database_XconnectGroups_XconnectGroup_P2pXc
     backupAttachmentCircuit.EntityData.BundleName = "cisco_ios_xr"
     backupAttachmentCircuit.EntityData.ParentYangName = "backup-attachment-circuits"
     backupAttachmentCircuit.EntityData.SegmentPath = "backup-attachment-circuit" + types.AddKeyToken(backupAttachmentCircuit.InterfaceName, "interface-name")
+    backupAttachmentCircuit.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/xconnect-groups/xconnect-group/p2p-xconnects/p2p-xconnect/backup-attachment-circuits/" + backupAttachmentCircuit.EntityData.SegmentPath
     backupAttachmentCircuit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     backupAttachmentCircuit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     backupAttachmentCircuit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1659,6 +1692,7 @@ func (pseudowireEvpns *L2vpn_Database_XconnectGroups_XconnectGroup_P2pXconnects_
     pseudowireEvpns.EntityData.BundleName = "cisco_ios_xr"
     pseudowireEvpns.EntityData.ParentYangName = "p2p-xconnect"
     pseudowireEvpns.EntityData.SegmentPath = "pseudowire-evpns"
+    pseudowireEvpns.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/xconnect-groups/xconnect-group/p2p-xconnects/p2p-xconnect/" + pseudowireEvpns.EntityData.SegmentPath
     pseudowireEvpns.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pseudowireEvpns.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pseudowireEvpns.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1680,6 +1714,7 @@ func (pseudowireEvpns *L2vpn_Database_XconnectGroups_XconnectGroup_P2pXconnects_
 type L2vpn_Database_XconnectGroups_XconnectGroup_P2pXconnects_P2pXconnect_PseudowireEvpns_PseudowireEvpn struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Ethernet VPN ID. The type is interface{} with
     // range: 1..65534.
@@ -1703,6 +1738,7 @@ func (pseudowireEvpn *L2vpn_Database_XconnectGroups_XconnectGroup_P2pXconnects_P
     pseudowireEvpn.EntityData.BundleName = "cisco_ios_xr"
     pseudowireEvpn.EntityData.ParentYangName = "pseudowire-evpns"
     pseudowireEvpn.EntityData.SegmentPath = "pseudowire-evpn" + types.AddKeyToken(pseudowireEvpn.Eviid, "eviid") + types.AddKeyToken(pseudowireEvpn.RemoteAcid, "remote-acid") + types.AddKeyToken(pseudowireEvpn.SourceAcid, "source-acid")
+    pseudowireEvpn.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/xconnect-groups/xconnect-group/p2p-xconnects/p2p-xconnect/pseudowire-evpns/" + pseudowireEvpn.EntityData.SegmentPath
     pseudowireEvpn.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pseudowireEvpn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pseudowireEvpn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1736,6 +1772,7 @@ func (pseudowires *L2vpn_Database_XconnectGroups_XconnectGroup_P2pXconnects_P2pX
     pseudowires.EntityData.BundleName = "cisco_ios_xr"
     pseudowires.EntityData.ParentYangName = "p2p-xconnect"
     pseudowires.EntityData.SegmentPath = "pseudowires"
+    pseudowires.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/xconnect-groups/xconnect-group/p2p-xconnects/p2p-xconnect/" + pseudowires.EntityData.SegmentPath
     pseudowires.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pseudowires.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pseudowires.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1757,6 +1794,7 @@ func (pseudowires *L2vpn_Database_XconnectGroups_XconnectGroup_P2pXconnects_P2pX
 type L2vpn_Database_XconnectGroups_XconnectGroup_P2pXconnects_P2pXconnect_Pseudowires_Pseudowire struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Pseudowire ID. The type is interface{} with range:
     // 1..4294967295.
@@ -1777,6 +1815,7 @@ func (pseudowire *L2vpn_Database_XconnectGroups_XconnectGroup_P2pXconnects_P2pXc
     pseudowire.EntityData.BundleName = "cisco_ios_xr"
     pseudowire.EntityData.ParentYangName = "pseudowires"
     pseudowire.EntityData.SegmentPath = "pseudowire" + types.AddKeyToken(pseudowire.PseudowireId, "pseudowire-id")
+    pseudowire.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/xconnect-groups/xconnect-group/p2p-xconnects/p2p-xconnect/pseudowires/" + pseudowire.EntityData.SegmentPath
     pseudowire.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pseudowire.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pseudowire.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1803,6 +1842,7 @@ func (pseudowire *L2vpn_Database_XconnectGroups_XconnectGroup_P2pXconnects_P2pXc
 type L2vpn_Database_XconnectGroups_XconnectGroup_P2pXconnects_P2pXconnect_Pseudowires_Pseudowire_Neighbor struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Pseudowire IPv4 address. The type is string with
     // pattern:
@@ -1844,6 +1884,7 @@ func (neighbor *L2vpn_Database_XconnectGroups_XconnectGroup_P2pXconnects_P2pXcon
     neighbor.EntityData.BundleName = "cisco_ios_xr"
     neighbor.EntityData.ParentYangName = "pseudowire"
     neighbor.EntityData.SegmentPath = "neighbor" + types.AddKeyToken(neighbor.Neighbor, "neighbor")
+    neighbor.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/xconnect-groups/xconnect-group/p2p-xconnects/p2p-xconnect/pseudowires/pseudowire/" + neighbor.EntityData.SegmentPath
     neighbor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighbor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighbor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1886,6 +1927,7 @@ func (mplsStaticLabels *L2vpn_Database_XconnectGroups_XconnectGroup_P2pXconnects
     mplsStaticLabels.EntityData.BundleName = "cisco_ios_xr"
     mplsStaticLabels.EntityData.ParentYangName = "neighbor"
     mplsStaticLabels.EntityData.SegmentPath = "mpls-static-labels"
+    mplsStaticLabels.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/xconnect-groups/xconnect-group/p2p-xconnects/p2p-xconnect/pseudowires/pseudowire/neighbor/" + mplsStaticLabels.EntityData.SegmentPath
     mplsStaticLabels.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mplsStaticLabels.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mplsStaticLabels.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1917,6 +1959,7 @@ func (backupPseudowires *L2vpn_Database_XconnectGroups_XconnectGroup_P2pXconnect
     backupPseudowires.EntityData.BundleName = "cisco_ios_xr"
     backupPseudowires.EntityData.ParentYangName = "neighbor"
     backupPseudowires.EntityData.SegmentPath = "backup-pseudowires"
+    backupPseudowires.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/xconnect-groups/xconnect-group/p2p-xconnects/p2p-xconnect/pseudowires/pseudowire/neighbor/" + backupPseudowires.EntityData.SegmentPath
     backupPseudowires.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     backupPseudowires.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     backupPseudowires.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1938,6 +1981,7 @@ func (backupPseudowires *L2vpn_Database_XconnectGroups_XconnectGroup_P2pXconnect
 type L2vpn_Database_XconnectGroups_XconnectGroup_P2pXconnects_P2pXconnect_Pseudowires_Pseudowire_Neighbor_BackupPseudowires_BackupPseudowire struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Neighbor IP address. The type is string with
     // pattern:
@@ -1962,6 +2006,7 @@ func (backupPseudowire *L2vpn_Database_XconnectGroups_XconnectGroup_P2pXconnects
     backupPseudowire.EntityData.BundleName = "cisco_ios_xr"
     backupPseudowire.EntityData.ParentYangName = "backup-pseudowires"
     backupPseudowire.EntityData.SegmentPath = "backup-pseudowire" + types.AddKeyToken(backupPseudowire.Neighbor, "neighbor") + types.AddKeyToken(backupPseudowire.PseudowireId, "pseudowire-id")
+    backupPseudowire.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/xconnect-groups/xconnect-group/p2p-xconnects/p2p-xconnect/pseudowires/pseudowire/neighbor/backup-pseudowires/" + backupPseudowire.EntityData.SegmentPath
     backupPseudowire.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     backupPseudowire.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     backupPseudowire.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1999,6 +2044,7 @@ func (backupMplsStaticLabels *L2vpn_Database_XconnectGroups_XconnectGroup_P2pXco
     backupMplsStaticLabels.EntityData.BundleName = "cisco_ios_xr"
     backupMplsStaticLabels.EntityData.ParentYangName = "backup-pseudowire"
     backupMplsStaticLabels.EntityData.SegmentPath = "backup-mpls-static-labels"
+    backupMplsStaticLabels.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/xconnect-groups/xconnect-group/p2p-xconnects/p2p-xconnect/pseudowires/pseudowire/neighbor/backup-pseudowires/backup-pseudowire/" + backupMplsStaticLabels.EntityData.SegmentPath
     backupMplsStaticLabels.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     backupMplsStaticLabels.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     backupMplsStaticLabels.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2041,6 +2087,7 @@ func (l2tpStaticAttributes *L2vpn_Database_XconnectGroups_XconnectGroup_P2pXconn
     l2tpStaticAttributes.EntityData.BundleName = "cisco_ios_xr"
     l2tpStaticAttributes.EntityData.ParentYangName = "neighbor"
     l2tpStaticAttributes.EntityData.SegmentPath = "l2tp-static-attributes"
+    l2tpStaticAttributes.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/xconnect-groups/xconnect-group/p2p-xconnects/p2p-xconnect/pseudowires/pseudowire/neighbor/" + l2tpStaticAttributes.EntityData.SegmentPath
     l2tpStaticAttributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     l2tpStaticAttributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     l2tpStaticAttributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2082,6 +2129,7 @@ func (l2tpRemoteCookie *L2vpn_Database_XconnectGroups_XconnectGroup_P2pXconnects
     l2tpRemoteCookie.EntityData.BundleName = "cisco_ios_xr"
     l2tpRemoteCookie.EntityData.ParentYangName = "l2tp-static-attributes"
     l2tpRemoteCookie.EntityData.SegmentPath = "l2tp-remote-cookie"
+    l2tpRemoteCookie.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/xconnect-groups/xconnect-group/p2p-xconnects/p2p-xconnect/pseudowires/pseudowire/neighbor/l2tp-static-attributes/" + l2tpRemoteCookie.EntityData.SegmentPath
     l2tpRemoteCookie.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     l2tpRemoteCookie.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     l2tpRemoteCookie.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2121,6 +2169,7 @@ func (l2tpSecondaryLocalCookie *L2vpn_Database_XconnectGroups_XconnectGroup_P2pX
     l2tpSecondaryLocalCookie.EntityData.BundleName = "cisco_ios_xr"
     l2tpSecondaryLocalCookie.EntityData.ParentYangName = "l2tp-static-attributes"
     l2tpSecondaryLocalCookie.EntityData.SegmentPath = "l2tp-secondary-local-cookie"
+    l2tpSecondaryLocalCookie.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/xconnect-groups/xconnect-group/p2p-xconnects/p2p-xconnect/pseudowires/pseudowire/neighbor/l2tp-static-attributes/" + l2tpSecondaryLocalCookie.EntityData.SegmentPath
     l2tpSecondaryLocalCookie.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     l2tpSecondaryLocalCookie.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     l2tpSecondaryLocalCookie.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2160,6 +2209,7 @@ func (l2tpLocalCookie *L2vpn_Database_XconnectGroups_XconnectGroup_P2pXconnects_
     l2tpLocalCookie.EntityData.BundleName = "cisco_ios_xr"
     l2tpLocalCookie.EntityData.ParentYangName = "l2tp-static-attributes"
     l2tpLocalCookie.EntityData.SegmentPath = "l2tp-local-cookie"
+    l2tpLocalCookie.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/xconnect-groups/xconnect-group/p2p-xconnects/p2p-xconnect/pseudowires/pseudowire/neighbor/l2tp-static-attributes/" + l2tpLocalCookie.EntityData.SegmentPath
     l2tpLocalCookie.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     l2tpLocalCookie.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     l2tpLocalCookie.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2191,6 +2241,7 @@ func (l2tpStatic *L2vpn_Database_XconnectGroups_XconnectGroup_P2pXconnects_P2pXc
     l2tpStatic.EntityData.BundleName = "cisco_ios_xr"
     l2tpStatic.EntityData.ParentYangName = "neighbor"
     l2tpStatic.EntityData.SegmentPath = "l2tp-static"
+    l2tpStatic.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/xconnect-groups/xconnect-group/p2p-xconnects/p2p-xconnect/pseudowires/pseudowire/neighbor/" + l2tpStatic.EntityData.SegmentPath
     l2tpStatic.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     l2tpStatic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     l2tpStatic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2209,6 +2260,7 @@ func (l2tpStatic *L2vpn_Database_XconnectGroups_XconnectGroup_P2pXconnects_P2pXc
 type L2vpn_Database_XconnectGroups_XconnectGroup_P2pXconnects_P2pXconnect_Pseudowires_Pseudowire_PseudowireAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Pseudowire IPv6 address. A pseudowire can have
     // only one address: IPv4 or IPv6. The type is string with pattern:
@@ -2250,6 +2302,7 @@ func (pseudowireAddress *L2vpn_Database_XconnectGroups_XconnectGroup_P2pXconnect
     pseudowireAddress.EntityData.BundleName = "cisco_ios_xr"
     pseudowireAddress.EntityData.ParentYangName = "pseudowire"
     pseudowireAddress.EntityData.SegmentPath = "pseudowire-address" + types.AddKeyToken(pseudowireAddress.PseudowireAddress, "pseudowire-address")
+    pseudowireAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/xconnect-groups/xconnect-group/p2p-xconnects/p2p-xconnect/pseudowires/pseudowire/" + pseudowireAddress.EntityData.SegmentPath
     pseudowireAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pseudowireAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pseudowireAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2292,6 +2345,7 @@ func (mplsStaticLabels *L2vpn_Database_XconnectGroups_XconnectGroup_P2pXconnects
     mplsStaticLabels.EntityData.BundleName = "cisco_ios_xr"
     mplsStaticLabels.EntityData.ParentYangName = "pseudowire-address"
     mplsStaticLabels.EntityData.SegmentPath = "mpls-static-labels"
+    mplsStaticLabels.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/xconnect-groups/xconnect-group/p2p-xconnects/p2p-xconnect/pseudowires/pseudowire/pseudowire-address/" + mplsStaticLabels.EntityData.SegmentPath
     mplsStaticLabels.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mplsStaticLabels.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mplsStaticLabels.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2323,6 +2377,7 @@ func (backupPseudowires *L2vpn_Database_XconnectGroups_XconnectGroup_P2pXconnect
     backupPseudowires.EntityData.BundleName = "cisco_ios_xr"
     backupPseudowires.EntityData.ParentYangName = "pseudowire-address"
     backupPseudowires.EntityData.SegmentPath = "backup-pseudowires"
+    backupPseudowires.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/xconnect-groups/xconnect-group/p2p-xconnects/p2p-xconnect/pseudowires/pseudowire/pseudowire-address/" + backupPseudowires.EntityData.SegmentPath
     backupPseudowires.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     backupPseudowires.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     backupPseudowires.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2344,6 +2399,7 @@ func (backupPseudowires *L2vpn_Database_XconnectGroups_XconnectGroup_P2pXconnect
 type L2vpn_Database_XconnectGroups_XconnectGroup_P2pXconnects_P2pXconnect_Pseudowires_Pseudowire_PseudowireAddress_BackupPseudowires_BackupPseudowire struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Neighbor IP address. The type is string with
     // pattern:
@@ -2368,6 +2424,7 @@ func (backupPseudowire *L2vpn_Database_XconnectGroups_XconnectGroup_P2pXconnects
     backupPseudowire.EntityData.BundleName = "cisco_ios_xr"
     backupPseudowire.EntityData.ParentYangName = "backup-pseudowires"
     backupPseudowire.EntityData.SegmentPath = "backup-pseudowire" + types.AddKeyToken(backupPseudowire.Neighbor, "neighbor") + types.AddKeyToken(backupPseudowire.PseudowireId, "pseudowire-id")
+    backupPseudowire.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/xconnect-groups/xconnect-group/p2p-xconnects/p2p-xconnect/pseudowires/pseudowire/pseudowire-address/backup-pseudowires/" + backupPseudowire.EntityData.SegmentPath
     backupPseudowire.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     backupPseudowire.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     backupPseudowire.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2405,6 +2462,7 @@ func (backupMplsStaticLabels *L2vpn_Database_XconnectGroups_XconnectGroup_P2pXco
     backupMplsStaticLabels.EntityData.BundleName = "cisco_ios_xr"
     backupMplsStaticLabels.EntityData.ParentYangName = "backup-pseudowire"
     backupMplsStaticLabels.EntityData.SegmentPath = "backup-mpls-static-labels"
+    backupMplsStaticLabels.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/xconnect-groups/xconnect-group/p2p-xconnects/p2p-xconnect/pseudowires/pseudowire/pseudowire-address/backup-pseudowires/backup-pseudowire/" + backupMplsStaticLabels.EntityData.SegmentPath
     backupMplsStaticLabels.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     backupMplsStaticLabels.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     backupMplsStaticLabels.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2447,6 +2505,7 @@ func (l2tpStaticAttributes *L2vpn_Database_XconnectGroups_XconnectGroup_P2pXconn
     l2tpStaticAttributes.EntityData.BundleName = "cisco_ios_xr"
     l2tpStaticAttributes.EntityData.ParentYangName = "pseudowire-address"
     l2tpStaticAttributes.EntityData.SegmentPath = "l2tp-static-attributes"
+    l2tpStaticAttributes.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/xconnect-groups/xconnect-group/p2p-xconnects/p2p-xconnect/pseudowires/pseudowire/pseudowire-address/" + l2tpStaticAttributes.EntityData.SegmentPath
     l2tpStaticAttributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     l2tpStaticAttributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     l2tpStaticAttributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2488,6 +2547,7 @@ func (l2tpRemoteCookie *L2vpn_Database_XconnectGroups_XconnectGroup_P2pXconnects
     l2tpRemoteCookie.EntityData.BundleName = "cisco_ios_xr"
     l2tpRemoteCookie.EntityData.ParentYangName = "l2tp-static-attributes"
     l2tpRemoteCookie.EntityData.SegmentPath = "l2tp-remote-cookie"
+    l2tpRemoteCookie.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/xconnect-groups/xconnect-group/p2p-xconnects/p2p-xconnect/pseudowires/pseudowire/pseudowire-address/l2tp-static-attributes/" + l2tpRemoteCookie.EntityData.SegmentPath
     l2tpRemoteCookie.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     l2tpRemoteCookie.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     l2tpRemoteCookie.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2527,6 +2587,7 @@ func (l2tpSecondaryLocalCookie *L2vpn_Database_XconnectGroups_XconnectGroup_P2pX
     l2tpSecondaryLocalCookie.EntityData.BundleName = "cisco_ios_xr"
     l2tpSecondaryLocalCookie.EntityData.ParentYangName = "l2tp-static-attributes"
     l2tpSecondaryLocalCookie.EntityData.SegmentPath = "l2tp-secondary-local-cookie"
+    l2tpSecondaryLocalCookie.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/xconnect-groups/xconnect-group/p2p-xconnects/p2p-xconnect/pseudowires/pseudowire/pseudowire-address/l2tp-static-attributes/" + l2tpSecondaryLocalCookie.EntityData.SegmentPath
     l2tpSecondaryLocalCookie.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     l2tpSecondaryLocalCookie.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     l2tpSecondaryLocalCookie.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2566,6 +2627,7 @@ func (l2tpLocalCookie *L2vpn_Database_XconnectGroups_XconnectGroup_P2pXconnects_
     l2tpLocalCookie.EntityData.BundleName = "cisco_ios_xr"
     l2tpLocalCookie.EntityData.ParentYangName = "l2tp-static-attributes"
     l2tpLocalCookie.EntityData.SegmentPath = "l2tp-local-cookie"
+    l2tpLocalCookie.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/xconnect-groups/xconnect-group/p2p-xconnects/p2p-xconnect/pseudowires/pseudowire/pseudowire-address/l2tp-static-attributes/" + l2tpLocalCookie.EntityData.SegmentPath
     l2tpLocalCookie.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     l2tpLocalCookie.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     l2tpLocalCookie.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2597,6 +2659,7 @@ func (l2tpStatic *L2vpn_Database_XconnectGroups_XconnectGroup_P2pXconnects_P2pXc
     l2tpStatic.EntityData.BundleName = "cisco_ios_xr"
     l2tpStatic.EntityData.ParentYangName = "pseudowire-address"
     l2tpStatic.EntityData.SegmentPath = "l2tp-static"
+    l2tpStatic.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/xconnect-groups/xconnect-group/p2p-xconnects/p2p-xconnect/pseudowires/pseudowire/pseudowire-address/" + l2tpStatic.EntityData.SegmentPath
     l2tpStatic.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     l2tpStatic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     l2tpStatic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2627,6 +2690,7 @@ func (monitorSessions *L2vpn_Database_XconnectGroups_XconnectGroup_P2pXconnects_
     monitorSessions.EntityData.BundleName = "cisco_ios_xr"
     monitorSessions.EntityData.ParentYangName = "p2p-xconnect"
     monitorSessions.EntityData.SegmentPath = "monitor-sessions"
+    monitorSessions.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/xconnect-groups/xconnect-group/p2p-xconnects/p2p-xconnect/" + monitorSessions.EntityData.SegmentPath
     monitorSessions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     monitorSessions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     monitorSessions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2648,6 +2712,7 @@ func (monitorSessions *L2vpn_Database_XconnectGroups_XconnectGroup_P2pXconnects_
 type L2vpn_Database_XconnectGroups_XconnectGroup_P2pXconnects_P2pXconnect_MonitorSessions_MonitorSession struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of the monitor session. The type is string
     // with length: 1..64.
@@ -2663,6 +2728,7 @@ func (monitorSession *L2vpn_Database_XconnectGroups_XconnectGroup_P2pXconnects_P
     monitorSession.EntityData.BundleName = "cisco_ios_xr"
     monitorSession.EntityData.ParentYangName = "monitor-sessions"
     monitorSession.EntityData.SegmentPath = "monitor-session" + types.AddKeyToken(monitorSession.Name, "name")
+    monitorSession.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/xconnect-groups/xconnect-group/p2p-xconnects/p2p-xconnect/monitor-sessions/" + monitorSession.EntityData.SegmentPath
     monitorSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     monitorSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     monitorSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2694,6 +2760,7 @@ func (pseudowireRouteds *L2vpn_Database_XconnectGroups_XconnectGroup_P2pXconnect
     pseudowireRouteds.EntityData.BundleName = "cisco_ios_xr"
     pseudowireRouteds.EntityData.ParentYangName = "p2p-xconnect"
     pseudowireRouteds.EntityData.SegmentPath = "pseudowire-routeds"
+    pseudowireRouteds.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/xconnect-groups/xconnect-group/p2p-xconnects/p2p-xconnect/" + pseudowireRouteds.EntityData.SegmentPath
     pseudowireRouteds.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pseudowireRouteds.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pseudowireRouteds.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2715,6 +2782,7 @@ func (pseudowireRouteds *L2vpn_Database_XconnectGroups_XconnectGroup_P2pXconnect
 type L2vpn_Database_XconnectGroups_XconnectGroup_P2pXconnects_P2pXconnect_PseudowireRouteds_PseudowireRouted struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Target Global ID. The type is interface{} with
     // range: 1..4294967295.
@@ -2745,6 +2813,7 @@ func (pseudowireRouted *L2vpn_Database_XconnectGroups_XconnectGroup_P2pXconnects
     pseudowireRouted.EntityData.BundleName = "cisco_ios_xr"
     pseudowireRouted.EntityData.ParentYangName = "pseudowire-routeds"
     pseudowireRouted.EntityData.SegmentPath = "pseudowire-routed" + types.AddKeyToken(pseudowireRouted.GlobalId, "global-id") + types.AddKeyToken(pseudowireRouted.Prefix, "prefix") + types.AddKeyToken(pseudowireRouted.Acid, "acid") + types.AddKeyToken(pseudowireRouted.Sacid, "sacid")
+    pseudowireRouted.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/xconnect-groups/xconnect-group/p2p-xconnects/p2p-xconnect/pseudowire-routeds/" + pseudowireRouted.EntityData.SegmentPath
     pseudowireRouted.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pseudowireRouted.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pseudowireRouted.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2780,6 +2849,7 @@ func (attachmentCircuits *L2vpn_Database_XconnectGroups_XconnectGroup_P2pXconnec
     attachmentCircuits.EntityData.BundleName = "cisco_ios_xr"
     attachmentCircuits.EntityData.ParentYangName = "p2p-xconnect"
     attachmentCircuits.EntityData.SegmentPath = "attachment-circuits"
+    attachmentCircuits.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/xconnect-groups/xconnect-group/p2p-xconnects/p2p-xconnect/" + attachmentCircuits.EntityData.SegmentPath
     attachmentCircuits.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     attachmentCircuits.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attachmentCircuits.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2801,6 +2871,7 @@ func (attachmentCircuits *L2vpn_Database_XconnectGroups_XconnectGroup_P2pXconnec
 type L2vpn_Database_XconnectGroups_XconnectGroup_P2pXconnects_P2pXconnect_AttachmentCircuits_AttachmentCircuit struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of the attachment circuit interface. The type
     // is string with pattern: [a-zA-Z0-9._/-]+.
@@ -2816,6 +2887,7 @@ func (attachmentCircuit *L2vpn_Database_XconnectGroups_XconnectGroup_P2pXconnect
     attachmentCircuit.EntityData.BundleName = "cisco_ios_xr"
     attachmentCircuit.EntityData.ParentYangName = "attachment-circuits"
     attachmentCircuit.EntityData.SegmentPath = "attachment-circuit" + types.AddKeyToken(attachmentCircuit.Name, "name")
+    attachmentCircuit.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/xconnect-groups/xconnect-group/p2p-xconnects/p2p-xconnect/attachment-circuits/" + attachmentCircuit.EntityData.SegmentPath
     attachmentCircuit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     attachmentCircuit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attachmentCircuit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2847,6 +2919,7 @@ func (mp2mpXconnects *L2vpn_Database_XconnectGroups_XconnectGroup_Mp2mpXconnects
     mp2mpXconnects.EntityData.BundleName = "cisco_ios_xr"
     mp2mpXconnects.EntityData.ParentYangName = "xconnect-group"
     mp2mpXconnects.EntityData.SegmentPath = "mp2mp-xconnects"
+    mp2mpXconnects.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/xconnect-groups/xconnect-group/" + mp2mpXconnects.EntityData.SegmentPath
     mp2mpXconnects.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mp2mpXconnects.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mp2mpXconnects.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2868,6 +2941,7 @@ func (mp2mpXconnects *L2vpn_Database_XconnectGroups_XconnectGroup_Mp2mpXconnects
 type L2vpn_Database_XconnectGroups_XconnectGroup_Mp2mpXconnects_Mp2mpXconnect struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of the multi point to multi point xconnect.
     // The type is string with length: 1..26.
@@ -2902,6 +2976,7 @@ func (mp2mpXconnect *L2vpn_Database_XconnectGroups_XconnectGroup_Mp2mpXconnects_
     mp2mpXconnect.EntityData.BundleName = "cisco_ios_xr"
     mp2mpXconnect.EntityData.ParentYangName = "mp2mp-xconnects"
     mp2mpXconnect.EntityData.SegmentPath = "mp2mp-xconnect" + types.AddKeyToken(mp2mpXconnect.Name, "name")
+    mp2mpXconnect.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/xconnect-groups/xconnect-group/mp2mp-xconnects/" + mp2mpXconnect.EntityData.SegmentPath
     mp2mpXconnect.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mp2mpXconnect.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mp2mpXconnect.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2950,6 +3025,7 @@ func (mp2mpAutoDiscovery *L2vpn_Database_XconnectGroups_XconnectGroup_Mp2mpXconn
     mp2mpAutoDiscovery.EntityData.BundleName = "cisco_ios_xr"
     mp2mpAutoDiscovery.EntityData.ParentYangName = "mp2mp-xconnect"
     mp2mpAutoDiscovery.EntityData.SegmentPath = "mp2mp-auto-discovery"
+    mp2mpAutoDiscovery.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/xconnect-groups/xconnect-group/mp2mp-xconnects/mp2mp-xconnect/" + mp2mpAutoDiscovery.EntityData.SegmentPath
     mp2mpAutoDiscovery.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mp2mpAutoDiscovery.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mp2mpAutoDiscovery.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2998,6 +3074,7 @@ func (routeDistinguisher *L2vpn_Database_XconnectGroups_XconnectGroup_Mp2mpXconn
     routeDistinguisher.EntityData.BundleName = "cisco_ios_xr"
     routeDistinguisher.EntityData.ParentYangName = "mp2mp-auto-discovery"
     routeDistinguisher.EntityData.SegmentPath = "route-distinguisher"
+    routeDistinguisher.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/xconnect-groups/xconnect-group/mp2mp-xconnects/mp2mp-xconnect/mp2mp-auto-discovery/" + routeDistinguisher.EntityData.SegmentPath
     routeDistinguisher.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routeDistinguisher.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routeDistinguisher.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3031,6 +3108,7 @@ func (mp2mpRoutePolicy *L2vpn_Database_XconnectGroups_XconnectGroup_Mp2mpXconnec
     mp2mpRoutePolicy.EntityData.BundleName = "cisco_ios_xr"
     mp2mpRoutePolicy.EntityData.ParentYangName = "mp2mp-auto-discovery"
     mp2mpRoutePolicy.EntityData.SegmentPath = "mp2mp-route-policy"
+    mp2mpRoutePolicy.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/xconnect-groups/xconnect-group/mp2mp-xconnects/mp2mp-xconnect/mp2mp-auto-discovery/" + mp2mpRoutePolicy.EntityData.SegmentPath
     mp2mpRoutePolicy.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mp2mpRoutePolicy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mp2mpRoutePolicy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3061,6 +3139,7 @@ func (mp2mpRouteTargets *L2vpn_Database_XconnectGroups_XconnectGroup_Mp2mpXconne
     mp2mpRouteTargets.EntityData.BundleName = "cisco_ios_xr"
     mp2mpRouteTargets.EntityData.ParentYangName = "mp2mp-auto-discovery"
     mp2mpRouteTargets.EntityData.SegmentPath = "mp2mp-route-targets"
+    mp2mpRouteTargets.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/xconnect-groups/xconnect-group/mp2mp-xconnects/mp2mp-xconnect/mp2mp-auto-discovery/" + mp2mpRouteTargets.EntityData.SegmentPath
     mp2mpRouteTargets.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mp2mpRouteTargets.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mp2mpRouteTargets.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3082,6 +3161,7 @@ func (mp2mpRouteTargets *L2vpn_Database_XconnectGroups_XconnectGroup_Mp2mpXconne
 type L2vpn_Database_XconnectGroups_XconnectGroup_Mp2mpXconnects_Mp2mpXconnect_Mp2mpAutoDiscovery_Mp2mpRouteTargets_Mp2mpRouteTarget struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Role of the router target type. The type is
     // BgpRouteTargetRole.
@@ -3106,6 +3186,7 @@ func (mp2mpRouteTarget *L2vpn_Database_XconnectGroups_XconnectGroup_Mp2mpXconnec
     mp2mpRouteTarget.EntityData.BundleName = "cisco_ios_xr"
     mp2mpRouteTarget.EntityData.ParentYangName = "mp2mp-route-targets"
     mp2mpRouteTarget.EntityData.SegmentPath = "mp2mp-route-target" + types.AddKeyToken(mp2mpRouteTarget.Role, "role") + types.AddKeyToken(mp2mpRouteTarget.Format, "format")
+    mp2mpRouteTarget.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/xconnect-groups/xconnect-group/mp2mp-xconnects/mp2mp-xconnect/mp2mp-auto-discovery/mp2mp-route-targets/" + mp2mpRouteTarget.EntityData.SegmentPath
     mp2mpRouteTarget.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mp2mpRouteTarget.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mp2mpRouteTarget.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3133,6 +3214,7 @@ func (mp2mpRouteTarget *L2vpn_Database_XconnectGroups_XconnectGroup_Mp2mpXconnec
 type L2vpn_Database_XconnectGroups_XconnectGroup_Mp2mpXconnects_Mp2mpXconnect_Mp2mpAutoDiscovery_Mp2mpRouteTargets_Mp2mpRouteTarget_TwoByteAsOrFourByteAs struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Two byte or 4 byte AS number. The type is
     // interface{} with range: 1..4294967295.
@@ -3149,6 +3231,7 @@ func (twoByteAsOrFourByteAs *L2vpn_Database_XconnectGroups_XconnectGroup_Mp2mpXc
     twoByteAsOrFourByteAs.EntityData.BundleName = "cisco_ios_xr"
     twoByteAsOrFourByteAs.EntityData.ParentYangName = "mp2mp-route-target"
     twoByteAsOrFourByteAs.EntityData.SegmentPath = "two-byte-as-or-four-byte-as" + types.AddKeyToken(twoByteAsOrFourByteAs.As, "as") + types.AddKeyToken(twoByteAsOrFourByteAs.AsIndex, "as-index")
+    twoByteAsOrFourByteAs.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/xconnect-groups/xconnect-group/mp2mp-xconnects/mp2mp-xconnect/mp2mp-auto-discovery/mp2mp-route-targets/mp2mp-route-target/" + twoByteAsOrFourByteAs.EntityData.SegmentPath
     twoByteAsOrFourByteAs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     twoByteAsOrFourByteAs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     twoByteAsOrFourByteAs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3168,6 +3251,7 @@ func (twoByteAsOrFourByteAs *L2vpn_Database_XconnectGroups_XconnectGroup_Mp2mpXc
 type L2vpn_Database_XconnectGroups_XconnectGroup_Mp2mpXconnects_Mp2mpXconnect_Mp2mpAutoDiscovery_Mp2mpRouteTargets_Mp2mpRouteTarget_Ipv4Address struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IPV4 address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -3184,6 +3268,7 @@ func (ipv4Address *L2vpn_Database_XconnectGroups_XconnectGroup_Mp2mpXconnects_Mp
     ipv4Address.EntityData.BundleName = "cisco_ios_xr"
     ipv4Address.EntityData.ParentYangName = "mp2mp-route-target"
     ipv4Address.EntityData.SegmentPath = "ipv4-address" + types.AddKeyToken(ipv4Address.Address, "address") + types.AddKeyToken(ipv4Address.AddrIndex, "addr-index")
+    ipv4Address.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/xconnect-groups/xconnect-group/mp2mp-xconnects/mp2mp-xconnect/mp2mp-auto-discovery/mp2mp-route-targets/mp2mp-route-target/" + ipv4Address.EntityData.SegmentPath
     ipv4Address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4Address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4Address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3224,6 +3309,7 @@ func (mp2mpSignalingProtocol *L2vpn_Database_XconnectGroups_XconnectGroup_Mp2mpX
     mp2mpSignalingProtocol.EntityData.BundleName = "cisco_ios_xr"
     mp2mpSignalingProtocol.EntityData.ParentYangName = "mp2mp-auto-discovery"
     mp2mpSignalingProtocol.EntityData.SegmentPath = "mp2mp-signaling-protocol"
+    mp2mpSignalingProtocol.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/xconnect-groups/xconnect-group/mp2mp-xconnects/mp2mp-xconnect/mp2mp-auto-discovery/" + mp2mpSignalingProtocol.EntityData.SegmentPath
     mp2mpSignalingProtocol.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mp2mpSignalingProtocol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mp2mpSignalingProtocol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3259,6 +3345,7 @@ func (flowLabelLoadBalance *L2vpn_Database_XconnectGroups_XconnectGroup_Mp2mpXco
     flowLabelLoadBalance.EntityData.BundleName = "cisco_ios_xr"
     flowLabelLoadBalance.EntityData.ParentYangName = "mp2mp-signaling-protocol"
     flowLabelLoadBalance.EntityData.SegmentPath = "flow-label-load-balance"
+    flowLabelLoadBalance.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/xconnect-groups/xconnect-group/mp2mp-xconnects/mp2mp-xconnect/mp2mp-auto-discovery/mp2mp-signaling-protocol/" + flowLabelLoadBalance.EntityData.SegmentPath
     flowLabelLoadBalance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     flowLabelLoadBalance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     flowLabelLoadBalance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3290,6 +3377,7 @@ func (ceids *L2vpn_Database_XconnectGroups_XconnectGroup_Mp2mpXconnects_Mp2mpXco
     ceids.EntityData.BundleName = "cisco_ios_xr"
     ceids.EntityData.ParentYangName = "mp2mp-signaling-protocol"
     ceids.EntityData.SegmentPath = "ceids"
+    ceids.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/xconnect-groups/xconnect-group/mp2mp-xconnects/mp2mp-xconnect/mp2mp-auto-discovery/mp2mp-signaling-protocol/" + ceids.EntityData.SegmentPath
     ceids.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ceids.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ceids.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3311,6 +3399,7 @@ func (ceids *L2vpn_Database_XconnectGroups_XconnectGroup_Mp2mpXconnects_Mp2mpXco
 type L2vpn_Database_XconnectGroups_XconnectGroup_Mp2mpXconnects_Mp2mpXconnect_Mp2mpAutoDiscovery_Mp2mpSignalingProtocol_Ceids_Ceid struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Local Customer Edge Identifier. The type is
     // interface{} with range: 1..16384.
@@ -3326,6 +3415,7 @@ func (ceid *L2vpn_Database_XconnectGroups_XconnectGroup_Mp2mpXconnects_Mp2mpXcon
     ceid.EntityData.BundleName = "cisco_ios_xr"
     ceid.EntityData.ParentYangName = "ceids"
     ceid.EntityData.SegmentPath = "ceid" + types.AddKeyToken(ceid.CeId, "ce-id")
+    ceid.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/xconnect-groups/xconnect-group/mp2mp-xconnects/mp2mp-xconnect/mp2mp-auto-discovery/mp2mp-signaling-protocol/ceids/" + ceid.EntityData.SegmentPath
     ceid.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ceid.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ceid.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3358,6 +3448,7 @@ func (remoteCeidAttachmentCircuits *L2vpn_Database_XconnectGroups_XconnectGroup_
     remoteCeidAttachmentCircuits.EntityData.BundleName = "cisco_ios_xr"
     remoteCeidAttachmentCircuits.EntityData.ParentYangName = "ceid"
     remoteCeidAttachmentCircuits.EntityData.SegmentPath = "remote-ceid-attachment-circuits"
+    remoteCeidAttachmentCircuits.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/xconnect-groups/xconnect-group/mp2mp-xconnects/mp2mp-xconnect/mp2mp-auto-discovery/mp2mp-signaling-protocol/ceids/ceid/" + remoteCeidAttachmentCircuits.EntityData.SegmentPath
     remoteCeidAttachmentCircuits.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteCeidAttachmentCircuits.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteCeidAttachmentCircuits.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3379,6 +3470,7 @@ func (remoteCeidAttachmentCircuits *L2vpn_Database_XconnectGroups_XconnectGroup_
 type L2vpn_Database_XconnectGroups_XconnectGroup_Mp2mpXconnects_Mp2mpXconnect_Mp2mpAutoDiscovery_Mp2mpSignalingProtocol_Ceids_Ceid_RemoteCeidAttachmentCircuits_RemoteCeidAttachmentCircuit struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The name of the Attachment Circuit. The type is
     // string with pattern: [a-zA-Z0-9._/-]+.
@@ -3395,6 +3487,7 @@ func (remoteCeidAttachmentCircuit *L2vpn_Database_XconnectGroups_XconnectGroup_M
     remoteCeidAttachmentCircuit.EntityData.BundleName = "cisco_ios_xr"
     remoteCeidAttachmentCircuit.EntityData.ParentYangName = "remote-ceid-attachment-circuits"
     remoteCeidAttachmentCircuit.EntityData.SegmentPath = "remote-ceid-attachment-circuit" + types.AddKeyToken(remoteCeidAttachmentCircuit.Name, "name") + types.AddKeyToken(remoteCeidAttachmentCircuit.RemoteCeId, "remote-ce-id")
+    remoteCeidAttachmentCircuit.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/xconnect-groups/xconnect-group/mp2mp-xconnects/mp2mp-xconnect/mp2mp-auto-discovery/mp2mp-signaling-protocol/ceids/ceid/remote-ceid-attachment-circuits/" + remoteCeidAttachmentCircuit.EntityData.SegmentPath
     remoteCeidAttachmentCircuit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteCeidAttachmentCircuit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteCeidAttachmentCircuit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3426,6 +3519,7 @@ func (bridgeDomainGroups *L2vpn_Database_BridgeDomainGroups) GetEntityData() *ty
     bridgeDomainGroups.EntityData.BundleName = "cisco_ios_xr"
     bridgeDomainGroups.EntityData.ParentYangName = "database"
     bridgeDomainGroups.EntityData.SegmentPath = "bridge-domain-groups"
+    bridgeDomainGroups.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/" + bridgeDomainGroups.EntityData.SegmentPath
     bridgeDomainGroups.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bridgeDomainGroups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bridgeDomainGroups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3447,6 +3541,7 @@ func (bridgeDomainGroups *L2vpn_Database_BridgeDomainGroups) GetEntityData() *ty
 type L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of the Bridge group. The type is string with
     // length: 1..32.
@@ -3462,6 +3557,7 @@ func (bridgeDomainGroup *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup) Ge
     bridgeDomainGroup.EntityData.BundleName = "cisco_ios_xr"
     bridgeDomainGroup.EntityData.ParentYangName = "bridge-domain-groups"
     bridgeDomainGroup.EntityData.SegmentPath = "bridge-domain-group" + types.AddKeyToken(bridgeDomainGroup.Name, "name")
+    bridgeDomainGroup.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/" + bridgeDomainGroup.EntityData.SegmentPath
     bridgeDomainGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bridgeDomainGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bridgeDomainGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3493,6 +3589,7 @@ func (bridgeDomains *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeD
     bridgeDomains.EntityData.BundleName = "cisco_ios_xr"
     bridgeDomains.EntityData.ParentYangName = "bridge-domain-group"
     bridgeDomains.EntityData.SegmentPath = "bridge-domains"
+    bridgeDomains.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/" + bridgeDomains.EntityData.SegmentPath
     bridgeDomains.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bridgeDomains.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bridgeDomains.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3514,6 +3611,7 @@ func (bridgeDomains *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeD
 type L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomains_BridgeDomain struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of the bridge domain. The type is string with
     // length: 1..27.
@@ -3605,6 +3703,7 @@ func (bridgeDomain *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDo
     bridgeDomain.EntityData.BundleName = "cisco_ios_xr"
     bridgeDomain.EntityData.ParentYangName = "bridge-domains"
     bridgeDomain.EntityData.SegmentPath = "bridge-domain" + types.AddKeyToken(bridgeDomain.Name, "name")
+    bridgeDomain.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/" + bridgeDomain.EntityData.SegmentPath
     bridgeDomain.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bridgeDomain.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bridgeDomain.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3661,6 +3760,7 @@ func (bdStormControls *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_Bridg
     bdStormControls.EntityData.BundleName = "cisco_ios_xr"
     bdStormControls.EntityData.ParentYangName = "bridge-domain"
     bdStormControls.EntityData.SegmentPath = "bd-storm-controls"
+    bdStormControls.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/" + bdStormControls.EntityData.SegmentPath
     bdStormControls.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bdStormControls.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bdStormControls.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3682,6 +3782,7 @@ func (bdStormControls *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_Bridg
 type L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomains_BridgeDomain_BdStormControls_BdStormControl struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Storm Control Type. The type is StormControl.
     Sctype interface{}
@@ -3696,6 +3797,7 @@ func (bdStormControl *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_Bridge
     bdStormControl.EntityData.BundleName = "cisco_ios_xr"
     bdStormControl.EntityData.ParentYangName = "bd-storm-controls"
     bdStormControl.EntityData.SegmentPath = "bd-storm-control" + types.AddKeyToken(bdStormControl.Sctype, "sctype")
+    bdStormControl.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/bd-storm-controls/" + bdStormControl.EntityData.SegmentPath
     bdStormControl.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bdStormControl.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bdStormControl.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3733,6 +3835,7 @@ func (stormControlUnit *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_Brid
     stormControlUnit.EntityData.BundleName = "cisco_ios_xr"
     stormControlUnit.EntityData.ParentYangName = "bd-storm-control"
     stormControlUnit.EntityData.SegmentPath = "storm-control-unit"
+    stormControlUnit.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/bd-storm-controls/bd-storm-control/" + stormControlUnit.EntityData.SegmentPath
     stormControlUnit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     stormControlUnit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stormControlUnit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3764,6 +3867,7 @@ func (memberVnis *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDoma
     memberVnis.EntityData.BundleName = "cisco_ios_xr"
     memberVnis.EntityData.ParentYangName = "bridge-domain"
     memberVnis.EntityData.SegmentPath = "member-vnis"
+    memberVnis.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/" + memberVnis.EntityData.SegmentPath
     memberVnis.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     memberVnis.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     memberVnis.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3785,6 +3889,7 @@ func (memberVnis *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDoma
 type L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomains_BridgeDomain_MemberVnis_MemberVni struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. VxLAN Network Identifier number. The type is
     // interface{} with range: 1..16777215.
@@ -3800,6 +3905,7 @@ func (memberVni *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomai
     memberVni.EntityData.BundleName = "cisco_ios_xr"
     memberVni.EntityData.ParentYangName = "member-vnis"
     memberVni.EntityData.SegmentPath = "member-vni" + types.AddKeyToken(memberVni.Vni, "vni")
+    memberVni.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/member-vnis/" + memberVni.EntityData.SegmentPath
     memberVni.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     memberVni.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     memberVni.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3831,6 +3937,7 @@ func (memberVniStaticMacAddresses *L2vpn_Database_BridgeDomainGroups_BridgeDomai
     memberVniStaticMacAddresses.EntityData.BundleName = "cisco_ios_xr"
     memberVniStaticMacAddresses.EntityData.ParentYangName = "member-vni"
     memberVniStaticMacAddresses.EntityData.SegmentPath = "member-vni-static-mac-addresses"
+    memberVniStaticMacAddresses.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/member-vnis/member-vni/" + memberVniStaticMacAddresses.EntityData.SegmentPath
     memberVniStaticMacAddresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     memberVniStaticMacAddresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     memberVniStaticMacAddresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3852,6 +3959,7 @@ func (memberVniStaticMacAddresses *L2vpn_Database_BridgeDomainGroups_BridgeDomai
 type L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomains_BridgeDomain_MemberVnis_MemberVni_MemberVniStaticMacAddresses_MemberVniStaticMacAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Static MAC address. The type is string with
     // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
@@ -3868,6 +3976,7 @@ func (memberVniStaticMacAddress *L2vpn_Database_BridgeDomainGroups_BridgeDomainG
     memberVniStaticMacAddress.EntityData.BundleName = "cisco_ios_xr"
     memberVniStaticMacAddress.EntityData.ParentYangName = "member-vni-static-mac-addresses"
     memberVniStaticMacAddress.EntityData.SegmentPath = "member-vni-static-mac-address" + types.AddKeyToken(memberVniStaticMacAddress.MacAddress, "mac-address")
+    memberVniStaticMacAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/member-vnis/member-vni/member-vni-static-mac-addresses/" + memberVniStaticMacAddress.EntityData.SegmentPath
     memberVniStaticMacAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     memberVniStaticMacAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     memberVniStaticMacAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3925,6 +4034,7 @@ func (bridgeDomainMac *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_Bridg
     bridgeDomainMac.EntityData.BundleName = "cisco_ios_xr"
     bridgeDomainMac.EntityData.ParentYangName = "bridge-domain"
     bridgeDomainMac.EntityData.SegmentPath = "bridge-domain-mac"
+    bridgeDomainMac.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/" + bridgeDomainMac.EntityData.SegmentPath
     bridgeDomainMac.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bridgeDomainMac.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bridgeDomainMac.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3970,6 +4080,7 @@ func (bdMacLimit *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDoma
     bdMacLimit.EntityData.BundleName = "cisco_ios_xr"
     bdMacLimit.EntityData.ParentYangName = "bridge-domain-mac"
     bdMacLimit.EntityData.SegmentPath = "bd-mac-limit"
+    bdMacLimit.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/bridge-domain-mac/" + bdMacLimit.EntityData.SegmentPath
     bdMacLimit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bdMacLimit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bdMacLimit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4002,6 +4113,7 @@ func (bdMacFilters *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDo
     bdMacFilters.EntityData.BundleName = "cisco_ios_xr"
     bdMacFilters.EntityData.ParentYangName = "bridge-domain-mac"
     bdMacFilters.EntityData.SegmentPath = "bd-mac-filters"
+    bdMacFilters.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/bridge-domain-mac/" + bdMacFilters.EntityData.SegmentPath
     bdMacFilters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bdMacFilters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bdMacFilters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4023,6 +4135,7 @@ func (bdMacFilters *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDo
 type L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomains_BridgeDomain_BridgeDomainMac_BdMacFilters_BdMacFilter struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Static MAC address. The type is string with
     // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
@@ -4038,6 +4151,7 @@ func (bdMacFilter *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDom
     bdMacFilter.EntityData.BundleName = "cisco_ios_xr"
     bdMacFilter.EntityData.ParentYangName = "bd-mac-filters"
     bdMacFilter.EntityData.SegmentPath = "bd-mac-filter" + types.AddKeyToken(bdMacFilter.Address, "address")
+    bdMacFilter.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/bridge-domain-mac/bd-mac-filters/" + bdMacFilter.EntityData.SegmentPath
     bdMacFilter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bdMacFilter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bdMacFilter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4077,6 +4191,7 @@ func (macSecure *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomai
     macSecure.EntityData.BundleName = "cisco_ios_xr"
     macSecure.EntityData.ParentYangName = "bridge-domain-mac"
     macSecure.EntityData.SegmentPath = "mac-secure"
+    macSecure.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/bridge-domain-mac/" + macSecure.EntityData.SegmentPath
     macSecure.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     macSecure.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     macSecure.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4112,6 +4227,7 @@ func (bdMacAging *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDoma
     bdMacAging.EntityData.BundleName = "cisco_ios_xr"
     bdMacAging.EntityData.ParentYangName = "bridge-domain-mac"
     bdMacAging.EntityData.SegmentPath = "bd-mac-aging"
+    bdMacAging.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/bridge-domain-mac/" + bdMacAging.EntityData.SegmentPath
     bdMacAging.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bdMacAging.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bdMacAging.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4145,6 +4261,7 @@ func (nvSatellite *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDom
     nvSatellite.EntityData.BundleName = "cisco_ios_xr"
     nvSatellite.EntityData.ParentYangName = "bridge-domain"
     nvSatellite.EntityData.SegmentPath = "nv-satellite"
+    nvSatellite.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/" + nvSatellite.EntityData.SegmentPath
     nvSatellite.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nvSatellite.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nvSatellite.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4178,6 +4295,7 @@ func (bridgeDomainPbb *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_Bridg
     bridgeDomainPbb.EntityData.BundleName = "cisco_ios_xr"
     bridgeDomainPbb.EntityData.ParentYangName = "bridge-domain"
     bridgeDomainPbb.EntityData.SegmentPath = "bridge-domain-pbb"
+    bridgeDomainPbb.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/" + bridgeDomainPbb.EntityData.SegmentPath
     bridgeDomainPbb.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bridgeDomainPbb.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bridgeDomainPbb.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4210,6 +4328,7 @@ func (pbbEdges *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomain
     pbbEdges.EntityData.BundleName = "cisco_ios_xr"
     pbbEdges.EntityData.ParentYangName = "bridge-domain-pbb"
     pbbEdges.EntityData.SegmentPath = "pbb-edges"
+    pbbEdges.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/bridge-domain-pbb/" + pbbEdges.EntityData.SegmentPath
     pbbEdges.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pbbEdges.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pbbEdges.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4232,6 +4351,7 @@ func (pbbEdges *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomain
 type L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomains_BridgeDomain_BridgeDomainPbb_PbbEdges_PbbEdge struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. ISID. The type is interface{} with range:
     // 256..16777214.
@@ -4267,6 +4387,7 @@ func (pbbEdge *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomains
     pbbEdge.EntityData.BundleName = "cisco_ios_xr"
     pbbEdge.EntityData.ParentYangName = "pbb-edges"
     pbbEdge.EntityData.SegmentPath = "pbb-edge" + types.AddKeyToken(pbbEdge.Isid, "isid") + types.AddKeyToken(pbbEdge.CoreBdName, "core-bd-name")
+    pbbEdge.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/bridge-domain-pbb/pbb-edges/" + pbbEdge.EntityData.SegmentPath
     pbbEdge.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pbbEdge.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pbbEdge.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4303,6 +4424,7 @@ func (pbbEdgeSplitHorizonGroup *L2vpn_Database_BridgeDomainGroups_BridgeDomainGr
     pbbEdgeSplitHorizonGroup.EntityData.BundleName = "cisco_ios_xr"
     pbbEdgeSplitHorizonGroup.EntityData.ParentYangName = "pbb-edge"
     pbbEdgeSplitHorizonGroup.EntityData.SegmentPath = "pbb-edge-split-horizon-group"
+    pbbEdgeSplitHorizonGroup.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/bridge-domain-pbb/pbb-edges/pbb-edge/" + pbbEdgeSplitHorizonGroup.EntityData.SegmentPath
     pbbEdgeSplitHorizonGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pbbEdgeSplitHorizonGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pbbEdgeSplitHorizonGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4333,6 +4455,7 @@ func (pbbStaticMacMappings *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_
     pbbStaticMacMappings.EntityData.BundleName = "cisco_ios_xr"
     pbbStaticMacMappings.EntityData.ParentYangName = "pbb-edge"
     pbbStaticMacMappings.EntityData.SegmentPath = "pbb-static-mac-mappings"
+    pbbStaticMacMappings.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/bridge-domain-pbb/pbb-edges/pbb-edge/" + pbbStaticMacMappings.EntityData.SegmentPath
     pbbStaticMacMappings.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pbbStaticMacMappings.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pbbStaticMacMappings.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4355,6 +4478,7 @@ func (pbbStaticMacMappings *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_
 type L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomains_BridgeDomain_BridgeDomainPbb_PbbEdges_PbbEdge_PbbStaticMacMappings_PbbStaticMacMapping struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Static MAC address. The type is string with
     // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
@@ -4371,6 +4495,7 @@ func (pbbStaticMacMapping *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_B
     pbbStaticMacMapping.EntityData.BundleName = "cisco_ios_xr"
     pbbStaticMacMapping.EntityData.ParentYangName = "pbb-static-mac-mappings"
     pbbStaticMacMapping.EntityData.SegmentPath = "pbb-static-mac-mapping" + types.AddKeyToken(pbbStaticMacMapping.Address, "address")
+    pbbStaticMacMapping.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/bridge-domain-pbb/pbb-edges/pbb-edge/pbb-static-mac-mappings/" + pbbStaticMacMapping.EntityData.SegmentPath
     pbbStaticMacMapping.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pbbStaticMacMapping.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pbbStaticMacMapping.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4404,6 +4529,7 @@ func (pbbEdgeDhcpProfile *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_Br
     pbbEdgeDhcpProfile.EntityData.BundleName = "cisco_ios_xr"
     pbbEdgeDhcpProfile.EntityData.ParentYangName = "pbb-edge"
     pbbEdgeDhcpProfile.EntityData.SegmentPath = "pbb-edge-dhcp-profile"
+    pbbEdgeDhcpProfile.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/bridge-domain-pbb/pbb-edges/pbb-edge/" + pbbEdgeDhcpProfile.EntityData.SegmentPath
     pbbEdgeDhcpProfile.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pbbEdgeDhcpProfile.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pbbEdgeDhcpProfile.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4443,6 +4569,7 @@ func (pbbEdgeMac *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDoma
     pbbEdgeMac.EntityData.BundleName = "cisco_ios_xr"
     pbbEdgeMac.EntityData.ParentYangName = "pbb-edge"
     pbbEdgeMac.EntityData.SegmentPath = "pbb-edge-mac"
+    pbbEdgeMac.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/bridge-domain-pbb/pbb-edges/pbb-edge/" + pbbEdgeMac.EntityData.SegmentPath
     pbbEdgeMac.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pbbEdgeMac.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pbbEdgeMac.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4482,6 +4609,7 @@ func (pbbEdgeMacLimit *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_Bridg
     pbbEdgeMacLimit.EntityData.BundleName = "cisco_ios_xr"
     pbbEdgeMacLimit.EntityData.ParentYangName = "pbb-edge-mac"
     pbbEdgeMacLimit.EntityData.SegmentPath = "pbb-edge-mac-limit"
+    pbbEdgeMacLimit.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/bridge-domain-pbb/pbb-edges/pbb-edge/pbb-edge-mac/" + pbbEdgeMacLimit.EntityData.SegmentPath
     pbbEdgeMacLimit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pbbEdgeMacLimit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pbbEdgeMacLimit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4516,6 +4644,7 @@ func (pbbEdgeMacAging *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_Bridg
     pbbEdgeMacAging.EntityData.BundleName = "cisco_ios_xr"
     pbbEdgeMacAging.EntityData.ParentYangName = "pbb-edge-mac"
     pbbEdgeMacAging.EntityData.SegmentPath = "pbb-edge-mac-aging"
+    pbbEdgeMacAging.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/bridge-domain-pbb/pbb-edges/pbb-edge/pbb-edge-mac/" + pbbEdgeMacAging.EntityData.SegmentPath
     pbbEdgeMacAging.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pbbEdgeMacAging.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pbbEdgeMacAging.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4559,6 +4688,7 @@ func (pbbEdgeMacSecure *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_Brid
     pbbEdgeMacSecure.EntityData.BundleName = "cisco_ios_xr"
     pbbEdgeMacSecure.EntityData.ParentYangName = "pbb-edge-mac"
     pbbEdgeMacSecure.EntityData.SegmentPath = "pbb-edge-mac-secure"
+    pbbEdgeMacSecure.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/bridge-domain-pbb/pbb-edges/pbb-edge/pbb-edge-mac/" + pbbEdgeMacSecure.EntityData.SegmentPath
     pbbEdgeMacSecure.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pbbEdgeMacSecure.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pbbEdgeMacSecure.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4610,6 +4740,7 @@ func (pbbCore *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomains
     pbbCore.EntityData.BundleName = "cisco_ios_xr"
     pbbCore.EntityData.ParentYangName = "bridge-domain-pbb"
     pbbCore.EntityData.SegmentPath = "pbb-core"
+    pbbCore.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/bridge-domain-pbb/" + pbbCore.EntityData.SegmentPath
     pbbCore.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pbbCore.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pbbCore.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4651,6 +4782,7 @@ func (pbbCoreMac *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDoma
     pbbCoreMac.EntityData.BundleName = "cisco_ios_xr"
     pbbCoreMac.EntityData.ParentYangName = "pbb-core"
     pbbCoreMac.EntityData.SegmentPath = "pbb-core-mac"
+    pbbCoreMac.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/bridge-domain-pbb/pbb-core/" + pbbCoreMac.EntityData.SegmentPath
     pbbCoreMac.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pbbCoreMac.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pbbCoreMac.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4685,6 +4817,7 @@ func (pbbCoreMacAging *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_Bridg
     pbbCoreMacAging.EntityData.BundleName = "cisco_ios_xr"
     pbbCoreMacAging.EntityData.ParentYangName = "pbb-core-mac"
     pbbCoreMacAging.EntityData.SegmentPath = "pbb-core-mac-aging"
+    pbbCoreMacAging.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/bridge-domain-pbb/pbb-core/pbb-core-mac/" + pbbCoreMacAging.EntityData.SegmentPath
     pbbCoreMacAging.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pbbCoreMacAging.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pbbCoreMacAging.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4722,6 +4855,7 @@ func (pbbCoreMacLimit *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_Bridg
     pbbCoreMacLimit.EntityData.BundleName = "cisco_ios_xr"
     pbbCoreMacLimit.EntityData.ParentYangName = "pbb-core-mac"
     pbbCoreMacLimit.EntityData.SegmentPath = "pbb-core-mac-limit"
+    pbbCoreMacLimit.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/bridge-domain-pbb/pbb-core/pbb-core-mac/" + pbbCoreMacLimit.EntityData.SegmentPath
     pbbCoreMacLimit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pbbCoreMacLimit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pbbCoreMacLimit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4754,6 +4888,7 @@ func (pbbCoreEvis *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDom
     pbbCoreEvis.EntityData.BundleName = "cisco_ios_xr"
     pbbCoreEvis.EntityData.ParentYangName = "pbb-core"
     pbbCoreEvis.EntityData.SegmentPath = "pbb-core-evis"
+    pbbCoreEvis.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/bridge-domain-pbb/pbb-core/" + pbbCoreEvis.EntityData.SegmentPath
     pbbCoreEvis.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pbbCoreEvis.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pbbCoreEvis.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4775,6 +4910,7 @@ func (pbbCoreEvis *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDom
 type L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomains_BridgeDomain_BridgeDomainPbb_PbbCore_PbbCoreEvis_PbbCoreEvi struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Ethernet VPN ID. The type is interface{} with
     // range: 1..4294967295.
@@ -4787,6 +4923,7 @@ func (pbbCoreEvi *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDoma
     pbbCoreEvi.EntityData.BundleName = "cisco_ios_xr"
     pbbCoreEvi.EntityData.ParentYangName = "pbb-core-evis"
     pbbCoreEvi.EntityData.SegmentPath = "pbb-core-evi" + types.AddKeyToken(pbbCoreEvi.Eviid, "eviid")
+    pbbCoreEvi.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/bridge-domain-pbb/pbb-core/pbb-core-evis/" + pbbCoreEvi.EntityData.SegmentPath
     pbbCoreEvi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pbbCoreEvi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pbbCoreEvi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4819,6 +4956,7 @@ func (pbbCoreDhcpProfile *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_Br
     pbbCoreDhcpProfile.EntityData.BundleName = "cisco_ios_xr"
     pbbCoreDhcpProfile.EntityData.ParentYangName = "pbb-core"
     pbbCoreDhcpProfile.EntityData.SegmentPath = "pbb-core-dhcp-profile"
+    pbbCoreDhcpProfile.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/bridge-domain-pbb/pbb-core/" + pbbCoreDhcpProfile.EntityData.SegmentPath
     pbbCoreDhcpProfile.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pbbCoreDhcpProfile.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pbbCoreDhcpProfile.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4850,6 +4988,7 @@ func (bridgeDomainEvis *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_Brid
     bridgeDomainEvis.EntityData.BundleName = "cisco_ios_xr"
     bridgeDomainEvis.EntityData.ParentYangName = "bridge-domain"
     bridgeDomainEvis.EntityData.SegmentPath = "bridge-domain-evis"
+    bridgeDomainEvis.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/" + bridgeDomainEvis.EntityData.SegmentPath
     bridgeDomainEvis.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bridgeDomainEvis.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bridgeDomainEvis.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4871,6 +5010,7 @@ func (bridgeDomainEvis *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_Brid
 type L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomains_BridgeDomain_BridgeDomainEvis_BridgeDomainEvi struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. MPLS Ethernet VPN-ID. The type is interface{} with
     // range: 1..65534.
@@ -4883,6 +5023,7 @@ func (bridgeDomainEvi *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_Bridg
     bridgeDomainEvi.EntityData.BundleName = "cisco_ios_xr"
     bridgeDomainEvi.EntityData.ParentYangName = "bridge-domain-evis"
     bridgeDomainEvi.EntityData.SegmentPath = "bridge-domain-evi" + types.AddKeyToken(bridgeDomainEvi.VpnId, "vpn-id")
+    bridgeDomainEvi.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/bridge-domain-evis/" + bridgeDomainEvi.EntityData.SegmentPath
     bridgeDomainEvi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bridgeDomainEvi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bridgeDomainEvi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4914,6 +5055,7 @@ func (accessVfis *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDoma
     accessVfis.EntityData.BundleName = "cisco_ios_xr"
     accessVfis.EntityData.ParentYangName = "bridge-domain"
     accessVfis.EntityData.SegmentPath = "access-vfis"
+    accessVfis.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/" + accessVfis.EntityData.SegmentPath
     accessVfis.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     accessVfis.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accessVfis.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4936,6 +5078,7 @@ func (accessVfis *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDoma
 type L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomains_BridgeDomain_AccessVfis_AccessVfi struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of the AccessVirtual Forwarding Interface.
     // The type is string with length: 1..32.
@@ -4954,6 +5097,7 @@ func (accessVfi *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomai
     accessVfi.EntityData.BundleName = "cisco_ios_xr"
     accessVfi.EntityData.ParentYangName = "access-vfis"
     accessVfi.EntityData.SegmentPath = "access-vfi" + types.AddKeyToken(accessVfi.Name, "name")
+    accessVfi.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/access-vfis/" + accessVfi.EntityData.SegmentPath
     accessVfi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     accessVfi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accessVfi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4986,6 +5130,7 @@ func (accessVfiPseudowires *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_
     accessVfiPseudowires.EntityData.BundleName = "cisco_ios_xr"
     accessVfiPseudowires.EntityData.ParentYangName = "access-vfi"
     accessVfiPseudowires.EntityData.SegmentPath = "access-vfi-pseudowires"
+    accessVfiPseudowires.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/access-vfis/access-vfi/" + accessVfiPseudowires.EntityData.SegmentPath
     accessVfiPseudowires.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     accessVfiPseudowires.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accessVfiPseudowires.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5007,6 +5152,7 @@ func (accessVfiPseudowires *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_
 type L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomains_BridgeDomain_AccessVfis_AccessVfi_AccessVfiPseudowires_AccessVfiPseudowire struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Neighbor IP address. The type is string with
     // pattern:
@@ -5031,6 +5177,7 @@ func (accessVfiPseudowire *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_B
     accessVfiPseudowire.EntityData.BundleName = "cisco_ios_xr"
     accessVfiPseudowire.EntityData.ParentYangName = "access-vfi-pseudowires"
     accessVfiPseudowire.EntityData.SegmentPath = "access-vfi-pseudowire" + types.AddKeyToken(accessVfiPseudowire.Neighbor, "neighbor") + types.AddKeyToken(accessVfiPseudowire.PseudowireId, "pseudowire-id")
+    accessVfiPseudowire.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/access-vfis/access-vfi/access-vfi-pseudowires/" + accessVfiPseudowire.EntityData.SegmentPath
     accessVfiPseudowire.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     accessVfiPseudowire.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accessVfiPseudowire.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5064,6 +5211,7 @@ func (accessVfiPseudowireStaticMacAddresses *L2vpn_Database_BridgeDomainGroups_B
     accessVfiPseudowireStaticMacAddresses.EntityData.BundleName = "cisco_ios_xr"
     accessVfiPseudowireStaticMacAddresses.EntityData.ParentYangName = "access-vfi-pseudowire"
     accessVfiPseudowireStaticMacAddresses.EntityData.SegmentPath = "access-vfi-pseudowire-static-mac-addresses"
+    accessVfiPseudowireStaticMacAddresses.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/access-vfis/access-vfi/access-vfi-pseudowires/access-vfi-pseudowire/" + accessVfiPseudowireStaticMacAddresses.EntityData.SegmentPath
     accessVfiPseudowireStaticMacAddresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     accessVfiPseudowireStaticMacAddresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accessVfiPseudowireStaticMacAddresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5085,6 +5233,7 @@ func (accessVfiPseudowireStaticMacAddresses *L2vpn_Database_BridgeDomainGroups_B
 type L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomains_BridgeDomain_AccessVfis_AccessVfi_AccessVfiPseudowires_AccessVfiPseudowire_AccessVfiPseudowireStaticMacAddresses_AccessVfiPseudowireStaticMacAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Static MAC address. The type is string with
     // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
@@ -5097,6 +5246,7 @@ func (accessVfiPseudowireStaticMacAddress *L2vpn_Database_BridgeDomainGroups_Bri
     accessVfiPseudowireStaticMacAddress.EntityData.BundleName = "cisco_ios_xr"
     accessVfiPseudowireStaticMacAddress.EntityData.ParentYangName = "access-vfi-pseudowire-static-mac-addresses"
     accessVfiPseudowireStaticMacAddress.EntityData.SegmentPath = "access-vfi-pseudowire-static-mac-address" + types.AddKeyToken(accessVfiPseudowireStaticMacAddress.Address, "address")
+    accessVfiPseudowireStaticMacAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/access-vfis/access-vfi/access-vfi-pseudowires/access-vfi-pseudowire/access-vfi-pseudowire-static-mac-addresses/" + accessVfiPseudowireStaticMacAddress.EntityData.SegmentPath
     accessVfiPseudowireStaticMacAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     accessVfiPseudowireStaticMacAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accessVfiPseudowireStaticMacAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5127,6 +5277,7 @@ func (bdPseudowires *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeD
     bdPseudowires.EntityData.BundleName = "cisco_ios_xr"
     bdPseudowires.EntityData.ParentYangName = "bridge-domain"
     bdPseudowires.EntityData.SegmentPath = "bd-pseudowires"
+    bdPseudowires.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/" + bdPseudowires.EntityData.SegmentPath
     bdPseudowires.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bdPseudowires.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bdPseudowires.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5148,6 +5299,7 @@ func (bdPseudowires *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeD
 type L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomains_BridgeDomain_BdPseudowires_BdPseudowire struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Neighbor IP address. The type is string with
     // pattern:
@@ -5209,6 +5361,7 @@ func (bdPseudowire *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDo
     bdPseudowire.EntityData.BundleName = "cisco_ios_xr"
     bdPseudowire.EntityData.ParentYangName = "bd-pseudowires"
     bdPseudowire.EntityData.SegmentPath = "bd-pseudowire" + types.AddKeyToken(bdPseudowire.Neighbor, "neighbor") + types.AddKeyToken(bdPseudowire.PseudowireId, "pseudowire-id")
+    bdPseudowire.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/bd-pseudowires/" + bdPseudowire.EntityData.SegmentPath
     bdPseudowire.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bdPseudowire.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bdPseudowire.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5262,6 +5415,7 @@ func (pseudowireDai *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeD
     pseudowireDai.EntityData.BundleName = "cisco_ios_xr"
     pseudowireDai.EntityData.ParentYangName = "bd-pseudowire"
     pseudowireDai.EntityData.SegmentPath = "pseudowire-dai"
+    pseudowireDai.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/bd-pseudowires/bd-pseudowire/" + pseudowireDai.EntityData.SegmentPath
     pseudowireDai.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pseudowireDai.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pseudowireDai.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5300,6 +5454,7 @@ func (pseudowireDaiAddressValidation *L2vpn_Database_BridgeDomainGroups_BridgeDo
     pseudowireDaiAddressValidation.EntityData.BundleName = "cisco_ios_xr"
     pseudowireDaiAddressValidation.EntityData.ParentYangName = "pseudowire-dai"
     pseudowireDaiAddressValidation.EntityData.SegmentPath = "pseudowire-dai-address-validation"
+    pseudowireDaiAddressValidation.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/bd-pseudowires/bd-pseudowire/pseudowire-dai/" + pseudowireDaiAddressValidation.EntityData.SegmentPath
     pseudowireDaiAddressValidation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pseudowireDaiAddressValidation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pseudowireDaiAddressValidation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5332,6 +5487,7 @@ func (bdpwStormControlTypes *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup
     bdpwStormControlTypes.EntityData.BundleName = "cisco_ios_xr"
     bdpwStormControlTypes.EntityData.ParentYangName = "bd-pseudowire"
     bdpwStormControlTypes.EntityData.SegmentPath = "bdpw-storm-control-types"
+    bdpwStormControlTypes.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/bd-pseudowires/bd-pseudowire/" + bdpwStormControlTypes.EntityData.SegmentPath
     bdpwStormControlTypes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bdpwStormControlTypes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bdpwStormControlTypes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5353,6 +5509,7 @@ func (bdpwStormControlTypes *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup
 type L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomains_BridgeDomain_BdPseudowires_BdPseudowire_BdpwStormControlTypes_BdpwStormControlType struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Storm Control Type. The type is StormControl.
     Sctype interface{}
@@ -5367,6 +5524,7 @@ func (bdpwStormControlType *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_
     bdpwStormControlType.EntityData.BundleName = "cisco_ios_xr"
     bdpwStormControlType.EntityData.ParentYangName = "bdpw-storm-control-types"
     bdpwStormControlType.EntityData.SegmentPath = "bdpw-storm-control-type" + types.AddKeyToken(bdpwStormControlType.Sctype, "sctype")
+    bdpwStormControlType.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/bd-pseudowires/bd-pseudowire/bdpw-storm-control-types/" + bdpwStormControlType.EntityData.SegmentPath
     bdpwStormControlType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bdpwStormControlType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bdpwStormControlType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5404,6 +5562,7 @@ func (stormControlUnit *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_Brid
     stormControlUnit.EntityData.BundleName = "cisco_ios_xr"
     stormControlUnit.EntityData.ParentYangName = "bdpw-storm-control-type"
     stormControlUnit.EntityData.SegmentPath = "storm-control-unit"
+    stormControlUnit.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/bd-pseudowires/bd-pseudowire/bdpw-storm-control-types/bdpw-storm-control-type/" + stormControlUnit.EntityData.SegmentPath
     stormControlUnit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     stormControlUnit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stormControlUnit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5437,6 +5596,7 @@ func (pseudowireProfile *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_Bri
     pseudowireProfile.EntityData.BundleName = "cisco_ios_xr"
     pseudowireProfile.EntityData.ParentYangName = "bd-pseudowire"
     pseudowireProfile.EntityData.SegmentPath = "pseudowire-profile"
+    pseudowireProfile.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/bd-pseudowires/bd-pseudowire/" + pseudowireProfile.EntityData.SegmentPath
     pseudowireProfile.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pseudowireProfile.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pseudowireProfile.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5468,6 +5628,7 @@ func (bdPwStaticMacAddresses *L2vpn_Database_BridgeDomainGroups_BridgeDomainGrou
     bdPwStaticMacAddresses.EntityData.BundleName = "cisco_ios_xr"
     bdPwStaticMacAddresses.EntityData.ParentYangName = "bd-pseudowire"
     bdPwStaticMacAddresses.EntityData.SegmentPath = "bd-pw-static-mac-addresses"
+    bdPwStaticMacAddresses.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/bd-pseudowires/bd-pseudowire/" + bdPwStaticMacAddresses.EntityData.SegmentPath
     bdPwStaticMacAddresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bdPwStaticMacAddresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bdPwStaticMacAddresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5489,6 +5650,7 @@ func (bdPwStaticMacAddresses *L2vpn_Database_BridgeDomainGroups_BridgeDomainGrou
 type L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomains_BridgeDomain_BdPseudowires_BdPseudowire_BdPwStaticMacAddresses_BdPwStaticMacAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Static MAC address. The type is string with
     // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
@@ -5501,6 +5663,7 @@ func (bdPwStaticMacAddress *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_
     bdPwStaticMacAddress.EntityData.BundleName = "cisco_ios_xr"
     bdPwStaticMacAddress.EntityData.ParentYangName = "bd-pw-static-mac-addresses"
     bdPwStaticMacAddress.EntityData.SegmentPath = "bd-pw-static-mac-address" + types.AddKeyToken(bdPwStaticMacAddress.Address, "address")
+    bdPwStaticMacAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/bd-pseudowires/bd-pseudowire/bd-pw-static-mac-addresses/" + bdPwStaticMacAddress.EntityData.SegmentPath
     bdPwStaticMacAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bdPwStaticMacAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bdPwStaticMacAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5536,6 +5699,7 @@ func (pseudowireIpSourceGuard *L2vpn_Database_BridgeDomainGroups_BridgeDomainGro
     pseudowireIpSourceGuard.EntityData.BundleName = "cisco_ios_xr"
     pseudowireIpSourceGuard.EntityData.ParentYangName = "bd-pseudowire"
     pseudowireIpSourceGuard.EntityData.SegmentPath = "pseudowire-ip-source-guard"
+    pseudowireIpSourceGuard.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/bd-pseudowires/bd-pseudowire/" + pseudowireIpSourceGuard.EntityData.SegmentPath
     pseudowireIpSourceGuard.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pseudowireIpSourceGuard.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pseudowireIpSourceGuard.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5583,6 +5747,7 @@ func (pseudowireMac *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeD
     pseudowireMac.EntityData.BundleName = "cisco_ios_xr"
     pseudowireMac.EntityData.ParentYangName = "bd-pseudowire"
     pseudowireMac.EntityData.SegmentPath = "pseudowire-mac"
+    pseudowireMac.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/bd-pseudowires/bd-pseudowire/" + pseudowireMac.EntityData.SegmentPath
     pseudowireMac.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pseudowireMac.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pseudowireMac.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5626,6 +5791,7 @@ func (pseudowireMacSecure *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_B
     pseudowireMacSecure.EntityData.BundleName = "cisco_ios_xr"
     pseudowireMacSecure.EntityData.ParentYangName = "pseudowire-mac"
     pseudowireMacSecure.EntityData.SegmentPath = "pseudowire-mac-secure"
+    pseudowireMacSecure.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/bd-pseudowires/bd-pseudowire/pseudowire-mac/" + pseudowireMacSecure.EntityData.SegmentPath
     pseudowireMacSecure.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pseudowireMacSecure.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pseudowireMacSecure.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5661,6 +5827,7 @@ func (pseudowireMacAging *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_Br
     pseudowireMacAging.EntityData.BundleName = "cisco_ios_xr"
     pseudowireMacAging.EntityData.ParentYangName = "pseudowire-mac"
     pseudowireMacAging.EntityData.SegmentPath = "pseudowire-mac-aging"
+    pseudowireMacAging.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/bd-pseudowires/bd-pseudowire/pseudowire-mac/" + pseudowireMacAging.EntityData.SegmentPath
     pseudowireMacAging.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pseudowireMacAging.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pseudowireMacAging.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5700,6 +5867,7 @@ func (pseudowireMacLimit *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_Br
     pseudowireMacLimit.EntityData.BundleName = "cisco_ios_xr"
     pseudowireMacLimit.EntityData.ParentYangName = "pseudowire-mac"
     pseudowireMacLimit.EntityData.SegmentPath = "pseudowire-mac-limit"
+    pseudowireMacLimit.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/bd-pseudowires/bd-pseudowire/pseudowire-mac/" + pseudowireMacLimit.EntityData.SegmentPath
     pseudowireMacLimit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pseudowireMacLimit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pseudowireMacLimit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5731,6 +5899,7 @@ func (bdPwSplitHorizon *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_Brid
     bdPwSplitHorizon.EntityData.BundleName = "cisco_ios_xr"
     bdPwSplitHorizon.EntityData.ParentYangName = "bd-pseudowire"
     bdPwSplitHorizon.EntityData.SegmentPath = "bd-pw-split-horizon"
+    bdPwSplitHorizon.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/bd-pseudowires/bd-pseudowire/" + bdPwSplitHorizon.EntityData.SegmentPath
     bdPwSplitHorizon.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bdPwSplitHorizon.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bdPwSplitHorizon.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5760,6 +5929,7 @@ func (bdPwSplitHorizonGroup *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup
     bdPwSplitHorizonGroup.EntityData.BundleName = "cisco_ios_xr"
     bdPwSplitHorizonGroup.EntityData.ParentYangName = "bd-pw-split-horizon"
     bdPwSplitHorizonGroup.EntityData.SegmentPath = "bd-pw-split-horizon-group"
+    bdPwSplitHorizonGroup.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/bd-pseudowires/bd-pseudowire/bd-pw-split-horizon/" + bdPwSplitHorizonGroup.EntityData.SegmentPath
     bdPwSplitHorizonGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bdPwSplitHorizonGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bdPwSplitHorizonGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5794,6 +5964,7 @@ func (bdPwMplsStaticLabels *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_
     bdPwMplsStaticLabels.EntityData.BundleName = "cisco_ios_xr"
     bdPwMplsStaticLabels.EntityData.ParentYangName = "bd-pseudowire"
     bdPwMplsStaticLabels.EntityData.SegmentPath = "bd-pw-mpls-static-labels"
+    bdPwMplsStaticLabels.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/bd-pseudowires/bd-pseudowire/" + bdPwMplsStaticLabels.EntityData.SegmentPath
     bdPwMplsStaticLabels.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bdPwMplsStaticLabels.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bdPwMplsStaticLabels.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5825,6 +5996,7 @@ func (bridgeDomainBackupPseudowires *L2vpn_Database_BridgeDomainGroups_BridgeDom
     bridgeDomainBackupPseudowires.EntityData.BundleName = "cisco_ios_xr"
     bridgeDomainBackupPseudowires.EntityData.ParentYangName = "bd-pseudowire"
     bridgeDomainBackupPseudowires.EntityData.SegmentPath = "bridge-domain-backup-pseudowires"
+    bridgeDomainBackupPseudowires.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/bd-pseudowires/bd-pseudowire/" + bridgeDomainBackupPseudowires.EntityData.SegmentPath
     bridgeDomainBackupPseudowires.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bridgeDomainBackupPseudowires.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bridgeDomainBackupPseudowires.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5846,6 +6018,7 @@ func (bridgeDomainBackupPseudowires *L2vpn_Database_BridgeDomainGroups_BridgeDom
 type L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomains_BridgeDomain_BdPseudowires_BdPseudowire_BridgeDomainBackupPseudowires_BridgeDomainBackupPseudowire struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Neighbor IP address. The type is string with
     // pattern:
@@ -5867,6 +6040,7 @@ func (bridgeDomainBackupPseudowire *L2vpn_Database_BridgeDomainGroups_BridgeDoma
     bridgeDomainBackupPseudowire.EntityData.BundleName = "cisco_ios_xr"
     bridgeDomainBackupPseudowire.EntityData.ParentYangName = "bridge-domain-backup-pseudowires"
     bridgeDomainBackupPseudowire.EntityData.SegmentPath = "bridge-domain-backup-pseudowire" + types.AddKeyToken(bridgeDomainBackupPseudowire.Neighbor, "neighbor") + types.AddKeyToken(bridgeDomainBackupPseudowire.PseudowireId, "pseudowire-id")
+    bridgeDomainBackupPseudowire.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/bd-pseudowires/bd-pseudowire/bridge-domain-backup-pseudowires/" + bridgeDomainBackupPseudowire.EntityData.SegmentPath
     bridgeDomainBackupPseudowire.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bridgeDomainBackupPseudowire.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bridgeDomainBackupPseudowire.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5899,6 +6073,7 @@ func (vfis *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomains_Br
     vfis.EntityData.BundleName = "cisco_ios_xr"
     vfis.EntityData.ParentYangName = "bridge-domain"
     vfis.EntityData.SegmentPath = "vfis"
+    vfis.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/" + vfis.EntityData.SegmentPath
     vfis.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vfis.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vfis.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5920,6 +6095,7 @@ func (vfis *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomains_Br
 type L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomains_BridgeDomain_Vfis_Vfi struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of the Virtual Forwarding Interface. The type
     // is string with length: 1..32.
@@ -5947,6 +6123,7 @@ func (vfi *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomains_Bri
     vfi.EntityData.BundleName = "cisco_ios_xr"
     vfi.EntityData.ParentYangName = "vfis"
     vfi.EntityData.SegmentPath = "vfi" + types.AddKeyToken(vfi.Name, "name")
+    vfi.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/vfis/" + vfi.EntityData.SegmentPath
     vfi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vfi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vfi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5987,6 +6164,7 @@ func (multicastP2mp *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeD
     multicastP2mp.EntityData.BundleName = "cisco_ios_xr"
     multicastP2mp.EntityData.ParentYangName = "vfi"
     multicastP2mp.EntityData.SegmentPath = "multicast-p2mp"
+    multicastP2mp.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/vfis/vfi/" + multicastP2mp.EntityData.SegmentPath
     multicastP2mp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     multicastP2mp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     multicastP2mp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6019,6 +6197,7 @@ func (transports *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDoma
     transports.EntityData.BundleName = "cisco_ios_xr"
     transports.EntityData.ParentYangName = "multicast-p2mp"
     transports.EntityData.SegmentPath = "transports"
+    transports.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/vfis/vfi/multicast-p2mp/" + transports.EntityData.SegmentPath
     transports.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     transports.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transports.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6040,6 +6219,7 @@ func (transports *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDoma
 type L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomains_BridgeDomain_Vfis_Vfi_MulticastP2mp_Transports_Transport struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Transport Type. The type is string with pattern:
     // (RSVP_TE).
@@ -6056,6 +6236,7 @@ func (transport *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomai
     transport.EntityData.BundleName = "cisco_ios_xr"
     transport.EntityData.ParentYangName = "transports"
     transport.EntityData.SegmentPath = "transport" + types.AddKeyToken(transport.TransportName, "transport-name")
+    transport.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/vfis/vfi/multicast-p2mp/transports/" + transport.EntityData.SegmentPath
     transport.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     transport.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transport.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6087,6 +6268,7 @@ func (signalings *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDoma
     signalings.EntityData.BundleName = "cisco_ios_xr"
     signalings.EntityData.ParentYangName = "multicast-p2mp"
     signalings.EntityData.SegmentPath = "signalings"
+    signalings.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/vfis/vfi/multicast-p2mp/" + signalings.EntityData.SegmentPath
     signalings.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     signalings.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     signalings.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6108,6 +6290,7 @@ func (signalings *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDoma
 type L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomains_BridgeDomain_Vfis_Vfi_MulticastP2mp_Signalings_Signaling struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Signaling Type. The type is string with pattern:
     // (BGP).
@@ -6120,6 +6303,7 @@ func (signaling *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomai
     signaling.EntityData.BundleName = "cisco_ios_xr"
     signaling.EntityData.ParentYangName = "signalings"
     signaling.EntityData.SegmentPath = "signaling" + types.AddKeyToken(signaling.SignalingName, "signaling-name")
+    signaling.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/vfis/vfi/multicast-p2mp/signalings/" + signaling.EntityData.SegmentPath
     signaling.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     signaling.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     signaling.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6150,6 +6334,7 @@ func (vfiPseudowires *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_Bridge
     vfiPseudowires.EntityData.BundleName = "cisco_ios_xr"
     vfiPseudowires.EntityData.ParentYangName = "vfi"
     vfiPseudowires.EntityData.SegmentPath = "vfi-pseudowires"
+    vfiPseudowires.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/vfis/vfi/" + vfiPseudowires.EntityData.SegmentPath
     vfiPseudowires.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vfiPseudowires.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vfiPseudowires.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6171,6 +6356,7 @@ func (vfiPseudowires *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_Bridge
 type L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomains_BridgeDomain_Vfis_Vfi_VfiPseudowires_VfiPseudowire struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Neighbor IP address. The type is string with
     // pattern:
@@ -6207,6 +6393,7 @@ func (vfiPseudowire *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeD
     vfiPseudowire.EntityData.BundleName = "cisco_ios_xr"
     vfiPseudowire.EntityData.ParentYangName = "vfi-pseudowires"
     vfiPseudowire.EntityData.SegmentPath = "vfi-pseudowire" + types.AddKeyToken(vfiPseudowire.Neighbor, "neighbor") + types.AddKeyToken(vfiPseudowire.PseudowireId, "pseudowire-id")
+    vfiPseudowire.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/vfis/vfi/vfi-pseudowires/" + vfiPseudowire.EntityData.SegmentPath
     vfiPseudowire.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vfiPseudowire.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vfiPseudowire.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6246,6 +6433,7 @@ func (vfiPwDhcpSnoop *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_Bridge
     vfiPwDhcpSnoop.EntityData.BundleName = "cisco_ios_xr"
     vfiPwDhcpSnoop.EntityData.ParentYangName = "vfi-pseudowire"
     vfiPwDhcpSnoop.EntityData.SegmentPath = "vfi-pw-dhcp-snoop"
+    vfiPwDhcpSnoop.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/vfis/vfi/vfi-pseudowires/vfi-pseudowire/" + vfiPwDhcpSnoop.EntityData.SegmentPath
     vfiPwDhcpSnoop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vfiPwDhcpSnoop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vfiPwDhcpSnoop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6281,6 +6469,7 @@ func (vfiPwMplsStaticLabels *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup
     vfiPwMplsStaticLabels.EntityData.BundleName = "cisco_ios_xr"
     vfiPwMplsStaticLabels.EntityData.ParentYangName = "vfi-pseudowire"
     vfiPwMplsStaticLabels.EntityData.SegmentPath = "vfi-pw-mpls-static-labels"
+    vfiPwMplsStaticLabels.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/vfis/vfi/vfi-pseudowires/vfi-pseudowire/" + vfiPwMplsStaticLabels.EntityData.SegmentPath
     vfiPwMplsStaticLabels.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vfiPwMplsStaticLabels.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vfiPwMplsStaticLabels.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6312,6 +6501,7 @@ func (pseudowireStaticMacAddresses *L2vpn_Database_BridgeDomainGroups_BridgeDoma
     pseudowireStaticMacAddresses.EntityData.BundleName = "cisco_ios_xr"
     pseudowireStaticMacAddresses.EntityData.ParentYangName = "vfi-pseudowire"
     pseudowireStaticMacAddresses.EntityData.SegmentPath = "pseudowire-static-mac-addresses"
+    pseudowireStaticMacAddresses.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/vfis/vfi/vfi-pseudowires/vfi-pseudowire/" + pseudowireStaticMacAddresses.EntityData.SegmentPath
     pseudowireStaticMacAddresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pseudowireStaticMacAddresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pseudowireStaticMacAddresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6333,6 +6523,7 @@ func (pseudowireStaticMacAddresses *L2vpn_Database_BridgeDomainGroups_BridgeDoma
 type L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomains_BridgeDomain_Vfis_Vfi_VfiPseudowires_VfiPseudowire_PseudowireStaticMacAddresses_PseudowireStaticMacAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Static MAC address. The type is string with
     // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
@@ -6345,6 +6536,7 @@ func (pseudowireStaticMacAddress *L2vpn_Database_BridgeDomainGroups_BridgeDomain
     pseudowireStaticMacAddress.EntityData.BundleName = "cisco_ios_xr"
     pseudowireStaticMacAddress.EntityData.ParentYangName = "pseudowire-static-mac-addresses"
     pseudowireStaticMacAddress.EntityData.SegmentPath = "pseudowire-static-mac-address" + types.AddKeyToken(pseudowireStaticMacAddress.Address, "address")
+    pseudowireStaticMacAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/vfis/vfi/vfi-pseudowires/vfi-pseudowire/pseudowire-static-mac-addresses/" + pseudowireStaticMacAddress.EntityData.SegmentPath
     pseudowireStaticMacAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pseudowireStaticMacAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pseudowireStaticMacAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6396,6 +6588,7 @@ func (bgpAutoDiscovery *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_Brid
     bgpAutoDiscovery.EntityData.BundleName = "cisco_ios_xr"
     bgpAutoDiscovery.EntityData.ParentYangName = "vfi"
     bgpAutoDiscovery.EntityData.SegmentPath = "bgp-auto-discovery"
+    bgpAutoDiscovery.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/vfis/vfi/" + bgpAutoDiscovery.EntityData.SegmentPath
     bgpAutoDiscovery.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bgpAutoDiscovery.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bgpAutoDiscovery.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6441,6 +6634,7 @@ func (ldpSignalingProtocol *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_
     ldpSignalingProtocol.EntityData.BundleName = "cisco_ios_xr"
     ldpSignalingProtocol.EntityData.ParentYangName = "bgp-auto-discovery"
     ldpSignalingProtocol.EntityData.SegmentPath = "ldp-signaling-protocol"
+    ldpSignalingProtocol.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/vfis/vfi/bgp-auto-discovery/" + ldpSignalingProtocol.EntityData.SegmentPath
     ldpSignalingProtocol.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ldpSignalingProtocol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ldpSignalingProtocol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6485,6 +6679,7 @@ func (vplsId *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomains_
     vplsId.EntityData.BundleName = "cisco_ios_xr"
     vplsId.EntityData.ParentYangName = "ldp-signaling-protocol"
     vplsId.EntityData.SegmentPath = "vpls-id"
+    vplsId.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/vfis/vfi/bgp-auto-discovery/ldp-signaling-protocol/" + vplsId.EntityData.SegmentPath
     vplsId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vplsId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vplsId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6521,6 +6716,7 @@ func (flowLabelLoadBalance *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_
     flowLabelLoadBalance.EntityData.BundleName = "cisco_ios_xr"
     flowLabelLoadBalance.EntityData.ParentYangName = "ldp-signaling-protocol"
     flowLabelLoadBalance.EntityData.SegmentPath = "flow-label-load-balance"
+    flowLabelLoadBalance.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/vfis/vfi/bgp-auto-discovery/ldp-signaling-protocol/" + flowLabelLoadBalance.EntityData.SegmentPath
     flowLabelLoadBalance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     flowLabelLoadBalance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     flowLabelLoadBalance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6551,6 +6747,7 @@ func (bgpRoutePolicy *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_Bridge
     bgpRoutePolicy.EntityData.BundleName = "cisco_ios_xr"
     bgpRoutePolicy.EntityData.ParentYangName = "bgp-auto-discovery"
     bgpRoutePolicy.EntityData.SegmentPath = "bgp-route-policy"
+    bgpRoutePolicy.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/vfis/vfi/bgp-auto-discovery/" + bgpRoutePolicy.EntityData.SegmentPath
     bgpRoutePolicy.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bgpRoutePolicy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bgpRoutePolicy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6595,6 +6792,7 @@ func (routeDistinguisher *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_Br
     routeDistinguisher.EntityData.BundleName = "cisco_ios_xr"
     routeDistinguisher.EntityData.ParentYangName = "bgp-auto-discovery"
     routeDistinguisher.EntityData.SegmentPath = "route-distinguisher"
+    routeDistinguisher.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/vfis/vfi/bgp-auto-discovery/" + routeDistinguisher.EntityData.SegmentPath
     routeDistinguisher.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routeDistinguisher.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routeDistinguisher.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6639,6 +6837,7 @@ func (bgpSignalingProtocol *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_
     bgpSignalingProtocol.EntityData.BundleName = "cisco_ios_xr"
     bgpSignalingProtocol.EntityData.ParentYangName = "bgp-auto-discovery"
     bgpSignalingProtocol.EntityData.SegmentPath = "bgp-signaling-protocol"
+    bgpSignalingProtocol.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/vfis/vfi/bgp-auto-discovery/" + bgpSignalingProtocol.EntityData.SegmentPath
     bgpSignalingProtocol.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bgpSignalingProtocol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bgpSignalingProtocol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6674,6 +6873,7 @@ func (flowLabelLoadBalance *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_
     flowLabelLoadBalance.EntityData.BundleName = "cisco_ios_xr"
     flowLabelLoadBalance.EntityData.ParentYangName = "bgp-signaling-protocol"
     flowLabelLoadBalance.EntityData.SegmentPath = "flow-label-load-balance"
+    flowLabelLoadBalance.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/vfis/vfi/bgp-auto-discovery/bgp-signaling-protocol/" + flowLabelLoadBalance.EntityData.SegmentPath
     flowLabelLoadBalance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     flowLabelLoadBalance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     flowLabelLoadBalance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6705,6 +6905,7 @@ func (routeTargets *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDo
     routeTargets.EntityData.BundleName = "cisco_ios_xr"
     routeTargets.EntityData.ParentYangName = "bgp-auto-discovery"
     routeTargets.EntityData.SegmentPath = "route-targets"
+    routeTargets.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/vfis/vfi/bgp-auto-discovery/" + routeTargets.EntityData.SegmentPath
     routeTargets.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routeTargets.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routeTargets.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6726,6 +6927,7 @@ func (routeTargets *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDo
 type L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomains_BridgeDomain_Vfis_Vfi_BgpAutoDiscovery_RouteTargets_RouteTarget struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Role of the router target type. The type is
     // BgpRouteTargetRole.
@@ -6750,6 +6952,7 @@ func (routeTarget *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDom
     routeTarget.EntityData.BundleName = "cisco_ios_xr"
     routeTarget.EntityData.ParentYangName = "route-targets"
     routeTarget.EntityData.SegmentPath = "route-target" + types.AddKeyToken(routeTarget.Role, "role") + types.AddKeyToken(routeTarget.Format, "format")
+    routeTarget.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/vfis/vfi/bgp-auto-discovery/route-targets/" + routeTarget.EntityData.SegmentPath
     routeTarget.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routeTarget.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routeTarget.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6777,6 +6980,7 @@ func (routeTarget *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDom
 type L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomains_BridgeDomain_Vfis_Vfi_BgpAutoDiscovery_RouteTargets_RouteTarget_TwoByteAsOrFourByteAs struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Two byte or 4 byte AS number. The type is
     // interface{} with range: 1..4294967295.
@@ -6793,6 +6997,7 @@ func (twoByteAsOrFourByteAs *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup
     twoByteAsOrFourByteAs.EntityData.BundleName = "cisco_ios_xr"
     twoByteAsOrFourByteAs.EntityData.ParentYangName = "route-target"
     twoByteAsOrFourByteAs.EntityData.SegmentPath = "two-byte-as-or-four-byte-as" + types.AddKeyToken(twoByteAsOrFourByteAs.As, "as") + types.AddKeyToken(twoByteAsOrFourByteAs.AsIndex, "as-index")
+    twoByteAsOrFourByteAs.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/vfis/vfi/bgp-auto-discovery/route-targets/route-target/" + twoByteAsOrFourByteAs.EntityData.SegmentPath
     twoByteAsOrFourByteAs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     twoByteAsOrFourByteAs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     twoByteAsOrFourByteAs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6812,6 +7017,7 @@ func (twoByteAsOrFourByteAs *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup
 type L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomains_BridgeDomain_Vfis_Vfi_BgpAutoDiscovery_RouteTargets_RouteTarget_Ipv4Address struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IPV4 address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -6828,6 +7034,7 @@ func (ipv4Address *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDom
     ipv4Address.EntityData.BundleName = "cisco_ios_xr"
     ipv4Address.EntityData.ParentYangName = "route-target"
     ipv4Address.EntityData.SegmentPath = "ipv4-address" + types.AddKeyToken(ipv4Address.Address, "address") + types.AddKeyToken(ipv4Address.AddrIndex, "addr-index")
+    ipv4Address.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/vfis/vfi/bgp-auto-discovery/route-targets/route-target/" + ipv4Address.EntityData.SegmentPath
     ipv4Address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4Address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4Address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6860,6 +7067,7 @@ func (bridgeDomainvnis *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_Brid
     bridgeDomainvnis.EntityData.BundleName = "cisco_ios_xr"
     bridgeDomainvnis.EntityData.ParentYangName = "bridge-domain"
     bridgeDomainvnis.EntityData.SegmentPath = "bridge-domainvnis"
+    bridgeDomainvnis.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/" + bridgeDomainvnis.EntityData.SegmentPath
     bridgeDomainvnis.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bridgeDomainvnis.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bridgeDomainvnis.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6881,6 +7089,7 @@ func (bridgeDomainvnis *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_Brid
 type L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomains_BridgeDomain_BridgeDomainvnis_BridgeDomainvni struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. VxLAN Ethernet VPN-ID. The type is interface{}
     // with range: 1..16777215.
@@ -6893,6 +7102,7 @@ func (bridgeDomainvni *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_Bridg
     bridgeDomainvni.EntityData.BundleName = "cisco_ios_xr"
     bridgeDomainvni.EntityData.ParentYangName = "bridge-domainvnis"
     bridgeDomainvni.EntityData.SegmentPath = "bridge-domainvni" + types.AddKeyToken(bridgeDomainvni.VpnId, "vpn-id")
+    bridgeDomainvni.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/bridge-domainvnis/" + bridgeDomainvni.EntityData.SegmentPath
     bridgeDomainvni.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bridgeDomainvni.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bridgeDomainvni.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6923,6 +7133,7 @@ func (bdAttachmentCircuits *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_
     bdAttachmentCircuits.EntityData.BundleName = "cisco_ios_xr"
     bdAttachmentCircuits.EntityData.ParentYangName = "bridge-domain"
     bdAttachmentCircuits.EntityData.SegmentPath = "bd-attachment-circuits"
+    bdAttachmentCircuits.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/" + bdAttachmentCircuits.EntityData.SegmentPath
     bdAttachmentCircuits.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bdAttachmentCircuits.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bdAttachmentCircuits.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6944,6 +7155,7 @@ func (bdAttachmentCircuits *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_
 type L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomains_BridgeDomain_BdAttachmentCircuits_BdAttachmentCircuit struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The name of the Attachment Circuit. The type is
     // string with pattern: [a-zA-Z0-9._/-]+.
@@ -6990,6 +7202,7 @@ func (bdAttachmentCircuit *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_B
     bdAttachmentCircuit.EntityData.BundleName = "cisco_ios_xr"
     bdAttachmentCircuit.EntityData.ParentYangName = "bd-attachment-circuits"
     bdAttachmentCircuit.EntityData.SegmentPath = "bd-attachment-circuit" + types.AddKeyToken(bdAttachmentCircuit.Name, "name")
+    bdAttachmentCircuit.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/bd-attachment-circuits/" + bdAttachmentCircuit.EntityData.SegmentPath
     bdAttachmentCircuit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bdAttachmentCircuit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bdAttachmentCircuit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7036,6 +7249,7 @@ func (interfaceIpSourceGuard *L2vpn_Database_BridgeDomainGroups_BridgeDomainGrou
     interfaceIpSourceGuard.EntityData.BundleName = "cisco_ios_xr"
     interfaceIpSourceGuard.EntityData.ParentYangName = "bd-attachment-circuit"
     interfaceIpSourceGuard.EntityData.SegmentPath = "interface-ip-source-guard"
+    interfaceIpSourceGuard.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/bd-attachment-circuits/bd-attachment-circuit/" + interfaceIpSourceGuard.EntityData.SegmentPath
     interfaceIpSourceGuard.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceIpSourceGuard.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceIpSourceGuard.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7076,6 +7290,7 @@ func (interfaceDai *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDo
     interfaceDai.EntityData.BundleName = "cisco_ios_xr"
     interfaceDai.EntityData.ParentYangName = "bd-attachment-circuit"
     interfaceDai.EntityData.SegmentPath = "interface-dai"
+    interfaceDai.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/bd-attachment-circuits/bd-attachment-circuit/" + interfaceDai.EntityData.SegmentPath
     interfaceDai.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceDai.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceDai.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7117,6 +7332,7 @@ func (interfaceDaiAddressValidation *L2vpn_Database_BridgeDomainGroups_BridgeDom
     interfaceDaiAddressValidation.EntityData.BundleName = "cisco_ios_xr"
     interfaceDaiAddressValidation.EntityData.ParentYangName = "interface-dai"
     interfaceDaiAddressValidation.EntityData.SegmentPath = "interface-dai-address-validation"
+    interfaceDaiAddressValidation.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/bd-attachment-circuits/bd-attachment-circuit/interface-dai/" + interfaceDaiAddressValidation.EntityData.SegmentPath
     interfaceDaiAddressValidation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceDaiAddressValidation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceDaiAddressValidation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7152,6 +7368,7 @@ func (interfaceProfile *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_Brid
     interfaceProfile.EntityData.BundleName = "cisco_ios_xr"
     interfaceProfile.EntityData.ParentYangName = "bd-attachment-circuit"
     interfaceProfile.EntityData.SegmentPath = "interface-profile"
+    interfaceProfile.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/bd-attachment-circuits/bd-attachment-circuit/" + interfaceProfile.EntityData.SegmentPath
     interfaceProfile.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceProfile.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceProfile.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7183,6 +7400,7 @@ func (bdacStormControlTypes *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup
     bdacStormControlTypes.EntityData.BundleName = "cisco_ios_xr"
     bdacStormControlTypes.EntityData.ParentYangName = "bd-attachment-circuit"
     bdacStormControlTypes.EntityData.SegmentPath = "bdac-storm-control-types"
+    bdacStormControlTypes.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/bd-attachment-circuits/bd-attachment-circuit/" + bdacStormControlTypes.EntityData.SegmentPath
     bdacStormControlTypes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bdacStormControlTypes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bdacStormControlTypes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7204,6 +7422,7 @@ func (bdacStormControlTypes *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup
 type L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomains_BridgeDomain_BdAttachmentCircuits_BdAttachmentCircuit_BdacStormControlTypes_BdacStormControlType struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Storm Control Type. The type is StormControl.
     Sctype interface{}
@@ -7218,6 +7437,7 @@ func (bdacStormControlType *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_
     bdacStormControlType.EntityData.BundleName = "cisco_ios_xr"
     bdacStormControlType.EntityData.ParentYangName = "bdac-storm-control-types"
     bdacStormControlType.EntityData.SegmentPath = "bdac-storm-control-type" + types.AddKeyToken(bdacStormControlType.Sctype, "sctype")
+    bdacStormControlType.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/bd-attachment-circuits/bd-attachment-circuit/bdac-storm-control-types/" + bdacStormControlType.EntityData.SegmentPath
     bdacStormControlType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bdacStormControlType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bdacStormControlType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7255,6 +7475,7 @@ func (stormControlUnit *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_Brid
     stormControlUnit.EntityData.BundleName = "cisco_ios_xr"
     stormControlUnit.EntityData.ParentYangName = "bdac-storm-control-type"
     stormControlUnit.EntityData.SegmentPath = "storm-control-unit"
+    stormControlUnit.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/bd-attachment-circuits/bd-attachment-circuit/bdac-storm-control-types/bdac-storm-control-type/" + stormControlUnit.EntityData.SegmentPath
     stormControlUnit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     stormControlUnit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stormControlUnit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7285,6 +7506,7 @@ func (splitHorizon *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDo
     splitHorizon.EntityData.BundleName = "cisco_ios_xr"
     splitHorizon.EntityData.ParentYangName = "bd-attachment-circuit"
     splitHorizon.EntityData.SegmentPath = "split-horizon"
+    splitHorizon.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/bd-attachment-circuits/bd-attachment-circuit/" + splitHorizon.EntityData.SegmentPath
     splitHorizon.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     splitHorizon.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     splitHorizon.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7314,6 +7536,7 @@ func (splitHorizonGroupId *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_B
     splitHorizonGroupId.EntityData.BundleName = "cisco_ios_xr"
     splitHorizonGroupId.EntityData.ParentYangName = "split-horizon"
     splitHorizonGroupId.EntityData.SegmentPath = "split-horizon-group-id"
+    splitHorizonGroupId.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/bd-attachment-circuits/bd-attachment-circuit/split-horizon/" + splitHorizonGroupId.EntityData.SegmentPath
     splitHorizonGroupId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     splitHorizonGroupId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     splitHorizonGroupId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7344,6 +7567,7 @@ func (staticMacAddresses *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_Br
     staticMacAddresses.EntityData.BundleName = "cisco_ios_xr"
     staticMacAddresses.EntityData.ParentYangName = "bd-attachment-circuit"
     staticMacAddresses.EntityData.SegmentPath = "static-mac-addresses"
+    staticMacAddresses.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/bd-attachment-circuits/bd-attachment-circuit/" + staticMacAddresses.EntityData.SegmentPath
     staticMacAddresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     staticMacAddresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     staticMacAddresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7365,6 +7589,7 @@ func (staticMacAddresses *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_Br
 type L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomains_BridgeDomain_BdAttachmentCircuits_BdAttachmentCircuit_StaticMacAddresses_StaticMacAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Static MAC address. The type is string with
     // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
@@ -7377,6 +7602,7 @@ func (staticMacAddress *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_Brid
     staticMacAddress.EntityData.BundleName = "cisco_ios_xr"
     staticMacAddress.EntityData.ParentYangName = "static-mac-addresses"
     staticMacAddress.EntityData.SegmentPath = "static-mac-address" + types.AddKeyToken(staticMacAddress.Address, "address")
+    staticMacAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/bd-attachment-circuits/bd-attachment-circuit/static-mac-addresses/" + staticMacAddress.EntityData.SegmentPath
     staticMacAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     staticMacAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     staticMacAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7418,6 +7644,7 @@ func (interfaceMac *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDo
     interfaceMac.EntityData.BundleName = "cisco_ios_xr"
     interfaceMac.EntityData.ParentYangName = "bd-attachment-circuit"
     interfaceMac.EntityData.SegmentPath = "interface-mac"
+    interfaceMac.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/bd-attachment-circuits/bd-attachment-circuit/" + interfaceMac.EntityData.SegmentPath
     interfaceMac.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceMac.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceMac.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7454,6 +7681,7 @@ func (interfaceMacAging *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_Bri
     interfaceMacAging.EntityData.BundleName = "cisco_ios_xr"
     interfaceMacAging.EntityData.ParentYangName = "interface-mac"
     interfaceMacAging.EntityData.SegmentPath = "interface-mac-aging"
+    interfaceMacAging.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/bd-attachment-circuits/bd-attachment-circuit/interface-mac/" + interfaceMacAging.EntityData.SegmentPath
     interfaceMacAging.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceMacAging.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceMacAging.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7493,6 +7721,7 @@ func (interfaceMacSecure *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_Br
     interfaceMacSecure.EntityData.BundleName = "cisco_ios_xr"
     interfaceMacSecure.EntityData.ParentYangName = "interface-mac"
     interfaceMacSecure.EntityData.SegmentPath = "interface-mac-secure"
+    interfaceMacSecure.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/bd-attachment-circuits/bd-attachment-circuit/interface-mac/" + interfaceMacSecure.EntityData.SegmentPath
     interfaceMacSecure.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceMacSecure.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceMacSecure.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7533,6 +7762,7 @@ func (interfaceMacLimit *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_Bri
     interfaceMacLimit.EntityData.BundleName = "cisco_ios_xr"
     interfaceMacLimit.EntityData.ParentYangName = "interface-mac"
     interfaceMacLimit.EntityData.SegmentPath = "interface-mac-limit"
+    interfaceMacLimit.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/bd-attachment-circuits/bd-attachment-circuit/interface-mac/" + interfaceMacLimit.EntityData.SegmentPath
     interfaceMacLimit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceMacLimit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceMacLimit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7565,6 +7795,7 @@ func (bdPseudowireEvpns *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_Bri
     bdPseudowireEvpns.EntityData.BundleName = "cisco_ios_xr"
     bdPseudowireEvpns.EntityData.ParentYangName = "bridge-domain"
     bdPseudowireEvpns.EntityData.SegmentPath = "bd-pseudowire-evpns"
+    bdPseudowireEvpns.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/" + bdPseudowireEvpns.EntityData.SegmentPath
     bdPseudowireEvpns.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bdPseudowireEvpns.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bdPseudowireEvpns.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7586,6 +7817,7 @@ func (bdPseudowireEvpns *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_Bri
 type L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomains_BridgeDomain_BdPseudowireEvpns_BdPseudowireEvpn struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Ethernet VPN ID. The type is interface{} with
     // range: 1..65534.
@@ -7602,6 +7834,7 @@ func (bdPseudowireEvpn *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_Brid
     bdPseudowireEvpn.EntityData.BundleName = "cisco_ios_xr"
     bdPseudowireEvpn.EntityData.ParentYangName = "bd-pseudowire-evpns"
     bdPseudowireEvpn.EntityData.SegmentPath = "bd-pseudowire-evpn" + types.AddKeyToken(bdPseudowireEvpn.Eviid, "eviid") + types.AddKeyToken(bdPseudowireEvpn.Acid, "acid")
+    bdPseudowireEvpn.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/bd-pseudowire-evpns/" + bdPseudowireEvpn.EntityData.SegmentPath
     bdPseudowireEvpn.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bdPseudowireEvpn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bdPseudowireEvpn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7635,6 +7868,7 @@ func (ipSourceGuard *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeD
     ipSourceGuard.EntityData.BundleName = "cisco_ios_xr"
     ipSourceGuard.EntityData.ParentYangName = "bridge-domain"
     ipSourceGuard.EntityData.SegmentPath = "ip-source-guard"
+    ipSourceGuard.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/" + ipSourceGuard.EntityData.SegmentPath
     ipSourceGuard.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipSourceGuard.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSourceGuard.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7671,6 +7905,7 @@ func (dai *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomains_Bri
     dai.EntityData.BundleName = "cisco_ios_xr"
     dai.EntityData.ParentYangName = "bridge-domain"
     dai.EntityData.SegmentPath = "dai"
+    dai.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/" + dai.EntityData.SegmentPath
     dai.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dai.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dai.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7711,6 +7946,7 @@ func (daiAddressValidation *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_
     daiAddressValidation.EntityData.BundleName = "cisco_ios_xr"
     daiAddressValidation.EntityData.ParentYangName = "dai"
     daiAddressValidation.EntityData.SegmentPath = "dai-address-validation"
+    daiAddressValidation.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/dai/" + daiAddressValidation.EntityData.SegmentPath
     daiAddressValidation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     daiAddressValidation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     daiAddressValidation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7744,6 +7980,7 @@ func (routedInterfaces *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_Brid
     routedInterfaces.EntityData.BundleName = "cisco_ios_xr"
     routedInterfaces.EntityData.ParentYangName = "bridge-domain"
     routedInterfaces.EntityData.SegmentPath = "routed-interfaces"
+    routedInterfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/" + routedInterfaces.EntityData.SegmentPath
     routedInterfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routedInterfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routedInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7765,6 +8002,7 @@ func (routedInterfaces *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_Brid
 type L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomains_BridgeDomain_RoutedInterfaces_RoutedInterface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The name of the Routed Interface. The type is
     // string with pattern: [a-zA-Z0-9._/-]+.
@@ -7780,6 +8018,7 @@ func (routedInterface *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_Bridg
     routedInterface.EntityData.BundleName = "cisco_ios_xr"
     routedInterface.EntityData.ParentYangName = "routed-interfaces"
     routedInterface.EntityData.SegmentPath = "routed-interface" + types.AddKeyToken(routedInterface.InterfaceName, "interface-name")
+    routedInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/routed-interfaces/" + routedInterface.EntityData.SegmentPath
     routedInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routedInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routedInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7810,6 +8049,7 @@ func (routedInterfaceSplitHorizonGroup *L2vpn_Database_BridgeDomainGroups_Bridge
     routedInterfaceSplitHorizonGroup.EntityData.BundleName = "cisco_ios_xr"
     routedInterfaceSplitHorizonGroup.EntityData.ParentYangName = "routed-interface"
     routedInterfaceSplitHorizonGroup.EntityData.SegmentPath = "routed-interface-split-horizon-group"
+    routedInterfaceSplitHorizonGroup.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/bridge-domain-group/bridge-domains/bridge-domain/routed-interfaces/routed-interface/" + routedInterfaceSplitHorizonGroup.EntityData.SegmentPath
     routedInterfaceSplitHorizonGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routedInterfaceSplitHorizonGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routedInterfaceSplitHorizonGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7840,6 +8080,7 @@ func (pseudowireClasses *L2vpn_Database_PseudowireClasses) GetEntityData() *type
     pseudowireClasses.EntityData.BundleName = "cisco_ios_xr"
     pseudowireClasses.EntityData.ParentYangName = "database"
     pseudowireClasses.EntityData.SegmentPath = "pseudowire-classes"
+    pseudowireClasses.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/" + pseudowireClasses.EntityData.SegmentPath
     pseudowireClasses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pseudowireClasses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pseudowireClasses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7861,6 +8102,7 @@ func (pseudowireClasses *L2vpn_Database_PseudowireClasses) GetEntityData() *type
 type L2vpn_Database_PseudowireClasses_PseudowireClass struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of the pseudowire class. The type is string
     // with length: 1..32.
@@ -7888,6 +8130,7 @@ func (pseudowireClass *L2vpn_Database_PseudowireClasses_PseudowireClass) GetEnti
     pseudowireClass.EntityData.BundleName = "cisco_ios_xr"
     pseudowireClass.EntityData.ParentYangName = "pseudowire-classes"
     pseudowireClass.EntityData.SegmentPath = "pseudowire-class" + types.AddKeyToken(pseudowireClass.Name, "name")
+    pseudowireClass.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/pseudowire-classes/" + pseudowireClass.EntityData.SegmentPath
     pseudowireClass.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pseudowireClass.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pseudowireClass.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7950,6 +8193,7 @@ func (l2tpv3Encapsulation *L2vpn_Database_PseudowireClasses_PseudowireClass_L2tp
     l2tpv3Encapsulation.EntityData.BundleName = "cisco_ios_xr"
     l2tpv3Encapsulation.EntityData.ParentYangName = "pseudowire-class"
     l2tpv3Encapsulation.EntityData.SegmentPath = "l2tpv3-encapsulation"
+    l2tpv3Encapsulation.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/pseudowire-classes/pseudowire-class/" + l2tpv3Encapsulation.EntityData.SegmentPath
     l2tpv3Encapsulation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     l2tpv3Encapsulation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     l2tpv3Encapsulation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7992,6 +8236,7 @@ func (sequencing *L2vpn_Database_PseudowireClasses_PseudowireClass_L2tpv3Encapsu
     sequencing.EntityData.BundleName = "cisco_ios_xr"
     sequencing.EntityData.ParentYangName = "l2tpv3-encapsulation"
     sequencing.EntityData.SegmentPath = "sequencing"
+    sequencing.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/pseudowire-classes/pseudowire-class/l2tpv3-encapsulation/" + sequencing.EntityData.SegmentPath
     sequencing.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sequencing.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sequencing.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8025,6 +8270,7 @@ func (typeOfService *L2vpn_Database_PseudowireClasses_PseudowireClass_L2tpv3Enca
     typeOfService.EntityData.BundleName = "cisco_ios_xr"
     typeOfService.EntityData.ParentYangName = "l2tpv3-encapsulation"
     typeOfService.EntityData.SegmentPath = "type-of-service"
+    typeOfService.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/pseudowire-classes/pseudowire-class/l2tpv3-encapsulation/" + typeOfService.EntityData.SegmentPath
     typeOfService.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     typeOfService.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     typeOfService.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8059,6 +8305,7 @@ func (signalingProtocol *L2vpn_Database_PseudowireClasses_PseudowireClass_L2tpv3
     signalingProtocol.EntityData.BundleName = "cisco_ios_xr"
     signalingProtocol.EntityData.ParentYangName = "l2tpv3-encapsulation"
     signalingProtocol.EntityData.SegmentPath = "signaling-protocol"
+    signalingProtocol.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/pseudowire-classes/pseudowire-class/l2tpv3-encapsulation/" + signalingProtocol.EntityData.SegmentPath
     signalingProtocol.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     signalingProtocol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     signalingProtocol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8093,6 +8340,7 @@ func (pathMtu *L2vpn_Database_PseudowireClasses_PseudowireClass_L2tpv3Encapsulat
     pathMtu.EntityData.BundleName = "cisco_ios_xr"
     pathMtu.EntityData.ParentYangName = "l2tpv3-encapsulation"
     pathMtu.EntityData.SegmentPath = "path-mtu"
+    pathMtu.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/pseudowire-classes/pseudowire-class/l2tpv3-encapsulation/" + pathMtu.EntityData.SegmentPath
     pathMtu.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pathMtu.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pathMtu.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8126,6 +8374,7 @@ func (backupDisableDelay *L2vpn_Database_PseudowireClasses_PseudowireClass_Backu
     backupDisableDelay.EntityData.BundleName = "cisco_ios_xr"
     backupDisableDelay.EntityData.ParentYangName = "pseudowire-class"
     backupDisableDelay.EntityData.SegmentPath = "backup-disable-delay"
+    backupDisableDelay.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/pseudowire-classes/pseudowire-class/" + backupDisableDelay.EntityData.SegmentPath
     backupDisableDelay.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     backupDisableDelay.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     backupDisableDelay.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8192,6 +8441,7 @@ func (mplsEncapsulation *L2vpn_Database_PseudowireClasses_PseudowireClass_MplsEn
     mplsEncapsulation.EntityData.BundleName = "cisco_ios_xr"
     mplsEncapsulation.EntityData.ParentYangName = "pseudowire-class"
     mplsEncapsulation.EntityData.SegmentPath = "mpls-encapsulation"
+    mplsEncapsulation.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/pseudowire-classes/pseudowire-class/" + mplsEncapsulation.EntityData.SegmentPath
     mplsEncapsulation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mplsEncapsulation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mplsEncapsulation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8236,6 +8486,7 @@ func (sequencing *L2vpn_Database_PseudowireClasses_PseudowireClass_MplsEncapsula
     sequencing.EntityData.BundleName = "cisco_ios_xr"
     sequencing.EntityData.ParentYangName = "mpls-encapsulation"
     sequencing.EntityData.SegmentPath = "sequencing"
+    sequencing.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/pseudowire-classes/pseudowire-class/mpls-encapsulation/" + sequencing.EntityData.SegmentPath
     sequencing.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sequencing.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sequencing.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8271,6 +8522,7 @@ func (mplsRedundancy *L2vpn_Database_PseudowireClasses_PseudowireClass_MplsEncap
     mplsRedundancy.EntityData.BundleName = "cisco_ios_xr"
     mplsRedundancy.EntityData.ParentYangName = "mpls-encapsulation"
     mplsRedundancy.EntityData.SegmentPath = "mpls-redundancy"
+    mplsRedundancy.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/pseudowire-classes/pseudowire-class/mpls-encapsulation/" + mplsRedundancy.EntityData.SegmentPath
     mplsRedundancy.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mplsRedundancy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mplsRedundancy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8311,6 +8563,7 @@ func (preferredPath *L2vpn_Database_PseudowireClasses_PseudowireClass_MplsEncaps
     preferredPath.EntityData.BundleName = "cisco_ios_xr"
     preferredPath.EntityData.ParentYangName = "mpls-encapsulation"
     preferredPath.EntityData.SegmentPath = "preferred-path"
+    preferredPath.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/pseudowire-classes/pseudowire-class/mpls-encapsulation/" + preferredPath.EntityData.SegmentPath
     preferredPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     preferredPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     preferredPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8349,6 +8602,7 @@ func (loadBalanceGroup *L2vpn_Database_PseudowireClasses_PseudowireClass_MplsEnc
     loadBalanceGroup.EntityData.BundleName = "cisco_ios_xr"
     loadBalanceGroup.EntityData.ParentYangName = "mpls-encapsulation"
     loadBalanceGroup.EntityData.SegmentPath = "load-balance-group"
+    loadBalanceGroup.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/pseudowire-classes/pseudowire-class/mpls-encapsulation/" + loadBalanceGroup.EntityData.SegmentPath
     loadBalanceGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     loadBalanceGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     loadBalanceGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8383,6 +8637,7 @@ func (flowLabelLoadBalance *L2vpn_Database_PseudowireClasses_PseudowireClass_Mpl
     flowLabelLoadBalance.EntityData.BundleName = "cisco_ios_xr"
     flowLabelLoadBalance.EntityData.ParentYangName = "load-balance-group"
     flowLabelLoadBalance.EntityData.SegmentPath = "flow-label-load-balance"
+    flowLabelLoadBalance.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/pseudowire-classes/pseudowire-class/mpls-encapsulation/load-balance-group/" + flowLabelLoadBalance.EntityData.SegmentPath
     flowLabelLoadBalance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     flowLabelLoadBalance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     flowLabelLoadBalance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8413,6 +8668,7 @@ func (vlanSwitches *L2vpn_Database_VlanSwitches) GetEntityData() *types.CommonEn
     vlanSwitches.EntityData.BundleName = "cisco_ios_xr"
     vlanSwitches.EntityData.ParentYangName = "database"
     vlanSwitches.EntityData.SegmentPath = "vlan-switches"
+    vlanSwitches.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/" + vlanSwitches.EntityData.SegmentPath
     vlanSwitches.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vlanSwitches.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vlanSwitches.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8434,6 +8690,7 @@ func (vlanSwitches *L2vpn_Database_VlanSwitches) GetEntityData() *types.CommonEn
 type L2vpn_Database_VlanSwitches_VlanSwitch struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of the VLAN Switch. The type is string with
     // length: 1..32.
@@ -8461,6 +8718,7 @@ func (vlanSwitch *L2vpn_Database_VlanSwitches_VlanSwitch) GetEntityData() *types
     vlanSwitch.EntityData.BundleName = "cisco_ios_xr"
     vlanSwitch.EntityData.ParentYangName = "vlan-switches"
     vlanSwitch.EntityData.SegmentPath = "vlan-switch" + types.AddKeyToken(vlanSwitch.Name, "name")
+    vlanSwitch.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/" + vlanSwitch.EntityData.SegmentPath
     vlanSwitch.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vlanSwitch.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vlanSwitch.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8496,6 +8754,7 @@ func (vlanSwitchPorts *L2vpn_Database_VlanSwitches_VlanSwitch_VlanSwitchPorts) G
     vlanSwitchPorts.EntityData.BundleName = "cisco_ios_xr"
     vlanSwitchPorts.EntityData.ParentYangName = "vlan-switch"
     vlanSwitchPorts.EntityData.SegmentPath = "vlan-switch-ports"
+    vlanSwitchPorts.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/" + vlanSwitchPorts.EntityData.SegmentPath
     vlanSwitchPorts.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vlanSwitchPorts.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vlanSwitchPorts.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8517,6 +8776,7 @@ func (vlanSwitchPorts *L2vpn_Database_VlanSwitches_VlanSwitch_VlanSwitchPorts) G
 type L2vpn_Database_VlanSwitches_VlanSwitch_VlanSwitchPorts_VlanSwitchPort struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -8529,6 +8789,7 @@ func (vlanSwitchPort *L2vpn_Database_VlanSwitches_VlanSwitch_VlanSwitchPorts_Vla
     vlanSwitchPort.EntityData.BundleName = "cisco_ios_xr"
     vlanSwitchPort.EntityData.ParentYangName = "vlan-switch-ports"
     vlanSwitchPort.EntityData.SegmentPath = "vlan-switch-port" + types.AddKeyToken(vlanSwitchPort.InterfaceName, "interface-name")
+    vlanSwitchPort.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/vlan-switch-ports/" + vlanSwitchPort.EntityData.SegmentPath
     vlanSwitchPort.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vlanSwitchPort.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vlanSwitchPort.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8628,6 +8889,7 @@ func (vniRanges *L2vpn_Database_VlanSwitches_VlanSwitch_VniRanges) GetEntityData
     vniRanges.EntityData.BundleName = "cisco_ios_xr"
     vniRanges.EntityData.ParentYangName = "vlan-switch"
     vniRanges.EntityData.SegmentPath = "vni-ranges"
+    vniRanges.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/" + vniRanges.EntityData.SegmentPath
     vniRanges.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vniRanges.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vniRanges.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8743,6 +9005,7 @@ func (vlanRanges *L2vpn_Database_VlanSwitches_VlanSwitch_VlanRanges) GetEntityDa
     vlanRanges.EntityData.BundleName = "cisco_ios_xr"
     vlanRanges.EntityData.ParentYangName = "vlan-switch"
     vlanRanges.EntityData.SegmentPath = "vlan-ranges"
+    vlanRanges.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/" + vlanRanges.EntityData.SegmentPath
     vlanRanges.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vlanRanges.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vlanRanges.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8859,6 +9122,7 @@ func (routedInterfaceRanges *L2vpn_Database_VlanSwitches_VlanSwitch_RoutedInterf
     routedInterfaceRanges.EntityData.BundleName = "cisco_ios_xr"
     routedInterfaceRanges.EntityData.ParentYangName = "vlan-switch"
     routedInterfaceRanges.EntityData.SegmentPath = "routed-interface-ranges"
+    routedInterfaceRanges.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/" + routedInterfaceRanges.EntityData.SegmentPath
     routedInterfaceRanges.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routedInterfaceRanges.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routedInterfaceRanges.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8906,6 +9170,7 @@ func (bridgeDomains *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains) GetEn
     bridgeDomains.EntityData.BundleName = "cisco_ios_xr"
     bridgeDomains.EntityData.ParentYangName = "vlan-switch"
     bridgeDomains.EntityData.SegmentPath = "bridge-domains"
+    bridgeDomains.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/" + bridgeDomains.EntityData.SegmentPath
     bridgeDomains.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bridgeDomains.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bridgeDomains.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8927,6 +9192,7 @@ func (bridgeDomains *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains) GetEn
 type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of the bridge domain. The type is string with
     // length: 1..27.
@@ -9018,6 +9284,7 @@ func (bridgeDomain *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeD
     bridgeDomain.EntityData.BundleName = "cisco_ios_xr"
     bridgeDomain.EntityData.ParentYangName = "bridge-domains"
     bridgeDomain.EntityData.SegmentPath = "bridge-domain" + types.AddKeyToken(bridgeDomain.Name, "name")
+    bridgeDomain.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/" + bridgeDomain.EntityData.SegmentPath
     bridgeDomain.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bridgeDomain.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bridgeDomain.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9074,6 +9341,7 @@ func (bdStormControls *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_Brid
     bdStormControls.EntityData.BundleName = "cisco_ios_xr"
     bdStormControls.EntityData.ParentYangName = "bridge-domain"
     bdStormControls.EntityData.SegmentPath = "bd-storm-controls"
+    bdStormControls.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/" + bdStormControls.EntityData.SegmentPath
     bdStormControls.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bdStormControls.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bdStormControls.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9095,6 +9363,7 @@ func (bdStormControls *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_Brid
 type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdStormControls_BdStormControl struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Storm Control Type. The type is StormControl.
     Sctype interface{}
@@ -9109,6 +9378,7 @@ func (bdStormControl *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_Bridg
     bdStormControl.EntityData.BundleName = "cisco_ios_xr"
     bdStormControl.EntityData.ParentYangName = "bd-storm-controls"
     bdStormControl.EntityData.SegmentPath = "bd-storm-control" + types.AddKeyToken(bdStormControl.Sctype, "sctype")
+    bdStormControl.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/bd-storm-controls/" + bdStormControl.EntityData.SegmentPath
     bdStormControl.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bdStormControl.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bdStormControl.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9146,6 +9416,7 @@ func (stormControlUnit *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_Bri
     stormControlUnit.EntityData.BundleName = "cisco_ios_xr"
     stormControlUnit.EntityData.ParentYangName = "bd-storm-control"
     stormControlUnit.EntityData.SegmentPath = "storm-control-unit"
+    stormControlUnit.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/bd-storm-controls/bd-storm-control/" + stormControlUnit.EntityData.SegmentPath
     stormControlUnit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     stormControlUnit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stormControlUnit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9177,6 +9448,7 @@ func (memberVnis *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDom
     memberVnis.EntityData.BundleName = "cisco_ios_xr"
     memberVnis.EntityData.ParentYangName = "bridge-domain"
     memberVnis.EntityData.SegmentPath = "member-vnis"
+    memberVnis.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/" + memberVnis.EntityData.SegmentPath
     memberVnis.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     memberVnis.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     memberVnis.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9198,6 +9470,7 @@ func (memberVnis *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDom
 type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_MemberVnis_MemberVni struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. VxLAN Network Identifier number. The type is
     // interface{} with range: 1..16777215.
@@ -9213,6 +9486,7 @@ func (memberVni *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDoma
     memberVni.EntityData.BundleName = "cisco_ios_xr"
     memberVni.EntityData.ParentYangName = "member-vnis"
     memberVni.EntityData.SegmentPath = "member-vni" + types.AddKeyToken(memberVni.Vni, "vni")
+    memberVni.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/member-vnis/" + memberVni.EntityData.SegmentPath
     memberVni.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     memberVni.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     memberVni.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9244,6 +9518,7 @@ func (memberVniStaticMacAddresses *L2vpn_Database_VlanSwitches_VlanSwitch_Bridge
     memberVniStaticMacAddresses.EntityData.BundleName = "cisco_ios_xr"
     memberVniStaticMacAddresses.EntityData.ParentYangName = "member-vni"
     memberVniStaticMacAddresses.EntityData.SegmentPath = "member-vni-static-mac-addresses"
+    memberVniStaticMacAddresses.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/member-vnis/member-vni/" + memberVniStaticMacAddresses.EntityData.SegmentPath
     memberVniStaticMacAddresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     memberVniStaticMacAddresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     memberVniStaticMacAddresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9265,6 +9540,7 @@ func (memberVniStaticMacAddresses *L2vpn_Database_VlanSwitches_VlanSwitch_Bridge
 type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_MemberVnis_MemberVni_MemberVniStaticMacAddresses_MemberVniStaticMacAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Static MAC address. The type is string with
     // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
@@ -9281,6 +9557,7 @@ func (memberVniStaticMacAddress *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDo
     memberVniStaticMacAddress.EntityData.BundleName = "cisco_ios_xr"
     memberVniStaticMacAddress.EntityData.ParentYangName = "member-vni-static-mac-addresses"
     memberVniStaticMacAddress.EntityData.SegmentPath = "member-vni-static-mac-address" + types.AddKeyToken(memberVniStaticMacAddress.MacAddress, "mac-address")
+    memberVniStaticMacAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/member-vnis/member-vni/member-vni-static-mac-addresses/" + memberVniStaticMacAddress.EntityData.SegmentPath
     memberVniStaticMacAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     memberVniStaticMacAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     memberVniStaticMacAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9338,6 +9615,7 @@ func (bridgeDomainMac *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_Brid
     bridgeDomainMac.EntityData.BundleName = "cisco_ios_xr"
     bridgeDomainMac.EntityData.ParentYangName = "bridge-domain"
     bridgeDomainMac.EntityData.SegmentPath = "bridge-domain-mac"
+    bridgeDomainMac.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/" + bridgeDomainMac.EntityData.SegmentPath
     bridgeDomainMac.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bridgeDomainMac.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bridgeDomainMac.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9383,6 +9661,7 @@ func (bdMacLimit *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDom
     bdMacLimit.EntityData.BundleName = "cisco_ios_xr"
     bdMacLimit.EntityData.ParentYangName = "bridge-domain-mac"
     bdMacLimit.EntityData.SegmentPath = "bd-mac-limit"
+    bdMacLimit.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/bridge-domain-mac/" + bdMacLimit.EntityData.SegmentPath
     bdMacLimit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bdMacLimit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bdMacLimit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9415,6 +9694,7 @@ func (bdMacFilters *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeD
     bdMacFilters.EntityData.BundleName = "cisco_ios_xr"
     bdMacFilters.EntityData.ParentYangName = "bridge-domain-mac"
     bdMacFilters.EntityData.SegmentPath = "bd-mac-filters"
+    bdMacFilters.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/bridge-domain-mac/" + bdMacFilters.EntityData.SegmentPath
     bdMacFilters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bdMacFilters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bdMacFilters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9436,6 +9716,7 @@ func (bdMacFilters *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeD
 type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainMac_BdMacFilters_BdMacFilter struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Static MAC address. The type is string with
     // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
@@ -9451,6 +9732,7 @@ func (bdMacFilter *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDo
     bdMacFilter.EntityData.BundleName = "cisco_ios_xr"
     bdMacFilter.EntityData.ParentYangName = "bd-mac-filters"
     bdMacFilter.EntityData.SegmentPath = "bd-mac-filter" + types.AddKeyToken(bdMacFilter.Address, "address")
+    bdMacFilter.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/bridge-domain-mac/bd-mac-filters/" + bdMacFilter.EntityData.SegmentPath
     bdMacFilter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bdMacFilter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bdMacFilter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9490,6 +9772,7 @@ func (macSecure *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDoma
     macSecure.EntityData.BundleName = "cisco_ios_xr"
     macSecure.EntityData.ParentYangName = "bridge-domain-mac"
     macSecure.EntityData.SegmentPath = "mac-secure"
+    macSecure.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/bridge-domain-mac/" + macSecure.EntityData.SegmentPath
     macSecure.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     macSecure.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     macSecure.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9525,6 +9808,7 @@ func (bdMacAging *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDom
     bdMacAging.EntityData.BundleName = "cisco_ios_xr"
     bdMacAging.EntityData.ParentYangName = "bridge-domain-mac"
     bdMacAging.EntityData.SegmentPath = "bd-mac-aging"
+    bdMacAging.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/bridge-domain-mac/" + bdMacAging.EntityData.SegmentPath
     bdMacAging.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bdMacAging.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bdMacAging.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9558,6 +9842,7 @@ func (nvSatellite *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDo
     nvSatellite.EntityData.BundleName = "cisco_ios_xr"
     nvSatellite.EntityData.ParentYangName = "bridge-domain"
     nvSatellite.EntityData.SegmentPath = "nv-satellite"
+    nvSatellite.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/" + nvSatellite.EntityData.SegmentPath
     nvSatellite.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nvSatellite.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nvSatellite.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9591,6 +9876,7 @@ func (bridgeDomainPbb *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_Brid
     bridgeDomainPbb.EntityData.BundleName = "cisco_ios_xr"
     bridgeDomainPbb.EntityData.ParentYangName = "bridge-domain"
     bridgeDomainPbb.EntityData.SegmentPath = "bridge-domain-pbb"
+    bridgeDomainPbb.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/" + bridgeDomainPbb.EntityData.SegmentPath
     bridgeDomainPbb.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bridgeDomainPbb.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bridgeDomainPbb.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9623,6 +9909,7 @@ func (pbbEdges *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomai
     pbbEdges.EntityData.BundleName = "cisco_ios_xr"
     pbbEdges.EntityData.ParentYangName = "bridge-domain-pbb"
     pbbEdges.EntityData.SegmentPath = "pbb-edges"
+    pbbEdges.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/bridge-domain-pbb/" + pbbEdges.EntityData.SegmentPath
     pbbEdges.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pbbEdges.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pbbEdges.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9645,6 +9932,7 @@ func (pbbEdges *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomai
 type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainPbb_PbbEdges_PbbEdge struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. ISID. The type is interface{} with range:
     // 256..16777214.
@@ -9680,6 +9968,7 @@ func (pbbEdge *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain
     pbbEdge.EntityData.BundleName = "cisco_ios_xr"
     pbbEdge.EntityData.ParentYangName = "pbb-edges"
     pbbEdge.EntityData.SegmentPath = "pbb-edge" + types.AddKeyToken(pbbEdge.Isid, "isid") + types.AddKeyToken(pbbEdge.CoreBdName, "core-bd-name")
+    pbbEdge.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/bridge-domain-pbb/pbb-edges/" + pbbEdge.EntityData.SegmentPath
     pbbEdge.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pbbEdge.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pbbEdge.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9716,6 +10005,7 @@ func (pbbEdgeSplitHorizonGroup *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDom
     pbbEdgeSplitHorizonGroup.EntityData.BundleName = "cisco_ios_xr"
     pbbEdgeSplitHorizonGroup.EntityData.ParentYangName = "pbb-edge"
     pbbEdgeSplitHorizonGroup.EntityData.SegmentPath = "pbb-edge-split-horizon-group"
+    pbbEdgeSplitHorizonGroup.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/bridge-domain-pbb/pbb-edges/pbb-edge/" + pbbEdgeSplitHorizonGroup.EntityData.SegmentPath
     pbbEdgeSplitHorizonGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pbbEdgeSplitHorizonGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pbbEdgeSplitHorizonGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9746,6 +10036,7 @@ func (pbbStaticMacMappings *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains
     pbbStaticMacMappings.EntityData.BundleName = "cisco_ios_xr"
     pbbStaticMacMappings.EntityData.ParentYangName = "pbb-edge"
     pbbStaticMacMappings.EntityData.SegmentPath = "pbb-static-mac-mappings"
+    pbbStaticMacMappings.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/bridge-domain-pbb/pbb-edges/pbb-edge/" + pbbStaticMacMappings.EntityData.SegmentPath
     pbbStaticMacMappings.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pbbStaticMacMappings.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pbbStaticMacMappings.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9768,6 +10059,7 @@ func (pbbStaticMacMappings *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains
 type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainPbb_PbbEdges_PbbEdge_PbbStaticMacMappings_PbbStaticMacMapping struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Static MAC address. The type is string with
     // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
@@ -9784,6 +10076,7 @@ func (pbbStaticMacMapping *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_
     pbbStaticMacMapping.EntityData.BundleName = "cisco_ios_xr"
     pbbStaticMacMapping.EntityData.ParentYangName = "pbb-static-mac-mappings"
     pbbStaticMacMapping.EntityData.SegmentPath = "pbb-static-mac-mapping" + types.AddKeyToken(pbbStaticMacMapping.Address, "address")
+    pbbStaticMacMapping.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/bridge-domain-pbb/pbb-edges/pbb-edge/pbb-static-mac-mappings/" + pbbStaticMacMapping.EntityData.SegmentPath
     pbbStaticMacMapping.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pbbStaticMacMapping.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pbbStaticMacMapping.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9817,6 +10110,7 @@ func (pbbEdgeDhcpProfile *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_B
     pbbEdgeDhcpProfile.EntityData.BundleName = "cisco_ios_xr"
     pbbEdgeDhcpProfile.EntityData.ParentYangName = "pbb-edge"
     pbbEdgeDhcpProfile.EntityData.SegmentPath = "pbb-edge-dhcp-profile"
+    pbbEdgeDhcpProfile.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/bridge-domain-pbb/pbb-edges/pbb-edge/" + pbbEdgeDhcpProfile.EntityData.SegmentPath
     pbbEdgeDhcpProfile.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pbbEdgeDhcpProfile.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pbbEdgeDhcpProfile.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9856,6 +10150,7 @@ func (pbbEdgeMac *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDom
     pbbEdgeMac.EntityData.BundleName = "cisco_ios_xr"
     pbbEdgeMac.EntityData.ParentYangName = "pbb-edge"
     pbbEdgeMac.EntityData.SegmentPath = "pbb-edge-mac"
+    pbbEdgeMac.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/bridge-domain-pbb/pbb-edges/pbb-edge/" + pbbEdgeMac.EntityData.SegmentPath
     pbbEdgeMac.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pbbEdgeMac.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pbbEdgeMac.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9895,6 +10190,7 @@ func (pbbEdgeMacLimit *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_Brid
     pbbEdgeMacLimit.EntityData.BundleName = "cisco_ios_xr"
     pbbEdgeMacLimit.EntityData.ParentYangName = "pbb-edge-mac"
     pbbEdgeMacLimit.EntityData.SegmentPath = "pbb-edge-mac-limit"
+    pbbEdgeMacLimit.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/bridge-domain-pbb/pbb-edges/pbb-edge/pbb-edge-mac/" + pbbEdgeMacLimit.EntityData.SegmentPath
     pbbEdgeMacLimit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pbbEdgeMacLimit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pbbEdgeMacLimit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9929,6 +10225,7 @@ func (pbbEdgeMacAging *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_Brid
     pbbEdgeMacAging.EntityData.BundleName = "cisco_ios_xr"
     pbbEdgeMacAging.EntityData.ParentYangName = "pbb-edge-mac"
     pbbEdgeMacAging.EntityData.SegmentPath = "pbb-edge-mac-aging"
+    pbbEdgeMacAging.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/bridge-domain-pbb/pbb-edges/pbb-edge/pbb-edge-mac/" + pbbEdgeMacAging.EntityData.SegmentPath
     pbbEdgeMacAging.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pbbEdgeMacAging.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pbbEdgeMacAging.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9972,6 +10269,7 @@ func (pbbEdgeMacSecure *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_Bri
     pbbEdgeMacSecure.EntityData.BundleName = "cisco_ios_xr"
     pbbEdgeMacSecure.EntityData.ParentYangName = "pbb-edge-mac"
     pbbEdgeMacSecure.EntityData.SegmentPath = "pbb-edge-mac-secure"
+    pbbEdgeMacSecure.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/bridge-domain-pbb/pbb-edges/pbb-edge/pbb-edge-mac/" + pbbEdgeMacSecure.EntityData.SegmentPath
     pbbEdgeMacSecure.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pbbEdgeMacSecure.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pbbEdgeMacSecure.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10023,6 +10321,7 @@ func (pbbCore *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain
     pbbCore.EntityData.BundleName = "cisco_ios_xr"
     pbbCore.EntityData.ParentYangName = "bridge-domain-pbb"
     pbbCore.EntityData.SegmentPath = "pbb-core"
+    pbbCore.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/bridge-domain-pbb/" + pbbCore.EntityData.SegmentPath
     pbbCore.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pbbCore.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pbbCore.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10064,6 +10363,7 @@ func (pbbCoreMac *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDom
     pbbCoreMac.EntityData.BundleName = "cisco_ios_xr"
     pbbCoreMac.EntityData.ParentYangName = "pbb-core"
     pbbCoreMac.EntityData.SegmentPath = "pbb-core-mac"
+    pbbCoreMac.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/bridge-domain-pbb/pbb-core/" + pbbCoreMac.EntityData.SegmentPath
     pbbCoreMac.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pbbCoreMac.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pbbCoreMac.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10098,6 +10398,7 @@ func (pbbCoreMacAging *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_Brid
     pbbCoreMacAging.EntityData.BundleName = "cisco_ios_xr"
     pbbCoreMacAging.EntityData.ParentYangName = "pbb-core-mac"
     pbbCoreMacAging.EntityData.SegmentPath = "pbb-core-mac-aging"
+    pbbCoreMacAging.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/bridge-domain-pbb/pbb-core/pbb-core-mac/" + pbbCoreMacAging.EntityData.SegmentPath
     pbbCoreMacAging.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pbbCoreMacAging.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pbbCoreMacAging.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10135,6 +10436,7 @@ func (pbbCoreMacLimit *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_Brid
     pbbCoreMacLimit.EntityData.BundleName = "cisco_ios_xr"
     pbbCoreMacLimit.EntityData.ParentYangName = "pbb-core-mac"
     pbbCoreMacLimit.EntityData.SegmentPath = "pbb-core-mac-limit"
+    pbbCoreMacLimit.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/bridge-domain-pbb/pbb-core/pbb-core-mac/" + pbbCoreMacLimit.EntityData.SegmentPath
     pbbCoreMacLimit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pbbCoreMacLimit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pbbCoreMacLimit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10167,6 +10469,7 @@ func (pbbCoreEvis *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDo
     pbbCoreEvis.EntityData.BundleName = "cisco_ios_xr"
     pbbCoreEvis.EntityData.ParentYangName = "pbb-core"
     pbbCoreEvis.EntityData.SegmentPath = "pbb-core-evis"
+    pbbCoreEvis.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/bridge-domain-pbb/pbb-core/" + pbbCoreEvis.EntityData.SegmentPath
     pbbCoreEvis.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pbbCoreEvis.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pbbCoreEvis.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10188,6 +10491,7 @@ func (pbbCoreEvis *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDo
 type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainPbb_PbbCore_PbbCoreEvis_PbbCoreEvi struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Ethernet VPN ID. The type is interface{} with
     // range: 1..4294967295.
@@ -10200,6 +10504,7 @@ func (pbbCoreEvi *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDom
     pbbCoreEvi.EntityData.BundleName = "cisco_ios_xr"
     pbbCoreEvi.EntityData.ParentYangName = "pbb-core-evis"
     pbbCoreEvi.EntityData.SegmentPath = "pbb-core-evi" + types.AddKeyToken(pbbCoreEvi.Eviid, "eviid")
+    pbbCoreEvi.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/bridge-domain-pbb/pbb-core/pbb-core-evis/" + pbbCoreEvi.EntityData.SegmentPath
     pbbCoreEvi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pbbCoreEvi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pbbCoreEvi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10232,6 +10537,7 @@ func (pbbCoreDhcpProfile *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_B
     pbbCoreDhcpProfile.EntityData.BundleName = "cisco_ios_xr"
     pbbCoreDhcpProfile.EntityData.ParentYangName = "pbb-core"
     pbbCoreDhcpProfile.EntityData.SegmentPath = "pbb-core-dhcp-profile"
+    pbbCoreDhcpProfile.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/bridge-domain-pbb/pbb-core/" + pbbCoreDhcpProfile.EntityData.SegmentPath
     pbbCoreDhcpProfile.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pbbCoreDhcpProfile.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pbbCoreDhcpProfile.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10263,6 +10569,7 @@ func (bridgeDomainEvis *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_Bri
     bridgeDomainEvis.EntityData.BundleName = "cisco_ios_xr"
     bridgeDomainEvis.EntityData.ParentYangName = "bridge-domain"
     bridgeDomainEvis.EntityData.SegmentPath = "bridge-domain-evis"
+    bridgeDomainEvis.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/" + bridgeDomainEvis.EntityData.SegmentPath
     bridgeDomainEvis.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bridgeDomainEvis.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bridgeDomainEvis.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10284,6 +10591,7 @@ func (bridgeDomainEvis *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_Bri
 type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainEvis_BridgeDomainEvi struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. MPLS Ethernet VPN-ID. The type is interface{} with
     // range: 1..65534.
@@ -10296,6 +10604,7 @@ func (bridgeDomainEvi *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_Brid
     bridgeDomainEvi.EntityData.BundleName = "cisco_ios_xr"
     bridgeDomainEvi.EntityData.ParentYangName = "bridge-domain-evis"
     bridgeDomainEvi.EntityData.SegmentPath = "bridge-domain-evi" + types.AddKeyToken(bridgeDomainEvi.VpnId, "vpn-id")
+    bridgeDomainEvi.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/bridge-domain-evis/" + bridgeDomainEvi.EntityData.SegmentPath
     bridgeDomainEvi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bridgeDomainEvi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bridgeDomainEvi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10327,6 +10636,7 @@ func (accessVfis *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDom
     accessVfis.EntityData.BundleName = "cisco_ios_xr"
     accessVfis.EntityData.ParentYangName = "bridge-domain"
     accessVfis.EntityData.SegmentPath = "access-vfis"
+    accessVfis.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/" + accessVfis.EntityData.SegmentPath
     accessVfis.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     accessVfis.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accessVfis.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10349,6 +10659,7 @@ func (accessVfis *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDom
 type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_AccessVfis_AccessVfi struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of the AccessVirtual Forwarding Interface.
     // The type is string with length: 1..32.
@@ -10367,6 +10678,7 @@ func (accessVfi *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDoma
     accessVfi.EntityData.BundleName = "cisco_ios_xr"
     accessVfi.EntityData.ParentYangName = "access-vfis"
     accessVfi.EntityData.SegmentPath = "access-vfi" + types.AddKeyToken(accessVfi.Name, "name")
+    accessVfi.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/access-vfis/" + accessVfi.EntityData.SegmentPath
     accessVfi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     accessVfi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accessVfi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10399,6 +10711,7 @@ func (accessVfiPseudowires *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains
     accessVfiPseudowires.EntityData.BundleName = "cisco_ios_xr"
     accessVfiPseudowires.EntityData.ParentYangName = "access-vfi"
     accessVfiPseudowires.EntityData.SegmentPath = "access-vfi-pseudowires"
+    accessVfiPseudowires.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/access-vfis/access-vfi/" + accessVfiPseudowires.EntityData.SegmentPath
     accessVfiPseudowires.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     accessVfiPseudowires.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accessVfiPseudowires.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10420,6 +10733,7 @@ func (accessVfiPseudowires *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains
 type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_AccessVfis_AccessVfi_AccessVfiPseudowires_AccessVfiPseudowire struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Neighbor IP address. The type is string with
     // pattern:
@@ -10444,6 +10758,7 @@ func (accessVfiPseudowire *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_
     accessVfiPseudowire.EntityData.BundleName = "cisco_ios_xr"
     accessVfiPseudowire.EntityData.ParentYangName = "access-vfi-pseudowires"
     accessVfiPseudowire.EntityData.SegmentPath = "access-vfi-pseudowire" + types.AddKeyToken(accessVfiPseudowire.Neighbor, "neighbor") + types.AddKeyToken(accessVfiPseudowire.PseudowireId, "pseudowire-id")
+    accessVfiPseudowire.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/access-vfis/access-vfi/access-vfi-pseudowires/" + accessVfiPseudowire.EntityData.SegmentPath
     accessVfiPseudowire.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     accessVfiPseudowire.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accessVfiPseudowire.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10477,6 +10792,7 @@ func (accessVfiPseudowireStaticMacAddresses *L2vpn_Database_VlanSwitches_VlanSwi
     accessVfiPseudowireStaticMacAddresses.EntityData.BundleName = "cisco_ios_xr"
     accessVfiPseudowireStaticMacAddresses.EntityData.ParentYangName = "access-vfi-pseudowire"
     accessVfiPseudowireStaticMacAddresses.EntityData.SegmentPath = "access-vfi-pseudowire-static-mac-addresses"
+    accessVfiPseudowireStaticMacAddresses.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/access-vfis/access-vfi/access-vfi-pseudowires/access-vfi-pseudowire/" + accessVfiPseudowireStaticMacAddresses.EntityData.SegmentPath
     accessVfiPseudowireStaticMacAddresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     accessVfiPseudowireStaticMacAddresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accessVfiPseudowireStaticMacAddresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10498,6 +10814,7 @@ func (accessVfiPseudowireStaticMacAddresses *L2vpn_Database_VlanSwitches_VlanSwi
 type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_AccessVfis_AccessVfi_AccessVfiPseudowires_AccessVfiPseudowire_AccessVfiPseudowireStaticMacAddresses_AccessVfiPseudowireStaticMacAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Static MAC address. The type is string with
     // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
@@ -10510,6 +10827,7 @@ func (accessVfiPseudowireStaticMacAddress *L2vpn_Database_VlanSwitches_VlanSwitc
     accessVfiPseudowireStaticMacAddress.EntityData.BundleName = "cisco_ios_xr"
     accessVfiPseudowireStaticMacAddress.EntityData.ParentYangName = "access-vfi-pseudowire-static-mac-addresses"
     accessVfiPseudowireStaticMacAddress.EntityData.SegmentPath = "access-vfi-pseudowire-static-mac-address" + types.AddKeyToken(accessVfiPseudowireStaticMacAddress.Address, "address")
+    accessVfiPseudowireStaticMacAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/access-vfis/access-vfi/access-vfi-pseudowires/access-vfi-pseudowire/access-vfi-pseudowire-static-mac-addresses/" + accessVfiPseudowireStaticMacAddress.EntityData.SegmentPath
     accessVfiPseudowireStaticMacAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     accessVfiPseudowireStaticMacAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accessVfiPseudowireStaticMacAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10540,6 +10858,7 @@ func (bdPseudowires *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_Bridge
     bdPseudowires.EntityData.BundleName = "cisco_ios_xr"
     bdPseudowires.EntityData.ParentYangName = "bridge-domain"
     bdPseudowires.EntityData.SegmentPath = "bd-pseudowires"
+    bdPseudowires.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/" + bdPseudowires.EntityData.SegmentPath
     bdPseudowires.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bdPseudowires.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bdPseudowires.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10561,6 +10880,7 @@ func (bdPseudowires *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_Bridge
 type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudowires_BdPseudowire struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Neighbor IP address. The type is string with
     // pattern:
@@ -10622,6 +10942,7 @@ func (bdPseudowire *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeD
     bdPseudowire.EntityData.BundleName = "cisco_ios_xr"
     bdPseudowire.EntityData.ParentYangName = "bd-pseudowires"
     bdPseudowire.EntityData.SegmentPath = "bd-pseudowire" + types.AddKeyToken(bdPseudowire.Neighbor, "neighbor") + types.AddKeyToken(bdPseudowire.PseudowireId, "pseudowire-id")
+    bdPseudowire.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/bd-pseudowires/" + bdPseudowire.EntityData.SegmentPath
     bdPseudowire.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bdPseudowire.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bdPseudowire.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10675,6 +10996,7 @@ func (pseudowireDai *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_Bridge
     pseudowireDai.EntityData.BundleName = "cisco_ios_xr"
     pseudowireDai.EntityData.ParentYangName = "bd-pseudowire"
     pseudowireDai.EntityData.SegmentPath = "pseudowire-dai"
+    pseudowireDai.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/bd-pseudowires/bd-pseudowire/" + pseudowireDai.EntityData.SegmentPath
     pseudowireDai.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pseudowireDai.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pseudowireDai.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10713,6 +11035,7 @@ func (pseudowireDaiAddressValidation *L2vpn_Database_VlanSwitches_VlanSwitch_Bri
     pseudowireDaiAddressValidation.EntityData.BundleName = "cisco_ios_xr"
     pseudowireDaiAddressValidation.EntityData.ParentYangName = "pseudowire-dai"
     pseudowireDaiAddressValidation.EntityData.SegmentPath = "pseudowire-dai-address-validation"
+    pseudowireDaiAddressValidation.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/bd-pseudowires/bd-pseudowire/pseudowire-dai/" + pseudowireDaiAddressValidation.EntityData.SegmentPath
     pseudowireDaiAddressValidation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pseudowireDaiAddressValidation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pseudowireDaiAddressValidation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10745,6 +11068,7 @@ func (bdpwStormControlTypes *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomain
     bdpwStormControlTypes.EntityData.BundleName = "cisco_ios_xr"
     bdpwStormControlTypes.EntityData.ParentYangName = "bd-pseudowire"
     bdpwStormControlTypes.EntityData.SegmentPath = "bdpw-storm-control-types"
+    bdpwStormControlTypes.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/bd-pseudowires/bd-pseudowire/" + bdpwStormControlTypes.EntityData.SegmentPath
     bdpwStormControlTypes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bdpwStormControlTypes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bdpwStormControlTypes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10766,6 +11090,7 @@ func (bdpwStormControlTypes *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomain
 type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudowires_BdPseudowire_BdpwStormControlTypes_BdpwStormControlType struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Storm Control Type. The type is StormControl.
     Sctype interface{}
@@ -10780,6 +11105,7 @@ func (bdpwStormControlType *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains
     bdpwStormControlType.EntityData.BundleName = "cisco_ios_xr"
     bdpwStormControlType.EntityData.ParentYangName = "bdpw-storm-control-types"
     bdpwStormControlType.EntityData.SegmentPath = "bdpw-storm-control-type" + types.AddKeyToken(bdpwStormControlType.Sctype, "sctype")
+    bdpwStormControlType.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/bd-pseudowires/bd-pseudowire/bdpw-storm-control-types/" + bdpwStormControlType.EntityData.SegmentPath
     bdpwStormControlType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bdpwStormControlType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bdpwStormControlType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10817,6 +11143,7 @@ func (stormControlUnit *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_Bri
     stormControlUnit.EntityData.BundleName = "cisco_ios_xr"
     stormControlUnit.EntityData.ParentYangName = "bdpw-storm-control-type"
     stormControlUnit.EntityData.SegmentPath = "storm-control-unit"
+    stormControlUnit.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/bd-pseudowires/bd-pseudowire/bdpw-storm-control-types/bdpw-storm-control-type/" + stormControlUnit.EntityData.SegmentPath
     stormControlUnit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     stormControlUnit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stormControlUnit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10850,6 +11177,7 @@ func (pseudowireProfile *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_Br
     pseudowireProfile.EntityData.BundleName = "cisco_ios_xr"
     pseudowireProfile.EntityData.ParentYangName = "bd-pseudowire"
     pseudowireProfile.EntityData.SegmentPath = "pseudowire-profile"
+    pseudowireProfile.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/bd-pseudowires/bd-pseudowire/" + pseudowireProfile.EntityData.SegmentPath
     pseudowireProfile.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pseudowireProfile.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pseudowireProfile.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10881,6 +11209,7 @@ func (bdPwStaticMacAddresses *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomai
     bdPwStaticMacAddresses.EntityData.BundleName = "cisco_ios_xr"
     bdPwStaticMacAddresses.EntityData.ParentYangName = "bd-pseudowire"
     bdPwStaticMacAddresses.EntityData.SegmentPath = "bd-pw-static-mac-addresses"
+    bdPwStaticMacAddresses.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/bd-pseudowires/bd-pseudowire/" + bdPwStaticMacAddresses.EntityData.SegmentPath
     bdPwStaticMacAddresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bdPwStaticMacAddresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bdPwStaticMacAddresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10902,6 +11231,7 @@ func (bdPwStaticMacAddresses *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomai
 type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudowires_BdPseudowire_BdPwStaticMacAddresses_BdPwStaticMacAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Static MAC address. The type is string with
     // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
@@ -10914,6 +11244,7 @@ func (bdPwStaticMacAddress *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains
     bdPwStaticMacAddress.EntityData.BundleName = "cisco_ios_xr"
     bdPwStaticMacAddress.EntityData.ParentYangName = "bd-pw-static-mac-addresses"
     bdPwStaticMacAddress.EntityData.SegmentPath = "bd-pw-static-mac-address" + types.AddKeyToken(bdPwStaticMacAddress.Address, "address")
+    bdPwStaticMacAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/bd-pseudowires/bd-pseudowire/bd-pw-static-mac-addresses/" + bdPwStaticMacAddress.EntityData.SegmentPath
     bdPwStaticMacAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bdPwStaticMacAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bdPwStaticMacAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10949,6 +11280,7 @@ func (pseudowireIpSourceGuard *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDoma
     pseudowireIpSourceGuard.EntityData.BundleName = "cisco_ios_xr"
     pseudowireIpSourceGuard.EntityData.ParentYangName = "bd-pseudowire"
     pseudowireIpSourceGuard.EntityData.SegmentPath = "pseudowire-ip-source-guard"
+    pseudowireIpSourceGuard.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/bd-pseudowires/bd-pseudowire/" + pseudowireIpSourceGuard.EntityData.SegmentPath
     pseudowireIpSourceGuard.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pseudowireIpSourceGuard.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pseudowireIpSourceGuard.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10996,6 +11328,7 @@ func (pseudowireMac *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_Bridge
     pseudowireMac.EntityData.BundleName = "cisco_ios_xr"
     pseudowireMac.EntityData.ParentYangName = "bd-pseudowire"
     pseudowireMac.EntityData.SegmentPath = "pseudowire-mac"
+    pseudowireMac.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/bd-pseudowires/bd-pseudowire/" + pseudowireMac.EntityData.SegmentPath
     pseudowireMac.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pseudowireMac.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pseudowireMac.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11039,6 +11372,7 @@ func (pseudowireMacSecure *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_
     pseudowireMacSecure.EntityData.BundleName = "cisco_ios_xr"
     pseudowireMacSecure.EntityData.ParentYangName = "pseudowire-mac"
     pseudowireMacSecure.EntityData.SegmentPath = "pseudowire-mac-secure"
+    pseudowireMacSecure.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/bd-pseudowires/bd-pseudowire/pseudowire-mac/" + pseudowireMacSecure.EntityData.SegmentPath
     pseudowireMacSecure.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pseudowireMacSecure.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pseudowireMacSecure.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11074,6 +11408,7 @@ func (pseudowireMacAging *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_B
     pseudowireMacAging.EntityData.BundleName = "cisco_ios_xr"
     pseudowireMacAging.EntityData.ParentYangName = "pseudowire-mac"
     pseudowireMacAging.EntityData.SegmentPath = "pseudowire-mac-aging"
+    pseudowireMacAging.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/bd-pseudowires/bd-pseudowire/pseudowire-mac/" + pseudowireMacAging.EntityData.SegmentPath
     pseudowireMacAging.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pseudowireMacAging.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pseudowireMacAging.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11113,6 +11448,7 @@ func (pseudowireMacLimit *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_B
     pseudowireMacLimit.EntityData.BundleName = "cisco_ios_xr"
     pseudowireMacLimit.EntityData.ParentYangName = "pseudowire-mac"
     pseudowireMacLimit.EntityData.SegmentPath = "pseudowire-mac-limit"
+    pseudowireMacLimit.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/bd-pseudowires/bd-pseudowire/pseudowire-mac/" + pseudowireMacLimit.EntityData.SegmentPath
     pseudowireMacLimit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pseudowireMacLimit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pseudowireMacLimit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11144,6 +11480,7 @@ func (bdPwSplitHorizon *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_Bri
     bdPwSplitHorizon.EntityData.BundleName = "cisco_ios_xr"
     bdPwSplitHorizon.EntityData.ParentYangName = "bd-pseudowire"
     bdPwSplitHorizon.EntityData.SegmentPath = "bd-pw-split-horizon"
+    bdPwSplitHorizon.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/bd-pseudowires/bd-pseudowire/" + bdPwSplitHorizon.EntityData.SegmentPath
     bdPwSplitHorizon.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bdPwSplitHorizon.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bdPwSplitHorizon.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11173,6 +11510,7 @@ func (bdPwSplitHorizonGroup *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomain
     bdPwSplitHorizonGroup.EntityData.BundleName = "cisco_ios_xr"
     bdPwSplitHorizonGroup.EntityData.ParentYangName = "bd-pw-split-horizon"
     bdPwSplitHorizonGroup.EntityData.SegmentPath = "bd-pw-split-horizon-group"
+    bdPwSplitHorizonGroup.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/bd-pseudowires/bd-pseudowire/bd-pw-split-horizon/" + bdPwSplitHorizonGroup.EntityData.SegmentPath
     bdPwSplitHorizonGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bdPwSplitHorizonGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bdPwSplitHorizonGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11207,6 +11545,7 @@ func (bdPwMplsStaticLabels *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains
     bdPwMplsStaticLabels.EntityData.BundleName = "cisco_ios_xr"
     bdPwMplsStaticLabels.EntityData.ParentYangName = "bd-pseudowire"
     bdPwMplsStaticLabels.EntityData.SegmentPath = "bd-pw-mpls-static-labels"
+    bdPwMplsStaticLabels.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/bd-pseudowires/bd-pseudowire/" + bdPwMplsStaticLabels.EntityData.SegmentPath
     bdPwMplsStaticLabels.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bdPwMplsStaticLabels.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bdPwMplsStaticLabels.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11238,6 +11577,7 @@ func (bridgeDomainBackupPseudowires *L2vpn_Database_VlanSwitches_VlanSwitch_Brid
     bridgeDomainBackupPseudowires.EntityData.BundleName = "cisco_ios_xr"
     bridgeDomainBackupPseudowires.EntityData.ParentYangName = "bd-pseudowire"
     bridgeDomainBackupPseudowires.EntityData.SegmentPath = "bridge-domain-backup-pseudowires"
+    bridgeDomainBackupPseudowires.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/bd-pseudowires/bd-pseudowire/" + bridgeDomainBackupPseudowires.EntityData.SegmentPath
     bridgeDomainBackupPseudowires.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bridgeDomainBackupPseudowires.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bridgeDomainBackupPseudowires.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11259,6 +11599,7 @@ func (bridgeDomainBackupPseudowires *L2vpn_Database_VlanSwitches_VlanSwitch_Brid
 type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudowires_BdPseudowire_BridgeDomainBackupPseudowires_BridgeDomainBackupPseudowire struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Neighbor IP address. The type is string with
     // pattern:
@@ -11280,6 +11621,7 @@ func (bridgeDomainBackupPseudowire *L2vpn_Database_VlanSwitches_VlanSwitch_Bridg
     bridgeDomainBackupPseudowire.EntityData.BundleName = "cisco_ios_xr"
     bridgeDomainBackupPseudowire.EntityData.ParentYangName = "bridge-domain-backup-pseudowires"
     bridgeDomainBackupPseudowire.EntityData.SegmentPath = "bridge-domain-backup-pseudowire" + types.AddKeyToken(bridgeDomainBackupPseudowire.Neighbor, "neighbor") + types.AddKeyToken(bridgeDomainBackupPseudowire.PseudowireId, "pseudowire-id")
+    bridgeDomainBackupPseudowire.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/bd-pseudowires/bd-pseudowire/bridge-domain-backup-pseudowires/" + bridgeDomainBackupPseudowire.EntityData.SegmentPath
     bridgeDomainBackupPseudowire.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bridgeDomainBackupPseudowire.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bridgeDomainBackupPseudowire.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11312,6 +11654,7 @@ func (vfis *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vf
     vfis.EntityData.BundleName = "cisco_ios_xr"
     vfis.EntityData.ParentYangName = "bridge-domain"
     vfis.EntityData.SegmentPath = "vfis"
+    vfis.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/" + vfis.EntityData.SegmentPath
     vfis.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vfis.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vfis.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11333,6 +11676,7 @@ func (vfis *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vf
 type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of the Virtual Forwarding Interface. The type
     // is string with length: 1..32.
@@ -11360,6 +11704,7 @@ func (vfi *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfi
     vfi.EntityData.BundleName = "cisco_ios_xr"
     vfi.EntityData.ParentYangName = "vfis"
     vfi.EntityData.SegmentPath = "vfi" + types.AddKeyToken(vfi.Name, "name")
+    vfi.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/vfis/" + vfi.EntityData.SegmentPath
     vfi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vfi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vfi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11400,6 +11745,7 @@ func (multicastP2mp *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_Bridge
     multicastP2mp.EntityData.BundleName = "cisco_ios_xr"
     multicastP2mp.EntityData.ParentYangName = "vfi"
     multicastP2mp.EntityData.SegmentPath = "multicast-p2mp"
+    multicastP2mp.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/vfis/vfi/" + multicastP2mp.EntityData.SegmentPath
     multicastP2mp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     multicastP2mp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     multicastP2mp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11432,6 +11778,7 @@ func (transports *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDom
     transports.EntityData.BundleName = "cisco_ios_xr"
     transports.EntityData.ParentYangName = "multicast-p2mp"
     transports.EntityData.SegmentPath = "transports"
+    transports.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/vfis/vfi/multicast-p2mp/" + transports.EntityData.SegmentPath
     transports.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     transports.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transports.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11453,6 +11800,7 @@ func (transports *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDom
 type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_MulticastP2mp_Transports_Transport struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Transport Type. The type is string with pattern:
     // (RSVP_TE).
@@ -11469,6 +11817,7 @@ func (transport *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDoma
     transport.EntityData.BundleName = "cisco_ios_xr"
     transport.EntityData.ParentYangName = "transports"
     transport.EntityData.SegmentPath = "transport" + types.AddKeyToken(transport.TransportName, "transport-name")
+    transport.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/vfis/vfi/multicast-p2mp/transports/" + transport.EntityData.SegmentPath
     transport.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     transport.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transport.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11500,6 +11849,7 @@ func (signalings *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDom
     signalings.EntityData.BundleName = "cisco_ios_xr"
     signalings.EntityData.ParentYangName = "multicast-p2mp"
     signalings.EntityData.SegmentPath = "signalings"
+    signalings.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/vfis/vfi/multicast-p2mp/" + signalings.EntityData.SegmentPath
     signalings.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     signalings.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     signalings.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11521,6 +11871,7 @@ func (signalings *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDom
 type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_MulticastP2mp_Signalings_Signaling struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Signaling Type. The type is string with pattern:
     // (BGP).
@@ -11533,6 +11884,7 @@ func (signaling *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDoma
     signaling.EntityData.BundleName = "cisco_ios_xr"
     signaling.EntityData.ParentYangName = "signalings"
     signaling.EntityData.SegmentPath = "signaling" + types.AddKeyToken(signaling.SignalingName, "signaling-name")
+    signaling.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/vfis/vfi/multicast-p2mp/signalings/" + signaling.EntityData.SegmentPath
     signaling.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     signaling.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     signaling.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11563,6 +11915,7 @@ func (vfiPseudowires *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_Bridg
     vfiPseudowires.EntityData.BundleName = "cisco_ios_xr"
     vfiPseudowires.EntityData.ParentYangName = "vfi"
     vfiPseudowires.EntityData.SegmentPath = "vfi-pseudowires"
+    vfiPseudowires.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/vfis/vfi/" + vfiPseudowires.EntityData.SegmentPath
     vfiPseudowires.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vfiPseudowires.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vfiPseudowires.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11584,6 +11937,7 @@ func (vfiPseudowires *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_Bridg
 type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_VfiPseudowires_VfiPseudowire struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Neighbor IP address. The type is string with
     // pattern:
@@ -11620,6 +11974,7 @@ func (vfiPseudowire *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_Bridge
     vfiPseudowire.EntityData.BundleName = "cisco_ios_xr"
     vfiPseudowire.EntityData.ParentYangName = "vfi-pseudowires"
     vfiPseudowire.EntityData.SegmentPath = "vfi-pseudowire" + types.AddKeyToken(vfiPseudowire.Neighbor, "neighbor") + types.AddKeyToken(vfiPseudowire.PseudowireId, "pseudowire-id")
+    vfiPseudowire.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/vfis/vfi/vfi-pseudowires/" + vfiPseudowire.EntityData.SegmentPath
     vfiPseudowire.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vfiPseudowire.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vfiPseudowire.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11659,6 +12014,7 @@ func (vfiPwDhcpSnoop *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_Bridg
     vfiPwDhcpSnoop.EntityData.BundleName = "cisco_ios_xr"
     vfiPwDhcpSnoop.EntityData.ParentYangName = "vfi-pseudowire"
     vfiPwDhcpSnoop.EntityData.SegmentPath = "vfi-pw-dhcp-snoop"
+    vfiPwDhcpSnoop.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/vfis/vfi/vfi-pseudowires/vfi-pseudowire/" + vfiPwDhcpSnoop.EntityData.SegmentPath
     vfiPwDhcpSnoop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vfiPwDhcpSnoop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vfiPwDhcpSnoop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11694,6 +12050,7 @@ func (vfiPwMplsStaticLabels *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomain
     vfiPwMplsStaticLabels.EntityData.BundleName = "cisco_ios_xr"
     vfiPwMplsStaticLabels.EntityData.ParentYangName = "vfi-pseudowire"
     vfiPwMplsStaticLabels.EntityData.SegmentPath = "vfi-pw-mpls-static-labels"
+    vfiPwMplsStaticLabels.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/vfis/vfi/vfi-pseudowires/vfi-pseudowire/" + vfiPwMplsStaticLabels.EntityData.SegmentPath
     vfiPwMplsStaticLabels.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vfiPwMplsStaticLabels.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vfiPwMplsStaticLabels.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11725,6 +12082,7 @@ func (pseudowireStaticMacAddresses *L2vpn_Database_VlanSwitches_VlanSwitch_Bridg
     pseudowireStaticMacAddresses.EntityData.BundleName = "cisco_ios_xr"
     pseudowireStaticMacAddresses.EntityData.ParentYangName = "vfi-pseudowire"
     pseudowireStaticMacAddresses.EntityData.SegmentPath = "pseudowire-static-mac-addresses"
+    pseudowireStaticMacAddresses.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/vfis/vfi/vfi-pseudowires/vfi-pseudowire/" + pseudowireStaticMacAddresses.EntityData.SegmentPath
     pseudowireStaticMacAddresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pseudowireStaticMacAddresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pseudowireStaticMacAddresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11746,6 +12104,7 @@ func (pseudowireStaticMacAddresses *L2vpn_Database_VlanSwitches_VlanSwitch_Bridg
 type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_VfiPseudowires_VfiPseudowire_PseudowireStaticMacAddresses_PseudowireStaticMacAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Static MAC address. The type is string with
     // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
@@ -11758,6 +12117,7 @@ func (pseudowireStaticMacAddress *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeD
     pseudowireStaticMacAddress.EntityData.BundleName = "cisco_ios_xr"
     pseudowireStaticMacAddress.EntityData.ParentYangName = "pseudowire-static-mac-addresses"
     pseudowireStaticMacAddress.EntityData.SegmentPath = "pseudowire-static-mac-address" + types.AddKeyToken(pseudowireStaticMacAddress.Address, "address")
+    pseudowireStaticMacAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/vfis/vfi/vfi-pseudowires/vfi-pseudowire/pseudowire-static-mac-addresses/" + pseudowireStaticMacAddress.EntityData.SegmentPath
     pseudowireStaticMacAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pseudowireStaticMacAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pseudowireStaticMacAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11809,6 +12169,7 @@ func (bgpAutoDiscovery *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_Bri
     bgpAutoDiscovery.EntityData.BundleName = "cisco_ios_xr"
     bgpAutoDiscovery.EntityData.ParentYangName = "vfi"
     bgpAutoDiscovery.EntityData.SegmentPath = "bgp-auto-discovery"
+    bgpAutoDiscovery.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/vfis/vfi/" + bgpAutoDiscovery.EntityData.SegmentPath
     bgpAutoDiscovery.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bgpAutoDiscovery.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bgpAutoDiscovery.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11854,6 +12215,7 @@ func (ldpSignalingProtocol *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains
     ldpSignalingProtocol.EntityData.BundleName = "cisco_ios_xr"
     ldpSignalingProtocol.EntityData.ParentYangName = "bgp-auto-discovery"
     ldpSignalingProtocol.EntityData.SegmentPath = "ldp-signaling-protocol"
+    ldpSignalingProtocol.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/vfis/vfi/bgp-auto-discovery/" + ldpSignalingProtocol.EntityData.SegmentPath
     ldpSignalingProtocol.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ldpSignalingProtocol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ldpSignalingProtocol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11898,6 +12260,7 @@ func (vplsId *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_
     vplsId.EntityData.BundleName = "cisco_ios_xr"
     vplsId.EntityData.ParentYangName = "ldp-signaling-protocol"
     vplsId.EntityData.SegmentPath = "vpls-id"
+    vplsId.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/vfis/vfi/bgp-auto-discovery/ldp-signaling-protocol/" + vplsId.EntityData.SegmentPath
     vplsId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vplsId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vplsId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11934,6 +12297,7 @@ func (flowLabelLoadBalance *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains
     flowLabelLoadBalance.EntityData.BundleName = "cisco_ios_xr"
     flowLabelLoadBalance.EntityData.ParentYangName = "ldp-signaling-protocol"
     flowLabelLoadBalance.EntityData.SegmentPath = "flow-label-load-balance"
+    flowLabelLoadBalance.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/vfis/vfi/bgp-auto-discovery/ldp-signaling-protocol/" + flowLabelLoadBalance.EntityData.SegmentPath
     flowLabelLoadBalance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     flowLabelLoadBalance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     flowLabelLoadBalance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11964,6 +12328,7 @@ func (bgpRoutePolicy *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_Bridg
     bgpRoutePolicy.EntityData.BundleName = "cisco_ios_xr"
     bgpRoutePolicy.EntityData.ParentYangName = "bgp-auto-discovery"
     bgpRoutePolicy.EntityData.SegmentPath = "bgp-route-policy"
+    bgpRoutePolicy.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/vfis/vfi/bgp-auto-discovery/" + bgpRoutePolicy.EntityData.SegmentPath
     bgpRoutePolicy.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bgpRoutePolicy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bgpRoutePolicy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12008,6 +12373,7 @@ func (routeDistinguisher *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_B
     routeDistinguisher.EntityData.BundleName = "cisco_ios_xr"
     routeDistinguisher.EntityData.ParentYangName = "bgp-auto-discovery"
     routeDistinguisher.EntityData.SegmentPath = "route-distinguisher"
+    routeDistinguisher.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/vfis/vfi/bgp-auto-discovery/" + routeDistinguisher.EntityData.SegmentPath
     routeDistinguisher.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routeDistinguisher.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routeDistinguisher.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12052,6 +12418,7 @@ func (bgpSignalingProtocol *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains
     bgpSignalingProtocol.EntityData.BundleName = "cisco_ios_xr"
     bgpSignalingProtocol.EntityData.ParentYangName = "bgp-auto-discovery"
     bgpSignalingProtocol.EntityData.SegmentPath = "bgp-signaling-protocol"
+    bgpSignalingProtocol.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/vfis/vfi/bgp-auto-discovery/" + bgpSignalingProtocol.EntityData.SegmentPath
     bgpSignalingProtocol.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bgpSignalingProtocol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bgpSignalingProtocol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12087,6 +12454,7 @@ func (flowLabelLoadBalance *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains
     flowLabelLoadBalance.EntityData.BundleName = "cisco_ios_xr"
     flowLabelLoadBalance.EntityData.ParentYangName = "bgp-signaling-protocol"
     flowLabelLoadBalance.EntityData.SegmentPath = "flow-label-load-balance"
+    flowLabelLoadBalance.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/vfis/vfi/bgp-auto-discovery/bgp-signaling-protocol/" + flowLabelLoadBalance.EntityData.SegmentPath
     flowLabelLoadBalance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     flowLabelLoadBalance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     flowLabelLoadBalance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12118,6 +12486,7 @@ func (routeTargets *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeD
     routeTargets.EntityData.BundleName = "cisco_ios_xr"
     routeTargets.EntityData.ParentYangName = "bgp-auto-discovery"
     routeTargets.EntityData.SegmentPath = "route-targets"
+    routeTargets.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/vfis/vfi/bgp-auto-discovery/" + routeTargets.EntityData.SegmentPath
     routeTargets.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routeTargets.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routeTargets.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12139,6 +12508,7 @@ func (routeTargets *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeD
 type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_BgpAutoDiscovery_RouteTargets_RouteTarget struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Role of the router target type. The type is
     // BgpRouteTargetRole.
@@ -12163,6 +12533,7 @@ func (routeTarget *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDo
     routeTarget.EntityData.BundleName = "cisco_ios_xr"
     routeTarget.EntityData.ParentYangName = "route-targets"
     routeTarget.EntityData.SegmentPath = "route-target" + types.AddKeyToken(routeTarget.Role, "role") + types.AddKeyToken(routeTarget.Format, "format")
+    routeTarget.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/vfis/vfi/bgp-auto-discovery/route-targets/" + routeTarget.EntityData.SegmentPath
     routeTarget.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routeTarget.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routeTarget.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12190,6 +12561,7 @@ func (routeTarget *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDo
 type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_BgpAutoDiscovery_RouteTargets_RouteTarget_TwoByteAsOrFourByteAs struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Two byte or 4 byte AS number. The type is
     // interface{} with range: 1..4294967295.
@@ -12206,6 +12578,7 @@ func (twoByteAsOrFourByteAs *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomain
     twoByteAsOrFourByteAs.EntityData.BundleName = "cisco_ios_xr"
     twoByteAsOrFourByteAs.EntityData.ParentYangName = "route-target"
     twoByteAsOrFourByteAs.EntityData.SegmentPath = "two-byte-as-or-four-byte-as" + types.AddKeyToken(twoByteAsOrFourByteAs.As, "as") + types.AddKeyToken(twoByteAsOrFourByteAs.AsIndex, "as-index")
+    twoByteAsOrFourByteAs.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/vfis/vfi/bgp-auto-discovery/route-targets/route-target/" + twoByteAsOrFourByteAs.EntityData.SegmentPath
     twoByteAsOrFourByteAs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     twoByteAsOrFourByteAs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     twoByteAsOrFourByteAs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12225,6 +12598,7 @@ func (twoByteAsOrFourByteAs *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomain
 type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_BgpAutoDiscovery_RouteTargets_RouteTarget_Ipv4Address struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IPV4 address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -12241,6 +12615,7 @@ func (ipv4Address *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDo
     ipv4Address.EntityData.BundleName = "cisco_ios_xr"
     ipv4Address.EntityData.ParentYangName = "route-target"
     ipv4Address.EntityData.SegmentPath = "ipv4-address" + types.AddKeyToken(ipv4Address.Address, "address") + types.AddKeyToken(ipv4Address.AddrIndex, "addr-index")
+    ipv4Address.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/vfis/vfi/bgp-auto-discovery/route-targets/route-target/" + ipv4Address.EntityData.SegmentPath
     ipv4Address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4Address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4Address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12273,6 +12648,7 @@ func (bridgeDomainvnis *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_Bri
     bridgeDomainvnis.EntityData.BundleName = "cisco_ios_xr"
     bridgeDomainvnis.EntityData.ParentYangName = "bridge-domain"
     bridgeDomainvnis.EntityData.SegmentPath = "bridge-domainvnis"
+    bridgeDomainvnis.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/" + bridgeDomainvnis.EntityData.SegmentPath
     bridgeDomainvnis.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bridgeDomainvnis.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bridgeDomainvnis.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12294,6 +12670,7 @@ func (bridgeDomainvnis *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_Bri
 type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainvnis_BridgeDomainvni struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. VxLAN Ethernet VPN-ID. The type is interface{}
     // with range: 1..16777215.
@@ -12306,6 +12683,7 @@ func (bridgeDomainvni *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_Brid
     bridgeDomainvni.EntityData.BundleName = "cisco_ios_xr"
     bridgeDomainvni.EntityData.ParentYangName = "bridge-domainvnis"
     bridgeDomainvni.EntityData.SegmentPath = "bridge-domainvni" + types.AddKeyToken(bridgeDomainvni.VpnId, "vpn-id")
+    bridgeDomainvni.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/bridge-domainvnis/" + bridgeDomainvni.EntityData.SegmentPath
     bridgeDomainvni.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bridgeDomainvni.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bridgeDomainvni.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12336,6 +12714,7 @@ func (bdAttachmentCircuits *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains
     bdAttachmentCircuits.EntityData.BundleName = "cisco_ios_xr"
     bdAttachmentCircuits.EntityData.ParentYangName = "bridge-domain"
     bdAttachmentCircuits.EntityData.SegmentPath = "bd-attachment-circuits"
+    bdAttachmentCircuits.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/" + bdAttachmentCircuits.EntityData.SegmentPath
     bdAttachmentCircuits.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bdAttachmentCircuits.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bdAttachmentCircuits.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12357,6 +12736,7 @@ func (bdAttachmentCircuits *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains
 type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdAttachmentCircuits_BdAttachmentCircuit struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The name of the Attachment Circuit. The type is
     // string with pattern: [a-zA-Z0-9._/-]+.
@@ -12403,6 +12783,7 @@ func (bdAttachmentCircuit *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_
     bdAttachmentCircuit.EntityData.BundleName = "cisco_ios_xr"
     bdAttachmentCircuit.EntityData.ParentYangName = "bd-attachment-circuits"
     bdAttachmentCircuit.EntityData.SegmentPath = "bd-attachment-circuit" + types.AddKeyToken(bdAttachmentCircuit.Name, "name")
+    bdAttachmentCircuit.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/bd-attachment-circuits/" + bdAttachmentCircuit.EntityData.SegmentPath
     bdAttachmentCircuit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bdAttachmentCircuit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bdAttachmentCircuit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12449,6 +12830,7 @@ func (interfaceIpSourceGuard *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomai
     interfaceIpSourceGuard.EntityData.BundleName = "cisco_ios_xr"
     interfaceIpSourceGuard.EntityData.ParentYangName = "bd-attachment-circuit"
     interfaceIpSourceGuard.EntityData.SegmentPath = "interface-ip-source-guard"
+    interfaceIpSourceGuard.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/bd-attachment-circuits/bd-attachment-circuit/" + interfaceIpSourceGuard.EntityData.SegmentPath
     interfaceIpSourceGuard.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceIpSourceGuard.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceIpSourceGuard.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12489,6 +12871,7 @@ func (interfaceDai *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeD
     interfaceDai.EntityData.BundleName = "cisco_ios_xr"
     interfaceDai.EntityData.ParentYangName = "bd-attachment-circuit"
     interfaceDai.EntityData.SegmentPath = "interface-dai"
+    interfaceDai.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/bd-attachment-circuits/bd-attachment-circuit/" + interfaceDai.EntityData.SegmentPath
     interfaceDai.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceDai.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceDai.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12530,6 +12913,7 @@ func (interfaceDaiAddressValidation *L2vpn_Database_VlanSwitches_VlanSwitch_Brid
     interfaceDaiAddressValidation.EntityData.BundleName = "cisco_ios_xr"
     interfaceDaiAddressValidation.EntityData.ParentYangName = "interface-dai"
     interfaceDaiAddressValidation.EntityData.SegmentPath = "interface-dai-address-validation"
+    interfaceDaiAddressValidation.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/bd-attachment-circuits/bd-attachment-circuit/interface-dai/" + interfaceDaiAddressValidation.EntityData.SegmentPath
     interfaceDaiAddressValidation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceDaiAddressValidation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceDaiAddressValidation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12565,6 +12949,7 @@ func (interfaceProfile *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_Bri
     interfaceProfile.EntityData.BundleName = "cisco_ios_xr"
     interfaceProfile.EntityData.ParentYangName = "bd-attachment-circuit"
     interfaceProfile.EntityData.SegmentPath = "interface-profile"
+    interfaceProfile.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/bd-attachment-circuits/bd-attachment-circuit/" + interfaceProfile.EntityData.SegmentPath
     interfaceProfile.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceProfile.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceProfile.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12596,6 +12981,7 @@ func (bdacStormControlTypes *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomain
     bdacStormControlTypes.EntityData.BundleName = "cisco_ios_xr"
     bdacStormControlTypes.EntityData.ParentYangName = "bd-attachment-circuit"
     bdacStormControlTypes.EntityData.SegmentPath = "bdac-storm-control-types"
+    bdacStormControlTypes.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/bd-attachment-circuits/bd-attachment-circuit/" + bdacStormControlTypes.EntityData.SegmentPath
     bdacStormControlTypes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bdacStormControlTypes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bdacStormControlTypes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12617,6 +13003,7 @@ func (bdacStormControlTypes *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomain
 type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdAttachmentCircuits_BdAttachmentCircuit_BdacStormControlTypes_BdacStormControlType struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Storm Control Type. The type is StormControl.
     Sctype interface{}
@@ -12631,6 +13018,7 @@ func (bdacStormControlType *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains
     bdacStormControlType.EntityData.BundleName = "cisco_ios_xr"
     bdacStormControlType.EntityData.ParentYangName = "bdac-storm-control-types"
     bdacStormControlType.EntityData.SegmentPath = "bdac-storm-control-type" + types.AddKeyToken(bdacStormControlType.Sctype, "sctype")
+    bdacStormControlType.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/bd-attachment-circuits/bd-attachment-circuit/bdac-storm-control-types/" + bdacStormControlType.EntityData.SegmentPath
     bdacStormControlType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bdacStormControlType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bdacStormControlType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12668,6 +13056,7 @@ func (stormControlUnit *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_Bri
     stormControlUnit.EntityData.BundleName = "cisco_ios_xr"
     stormControlUnit.EntityData.ParentYangName = "bdac-storm-control-type"
     stormControlUnit.EntityData.SegmentPath = "storm-control-unit"
+    stormControlUnit.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/bd-attachment-circuits/bd-attachment-circuit/bdac-storm-control-types/bdac-storm-control-type/" + stormControlUnit.EntityData.SegmentPath
     stormControlUnit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     stormControlUnit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stormControlUnit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12698,6 +13087,7 @@ func (splitHorizon *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeD
     splitHorizon.EntityData.BundleName = "cisco_ios_xr"
     splitHorizon.EntityData.ParentYangName = "bd-attachment-circuit"
     splitHorizon.EntityData.SegmentPath = "split-horizon"
+    splitHorizon.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/bd-attachment-circuits/bd-attachment-circuit/" + splitHorizon.EntityData.SegmentPath
     splitHorizon.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     splitHorizon.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     splitHorizon.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12727,6 +13117,7 @@ func (splitHorizonGroupId *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_
     splitHorizonGroupId.EntityData.BundleName = "cisco_ios_xr"
     splitHorizonGroupId.EntityData.ParentYangName = "split-horizon"
     splitHorizonGroupId.EntityData.SegmentPath = "split-horizon-group-id"
+    splitHorizonGroupId.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/bd-attachment-circuits/bd-attachment-circuit/split-horizon/" + splitHorizonGroupId.EntityData.SegmentPath
     splitHorizonGroupId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     splitHorizonGroupId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     splitHorizonGroupId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12757,6 +13148,7 @@ func (staticMacAddresses *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_B
     staticMacAddresses.EntityData.BundleName = "cisco_ios_xr"
     staticMacAddresses.EntityData.ParentYangName = "bd-attachment-circuit"
     staticMacAddresses.EntityData.SegmentPath = "static-mac-addresses"
+    staticMacAddresses.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/bd-attachment-circuits/bd-attachment-circuit/" + staticMacAddresses.EntityData.SegmentPath
     staticMacAddresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     staticMacAddresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     staticMacAddresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12778,6 +13170,7 @@ func (staticMacAddresses *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_B
 type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdAttachmentCircuits_BdAttachmentCircuit_StaticMacAddresses_StaticMacAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Static MAC address. The type is string with
     // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
@@ -12790,6 +13183,7 @@ func (staticMacAddress *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_Bri
     staticMacAddress.EntityData.BundleName = "cisco_ios_xr"
     staticMacAddress.EntityData.ParentYangName = "static-mac-addresses"
     staticMacAddress.EntityData.SegmentPath = "static-mac-address" + types.AddKeyToken(staticMacAddress.Address, "address")
+    staticMacAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/bd-attachment-circuits/bd-attachment-circuit/static-mac-addresses/" + staticMacAddress.EntityData.SegmentPath
     staticMacAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     staticMacAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     staticMacAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12831,6 +13225,7 @@ func (interfaceMac *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeD
     interfaceMac.EntityData.BundleName = "cisco_ios_xr"
     interfaceMac.EntityData.ParentYangName = "bd-attachment-circuit"
     interfaceMac.EntityData.SegmentPath = "interface-mac"
+    interfaceMac.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/bd-attachment-circuits/bd-attachment-circuit/" + interfaceMac.EntityData.SegmentPath
     interfaceMac.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceMac.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceMac.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12867,6 +13262,7 @@ func (interfaceMacAging *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_Br
     interfaceMacAging.EntityData.BundleName = "cisco_ios_xr"
     interfaceMacAging.EntityData.ParentYangName = "interface-mac"
     interfaceMacAging.EntityData.SegmentPath = "interface-mac-aging"
+    interfaceMacAging.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/bd-attachment-circuits/bd-attachment-circuit/interface-mac/" + interfaceMacAging.EntityData.SegmentPath
     interfaceMacAging.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceMacAging.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceMacAging.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12906,6 +13302,7 @@ func (interfaceMacSecure *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_B
     interfaceMacSecure.EntityData.BundleName = "cisco_ios_xr"
     interfaceMacSecure.EntityData.ParentYangName = "interface-mac"
     interfaceMacSecure.EntityData.SegmentPath = "interface-mac-secure"
+    interfaceMacSecure.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/bd-attachment-circuits/bd-attachment-circuit/interface-mac/" + interfaceMacSecure.EntityData.SegmentPath
     interfaceMacSecure.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceMacSecure.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceMacSecure.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12946,6 +13343,7 @@ func (interfaceMacLimit *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_Br
     interfaceMacLimit.EntityData.BundleName = "cisco_ios_xr"
     interfaceMacLimit.EntityData.ParentYangName = "interface-mac"
     interfaceMacLimit.EntityData.SegmentPath = "interface-mac-limit"
+    interfaceMacLimit.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/bd-attachment-circuits/bd-attachment-circuit/interface-mac/" + interfaceMacLimit.EntityData.SegmentPath
     interfaceMacLimit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceMacLimit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceMacLimit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12978,6 +13376,7 @@ func (bdPseudowireEvpns *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_Br
     bdPseudowireEvpns.EntityData.BundleName = "cisco_ios_xr"
     bdPseudowireEvpns.EntityData.ParentYangName = "bridge-domain"
     bdPseudowireEvpns.EntityData.SegmentPath = "bd-pseudowire-evpns"
+    bdPseudowireEvpns.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/" + bdPseudowireEvpns.EntityData.SegmentPath
     bdPseudowireEvpns.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bdPseudowireEvpns.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bdPseudowireEvpns.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12999,6 +13398,7 @@ func (bdPseudowireEvpns *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_Br
 type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudowireEvpns_BdPseudowireEvpn struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Ethernet VPN ID. The type is interface{} with
     // range: 1..65534.
@@ -13015,6 +13415,7 @@ func (bdPseudowireEvpn *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_Bri
     bdPseudowireEvpn.EntityData.BundleName = "cisco_ios_xr"
     bdPseudowireEvpn.EntityData.ParentYangName = "bd-pseudowire-evpns"
     bdPseudowireEvpn.EntityData.SegmentPath = "bd-pseudowire-evpn" + types.AddKeyToken(bdPseudowireEvpn.Eviid, "eviid") + types.AddKeyToken(bdPseudowireEvpn.Acid, "acid")
+    bdPseudowireEvpn.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/bd-pseudowire-evpns/" + bdPseudowireEvpn.EntityData.SegmentPath
     bdPseudowireEvpn.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bdPseudowireEvpn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bdPseudowireEvpn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13048,6 +13449,7 @@ func (ipSourceGuard *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_Bridge
     ipSourceGuard.EntityData.BundleName = "cisco_ios_xr"
     ipSourceGuard.EntityData.ParentYangName = "bridge-domain"
     ipSourceGuard.EntityData.SegmentPath = "ip-source-guard"
+    ipSourceGuard.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/" + ipSourceGuard.EntityData.SegmentPath
     ipSourceGuard.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipSourceGuard.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSourceGuard.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13084,6 +13486,7 @@ func (dai *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Dai
     dai.EntityData.BundleName = "cisco_ios_xr"
     dai.EntityData.ParentYangName = "bridge-domain"
     dai.EntityData.SegmentPath = "dai"
+    dai.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/" + dai.EntityData.SegmentPath
     dai.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dai.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dai.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13124,6 +13527,7 @@ func (daiAddressValidation *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains
     daiAddressValidation.EntityData.BundleName = "cisco_ios_xr"
     daiAddressValidation.EntityData.ParentYangName = "dai"
     daiAddressValidation.EntityData.SegmentPath = "dai-address-validation"
+    daiAddressValidation.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/dai/" + daiAddressValidation.EntityData.SegmentPath
     daiAddressValidation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     daiAddressValidation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     daiAddressValidation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13157,6 +13561,7 @@ func (routedInterfaces *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_Bri
     routedInterfaces.EntityData.BundleName = "cisco_ios_xr"
     routedInterfaces.EntityData.ParentYangName = "bridge-domain"
     routedInterfaces.EntityData.SegmentPath = "routed-interfaces"
+    routedInterfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/" + routedInterfaces.EntityData.SegmentPath
     routedInterfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routedInterfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routedInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13178,6 +13583,7 @@ func (routedInterfaces *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_Bri
 type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_RoutedInterfaces_RoutedInterface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The name of the Routed Interface. The type is
     // string with pattern: [a-zA-Z0-9._/-]+.
@@ -13193,6 +13599,7 @@ func (routedInterface *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_Brid
     routedInterface.EntityData.BundleName = "cisco_ios_xr"
     routedInterface.EntityData.ParentYangName = "routed-interfaces"
     routedInterface.EntityData.SegmentPath = "routed-interface" + types.AddKeyToken(routedInterface.InterfaceName, "interface-name")
+    routedInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/routed-interfaces/" + routedInterface.EntityData.SegmentPath
     routedInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routedInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routedInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13223,6 +13630,7 @@ func (routedInterfaceSplitHorizonGroup *L2vpn_Database_VlanSwitches_VlanSwitch_B
     routedInterfaceSplitHorizonGroup.EntityData.BundleName = "cisco_ios_xr"
     routedInterfaceSplitHorizonGroup.EntityData.ParentYangName = "routed-interface"
     routedInterfaceSplitHorizonGroup.EntityData.SegmentPath = "routed-interface-split-horizon-group"
+    routedInterfaceSplitHorizonGroup.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/vlan-switch/bridge-domains/bridge-domain/routed-interfaces/routed-interface/" + routedInterfaceSplitHorizonGroup.EntityData.SegmentPath
     routedInterfaceSplitHorizonGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routedInterfaceSplitHorizonGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routedInterfaceSplitHorizonGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13255,6 +13663,7 @@ func (flexibleXconnectServiceTable *L2vpn_Database_FlexibleXconnectServiceTable)
     flexibleXconnectServiceTable.EntityData.BundleName = "cisco_ios_xr"
     flexibleXconnectServiceTable.EntityData.ParentYangName = "database"
     flexibleXconnectServiceTable.EntityData.SegmentPath = "flexible-xconnect-service-table"
+    flexibleXconnectServiceTable.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/" + flexibleXconnectServiceTable.EntityData.SegmentPath
     flexibleXconnectServiceTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     flexibleXconnectServiceTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     flexibleXconnectServiceTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13287,6 +13696,7 @@ func (vlanUnawareFlexibleXconnectServices *L2vpn_Database_FlexibleXconnectServic
     vlanUnawareFlexibleXconnectServices.EntityData.BundleName = "cisco_ios_xr"
     vlanUnawareFlexibleXconnectServices.EntityData.ParentYangName = "flexible-xconnect-service-table"
     vlanUnawareFlexibleXconnectServices.EntityData.SegmentPath = "vlan-unaware-flexible-xconnect-services"
+    vlanUnawareFlexibleXconnectServices.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/flexible-xconnect-service-table/" + vlanUnawareFlexibleXconnectServices.EntityData.SegmentPath
     vlanUnawareFlexibleXconnectServices.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vlanUnawareFlexibleXconnectServices.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vlanUnawareFlexibleXconnectServices.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13308,6 +13718,7 @@ func (vlanUnawareFlexibleXconnectServices *L2vpn_Database_FlexibleXconnectServic
 type L2vpn_Database_FlexibleXconnectServiceTable_VlanUnawareFlexibleXconnectServices_VlanUnawareFlexibleXconnectService struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of the Flexible XConnect Service. The type is
     // string with length: 1..23.
@@ -13326,6 +13737,7 @@ func (vlanUnawareFlexibleXconnectService *L2vpn_Database_FlexibleXconnectService
     vlanUnawareFlexibleXconnectService.EntityData.BundleName = "cisco_ios_xr"
     vlanUnawareFlexibleXconnectService.EntityData.ParentYangName = "vlan-unaware-flexible-xconnect-services"
     vlanUnawareFlexibleXconnectService.EntityData.SegmentPath = "vlan-unaware-flexible-xconnect-service" + types.AddKeyToken(vlanUnawareFlexibleXconnectService.Name, "name")
+    vlanUnawareFlexibleXconnectService.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/flexible-xconnect-service-table/vlan-unaware-flexible-xconnect-services/" + vlanUnawareFlexibleXconnectService.EntityData.SegmentPath
     vlanUnawareFlexibleXconnectService.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vlanUnawareFlexibleXconnectService.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vlanUnawareFlexibleXconnectService.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13358,6 +13770,7 @@ func (vlanUnawareFxcAttachmentCircuits *L2vpn_Database_FlexibleXconnectServiceTa
     vlanUnawareFxcAttachmentCircuits.EntityData.BundleName = "cisco_ios_xr"
     vlanUnawareFxcAttachmentCircuits.EntityData.ParentYangName = "vlan-unaware-flexible-xconnect-service"
     vlanUnawareFxcAttachmentCircuits.EntityData.SegmentPath = "vlan-unaware-fxc-attachment-circuits"
+    vlanUnawareFxcAttachmentCircuits.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/flexible-xconnect-service-table/vlan-unaware-flexible-xconnect-services/vlan-unaware-flexible-xconnect-service/" + vlanUnawareFxcAttachmentCircuits.EntityData.SegmentPath
     vlanUnawareFxcAttachmentCircuits.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vlanUnawareFxcAttachmentCircuits.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vlanUnawareFxcAttachmentCircuits.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13379,6 +13792,7 @@ func (vlanUnawareFxcAttachmentCircuits *L2vpn_Database_FlexibleXconnectServiceTa
 type L2vpn_Database_FlexibleXconnectServiceTable_VlanUnawareFlexibleXconnectServices_VlanUnawareFlexibleXconnectService_VlanUnawareFxcAttachmentCircuits_VlanUnawareFxcAttachmentCircuit struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of the attachment circuit interface. The type
     // is string with pattern: [a-zA-Z0-9._/-]+.
@@ -13391,6 +13805,7 @@ func (vlanUnawareFxcAttachmentCircuit *L2vpn_Database_FlexibleXconnectServiceTab
     vlanUnawareFxcAttachmentCircuit.EntityData.BundleName = "cisco_ios_xr"
     vlanUnawareFxcAttachmentCircuit.EntityData.ParentYangName = "vlan-unaware-fxc-attachment-circuits"
     vlanUnawareFxcAttachmentCircuit.EntityData.SegmentPath = "vlan-unaware-fxc-attachment-circuit" + types.AddKeyToken(vlanUnawareFxcAttachmentCircuit.Name, "name")
+    vlanUnawareFxcAttachmentCircuit.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/flexible-xconnect-service-table/vlan-unaware-flexible-xconnect-services/vlan-unaware-flexible-xconnect-service/vlan-unaware-fxc-attachment-circuits/" + vlanUnawareFxcAttachmentCircuit.EntityData.SegmentPath
     vlanUnawareFxcAttachmentCircuit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vlanUnawareFxcAttachmentCircuit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vlanUnawareFxcAttachmentCircuit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13421,6 +13836,7 @@ func (vlanUnawareFxcPseudowireEvpns *L2vpn_Database_FlexibleXconnectServiceTable
     vlanUnawareFxcPseudowireEvpns.EntityData.BundleName = "cisco_ios_xr"
     vlanUnawareFxcPseudowireEvpns.EntityData.ParentYangName = "vlan-unaware-flexible-xconnect-service"
     vlanUnawareFxcPseudowireEvpns.EntityData.SegmentPath = "vlan-unaware-fxc-pseudowire-evpns"
+    vlanUnawareFxcPseudowireEvpns.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/flexible-xconnect-service-table/vlan-unaware-flexible-xconnect-services/vlan-unaware-flexible-xconnect-service/" + vlanUnawareFxcPseudowireEvpns.EntityData.SegmentPath
     vlanUnawareFxcPseudowireEvpns.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vlanUnawareFxcPseudowireEvpns.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vlanUnawareFxcPseudowireEvpns.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13442,6 +13858,7 @@ func (vlanUnawareFxcPseudowireEvpns *L2vpn_Database_FlexibleXconnectServiceTable
 type L2vpn_Database_FlexibleXconnectServiceTable_VlanUnawareFlexibleXconnectServices_VlanUnawareFlexibleXconnectService_VlanUnawareFxcPseudowireEvpns_VlanUnawareFxcPseudowireEvpn struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Ethernet VPN ID. The type is interface{} with
     // range: 1..65534.
@@ -13458,6 +13875,7 @@ func (vlanUnawareFxcPseudowireEvpn *L2vpn_Database_FlexibleXconnectServiceTable_
     vlanUnawareFxcPseudowireEvpn.EntityData.BundleName = "cisco_ios_xr"
     vlanUnawareFxcPseudowireEvpn.EntityData.ParentYangName = "vlan-unaware-fxc-pseudowire-evpns"
     vlanUnawareFxcPseudowireEvpn.EntityData.SegmentPath = "vlan-unaware-fxc-pseudowire-evpn" + types.AddKeyToken(vlanUnawareFxcPseudowireEvpn.Eviid, "eviid") + types.AddKeyToken(vlanUnawareFxcPseudowireEvpn.Acid, "acid")
+    vlanUnawareFxcPseudowireEvpn.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/flexible-xconnect-service-table/vlan-unaware-flexible-xconnect-services/vlan-unaware-flexible-xconnect-service/vlan-unaware-fxc-pseudowire-evpns/" + vlanUnawareFxcPseudowireEvpn.EntityData.SegmentPath
     vlanUnawareFxcPseudowireEvpn.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vlanUnawareFxcPseudowireEvpn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vlanUnawareFxcPseudowireEvpn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13489,6 +13907,7 @@ func (vlanAwareFlexibleXconnectServices *L2vpn_Database_FlexibleXconnectServiceT
     vlanAwareFlexibleXconnectServices.EntityData.BundleName = "cisco_ios_xr"
     vlanAwareFlexibleXconnectServices.EntityData.ParentYangName = "flexible-xconnect-service-table"
     vlanAwareFlexibleXconnectServices.EntityData.SegmentPath = "vlan-aware-flexible-xconnect-services"
+    vlanAwareFlexibleXconnectServices.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/flexible-xconnect-service-table/" + vlanAwareFlexibleXconnectServices.EntityData.SegmentPath
     vlanAwareFlexibleXconnectServices.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vlanAwareFlexibleXconnectServices.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vlanAwareFlexibleXconnectServices.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13510,6 +13929,7 @@ func (vlanAwareFlexibleXconnectServices *L2vpn_Database_FlexibleXconnectServiceT
 type L2vpn_Database_FlexibleXconnectServiceTable_VlanAwareFlexibleXconnectServices_VlanAwareFlexibleXconnectService struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Ethernet VPN ID. The type is interface{} with
     // range: 1..65534.
@@ -13525,6 +13945,7 @@ func (vlanAwareFlexibleXconnectService *L2vpn_Database_FlexibleXconnectServiceTa
     vlanAwareFlexibleXconnectService.EntityData.BundleName = "cisco_ios_xr"
     vlanAwareFlexibleXconnectService.EntityData.ParentYangName = "vlan-aware-flexible-xconnect-services"
     vlanAwareFlexibleXconnectService.EntityData.SegmentPath = "vlan-aware-flexible-xconnect-service" + types.AddKeyToken(vlanAwareFlexibleXconnectService.Eviid, "eviid")
+    vlanAwareFlexibleXconnectService.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/flexible-xconnect-service-table/vlan-aware-flexible-xconnect-services/" + vlanAwareFlexibleXconnectService.EntityData.SegmentPath
     vlanAwareFlexibleXconnectService.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vlanAwareFlexibleXconnectService.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vlanAwareFlexibleXconnectService.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13556,6 +13977,7 @@ func (vlanAwareFxcAttachmentCircuits *L2vpn_Database_FlexibleXconnectServiceTabl
     vlanAwareFxcAttachmentCircuits.EntityData.BundleName = "cisco_ios_xr"
     vlanAwareFxcAttachmentCircuits.EntityData.ParentYangName = "vlan-aware-flexible-xconnect-service"
     vlanAwareFxcAttachmentCircuits.EntityData.SegmentPath = "vlan-aware-fxc-attachment-circuits"
+    vlanAwareFxcAttachmentCircuits.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/flexible-xconnect-service-table/vlan-aware-flexible-xconnect-services/vlan-aware-flexible-xconnect-service/" + vlanAwareFxcAttachmentCircuits.EntityData.SegmentPath
     vlanAwareFxcAttachmentCircuits.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vlanAwareFxcAttachmentCircuits.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vlanAwareFxcAttachmentCircuits.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13577,6 +13999,7 @@ func (vlanAwareFxcAttachmentCircuits *L2vpn_Database_FlexibleXconnectServiceTabl
 type L2vpn_Database_FlexibleXconnectServiceTable_VlanAwareFlexibleXconnectServices_VlanAwareFlexibleXconnectService_VlanAwareFxcAttachmentCircuits_VlanAwareFxcAttachmentCircuit struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of the attachment circuit interface. The type
     // is string with pattern: [a-zA-Z0-9._/-]+.
@@ -13589,6 +14012,7 @@ func (vlanAwareFxcAttachmentCircuit *L2vpn_Database_FlexibleXconnectServiceTable
     vlanAwareFxcAttachmentCircuit.EntityData.BundleName = "cisco_ios_xr"
     vlanAwareFxcAttachmentCircuit.EntityData.ParentYangName = "vlan-aware-fxc-attachment-circuits"
     vlanAwareFxcAttachmentCircuit.EntityData.SegmentPath = "vlan-aware-fxc-attachment-circuit" + types.AddKeyToken(vlanAwareFxcAttachmentCircuit.Name, "name")
+    vlanAwareFxcAttachmentCircuit.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/flexible-xconnect-service-table/vlan-aware-flexible-xconnect-services/vlan-aware-flexible-xconnect-service/vlan-aware-fxc-attachment-circuits/" + vlanAwareFxcAttachmentCircuit.EntityData.SegmentPath
     vlanAwareFxcAttachmentCircuit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vlanAwareFxcAttachmentCircuit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vlanAwareFxcAttachmentCircuit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13621,6 +14045,7 @@ func (redundancy *L2vpn_Database_Redundancy) GetEntityData() *types.CommonEntity
     redundancy.EntityData.BundleName = "cisco_ios_xr"
     redundancy.EntityData.ParentYangName = "database"
     redundancy.EntityData.SegmentPath = "redundancy"
+    redundancy.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/" + redundancy.EntityData.SegmentPath
     redundancy.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     redundancy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     redundancy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13653,6 +14078,7 @@ func (iccpRedundancyGroups *L2vpn_Database_Redundancy_IccpRedundancyGroups) GetE
     iccpRedundancyGroups.EntityData.BundleName = "cisco_ios_xr"
     iccpRedundancyGroups.EntityData.ParentYangName = "redundancy"
     iccpRedundancyGroups.EntityData.SegmentPath = "iccp-redundancy-groups"
+    iccpRedundancyGroups.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/redundancy/" + iccpRedundancyGroups.EntityData.SegmentPath
     iccpRedundancyGroups.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     iccpRedundancyGroups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     iccpRedundancyGroups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13674,6 +14100,7 @@ func (iccpRedundancyGroups *L2vpn_Database_Redundancy_IccpRedundancyGroups) GetE
 type L2vpn_Database_Redundancy_IccpRedundancyGroups_IccpRedundancyGroup struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Group ID. The type is interface{} with range:
     // 1..4294967295.
@@ -13693,6 +14120,7 @@ func (iccpRedundancyGroup *L2vpn_Database_Redundancy_IccpRedundancyGroups_IccpRe
     iccpRedundancyGroup.EntityData.BundleName = "cisco_ios_xr"
     iccpRedundancyGroup.EntityData.ParentYangName = "iccp-redundancy-groups"
     iccpRedundancyGroup.EntityData.SegmentPath = "iccp-redundancy-group" + types.AddKeyToken(iccpRedundancyGroup.GroupId, "group-id")
+    iccpRedundancyGroup.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/redundancy/iccp-redundancy-groups/" + iccpRedundancyGroup.EntityData.SegmentPath
     iccpRedundancyGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     iccpRedundancyGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     iccpRedundancyGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13725,6 +14153,7 @@ func (iccpInterfaces *L2vpn_Database_Redundancy_IccpRedundancyGroups_IccpRedunda
     iccpInterfaces.EntityData.BundleName = "cisco_ios_xr"
     iccpInterfaces.EntityData.ParentYangName = "iccp-redundancy-group"
     iccpInterfaces.EntityData.SegmentPath = "iccp-interfaces"
+    iccpInterfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/redundancy/iccp-redundancy-groups/iccp-redundancy-group/" + iccpInterfaces.EntityData.SegmentPath
     iccpInterfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     iccpInterfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     iccpInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13746,6 +14175,7 @@ func (iccpInterfaces *L2vpn_Database_Redundancy_IccpRedundancyGroups_IccpRedunda
 type L2vpn_Database_Redundancy_IccpRedundancyGroups_IccpRedundancyGroup_IccpInterfaces_IccpInterface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -13771,6 +14201,7 @@ func (iccpInterface *L2vpn_Database_Redundancy_IccpRedundancyGroups_IccpRedundan
     iccpInterface.EntityData.BundleName = "cisco_ios_xr"
     iccpInterface.EntityData.ParentYangName = "iccp-interfaces"
     iccpInterface.EntityData.SegmentPath = "iccp-interface" + types.AddKeyToken(iccpInterface.InterfaceName, "interface-name")
+    iccpInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/redundancy/iccp-redundancy-groups/iccp-redundancy-group/iccp-interfaces/" + iccpInterface.EntityData.SegmentPath
     iccpInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     iccpInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     iccpInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13805,6 +14236,7 @@ func (pbb *L2vpn_Pbb) GetEntityData() *types.CommonEntityData {
     pbb.EntityData.BundleName = "cisco_ios_xr"
     pbb.EntityData.ParentYangName = "l2vpn"
     pbb.EntityData.SegmentPath = "pbb"
+    pbb.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/" + pbb.EntityData.SegmentPath
     pbb.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pbb.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pbb.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13834,6 +14266,7 @@ func (autoDiscovery *L2vpn_AutoDiscovery) GetEntityData() *types.CommonEntityDat
     autoDiscovery.EntityData.BundleName = "cisco_ios_xr"
     autoDiscovery.EntityData.ParentYangName = "l2vpn"
     autoDiscovery.EntityData.SegmentPath = "auto-discovery"
+    autoDiscovery.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/" + autoDiscovery.EntityData.SegmentPath
     autoDiscovery.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     autoDiscovery.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     autoDiscovery.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13864,6 +14297,7 @@ func (bgpSignaling *L2vpn_AutoDiscovery_BgpSignaling) GetEntityData() *types.Com
     bgpSignaling.EntityData.BundleName = "cisco_ios_xr"
     bgpSignaling.EntityData.ParentYangName = "auto-discovery"
     bgpSignaling.EntityData.SegmentPath = "bgp-signaling"
+    bgpSignaling.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/auto-discovery/" + bgpSignaling.EntityData.SegmentPath
     bgpSignaling.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bgpSignaling.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bgpSignaling.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13893,6 +14327,7 @@ func (utility *L2vpn_Utility) GetEntityData() *types.CommonEntityData {
     utility.EntityData.BundleName = "cisco_ios_xr"
     utility.EntityData.ParentYangName = "l2vpn"
     utility.EntityData.SegmentPath = "utility"
+    utility.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/" + utility.EntityData.SegmentPath
     utility.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     utility.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     utility.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13934,6 +14369,7 @@ func (logging *L2vpn_Utility_Logging) GetEntityData() *types.CommonEntityData {
     logging.EntityData.BundleName = "cisco_ios_xr"
     logging.EntityData.ParentYangName = "utility"
     logging.EntityData.SegmentPath = "logging"
+    logging.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/utility/" + logging.EntityData.SegmentPath
     logging.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     logging.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     logging.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13967,6 +14403,7 @@ func (snmp *L2vpn_Snmp) GetEntityData() *types.CommonEntityData {
     snmp.EntityData.BundleName = "cisco_ios_xr"
     snmp.EntityData.ParentYangName = "l2vpn"
     snmp.EntityData.SegmentPath = "snmp"
+    snmp.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/" + snmp.EntityData.SegmentPath
     snmp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     snmp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     snmp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13999,6 +14436,7 @@ func (mib *L2vpn_Snmp_Mib) GetEntityData() *types.CommonEntityData {
     mib.EntityData.BundleName = "cisco_ios_xr"
     mib.EntityData.ParentYangName = "snmp"
     mib.EntityData.SegmentPath = "mib"
+    mib.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/snmp/" + mib.EntityData.SegmentPath
     mib.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mib.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mib.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14029,6 +14467,7 @@ func (mibInterface *L2vpn_Snmp_Mib_MibInterface) GetEntityData() *types.CommonEn
     mibInterface.EntityData.BundleName = "cisco_ios_xr"
     mibInterface.EntityData.ParentYangName = "mib"
     mibInterface.EntityData.SegmentPath = "mib-interface"
+    mibInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/snmp/mib/" + mibInterface.EntityData.SegmentPath
     mibInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mibInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mibInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14058,6 +14497,7 @@ func (format *L2vpn_Snmp_Mib_MibInterface_Format) GetEntityData() *types.CommonE
     format.EntityData.BundleName = "cisco_ios_xr"
     format.EntityData.ParentYangName = "mib-interface"
     format.EntityData.SegmentPath = "format"
+    format.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/snmp/mib/mib-interface/" + format.EntityData.SegmentPath
     format.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     format.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     format.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14087,6 +14527,7 @@ func (mibPseudowire *L2vpn_Snmp_Mib_MibPseudowire) GetEntityData() *types.Common
     mibPseudowire.EntityData.BundleName = "cisco_ios_xr"
     mibPseudowire.EntityData.ParentYangName = "mib"
     mibPseudowire.EntityData.SegmentPath = "mib-pseudowire"
+    mibPseudowire.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:l2vpn/snmp/mib/" + mibPseudowire.EntityData.SegmentPath
     mibPseudowire.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mibPseudowire.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mibPseudowire.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14117,6 +14558,7 @@ func (genericInterfaceLists *GenericInterfaceLists) GetEntityData() *types.Commo
     genericInterfaceLists.EntityData.BundleName = "cisco_ios_xr"
     genericInterfaceLists.EntityData.ParentYangName = "Cisco-IOS-XR-l2vpn-cfg"
     genericInterfaceLists.EntityData.SegmentPath = "Cisco-IOS-XR-l2vpn-cfg:generic-interface-lists"
+    genericInterfaceLists.EntityData.AbsolutePath = genericInterfaceLists.EntityData.SegmentPath
     genericInterfaceLists.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     genericInterfaceLists.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     genericInterfaceLists.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14138,6 +14580,7 @@ func (genericInterfaceLists *GenericInterfaceLists) GetEntityData() *types.Commo
 type GenericInterfaceLists_GenericInterfaceList struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of the interface list. The type is string
     // with length: 1..32.
@@ -14156,6 +14599,7 @@ func (genericInterfaceList *GenericInterfaceLists_GenericInterfaceList) GetEntit
     genericInterfaceList.EntityData.BundleName = "cisco_ios_xr"
     genericInterfaceList.EntityData.ParentYangName = "generic-interface-lists"
     genericInterfaceList.EntityData.SegmentPath = "generic-interface-list" + types.AddKeyToken(genericInterfaceList.GenericInterfaceListName, "generic-interface-list-name")
+    genericInterfaceList.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:generic-interface-lists/" + genericInterfaceList.EntityData.SegmentPath
     genericInterfaceList.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     genericInterfaceList.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     genericInterfaceList.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14188,6 +14632,7 @@ func (interfaces *GenericInterfaceLists_GenericInterfaceList_Interfaces) GetEnti
     interfaces.EntityData.BundleName = "cisco_ios_xr"
     interfaces.EntityData.ParentYangName = "generic-interface-list"
     interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:generic-interface-lists/generic-interface-list/" + interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14209,6 +14654,7 @@ func (interfaces *GenericInterfaceLists_GenericInterfaceList_Interfaces) GetEnti
 type GenericInterfaceLists_GenericInterfaceList_Interfaces_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of the interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -14224,6 +14670,7 @@ func (self *GenericInterfaceLists_GenericInterfaceList_Interfaces_Interface) Get
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:generic-interface-lists/generic-interface-list/interfaces/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14257,6 +14704,7 @@ func (evpn *Evpn) GetEntityData() *types.CommonEntityData {
     evpn.EntityData.BundleName = "cisco_ios_xr"
     evpn.EntityData.ParentYangName = "Cisco-IOS-XR-l2vpn-cfg"
     evpn.EntityData.SegmentPath = "Cisco-IOS-XR-l2vpn-cfg:evpn"
+    evpn.EntityData.AbsolutePath = evpn.EntityData.SegmentPath
     evpn.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     evpn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     evpn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14331,6 +14779,7 @@ func (evpnTables *Evpn_EvpnTables) GetEntityData() *types.CommonEntityData {
     evpnTables.EntityData.BundleName = "cisco_ios_xr"
     evpnTables.EntityData.ParentYangName = "evpn"
     evpnTables.EntityData.SegmentPath = "evpn-tables"
+    evpnTables.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:evpn/" + evpnTables.EntityData.SegmentPath
     evpnTables.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     evpnTables.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     evpnTables.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14386,6 +14835,7 @@ func (evpnTimers *Evpn_EvpnTables_EvpnTimers) GetEntityData() *types.CommonEntit
     evpnTimers.EntityData.BundleName = "cisco_ios_xr"
     evpnTimers.EntityData.ParentYangName = "evpn-tables"
     evpnTimers.EntityData.SegmentPath = "evpn-timers"
+    evpnTimers.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/" + evpnTimers.EntityData.SegmentPath
     evpnTimers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     evpnTimers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     evpnTimers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14421,6 +14871,7 @@ func (evpnmac *Evpn_EvpnTables_Evpnmac) GetEntityData() *types.CommonEntityData 
     evpnmac.EntityData.BundleName = "cisco_ios_xr"
     evpnmac.EntityData.ParentYangName = "evpn-tables"
     evpnmac.EntityData.SegmentPath = "evpnmac"
+    evpnmac.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/" + evpnmac.EntityData.SegmentPath
     evpnmac.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     evpnmac.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     evpnmac.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14467,6 +14918,7 @@ func (evpnmacSecure *Evpn_EvpnTables_Evpnmac_EvpnmacSecure) GetEntityData() *typ
     evpnmacSecure.EntityData.BundleName = "cisco_ios_xr"
     evpnmacSecure.EntityData.ParentYangName = "evpnmac"
     evpnmacSecure.EntityData.SegmentPath = "evpnmac-secure"
+    evpnmacSecure.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/evpnmac/" + evpnmacSecure.EntityData.SegmentPath
     evpnmacSecure.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     evpnmacSecure.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     evpnmacSecure.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14501,6 +14953,7 @@ func (evpnEvis *Evpn_EvpnTables_EvpnEvis) GetEntityData() *types.CommonEntityDat
     evpnEvis.EntityData.BundleName = "cisco_ios_xr"
     evpnEvis.EntityData.ParentYangName = "evpn-tables"
     evpnEvis.EntityData.SegmentPath = "evpn-evis"
+    evpnEvis.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/" + evpnEvis.EntityData.SegmentPath
     evpnEvis.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     evpnEvis.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     evpnEvis.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14522,6 +14975,7 @@ func (evpnEvis *Evpn_EvpnTables_EvpnEvis) GetEntityData() *types.CommonEntityDat
 type Evpn_EvpnTables_EvpnEvis_EvpnEvi struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. EVI ID. The type is interface{} with range:
     // 1..65534.
@@ -14565,6 +15019,7 @@ func (evpnEvi *Evpn_EvpnTables_EvpnEvis_EvpnEvi) GetEntityData() *types.CommonEn
     evpnEvi.EntityData.BundleName = "cisco_ios_xr"
     evpnEvi.EntityData.ParentYangName = "evpn-evis"
     evpnEvi.EntityData.SegmentPath = "evpn-evi" + types.AddKeyToken(evpnEvi.Eviid, "eviid")
+    evpnEvi.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/evpn-evis/" + evpnEvi.EntityData.SegmentPath
     evpnEvi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     evpnEvi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     evpnEvi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14607,6 +15062,7 @@ func (eviLoadBalancing *Evpn_EvpnTables_EvpnEvis_EvpnEvi_EviLoadBalancing) GetEn
     eviLoadBalancing.EntityData.BundleName = "cisco_ios_xr"
     eviLoadBalancing.EntityData.ParentYangName = "evpn-evi"
     eviLoadBalancing.EntityData.SegmentPath = "evi-load-balancing"
+    eviLoadBalancing.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/evpn-evis/evpn-evi/" + eviLoadBalancing.EntityData.SegmentPath
     eviLoadBalancing.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eviLoadBalancing.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eviLoadBalancing.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14634,6 +15090,9 @@ type Evpn_EvpnTables_EvpnEvis_EvpnEvi_EvpnEviBgpAutoDiscovery struct {
     // string.
     TablePolicy interface{}
 
+    // Disables BGP Implicit Import. The type is interface{}.
+    ImplicitImportDisable interface{}
+
     // Route Distinguisher.
     EvpnRouteDistinguisher Evpn_EvpnTables_EvpnEvis_EvpnEvi_EvpnEviBgpAutoDiscovery_EvpnRouteDistinguisher
 
@@ -14647,6 +15106,7 @@ func (evpnEviBgpAutoDiscovery *Evpn_EvpnTables_EvpnEvis_EvpnEvi_EvpnEviBgpAutoDi
     evpnEviBgpAutoDiscovery.EntityData.BundleName = "cisco_ios_xr"
     evpnEviBgpAutoDiscovery.EntityData.ParentYangName = "evpn-evi"
     evpnEviBgpAutoDiscovery.EntityData.SegmentPath = "evpn-evi-bgp-auto-discovery"
+    evpnEviBgpAutoDiscovery.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/evpn-evis/evpn-evi/" + evpnEviBgpAutoDiscovery.EntityData.SegmentPath
     evpnEviBgpAutoDiscovery.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     evpnEviBgpAutoDiscovery.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     evpnEviBgpAutoDiscovery.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14657,6 +15117,7 @@ func (evpnEviBgpAutoDiscovery *Evpn_EvpnTables_EvpnEvis_EvpnEvi_EvpnEviBgpAutoDi
     evpnEviBgpAutoDiscovery.EntityData.Leafs = types.NewOrderedMap()
     evpnEviBgpAutoDiscovery.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", evpnEviBgpAutoDiscovery.Enable})
     evpnEviBgpAutoDiscovery.EntityData.Leafs.Append("table-policy", types.YLeaf{"TablePolicy", evpnEviBgpAutoDiscovery.TablePolicy})
+    evpnEviBgpAutoDiscovery.EntityData.Leafs.Append("implicit-import-disable", types.YLeaf{"ImplicitImportDisable", evpnEviBgpAutoDiscovery.ImplicitImportDisable})
 
     evpnEviBgpAutoDiscovery.EntityData.YListKeys = []string {}
 
@@ -14694,6 +15155,7 @@ func (evpnRouteDistinguisher *Evpn_EvpnTables_EvpnEvis_EvpnEvi_EvpnEviBgpAutoDis
     evpnRouteDistinguisher.EntityData.BundleName = "cisco_ios_xr"
     evpnRouteDistinguisher.EntityData.ParentYangName = "evpn-evi-bgp-auto-discovery"
     evpnRouteDistinguisher.EntityData.SegmentPath = "evpn-route-distinguisher"
+    evpnRouteDistinguisher.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/evpn-evis/evpn-evi/evpn-evi-bgp-auto-discovery/" + evpnRouteDistinguisher.EntityData.SegmentPath
     evpnRouteDistinguisher.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     evpnRouteDistinguisher.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     evpnRouteDistinguisher.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14736,6 +15198,7 @@ func (evpnRouteTargets *Evpn_EvpnTables_EvpnEvis_EvpnEvi_EvpnEviBgpAutoDiscovery
     evpnRouteTargets.EntityData.BundleName = "cisco_ios_xr"
     evpnRouteTargets.EntityData.ParentYangName = "evpn-evi-bgp-auto-discovery"
     evpnRouteTargets.EntityData.SegmentPath = "evpn-route-targets"
+    evpnRouteTargets.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/evpn-evis/evpn-evi/evpn-evi-bgp-auto-discovery/" + evpnRouteTargets.EntityData.SegmentPath
     evpnRouteTargets.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     evpnRouteTargets.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     evpnRouteTargets.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14765,6 +15228,7 @@ func (evpnRouteTargets *Evpn_EvpnTables_EvpnEvis_EvpnEvi_EvpnEviBgpAutoDiscovery
 type Evpn_EvpnTables_EvpnEvis_EvpnEvi_EvpnEviBgpAutoDiscovery_EvpnRouteTargets_EvpnRouteTargetAs struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Format of the route target. The type is
     // BgpRouteTargetFormat.
@@ -14793,6 +15257,7 @@ func (evpnRouteTargetAs *Evpn_EvpnTables_EvpnEvis_EvpnEvi_EvpnEviBgpAutoDiscover
     evpnRouteTargetAs.EntityData.BundleName = "cisco_ios_xr"
     evpnRouteTargetAs.EntityData.ParentYangName = "evpn-route-targets"
     evpnRouteTargetAs.EntityData.SegmentPath = "evpn-route-target-as" + types.AddKeyToken(evpnRouteTargetAs.Format, "format") + types.AddKeyToken(evpnRouteTargetAs.Role, "role") + types.AddKeyToken(evpnRouteTargetAs.As, "as") + types.AddKeyToken(evpnRouteTargetAs.AsIndex, "as-index") + types.AddKeyToken(evpnRouteTargetAs.Stitching, "stitching")
+    evpnRouteTargetAs.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/evpn-evis/evpn-evi/evpn-evi-bgp-auto-discovery/evpn-route-targets/" + evpnRouteTargetAs.EntityData.SegmentPath
     evpnRouteTargetAs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     evpnRouteTargetAs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     evpnRouteTargetAs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14815,6 +15280,7 @@ func (evpnRouteTargetAs *Evpn_EvpnTables_EvpnEvis_EvpnEvi_EvpnEviBgpAutoDiscover
 type Evpn_EvpnTables_EvpnEvis_EvpnEvi_EvpnEviBgpAutoDiscovery_EvpnRouteTargets_EvpnRouteTargetNone struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Format of the route target. The type is
     // BgpRouteTargetFormat.
@@ -14835,6 +15301,7 @@ func (evpnRouteTargetNone *Evpn_EvpnTables_EvpnEvis_EvpnEvi_EvpnEviBgpAutoDiscov
     evpnRouteTargetNone.EntityData.BundleName = "cisco_ios_xr"
     evpnRouteTargetNone.EntityData.ParentYangName = "evpn-route-targets"
     evpnRouteTargetNone.EntityData.SegmentPath = "evpn-route-target-none" + types.AddKeyToken(evpnRouteTargetNone.Format, "format") + types.AddKeyToken(evpnRouteTargetNone.Role, "role") + types.AddKeyToken(evpnRouteTargetNone.Stitching, "stitching")
+    evpnRouteTargetNone.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/evpn-evis/evpn-evi/evpn-evi-bgp-auto-discovery/evpn-route-targets/" + evpnRouteTargetNone.EntityData.SegmentPath
     evpnRouteTargetNone.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     evpnRouteTargetNone.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     evpnRouteTargetNone.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14855,6 +15322,7 @@ func (evpnRouteTargetNone *Evpn_EvpnTables_EvpnEvis_EvpnEvi_EvpnEviBgpAutoDiscov
 type Evpn_EvpnTables_EvpnEvis_EvpnEvi_EvpnEviBgpAutoDiscovery_EvpnRouteTargets_EvpnRouteTargetIpv4Address struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Format of the route target. The type is
     // BgpRouteTargetFormat.
@@ -14883,6 +15351,7 @@ func (evpnRouteTargetIpv4Address *Evpn_EvpnTables_EvpnEvis_EvpnEvi_EvpnEviBgpAut
     evpnRouteTargetIpv4Address.EntityData.BundleName = "cisco_ios_xr"
     evpnRouteTargetIpv4Address.EntityData.ParentYangName = "evpn-route-targets"
     evpnRouteTargetIpv4Address.EntityData.SegmentPath = "evpn-route-target-ipv4-address" + types.AddKeyToken(evpnRouteTargetIpv4Address.Format, "format") + types.AddKeyToken(evpnRouteTargetIpv4Address.Role, "role") + types.AddKeyToken(evpnRouteTargetIpv4Address.Address, "address") + types.AddKeyToken(evpnRouteTargetIpv4Address.AddrIndex, "addr-index") + types.AddKeyToken(evpnRouteTargetIpv4Address.Stitching, "stitching")
+    evpnRouteTargetIpv4Address.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/evpn-evis/evpn-evi/evpn-evi-bgp-auto-discovery/evpn-route-targets/" + evpnRouteTargetIpv4Address.EntityData.SegmentPath
     evpnRouteTargetIpv4Address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     evpnRouteTargetIpv4Address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     evpnRouteTargetIpv4Address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14919,6 +15388,7 @@ func (eviMulticast *Evpn_EvpnTables_EvpnEvis_EvpnEvi_EviMulticast) GetEntityData
     eviMulticast.EntityData.BundleName = "cisco_ios_xr"
     eviMulticast.EntityData.ParentYangName = "evpn-evi"
     eviMulticast.EntityData.SegmentPath = "evi-multicast"
+    eviMulticast.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/evpn-evis/evpn-evi/" + eviMulticast.EntityData.SegmentPath
     eviMulticast.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eviMulticast.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eviMulticast.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14953,6 +15423,7 @@ func (eviAdvertiseMac *Evpn_EvpnTables_EvpnEvis_EvpnEvi_EviAdvertiseMac) GetEnti
     eviAdvertiseMac.EntityData.BundleName = "cisco_ios_xr"
     eviAdvertiseMac.EntityData.ParentYangName = "evpn-evi"
     eviAdvertiseMac.EntityData.SegmentPath = "evi-advertise-mac"
+    eviAdvertiseMac.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/evpn-evis/evpn-evi/" + eviAdvertiseMac.EntityData.SegmentPath
     eviAdvertiseMac.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eviAdvertiseMac.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eviAdvertiseMac.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14984,6 +15455,7 @@ func (evpnVirtualAccessVfis *Evpn_EvpnTables_EvpnVirtualAccessVfis) GetEntityDat
     evpnVirtualAccessVfis.EntityData.BundleName = "cisco_ios_xr"
     evpnVirtualAccessVfis.EntityData.ParentYangName = "evpn-tables"
     evpnVirtualAccessVfis.EntityData.SegmentPath = "evpn-virtual-access-vfis"
+    evpnVirtualAccessVfis.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/" + evpnVirtualAccessVfis.EntityData.SegmentPath
     evpnVirtualAccessVfis.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     evpnVirtualAccessVfis.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     evpnVirtualAccessVfis.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15005,6 +15477,7 @@ func (evpnVirtualAccessVfis *Evpn_EvpnTables_EvpnVirtualAccessVfis) GetEntityDat
 type Evpn_EvpnTables_EvpnVirtualAccessVfis_EvpnVirtualAccessVfi struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of the Virtual Access VFI. The type is string
     // with length: 1..32.
@@ -15023,6 +15496,7 @@ func (evpnVirtualAccessVfi *Evpn_EvpnTables_EvpnVirtualAccessVfis_EvpnVirtualAcc
     evpnVirtualAccessVfi.EntityData.BundleName = "cisco_ios_xr"
     evpnVirtualAccessVfi.EntityData.ParentYangName = "evpn-virtual-access-vfis"
     evpnVirtualAccessVfi.EntityData.SegmentPath = "evpn-virtual-access-vfi" + types.AddKeyToken(evpnVirtualAccessVfi.Name, "name")
+    evpnVirtualAccessVfi.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/evpn-virtual-access-vfis/" + evpnVirtualAccessVfi.EntityData.SegmentPath
     evpnVirtualAccessVfi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     evpnVirtualAccessVfi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     evpnVirtualAccessVfi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15067,6 +15541,7 @@ func (evpnVirtualAccessVfiTimers *Evpn_EvpnTables_EvpnVirtualAccessVfis_EvpnVirt
     evpnVirtualAccessVfiTimers.EntityData.BundleName = "cisco_ios_xr"
     evpnVirtualAccessVfiTimers.EntityData.ParentYangName = "evpn-virtual-access-vfi"
     evpnVirtualAccessVfiTimers.EntityData.SegmentPath = "evpn-virtual-access-vfi-timers"
+    evpnVirtualAccessVfiTimers.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/evpn-virtual-access-vfis/evpn-virtual-access-vfi/" + evpnVirtualAccessVfiTimers.EntityData.SegmentPath
     evpnVirtualAccessVfiTimers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     evpnVirtualAccessVfiTimers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     evpnVirtualAccessVfiTimers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15113,6 +15588,7 @@ func (evpnVirtualEthernetSegment *Evpn_EvpnTables_EvpnVirtualAccessVfis_EvpnVirt
     evpnVirtualEthernetSegment.EntityData.BundleName = "cisco_ios_xr"
     evpnVirtualEthernetSegment.EntityData.ParentYangName = "evpn-virtual-access-vfi"
     evpnVirtualEthernetSegment.EntityData.SegmentPath = "evpn-virtual-ethernet-segment"
+    evpnVirtualEthernetSegment.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/evpn-virtual-access-vfis/evpn-virtual-access-vfi/" + evpnVirtualEthernetSegment.EntityData.SegmentPath
     evpnVirtualEthernetSegment.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     evpnVirtualEthernetSegment.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     evpnVirtualEthernetSegment.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15169,6 +15645,7 @@ func (identifier *Evpn_EvpnTables_EvpnVirtualAccessVfis_EvpnVirtualAccessVfi_Evp
     identifier.EntityData.BundleName = "cisco_ios_xr"
     identifier.EntityData.ParentYangName = "evpn-virtual-ethernet-segment"
     identifier.EntityData.SegmentPath = "identifier"
+    identifier.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/evpn-virtual-access-vfis/evpn-virtual-access-vfi/evpn-virtual-ethernet-segment/" + identifier.EntityData.SegmentPath
     identifier.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     identifier.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     identifier.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15207,6 +15684,7 @@ func (manualServiceCarving *Evpn_EvpnTables_EvpnVirtualAccessVfis_EvpnVirtualAcc
     manualServiceCarving.EntityData.BundleName = "cisco_ios_xr"
     manualServiceCarving.EntityData.ParentYangName = "evpn-virtual-ethernet-segment"
     manualServiceCarving.EntityData.SegmentPath = "manual-service-carving"
+    manualServiceCarving.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/evpn-virtual-access-vfis/evpn-virtual-access-vfi/evpn-virtual-ethernet-segment/" + manualServiceCarving.EntityData.SegmentPath
     manualServiceCarving.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     manualServiceCarving.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     manualServiceCarving.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15240,6 +15718,7 @@ func (serviceList *Evpn_EvpnTables_EvpnVirtualAccessVfis_EvpnVirtualAccessVfi_Ev
     serviceList.EntityData.BundleName = "cisco_ios_xr"
     serviceList.EntityData.ParentYangName = "manual-service-carving"
     serviceList.EntityData.SegmentPath = "service-list"
+    serviceList.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/evpn-virtual-access-vfis/evpn-virtual-access-vfi/evpn-virtual-ethernet-segment/manual-service-carving/" + serviceList.EntityData.SegmentPath
     serviceList.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     serviceList.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     serviceList.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15273,6 +15752,7 @@ func (evpnLoadBalancing *Evpn_EvpnTables_EvpnLoadBalancing) GetEntityData() *typ
     evpnLoadBalancing.EntityData.BundleName = "cisco_ios_xr"
     evpnLoadBalancing.EntityData.ParentYangName = "evpn-tables"
     evpnLoadBalancing.EntityData.SegmentPath = "evpn-load-balancing"
+    evpnLoadBalancing.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/" + evpnLoadBalancing.EntityData.SegmentPath
     evpnLoadBalancing.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     evpnLoadBalancing.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     evpnLoadBalancing.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15306,6 +15786,7 @@ func (evpnBgpAutoDiscovery *Evpn_EvpnTables_EvpnBgpAutoDiscovery) GetEntityData(
     evpnBgpAutoDiscovery.EntityData.BundleName = "cisco_ios_xr"
     evpnBgpAutoDiscovery.EntityData.ParentYangName = "evpn-tables"
     evpnBgpAutoDiscovery.EntityData.SegmentPath = "evpn-bgp-auto-discovery"
+    evpnBgpAutoDiscovery.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/" + evpnBgpAutoDiscovery.EntityData.SegmentPath
     evpnBgpAutoDiscovery.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     evpnBgpAutoDiscovery.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     evpnBgpAutoDiscovery.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15351,6 +15832,7 @@ func (evpnRouteDistinguisher *Evpn_EvpnTables_EvpnBgpAutoDiscovery_EvpnRouteDist
     evpnRouteDistinguisher.EntityData.BundleName = "cisco_ios_xr"
     evpnRouteDistinguisher.EntityData.ParentYangName = "evpn-bgp-auto-discovery"
     evpnRouteDistinguisher.EntityData.SegmentPath = "evpn-route-distinguisher"
+    evpnRouteDistinguisher.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/evpn-bgp-auto-discovery/" + evpnRouteDistinguisher.EntityData.SegmentPath
     evpnRouteDistinguisher.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     evpnRouteDistinguisher.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     evpnRouteDistinguisher.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15385,6 +15867,7 @@ func (evpnGroups *Evpn_EvpnTables_EvpnGroups) GetEntityData() *types.CommonEntit
     evpnGroups.EntityData.BundleName = "cisco_ios_xr"
     evpnGroups.EntityData.ParentYangName = "evpn-tables"
     evpnGroups.EntityData.SegmentPath = "evpn-groups"
+    evpnGroups.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/" + evpnGroups.EntityData.SegmentPath
     evpnGroups.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     evpnGroups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     evpnGroups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15406,6 +15889,7 @@ func (evpnGroups *Evpn_EvpnTables_EvpnGroups) GetEntityData() *types.CommonEntit
 type Evpn_EvpnTables_EvpnGroups_EvpnGroup struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Group ID. The type is interface{} with range:
     // 1..4294967295.
@@ -15421,6 +15905,7 @@ func (evpnGroup *Evpn_EvpnTables_EvpnGroups_EvpnGroup) GetEntityData() *types.Co
     evpnGroup.EntityData.BundleName = "cisco_ios_xr"
     evpnGroup.EntityData.ParentYangName = "evpn-groups"
     evpnGroup.EntityData.SegmentPath = "evpn-group" + types.AddKeyToken(evpnGroup.GroupId, "group-id")
+    evpnGroup.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/evpn-groups/" + evpnGroup.EntityData.SegmentPath
     evpnGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     evpnGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     evpnGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15452,6 +15937,7 @@ func (evpnGroupCoreInterfaces *Evpn_EvpnTables_EvpnGroups_EvpnGroup_EvpnGroupCor
     evpnGroupCoreInterfaces.EntityData.BundleName = "cisco_ios_xr"
     evpnGroupCoreInterfaces.EntityData.ParentYangName = "evpn-group"
     evpnGroupCoreInterfaces.EntityData.SegmentPath = "evpn-group-core-interfaces"
+    evpnGroupCoreInterfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/evpn-groups/evpn-group/" + evpnGroupCoreInterfaces.EntityData.SegmentPath
     evpnGroupCoreInterfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     evpnGroupCoreInterfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     evpnGroupCoreInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15473,6 +15959,7 @@ func (evpnGroupCoreInterfaces *Evpn_EvpnTables_EvpnGroups_EvpnGroup_EvpnGroupCor
 type Evpn_EvpnTables_EvpnGroups_EvpnGroup_EvpnGroupCoreInterfaces_EvpnGroupCoreInterface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of the EVPN Group core interface. The type is
     // string with pattern: [a-zA-Z0-9._/-]+.
@@ -15485,6 +15972,7 @@ func (evpnGroupCoreInterface *Evpn_EvpnTables_EvpnGroups_EvpnGroup_EvpnGroupCore
     evpnGroupCoreInterface.EntityData.BundleName = "cisco_ios_xr"
     evpnGroupCoreInterface.EntityData.ParentYangName = "evpn-group-core-interfaces"
     evpnGroupCoreInterface.EntityData.SegmentPath = "evpn-group-core-interface" + types.AddKeyToken(evpnGroupCoreInterface.InterfaceName, "interface-name")
+    evpnGroupCoreInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/evpn-groups/evpn-group/evpn-group-core-interfaces/" + evpnGroupCoreInterface.EntityData.SegmentPath
     evpnGroupCoreInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     evpnGroupCoreInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     evpnGroupCoreInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15515,6 +16003,7 @@ func (evpnInstances *Evpn_EvpnTables_EvpnInstances) GetEntityData() *types.Commo
     evpnInstances.EntityData.BundleName = "cisco_ios_xr"
     evpnInstances.EntityData.ParentYangName = "evpn-tables"
     evpnInstances.EntityData.SegmentPath = "evpn-instances"
+    evpnInstances.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/" + evpnInstances.EntityData.SegmentPath
     evpnInstances.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     evpnInstances.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     evpnInstances.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15536,6 +16025,7 @@ func (evpnInstances *Evpn_EvpnTables_EvpnInstances) GetEntityData() *types.Commo
 type Evpn_EvpnTables_EvpnInstances_EvpnInstance struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. EVPN Instance ID. The type is interface{} with
     // range: 1..4294967295.
@@ -15586,6 +16076,7 @@ func (evpnInstance *Evpn_EvpnTables_EvpnInstances_EvpnInstance) GetEntityData() 
     evpnInstance.EntityData.BundleName = "cisco_ios_xr"
     evpnInstance.EntityData.ParentYangName = "evpn-instances"
     evpnInstance.EntityData.SegmentPath = "evpn-instance" + types.AddKeyToken(evpnInstance.VpnId, "vpn-id") + types.AddKeyToken(evpnInstance.Encapsulation, "encapsulation") + types.AddKeyToken(evpnInstance.Side, "side")
+    evpnInstance.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/evpn-instances/" + evpnInstance.EntityData.SegmentPath
     evpnInstance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     evpnInstance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     evpnInstance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15624,6 +16115,9 @@ type Evpn_EvpnTables_EvpnInstances_EvpnInstance_EvpnInstanceBgpAutoDiscovery str
     // string.
     TablePolicy interface{}
 
+    // Disables BGP Implicit Import. The type is interface{}.
+    ImplicitImportDisable interface{}
+
     // Route Distinguisher.
     EvpnRouteDistinguisher Evpn_EvpnTables_EvpnInstances_EvpnInstance_EvpnInstanceBgpAutoDiscovery_EvpnRouteDistinguisher
 
@@ -15637,6 +16131,7 @@ func (evpnInstanceBgpAutoDiscovery *Evpn_EvpnTables_EvpnInstances_EvpnInstance_E
     evpnInstanceBgpAutoDiscovery.EntityData.BundleName = "cisco_ios_xr"
     evpnInstanceBgpAutoDiscovery.EntityData.ParentYangName = "evpn-instance"
     evpnInstanceBgpAutoDiscovery.EntityData.SegmentPath = "evpn-instance-bgp-auto-discovery"
+    evpnInstanceBgpAutoDiscovery.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/evpn-instances/evpn-instance/" + evpnInstanceBgpAutoDiscovery.EntityData.SegmentPath
     evpnInstanceBgpAutoDiscovery.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     evpnInstanceBgpAutoDiscovery.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     evpnInstanceBgpAutoDiscovery.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15647,6 +16142,7 @@ func (evpnInstanceBgpAutoDiscovery *Evpn_EvpnTables_EvpnInstances_EvpnInstance_E
     evpnInstanceBgpAutoDiscovery.EntityData.Leafs = types.NewOrderedMap()
     evpnInstanceBgpAutoDiscovery.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", evpnInstanceBgpAutoDiscovery.Enable})
     evpnInstanceBgpAutoDiscovery.EntityData.Leafs.Append("table-policy", types.YLeaf{"TablePolicy", evpnInstanceBgpAutoDiscovery.TablePolicy})
+    evpnInstanceBgpAutoDiscovery.EntityData.Leafs.Append("implicit-import-disable", types.YLeaf{"ImplicitImportDisable", evpnInstanceBgpAutoDiscovery.ImplicitImportDisable})
 
     evpnInstanceBgpAutoDiscovery.EntityData.YListKeys = []string {}
 
@@ -15684,6 +16180,7 @@ func (evpnRouteDistinguisher *Evpn_EvpnTables_EvpnInstances_EvpnInstance_EvpnIns
     evpnRouteDistinguisher.EntityData.BundleName = "cisco_ios_xr"
     evpnRouteDistinguisher.EntityData.ParentYangName = "evpn-instance-bgp-auto-discovery"
     evpnRouteDistinguisher.EntityData.SegmentPath = "evpn-route-distinguisher"
+    evpnRouteDistinguisher.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/evpn-instances/evpn-instance/evpn-instance-bgp-auto-discovery/" + evpnRouteDistinguisher.EntityData.SegmentPath
     evpnRouteDistinguisher.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     evpnRouteDistinguisher.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     evpnRouteDistinguisher.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15726,6 +16223,7 @@ func (evpnRouteTargets *Evpn_EvpnTables_EvpnInstances_EvpnInstance_EvpnInstanceB
     evpnRouteTargets.EntityData.BundleName = "cisco_ios_xr"
     evpnRouteTargets.EntityData.ParentYangName = "evpn-instance-bgp-auto-discovery"
     evpnRouteTargets.EntityData.SegmentPath = "evpn-route-targets"
+    evpnRouteTargets.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/evpn-instances/evpn-instance/evpn-instance-bgp-auto-discovery/" + evpnRouteTargets.EntityData.SegmentPath
     evpnRouteTargets.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     evpnRouteTargets.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     evpnRouteTargets.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15755,6 +16253,7 @@ func (evpnRouteTargets *Evpn_EvpnTables_EvpnInstances_EvpnInstance_EvpnInstanceB
 type Evpn_EvpnTables_EvpnInstances_EvpnInstance_EvpnInstanceBgpAutoDiscovery_EvpnRouteTargets_EvpnRouteTargetAs struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Format of the route target. The type is
     // BgpRouteTargetFormat.
@@ -15783,6 +16282,7 @@ func (evpnRouteTargetAs *Evpn_EvpnTables_EvpnInstances_EvpnInstance_EvpnInstance
     evpnRouteTargetAs.EntityData.BundleName = "cisco_ios_xr"
     evpnRouteTargetAs.EntityData.ParentYangName = "evpn-route-targets"
     evpnRouteTargetAs.EntityData.SegmentPath = "evpn-route-target-as" + types.AddKeyToken(evpnRouteTargetAs.Format, "format") + types.AddKeyToken(evpnRouteTargetAs.Role, "role") + types.AddKeyToken(evpnRouteTargetAs.As, "as") + types.AddKeyToken(evpnRouteTargetAs.AsIndex, "as-index") + types.AddKeyToken(evpnRouteTargetAs.Stitching, "stitching")
+    evpnRouteTargetAs.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/evpn-instances/evpn-instance/evpn-instance-bgp-auto-discovery/evpn-route-targets/" + evpnRouteTargetAs.EntityData.SegmentPath
     evpnRouteTargetAs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     evpnRouteTargetAs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     evpnRouteTargetAs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15805,6 +16305,7 @@ func (evpnRouteTargetAs *Evpn_EvpnTables_EvpnInstances_EvpnInstance_EvpnInstance
 type Evpn_EvpnTables_EvpnInstances_EvpnInstance_EvpnInstanceBgpAutoDiscovery_EvpnRouteTargets_EvpnRouteTargetNone struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Format of the route target. The type is
     // BgpRouteTargetFormat.
@@ -15825,6 +16326,7 @@ func (evpnRouteTargetNone *Evpn_EvpnTables_EvpnInstances_EvpnInstance_EvpnInstan
     evpnRouteTargetNone.EntityData.BundleName = "cisco_ios_xr"
     evpnRouteTargetNone.EntityData.ParentYangName = "evpn-route-targets"
     evpnRouteTargetNone.EntityData.SegmentPath = "evpn-route-target-none" + types.AddKeyToken(evpnRouteTargetNone.Format, "format") + types.AddKeyToken(evpnRouteTargetNone.Role, "role") + types.AddKeyToken(evpnRouteTargetNone.Stitching, "stitching")
+    evpnRouteTargetNone.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/evpn-instances/evpn-instance/evpn-instance-bgp-auto-discovery/evpn-route-targets/" + evpnRouteTargetNone.EntityData.SegmentPath
     evpnRouteTargetNone.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     evpnRouteTargetNone.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     evpnRouteTargetNone.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15845,6 +16347,7 @@ func (evpnRouteTargetNone *Evpn_EvpnTables_EvpnInstances_EvpnInstance_EvpnInstan
 type Evpn_EvpnTables_EvpnInstances_EvpnInstance_EvpnInstanceBgpAutoDiscovery_EvpnRouteTargets_EvpnRouteTargetIpv4Address struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Format of the route target. The type is
     // BgpRouteTargetFormat.
@@ -15873,6 +16376,7 @@ func (evpnRouteTargetIpv4Address *Evpn_EvpnTables_EvpnInstances_EvpnInstance_Evp
     evpnRouteTargetIpv4Address.EntityData.BundleName = "cisco_ios_xr"
     evpnRouteTargetIpv4Address.EntityData.ParentYangName = "evpn-route-targets"
     evpnRouteTargetIpv4Address.EntityData.SegmentPath = "evpn-route-target-ipv4-address" + types.AddKeyToken(evpnRouteTargetIpv4Address.Format, "format") + types.AddKeyToken(evpnRouteTargetIpv4Address.Role, "role") + types.AddKeyToken(evpnRouteTargetIpv4Address.Address, "address") + types.AddKeyToken(evpnRouteTargetIpv4Address.AddrIndex, "addr-index") + types.AddKeyToken(evpnRouteTargetIpv4Address.Stitching, "stitching")
+    evpnRouteTargetIpv4Address.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/evpn-instances/evpn-instance/evpn-instance-bgp-auto-discovery/evpn-route-targets/" + evpnRouteTargetIpv4Address.EntityData.SegmentPath
     evpnRouteTargetIpv4Address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     evpnRouteTargetIpv4Address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     evpnRouteTargetIpv4Address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15910,6 +16414,7 @@ func (evpnInstanceAdvertiseMac *Evpn_EvpnTables_EvpnInstances_EvpnInstance_EvpnI
     evpnInstanceAdvertiseMac.EntityData.BundleName = "cisco_ios_xr"
     evpnInstanceAdvertiseMac.EntityData.ParentYangName = "evpn-instance"
     evpnInstanceAdvertiseMac.EntityData.SegmentPath = "evpn-instance-advertise-mac"
+    evpnInstanceAdvertiseMac.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/evpn-instances/evpn-instance/" + evpnInstanceAdvertiseMac.EntityData.SegmentPath
     evpnInstanceAdvertiseMac.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     evpnInstanceAdvertiseMac.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     evpnInstanceAdvertiseMac.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15943,6 +16448,7 @@ func (evpnInstanceMulticast *Evpn_EvpnTables_EvpnInstances_EvpnInstance_EvpnInst
     evpnInstanceMulticast.EntityData.BundleName = "cisco_ios_xr"
     evpnInstanceMulticast.EntityData.ParentYangName = "evpn-instance"
     evpnInstanceMulticast.EntityData.SegmentPath = "evpn-instance-multicast"
+    evpnInstanceMulticast.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/evpn-instances/evpn-instance/" + evpnInstanceMulticast.EntityData.SegmentPath
     evpnInstanceMulticast.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     evpnInstanceMulticast.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     evpnInstanceMulticast.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15976,6 +16482,7 @@ func (evpnInstanceLoadBalancing *Evpn_EvpnTables_EvpnInstances_EvpnInstance_Evpn
     evpnInstanceLoadBalancing.EntityData.BundleName = "cisco_ios_xr"
     evpnInstanceLoadBalancing.EntityData.ParentYangName = "evpn-instance"
     evpnInstanceLoadBalancing.EntityData.SegmentPath = "evpn-instance-load-balancing"
+    evpnInstanceLoadBalancing.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/evpn-instances/evpn-instance/" + evpnInstanceLoadBalancing.EntityData.SegmentPath
     evpnInstanceLoadBalancing.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     evpnInstanceLoadBalancing.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     evpnInstanceLoadBalancing.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16009,6 +16516,7 @@ func (evpnLogging *Evpn_EvpnTables_EvpnLogging) GetEntityData() *types.CommonEnt
     evpnLogging.EntityData.BundleName = "cisco_ios_xr"
     evpnLogging.EntityData.ParentYangName = "evpn-tables"
     evpnLogging.EntityData.SegmentPath = "evpn-logging"
+    evpnLogging.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/" + evpnLogging.EntityData.SegmentPath
     evpnLogging.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     evpnLogging.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     evpnLogging.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16040,6 +16548,7 @@ func (evpnInterfaces *Evpn_EvpnTables_EvpnInterfaces) GetEntityData() *types.Com
     evpnInterfaces.EntityData.BundleName = "cisco_ios_xr"
     evpnInterfaces.EntityData.ParentYangName = "evpn-tables"
     evpnInterfaces.EntityData.SegmentPath = "evpn-interfaces"
+    evpnInterfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/" + evpnInterfaces.EntityData.SegmentPath
     evpnInterfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     evpnInterfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     evpnInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16061,6 +16570,7 @@ func (evpnInterfaces *Evpn_EvpnTables_EvpnInterfaces) GetEntityData() *types.Com
 type Evpn_EvpnTables_EvpnInterfaces_EvpnInterface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of the attachment circuit interface. The type
     // is string with pattern: [a-zA-Z0-9._/-]+.
@@ -16086,6 +16596,7 @@ func (evpnInterface *Evpn_EvpnTables_EvpnInterfaces_EvpnInterface) GetEntityData
     evpnInterface.EntityData.BundleName = "cisco_ios_xr"
     evpnInterface.EntityData.ParentYangName = "evpn-interfaces"
     evpnInterface.EntityData.SegmentPath = "evpn-interface" + types.AddKeyToken(evpnInterface.InterfaceName, "interface-name")
+    evpnInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/evpn-interfaces/" + evpnInterface.EntityData.SegmentPath
     evpnInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     evpnInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     evpnInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16132,6 +16643,7 @@ func (evpnacTimers *Evpn_EvpnTables_EvpnInterfaces_EvpnInterface_EvpnacTimers) G
     evpnacTimers.EntityData.BundleName = "cisco_ios_xr"
     evpnacTimers.EntityData.ParentYangName = "evpn-interface"
     evpnacTimers.EntityData.SegmentPath = "evpnac-timers"
+    evpnacTimers.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/evpn-interfaces/evpn-interface/" + evpnacTimers.EntityData.SegmentPath
     evpnacTimers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     evpnacTimers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     evpnacTimers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16189,6 +16701,7 @@ func (ethernetSegment *Evpn_EvpnTables_EvpnInterfaces_EvpnInterface_EthernetSegm
     ethernetSegment.EntityData.BundleName = "cisco_ios_xr"
     ethernetSegment.EntityData.ParentYangName = "evpn-interface"
     ethernetSegment.EntityData.SegmentPath = "ethernet-segment"
+    ethernetSegment.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/evpn-interfaces/evpn-interface/" + ethernetSegment.EntityData.SegmentPath
     ethernetSegment.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ethernetSegment.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ethernetSegment.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16248,6 +16761,7 @@ func (identifier *Evpn_EvpnTables_EvpnInterfaces_EvpnInterface_EthernetSegment_I
     identifier.EntityData.BundleName = "cisco_ios_xr"
     identifier.EntityData.ParentYangName = "ethernet-segment"
     identifier.EntityData.SegmentPath = "identifier"
+    identifier.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/evpn-interfaces/evpn-interface/ethernet-segment/" + identifier.EntityData.SegmentPath
     identifier.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     identifier.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     identifier.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16286,6 +16800,7 @@ func (manualServiceCarving *Evpn_EvpnTables_EvpnInterfaces_EvpnInterface_Etherne
     manualServiceCarving.EntityData.BundleName = "cisco_ios_xr"
     manualServiceCarving.EntityData.ParentYangName = "ethernet-segment"
     manualServiceCarving.EntityData.SegmentPath = "manual-service-carving"
+    manualServiceCarving.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/evpn-interfaces/evpn-interface/ethernet-segment/" + manualServiceCarving.EntityData.SegmentPath
     manualServiceCarving.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     manualServiceCarving.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     manualServiceCarving.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16319,6 +16834,7 @@ func (serviceList *Evpn_EvpnTables_EvpnInterfaces_EvpnInterface_EthernetSegment_
     serviceList.EntityData.BundleName = "cisco_ios_xr"
     serviceList.EntityData.ParentYangName = "manual-service-carving"
     serviceList.EntityData.SegmentPath = "service-list"
+    serviceList.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/evpn-interfaces/evpn-interface/ethernet-segment/manual-service-carving/" + serviceList.EntityData.SegmentPath
     serviceList.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     serviceList.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     serviceList.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16350,6 +16866,7 @@ func (evpnVirtualAccessPws *Evpn_EvpnTables_EvpnVirtualAccessPws) GetEntityData(
     evpnVirtualAccessPws.EntityData.BundleName = "cisco_ios_xr"
     evpnVirtualAccessPws.EntityData.ParentYangName = "evpn-tables"
     evpnVirtualAccessPws.EntityData.SegmentPath = "evpn-virtual-access-pws"
+    evpnVirtualAccessPws.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/" + evpnVirtualAccessPws.EntityData.SegmentPath
     evpnVirtualAccessPws.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     evpnVirtualAccessPws.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     evpnVirtualAccessPws.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16371,6 +16888,7 @@ func (evpnVirtualAccessPws *Evpn_EvpnTables_EvpnVirtualAccessPws) GetEntityData(
 type Evpn_EvpnTables_EvpnVirtualAccessPws_EvpnVirtualAccessPw struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Neighbor IP address. The type is string with
     // pattern:
@@ -16394,6 +16912,7 @@ func (evpnVirtualAccessPw *Evpn_EvpnTables_EvpnVirtualAccessPws_EvpnVirtualAcces
     evpnVirtualAccessPw.EntityData.BundleName = "cisco_ios_xr"
     evpnVirtualAccessPw.EntityData.ParentYangName = "evpn-virtual-access-pws"
     evpnVirtualAccessPw.EntityData.SegmentPath = "evpn-virtual-access-pw" + types.AddKeyToken(evpnVirtualAccessPw.Neighbor, "neighbor") + types.AddKeyToken(evpnVirtualAccessPw.PseudowireId, "pseudowire-id")
+    evpnVirtualAccessPw.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/evpn-virtual-access-pws/" + evpnVirtualAccessPw.EntityData.SegmentPath
     evpnVirtualAccessPw.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     evpnVirtualAccessPw.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     evpnVirtualAccessPw.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16439,6 +16958,7 @@ func (evpnVirtualAccessPwTimers *Evpn_EvpnTables_EvpnVirtualAccessPws_EvpnVirtua
     evpnVirtualAccessPwTimers.EntityData.BundleName = "cisco_ios_xr"
     evpnVirtualAccessPwTimers.EntityData.ParentYangName = "evpn-virtual-access-pw"
     evpnVirtualAccessPwTimers.EntityData.SegmentPath = "evpn-virtual-access-pw-timers"
+    evpnVirtualAccessPwTimers.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/evpn-virtual-access-pws/evpn-virtual-access-pw/" + evpnVirtualAccessPwTimers.EntityData.SegmentPath
     evpnVirtualAccessPwTimers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     evpnVirtualAccessPwTimers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     evpnVirtualAccessPwTimers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16485,6 +17005,7 @@ func (evpnVirtualEthernetSegment *Evpn_EvpnTables_EvpnVirtualAccessPws_EvpnVirtu
     evpnVirtualEthernetSegment.EntityData.BundleName = "cisco_ios_xr"
     evpnVirtualEthernetSegment.EntityData.ParentYangName = "evpn-virtual-access-pw"
     evpnVirtualEthernetSegment.EntityData.SegmentPath = "evpn-virtual-ethernet-segment"
+    evpnVirtualEthernetSegment.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/evpn-virtual-access-pws/evpn-virtual-access-pw/" + evpnVirtualEthernetSegment.EntityData.SegmentPath
     evpnVirtualEthernetSegment.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     evpnVirtualEthernetSegment.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     evpnVirtualEthernetSegment.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16541,6 +17062,7 @@ func (identifier *Evpn_EvpnTables_EvpnVirtualAccessPws_EvpnVirtualAccessPw_EvpnV
     identifier.EntityData.BundleName = "cisco_ios_xr"
     identifier.EntityData.ParentYangName = "evpn-virtual-ethernet-segment"
     identifier.EntityData.SegmentPath = "identifier"
+    identifier.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/evpn-virtual-access-pws/evpn-virtual-access-pw/evpn-virtual-ethernet-segment/" + identifier.EntityData.SegmentPath
     identifier.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     identifier.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     identifier.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16579,6 +17101,7 @@ func (manualServiceCarving *Evpn_EvpnTables_EvpnVirtualAccessPws_EvpnVirtualAcce
     manualServiceCarving.EntityData.BundleName = "cisco_ios_xr"
     manualServiceCarving.EntityData.ParentYangName = "evpn-virtual-ethernet-segment"
     manualServiceCarving.EntityData.SegmentPath = "manual-service-carving"
+    manualServiceCarving.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/evpn-virtual-access-pws/evpn-virtual-access-pw/evpn-virtual-ethernet-segment/" + manualServiceCarving.EntityData.SegmentPath
     manualServiceCarving.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     manualServiceCarving.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     manualServiceCarving.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16612,6 +17135,7 @@ func (serviceList *Evpn_EvpnTables_EvpnVirtualAccessPws_EvpnVirtualAccessPw_Evpn
     serviceList.EntityData.BundleName = "cisco_ios_xr"
     serviceList.EntityData.ParentYangName = "manual-service-carving"
     serviceList.EntityData.SegmentPath = "service-list"
+    serviceList.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/evpn-virtual-access-pws/evpn-virtual-access-pw/evpn-virtual-ethernet-segment/manual-service-carving/" + serviceList.EntityData.SegmentPath
     serviceList.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     serviceList.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     serviceList.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16645,6 +17169,7 @@ func (evpnEthernetSegment *Evpn_EvpnTables_EvpnEthernetSegment) GetEntityData() 
     evpnEthernetSegment.EntityData.BundleName = "cisco_ios_xr"
     evpnEthernetSegment.EntityData.ParentYangName = "evpn-tables"
     evpnEthernetSegment.EntityData.SegmentPath = "evpn-ethernet-segment"
+    evpnEthernetSegment.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/" + evpnEthernetSegment.EntityData.SegmentPath
     evpnEthernetSegment.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     evpnEthernetSegment.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     evpnEthernetSegment.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16676,6 +17201,7 @@ func (evpnEsiTypes *Evpn_EvpnTables_EvpnEthernetSegment_EvpnEsiTypes) GetEntityD
     evpnEsiTypes.EntityData.BundleName = "cisco_ios_xr"
     evpnEsiTypes.EntityData.ParentYangName = "evpn-ethernet-segment"
     evpnEsiTypes.EntityData.SegmentPath = "evpn-esi-types"
+    evpnEsiTypes.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/evpn-ethernet-segment/" + evpnEsiTypes.EntityData.SegmentPath
     evpnEsiTypes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     evpnEsiTypes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     evpnEsiTypes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16697,6 +17223,7 @@ func (evpnEsiTypes *Evpn_EvpnTables_EvpnEthernetSegment_EvpnEsiTypes) GetEntityD
 type Evpn_EvpnTables_EvpnEthernetSegment_EvpnEsiTypes_EvpnEsiType struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. ESI type. The type is interface{} with range:
     // 0..4294967295.
@@ -16712,6 +17239,7 @@ func (evpnEsiType *Evpn_EvpnTables_EvpnEthernetSegment_EvpnEsiTypes_EvpnEsiType)
     evpnEsiType.EntityData.BundleName = "cisco_ios_xr"
     evpnEsiType.EntityData.ParentYangName = "evpn-esi-types"
     evpnEsiType.EntityData.SegmentPath = "evpn-esi-type" + types.AddKeyToken(evpnEsiType.EsiType, "esi-type")
+    evpnEsiType.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/evpn-ethernet-segment/evpn-esi-types/" + evpnEsiType.EntityData.SegmentPath
     evpnEsiType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     evpnEsiType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     evpnEsiType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

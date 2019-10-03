@@ -4,7 +4,7 @@
 // This module contains a collection of YANG
 // definitions for Cisco IOS-XR SysAdmin configuration.
 // 
-// Fault management YANG model. 
+// Fault management YANG model.
 // 
 // Copyright(c) 2014-2017 by Cisco Systems, Inc.
 // All rights reserved.
@@ -163,6 +163,7 @@ func (fm *Fm) GetEntityData() *types.CommonEntityData {
     fm.EntityData.BundleName = "cisco_ios_xr"
     fm.EntityData.ParentYangName = "Cisco-IOS-XR-sysadmin-fm"
     fm.EntityData.SegmentPath = "Cisco-IOS-XR-sysadmin-fm:fm"
+    fm.EntityData.AbsolutePath = fm.EntityData.SegmentPath
     fm.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fm.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fm.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -183,6 +184,7 @@ func (fm *Fm) GetEntityData() *types.CommonEntityData {
 type Fm_Agents struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     Location interface{}
@@ -218,6 +220,7 @@ func (agents *Fm_Agents) GetEntityData() *types.CommonEntityData {
     agents.EntityData.BundleName = "cisco_ios_xr"
     agents.EntityData.ParentYangName = "fm"
     agents.EntityData.SegmentPath = "agents" + types.AddKeyToken(agents.Location, "location") + types.AddKeyToken(agents.Process, "process") + types.AddKeyToken(agents.Subsystem, "subsystem") + types.AddKeyToken(agents.Agent, "agent")
+    agents.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-fm:fm/" + agents.EntityData.SegmentPath
     agents.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     agents.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     agents.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -282,6 +285,7 @@ func (fmInitials *Fm_Agents_FmInitials) GetEntityData() *types.CommonEntityData 
     fmInitials.EntityData.BundleName = "cisco_ios_xr"
     fmInitials.EntityData.ParentYangName = "agents"
     fmInitials.EntityData.SegmentPath = "fm_initials"
+    fmInitials.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-fm:fm/agents/" + fmInitials.EntityData.SegmentPath
     fmInitials.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fmInitials.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fmInitials.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -320,6 +324,7 @@ func (fmTable *Fm_Agents_FmTable) GetEntityData() *types.CommonEntityData {
     fmTable.EntityData.BundleName = "cisco_ios_xr"
     fmTable.EntityData.ParentYangName = "agents"
     fmTable.EntityData.SegmentPath = "fm_table"
+    fmTable.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-fm:fm/agents/" + fmTable.EntityData.SegmentPath
     fmTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fmTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fmTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -344,6 +349,7 @@ func (fmTable *Fm_Agents_FmTable) GetEntityData() *types.CommonEntityData {
 type Fm_Agents_FmTable_Brief struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Fault sub-system identifier. The type is string.
     FmSubsystemId interface{}
@@ -364,6 +370,7 @@ func (brief *Fm_Agents_FmTable_Brief) GetEntityData() *types.CommonEntityData {
     brief.EntityData.BundleName = "cisco_ios_xr"
     brief.EntityData.ParentYangName = "fm_table"
     brief.EntityData.SegmentPath = "brief" + types.AddKeyToken(brief.FmSubsystemId, "fm_subsystem_id") + types.AddKeyToken(brief.FmFaultType, "fm_fault_type") + types.AddKeyToken(brief.FmFaultTag, "fm_fault_tag")
+    brief.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-fm:fm/agents/fm_table/" + brief.EntityData.SegmentPath
     brief.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     brief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     brief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -384,6 +391,7 @@ func (brief *Fm_Agents_FmTable_Brief) GetEntityData() *types.CommonEntityData {
 type Fm_Agents_FmTable_Entry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Fault sub-system identifier. The type is string.
     FmSubsystemId interface{}
@@ -430,6 +438,7 @@ func (entry *Fm_Agents_FmTable_Entry) GetEntityData() *types.CommonEntityData {
     entry.EntityData.BundleName = "cisco_ios_xr"
     entry.EntityData.ParentYangName = "fm_table"
     entry.EntityData.SegmentPath = "entry" + types.AddKeyToken(entry.FmSubsystemId, "fm_subsystem_id") + types.AddKeyToken(entry.FmFaultType, "fm_fault_type") + types.AddKeyToken(entry.FmFaultTag, "fm_fault_tag")
+    entry.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-fm:fm/agents/fm_table/" + entry.EntityData.SegmentPath
     entry.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     entry.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     entry.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -502,6 +511,7 @@ func (detail *Fm_Agents_FmTable_Entry_Detail) GetEntityData() *types.CommonEntit
     detail.EntityData.BundleName = "cisco_ios_xr"
     detail.EntityData.ParentYangName = "entry"
     detail.EntityData.SegmentPath = "detail"
+    detail.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-fm:fm/agents/fm_table/entry/" + detail.EntityData.SegmentPath
     detail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     detail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     detail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -526,6 +536,7 @@ func (detail *Fm_Agents_FmTable_Entry_Detail) GetEntityData() *types.CommonEntit
 type Fm_Agents_FmTable_Entry_CausalList struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Fault sub-system identifier. The type is string.
     FmSubsystemId interface{}
@@ -543,6 +554,7 @@ func (causalList *Fm_Agents_FmTable_Entry_CausalList) GetEntityData() *types.Com
     causalList.EntityData.BundleName = "cisco_ios_xr"
     causalList.EntityData.ParentYangName = "entry"
     causalList.EntityData.SegmentPath = "causal_list" + types.AddKeyToken(causalList.FmSubsystemId, "fm_subsystem_id") + types.AddKeyToken(causalList.FmFaultType, "fm_fault_type") + types.AddKeyToken(causalList.FmFaultTag, "fm_fault_tag")
+    causalList.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-fm:fm/agents/fm_table/entry/" + causalList.EntityData.SegmentPath
     causalList.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     causalList.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     causalList.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -563,6 +575,7 @@ func (causalList *Fm_Agents_FmTable_Entry_CausalList) GetEntityData() *types.Com
 type Fm_Agents_FmTable_Entry_DependencyList struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Fault sub-system identifier. The type is string.
     FmSubsystemId interface{}
@@ -580,6 +593,7 @@ func (dependencyList *Fm_Agents_FmTable_Entry_DependencyList) GetEntityData() *t
     dependencyList.EntityData.BundleName = "cisco_ios_xr"
     dependencyList.EntityData.ParentYangName = "entry"
     dependencyList.EntityData.SegmentPath = "dependency_list" + types.AddKeyToken(dependencyList.FmSubsystemId, "fm_subsystem_id") + types.AddKeyToken(dependencyList.FmFaultType, "fm_fault_type") + types.AddKeyToken(dependencyList.FmFaultTag, "fm_fault_tag")
+    dependencyList.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-fm:fm/agents/fm_table/entry/" + dependencyList.EntityData.SegmentPath
     dependencyList.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dependencyList.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dependencyList.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -600,6 +614,7 @@ func (dependencyList *Fm_Agents_FmTable_Entry_DependencyList) GetEntityData() *t
 type Fm_Agents_FmTable_Entry_PropagationList struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Fault sub-system identifier. The type is string.
     FmSubsystemId interface{}
@@ -620,6 +635,7 @@ func (propagationList *Fm_Agents_FmTable_Entry_PropagationList) GetEntityData() 
     propagationList.EntityData.BundleName = "cisco_ios_xr"
     propagationList.EntityData.ParentYangName = "entry"
     propagationList.EntityData.SegmentPath = "propagation_list" + types.AddKeyToken(propagationList.FmSubsystemId, "fm_subsystem_id") + types.AddKeyToken(propagationList.FmFaultType, "fm_fault_type") + types.AddKeyToken(propagationList.FmFaultTag, "fm_fault_tag")
+    propagationList.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-fm:fm/agents/fm_table/entry/" + propagationList.EntityData.SegmentPath
     propagationList.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     propagationList.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     propagationList.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -641,6 +657,7 @@ func (propagationList *Fm_Agents_FmTable_Entry_PropagationList) GetEntityData() 
 type Fm_Agents_FmTable_Entry_NotificationList struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Fault sub-system identifier. The type is string.
     FmSubsystemId interface{}
@@ -661,6 +678,7 @@ func (notificationList *Fm_Agents_FmTable_Entry_NotificationList) GetEntityData(
     notificationList.EntityData.BundleName = "cisco_ios_xr"
     notificationList.EntityData.ParentYangName = "entry"
     notificationList.EntityData.SegmentPath = "notification_list" + types.AddKeyToken(notificationList.FmSubsystemId, "fm_subsystem_id") + types.AddKeyToken(notificationList.FmFaultType, "fm_fault_type") + types.AddKeyToken(notificationList.FmFaultTag, "fm_fault_tag")
+    notificationList.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-fm:fm/agents/fm_table/entry/" + notificationList.EntityData.SegmentPath
     notificationList.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     notificationList.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     notificationList.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -682,6 +700,7 @@ func (notificationList *Fm_Agents_FmTable_Entry_NotificationList) GetEntityData(
 type Fm_Agents_FmTable_Entry_EscalationList struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Fault sub-system identifier. The type is string.
     FmSubsystemId interface{}
@@ -702,6 +721,7 @@ func (escalationList *Fm_Agents_FmTable_Entry_EscalationList) GetEntityData() *t
     escalationList.EntityData.BundleName = "cisco_ios_xr"
     escalationList.EntityData.ParentYangName = "entry"
     escalationList.EntityData.SegmentPath = "escalation_list" + types.AddKeyToken(escalationList.FmSubsystemId, "fm_subsystem_id") + types.AddKeyToken(escalationList.FmFaultType, "fm_fault_type") + types.AddKeyToken(escalationList.FmFaultTag, "fm_fault_tag")
+    escalationList.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-fm:fm/agents/fm_table/entry/" + escalationList.EntityData.SegmentPath
     escalationList.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     escalationList.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     escalationList.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -736,6 +756,7 @@ func (faults *Fm_Agents_FmTable_Entry_Faults) GetEntityData() *types.CommonEntit
     faults.EntityData.BundleName = "cisco_ios_xr"
     faults.EntityData.ParentYangName = "entry"
     faults.EntityData.SegmentPath = "faults"
+    faults.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-fm:fm/agents/fm_table/entry/" + faults.EntityData.SegmentPath
     faults.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     faults.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     faults.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -768,6 +789,7 @@ func (active *Fm_Agents_FmTable_Entry_Faults_Active) GetEntityData() *types.Comm
     active.EntityData.BundleName = "cisco_ios_xr"
     active.EntityData.ParentYangName = "faults"
     active.EntityData.SegmentPath = "active"
+    active.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-fm:fm/agents/fm_table/entry/faults/" + active.EntityData.SegmentPath
     active.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     active.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     active.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -792,6 +814,7 @@ func (active *Fm_Agents_FmTable_Entry_Faults_Active) GetEntityData() *types.Comm
 type Fm_Agents_FmTable_Entry_Faults_Active_Brief struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The fault object ID. The type is string.
     ObjectId interface{}
@@ -807,6 +830,7 @@ func (brief *Fm_Agents_FmTable_Entry_Faults_Active_Brief) GetEntityData() *types
     brief.EntityData.BundleName = "cisco_ios_xr"
     brief.EntityData.ParentYangName = "active"
     brief.EntityData.SegmentPath = "brief" + types.AddKeyToken(brief.ObjectId, "object_id")
+    brief.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-fm:fm/agents/fm_table/entry/faults/active/" + brief.EntityData.SegmentPath
     brief.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     brief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     brief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -825,6 +849,7 @@ func (brief *Fm_Agents_FmTable_Entry_Faults_Active_Brief) GetEntityData() *types
 type Fm_Agents_FmTable_Entry_Faults_Active_Detail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The fault object ID. The type is string.
     ObjectId interface{}
@@ -894,6 +919,7 @@ func (detail *Fm_Agents_FmTable_Entry_Faults_Active_Detail) GetEntityData() *typ
     detail.EntityData.BundleName = "cisco_ios_xr"
     detail.EntityData.ParentYangName = "active"
     detail.EntityData.SegmentPath = "detail" + types.AddKeyToken(detail.ObjectId, "object_id")
+    detail.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-fm:fm/agents/fm_table/entry/faults/active/" + detail.EntityData.SegmentPath
     detail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     detail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     detail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -942,6 +968,7 @@ func (history *Fm_Agents_FmTable_Entry_Faults_History) GetEntityData() *types.Co
     history.EntityData.BundleName = "cisco_ios_xr"
     history.EntityData.ParentYangName = "faults"
     history.EntityData.SegmentPath = "history"
+    history.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-fm:fm/agents/fm_table/entry/faults/" + history.EntityData.SegmentPath
     history.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     history.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     history.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -966,6 +993,7 @@ func (history *Fm_Agents_FmTable_Entry_Faults_History) GetEntityData() *types.Co
 type Fm_Agents_FmTable_Entry_Faults_History_Brief struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The fault object ID. The type is string.
     ObjectId interface{}
@@ -981,6 +1009,7 @@ func (brief *Fm_Agents_FmTable_Entry_Faults_History_Brief) GetEntityData() *type
     brief.EntityData.BundleName = "cisco_ios_xr"
     brief.EntityData.ParentYangName = "history"
     brief.EntityData.SegmentPath = "brief" + types.AddKeyToken(brief.ObjectId, "object_id")
+    brief.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-fm:fm/agents/fm_table/entry/faults/history/" + brief.EntityData.SegmentPath
     brief.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     brief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     brief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -999,6 +1028,7 @@ func (brief *Fm_Agents_FmTable_Entry_Faults_History_Brief) GetEntityData() *type
 type Fm_Agents_FmTable_Entry_Faults_History_Detail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The fault object ID. The type is string.
     ObjectId interface{}
@@ -1068,6 +1098,7 @@ func (detail *Fm_Agents_FmTable_Entry_Faults_History_Detail) GetEntityData() *ty
     detail.EntityData.BundleName = "cisco_ios_xr"
     detail.EntityData.ParentYangName = "history"
     detail.EntityData.SegmentPath = "detail" + types.AddKeyToken(detail.ObjectId, "object_id")
+    detail.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-fm:fm/agents/fm_table/entry/faults/history/" + detail.EntityData.SegmentPath
     detail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     detail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     detail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1116,6 +1147,7 @@ func (waitingList *Fm_Agents_FmTable_Entry_WaitingList) GetEntityData() *types.C
     waitingList.EntityData.BundleName = "cisco_ios_xr"
     waitingList.EntityData.ParentYangName = "entry"
     waitingList.EntityData.SegmentPath = "waiting_list"
+    waitingList.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-fm:fm/agents/fm_table/entry/" + waitingList.EntityData.SegmentPath
     waitingList.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     waitingList.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     waitingList.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1140,6 +1172,7 @@ func (waitingList *Fm_Agents_FmTable_Entry_WaitingList) GetEntityData() *types.C
 type Fm_Agents_FmTable_Entry_WaitingList_Brief struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Fault sub-system identifier. The type is string.
     FmSubsystemId interface{}
@@ -1175,6 +1208,7 @@ func (brief *Fm_Agents_FmTable_Entry_WaitingList_Brief) GetEntityData() *types.C
     brief.EntityData.BundleName = "cisco_ios_xr"
     brief.EntityData.ParentYangName = "waiting_list"
     brief.EntityData.SegmentPath = "brief" + types.AddKeyToken(brief.FmSubsystemId, "fm_subsystem_id") + types.AddKeyToken(brief.FmFaultType, "fm_fault_type") + types.AddKeyToken(brief.FmFaultTag, "fm_fault_tag")
+    brief.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-fm:fm/agents/fm_table/entry/waiting_list/" + brief.EntityData.SegmentPath
     brief.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     brief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     brief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1199,6 +1233,7 @@ func (brief *Fm_Agents_FmTable_Entry_WaitingList_Brief) GetEntityData() *types.C
 type Fm_Agents_FmTable_Entry_WaitingList_Entry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Fault sub-system identifier. The type is string.
     FmSubsystemId interface{}
@@ -1234,6 +1269,7 @@ func (entry *Fm_Agents_FmTable_Entry_WaitingList_Entry) GetEntityData() *types.C
     entry.EntityData.BundleName = "cisco_ios_xr"
     entry.EntityData.ParentYangName = "waiting_list"
     entry.EntityData.SegmentPath = "entry" + types.AddKeyToken(entry.FmSubsystemId, "fm_subsystem_id") + types.AddKeyToken(entry.FmFaultType, "fm_fault_type") + types.AddKeyToken(entry.FmFaultTag, "fm_fault_tag")
+    entry.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-fm:fm/agents/fm_table/entry/waiting_list/" + entry.EntityData.SegmentPath
     entry.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     entry.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     entry.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1269,6 +1305,7 @@ func (fmInternals *Fm_Agents_FmInternals) GetEntityData() *types.CommonEntityDat
     fmInternals.EntityData.BundleName = "cisco_ios_xr"
     fmInternals.EntityData.ParentYangName = "agents"
     fmInternals.EntityData.SegmentPath = "fm_internals"
+    fmInternals.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-fm:fm/agents/" + fmInternals.EntityData.SegmentPath
     fmInternals.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fmInternals.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fmInternals.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1289,6 +1326,7 @@ func (fmInternals *Fm_Agents_FmInternals) GetEntityData() *types.CommonEntityDat
 type Fm_Agents_FmInternals_Detail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Fault sub-system identifier. The type is string.
     FmSubsystemId interface{}
@@ -1343,6 +1381,7 @@ func (detail *Fm_Agents_FmInternals_Detail) GetEntityData() *types.CommonEntityD
     detail.EntityData.BundleName = "cisco_ios_xr"
     detail.EntityData.ParentYangName = "fm_internals"
     detail.EntityData.SegmentPath = "detail" + types.AddKeyToken(detail.FmSubsystemId, "fm_subsystem_id") + types.AddKeyToken(detail.FmFaultType, "fm_fault_type") + types.AddKeyToken(detail.FmFaultTag, "fm_fault_tag")
+    detail.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-fm:fm/agents/fm_internals/" + detail.EntityData.SegmentPath
     detail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     detail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     detail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1350,6 +1389,7 @@ func (detail *Fm_Agents_FmInternals_Detail) GetEntityData() *types.CommonEntityD
     detail.EntityData.Children = types.NewOrderedMap()
     detail.EntityData.Children.Append("rules", types.YChild{"Rules", nil})
     for i := range detail.Rules {
+        types.SetYListKey(detail.Rules[i], i)
         detail.EntityData.Children.Append(types.GetSegmentPath(detail.Rules[i]), types.YChild{"Rules", detail.Rules[i]})
     }
     detail.EntityData.Leafs = types.NewOrderedMap()
@@ -1377,6 +1417,7 @@ func (detail *Fm_Agents_FmInternals_Detail) GetEntityData() *types.CommonEntityD
 type Fm_Agents_FmInternals_Detail_Rules struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The location associated with the fault. The type is string.
     FaultLocation interface{}
@@ -1391,7 +1432,8 @@ func (rules *Fm_Agents_FmInternals_Detail_Rules) GetEntityData() *types.CommonEn
     rules.EntityData.YangName = "rules"
     rules.EntityData.BundleName = "cisco_ios_xr"
     rules.EntityData.ParentYangName = "detail"
-    rules.EntityData.SegmentPath = "rules"
+    rules.EntityData.SegmentPath = "rules" + types.AddNoKeyToken(rules)
+    rules.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-fm:fm/agents/fm_internals/detail/" + rules.EntityData.SegmentPath
     rules.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rules.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rules.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1421,6 +1463,7 @@ func (fmAlarmMapping *Fm_Agents_FmAlarmMapping) GetEntityData() *types.CommonEnt
     fmAlarmMapping.EntityData.BundleName = "cisco_ios_xr"
     fmAlarmMapping.EntityData.ParentYangName = "agents"
     fmAlarmMapping.EntityData.SegmentPath = "fm_alarm_mapping"
+    fmAlarmMapping.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-fm:fm/agents/" + fmAlarmMapping.EntityData.SegmentPath
     fmAlarmMapping.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fmAlarmMapping.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fmAlarmMapping.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1441,6 +1484,7 @@ func (fmAlarmMapping *Fm_Agents_FmAlarmMapping) GetEntityData() *types.CommonEnt
 type Fm_Agents_FmAlarmMapping_Detail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Fault sub-system identifier. The type is string.
     FmSubsystemId interface{}
@@ -1466,6 +1510,7 @@ func (detail *Fm_Agents_FmAlarmMapping_Detail) GetEntityData() *types.CommonEnti
     detail.EntityData.BundleName = "cisco_ios_xr"
     detail.EntityData.ParentYangName = "fm_alarm_mapping"
     detail.EntityData.SegmentPath = "detail" + types.AddKeyToken(detail.FmSubsystemId, "fm_subsystem_id") + types.AddKeyToken(detail.FmFaultType, "fm_fault_type") + types.AddKeyToken(detail.FmFaultTag, "fm_fault_tag")
+    detail.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-fm:fm/agents/fm_alarm_mapping/" + detail.EntityData.SegmentPath
     detail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     detail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     detail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1498,6 +1543,7 @@ func (fmStatistics *Fm_Agents_FmStatistics) GetEntityData() *types.CommonEntityD
     fmStatistics.EntityData.BundleName = "cisco_ios_xr"
     fmStatistics.EntityData.ParentYangName = "agents"
     fmStatistics.EntityData.SegmentPath = "fm_statistics"
+    fmStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-fm:fm/agents/" + fmStatistics.EntityData.SegmentPath
     fmStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fmStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fmStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1518,6 +1564,7 @@ func (fmStatistics *Fm_Agents_FmStatistics) GetEntityData() *types.CommonEntityD
 type Fm_Agents_FmStatistics_Detail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Fault sub-system identifier. The type is string.
     FmSubsystemId interface{}
@@ -1558,6 +1605,7 @@ func (detail *Fm_Agents_FmStatistics_Detail) GetEntityData() *types.CommonEntity
     detail.EntityData.BundleName = "cisco_ios_xr"
     detail.EntityData.ParentYangName = "fm_statistics"
     detail.EntityData.SegmentPath = "detail" + types.AddKeyToken(detail.FmSubsystemId, "fm_subsystem_id") + types.AddKeyToken(detail.FmFaultType, "fm_fault_type") + types.AddKeyToken(detail.FmFaultTag, "fm_fault_tag")
+    detail.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-fm:fm/agents/fm_statistics/" + detail.EntityData.SegmentPath
     detail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     detail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     detail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

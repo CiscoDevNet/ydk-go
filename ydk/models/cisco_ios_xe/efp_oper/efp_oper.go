@@ -35,6 +35,7 @@ func (efpStats *EfpStats) GetEntityData() *types.CommonEntityData {
     efpStats.EntityData.BundleName = "cisco_ios_xe"
     efpStats.EntityData.ParentYangName = "Cisco-IOS-XE-efp-oper"
     efpStats.EntityData.SegmentPath = "Cisco-IOS-XE-efp-oper:efp-stats"
+    efpStats.EntityData.AbsolutePath = efpStats.EntityData.SegmentPath
     efpStats.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     efpStats.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     efpStats.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -56,6 +57,7 @@ func (efpStats *EfpStats) GetEntityData() *types.CommonEntityData {
 type EfpStats_EfpStat struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. EFP id. The type is interface{} with range:
     // 0..4294967295.
@@ -87,6 +89,7 @@ func (efpStat *EfpStats_EfpStat) GetEntityData() *types.CommonEntityData {
     efpStat.EntityData.BundleName = "cisco_ios_xe"
     efpStat.EntityData.ParentYangName = "efp-stats"
     efpStat.EntityData.SegmentPath = "efp-stat" + types.AddKeyToken(efpStat.Id, "id") + types.AddKeyToken(efpStat.Interface, "interface")
+    efpStat.EntityData.AbsolutePath = "Cisco-IOS-XE-efp-oper:efp-stats/" + efpStat.EntityData.SegmentPath
     efpStat.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     efpStat.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     efpStat.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

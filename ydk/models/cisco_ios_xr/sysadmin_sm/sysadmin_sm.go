@@ -68,6 +68,7 @@ func (oper *Oper) GetEntityData() *types.CommonEntityData {
     oper.EntityData.BundleName = "cisco_ios_xr"
     oper.EntityData.ParentYangName = "Cisco-IOS-XR-sysadmin-sm"
     oper.EntityData.SegmentPath = "Cisco-IOS-XR-sysadmin-sm:oper"
+    oper.EntityData.AbsolutePath = oper.EntityData.SegmentPath
     oper.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     oper.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     oper.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -106,6 +107,7 @@ func (shelfMgr *Oper_ShelfMgr) GetEntityData() *types.CommonEntityData {
     shelfMgr.EntityData.BundleName = "cisco_ios_xr"
     shelfMgr.EntityData.ParentYangName = "oper"
     shelfMgr.EntityData.SegmentPath = "shelf_mgr"
+    shelfMgr.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-sm:oper/" + shelfMgr.EntityData.SegmentPath
     shelfMgr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     shelfMgr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     shelfMgr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -127,6 +129,7 @@ func (shelfMgr *Oper_ShelfMgr) GetEntityData() *types.CommonEntityData {
 type Oper_ShelfMgr_Trace struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     Buffer interface{}
@@ -141,6 +144,7 @@ func (trace *Oper_ShelfMgr_Trace) GetEntityData() *types.CommonEntityData {
     trace.EntityData.BundleName = "cisco_ios_xr"
     trace.EntityData.ParentYangName = "shelf_mgr"
     trace.EntityData.SegmentPath = "trace" + types.AddKeyToken(trace.Buffer, "buffer")
+    trace.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-sm:oper/shelf_mgr/" + trace.EntityData.SegmentPath
     trace.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trace.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trace.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -162,6 +166,7 @@ func (trace *Oper_ShelfMgr_Trace) GetEntityData() *types.CommonEntityData {
 type Oper_ShelfMgr_Trace_Location struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     LocationName interface{}
@@ -176,6 +181,7 @@ func (location *Oper_ShelfMgr_Trace_Location) GetEntityData() *types.CommonEntit
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "trace"
     location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.LocationName, "location_name")
+    location.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-sm:oper/shelf_mgr/trace/" + location.EntityData.SegmentPath
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -197,6 +203,7 @@ func (location *Oper_ShelfMgr_Trace_Location) GetEntityData() *types.CommonEntit
 type Oper_ShelfMgr_Trace_Location_AllOptions struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     Option interface{}
@@ -211,6 +218,7 @@ func (allOptions *Oper_ShelfMgr_Trace_Location_AllOptions) GetEntityData() *type
     allOptions.EntityData.BundleName = "cisco_ios_xr"
     allOptions.EntityData.ParentYangName = "location"
     allOptions.EntityData.SegmentPath = "all-options" + types.AddKeyToken(allOptions.Option, "option")
+    allOptions.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-sm:oper/shelf_mgr/trace/location/" + allOptions.EntityData.SegmentPath
     allOptions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     allOptions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     allOptions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -218,6 +226,7 @@ func (allOptions *Oper_ShelfMgr_Trace_Location_AllOptions) GetEntityData() *type
     allOptions.EntityData.Children = types.NewOrderedMap()
     allOptions.EntityData.Children.Append("trace-blocks", types.YChild{"TraceBlocks", nil})
     for i := range allOptions.TraceBlocks {
+        types.SetYListKey(allOptions.TraceBlocks[i], i)
         allOptions.EntityData.Children.Append(types.GetSegmentPath(allOptions.TraceBlocks[i]), types.YChild{"TraceBlocks", allOptions.TraceBlocks[i]})
     }
     allOptions.EntityData.Leafs = types.NewOrderedMap()
@@ -232,6 +241,7 @@ func (allOptions *Oper_ShelfMgr_Trace_Location_AllOptions) GetEntityData() *type
 type Oper_ShelfMgr_Trace_Location_AllOptions_TraceBlocks struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Trace output block. The type is string.
     Data interface{}
@@ -242,7 +252,8 @@ func (traceBlocks *Oper_ShelfMgr_Trace_Location_AllOptions_TraceBlocks) GetEntit
     traceBlocks.EntityData.YangName = "trace-blocks"
     traceBlocks.EntityData.BundleName = "cisco_ios_xr"
     traceBlocks.EntityData.ParentYangName = "all-options"
-    traceBlocks.EntityData.SegmentPath = "trace-blocks"
+    traceBlocks.EntityData.SegmentPath = "trace-blocks" + types.AddNoKeyToken(traceBlocks)
+    traceBlocks.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-sm:oper/shelf_mgr/trace/location/all-options/" + traceBlocks.EntityData.SegmentPath
     traceBlocks.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     traceBlocks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     traceBlocks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -277,6 +288,7 @@ func (platform *Oper_Platform) GetEntityData() *types.CommonEntityData {
     platform.EntityData.BundleName = "cisco_ios_xr"
     platform.EntityData.ParentYangName = "oper"
     platform.EntityData.SegmentPath = "platform"
+    platform.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-sm:oper/" + platform.EntityData.SegmentPath
     platform.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     platform.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     platform.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -307,6 +319,7 @@ func (summary *Oper_Platform_Summary) GetEntityData() *types.CommonEntityData {
     summary.EntityData.BundleName = "cisco_ios_xr"
     summary.EntityData.ParentYangName = "platform"
     summary.EntityData.SegmentPath = "summary"
+    summary.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-sm:oper/platform/" + summary.EntityData.SegmentPath
     summary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     summary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     summary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -327,6 +340,7 @@ func (summary *Oper_Platform_Summary) GetEntityData() *types.CommonEntityData {
 type Oper_Platform_Summary_Location struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with pattern:
     // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-7])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[0-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
@@ -342,6 +356,7 @@ func (location *Oper_Platform_Summary_Location) GetEntityData() *types.CommonEnt
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "summary"
     location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.Location, "location")
+    location.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-sm:oper/platform/summary/" + location.EntityData.SegmentPath
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -380,6 +395,7 @@ func (summaryData *Oper_Platform_Summary_Location_SummaryData) GetEntityData() *
     summaryData.EntityData.BundleName = "cisco_ios_xr"
     summaryData.EntityData.ParentYangName = "location"
     summaryData.EntityData.SegmentPath = "summary-data"
+    summaryData.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-sm:oper/platform/summary/location/" + summaryData.EntityData.SegmentPath
     summaryData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     summaryData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     summaryData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -411,6 +427,7 @@ func (detail *Oper_Platform_Detail) GetEntityData() *types.CommonEntityData {
     detail.EntityData.BundleName = "cisco_ios_xr"
     detail.EntityData.ParentYangName = "platform"
     detail.EntityData.SegmentPath = "detail"
+    detail.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-sm:oper/platform/" + detail.EntityData.SegmentPath
     detail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     detail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     detail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -431,6 +448,7 @@ func (detail *Oper_Platform_Detail) GetEntityData() *types.CommonEntityData {
 type Oper_Platform_Detail_Location struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with pattern:
     // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-7])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[0-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
@@ -446,6 +464,7 @@ func (location *Oper_Platform_Detail_Location) GetEntityData() *types.CommonEnti
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "detail"
     location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.Location, "location")
+    location.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-sm:oper/platform/detail/" + location.EntityData.SegmentPath
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -499,6 +518,7 @@ func (detailData *Oper_Platform_Detail_Location_DetailData) GetEntityData() *typ
     detailData.EntityData.BundleName = "cisco_ios_xr"
     detailData.EntityData.ParentYangName = "location"
     detailData.EntityData.SegmentPath = "detail-data"
+    detailData.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-sm:oper/platform/detail/location/" + detailData.EntityData.SegmentPath
     detailData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     detailData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     detailData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -535,6 +555,7 @@ func (slices *Oper_Platform_Slices) GetEntityData() *types.CommonEntityData {
     slices.EntityData.BundleName = "cisco_ios_xr"
     slices.EntityData.ParentYangName = "platform"
     slices.EntityData.SegmentPath = "slices"
+    slices.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-sm:oper/platform/" + slices.EntityData.SegmentPath
     slices.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     slices.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     slices.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -555,6 +576,7 @@ func (slices *Oper_Platform_Slices) GetEntityData() *types.CommonEntityData {
 type Oper_Platform_Slices_Location struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with pattern:
     // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-7])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[0-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
@@ -570,6 +592,7 @@ func (location *Oper_Platform_Slices_Location) GetEntityData() *types.CommonEnti
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "slices"
     location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.Location, "location")
+    location.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-sm:oper/platform/slices/" + location.EntityData.SegmentPath
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -591,6 +614,7 @@ func (location *Oper_Platform_Slices_Location) GetEntityData() *types.CommonEnti
 type Oper_Platform_Slices_Location_SliceValues struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is interface{} with range: 0..4294967295.
     SliceIdx interface{}
@@ -605,6 +629,7 @@ func (sliceValues *Oper_Platform_Slices_Location_SliceValues) GetEntityData() *t
     sliceValues.EntityData.BundleName = "cisco_ios_xr"
     sliceValues.EntityData.ParentYangName = "location"
     sliceValues.EntityData.SegmentPath = "slice_values" + types.AddKeyToken(sliceValues.SliceIdx, "slice_idx")
+    sliceValues.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-sm:oper/platform/slices/location/" + sliceValues.EntityData.SegmentPath
     sliceValues.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sliceValues.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sliceValues.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -640,6 +665,7 @@ func (slice *Oper_Platform_Slices_Location_SliceValues_Slice) GetEntityData() *t
     slice.EntityData.BundleName = "cisco_ios_xr"
     slice.EntityData.ParentYangName = "slice_values"
     slice.EntityData.SegmentPath = "slice"
+    slice.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-sm:oper/platform/slices/location/slice_values/" + slice.EntityData.SegmentPath
     slice.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     slice.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     slice.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -670,6 +696,7 @@ func (chassis *Oper_Chassis) GetEntityData() *types.CommonEntityData {
     chassis.EntityData.BundleName = "cisco_ios_xr"
     chassis.EntityData.ParentYangName = "oper"
     chassis.EntityData.SegmentPath = "chassis"
+    chassis.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-sm:oper/" + chassis.EntityData.SegmentPath
     chassis.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     chassis.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     chassis.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -698,6 +725,7 @@ func (brief *Oper_Chassis_Brief) GetEntityData() *types.CommonEntityData {
     brief.EntityData.BundleName = "cisco_ios_xr"
     brief.EntityData.ParentYangName = "chassis"
     brief.EntityData.SegmentPath = "brief"
+    brief.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-sm:oper/chassis/" + brief.EntityData.SegmentPath
     brief.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     brief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     brief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -718,6 +746,7 @@ func (brief *Oper_Chassis_Brief) GetEntityData() *types.CommonEntityData {
 type Oper_Chassis_Brief_ChassisSerial struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     SerialNumber interface{}
@@ -732,6 +761,7 @@ func (chassisSerial *Oper_Chassis_Brief_ChassisSerial) GetEntityData() *types.Co
     chassisSerial.EntityData.BundleName = "cisco_ios_xr"
     chassisSerial.EntityData.ParentYangName = "brief"
     chassisSerial.EntityData.SegmentPath = "chassis_serial" + types.AddKeyToken(chassisSerial.SerialNumber, "serial_number")
+    chassisSerial.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-sm:oper/chassis/brief/" + chassisSerial.EntityData.SegmentPath
     chassisSerial.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     chassisSerial.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     chassisSerial.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -773,6 +803,7 @@ func (briefData *Oper_Chassis_Brief_ChassisSerial_BriefData) GetEntityData() *ty
     briefData.EntityData.BundleName = "cisco_ios_xr"
     briefData.EntityData.ParentYangName = "chassis_serial"
     briefData.EntityData.SegmentPath = "brief-data"
+    briefData.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-sm:oper/chassis/brief/chassis_serial/" + briefData.EntityData.SegmentPath
     briefData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     briefData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     briefData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -805,6 +836,7 @@ func (reload *Oper_Reload) GetEntityData() *types.CommonEntityData {
     reload.EntityData.BundleName = "cisco_ios_xr"
     reload.EntityData.ParentYangName = "oper"
     reload.EntityData.SegmentPath = "reload"
+    reload.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-sm:oper/" + reload.EntityData.SegmentPath
     reload.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     reload.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     reload.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -833,6 +865,7 @@ func (rack *Oper_Reload_Rack) GetEntityData() *types.CommonEntityData {
     rack.EntityData.BundleName = "cisco_ios_xr"
     rack.EntityData.ParentYangName = "reload"
     rack.EntityData.SegmentPath = "rack"
+    rack.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-sm:oper/reload/" + rack.EntityData.SegmentPath
     rack.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rack.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rack.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -853,6 +886,7 @@ func (rack *Oper_Reload_Rack) GetEntityData() *types.CommonEntityData {
 type Oper_Reload_Rack_Racks struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     Rack interface{}
@@ -864,6 +898,7 @@ func (racks *Oper_Reload_Rack_Racks) GetEntityData() *types.CommonEntityData {
     racks.EntityData.BundleName = "cisco_ios_xr"
     racks.EntityData.ParentYangName = "rack"
     racks.EntityData.SegmentPath = "racks" + types.AddKeyToken(racks.Rack, "rack")
+    racks.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-sm:oper/reload/rack/" + racks.EntityData.SegmentPath
     racks.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     racks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     racks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -898,6 +933,7 @@ func (rebootHistory *Oper_RebootHistory) GetEntityData() *types.CommonEntityData
     rebootHistory.EntityData.BundleName = "cisco_ios_xr"
     rebootHistory.EntityData.ParentYangName = "oper"
     rebootHistory.EntityData.SegmentPath = "reboot-history"
+    rebootHistory.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-sm:oper/" + rebootHistory.EntityData.SegmentPath
     rebootHistory.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rebootHistory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rebootHistory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -928,6 +964,7 @@ func (card *Oper_RebootHistory_Card) GetEntityData() *types.CommonEntityData {
     card.EntityData.BundleName = "cisco_ios_xr"
     card.EntityData.ParentYangName = "reboot-history"
     card.EntityData.SegmentPath = "card"
+    card.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-sm:oper/reboot-history/" + card.EntityData.SegmentPath
     card.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     card.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     card.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -948,6 +985,7 @@ func (card *Oper_RebootHistory_Card) GetEntityData() *types.CommonEntityData {
 type Oper_RebootHistory_Card_Location struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with pattern:
     // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-7])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[0-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
@@ -963,6 +1001,7 @@ func (location *Oper_RebootHistory_Card_Location) GetEntityData() *types.CommonE
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "card"
     location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.Location, "location")
+    location.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-sm:oper/reboot-history/card/" + location.EntityData.SegmentPath
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -984,6 +1023,7 @@ func (location *Oper_RebootHistory_Card_Location) GetEntityData() *types.CommonE
 type Oper_RebootHistory_Card_Location_Events struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is interface{} with range: 0..4294967295.
     EventIdx interface{}
@@ -998,6 +1038,7 @@ func (events *Oper_RebootHistory_Card_Location_Events) GetEntityData() *types.Co
     events.EntityData.BundleName = "cisco_ios_xr"
     events.EntityData.ParentYangName = "location"
     events.EntityData.SegmentPath = "events" + types.AddKeyToken(events.EventIdx, "event_idx")
+    events.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-sm:oper/reboot-history/card/location/" + events.EntityData.SegmentPath
     events.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     events.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     events.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1039,6 +1080,7 @@ func (event *Oper_RebootHistory_Card_Location_Events_Event) GetEntityData() *typ
     event.EntityData.BundleName = "cisco_ios_xr"
     event.EntityData.ParentYangName = "events"
     event.EntityData.SegmentPath = "event"
+    event.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-sm:oper/reboot-history/card/location/events/" + event.EntityData.SegmentPath
     event.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     event.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     event.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1071,6 +1113,7 @@ func (adminVm *Oper_RebootHistory_AdminVm) GetEntityData() *types.CommonEntityDa
     adminVm.EntityData.BundleName = "cisco_ios_xr"
     adminVm.EntityData.ParentYangName = "reboot-history"
     adminVm.EntityData.SegmentPath = "admin-vm"
+    adminVm.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-sm:oper/reboot-history/" + adminVm.EntityData.SegmentPath
     adminVm.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     adminVm.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     adminVm.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1091,6 +1134,7 @@ func (adminVm *Oper_RebootHistory_AdminVm) GetEntityData() *types.CommonEntityDa
 type Oper_RebootHistory_AdminVm_Location struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with pattern:
     // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-7])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[0-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
@@ -1106,6 +1150,7 @@ func (location *Oper_RebootHistory_AdminVm_Location) GetEntityData() *types.Comm
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "admin-vm"
     location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.Location, "location")
+    location.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-sm:oper/reboot-history/admin-vm/" + location.EntityData.SegmentPath
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1127,6 +1172,7 @@ func (location *Oper_RebootHistory_AdminVm_Location) GetEntityData() *types.Comm
 type Oper_RebootHistory_AdminVm_Location_Events struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is interface{} with range: 0..4294967295.
     EventIdx interface{}
@@ -1141,6 +1187,7 @@ func (events *Oper_RebootHistory_AdminVm_Location_Events) GetEntityData() *types
     events.EntityData.BundleName = "cisco_ios_xr"
     events.EntityData.ParentYangName = "location"
     events.EntityData.SegmentPath = "events" + types.AddKeyToken(events.EventIdx, "event_idx")
+    events.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-sm:oper/reboot-history/admin-vm/location/" + events.EntityData.SegmentPath
     events.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     events.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     events.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1182,6 +1229,7 @@ func (event *Oper_RebootHistory_AdminVm_Location_Events_Event) GetEntityData() *
     event.EntityData.BundleName = "cisco_ios_xr"
     event.EntityData.ParentYangName = "events"
     event.EntityData.SegmentPath = "event"
+    event.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-sm:oper/reboot-history/admin-vm/location/events/" + event.EntityData.SegmentPath
     event.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     event.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     event.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1217,6 +1265,7 @@ func (reverse *Oper_RebootHistory_Reverse) GetEntityData() *types.CommonEntityDa
     reverse.EntityData.BundleName = "cisco_ios_xr"
     reverse.EntityData.ParentYangName = "reboot-history"
     reverse.EntityData.SegmentPath = "reverse"
+    reverse.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-sm:oper/reboot-history/" + reverse.EntityData.SegmentPath
     reverse.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     reverse.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     reverse.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1246,6 +1295,7 @@ func (card *Oper_RebootHistory_Reverse_Card) GetEntityData() *types.CommonEntity
     card.EntityData.BundleName = "cisco_ios_xr"
     card.EntityData.ParentYangName = "reverse"
     card.EntityData.SegmentPath = "card"
+    card.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-sm:oper/reboot-history/reverse/" + card.EntityData.SegmentPath
     card.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     card.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     card.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1266,6 +1316,7 @@ func (card *Oper_RebootHistory_Reverse_Card) GetEntityData() *types.CommonEntity
 type Oper_RebootHistory_Reverse_Card_Location struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with pattern:
     // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-7])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[0-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
@@ -1281,6 +1332,7 @@ func (location *Oper_RebootHistory_Reverse_Card_Location) GetEntityData() *types
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "card"
     location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.Location, "location")
+    location.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-sm:oper/reboot-history/reverse/card/" + location.EntityData.SegmentPath
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1302,6 +1354,7 @@ func (location *Oper_RebootHistory_Reverse_Card_Location) GetEntityData() *types
 type Oper_RebootHistory_Reverse_Card_Location_Events struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is interface{} with range: 0..4294967295.
     EventIdx interface{}
@@ -1316,6 +1369,7 @@ func (events *Oper_RebootHistory_Reverse_Card_Location_Events) GetEntityData() *
     events.EntityData.BundleName = "cisco_ios_xr"
     events.EntityData.ParentYangName = "location"
     events.EntityData.SegmentPath = "events" + types.AddKeyToken(events.EventIdx, "event_idx")
+    events.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-sm:oper/reboot-history/reverse/card/location/" + events.EntityData.SegmentPath
     events.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     events.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     events.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1357,6 +1411,7 @@ func (event *Oper_RebootHistory_Reverse_Card_Location_Events_Event) GetEntityDat
     event.EntityData.BundleName = "cisco_ios_xr"
     event.EntityData.ParentYangName = "events"
     event.EntityData.SegmentPath = "event"
+    event.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-sm:oper/reboot-history/reverse/card/location/events/" + event.EntityData.SegmentPath
     event.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     event.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     event.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1389,6 +1444,7 @@ func (adminVm *Oper_RebootHistory_Reverse_AdminVm) GetEntityData() *types.Common
     adminVm.EntityData.BundleName = "cisco_ios_xr"
     adminVm.EntityData.ParentYangName = "reverse"
     adminVm.EntityData.SegmentPath = "admin-vm"
+    adminVm.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-sm:oper/reboot-history/reverse/" + adminVm.EntityData.SegmentPath
     adminVm.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     adminVm.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     adminVm.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1409,6 +1465,7 @@ func (adminVm *Oper_RebootHistory_Reverse_AdminVm) GetEntityData() *types.Common
 type Oper_RebootHistory_Reverse_AdminVm_Location struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with pattern:
     // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-7])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[0-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
@@ -1424,6 +1481,7 @@ func (location *Oper_RebootHistory_Reverse_AdminVm_Location) GetEntityData() *ty
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "admin-vm"
     location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.Location, "location")
+    location.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-sm:oper/reboot-history/reverse/admin-vm/" + location.EntityData.SegmentPath
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1445,6 +1503,7 @@ func (location *Oper_RebootHistory_Reverse_AdminVm_Location) GetEntityData() *ty
 type Oper_RebootHistory_Reverse_AdminVm_Location_Events struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is interface{} with range: 0..4294967295.
     EventIdx interface{}
@@ -1459,6 +1518,7 @@ func (events *Oper_RebootHistory_Reverse_AdminVm_Location_Events) GetEntityData(
     events.EntityData.BundleName = "cisco_ios_xr"
     events.EntityData.ParentYangName = "location"
     events.EntityData.SegmentPath = "events" + types.AddKeyToken(events.EventIdx, "event_idx")
+    events.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-sm:oper/reboot-history/reverse/admin-vm/location/" + events.EntityData.SegmentPath
     events.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     events.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     events.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1500,6 +1560,7 @@ func (event *Oper_RebootHistory_Reverse_AdminVm_Location_Events_Event) GetEntity
     event.EntityData.BundleName = "cisco_ios_xr"
     event.EntityData.ParentYangName = "events"
     event.EntityData.SegmentPath = "event"
+    event.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-sm:oper/reboot-history/reverse/admin-vm/location/events/" + event.EntityData.SegmentPath
     event.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     event.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     event.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1521,6 +1582,7 @@ func (event *Oper_RebootHistory_Reverse_AdminVm_Location_Events_Event) GetEntity
 type Oper_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     Ifname interface{}
@@ -1535,6 +1597,7 @@ func (self *Oper_Interface) GetEntityData() *types.CommonEntityData {
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "oper"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.Ifname, "ifname")
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-sm:oper/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1625,6 +1688,7 @@ func (interfaceData *Oper_Interface_InterfaceData) GetEntityData() *types.Common
     interfaceData.EntityData.BundleName = "cisco_ios_xr"
     interfaceData.EntityData.ParentYangName = "interface"
     interfaceData.EntityData.SegmentPath = "interface-data"
+    interfaceData.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-sm:oper/interface/" + interfaceData.EntityData.SegmentPath
     interfaceData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1673,6 +1737,7 @@ func (reloadVm *Oper_ReloadVm) GetEntityData() *types.CommonEntityData {
     reloadVm.EntityData.BundleName = "cisco_ios_xr"
     reloadVm.EntityData.ParentYangName = "oper"
     reloadVm.EntityData.SegmentPath = "reload_vm"
+    reloadVm.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-sm:oper/" + reloadVm.EntityData.SegmentPath
     reloadVm.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     reloadVm.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     reloadVm.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1693,6 +1758,7 @@ func (reloadVm *Oper_ReloadVm) GetEntityData() *types.CommonEntityData {
 type Oper_ReloadVm_Location struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     Location interface{}
@@ -1704,6 +1770,7 @@ func (location *Oper_ReloadVm_Location) GetEntityData() *types.CommonEntityData 
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "reload_vm"
     location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.Location, "location")
+    location.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-sm:oper/reload_vm/" + location.EntityData.SegmentPath
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1732,6 +1799,7 @@ func (macpool *Oper_Macpool) GetEntityData() *types.CommonEntityData {
     macpool.EntityData.BundleName = "cisco_ios_xr"
     macpool.EntityData.ParentYangName = "oper"
     macpool.EntityData.SegmentPath = "macpool"
+    macpool.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-sm:oper/" + macpool.EntityData.SegmentPath
     macpool.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     macpool.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     macpool.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1760,6 +1828,7 @@ func (brief *Oper_Macpool_Brief) GetEntityData() *types.CommonEntityData {
     brief.EntityData.BundleName = "cisco_ios_xr"
     brief.EntityData.ParentYangName = "macpool"
     brief.EntityData.SegmentPath = "brief"
+    brief.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-sm:oper/macpool/" + brief.EntityData.SegmentPath
     brief.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     brief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     brief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1780,6 +1849,7 @@ func (brief *Oper_Macpool_Brief) GetEntityData() *types.CommonEntityData {
 type Oper_Macpool_Brief_Rack struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     SerialNumber interface{}
@@ -1794,6 +1864,7 @@ func (rack *Oper_Macpool_Brief_Rack) GetEntityData() *types.CommonEntityData {
     rack.EntityData.BundleName = "cisco_ios_xr"
     rack.EntityData.ParentYangName = "brief"
     rack.EntityData.SegmentPath = "rack" + types.AddKeyToken(rack.SerialNumber, "serial_number")
+    rack.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-sm:oper/macpool/brief/" + rack.EntityData.SegmentPath
     rack.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rack.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rack.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1835,6 +1906,7 @@ func (briefData *Oper_Macpool_Brief_Rack_BriefData) GetEntityData() *types.Commo
     briefData.EntityData.BundleName = "cisco_ios_xr"
     briefData.EntityData.ParentYangName = "rack"
     briefData.EntityData.SegmentPath = "brief-data"
+    briefData.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-sm:oper/macpool/brief/rack/" + briefData.EntityData.SegmentPath
     briefData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     briefData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     briefData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1876,6 +1948,7 @@ func (config *Config) GetEntityData() *types.CommonEntityData {
     config.EntityData.BundleName = "cisco_ios_xr"
     config.EntityData.ParentYangName = "Cisco-IOS-XR-sysadmin-sm"
     config.EntityData.SegmentPath = "Cisco-IOS-XR-sysadmin-sm:config"
+    config.EntityData.AbsolutePath = config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     config.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1907,6 +1980,7 @@ func (chassis *Config_Chassis) GetEntityData() *types.CommonEntityData {
     chassis.EntityData.BundleName = "cisco_ios_xr"
     chassis.EntityData.ParentYangName = "config"
     chassis.EntityData.SegmentPath = "chassis"
+    chassis.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-sm:config/" + chassis.EntityData.SegmentPath
     chassis.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     chassis.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     chassis.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1927,6 +2001,7 @@ func (chassis *Config_Chassis) GetEntityData() *types.CommonEntityData {
 type Config_Chassis_Serial struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string. This attribute is mandatory.
     Serial interface{}
@@ -1943,6 +2018,7 @@ func (serial *Config_Chassis_Serial) GetEntityData() *types.CommonEntityData {
     serial.EntityData.BundleName = "cisco_ios_xr"
     serial.EntityData.ParentYangName = "chassis"
     serial.EntityData.SegmentPath = "serial" + types.AddKeyToken(serial.Serial, "serial")
+    serial.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-sm:config/chassis/" + serial.EntityData.SegmentPath
     serial.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     serial.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     serial.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1972,6 +2048,7 @@ func (self *Config_Interface) GetEntityData() *types.CommonEntityData {
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "config"
     self.EntityData.SegmentPath = "interface"
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-sm:config/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2000,6 +2077,7 @@ func (mgmtEth *Config_Interface_MgmtEth) GetEntityData() *types.CommonEntityData
     mgmtEth.EntityData.BundleName = "cisco_ios_xr"
     mgmtEth.EntityData.ParentYangName = "interface"
     mgmtEth.EntityData.SegmentPath = "MgmtEth"
+    mgmtEth.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-sm:config/interface/" + mgmtEth.EntityData.SegmentPath
     mgmtEth.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mgmtEth.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mgmtEth.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2020,6 +2098,7 @@ func (mgmtEth *Config_Interface_MgmtEth) GetEntityData() *types.CommonEntityData
 type Config_Interface_MgmtEth_Locport struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with pattern:
     // [fF][0-7]|[0-9]|[1][0-5]|[bB][0-9].
@@ -2029,10 +2108,10 @@ type Config_Interface_MgmtEth_Locport struct {
     // [Rr][Pp][0-1]|[Rr][Ss][Pp][0-1]|[Ss][Cc][0-1]|[cC][bB][0-9].
     Slot interface{}
 
-    // This attribute is a key. The type is interface{} with range: 0..None.
+    // This attribute is a key. The type is interface{} with range: 0..0.
     Intf interface{}
 
-    // This attribute is a key. The type is interface{} with range: 0..None.
+    // This attribute is a key. The type is interface{} with range: 0..0.
     Port interface{}
 
     // The type is interface{}.
@@ -2058,6 +2137,7 @@ func (locport *Config_Interface_MgmtEth_Locport) GetEntityData() *types.CommonEn
     locport.EntityData.BundleName = "cisco_ios_xr"
     locport.EntityData.ParentYangName = "MgmtEth"
     locport.EntityData.SegmentPath = "locport" + types.AddKeyToken(locport.Rack, "rack") + types.AddKeyToken(locport.Slot, "slot") + types.AddKeyToken(locport.Intf, "intf") + types.AddKeyToken(locport.Port, "port")
+    locport.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-sm:config/interface/MgmtEth/" + locport.EntityData.SegmentPath
     locport.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     locport.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     locport.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2096,6 +2176,7 @@ func (ipv4 *Config_Interface_MgmtEth_Locport_Ipv4) GetEntityData() *types.Common
     ipv4.EntityData.BundleName = "cisco_ios_xr"
     ipv4.EntityData.ParentYangName = "locport"
     ipv4.EntityData.SegmentPath = "ipv4"
+    ipv4.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-sm:config/interface/MgmtEth/locport/" + ipv4.EntityData.SegmentPath
     ipv4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2124,6 +2205,7 @@ func (arp *Config_Interface_MgmtEth_Locport_Arp) GetEntityData() *types.CommonEn
     arp.EntityData.BundleName = "cisco_ios_xr"
     arp.EntityData.ParentYangName = "locport"
     arp.EntityData.SegmentPath = "arp"
+    arp.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-sm:config/interface/MgmtEth/locport/" + arp.EntityData.SegmentPath
     arp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     arp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     arp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2144,6 +2226,7 @@ func (arp *Config_Interface_MgmtEth_Locport_Arp) GetEntityData() *types.CommonEn
 type Config_Interface_MgmtEth_Locport_Arp_Ip struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -2161,6 +2244,7 @@ func (ip *Config_Interface_MgmtEth_Locport_Arp_Ip) GetEntityData() *types.Common
     ip.EntityData.BundleName = "cisco_ios_xr"
     ip.EntityData.ParentYangName = "arp"
     ip.EntityData.SegmentPath = "ip" + types.AddKeyToken(ip.Ip, "ip")
+    ip.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-sm:config/interface/MgmtEth/locport/arp/" + ip.EntityData.SegmentPath
     ip.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ip.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ip.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2193,6 +2277,7 @@ func (domain *Config_Domain) GetEntityData() *types.CommonEntityData {
     domain.EntityData.BundleName = "cisco_ios_xr"
     domain.EntityData.ParentYangName = "config"
     domain.EntityData.SegmentPath = "domain"
+    domain.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-sm:config/" + domain.EntityData.SegmentPath
     domain.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     domain.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     domain.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2217,6 +2302,7 @@ func (domain *Config_Domain) GetEntityData() *types.CommonEntityData {
 type Config_Domain_Name struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     Name interface{}
@@ -2228,6 +2314,7 @@ func (name *Config_Domain_Name) GetEntityData() *types.CommonEntityData {
     name.EntityData.BundleName = "cisco_ios_xr"
     name.EntityData.ParentYangName = "domain"
     name.EntityData.SegmentPath = "name" + types.AddKeyToken(name.Name, "name")
+    name.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-sm:config/domain/" + name.EntityData.SegmentPath
     name.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     name.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     name.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2245,6 +2332,7 @@ func (name *Config_Domain_Name) GetEntityData() *types.CommonEntityData {
 type Config_Domain_NameServer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -2257,6 +2345,7 @@ func (nameServer *Config_Domain_NameServer) GetEntityData() *types.CommonEntityD
     nameServer.EntityData.BundleName = "cisco_ios_xr"
     nameServer.EntityData.ParentYangName = "domain"
     nameServer.EntityData.SegmentPath = "name-server" + types.AddKeyToken(nameServer.NameServer, "name-server")
+    nameServer.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-sm:config/domain/" + nameServer.EntityData.SegmentPath
     nameServer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nameServer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nameServer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2288,6 +2377,7 @@ func (virtualMacaddrRange *Config_VirtualMacaddrRange) GetEntityData() *types.Co
     virtualMacaddrRange.EntityData.BundleName = "cisco_ios_xr"
     virtualMacaddrRange.EntityData.ParentYangName = "config"
     virtualMacaddrRange.EntityData.SegmentPath = "virtual-macaddr-range"
+    virtualMacaddrRange.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-sm:config/" + virtualMacaddrRange.EntityData.SegmentPath
     virtualMacaddrRange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     virtualMacaddrRange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     virtualMacaddrRange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2314,6 +2404,7 @@ func (actions *Actions) GetEntityData() *types.CommonEntityData {
     actions.EntityData.BundleName = "cisco_ios_xr"
     actions.EntityData.ParentYangName = "Cisco-IOS-XR-sysadmin-sm"
     actions.EntityData.SegmentPath = "Cisco-IOS-XR-sysadmin-sm:actions"
+    actions.EntityData.AbsolutePath = actions.EntityData.SegmentPath
     actions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     actions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     actions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

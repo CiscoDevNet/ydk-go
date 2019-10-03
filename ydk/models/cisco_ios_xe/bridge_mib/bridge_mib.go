@@ -71,6 +71,7 @@ func (bRIDGEMIB *BRIDGEMIB) GetEntityData() *types.CommonEntityData {
     bRIDGEMIB.EntityData.BundleName = "cisco_ios_xe"
     bRIDGEMIB.EntityData.ParentYangName = "BRIDGE-MIB"
     bRIDGEMIB.EntityData.SegmentPath = "BRIDGE-MIB:BRIDGE-MIB"
+    bRIDGEMIB.EntityData.AbsolutePath = bRIDGEMIB.EntityData.SegmentPath
     bRIDGEMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     bRIDGEMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     bRIDGEMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -120,6 +121,7 @@ func (dot1dBase *BRIDGEMIB_Dot1dBase) GetEntityData() *types.CommonEntityData {
     dot1dBase.EntityData.BundleName = "cisco_ios_xe"
     dot1dBase.EntityData.ParentYangName = "BRIDGE-MIB"
     dot1dBase.EntityData.SegmentPath = "dot1dBase"
+    dot1dBase.EntityData.AbsolutePath = "BRIDGE-MIB:BRIDGE-MIB/" + dot1dBase.EntityData.SegmentPath
     dot1dBase.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dot1dBase.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dot1dBase.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -182,7 +184,7 @@ type BRIDGEMIB_Dot1dStp struct {
     // The bridge identifier of the root of the spanning tree, as determined by
     // the Spanning Tree Protocol, as executed by this node.  This value is used
     // as the Root Identifier parameter in all Configuration Bridge PDUs
-    // originated by this node. The type is string with length: 8.
+    // originated by this node. The type is string with length: 8..8.
     Dot1dStpDesignatedRoot interface{}
 
     // The cost of the path to the root as seen from this bridge. The type is
@@ -259,6 +261,7 @@ func (dot1dStp *BRIDGEMIB_Dot1dStp) GetEntityData() *types.CommonEntityData {
     dot1dStp.EntityData.BundleName = "cisco_ios_xe"
     dot1dStp.EntityData.ParentYangName = "BRIDGE-MIB"
     dot1dStp.EntityData.SegmentPath = "dot1dStp"
+    dot1dStp.EntityData.AbsolutePath = "BRIDGE-MIB:BRIDGE-MIB/" + dot1dStp.EntityData.SegmentPath
     dot1dStp.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dot1dStp.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dot1dStp.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -323,6 +326,7 @@ func (dot1dTp *BRIDGEMIB_Dot1dTp) GetEntityData() *types.CommonEntityData {
     dot1dTp.EntityData.BundleName = "cisco_ios_xe"
     dot1dTp.EntityData.ParentYangName = "BRIDGE-MIB"
     dot1dTp.EntityData.SegmentPath = "dot1dTp"
+    dot1dTp.EntityData.AbsolutePath = "BRIDGE-MIB:BRIDGE-MIB/" + dot1dTp.EntityData.SegmentPath
     dot1dTp.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dot1dTp.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dot1dTp.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -356,6 +360,7 @@ func (dot1dBasePortTable *BRIDGEMIB_Dot1dBasePortTable) GetEntityData() *types.C
     dot1dBasePortTable.EntityData.BundleName = "cisco_ios_xe"
     dot1dBasePortTable.EntityData.ParentYangName = "BRIDGE-MIB"
     dot1dBasePortTable.EntityData.SegmentPath = "dot1dBasePortTable"
+    dot1dBasePortTable.EntityData.AbsolutePath = "BRIDGE-MIB:BRIDGE-MIB/" + dot1dBasePortTable.EntityData.SegmentPath
     dot1dBasePortTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dot1dBasePortTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dot1dBasePortTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -377,6 +382,7 @@ func (dot1dBasePortTable *BRIDGEMIB_Dot1dBasePortTable) GetEntityData() *types.C
 type BRIDGEMIB_Dot1dBasePortTable_Dot1dBasePortEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The port number of the port for which this entry
     // contains bridge management information. The type is interface{} with range:
@@ -539,6 +545,7 @@ func (dot1dBasePortEntry *BRIDGEMIB_Dot1dBasePortTable_Dot1dBasePortEntry) GetEn
     dot1dBasePortEntry.EntityData.BundleName = "cisco_ios_xe"
     dot1dBasePortEntry.EntityData.ParentYangName = "dot1dBasePortTable"
     dot1dBasePortEntry.EntityData.SegmentPath = "dot1dBasePortEntry" + types.AddKeyToken(dot1dBasePortEntry.Dot1dBasePort, "dot1dBasePort")
+    dot1dBasePortEntry.EntityData.AbsolutePath = "BRIDGE-MIB:BRIDGE-MIB/dot1dBasePortTable/" + dot1dBasePortEntry.EntityData.SegmentPath
     dot1dBasePortEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dot1dBasePortEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dot1dBasePortEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -601,6 +608,7 @@ func (dot1dStpPortTable *BRIDGEMIB_Dot1dStpPortTable) GetEntityData() *types.Com
     dot1dStpPortTable.EntityData.BundleName = "cisco_ios_xe"
     dot1dStpPortTable.EntityData.ParentYangName = "BRIDGE-MIB"
     dot1dStpPortTable.EntityData.SegmentPath = "dot1dStpPortTable"
+    dot1dStpPortTable.EntityData.AbsolutePath = "BRIDGE-MIB:BRIDGE-MIB/" + dot1dStpPortTable.EntityData.SegmentPath
     dot1dStpPortTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dot1dStpPortTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dot1dStpPortTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -623,6 +631,7 @@ func (dot1dStpPortTable *BRIDGEMIB_Dot1dStpPortTable) GetEntityData() *types.Com
 type BRIDGEMIB_Dot1dStpPortTable_Dot1dStpPortEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The port number of the port for which this entry
     // contains Spanning Tree Protocol management information. The type is
@@ -660,7 +669,7 @@ type BRIDGEMIB_Dot1dStpPortTable_Dot1dStpPortEntry struct {
 
     // The unique Bridge Identifier of the Bridge recorded as the Root in the
     // Configuration BPDUs transmitted by the Designated Bridge for the segment to
-    // which the port is attached. The type is string with length: 8.
+    // which the port is attached. The type is string with length: 8..8.
     Dot1dStpPortDesignatedRoot interface{}
 
     // The path cost of the Designated Port of the segment connected to this port.
@@ -670,11 +679,11 @@ type BRIDGEMIB_Dot1dStpPortTable_Dot1dStpPortEntry struct {
 
     // The Bridge Identifier of the bridge that this port considers to be the
     // Designated Bridge for this port's segment. The type is string with length:
-    // 8.
+    // 8..8.
     Dot1dStpPortDesignatedBridge interface{}
 
     // The Port Identifier of the port on the Designated Bridge for this port's
-    // segment. The type is string with length: 2.
+    // segment. The type is string with length: 2..2.
     Dot1dStpPortDesignatedPort interface{}
 
     // The number of times this port has transitioned from the Learning state to
@@ -703,6 +712,7 @@ func (dot1dStpPortEntry *BRIDGEMIB_Dot1dStpPortTable_Dot1dStpPortEntry) GetEntit
     dot1dStpPortEntry.EntityData.BundleName = "cisco_ios_xe"
     dot1dStpPortEntry.EntityData.ParentYangName = "dot1dStpPortTable"
     dot1dStpPortEntry.EntityData.SegmentPath = "dot1dStpPortEntry" + types.AddKeyToken(dot1dStpPortEntry.Dot1dStpPort, "dot1dStpPort")
+    dot1dStpPortEntry.EntityData.AbsolutePath = "BRIDGE-MIB:BRIDGE-MIB/dot1dStpPortTable/" + dot1dStpPortEntry.EntityData.SegmentPath
     dot1dStpPortEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dot1dStpPortEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dot1dStpPortEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -775,6 +785,7 @@ func (dot1dTpFdbTable *BRIDGEMIB_Dot1dTpFdbTable) GetEntityData() *types.CommonE
     dot1dTpFdbTable.EntityData.BundleName = "cisco_ios_xe"
     dot1dTpFdbTable.EntityData.ParentYangName = "BRIDGE-MIB"
     dot1dTpFdbTable.EntityData.SegmentPath = "dot1dTpFdbTable"
+    dot1dTpFdbTable.EntityData.AbsolutePath = "BRIDGE-MIB:BRIDGE-MIB/" + dot1dTpFdbTable.EntityData.SegmentPath
     dot1dTpFdbTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dot1dTpFdbTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dot1dTpFdbTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -798,6 +809,7 @@ func (dot1dTpFdbTable *BRIDGEMIB_Dot1dTpFdbTable) GetEntityData() *types.CommonE
 type BRIDGEMIB_Dot1dTpFdbTable_Dot1dTpFdbEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. A unicast MAC address for which the bridge has
     // forwarding and/or filtering information. The type is string with pattern:
@@ -840,6 +852,7 @@ func (dot1dTpFdbEntry *BRIDGEMIB_Dot1dTpFdbTable_Dot1dTpFdbEntry) GetEntityData(
     dot1dTpFdbEntry.EntityData.BundleName = "cisco_ios_xe"
     dot1dTpFdbEntry.EntityData.ParentYangName = "dot1dTpFdbTable"
     dot1dTpFdbEntry.EntityData.SegmentPath = "dot1dTpFdbEntry" + types.AddKeyToken(dot1dTpFdbEntry.Dot1dTpFdbAddress, "dot1dTpFdbAddress")
+    dot1dTpFdbEntry.EntityData.AbsolutePath = "BRIDGE-MIB:BRIDGE-MIB/dot1dTpFdbTable/" + dot1dTpFdbEntry.EntityData.SegmentPath
     dot1dTpFdbEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dot1dTpFdbEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dot1dTpFdbEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -888,6 +901,7 @@ func (dot1dTpPortTable *BRIDGEMIB_Dot1dTpPortTable) GetEntityData() *types.Commo
     dot1dTpPortTable.EntityData.BundleName = "cisco_ios_xe"
     dot1dTpPortTable.EntityData.ParentYangName = "BRIDGE-MIB"
     dot1dTpPortTable.EntityData.SegmentPath = "dot1dTpPortTable"
+    dot1dTpPortTable.EntityData.AbsolutePath = "BRIDGE-MIB:BRIDGE-MIB/" + dot1dTpPortTable.EntityData.SegmentPath
     dot1dTpPortTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dot1dTpPortTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dot1dTpPortTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -910,6 +924,7 @@ func (dot1dTpPortTable *BRIDGEMIB_Dot1dTpPortTable) GetEntityData() *types.Commo
 type BRIDGEMIB_Dot1dTpPortTable_Dot1dTpPortEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The port number of the port for which this entry
     // contains Transparent bridging management information. The type is
@@ -949,6 +964,7 @@ func (dot1dTpPortEntry *BRIDGEMIB_Dot1dTpPortTable_Dot1dTpPortEntry) GetEntityDa
     dot1dTpPortEntry.EntityData.BundleName = "cisco_ios_xe"
     dot1dTpPortEntry.EntityData.ParentYangName = "dot1dTpPortTable"
     dot1dTpPortEntry.EntityData.SegmentPath = "dot1dTpPortEntry" + types.AddKeyToken(dot1dTpPortEntry.Dot1dTpPort, "dot1dTpPort")
+    dot1dTpPortEntry.EntityData.AbsolutePath = "BRIDGE-MIB:BRIDGE-MIB/dot1dTpPortTable/" + dot1dTpPortEntry.EntityData.SegmentPath
     dot1dTpPortEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dot1dTpPortEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dot1dTpPortEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -996,6 +1012,7 @@ func (dot1dStaticTable *BRIDGEMIB_Dot1dStaticTable) GetEntityData() *types.Commo
     dot1dStaticTable.EntityData.BundleName = "cisco_ios_xe"
     dot1dStaticTable.EntityData.ParentYangName = "BRIDGE-MIB"
     dot1dStaticTable.EntityData.SegmentPath = "dot1dStaticTable"
+    dot1dStaticTable.EntityData.AbsolutePath = "BRIDGE-MIB:BRIDGE-MIB/" + dot1dStaticTable.EntityData.SegmentPath
     dot1dStaticTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dot1dStaticTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dot1dStaticTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1021,6 +1038,7 @@ func (dot1dStaticTable *BRIDGEMIB_Dot1dStaticTable) GetEntityData() *types.Commo
 type BRIDGEMIB_Dot1dStaticTable_Dot1dStaticEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The destination MAC address in a frame to which
     // this entry's filtering information applies.  This object can take the value
@@ -1073,6 +1091,7 @@ func (dot1dStaticEntry *BRIDGEMIB_Dot1dStaticTable_Dot1dStaticEntry) GetEntityDa
     dot1dStaticEntry.EntityData.BundleName = "cisco_ios_xe"
     dot1dStaticEntry.EntityData.ParentYangName = "dot1dStaticTable"
     dot1dStaticEntry.EntityData.SegmentPath = "dot1dStaticEntry" + types.AddKeyToken(dot1dStaticEntry.Dot1dStaticAddress, "dot1dStaticAddress") + types.AddKeyToken(dot1dStaticEntry.Dot1dStaticReceivePort, "dot1dStaticReceivePort")
+    dot1dStaticEntry.EntityData.AbsolutePath = "BRIDGE-MIB:BRIDGE-MIB/dot1dStaticTable/" + dot1dStaticEntry.EntityData.SegmentPath
     dot1dStaticEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dot1dStaticEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dot1dStaticEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

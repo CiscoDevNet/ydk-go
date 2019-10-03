@@ -82,6 +82,7 @@ func (ipExplicitPaths *IpExplicitPaths) GetEntityData() *types.CommonEntityData 
     ipExplicitPaths.EntityData.BundleName = "cisco_ios_xr"
     ipExplicitPaths.EntityData.ParentYangName = "Cisco-IOS-XR-ip-iep-cfg"
     ipExplicitPaths.EntityData.SegmentPath = "Cisco-IOS-XR-ip-iep-cfg:ip-explicit-paths"
+    ipExplicitPaths.EntityData.AbsolutePath = ipExplicitPaths.EntityData.SegmentPath
     ipExplicitPaths.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipExplicitPaths.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipExplicitPaths.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -112,6 +113,7 @@ func (paths *IpExplicitPaths_Paths) GetEntityData() *types.CommonEntityData {
     paths.EntityData.BundleName = "cisco_ios_xr"
     paths.EntityData.ParentYangName = "ip-explicit-paths"
     paths.EntityData.SegmentPath = "paths"
+    paths.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-iep-cfg:ip-explicit-paths/" + paths.EntityData.SegmentPath
     paths.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     paths.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     paths.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -133,6 +135,7 @@ func (paths *IpExplicitPaths_Paths) GetEntityData() *types.CommonEntityData {
 type IpExplicitPaths_Paths_Path struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Path type. The type is IpIepPath.
     Type interface{}
@@ -150,6 +153,7 @@ func (path *IpExplicitPaths_Paths_Path) GetEntityData() *types.CommonEntityData 
     path.EntityData.BundleName = "cisco_ios_xr"
     path.EntityData.ParentYangName = "paths"
     path.EntityData.SegmentPath = "path" + types.AddKeyToken(path.Type, "type")
+    path.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-iep-cfg:ip-explicit-paths/paths/" + path.EntityData.SegmentPath
     path.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     path.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     path.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -176,6 +180,7 @@ func (path *IpExplicitPaths_Paths_Path) GetEntityData() *types.CommonEntityData 
 type IpExplicitPaths_Paths_Path_Name struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Path name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -194,6 +199,7 @@ func (name *IpExplicitPaths_Paths_Path_Name) GetEntityData() *types.CommonEntity
     name.EntityData.BundleName = "cisco_ios_xr"
     name.EntityData.ParentYangName = "path"
     name.EntityData.SegmentPath = "name" + types.AddKeyToken(name.Name, "name")
+    name.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-iep-cfg:ip-explicit-paths/paths/path/" + name.EntityData.SegmentPath
     name.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     name.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     name.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -226,6 +232,7 @@ func (hops *IpExplicitPaths_Paths_Path_Name_Hops) GetEntityData() *types.CommonE
     hops.EntityData.BundleName = "cisco_ios_xr"
     hops.EntityData.ParentYangName = "name"
     hops.EntityData.SegmentPath = "hops"
+    hops.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-iep-cfg:ip-explicit-paths/paths/path/name/" + hops.EntityData.SegmentPath
     hops.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hops.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hops.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -247,6 +254,7 @@ func (hops *IpExplicitPaths_Paths_Path_Name_Hops) GetEntityData() *types.CommonE
 type IpExplicitPaths_Paths_Path_Name_Hops_Hop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Index number. The type is interface{} with range:
     // 1..65535.
@@ -279,6 +287,7 @@ func (hop *IpExplicitPaths_Paths_Path_Name_Hops_Hop) GetEntityData() *types.Comm
     hop.EntityData.BundleName = "cisco_ios_xr"
     hop.EntityData.ParentYangName = "hops"
     hop.EntityData.SegmentPath = "hop" + types.AddKeyToken(hop.IndexNumber, "index-number")
+    hop.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-iep-cfg:ip-explicit-paths/paths/path/name/hops/" + hop.EntityData.SegmentPath
     hop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -302,6 +311,7 @@ func (hop *IpExplicitPaths_Paths_Path_Name_Hops_Hop) GetEntityData() *types.Comm
 type IpExplicitPaths_Paths_Path_Identifier struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Path identifier. The type is interface{} with
     // range: 1..65535.
@@ -320,6 +330,7 @@ func (identifier *IpExplicitPaths_Paths_Path_Identifier) GetEntityData() *types.
     identifier.EntityData.BundleName = "cisco_ios_xr"
     identifier.EntityData.ParentYangName = "path"
     identifier.EntityData.SegmentPath = "identifier" + types.AddKeyToken(identifier.Id, "id")
+    identifier.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-iep-cfg:ip-explicit-paths/paths/path/" + identifier.EntityData.SegmentPath
     identifier.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     identifier.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     identifier.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -352,6 +363,7 @@ func (hops *IpExplicitPaths_Paths_Path_Identifier_Hops) GetEntityData() *types.C
     hops.EntityData.BundleName = "cisco_ios_xr"
     hops.EntityData.ParentYangName = "identifier"
     hops.EntityData.SegmentPath = "hops"
+    hops.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-iep-cfg:ip-explicit-paths/paths/path/identifier/" + hops.EntityData.SegmentPath
     hops.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hops.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hops.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -373,6 +385,7 @@ func (hops *IpExplicitPaths_Paths_Path_Identifier_Hops) GetEntityData() *types.C
 type IpExplicitPaths_Paths_Path_Identifier_Hops_Hop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Index number. The type is interface{} with range:
     // 1..65535.
@@ -405,6 +418,7 @@ func (hop *IpExplicitPaths_Paths_Path_Identifier_Hops_Hop) GetEntityData() *type
     hop.EntityData.BundleName = "cisco_ios_xr"
     hop.EntityData.ParentYangName = "hops"
     hop.EntityData.SegmentPath = "hop" + types.AddKeyToken(hop.IndexNumber, "index-number")
+    hop.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-iep-cfg:ip-explicit-paths/paths/path/identifier/hops/" + hop.EntityData.SegmentPath
     hop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

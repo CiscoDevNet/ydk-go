@@ -3,7 +3,7 @@
 // 
 // This module contains definitions
 // for the following management objects:
-//   l2rib: L2RIB operational information 
+//   l2rib: L2RIB operational information
 // 
 // Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
@@ -238,6 +238,7 @@ func (l2rib *L2rib) GetEntityData() *types.CommonEntityData {
     l2rib.EntityData.BundleName = "cisco_ios_xr"
     l2rib.EntityData.ParentYangName = "Cisco-IOS-XR-l2rib-oper"
     l2rib.EntityData.SegmentPath = "Cisco-IOS-XR-l2rib-oper:l2rib"
+    l2rib.EntityData.AbsolutePath = l2rib.EntityData.SegmentPath
     l2rib.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     l2rib.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     l2rib.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -275,6 +276,7 @@ func (producersDetails *L2rib_ProducersDetails) GetEntityData() *types.CommonEnt
     producersDetails.EntityData.BundleName = "cisco_ios_xr"
     producersDetails.EntityData.ParentYangName = "l2rib"
     producersDetails.EntityData.SegmentPath = "producers-details"
+    producersDetails.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/" + producersDetails.EntityData.SegmentPath
     producersDetails.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     producersDetails.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     producersDetails.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -282,6 +284,7 @@ func (producersDetails *L2rib_ProducersDetails) GetEntityData() *types.CommonEnt
     producersDetails.EntityData.Children = types.NewOrderedMap()
     producersDetails.EntityData.Children.Append("producers-detail", types.YChild{"ProducersDetail", nil})
     for i := range producersDetails.ProducersDetail {
+        types.SetYListKey(producersDetails.ProducersDetail[i], i)
         producersDetails.EntityData.Children.Append(types.GetSegmentPath(producersDetails.ProducersDetail[i]), types.YChild{"ProducersDetail", producersDetails.ProducersDetail[i]})
     }
     producersDetails.EntityData.Leafs = types.NewOrderedMap()
@@ -296,6 +299,7 @@ func (producersDetails *L2rib_ProducersDetails) GetEntityData() *types.CommonEnt
 type L2rib_ProducersDetails_ProducersDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Object ID. The type is interface{} with range: 0..4294967295.
     ObjectId interface{}
@@ -319,7 +323,8 @@ func (producersDetail *L2rib_ProducersDetails_ProducersDetail) GetEntityData() *
     producersDetail.EntityData.YangName = "producers-detail"
     producersDetail.EntityData.BundleName = "cisco_ios_xr"
     producersDetail.EntityData.ParentYangName = "producers-details"
-    producersDetail.EntityData.SegmentPath = "producers-detail"
+    producersDetail.EntityData.SegmentPath = "producers-detail" + types.AddNoKeyToken(producersDetail)
+    producersDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/producers-details/" + producersDetail.EntityData.SegmentPath
     producersDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     producersDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     producersDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -371,6 +376,7 @@ func (producer *L2rib_ProducersDetails_ProducersDetail_Producer) GetEntityData()
     producer.EntityData.BundleName = "cisco_ios_xr"
     producer.EntityData.ParentYangName = "producers-detail"
     producer.EntityData.SegmentPath = "producer"
+    producer.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/producers-details/producers-detail/" + producer.EntityData.SegmentPath
     producer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     producer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     producer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -412,6 +418,7 @@ func (statistics *L2rib_ProducersDetails_ProducersDetail_Statistics) GetEntityDa
     statistics.EntityData.BundleName = "cisco_ios_xr"
     statistics.EntityData.ParentYangName = "producers-detail"
     statistics.EntityData.SegmentPath = "statistics"
+    statistics.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/producers-details/producers-detail/" + statistics.EntityData.SegmentPath
     statistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -454,6 +461,7 @@ func (statistics *L2rib_ProducersDetails_ProducersDetail_Statistics_Statistics) 
     statistics.EntityData.BundleName = "cisco_ios_xr"
     statistics.EntityData.ParentYangName = "statistics"
     statistics.EntityData.SegmentPath = "statistics"
+    statistics.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/producers-details/producers-detail/statistics/" + statistics.EntityData.SegmentPath
     statistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -461,6 +469,7 @@ func (statistics *L2rib_ProducersDetails_ProducersDetail_Statistics_Statistics) 
     statistics.EntityData.Children = types.NewOrderedMap()
     statistics.EntityData.Children.Append("extended-counter", types.YChild{"ExtendedCounter", nil})
     for i := range statistics.ExtendedCounter {
+        types.SetYListKey(statistics.ExtendedCounter[i], i)
         statistics.EntityData.Children.Append(types.GetSegmentPath(statistics.ExtendedCounter[i]), types.YChild{"ExtendedCounter", statistics.ExtendedCounter[i]})
     }
     statistics.EntityData.Leafs = types.NewOrderedMap()
@@ -478,6 +487,7 @@ func (statistics *L2rib_ProducersDetails_ProducersDetail_Statistics_Statistics) 
 type L2rib_ProducersDetails_ProducersDetail_Statistics_Statistics_ExtendedCounter struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // CounterType. The type is interface{} with range: 0..255.
     CounterType interface{}
@@ -506,7 +516,8 @@ func (extendedCounter *L2rib_ProducersDetails_ProducersDetail_Statistics_Statist
     extendedCounter.EntityData.YangName = "extended-counter"
     extendedCounter.EntityData.BundleName = "cisco_ios_xr"
     extendedCounter.EntityData.ParentYangName = "statistics"
-    extendedCounter.EntityData.SegmentPath = "extended-counter"
+    extendedCounter.EntityData.SegmentPath = "extended-counter" + types.AddNoKeyToken(extendedCounter)
+    extendedCounter.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/producers-details/producers-detail/statistics/statistics/" + extendedCounter.EntityData.SegmentPath
     extendedCounter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     extendedCounter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     extendedCounter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -548,6 +559,7 @@ func (summary *L2rib_Summary) GetEntityData() *types.CommonEntityData {
     summary.EntityData.BundleName = "cisco_ios_xr"
     summary.EntityData.ParentYangName = "l2rib"
     summary.EntityData.SegmentPath = "summary"
+    summary.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/" + summary.EntityData.SegmentPath
     summary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     summary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     summary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -555,6 +567,7 @@ func (summary *L2rib_Summary) GetEntityData() *types.CommonEntityData {
     summary.EntityData.Children = types.NewOrderedMap()
     summary.EntityData.Children.Append("table-summary", types.YChild{"TableSummary", nil})
     for i := range summary.TableSummary {
+        types.SetYListKey(summary.TableSummary[i], i)
         summary.EntityData.Children.Append(types.GetSegmentPath(summary.TableSummary[i]), types.YChild{"TableSummary", summary.TableSummary[i]})
     }
     summary.EntityData.Leafs = types.NewOrderedMap()
@@ -571,6 +584,7 @@ func (summary *L2rib_Summary) GetEntityData() *types.CommonEntityData {
 type L2rib_Summary_TableSummary struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Object Type. The type is L2ribBagObj.
     ObjectType interface{}
@@ -591,7 +605,8 @@ func (tableSummary *L2rib_Summary_TableSummary) GetEntityData() *types.CommonEnt
     tableSummary.EntityData.YangName = "table-summary"
     tableSummary.EntityData.BundleName = "cisco_ios_xr"
     tableSummary.EntityData.ParentYangName = "summary"
-    tableSummary.EntityData.SegmentPath = "table-summary"
+    tableSummary.EntityData.SegmentPath = "table-summary" + types.AddNoKeyToken(tableSummary)
+    tableSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/summary/" + tableSummary.EntityData.SegmentPath
     tableSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tableSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tableSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -599,6 +614,7 @@ func (tableSummary *L2rib_Summary_TableSummary) GetEntityData() *types.CommonEnt
     tableSummary.EntityData.Children = types.NewOrderedMap()
     tableSummary.EntityData.Children.Append("producer-stat", types.YChild{"ProducerStat", nil})
     for i := range tableSummary.ProducerStat {
+        types.SetYListKey(tableSummary.ProducerStat[i], i)
         tableSummary.EntityData.Children.Append(types.GetSegmentPath(tableSummary.ProducerStat[i]), types.YChild{"ProducerStat", tableSummary.ProducerStat[i]})
     }
     tableSummary.EntityData.Leafs = types.NewOrderedMap()
@@ -616,6 +632,7 @@ func (tableSummary *L2rib_Summary_TableSummary) GetEntityData() *types.CommonEnt
 type L2rib_Summary_TableSummary_ProducerStat struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Producer ID. The type is L2ribBagProducerId.
     ProducerId interface{}
@@ -632,7 +649,8 @@ func (producerStat *L2rib_Summary_TableSummary_ProducerStat) GetEntityData() *ty
     producerStat.EntityData.YangName = "producer-stat"
     producerStat.EntityData.BundleName = "cisco_ios_xr"
     producerStat.EntityData.ParentYangName = "table-summary"
-    producerStat.EntityData.SegmentPath = "producer-stat"
+    producerStat.EntityData.SegmentPath = "producer-stat" + types.AddNoKeyToken(producerStat)
+    producerStat.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/summary/table-summary/" + producerStat.EntityData.SegmentPath
     producerStat.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     producerStat.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     producerStat.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -675,6 +693,7 @@ func (statistics *L2rib_Summary_TableSummary_ProducerStat_Statistics) GetEntityD
     statistics.EntityData.BundleName = "cisco_ios_xr"
     statistics.EntityData.ParentYangName = "producer-stat"
     statistics.EntityData.SegmentPath = "statistics"
+    statistics.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/summary/table-summary/producer-stat/" + statistics.EntityData.SegmentPath
     statistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -682,6 +701,7 @@ func (statistics *L2rib_Summary_TableSummary_ProducerStat_Statistics) GetEntityD
     statistics.EntityData.Children = types.NewOrderedMap()
     statistics.EntityData.Children.Append("extended-counter", types.YChild{"ExtendedCounter", nil})
     for i := range statistics.ExtendedCounter {
+        types.SetYListKey(statistics.ExtendedCounter[i], i)
         statistics.EntityData.Children.Append(types.GetSegmentPath(statistics.ExtendedCounter[i]), types.YChild{"ExtendedCounter", statistics.ExtendedCounter[i]})
     }
     statistics.EntityData.Leafs = types.NewOrderedMap()
@@ -699,6 +719,7 @@ func (statistics *L2rib_Summary_TableSummary_ProducerStat_Statistics) GetEntityD
 type L2rib_Summary_TableSummary_ProducerStat_Statistics_ExtendedCounter struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // CounterType. The type is interface{} with range: 0..255.
     CounterType interface{}
@@ -727,7 +748,8 @@ func (extendedCounter *L2rib_Summary_TableSummary_ProducerStat_Statistics_Extend
     extendedCounter.EntityData.YangName = "extended-counter"
     extendedCounter.EntityData.BundleName = "cisco_ios_xr"
     extendedCounter.EntityData.ParentYangName = "statistics"
-    extendedCounter.EntityData.SegmentPath = "extended-counter"
+    extendedCounter.EntityData.SegmentPath = "extended-counter" + types.AddNoKeyToken(extendedCounter)
+    extendedCounter.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/summary/table-summary/producer-stat/statistics/" + extendedCounter.EntityData.SegmentPath
     extendedCounter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     extendedCounter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     extendedCounter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -762,6 +784,7 @@ func (producers *L2rib_Producers) GetEntityData() *types.CommonEntityData {
     producers.EntityData.BundleName = "cisco_ios_xr"
     producers.EntityData.ParentYangName = "l2rib"
     producers.EntityData.SegmentPath = "producers"
+    producers.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/" + producers.EntityData.SegmentPath
     producers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     producers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     producers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -769,6 +792,7 @@ func (producers *L2rib_Producers) GetEntityData() *types.CommonEntityData {
     producers.EntityData.Children = types.NewOrderedMap()
     producers.EntityData.Children.Append("producer", types.YChild{"Producer", nil})
     for i := range producers.Producer {
+        types.SetYListKey(producers.Producer[i], i)
         producers.EntityData.Children.Append(types.GetSegmentPath(producers.Producer[i]), types.YChild{"Producer", producers.Producer[i]})
     }
     producers.EntityData.Leafs = types.NewOrderedMap()
@@ -783,6 +807,7 @@ func (producers *L2rib_Producers) GetEntityData() *types.CommonEntityData {
 type L2rib_Producers_Producer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Object ID. The type is interface{} with range: 0..4294967295.
     ObjectId interface{}
@@ -817,7 +842,8 @@ func (producer *L2rib_Producers_Producer) GetEntityData() *types.CommonEntityDat
     producer.EntityData.YangName = "producer"
     producer.EntityData.BundleName = "cisco_ios_xr"
     producer.EntityData.ParentYangName = "producers"
-    producer.EntityData.SegmentPath = "producer"
+    producer.EntityData.SegmentPath = "producer" + types.AddNoKeyToken(producer)
+    producer.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/producers/" + producer.EntityData.SegmentPath
     producer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     producer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     producer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -855,6 +881,7 @@ func (clients *L2rib_Clients) GetEntityData() *types.CommonEntityData {
     clients.EntityData.BundleName = "cisco_ios_xr"
     clients.EntityData.ParentYangName = "l2rib"
     clients.EntityData.SegmentPath = "clients"
+    clients.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/" + clients.EntityData.SegmentPath
     clients.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clients.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clients.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -876,6 +903,7 @@ func (clients *L2rib_Clients) GetEntityData() *types.CommonEntityData {
 type L2rib_Clients_Client struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Client ID. The type is interface{} with range:
     // 0..4294967295.
@@ -904,6 +932,7 @@ func (client *L2rib_Clients_Client) GetEntityData() *types.CommonEntityData {
     client.EntityData.BundleName = "cisco_ios_xr"
     client.EntityData.ParentYangName = "clients"
     client.EntityData.SegmentPath = "client" + types.AddKeyToken(client.ClientId, "client-id")
+    client.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/clients/" + client.EntityData.SegmentPath
     client.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     client.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     client.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -938,6 +967,7 @@ func (evisXr *L2rib_EvisXr) GetEntityData() *types.CommonEntityData {
     evisXr.EntityData.BundleName = "cisco_ios_xr"
     evisXr.EntityData.ParentYangName = "l2rib"
     evisXr.EntityData.SegmentPath = "evis-xr"
+    evisXr.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/" + evisXr.EntityData.SegmentPath
     evisXr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     evisXr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     evisXr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -959,6 +989,7 @@ func (evisXr *L2rib_EvisXr) GetEntityData() *types.CommonEntityData {
 type L2rib_EvisXr_Evi struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. EVI ID. The type is interface{} with range:
     // 0..4294967295.
@@ -995,6 +1026,7 @@ func (evi *L2rib_EvisXr_Evi) GetEntityData() *types.CommonEntityData {
     evi.EntityData.BundleName = "cisco_ios_xr"
     evi.EntityData.ParentYangName = "evis-xr"
     evi.EntityData.SegmentPath = "evi" + types.AddKeyToken(evi.Evi, "evi")
+    evi.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/evis-xr/" + evi.EntityData.SegmentPath
     evi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     evi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     evi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1038,6 +1070,7 @@ func (topology *L2rib_EvisXr_Evi_Topology) GetEntityData() *types.CommonEntityDa
     topology.EntityData.BundleName = "cisco_ios_xr"
     topology.EntityData.ParentYangName = "evi"
     topology.EntityData.SegmentPath = "topology"
+    topology.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/evis-xr/evi/" + topology.EntityData.SegmentPath
     topology.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     topology.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     topology.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1070,6 +1103,7 @@ func (clientsDetails *L2rib_ClientsDetails) GetEntityData() *types.CommonEntityD
     clientsDetails.EntityData.BundleName = "cisco_ios_xr"
     clientsDetails.EntityData.ParentYangName = "l2rib"
     clientsDetails.EntityData.SegmentPath = "clients-details"
+    clientsDetails.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/" + clientsDetails.EntityData.SegmentPath
     clientsDetails.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clientsDetails.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clientsDetails.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1091,6 +1125,7 @@ func (clientsDetails *L2rib_ClientsDetails) GetEntityData() *types.CommonEntityD
 type L2rib_ClientsDetails_ClientsDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Client ID. The type is interface{} with range:
     // 0..4294967295.
@@ -1120,6 +1155,7 @@ func (clientsDetail *L2rib_ClientsDetails_ClientsDetail) GetEntityData() *types.
     clientsDetail.EntityData.BundleName = "cisco_ios_xr"
     clientsDetail.EntityData.ParentYangName = "clients-details"
     clientsDetail.EntityData.SegmentPath = "clients-detail" + types.AddKeyToken(clientsDetail.ClientId, "client-id")
+    clientsDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/clients-details/" + clientsDetail.EntityData.SegmentPath
     clientsDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clientsDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clientsDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1129,6 +1165,7 @@ func (clientsDetail *L2rib_ClientsDetails_ClientsDetail) GetEntityData() *types.
     clientsDetail.EntityData.Children.Append("registration-table-statistics", types.YChild{"RegistrationTableStatistics", &clientsDetail.RegistrationTableStatistics})
     clientsDetail.EntityData.Children.Append("producer-array", types.YChild{"ProducerArray", nil})
     for i := range clientsDetail.ProducerArray {
+        types.SetYListKey(clientsDetail.ProducerArray[i], i)
         clientsDetail.EntityData.Children.Append(types.GetSegmentPath(clientsDetail.ProducerArray[i]), types.YChild{"ProducerArray", clientsDetail.ProducerArray[i]})
     }
     clientsDetail.EntityData.Leafs = types.NewOrderedMap()
@@ -1170,6 +1207,7 @@ func (client *L2rib_ClientsDetails_ClientsDetail_Client) GetEntityData() *types.
     client.EntityData.BundleName = "cisco_ios_xr"
     client.EntityData.ParentYangName = "clients-detail"
     client.EntityData.SegmentPath = "client"
+    client.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/clients-details/clients-detail/" + client.EntityData.SegmentPath
     client.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     client.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     client.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1209,6 +1247,7 @@ func (registrationTableStatistics *L2rib_ClientsDetails_ClientsDetail_Registrati
     registrationTableStatistics.EntityData.BundleName = "cisco_ios_xr"
     registrationTableStatistics.EntityData.ParentYangName = "clients-detail"
     registrationTableStatistics.EntityData.SegmentPath = "registration-table-statistics"
+    registrationTableStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/clients-details/clients-detail/" + registrationTableStatistics.EntityData.SegmentPath
     registrationTableStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     registrationTableStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     registrationTableStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1251,6 +1290,7 @@ func (statistics *L2rib_ClientsDetails_ClientsDetail_RegistrationTableStatistics
     statistics.EntityData.BundleName = "cisco_ios_xr"
     statistics.EntityData.ParentYangName = "registration-table-statistics"
     statistics.EntityData.SegmentPath = "statistics"
+    statistics.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/clients-details/clients-detail/registration-table-statistics/" + statistics.EntityData.SegmentPath
     statistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1258,6 +1298,7 @@ func (statistics *L2rib_ClientsDetails_ClientsDetail_RegistrationTableStatistics
     statistics.EntityData.Children = types.NewOrderedMap()
     statistics.EntityData.Children.Append("extended-counter", types.YChild{"ExtendedCounter", nil})
     for i := range statistics.ExtendedCounter {
+        types.SetYListKey(statistics.ExtendedCounter[i], i)
         statistics.EntityData.Children.Append(types.GetSegmentPath(statistics.ExtendedCounter[i]), types.YChild{"ExtendedCounter", statistics.ExtendedCounter[i]})
     }
     statistics.EntityData.Leafs = types.NewOrderedMap()
@@ -1275,6 +1316,7 @@ func (statistics *L2rib_ClientsDetails_ClientsDetail_RegistrationTableStatistics
 type L2rib_ClientsDetails_ClientsDetail_RegistrationTableStatistics_Statistics_ExtendedCounter struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // CounterType. The type is interface{} with range: 0..255.
     CounterType interface{}
@@ -1303,7 +1345,8 @@ func (extendedCounter *L2rib_ClientsDetails_ClientsDetail_RegistrationTableStati
     extendedCounter.EntityData.YangName = "extended-counter"
     extendedCounter.EntityData.BundleName = "cisco_ios_xr"
     extendedCounter.EntityData.ParentYangName = "statistics"
-    extendedCounter.EntityData.SegmentPath = "extended-counter"
+    extendedCounter.EntityData.SegmentPath = "extended-counter" + types.AddNoKeyToken(extendedCounter)
+    extendedCounter.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/clients-details/clients-detail/registration-table-statistics/statistics/" + extendedCounter.EntityData.SegmentPath
     extendedCounter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     extendedCounter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     extendedCounter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1327,6 +1370,7 @@ func (extendedCounter *L2rib_ClientsDetails_ClientsDetail_RegistrationTableStati
 type L2rib_ClientsDetails_ClientsDetail_ProducerArray struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Object Type. The type is L2ribBagObj.
     ObjectType interface{}
@@ -1349,7 +1393,8 @@ func (producerArray *L2rib_ClientsDetails_ClientsDetail_ProducerArray) GetEntity
     producerArray.EntityData.YangName = "producer-array"
     producerArray.EntityData.BundleName = "cisco_ios_xr"
     producerArray.EntityData.ParentYangName = "clients-detail"
-    producerArray.EntityData.SegmentPath = "producer-array"
+    producerArray.EntityData.SegmentPath = "producer-array" + types.AddNoKeyToken(producerArray)
+    producerArray.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/clients-details/clients-detail/" + producerArray.EntityData.SegmentPath
     producerArray.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     producerArray.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     producerArray.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1398,6 +1443,7 @@ func (eviChildTables *L2rib_EviChildTables) GetEntityData() *types.CommonEntityD
     eviChildTables.EntityData.BundleName = "cisco_ios_xr"
     eviChildTables.EntityData.ParentYangName = "l2rib"
     eviChildTables.EntityData.SegmentPath = "evi-child-tables"
+    eviChildTables.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/" + eviChildTables.EntityData.SegmentPath
     eviChildTables.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eviChildTables.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eviChildTables.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1433,6 +1479,7 @@ func (macipDetails *L2rib_EviChildTables_MacipDetails) GetEntityData() *types.Co
     macipDetails.EntityData.BundleName = "cisco_ios_xr"
     macipDetails.EntityData.ParentYangName = "evi-child-tables"
     macipDetails.EntityData.SegmentPath = "macip-details"
+    macipDetails.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/" + macipDetails.EntityData.SegmentPath
     macipDetails.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     macipDetails.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     macipDetails.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1440,6 +1487,7 @@ func (macipDetails *L2rib_EviChildTables_MacipDetails) GetEntityData() *types.Co
     macipDetails.EntityData.Children = types.NewOrderedMap()
     macipDetails.EntityData.Children.Append("macip-detail", types.YChild{"MacipDetail", nil})
     for i := range macipDetails.MacipDetail {
+        types.SetYListKey(macipDetails.MacipDetail[i], i)
         macipDetails.EntityData.Children.Append(types.GetSegmentPath(macipDetails.MacipDetail[i]), types.YChild{"MacipDetail", macipDetails.MacipDetail[i]})
     }
     macipDetails.EntityData.Leafs = types.NewOrderedMap()
@@ -1454,12 +1502,10 @@ func (macipDetails *L2rib_EviChildTables_MacipDetails) GetEntityData() *types.Co
 type L2rib_EviChildTables_MacipDetails_MacipDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // EVPN ID. The type is interface{} with range: 0..4294967295.
     Evi interface{}
-
-    // Tag ID. The type is interface{} with range: 0..4294967295.
-    TagId interface{}
 
     // MAC IP Address. The type is string with pattern:
     // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
@@ -1470,9 +1516,6 @@ type L2rib_EviChildTables_MacipDetails_MacipDetail struct {
     // or string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     IpAddr interface{}
-
-    // Admin distance. The type is interface{} with range: 0..4294967295.
-    AdminDist interface{}
 
     // Producer ID. The type is interface{} with range: 0..4294967295.
     ProdId interface{}
@@ -1506,7 +1549,8 @@ func (macipDetail *L2rib_EviChildTables_MacipDetails_MacipDetail) GetEntityData(
     macipDetail.EntityData.YangName = "macip-detail"
     macipDetail.EntityData.BundleName = "cisco_ios_xr"
     macipDetail.EntityData.ParentYangName = "macip-details"
-    macipDetail.EntityData.SegmentPath = "macip-detail"
+    macipDetail.EntityData.SegmentPath = "macip-detail" + types.AddNoKeyToken(macipDetail)
+    macipDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/macip-details/" + macipDetail.EntityData.SegmentPath
     macipDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     macipDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     macipDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1517,10 +1561,8 @@ func (macipDetail *L2rib_EviChildTables_MacipDetails_MacipDetail) GetEntityData(
     macipDetail.EntityData.Children.Append("nh-tlv", types.YChild{"NhTlv", &macipDetail.NhTlv})
     macipDetail.EntityData.Leafs = types.NewOrderedMap()
     macipDetail.EntityData.Leafs.Append("evi", types.YLeaf{"Evi", macipDetail.Evi})
-    macipDetail.EntityData.Leafs.Append("tag-id", types.YLeaf{"TagId", macipDetail.TagId})
     macipDetail.EntityData.Leafs.Append("mac-addr", types.YLeaf{"MacAddr", macipDetail.MacAddr})
     macipDetail.EntityData.Leafs.Append("ip-addr", types.YLeaf{"IpAddr", macipDetail.IpAddr})
-    macipDetail.EntityData.Leafs.Append("admin-dist", types.YLeaf{"AdminDist", macipDetail.AdminDist})
     macipDetail.EntityData.Leafs.Append("prod-id", types.YLeaf{"ProdId", macipDetail.ProdId})
     macipDetail.EntityData.Leafs.Append("sequence-number", types.YLeaf{"SequenceNumber", macipDetail.SequenceNumber})
     macipDetail.EntityData.Leafs.Append("flags", types.YLeaf{"Flags", macipDetail.Flags})
@@ -1564,6 +1606,7 @@ func (macIpRoute *L2rib_EviChildTables_MacipDetails_MacipDetail_MacIpRoute) GetE
     macIpRoute.EntityData.BundleName = "cisco_ios_xr"
     macIpRoute.EntityData.ParentYangName = "macip-detail"
     macIpRoute.EntityData.SegmentPath = "mac-ip-route"
+    macIpRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/macip-details/macip-detail/" + macIpRoute.EntityData.SegmentPath
     macIpRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     macIpRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     macIpRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1604,6 +1647,7 @@ func (nextHop *L2rib_EviChildTables_MacipDetails_MacipDetail_MacIpRoute_NextHop)
     nextHop.EntityData.BundleName = "cisco_ios_xr"
     nextHop.EntityData.ParentYangName = "mac-ip-route"
     nextHop.EntityData.SegmentPath = "next-hop"
+    nextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/macip-details/macip-detail/mac-ip-route/" + nextHop.EntityData.SegmentPath
     nextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1657,6 +1701,7 @@ func (nextHop *L2rib_EviChildTables_MacipDetails_MacipDetail_MacIpRoute_NextHop_
     nextHop.EntityData.BundleName = "cisco_ios_xr"
     nextHop.EntityData.ParentYangName = "next-hop"
     nextHop.EntityData.SegmentPath = "next-hop"
+    nextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/macip-details/macip-detail/mac-ip-route/next-hop/" + nextHop.EntityData.SegmentPath
     nextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1701,6 +1746,7 @@ func (labeled *L2rib_EviChildTables_MacipDetails_MacipDetail_MacIpRoute_NextHop_
     labeled.EntityData.BundleName = "cisco_ios_xr"
     labeled.EntityData.ParentYangName = "next-hop"
     labeled.EntityData.SegmentPath = "labeled"
+    labeled.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/macip-details/macip-detail/mac-ip-route/next-hop/next-hop/" + labeled.EntityData.SegmentPath
     labeled.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labeled.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labeled.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1740,6 +1786,7 @@ func (rtTlv *L2rib_EviChildTables_MacipDetails_MacipDetail_RtTlv) GetEntityData(
     rtTlv.EntityData.BundleName = "cisco_ios_xr"
     rtTlv.EntityData.ParentYangName = "macip-detail"
     rtTlv.EntityData.SegmentPath = "rt-tlv"
+    rtTlv.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/macip-details/macip-detail/" + rtTlv.EntityData.SegmentPath
     rtTlv.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rtTlv.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rtTlv.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1747,6 +1794,7 @@ func (rtTlv *L2rib_EviChildTables_MacipDetails_MacipDetail_RtTlv) GetEntityData(
     rtTlv.EntityData.Children = types.NewOrderedMap()
     rtTlv.EntityData.Children.Append("tlv-val", types.YChild{"TlvVal", nil})
     for i := range rtTlv.TlvVal {
+        types.SetYListKey(rtTlv.TlvVal[i], i)
         rtTlv.EntityData.Children.Append(types.GetSegmentPath(rtTlv.TlvVal[i]), types.YChild{"TlvVal", rtTlv.TlvVal[i]})
     }
     rtTlv.EntityData.Leafs = types.NewOrderedMap()
@@ -1763,6 +1811,7 @@ func (rtTlv *L2rib_EviChildTables_MacipDetails_MacipDetail_RtTlv) GetEntityData(
 type L2rib_EviChildTables_MacipDetails_MacipDetail_RtTlv_TlvVal struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..255.
     Entry interface{}
@@ -1773,7 +1822,8 @@ func (tlvVal *L2rib_EviChildTables_MacipDetails_MacipDetail_RtTlv_TlvVal) GetEnt
     tlvVal.EntityData.YangName = "tlv-val"
     tlvVal.EntityData.BundleName = "cisco_ios_xr"
     tlvVal.EntityData.ParentYangName = "rt-tlv"
-    tlvVal.EntityData.SegmentPath = "tlv-val"
+    tlvVal.EntityData.SegmentPath = "tlv-val" + types.AddNoKeyToken(tlvVal)
+    tlvVal.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/macip-details/macip-detail/rt-tlv/" + tlvVal.EntityData.SegmentPath
     tlvVal.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tlvVal.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tlvVal.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1810,6 +1860,7 @@ func (nhTlv *L2rib_EviChildTables_MacipDetails_MacipDetail_NhTlv) GetEntityData(
     nhTlv.EntityData.BundleName = "cisco_ios_xr"
     nhTlv.EntityData.ParentYangName = "macip-detail"
     nhTlv.EntityData.SegmentPath = "nh-tlv"
+    nhTlv.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/macip-details/macip-detail/" + nhTlv.EntityData.SegmentPath
     nhTlv.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhTlv.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhTlv.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1817,6 +1868,7 @@ func (nhTlv *L2rib_EviChildTables_MacipDetails_MacipDetail_NhTlv) GetEntityData(
     nhTlv.EntityData.Children = types.NewOrderedMap()
     nhTlv.EntityData.Children.Append("tlv-val", types.YChild{"TlvVal", nil})
     for i := range nhTlv.TlvVal {
+        types.SetYListKey(nhTlv.TlvVal[i], i)
         nhTlv.EntityData.Children.Append(types.GetSegmentPath(nhTlv.TlvVal[i]), types.YChild{"TlvVal", nhTlv.TlvVal[i]})
     }
     nhTlv.EntityData.Leafs = types.NewOrderedMap()
@@ -1833,6 +1885,7 @@ func (nhTlv *L2rib_EviChildTables_MacipDetails_MacipDetail_NhTlv) GetEntityData(
 type L2rib_EviChildTables_MacipDetails_MacipDetail_NhTlv_TlvVal struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..255.
     Entry interface{}
@@ -1843,7 +1896,8 @@ func (tlvVal *L2rib_EviChildTables_MacipDetails_MacipDetail_NhTlv_TlvVal) GetEnt
     tlvVal.EntityData.YangName = "tlv-val"
     tlvVal.EntityData.BundleName = "cisco_ios_xr"
     tlvVal.EntityData.ParentYangName = "nh-tlv"
-    tlvVal.EntityData.SegmentPath = "tlv-val"
+    tlvVal.EntityData.SegmentPath = "tlv-val" + types.AddNoKeyToken(tlvVal)
+    tlvVal.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/macip-details/macip-detail/nh-tlv/" + tlvVal.EntityData.SegmentPath
     tlvVal.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tlvVal.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tlvVal.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1874,6 +1928,7 @@ func (macIps *L2rib_EviChildTables_MacIps) GetEntityData() *types.CommonEntityDa
     macIps.EntityData.BundleName = "cisco_ios_xr"
     macIps.EntityData.ParentYangName = "evi-child-tables"
     macIps.EntityData.SegmentPath = "mac-ips"
+    macIps.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/" + macIps.EntityData.SegmentPath
     macIps.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     macIps.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     macIps.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1881,6 +1936,7 @@ func (macIps *L2rib_EviChildTables_MacIps) GetEntityData() *types.CommonEntityDa
     macIps.EntityData.Children = types.NewOrderedMap()
     macIps.EntityData.Children.Append("mac-ip", types.YChild{"MacIp", nil})
     for i := range macIps.MacIp {
+        types.SetYListKey(macIps.MacIp[i], i)
         macIps.EntityData.Children.Append(types.GetSegmentPath(macIps.MacIp[i]), types.YChild{"MacIp", macIps.MacIp[i]})
     }
     macIps.EntityData.Leafs = types.NewOrderedMap()
@@ -1895,12 +1951,10 @@ func (macIps *L2rib_EviChildTables_MacIps) GetEntityData() *types.CommonEntityDa
 type L2rib_EviChildTables_MacIps_MacIp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // EVPN ID. The type is interface{} with range: 0..4294967295.
     Evi interface{}
-
-    // Tag ID. The type is interface{} with range: 0..4294967295.
-    TagId interface{}
 
     // MAC-IP Address. The type is string with pattern:
     // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
@@ -1911,9 +1965,6 @@ type L2rib_EviChildTables_MacIps_MacIp struct {
     // or string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     IpAddr interface{}
-
-    // Admin distance. The type is interface{} with range: 0..4294967295.
-    AdminDist interface{}
 
     // Producer ID. The type is interface{} with range: 0..4294967295.
     ProdId interface{}
@@ -1943,7 +1994,8 @@ func (macIp *L2rib_EviChildTables_MacIps_MacIp) GetEntityData() *types.CommonEnt
     macIp.EntityData.YangName = "mac-ip"
     macIp.EntityData.BundleName = "cisco_ios_xr"
     macIp.EntityData.ParentYangName = "mac-ips"
-    macIp.EntityData.SegmentPath = "mac-ip"
+    macIp.EntityData.SegmentPath = "mac-ip" + types.AddNoKeyToken(macIp)
+    macIp.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/mac-ips/" + macIp.EntityData.SegmentPath
     macIp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     macIp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     macIp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1952,10 +2004,8 @@ func (macIp *L2rib_EviChildTables_MacIps_MacIp) GetEntityData() *types.CommonEnt
     macIp.EntityData.Children.Append("next-hop", types.YChild{"NextHop", &macIp.NextHop})
     macIp.EntityData.Leafs = types.NewOrderedMap()
     macIp.EntityData.Leafs.Append("evi", types.YLeaf{"Evi", macIp.Evi})
-    macIp.EntityData.Leafs.Append("tag-id", types.YLeaf{"TagId", macIp.TagId})
     macIp.EntityData.Leafs.Append("mac-addr", types.YLeaf{"MacAddr", macIp.MacAddr})
     macIp.EntityData.Leafs.Append("ip-addr", types.YLeaf{"IpAddr", macIp.IpAddr})
-    macIp.EntityData.Leafs.Append("admin-dist", types.YLeaf{"AdminDist", macIp.AdminDist})
     macIp.EntityData.Leafs.Append("prod-id", types.YLeaf{"ProdId", macIp.ProdId})
     macIp.EntityData.Leafs.Append("mac-address", types.YLeaf{"MacAddress", macIp.MacAddress})
     macIp.EntityData.Leafs.Append("ip-address", types.YLeaf{"IpAddress", macIp.IpAddress})
@@ -1990,6 +2040,7 @@ func (nextHop *L2rib_EviChildTables_MacIps_MacIp_NextHop) GetEntityData() *types
     nextHop.EntityData.BundleName = "cisco_ios_xr"
     nextHop.EntityData.ParentYangName = "mac-ip"
     nextHop.EntityData.SegmentPath = "next-hop"
+    nextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/mac-ips/mac-ip/" + nextHop.EntityData.SegmentPath
     nextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2043,6 +2094,7 @@ func (nextHop *L2rib_EviChildTables_MacIps_MacIp_NextHop_NextHop) GetEntityData(
     nextHop.EntityData.BundleName = "cisco_ios_xr"
     nextHop.EntityData.ParentYangName = "next-hop"
     nextHop.EntityData.SegmentPath = "next-hop"
+    nextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/mac-ips/mac-ip/next-hop/" + nextHop.EntityData.SegmentPath
     nextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2087,6 +2139,7 @@ func (labeled *L2rib_EviChildTables_MacIps_MacIp_NextHop_NextHop_Labeled) GetEnt
     labeled.EntityData.BundleName = "cisco_ios_xr"
     labeled.EntityData.ParentYangName = "next-hop"
     labeled.EntityData.SegmentPath = "labeled"
+    labeled.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/mac-ips/mac-ip/next-hop/next-hop/" + labeled.EntityData.SegmentPath
     labeled.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labeled.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labeled.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2119,6 +2172,7 @@ func (macs *L2rib_EviChildTables_Macs) GetEntityData() *types.CommonEntityData {
     macs.EntityData.BundleName = "cisco_ios_xr"
     macs.EntityData.ParentYangName = "evi-child-tables"
     macs.EntityData.SegmentPath = "macs"
+    macs.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/" + macs.EntityData.SegmentPath
     macs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     macs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     macs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2126,6 +2180,7 @@ func (macs *L2rib_EviChildTables_Macs) GetEntityData() *types.CommonEntityData {
     macs.EntityData.Children = types.NewOrderedMap()
     macs.EntityData.Children.Append("mac", types.YChild{"Mac", nil})
     for i := range macs.Mac {
+        types.SetYListKey(macs.Mac[i], i)
         macs.EntityData.Children.Append(types.GetSegmentPath(macs.Mac[i]), types.YChild{"Mac", macs.Mac[i]})
     }
     macs.EntityData.Leafs = types.NewOrderedMap()
@@ -2140,19 +2195,14 @@ func (macs *L2rib_EviChildTables_Macs) GetEntityData() *types.CommonEntityData {
 type L2rib_EviChildTables_Macs_Mac struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // EVPN ID. The type is interface{} with range: 0..4294967295.
     Evi interface{}
 
-    // Tag ID. The type is interface{} with range: 0..4294967295.
-    TagId interface{}
-
     // MAC Address. The type is string with pattern:
     // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     MacAddr interface{}
-
-    // Admin distance. The type is interface{} with range: 0..4294967295.
-    AdminDist interface{}
 
     // Producer ID. The type is interface{} with range: 0..4294967295.
     ProdId interface{}
@@ -2179,7 +2229,8 @@ func (mac *L2rib_EviChildTables_Macs_Mac) GetEntityData() *types.CommonEntityDat
     mac.EntityData.YangName = "mac"
     mac.EntityData.BundleName = "cisco_ios_xr"
     mac.EntityData.ParentYangName = "macs"
-    mac.EntityData.SegmentPath = "mac"
+    mac.EntityData.SegmentPath = "mac" + types.AddNoKeyToken(mac)
+    mac.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/macs/" + mac.EntityData.SegmentPath
     mac.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mac.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mac.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2188,9 +2239,7 @@ func (mac *L2rib_EviChildTables_Macs_Mac) GetEntityData() *types.CommonEntityDat
     mac.EntityData.Children.Append("route", types.YChild{"Route", &mac.Route})
     mac.EntityData.Leafs = types.NewOrderedMap()
     mac.EntityData.Leafs.Append("evi", types.YLeaf{"Evi", mac.Evi})
-    mac.EntityData.Leafs.Append("tag-id", types.YLeaf{"TagId", mac.TagId})
     mac.EntityData.Leafs.Append("mac-addr", types.YLeaf{"MacAddr", mac.MacAddr})
-    mac.EntityData.Leafs.Append("admin-dist", types.YLeaf{"AdminDist", mac.AdminDist})
     mac.EntityData.Leafs.Append("prod-id", types.YLeaf{"ProdId", mac.ProdId})
     mac.EntityData.Leafs.Append("mac-address", types.YLeaf{"MacAddress", mac.MacAddress})
     mac.EntityData.Leafs.Append("admin-distance", types.YLeaf{"AdminDistance", mac.AdminDistance})
@@ -2227,6 +2276,7 @@ func (route *L2rib_EviChildTables_Macs_Mac_Route) GetEntityData() *types.CommonE
     route.EntityData.BundleName = "cisco_ios_xr"
     route.EntityData.ParentYangName = "mac"
     route.EntityData.SegmentPath = "route"
+    route.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/macs/mac/" + route.EntityData.SegmentPath
     route.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     route.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     route.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2259,6 +2309,7 @@ func (regular *L2rib_EviChildTables_Macs_Mac_Route_Regular) GetEntityData() *typ
     regular.EntityData.BundleName = "cisco_ios_xr"
     regular.EntityData.ParentYangName = "route"
     regular.EntityData.SegmentPath = "regular"
+    regular.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/macs/mac/route/" + regular.EntityData.SegmentPath
     regular.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     regular.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     regular.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2294,6 +2345,7 @@ func (nextHop *L2rib_EviChildTables_Macs_Mac_Route_Regular_NextHop) GetEntityDat
     nextHop.EntityData.BundleName = "cisco_ios_xr"
     nextHop.EntityData.ParentYangName = "regular"
     nextHop.EntityData.SegmentPath = "next-hop"
+    nextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/macs/mac/route/regular/" + nextHop.EntityData.SegmentPath
     nextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2347,6 +2399,7 @@ func (nextHop *L2rib_EviChildTables_Macs_Mac_Route_Regular_NextHop_NextHop) GetE
     nextHop.EntityData.BundleName = "cisco_ios_xr"
     nextHop.EntityData.ParentYangName = "next-hop"
     nextHop.EntityData.SegmentPath = "next-hop"
+    nextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/macs/mac/route/regular/next-hop/" + nextHop.EntityData.SegmentPath
     nextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2391,6 +2444,7 @@ func (labeled *L2rib_EviChildTables_Macs_Mac_Route_Regular_NextHop_NextHop_Label
     labeled.EntityData.BundleName = "cisco_ios_xr"
     labeled.EntityData.ParentYangName = "next-hop"
     labeled.EntityData.SegmentPath = "labeled"
+    labeled.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/macs/mac/route/regular/next-hop/next-hop/" + labeled.EntityData.SegmentPath
     labeled.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labeled.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labeled.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2433,6 +2487,7 @@ func (evpnEsi *L2rib_EviChildTables_Macs_Mac_Route_EvpnEsi) GetEntityData() *typ
     evpnEsi.EntityData.BundleName = "cisco_ios_xr"
     evpnEsi.EntityData.ParentYangName = "route"
     evpnEsi.EntityData.SegmentPath = "evpn-esi"
+    evpnEsi.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/macs/mac/route/" + evpnEsi.EntityData.SegmentPath
     evpnEsi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     evpnEsi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     evpnEsi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2472,6 +2527,7 @@ func (ethernetSegmentId *L2rib_EviChildTables_Macs_Mac_Route_EvpnEsi_EthernetSeg
     ethernetSegmentId.EntityData.BundleName = "cisco_ios_xr"
     ethernetSegmentId.EntityData.ParentYangName = "evpn-esi"
     ethernetSegmentId.EntityData.SegmentPath = "ethernet-segment-id"
+    ethernetSegmentId.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/macs/mac/route/evpn-esi/" + ethernetSegmentId.EntityData.SegmentPath
     ethernetSegmentId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ethernetSegmentId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ethernetSegmentId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2518,6 +2574,7 @@ func (pathList *L2rib_EviChildTables_Macs_Mac_Route_EvpnEsi_PathList) GetEntityD
     pathList.EntityData.BundleName = "cisco_ios_xr"
     pathList.EntityData.ParentYangName = "evpn-esi"
     pathList.EntityData.SegmentPath = "path-list"
+    pathList.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/macs/mac/route/evpn-esi/" + pathList.EntityData.SegmentPath
     pathList.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pathList.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pathList.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2526,6 +2583,7 @@ func (pathList *L2rib_EviChildTables_Macs_Mac_Route_EvpnEsi_PathList) GetEntityD
     pathList.EntityData.Children.Append("path-list-info", types.YChild{"PathListInfo", &pathList.PathListInfo})
     pathList.EntityData.Children.Append("next-hop-array", types.YChild{"NextHopArray", nil})
     for i := range pathList.NextHopArray {
+        types.SetYListKey(pathList.NextHopArray[i], i)
         pathList.EntityData.Children.Append(types.GetSegmentPath(pathList.NextHopArray[i]), types.YChild{"NextHopArray", pathList.NextHopArray[i]})
     }
     pathList.EntityData.Leafs = types.NewOrderedMap()
@@ -2560,6 +2618,7 @@ func (pathListInfo *L2rib_EviChildTables_Macs_Mac_Route_EvpnEsi_PathList_PathLis
     pathListInfo.EntityData.BundleName = "cisco_ios_xr"
     pathListInfo.EntityData.ParentYangName = "path-list"
     pathListInfo.EntityData.SegmentPath = "path-list-info"
+    pathListInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/macs/mac/route/evpn-esi/path-list/" + pathListInfo.EntityData.SegmentPath
     pathListInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pathListInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pathListInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2598,6 +2657,7 @@ func (pathListEsi *L2rib_EviChildTables_Macs_Mac_Route_EvpnEsi_PathList_PathList
     pathListEsi.EntityData.BundleName = "cisco_ios_xr"
     pathListEsi.EntityData.ParentYangName = "path-list-info"
     pathListEsi.EntityData.SegmentPath = "path-list-esi"
+    pathListEsi.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/macs/mac/route/evpn-esi/path-list/path-list-info/" + pathListEsi.EntityData.SegmentPath
     pathListEsi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pathListEsi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pathListEsi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2606,6 +2666,7 @@ func (pathListEsi *L2rib_EviChildTables_Macs_Mac_Route_EvpnEsi_PathList_PathList
     pathListEsi.EntityData.Children.Append("ethernet-segment-id", types.YChild{"EthernetSegmentId", &pathListEsi.EthernetSegmentId})
     pathListEsi.EntityData.Children.Append("mac-update-next-hop-array", types.YChild{"MacUpdateNextHopArray", nil})
     for i := range pathListEsi.MacUpdateNextHopArray {
+        types.SetYListKey(pathListEsi.MacUpdateNextHopArray[i], i)
         pathListEsi.EntityData.Children.Append(types.GetSegmentPath(pathListEsi.MacUpdateNextHopArray[i]), types.YChild{"MacUpdateNextHopArray", pathListEsi.MacUpdateNextHopArray[i]})
     }
     pathListEsi.EntityData.Leafs = types.NewOrderedMap()
@@ -2639,6 +2700,7 @@ func (ethernetSegmentId *L2rib_EviChildTables_Macs_Mac_Route_EvpnEsi_PathList_Pa
     ethernetSegmentId.EntityData.BundleName = "cisco_ios_xr"
     ethernetSegmentId.EntityData.ParentYangName = "path-list-esi"
     ethernetSegmentId.EntityData.SegmentPath = "ethernet-segment-id"
+    ethernetSegmentId.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/macs/mac/route/evpn-esi/path-list/path-list-info/path-list-esi/" + ethernetSegmentId.EntityData.SegmentPath
     ethernetSegmentId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ethernetSegmentId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ethernetSegmentId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2659,6 +2721,7 @@ func (ethernetSegmentId *L2rib_EviChildTables_Macs_Mac_Route_EvpnEsi_PathList_Pa
 type L2rib_EviChildTables_Macs_Mac_Route_EvpnEsi_PathList_PathListInfo_PathListEsi_MacUpdateNextHopArray struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Next-hop TOPOLOGY ID. The type is interface{} with range: 0..4294967295.
     TopologyId interface{}
@@ -2675,7 +2738,8 @@ func (macUpdateNextHopArray *L2rib_EviChildTables_Macs_Mac_Route_EvpnEsi_PathLis
     macUpdateNextHopArray.EntityData.YangName = "mac-update-next-hop-array"
     macUpdateNextHopArray.EntityData.BundleName = "cisco_ios_xr"
     macUpdateNextHopArray.EntityData.ParentYangName = "path-list-esi"
-    macUpdateNextHopArray.EntityData.SegmentPath = "mac-update-next-hop-array"
+    macUpdateNextHopArray.EntityData.SegmentPath = "mac-update-next-hop-array" + types.AddNoKeyToken(macUpdateNextHopArray)
+    macUpdateNextHopArray.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/macs/mac/route/evpn-esi/path-list/path-list-info/path-list-esi/" + macUpdateNextHopArray.EntityData.SegmentPath
     macUpdateNextHopArray.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     macUpdateNextHopArray.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     macUpdateNextHopArray.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2729,6 +2793,7 @@ func (nextHop *L2rib_EviChildTables_Macs_Mac_Route_EvpnEsi_PathList_PathListInfo
     nextHop.EntityData.BundleName = "cisco_ios_xr"
     nextHop.EntityData.ParentYangName = "mac-update-next-hop-array"
     nextHop.EntityData.SegmentPath = "next-hop"
+    nextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/macs/mac/route/evpn-esi/path-list/path-list-info/path-list-esi/mac-update-next-hop-array/" + nextHop.EntityData.SegmentPath
     nextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2773,6 +2838,7 @@ func (labeled *L2rib_EviChildTables_Macs_Mac_Route_EvpnEsi_PathList_PathListInfo
     labeled.EntityData.BundleName = "cisco_ios_xr"
     labeled.EntityData.ParentYangName = "next-hop"
     labeled.EntityData.SegmentPath = "labeled"
+    labeled.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/macs/mac/route/evpn-esi/path-list/path-list-info/path-list-esi/mac-update-next-hop-array/next-hop/" + labeled.EntityData.SegmentPath
     labeled.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labeled.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labeled.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2806,6 +2872,7 @@ func (pathListMac *L2rib_EviChildTables_Macs_Mac_Route_EvpnEsi_PathList_PathList
     pathListMac.EntityData.BundleName = "cisco_ios_xr"
     pathListMac.EntityData.ParentYangName = "path-list-info"
     pathListMac.EntityData.SegmentPath = "path-list-mac"
+    pathListMac.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/macs/mac/route/evpn-esi/path-list/path-list-info/" + pathListMac.EntityData.SegmentPath
     pathListMac.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pathListMac.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pathListMac.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2824,6 +2891,7 @@ func (pathListMac *L2rib_EviChildTables_Macs_Mac_Route_EvpnEsi_PathList_PathList
 type L2rib_EviChildTables_Macs_Mac_Route_EvpnEsi_PathList_NextHopArray struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Next-hop TOPOLOGY ID. The type is interface{} with range: 0..4294967295.
     TopologyId interface{}
@@ -2840,7 +2908,8 @@ func (nextHopArray *L2rib_EviChildTables_Macs_Mac_Route_EvpnEsi_PathList_NextHop
     nextHopArray.EntityData.YangName = "next-hop-array"
     nextHopArray.EntityData.BundleName = "cisco_ios_xr"
     nextHopArray.EntityData.ParentYangName = "path-list"
-    nextHopArray.EntityData.SegmentPath = "next-hop-array"
+    nextHopArray.EntityData.SegmentPath = "next-hop-array" + types.AddNoKeyToken(nextHopArray)
+    nextHopArray.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/macs/mac/route/evpn-esi/path-list/" + nextHopArray.EntityData.SegmentPath
     nextHopArray.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextHopArray.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextHopArray.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2894,6 +2963,7 @@ func (nextHop *L2rib_EviChildTables_Macs_Mac_Route_EvpnEsi_PathList_NextHopArray
     nextHop.EntityData.BundleName = "cisco_ios_xr"
     nextHop.EntityData.ParentYangName = "next-hop-array"
     nextHop.EntityData.SegmentPath = "next-hop"
+    nextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/macs/mac/route/evpn-esi/path-list/next-hop-array/" + nextHop.EntityData.SegmentPath
     nextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2938,6 +3008,7 @@ func (labeled *L2rib_EviChildTables_Macs_Mac_Route_EvpnEsi_PathList_NextHopArray
     labeled.EntityData.BundleName = "cisco_ios_xr"
     labeled.EntityData.ParentYangName = "next-hop"
     labeled.EntityData.SegmentPath = "labeled"
+    labeled.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/macs/mac/route/evpn-esi/path-list/next-hop-array/next-hop/" + labeled.EntityData.SegmentPath
     labeled.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labeled.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labeled.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2977,6 +3048,7 @@ func (bmac *L2rib_EviChildTables_Macs_Mac_Route_Bmac) GetEntityData() *types.Com
     bmac.EntityData.BundleName = "cisco_ios_xr"
     bmac.EntityData.ParentYangName = "route"
     bmac.EntityData.SegmentPath = "bmac"
+    bmac.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/macs/mac/route/" + bmac.EntityData.SegmentPath
     bmac.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bmac.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bmac.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3022,6 +3094,7 @@ func (pathList *L2rib_EviChildTables_Macs_Mac_Route_Bmac_PathList) GetEntityData
     pathList.EntityData.BundleName = "cisco_ios_xr"
     pathList.EntityData.ParentYangName = "bmac"
     pathList.EntityData.SegmentPath = "path-list"
+    pathList.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/macs/mac/route/bmac/" + pathList.EntityData.SegmentPath
     pathList.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pathList.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pathList.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3030,6 +3103,7 @@ func (pathList *L2rib_EviChildTables_Macs_Mac_Route_Bmac_PathList) GetEntityData
     pathList.EntityData.Children.Append("path-list-info", types.YChild{"PathListInfo", &pathList.PathListInfo})
     pathList.EntityData.Children.Append("next-hop-array", types.YChild{"NextHopArray", nil})
     for i := range pathList.NextHopArray {
+        types.SetYListKey(pathList.NextHopArray[i], i)
         pathList.EntityData.Children.Append(types.GetSegmentPath(pathList.NextHopArray[i]), types.YChild{"NextHopArray", pathList.NextHopArray[i]})
     }
     pathList.EntityData.Leafs = types.NewOrderedMap()
@@ -3064,6 +3138,7 @@ func (pathListInfo *L2rib_EviChildTables_Macs_Mac_Route_Bmac_PathList_PathListIn
     pathListInfo.EntityData.BundleName = "cisco_ios_xr"
     pathListInfo.EntityData.ParentYangName = "path-list"
     pathListInfo.EntityData.SegmentPath = "path-list-info"
+    pathListInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/macs/mac/route/bmac/path-list/" + pathListInfo.EntityData.SegmentPath
     pathListInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pathListInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pathListInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3102,6 +3177,7 @@ func (pathListEsi *L2rib_EviChildTables_Macs_Mac_Route_Bmac_PathList_PathListInf
     pathListEsi.EntityData.BundleName = "cisco_ios_xr"
     pathListEsi.EntityData.ParentYangName = "path-list-info"
     pathListEsi.EntityData.SegmentPath = "path-list-esi"
+    pathListEsi.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/macs/mac/route/bmac/path-list/path-list-info/" + pathListEsi.EntityData.SegmentPath
     pathListEsi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pathListEsi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pathListEsi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3110,6 +3186,7 @@ func (pathListEsi *L2rib_EviChildTables_Macs_Mac_Route_Bmac_PathList_PathListInf
     pathListEsi.EntityData.Children.Append("ethernet-segment-id", types.YChild{"EthernetSegmentId", &pathListEsi.EthernetSegmentId})
     pathListEsi.EntityData.Children.Append("mac-update-next-hop-array", types.YChild{"MacUpdateNextHopArray", nil})
     for i := range pathListEsi.MacUpdateNextHopArray {
+        types.SetYListKey(pathListEsi.MacUpdateNextHopArray[i], i)
         pathListEsi.EntityData.Children.Append(types.GetSegmentPath(pathListEsi.MacUpdateNextHopArray[i]), types.YChild{"MacUpdateNextHopArray", pathListEsi.MacUpdateNextHopArray[i]})
     }
     pathListEsi.EntityData.Leafs = types.NewOrderedMap()
@@ -3143,6 +3220,7 @@ func (ethernetSegmentId *L2rib_EviChildTables_Macs_Mac_Route_Bmac_PathList_PathL
     ethernetSegmentId.EntityData.BundleName = "cisco_ios_xr"
     ethernetSegmentId.EntityData.ParentYangName = "path-list-esi"
     ethernetSegmentId.EntityData.SegmentPath = "ethernet-segment-id"
+    ethernetSegmentId.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/macs/mac/route/bmac/path-list/path-list-info/path-list-esi/" + ethernetSegmentId.EntityData.SegmentPath
     ethernetSegmentId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ethernetSegmentId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ethernetSegmentId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3163,6 +3241,7 @@ func (ethernetSegmentId *L2rib_EviChildTables_Macs_Mac_Route_Bmac_PathList_PathL
 type L2rib_EviChildTables_Macs_Mac_Route_Bmac_PathList_PathListInfo_PathListEsi_MacUpdateNextHopArray struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Next-hop TOPOLOGY ID. The type is interface{} with range: 0..4294967295.
     TopologyId interface{}
@@ -3179,7 +3258,8 @@ func (macUpdateNextHopArray *L2rib_EviChildTables_Macs_Mac_Route_Bmac_PathList_P
     macUpdateNextHopArray.EntityData.YangName = "mac-update-next-hop-array"
     macUpdateNextHopArray.EntityData.BundleName = "cisco_ios_xr"
     macUpdateNextHopArray.EntityData.ParentYangName = "path-list-esi"
-    macUpdateNextHopArray.EntityData.SegmentPath = "mac-update-next-hop-array"
+    macUpdateNextHopArray.EntityData.SegmentPath = "mac-update-next-hop-array" + types.AddNoKeyToken(macUpdateNextHopArray)
+    macUpdateNextHopArray.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/macs/mac/route/bmac/path-list/path-list-info/path-list-esi/" + macUpdateNextHopArray.EntityData.SegmentPath
     macUpdateNextHopArray.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     macUpdateNextHopArray.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     macUpdateNextHopArray.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3233,6 +3313,7 @@ func (nextHop *L2rib_EviChildTables_Macs_Mac_Route_Bmac_PathList_PathListInfo_Pa
     nextHop.EntityData.BundleName = "cisco_ios_xr"
     nextHop.EntityData.ParentYangName = "mac-update-next-hop-array"
     nextHop.EntityData.SegmentPath = "next-hop"
+    nextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/macs/mac/route/bmac/path-list/path-list-info/path-list-esi/mac-update-next-hop-array/" + nextHop.EntityData.SegmentPath
     nextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3277,6 +3358,7 @@ func (labeled *L2rib_EviChildTables_Macs_Mac_Route_Bmac_PathList_PathListInfo_Pa
     labeled.EntityData.BundleName = "cisco_ios_xr"
     labeled.EntityData.ParentYangName = "next-hop"
     labeled.EntityData.SegmentPath = "labeled"
+    labeled.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/macs/mac/route/bmac/path-list/path-list-info/path-list-esi/mac-update-next-hop-array/next-hop/" + labeled.EntityData.SegmentPath
     labeled.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labeled.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labeled.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3310,6 +3392,7 @@ func (pathListMac *L2rib_EviChildTables_Macs_Mac_Route_Bmac_PathList_PathListInf
     pathListMac.EntityData.BundleName = "cisco_ios_xr"
     pathListMac.EntityData.ParentYangName = "path-list-info"
     pathListMac.EntityData.SegmentPath = "path-list-mac"
+    pathListMac.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/macs/mac/route/bmac/path-list/path-list-info/" + pathListMac.EntityData.SegmentPath
     pathListMac.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pathListMac.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pathListMac.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3328,6 +3411,7 @@ func (pathListMac *L2rib_EviChildTables_Macs_Mac_Route_Bmac_PathList_PathListInf
 type L2rib_EviChildTables_Macs_Mac_Route_Bmac_PathList_NextHopArray struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Next-hop TOPOLOGY ID. The type is interface{} with range: 0..4294967295.
     TopologyId interface{}
@@ -3344,7 +3428,8 @@ func (nextHopArray *L2rib_EviChildTables_Macs_Mac_Route_Bmac_PathList_NextHopArr
     nextHopArray.EntityData.YangName = "next-hop-array"
     nextHopArray.EntityData.BundleName = "cisco_ios_xr"
     nextHopArray.EntityData.ParentYangName = "path-list"
-    nextHopArray.EntityData.SegmentPath = "next-hop-array"
+    nextHopArray.EntityData.SegmentPath = "next-hop-array" + types.AddNoKeyToken(nextHopArray)
+    nextHopArray.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/macs/mac/route/bmac/path-list/" + nextHopArray.EntityData.SegmentPath
     nextHopArray.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextHopArray.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextHopArray.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3398,6 +3483,7 @@ func (nextHop *L2rib_EviChildTables_Macs_Mac_Route_Bmac_PathList_NextHopArray_Ne
     nextHop.EntityData.BundleName = "cisco_ios_xr"
     nextHop.EntityData.ParentYangName = "next-hop-array"
     nextHop.EntityData.SegmentPath = "next-hop"
+    nextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/macs/mac/route/bmac/path-list/next-hop-array/" + nextHop.EntityData.SegmentPath
     nextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3442,6 +3528,7 @@ func (labeled *L2rib_EviChildTables_Macs_Mac_Route_Bmac_PathList_NextHopArray_Ne
     labeled.EntityData.BundleName = "cisco_ios_xr"
     labeled.EntityData.ParentYangName = "next-hop"
     labeled.EntityData.SegmentPath = "labeled"
+    labeled.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/macs/mac/route/bmac/path-list/next-hop-array/next-hop/" + labeled.EntityData.SegmentPath
     labeled.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labeled.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labeled.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3475,6 +3562,7 @@ func (imets *L2rib_EviChildTables_Imets) GetEntityData() *types.CommonEntityData
     imets.EntityData.BundleName = "cisco_ios_xr"
     imets.EntityData.ParentYangName = "evi-child-tables"
     imets.EntityData.SegmentPath = "imets"
+    imets.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/" + imets.EntityData.SegmentPath
     imets.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     imets.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     imets.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3482,6 +3570,7 @@ func (imets *L2rib_EviChildTables_Imets) GetEntityData() *types.CommonEntityData
     imets.EntityData.Children = types.NewOrderedMap()
     imets.EntityData.Children.Append("imet", types.YChild{"Imet", nil})
     for i := range imets.Imet {
+        types.SetYListKey(imets.Imet[i], i)
         imets.EntityData.Children.Append(types.GetSegmentPath(imets.Imet[i]), types.YChild{"Imet", imets.Imet[i]})
     }
     imets.EntityData.Leafs = types.NewOrderedMap()
@@ -3496,6 +3585,7 @@ func (imets *L2rib_EviChildTables_Imets) GetEntityData() *types.CommonEntityData
 type L2rib_EviChildTables_Imets_Imet struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // EVPN ID. The type is interface{} with range: 0..4294967295.
     Evi interface{}
@@ -3537,7 +3627,8 @@ func (imet *L2rib_EviChildTables_Imets_Imet) GetEntityData() *types.CommonEntity
     imet.EntityData.YangName = "imet"
     imet.EntityData.BundleName = "cisco_ios_xr"
     imet.EntityData.ParentYangName = "imets"
-    imet.EntityData.SegmentPath = "imet"
+    imet.EntityData.SegmentPath = "imet" + types.AddNoKeyToken(imet)
+    imet.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/imets/" + imet.EntityData.SegmentPath
     imet.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     imet.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     imet.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3577,6 +3668,7 @@ func (macDetails *L2rib_EviChildTables_MacDetails) GetEntityData() *types.Common
     macDetails.EntityData.BundleName = "cisco_ios_xr"
     macDetails.EntityData.ParentYangName = "evi-child-tables"
     macDetails.EntityData.SegmentPath = "mac-details"
+    macDetails.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/" + macDetails.EntityData.SegmentPath
     macDetails.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     macDetails.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     macDetails.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3584,6 +3676,7 @@ func (macDetails *L2rib_EviChildTables_MacDetails) GetEntityData() *types.Common
     macDetails.EntityData.Children = types.NewOrderedMap()
     macDetails.EntityData.Children.Append("mac-detail", types.YChild{"MacDetail", nil})
     for i := range macDetails.MacDetail {
+        types.SetYListKey(macDetails.MacDetail[i], i)
         macDetails.EntityData.Children.Append(types.GetSegmentPath(macDetails.MacDetail[i]), types.YChild{"MacDetail", macDetails.MacDetail[i]})
     }
     macDetails.EntityData.Leafs = types.NewOrderedMap()
@@ -3598,19 +3691,14 @@ func (macDetails *L2rib_EviChildTables_MacDetails) GetEntityData() *types.Common
 type L2rib_EviChildTables_MacDetails_MacDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // EVPN ID. The type is interface{} with range: 0..4294967295.
     Evi interface{}
 
-    // Tag ID. The type is interface{} with range: 0..4294967295.
-    TagId interface{}
-
     // MAC Address. The type is string with pattern:
     // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     MacAddr interface{}
-
-    // Admin distance. The type is interface{} with range: 0..4294967295.
-    AdminDist interface{}
 
     // Producer ID. The type is interface{} with range: 0..4294967295.
     ProdId interface{}
@@ -3650,7 +3738,8 @@ func (macDetail *L2rib_EviChildTables_MacDetails_MacDetail) GetEntityData() *typ
     macDetail.EntityData.YangName = "mac-detail"
     macDetail.EntityData.BundleName = "cisco_ios_xr"
     macDetail.EntityData.ParentYangName = "mac-details"
-    macDetail.EntityData.SegmentPath = "mac-detail"
+    macDetail.EntityData.SegmentPath = "mac-detail" + types.AddNoKeyToken(macDetail)
+    macDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/mac-details/" + macDetail.EntityData.SegmentPath
     macDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     macDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     macDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3660,9 +3749,7 @@ func (macDetail *L2rib_EviChildTables_MacDetails_MacDetail) GetEntityData() *typ
     macDetail.EntityData.Children.Append("rt-tlv", types.YChild{"RtTlv", &macDetail.RtTlv})
     macDetail.EntityData.Leafs = types.NewOrderedMap()
     macDetail.EntityData.Leafs.Append("evi", types.YLeaf{"Evi", macDetail.Evi})
-    macDetail.EntityData.Leafs.Append("tag-id", types.YLeaf{"TagId", macDetail.TagId})
     macDetail.EntityData.Leafs.Append("mac-addr", types.YLeaf{"MacAddr", macDetail.MacAddr})
-    macDetail.EntityData.Leafs.Append("admin-dist", types.YLeaf{"AdminDist", macDetail.AdminDist})
     macDetail.EntityData.Leafs.Append("prod-id", types.YLeaf{"ProdId", macDetail.ProdId})
     macDetail.EntityData.Leafs.Append("sequence-number", types.YLeaf{"SequenceNumber", macDetail.SequenceNumber})
     macDetail.EntityData.Leafs.Append("flags", types.YLeaf{"Flags", macDetail.Flags})
@@ -3706,6 +3793,7 @@ func (macRoute *L2rib_EviChildTables_MacDetails_MacDetail_MacRoute) GetEntityDat
     macRoute.EntityData.BundleName = "cisco_ios_xr"
     macRoute.EntityData.ParentYangName = "mac-detail"
     macRoute.EntityData.SegmentPath = "mac-route"
+    macRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/mac-details/mac-detail/" + macRoute.EntityData.SegmentPath
     macRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     macRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     macRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3748,6 +3836,7 @@ func (route *L2rib_EviChildTables_MacDetails_MacDetail_MacRoute_Route) GetEntity
     route.EntityData.BundleName = "cisco_ios_xr"
     route.EntityData.ParentYangName = "mac-route"
     route.EntityData.SegmentPath = "route"
+    route.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/mac-details/mac-detail/mac-route/" + route.EntityData.SegmentPath
     route.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     route.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     route.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3780,6 +3869,7 @@ func (regular *L2rib_EviChildTables_MacDetails_MacDetail_MacRoute_Route_Regular)
     regular.EntityData.BundleName = "cisco_ios_xr"
     regular.EntityData.ParentYangName = "route"
     regular.EntityData.SegmentPath = "regular"
+    regular.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/mac-details/mac-detail/mac-route/route/" + regular.EntityData.SegmentPath
     regular.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     regular.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     regular.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3815,6 +3905,7 @@ func (nextHop *L2rib_EviChildTables_MacDetails_MacDetail_MacRoute_Route_Regular_
     nextHop.EntityData.BundleName = "cisco_ios_xr"
     nextHop.EntityData.ParentYangName = "regular"
     nextHop.EntityData.SegmentPath = "next-hop"
+    nextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/mac-details/mac-detail/mac-route/route/regular/" + nextHop.EntityData.SegmentPath
     nextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3868,6 +3959,7 @@ func (nextHop *L2rib_EviChildTables_MacDetails_MacDetail_MacRoute_Route_Regular_
     nextHop.EntityData.BundleName = "cisco_ios_xr"
     nextHop.EntityData.ParentYangName = "next-hop"
     nextHop.EntityData.SegmentPath = "next-hop"
+    nextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/mac-details/mac-detail/mac-route/route/regular/next-hop/" + nextHop.EntityData.SegmentPath
     nextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3912,6 +4004,7 @@ func (labeled *L2rib_EviChildTables_MacDetails_MacDetail_MacRoute_Route_Regular_
     labeled.EntityData.BundleName = "cisco_ios_xr"
     labeled.EntityData.ParentYangName = "next-hop"
     labeled.EntityData.SegmentPath = "labeled"
+    labeled.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/mac-details/mac-detail/mac-route/route/regular/next-hop/next-hop/" + labeled.EntityData.SegmentPath
     labeled.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labeled.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labeled.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3954,6 +4047,7 @@ func (evpnEsi *L2rib_EviChildTables_MacDetails_MacDetail_MacRoute_Route_EvpnEsi)
     evpnEsi.EntityData.BundleName = "cisco_ios_xr"
     evpnEsi.EntityData.ParentYangName = "route"
     evpnEsi.EntityData.SegmentPath = "evpn-esi"
+    evpnEsi.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/mac-details/mac-detail/mac-route/route/" + evpnEsi.EntityData.SegmentPath
     evpnEsi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     evpnEsi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     evpnEsi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3993,6 +4087,7 @@ func (ethernetSegmentId *L2rib_EviChildTables_MacDetails_MacDetail_MacRoute_Rout
     ethernetSegmentId.EntityData.BundleName = "cisco_ios_xr"
     ethernetSegmentId.EntityData.ParentYangName = "evpn-esi"
     ethernetSegmentId.EntityData.SegmentPath = "ethernet-segment-id"
+    ethernetSegmentId.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/mac-details/mac-detail/mac-route/route/evpn-esi/" + ethernetSegmentId.EntityData.SegmentPath
     ethernetSegmentId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ethernetSegmentId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ethernetSegmentId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4039,6 +4134,7 @@ func (pathList *L2rib_EviChildTables_MacDetails_MacDetail_MacRoute_Route_EvpnEsi
     pathList.EntityData.BundleName = "cisco_ios_xr"
     pathList.EntityData.ParentYangName = "evpn-esi"
     pathList.EntityData.SegmentPath = "path-list"
+    pathList.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/mac-details/mac-detail/mac-route/route/evpn-esi/" + pathList.EntityData.SegmentPath
     pathList.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pathList.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pathList.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4047,6 +4143,7 @@ func (pathList *L2rib_EviChildTables_MacDetails_MacDetail_MacRoute_Route_EvpnEsi
     pathList.EntityData.Children.Append("path-list-info", types.YChild{"PathListInfo", &pathList.PathListInfo})
     pathList.EntityData.Children.Append("next-hop-array", types.YChild{"NextHopArray", nil})
     for i := range pathList.NextHopArray {
+        types.SetYListKey(pathList.NextHopArray[i], i)
         pathList.EntityData.Children.Append(types.GetSegmentPath(pathList.NextHopArray[i]), types.YChild{"NextHopArray", pathList.NextHopArray[i]})
     }
     pathList.EntityData.Leafs = types.NewOrderedMap()
@@ -4081,6 +4178,7 @@ func (pathListInfo *L2rib_EviChildTables_MacDetails_MacDetail_MacRoute_Route_Evp
     pathListInfo.EntityData.BundleName = "cisco_ios_xr"
     pathListInfo.EntityData.ParentYangName = "path-list"
     pathListInfo.EntityData.SegmentPath = "path-list-info"
+    pathListInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/mac-details/mac-detail/mac-route/route/evpn-esi/path-list/" + pathListInfo.EntityData.SegmentPath
     pathListInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pathListInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pathListInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4119,6 +4217,7 @@ func (pathListEsi *L2rib_EviChildTables_MacDetails_MacDetail_MacRoute_Route_Evpn
     pathListEsi.EntityData.BundleName = "cisco_ios_xr"
     pathListEsi.EntityData.ParentYangName = "path-list-info"
     pathListEsi.EntityData.SegmentPath = "path-list-esi"
+    pathListEsi.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/mac-details/mac-detail/mac-route/route/evpn-esi/path-list/path-list-info/" + pathListEsi.EntityData.SegmentPath
     pathListEsi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pathListEsi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pathListEsi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4127,6 +4226,7 @@ func (pathListEsi *L2rib_EviChildTables_MacDetails_MacDetail_MacRoute_Route_Evpn
     pathListEsi.EntityData.Children.Append("ethernet-segment-id", types.YChild{"EthernetSegmentId", &pathListEsi.EthernetSegmentId})
     pathListEsi.EntityData.Children.Append("mac-update-next-hop-array", types.YChild{"MacUpdateNextHopArray", nil})
     for i := range pathListEsi.MacUpdateNextHopArray {
+        types.SetYListKey(pathListEsi.MacUpdateNextHopArray[i], i)
         pathListEsi.EntityData.Children.Append(types.GetSegmentPath(pathListEsi.MacUpdateNextHopArray[i]), types.YChild{"MacUpdateNextHopArray", pathListEsi.MacUpdateNextHopArray[i]})
     }
     pathListEsi.EntityData.Leafs = types.NewOrderedMap()
@@ -4160,6 +4260,7 @@ func (ethernetSegmentId *L2rib_EviChildTables_MacDetails_MacDetail_MacRoute_Rout
     ethernetSegmentId.EntityData.BundleName = "cisco_ios_xr"
     ethernetSegmentId.EntityData.ParentYangName = "path-list-esi"
     ethernetSegmentId.EntityData.SegmentPath = "ethernet-segment-id"
+    ethernetSegmentId.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/mac-details/mac-detail/mac-route/route/evpn-esi/path-list/path-list-info/path-list-esi/" + ethernetSegmentId.EntityData.SegmentPath
     ethernetSegmentId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ethernetSegmentId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ethernetSegmentId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4180,6 +4281,7 @@ func (ethernetSegmentId *L2rib_EviChildTables_MacDetails_MacDetail_MacRoute_Rout
 type L2rib_EviChildTables_MacDetails_MacDetail_MacRoute_Route_EvpnEsi_PathList_PathListInfo_PathListEsi_MacUpdateNextHopArray struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Next-hop TOPOLOGY ID. The type is interface{} with range: 0..4294967295.
     TopologyId interface{}
@@ -4196,7 +4298,8 @@ func (macUpdateNextHopArray *L2rib_EviChildTables_MacDetails_MacDetail_MacRoute_
     macUpdateNextHopArray.EntityData.YangName = "mac-update-next-hop-array"
     macUpdateNextHopArray.EntityData.BundleName = "cisco_ios_xr"
     macUpdateNextHopArray.EntityData.ParentYangName = "path-list-esi"
-    macUpdateNextHopArray.EntityData.SegmentPath = "mac-update-next-hop-array"
+    macUpdateNextHopArray.EntityData.SegmentPath = "mac-update-next-hop-array" + types.AddNoKeyToken(macUpdateNextHopArray)
+    macUpdateNextHopArray.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/mac-details/mac-detail/mac-route/route/evpn-esi/path-list/path-list-info/path-list-esi/" + macUpdateNextHopArray.EntityData.SegmentPath
     macUpdateNextHopArray.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     macUpdateNextHopArray.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     macUpdateNextHopArray.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4250,6 +4353,7 @@ func (nextHop *L2rib_EviChildTables_MacDetails_MacDetail_MacRoute_Route_EvpnEsi_
     nextHop.EntityData.BundleName = "cisco_ios_xr"
     nextHop.EntityData.ParentYangName = "mac-update-next-hop-array"
     nextHop.EntityData.SegmentPath = "next-hop"
+    nextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/mac-details/mac-detail/mac-route/route/evpn-esi/path-list/path-list-info/path-list-esi/mac-update-next-hop-array/" + nextHop.EntityData.SegmentPath
     nextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4294,6 +4398,7 @@ func (labeled *L2rib_EviChildTables_MacDetails_MacDetail_MacRoute_Route_EvpnEsi_
     labeled.EntityData.BundleName = "cisco_ios_xr"
     labeled.EntityData.ParentYangName = "next-hop"
     labeled.EntityData.SegmentPath = "labeled"
+    labeled.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/mac-details/mac-detail/mac-route/route/evpn-esi/path-list/path-list-info/path-list-esi/mac-update-next-hop-array/next-hop/" + labeled.EntityData.SegmentPath
     labeled.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labeled.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labeled.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4327,6 +4432,7 @@ func (pathListMac *L2rib_EviChildTables_MacDetails_MacDetail_MacRoute_Route_Evpn
     pathListMac.EntityData.BundleName = "cisco_ios_xr"
     pathListMac.EntityData.ParentYangName = "path-list-info"
     pathListMac.EntityData.SegmentPath = "path-list-mac"
+    pathListMac.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/mac-details/mac-detail/mac-route/route/evpn-esi/path-list/path-list-info/" + pathListMac.EntityData.SegmentPath
     pathListMac.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pathListMac.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pathListMac.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4345,6 +4451,7 @@ func (pathListMac *L2rib_EviChildTables_MacDetails_MacDetail_MacRoute_Route_Evpn
 type L2rib_EviChildTables_MacDetails_MacDetail_MacRoute_Route_EvpnEsi_PathList_NextHopArray struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Next-hop TOPOLOGY ID. The type is interface{} with range: 0..4294967295.
     TopologyId interface{}
@@ -4361,7 +4468,8 @@ func (nextHopArray *L2rib_EviChildTables_MacDetails_MacDetail_MacRoute_Route_Evp
     nextHopArray.EntityData.YangName = "next-hop-array"
     nextHopArray.EntityData.BundleName = "cisco_ios_xr"
     nextHopArray.EntityData.ParentYangName = "path-list"
-    nextHopArray.EntityData.SegmentPath = "next-hop-array"
+    nextHopArray.EntityData.SegmentPath = "next-hop-array" + types.AddNoKeyToken(nextHopArray)
+    nextHopArray.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/mac-details/mac-detail/mac-route/route/evpn-esi/path-list/" + nextHopArray.EntityData.SegmentPath
     nextHopArray.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextHopArray.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextHopArray.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4415,6 +4523,7 @@ func (nextHop *L2rib_EviChildTables_MacDetails_MacDetail_MacRoute_Route_EvpnEsi_
     nextHop.EntityData.BundleName = "cisco_ios_xr"
     nextHop.EntityData.ParentYangName = "next-hop-array"
     nextHop.EntityData.SegmentPath = "next-hop"
+    nextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/mac-details/mac-detail/mac-route/route/evpn-esi/path-list/next-hop-array/" + nextHop.EntityData.SegmentPath
     nextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4459,6 +4568,7 @@ func (labeled *L2rib_EviChildTables_MacDetails_MacDetail_MacRoute_Route_EvpnEsi_
     labeled.EntityData.BundleName = "cisco_ios_xr"
     labeled.EntityData.ParentYangName = "next-hop"
     labeled.EntityData.SegmentPath = "labeled"
+    labeled.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/mac-details/mac-detail/mac-route/route/evpn-esi/path-list/next-hop-array/next-hop/" + labeled.EntityData.SegmentPath
     labeled.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labeled.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labeled.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4498,6 +4608,7 @@ func (bmac *L2rib_EviChildTables_MacDetails_MacDetail_MacRoute_Route_Bmac) GetEn
     bmac.EntityData.BundleName = "cisco_ios_xr"
     bmac.EntityData.ParentYangName = "route"
     bmac.EntityData.SegmentPath = "bmac"
+    bmac.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/mac-details/mac-detail/mac-route/route/" + bmac.EntityData.SegmentPath
     bmac.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bmac.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bmac.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4543,6 +4654,7 @@ func (pathList *L2rib_EviChildTables_MacDetails_MacDetail_MacRoute_Route_Bmac_Pa
     pathList.EntityData.BundleName = "cisco_ios_xr"
     pathList.EntityData.ParentYangName = "bmac"
     pathList.EntityData.SegmentPath = "path-list"
+    pathList.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/mac-details/mac-detail/mac-route/route/bmac/" + pathList.EntityData.SegmentPath
     pathList.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pathList.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pathList.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4551,6 +4663,7 @@ func (pathList *L2rib_EviChildTables_MacDetails_MacDetail_MacRoute_Route_Bmac_Pa
     pathList.EntityData.Children.Append("path-list-info", types.YChild{"PathListInfo", &pathList.PathListInfo})
     pathList.EntityData.Children.Append("next-hop-array", types.YChild{"NextHopArray", nil})
     for i := range pathList.NextHopArray {
+        types.SetYListKey(pathList.NextHopArray[i], i)
         pathList.EntityData.Children.Append(types.GetSegmentPath(pathList.NextHopArray[i]), types.YChild{"NextHopArray", pathList.NextHopArray[i]})
     }
     pathList.EntityData.Leafs = types.NewOrderedMap()
@@ -4585,6 +4698,7 @@ func (pathListInfo *L2rib_EviChildTables_MacDetails_MacDetail_MacRoute_Route_Bma
     pathListInfo.EntityData.BundleName = "cisco_ios_xr"
     pathListInfo.EntityData.ParentYangName = "path-list"
     pathListInfo.EntityData.SegmentPath = "path-list-info"
+    pathListInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/mac-details/mac-detail/mac-route/route/bmac/path-list/" + pathListInfo.EntityData.SegmentPath
     pathListInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pathListInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pathListInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4623,6 +4737,7 @@ func (pathListEsi *L2rib_EviChildTables_MacDetails_MacDetail_MacRoute_Route_Bmac
     pathListEsi.EntityData.BundleName = "cisco_ios_xr"
     pathListEsi.EntityData.ParentYangName = "path-list-info"
     pathListEsi.EntityData.SegmentPath = "path-list-esi"
+    pathListEsi.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/mac-details/mac-detail/mac-route/route/bmac/path-list/path-list-info/" + pathListEsi.EntityData.SegmentPath
     pathListEsi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pathListEsi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pathListEsi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4631,6 +4746,7 @@ func (pathListEsi *L2rib_EviChildTables_MacDetails_MacDetail_MacRoute_Route_Bmac
     pathListEsi.EntityData.Children.Append("ethernet-segment-id", types.YChild{"EthernetSegmentId", &pathListEsi.EthernetSegmentId})
     pathListEsi.EntityData.Children.Append("mac-update-next-hop-array", types.YChild{"MacUpdateNextHopArray", nil})
     for i := range pathListEsi.MacUpdateNextHopArray {
+        types.SetYListKey(pathListEsi.MacUpdateNextHopArray[i], i)
         pathListEsi.EntityData.Children.Append(types.GetSegmentPath(pathListEsi.MacUpdateNextHopArray[i]), types.YChild{"MacUpdateNextHopArray", pathListEsi.MacUpdateNextHopArray[i]})
     }
     pathListEsi.EntityData.Leafs = types.NewOrderedMap()
@@ -4664,6 +4780,7 @@ func (ethernetSegmentId *L2rib_EviChildTables_MacDetails_MacDetail_MacRoute_Rout
     ethernetSegmentId.EntityData.BundleName = "cisco_ios_xr"
     ethernetSegmentId.EntityData.ParentYangName = "path-list-esi"
     ethernetSegmentId.EntityData.SegmentPath = "ethernet-segment-id"
+    ethernetSegmentId.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/mac-details/mac-detail/mac-route/route/bmac/path-list/path-list-info/path-list-esi/" + ethernetSegmentId.EntityData.SegmentPath
     ethernetSegmentId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ethernetSegmentId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ethernetSegmentId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4684,6 +4801,7 @@ func (ethernetSegmentId *L2rib_EviChildTables_MacDetails_MacDetail_MacRoute_Rout
 type L2rib_EviChildTables_MacDetails_MacDetail_MacRoute_Route_Bmac_PathList_PathListInfo_PathListEsi_MacUpdateNextHopArray struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Next-hop TOPOLOGY ID. The type is interface{} with range: 0..4294967295.
     TopologyId interface{}
@@ -4700,7 +4818,8 @@ func (macUpdateNextHopArray *L2rib_EviChildTables_MacDetails_MacDetail_MacRoute_
     macUpdateNextHopArray.EntityData.YangName = "mac-update-next-hop-array"
     macUpdateNextHopArray.EntityData.BundleName = "cisco_ios_xr"
     macUpdateNextHopArray.EntityData.ParentYangName = "path-list-esi"
-    macUpdateNextHopArray.EntityData.SegmentPath = "mac-update-next-hop-array"
+    macUpdateNextHopArray.EntityData.SegmentPath = "mac-update-next-hop-array" + types.AddNoKeyToken(macUpdateNextHopArray)
+    macUpdateNextHopArray.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/mac-details/mac-detail/mac-route/route/bmac/path-list/path-list-info/path-list-esi/" + macUpdateNextHopArray.EntityData.SegmentPath
     macUpdateNextHopArray.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     macUpdateNextHopArray.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     macUpdateNextHopArray.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4754,6 +4873,7 @@ func (nextHop *L2rib_EviChildTables_MacDetails_MacDetail_MacRoute_Route_Bmac_Pat
     nextHop.EntityData.BundleName = "cisco_ios_xr"
     nextHop.EntityData.ParentYangName = "mac-update-next-hop-array"
     nextHop.EntityData.SegmentPath = "next-hop"
+    nextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/mac-details/mac-detail/mac-route/route/bmac/path-list/path-list-info/path-list-esi/mac-update-next-hop-array/" + nextHop.EntityData.SegmentPath
     nextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4798,6 +4918,7 @@ func (labeled *L2rib_EviChildTables_MacDetails_MacDetail_MacRoute_Route_Bmac_Pat
     labeled.EntityData.BundleName = "cisco_ios_xr"
     labeled.EntityData.ParentYangName = "next-hop"
     labeled.EntityData.SegmentPath = "labeled"
+    labeled.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/mac-details/mac-detail/mac-route/route/bmac/path-list/path-list-info/path-list-esi/mac-update-next-hop-array/next-hop/" + labeled.EntityData.SegmentPath
     labeled.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labeled.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labeled.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4831,6 +4952,7 @@ func (pathListMac *L2rib_EviChildTables_MacDetails_MacDetail_MacRoute_Route_Bmac
     pathListMac.EntityData.BundleName = "cisco_ios_xr"
     pathListMac.EntityData.ParentYangName = "path-list-info"
     pathListMac.EntityData.SegmentPath = "path-list-mac"
+    pathListMac.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/mac-details/mac-detail/mac-route/route/bmac/path-list/path-list-info/" + pathListMac.EntityData.SegmentPath
     pathListMac.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pathListMac.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pathListMac.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4849,6 +4971,7 @@ func (pathListMac *L2rib_EviChildTables_MacDetails_MacDetail_MacRoute_Route_Bmac
 type L2rib_EviChildTables_MacDetails_MacDetail_MacRoute_Route_Bmac_PathList_NextHopArray struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Next-hop TOPOLOGY ID. The type is interface{} with range: 0..4294967295.
     TopologyId interface{}
@@ -4865,7 +4988,8 @@ func (nextHopArray *L2rib_EviChildTables_MacDetails_MacDetail_MacRoute_Route_Bma
     nextHopArray.EntityData.YangName = "next-hop-array"
     nextHopArray.EntityData.BundleName = "cisco_ios_xr"
     nextHopArray.EntityData.ParentYangName = "path-list"
-    nextHopArray.EntityData.SegmentPath = "next-hop-array"
+    nextHopArray.EntityData.SegmentPath = "next-hop-array" + types.AddNoKeyToken(nextHopArray)
+    nextHopArray.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/mac-details/mac-detail/mac-route/route/bmac/path-list/" + nextHopArray.EntityData.SegmentPath
     nextHopArray.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextHopArray.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextHopArray.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4919,6 +5043,7 @@ func (nextHop *L2rib_EviChildTables_MacDetails_MacDetail_MacRoute_Route_Bmac_Pat
     nextHop.EntityData.BundleName = "cisco_ios_xr"
     nextHop.EntityData.ParentYangName = "next-hop-array"
     nextHop.EntityData.SegmentPath = "next-hop"
+    nextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/mac-details/mac-detail/mac-route/route/bmac/path-list/next-hop-array/" + nextHop.EntityData.SegmentPath
     nextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4963,6 +5088,7 @@ func (labeled *L2rib_EviChildTables_MacDetails_MacDetail_MacRoute_Route_Bmac_Pat
     labeled.EntityData.BundleName = "cisco_ios_xr"
     labeled.EntityData.ParentYangName = "next-hop"
     labeled.EntityData.SegmentPath = "labeled"
+    labeled.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/mac-details/mac-detail/mac-route/route/bmac/path-list/next-hop-array/next-hop/" + labeled.EntityData.SegmentPath
     labeled.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labeled.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labeled.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5002,6 +5128,7 @@ func (rtTlv *L2rib_EviChildTables_MacDetails_MacDetail_RtTlv) GetEntityData() *t
     rtTlv.EntityData.BundleName = "cisco_ios_xr"
     rtTlv.EntityData.ParentYangName = "mac-detail"
     rtTlv.EntityData.SegmentPath = "rt-tlv"
+    rtTlv.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/mac-details/mac-detail/" + rtTlv.EntityData.SegmentPath
     rtTlv.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rtTlv.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rtTlv.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5009,6 +5136,7 @@ func (rtTlv *L2rib_EviChildTables_MacDetails_MacDetail_RtTlv) GetEntityData() *t
     rtTlv.EntityData.Children = types.NewOrderedMap()
     rtTlv.EntityData.Children.Append("tlv-val", types.YChild{"TlvVal", nil})
     for i := range rtTlv.TlvVal {
+        types.SetYListKey(rtTlv.TlvVal[i], i)
         rtTlv.EntityData.Children.Append(types.GetSegmentPath(rtTlv.TlvVal[i]), types.YChild{"TlvVal", rtTlv.TlvVal[i]})
     }
     rtTlv.EntityData.Leafs = types.NewOrderedMap()
@@ -5025,6 +5153,7 @@ func (rtTlv *L2rib_EviChildTables_MacDetails_MacDetail_RtTlv) GetEntityData() *t
 type L2rib_EviChildTables_MacDetails_MacDetail_RtTlv_TlvVal struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..255.
     Entry interface{}
@@ -5035,7 +5164,8 @@ func (tlvVal *L2rib_EviChildTables_MacDetails_MacDetail_RtTlv_TlvVal) GetEntityD
     tlvVal.EntityData.YangName = "tlv-val"
     tlvVal.EntityData.BundleName = "cisco_ios_xr"
     tlvVal.EntityData.ParentYangName = "rt-tlv"
-    tlvVal.EntityData.SegmentPath = "tlv-val"
+    tlvVal.EntityData.SegmentPath = "tlv-val" + types.AddNoKeyToken(tlvVal)
+    tlvVal.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/mac-details/mac-detail/rt-tlv/" + tlvVal.EntityData.SegmentPath
     tlvVal.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tlvVal.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tlvVal.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5066,6 +5196,7 @@ func (imetDetails *L2rib_EviChildTables_ImetDetails) GetEntityData() *types.Comm
     imetDetails.EntityData.BundleName = "cisco_ios_xr"
     imetDetails.EntityData.ParentYangName = "evi-child-tables"
     imetDetails.EntityData.SegmentPath = "imet-details"
+    imetDetails.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/" + imetDetails.EntityData.SegmentPath
     imetDetails.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     imetDetails.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     imetDetails.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5073,6 +5204,7 @@ func (imetDetails *L2rib_EviChildTables_ImetDetails) GetEntityData() *types.Comm
     imetDetails.EntityData.Children = types.NewOrderedMap()
     imetDetails.EntityData.Children.Append("imet-detail", types.YChild{"ImetDetail", nil})
     for i := range imetDetails.ImetDetail {
+        types.SetYListKey(imetDetails.ImetDetail[i], i)
         imetDetails.EntityData.Children.Append(types.GetSegmentPath(imetDetails.ImetDetail[i]), types.YChild{"ImetDetail", imetDetails.ImetDetail[i]})
     }
     imetDetails.EntityData.Leafs = types.NewOrderedMap()
@@ -5087,6 +5219,7 @@ func (imetDetails *L2rib_EviChildTables_ImetDetails) GetEntityData() *types.Comm
 type L2rib_EviChildTables_ImetDetails_ImetDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // EVPN ID. The type is interface{} with range: 0..4294967295.
     Evi interface{}
@@ -5135,7 +5268,8 @@ func (imetDetail *L2rib_EviChildTables_ImetDetails_ImetDetail) GetEntityData() *
     imetDetail.EntityData.YangName = "imet-detail"
     imetDetail.EntityData.BundleName = "cisco_ios_xr"
     imetDetail.EntityData.ParentYangName = "imet-details"
-    imetDetail.EntityData.SegmentPath = "imet-detail"
+    imetDetail.EntityData.SegmentPath = "imet-detail" + types.AddNoKeyToken(imetDetail)
+    imetDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/imet-details/" + imetDetail.EntityData.SegmentPath
     imetDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     imetDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     imetDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5188,6 +5322,7 @@ func (imetRouteBase *L2rib_EviChildTables_ImetDetails_ImetDetail_ImetRouteBase) 
     imetRouteBase.EntityData.BundleName = "cisco_ios_xr"
     imetRouteBase.EntityData.ParentYangName = "imet-detail"
     imetRouteBase.EntityData.SegmentPath = "imet-route-base"
+    imetRouteBase.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/evi-child-tables/imet-details/imet-detail/" + imetRouteBase.EntityData.SegmentPath
     imetRouteBase.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     imetRouteBase.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     imetRouteBase.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5221,6 +5356,7 @@ func (evis *L2rib_Evis) GetEntityData() *types.CommonEntityData {
     evis.EntityData.BundleName = "cisco_ios_xr"
     evis.EntityData.ParentYangName = "l2rib"
     evis.EntityData.SegmentPath = "evis"
+    evis.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/" + evis.EntityData.SegmentPath
     evis.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     evis.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     evis.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5242,6 +5378,7 @@ func (evis *L2rib_Evis) GetEntityData() *types.CommonEntityData {
 type L2rib_Evis_Evi struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. EVI ID. The type is interface{} with range:
     // 0..4294967295.
@@ -5263,6 +5400,7 @@ func (evi *L2rib_Evis_Evi) GetEntityData() *types.CommonEntityData {
     evi.EntityData.BundleName = "cisco_ios_xr"
     evi.EntityData.ParentYangName = "evis"
     evi.EntityData.SegmentPath = "evi" + types.AddKeyToken(evi.Evi, "evi")
+    evi.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/evis/" + evi.EntityData.SegmentPath
     evi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     evi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     evi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

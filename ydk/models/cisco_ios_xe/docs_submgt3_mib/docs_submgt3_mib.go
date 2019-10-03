@@ -67,6 +67,7 @@ func (dOCSSUBMGT3MIB *DOCSSUBMGT3MIB) GetEntityData() *types.CommonEntityData {
     dOCSSUBMGT3MIB.EntityData.BundleName = "cisco_ios_xe"
     dOCSSUBMGT3MIB.EntityData.ParentYangName = "DOCS-SUBMGT3-MIB"
     dOCSSUBMGT3MIB.EntityData.SegmentPath = "DOCS-SUBMGT3-MIB:DOCS-SUBMGT3-MIB"
+    dOCSSUBMGT3MIB.EntityData.AbsolutePath = dOCSSUBMGT3MIB.EntityData.SegmentPath
     dOCSSUBMGT3MIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dOCSSUBMGT3MIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dOCSSUBMGT3MIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -166,6 +167,7 @@ func (docsSubmgt3Base *DOCSSUBMGT3MIB_DocsSubmgt3Base) GetEntityData() *types.Co
     docsSubmgt3Base.EntityData.BundleName = "cisco_ios_xe"
     docsSubmgt3Base.EntityData.ParentYangName = "DOCS-SUBMGT3-MIB"
     docsSubmgt3Base.EntityData.SegmentPath = "docsSubmgt3Base"
+    docsSubmgt3Base.EntityData.AbsolutePath = "DOCS-SUBMGT3-MIB:DOCS-SUBMGT3-MIB/" + docsSubmgt3Base.EntityData.SegmentPath
     docsSubmgt3Base.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsSubmgt3Base.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsSubmgt3Base.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -216,6 +218,7 @@ func (docsSubmgt3CpeCtrlTable *DOCSSUBMGT3MIB_DocsSubmgt3CpeCtrlTable) GetEntity
     docsSubmgt3CpeCtrlTable.EntityData.BundleName = "cisco_ios_xe"
     docsSubmgt3CpeCtrlTable.EntityData.ParentYangName = "DOCS-SUBMGT3-MIB"
     docsSubmgt3CpeCtrlTable.EntityData.SegmentPath = "docsSubmgt3CpeCtrlTable"
+    docsSubmgt3CpeCtrlTable.EntityData.AbsolutePath = "DOCS-SUBMGT3-MIB:DOCS-SUBMGT3-MIB/" + docsSubmgt3CpeCtrlTable.EntityData.SegmentPath
     docsSubmgt3CpeCtrlTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsSubmgt3CpeCtrlTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsSubmgt3CpeCtrlTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -239,6 +242,7 @@ func (docsSubmgt3CpeCtrlTable *DOCSSUBMGT3MIB_DocsSubmgt3CpeCtrlTable) GetEntity
 type DOCSSUBMGT3MIB_DocsSubmgt3CpeCtrlTable_DocsSubmgt3CpeCtrlEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..4294967295.
     // Refers to
@@ -308,6 +312,7 @@ func (docsSubmgt3CpeCtrlEntry *DOCSSUBMGT3MIB_DocsSubmgt3CpeCtrlTable_DocsSubmgt
     docsSubmgt3CpeCtrlEntry.EntityData.BundleName = "cisco_ios_xe"
     docsSubmgt3CpeCtrlEntry.EntityData.ParentYangName = "docsSubmgt3CpeCtrlTable"
     docsSubmgt3CpeCtrlEntry.EntityData.SegmentPath = "docsSubmgt3CpeCtrlEntry" + types.AddKeyToken(docsSubmgt3CpeCtrlEntry.DocsIf3CmtsCmRegStatusId, "docsIf3CmtsCmRegStatusId")
+    docsSubmgt3CpeCtrlEntry.EntityData.AbsolutePath = "DOCS-SUBMGT3-MIB:DOCS-SUBMGT3-MIB/docsSubmgt3CpeCtrlTable/" + docsSubmgt3CpeCtrlEntry.EntityData.SegmentPath
     docsSubmgt3CpeCtrlEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsSubmgt3CpeCtrlEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsSubmgt3CpeCtrlEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -355,6 +360,7 @@ func (docsSubmgt3CpeIpTable *DOCSSUBMGT3MIB_DocsSubmgt3CpeIpTable) GetEntityData
     docsSubmgt3CpeIpTable.EntityData.BundleName = "cisco_ios_xe"
     docsSubmgt3CpeIpTable.EntityData.ParentYangName = "DOCS-SUBMGT3-MIB"
     docsSubmgt3CpeIpTable.EntityData.SegmentPath = "docsSubmgt3CpeIpTable"
+    docsSubmgt3CpeIpTable.EntityData.AbsolutePath = "DOCS-SUBMGT3-MIB:DOCS-SUBMGT3-MIB/" + docsSubmgt3CpeIpTable.EntityData.SegmentPath
     docsSubmgt3CpeIpTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsSubmgt3CpeIpTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsSubmgt3CpeIpTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -376,6 +382,7 @@ func (docsSubmgt3CpeIpTable *DOCSSUBMGT3MIB_DocsSubmgt3CpeIpTable) GetEntityData
 type DOCSSUBMGT3MIB_DocsSubmgt3CpeIpTable_DocsSubmgt3CpeIpEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..4294967295.
     // Refers to
@@ -430,6 +437,7 @@ func (docsSubmgt3CpeIpEntry *DOCSSUBMGT3MIB_DocsSubmgt3CpeIpTable_DocsSubmgt3Cpe
     docsSubmgt3CpeIpEntry.EntityData.BundleName = "cisco_ios_xe"
     docsSubmgt3CpeIpEntry.EntityData.ParentYangName = "docsSubmgt3CpeIpTable"
     docsSubmgt3CpeIpEntry.EntityData.SegmentPath = "docsSubmgt3CpeIpEntry" + types.AddKeyToken(docsSubmgt3CpeIpEntry.DocsIf3CmtsCmRegStatusId, "docsIf3CmtsCmRegStatusId") + types.AddKeyToken(docsSubmgt3CpeIpEntry.DocsSubmgt3CpeIpId, "docsSubmgt3CpeIpId")
+    docsSubmgt3CpeIpEntry.EntityData.AbsolutePath = "DOCS-SUBMGT3-MIB:DOCS-SUBMGT3-MIB/docsSubmgt3CpeIpTable/" + docsSubmgt3CpeIpEntry.EntityData.SegmentPath
     docsSubmgt3CpeIpEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsSubmgt3CpeIpEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsSubmgt3CpeIpEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -486,6 +494,7 @@ func (docsSubmgt3GrpTable *DOCSSUBMGT3MIB_DocsSubmgt3GrpTable) GetEntityData() *
     docsSubmgt3GrpTable.EntityData.BundleName = "cisco_ios_xe"
     docsSubmgt3GrpTable.EntityData.ParentYangName = "DOCS-SUBMGT3-MIB"
     docsSubmgt3GrpTable.EntityData.SegmentPath = "docsSubmgt3GrpTable"
+    docsSubmgt3GrpTable.EntityData.AbsolutePath = "DOCS-SUBMGT3-MIB:DOCS-SUBMGT3-MIB/" + docsSubmgt3GrpTable.EntityData.SegmentPath
     docsSubmgt3GrpTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsSubmgt3GrpTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsSubmgt3GrpTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -509,6 +518,7 @@ func (docsSubmgt3GrpTable *DOCSSUBMGT3MIB_DocsSubmgt3GrpTable) GetEntityData() *
 type DOCSSUBMGT3MIB_DocsSubmgt3GrpTable_DocsSubmgt3GrpEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..4294967295.
     // Refers to
@@ -652,6 +662,7 @@ func (docsSubmgt3GrpEntry *DOCSSUBMGT3MIB_DocsSubmgt3GrpTable_DocsSubmgt3GrpEntr
     docsSubmgt3GrpEntry.EntityData.BundleName = "cisco_ios_xe"
     docsSubmgt3GrpEntry.EntityData.ParentYangName = "docsSubmgt3GrpTable"
     docsSubmgt3GrpEntry.EntityData.SegmentPath = "docsSubmgt3GrpEntry" + types.AddKeyToken(docsSubmgt3GrpEntry.DocsIf3CmtsCmRegStatusId, "docsIf3CmtsCmRegStatusId")
+    docsSubmgt3GrpEntry.EntityData.AbsolutePath = "DOCS-SUBMGT3-MIB:DOCS-SUBMGT3-MIB/docsSubmgt3GrpTable/" + docsSubmgt3GrpEntry.EntityData.SegmentPath
     docsSubmgt3GrpEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsSubmgt3GrpEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsSubmgt3GrpEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -709,6 +720,7 @@ func (docsSubmgt3FilterGrpTable *DOCSSUBMGT3MIB_DocsSubmgt3FilterGrpTable) GetEn
     docsSubmgt3FilterGrpTable.EntityData.BundleName = "cisco_ios_xe"
     docsSubmgt3FilterGrpTable.EntityData.ParentYangName = "DOCS-SUBMGT3-MIB"
     docsSubmgt3FilterGrpTable.EntityData.SegmentPath = "docsSubmgt3FilterGrpTable"
+    docsSubmgt3FilterGrpTable.EntityData.AbsolutePath = "DOCS-SUBMGT3-MIB:DOCS-SUBMGT3-MIB/" + docsSubmgt3FilterGrpTable.EntityData.SegmentPath
     docsSubmgt3FilterGrpTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsSubmgt3FilterGrpTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsSubmgt3FilterGrpTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -732,6 +744,7 @@ func (docsSubmgt3FilterGrpTable *DOCSSUBMGT3MIB_DocsSubmgt3FilterGrpTable) GetEn
 type DOCSSUBMGT3MIB_DocsSubmgt3FilterGrpTable_DocsSubmgt3FilterGrpEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. This key is an identifier for a set of classifiers
     // known  as a filter group. Each CM may be associated with  several filter
@@ -763,7 +776,7 @@ type DOCSSUBMGT3MIB_DocsSubmgt3FilterGrpTable_DocsSubmgt3FilterGrpEntry struct {
     // originally defined in RFC 791, has  been superseded by the 6-bit
     // Differentiated Services  Field (DSField, RFC 3260) and the 2-bit Explicit 
     // Congestion Notification Field (ECN field, RFC 3168). The type is string
-    // with length: 1.
+    // with length: 1..1.
     DocsSubmgt3FilterGrpIpTosLow interface{}
 
     // This attribute represents the high value of a range  of ToS octet values.
@@ -771,12 +784,12 @@ type DOCSSUBMGT3MIB_DocsSubmgt3FilterGrpTable_DocsSubmgt3FilterGrpEntry struct {
     // for packet classification.  The IP ToS octet, as originally defined in RFC
     // 791, has  been superseded by the 6-bit Differentiated Services  Field
     // (DSField, RFC 3260) and the 2-bit Explicit  Congestion Notification Field
-    // (ECN field, RFC 3168). The type is string with length: 1.
+    // (ECN field, RFC 3168). The type is string with length: 1..1.
     DocsSubmgt3FilterGrpIpTosHigh interface{}
 
     // This attribute represents the mask value that is bitwise  ANDed with ToS
     // octet in an IP packet, and the resulting value  is used for range checking
-    // of IpTosLow and IpTosHigh. The type is string with length: 1.
+    // of IpTosLow and IpTosHigh. The type is string with length: 1..1.
     DocsSubmgt3FilterGrpIpTosMask interface{}
 
     // This attribute represents the value of the IP Protocol  field required for
@@ -941,6 +954,7 @@ func (docsSubmgt3FilterGrpEntry *DOCSSUBMGT3MIB_DocsSubmgt3FilterGrpTable_DocsSu
     docsSubmgt3FilterGrpEntry.EntityData.BundleName = "cisco_ios_xe"
     docsSubmgt3FilterGrpEntry.EntityData.ParentYangName = "docsSubmgt3FilterGrpTable"
     docsSubmgt3FilterGrpEntry.EntityData.SegmentPath = "docsSubmgt3FilterGrpEntry" + types.AddKeyToken(docsSubmgt3FilterGrpEntry.DocsSubmgt3FilterGrpGrpId, "docsSubmgt3FilterGrpGrpId") + types.AddKeyToken(docsSubmgt3FilterGrpEntry.DocsSubmgt3FilterGrpRuleId, "docsSubmgt3FilterGrpRuleId")
+    docsSubmgt3FilterGrpEntry.EntityData.AbsolutePath = "DOCS-SUBMGT3-MIB:DOCS-SUBMGT3-MIB/docsSubmgt3FilterGrpTable/" + docsSubmgt3FilterGrpEntry.EntityData.SegmentPath
     docsSubmgt3FilterGrpEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsSubmgt3FilterGrpEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsSubmgt3FilterGrpEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

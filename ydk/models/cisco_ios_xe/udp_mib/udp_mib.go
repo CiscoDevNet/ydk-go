@@ -67,6 +67,7 @@ func (uDPMIB *UDPMIB) GetEntityData() *types.CommonEntityData {
     uDPMIB.EntityData.BundleName = "cisco_ios_xe"
     uDPMIB.EntityData.ParentYangName = "UDP-MIB"
     uDPMIB.EntityData.SegmentPath = "UDP-MIB:UDP-MIB"
+    uDPMIB.EntityData.AbsolutePath = uDPMIB.EntityData.SegmentPath
     uDPMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     uDPMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     uDPMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -137,6 +138,7 @@ func (udp *UDPMIB_Udp) GetEntityData() *types.CommonEntityData {
     udp.EntityData.BundleName = "cisco_ios_xe"
     udp.EntityData.ParentYangName = "UDP-MIB"
     udp.EntityData.SegmentPath = "udp"
+    udp.EntityData.AbsolutePath = "UDP-MIB:UDP-MIB/" + udp.EntityData.SegmentPath
     udp.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     udp.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     udp.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -177,6 +179,7 @@ func (udpTable *UDPMIB_UdpTable) GetEntityData() *types.CommonEntityData {
     udpTable.EntityData.BundleName = "cisco_ios_xe"
     udpTable.EntityData.ParentYangName = "UDP-MIB"
     udpTable.EntityData.SegmentPath = "udpTable"
+    udpTable.EntityData.AbsolutePath = "UDP-MIB:UDP-MIB/" + udpTable.EntityData.SegmentPath
     udpTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     udpTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     udpTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -198,6 +201,7 @@ func (udpTable *UDPMIB_UdpTable) GetEntityData() *types.CommonEntityData {
 type UDPMIB_UdpTable_UdpEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The local IP address for this UDP listener.  In
     // the case of a UDP listener that is willing to accept datagrams for any IP
@@ -217,6 +221,7 @@ func (udpEntry *UDPMIB_UdpTable_UdpEntry) GetEntityData() *types.CommonEntityDat
     udpEntry.EntityData.BundleName = "cisco_ios_xe"
     udpEntry.EntityData.ParentYangName = "udpTable"
     udpEntry.EntityData.SegmentPath = "udpEntry" + types.AddKeyToken(udpEntry.UdpLocalAddress, "udpLocalAddress") + types.AddKeyToken(udpEntry.UdpLocalPort, "udpLocalPort")
+    udpEntry.EntityData.AbsolutePath = "UDP-MIB:UDP-MIB/udpTable/" + udpEntry.EntityData.SegmentPath
     udpEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     udpEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     udpEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -297,6 +302,7 @@ func (udpEndpointTable *UDPMIB_UdpEndpointTable) GetEntityData() *types.CommonEn
     udpEndpointTable.EntityData.BundleName = "cisco_ios_xe"
     udpEndpointTable.EntityData.ParentYangName = "UDP-MIB"
     udpEndpointTable.EntityData.SegmentPath = "udpEndpointTable"
+    udpEndpointTable.EntityData.AbsolutePath = "UDP-MIB:UDP-MIB/" + udpEndpointTable.EntityData.SegmentPath
     udpEndpointTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     udpEndpointTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     udpEndpointTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -325,6 +331,7 @@ func (udpEndpointTable *UDPMIB_UdpEndpointTable) GetEntityData() *types.CommonEn
 type UDPMIB_UdpEndpointTable_UdpEndpointEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The address type of udpEndpointLocalAddress.  Only
     // IPv4, IPv4z, IPv6, and IPv6z addresses are expected, or unknown(0) if
@@ -405,6 +412,7 @@ func (udpEndpointEntry *UDPMIB_UdpEndpointTable_UdpEndpointEntry) GetEntityData(
     udpEndpointEntry.EntityData.BundleName = "cisco_ios_xe"
     udpEndpointEntry.EntityData.ParentYangName = "udpEndpointTable"
     udpEndpointEntry.EntityData.SegmentPath = "udpEndpointEntry" + types.AddKeyToken(udpEndpointEntry.UdpEndpointLocalAddressType, "udpEndpointLocalAddressType") + types.AddKeyToken(udpEndpointEntry.UdpEndpointLocalAddress, "udpEndpointLocalAddress") + types.AddKeyToken(udpEndpointEntry.UdpEndpointLocalPort, "udpEndpointLocalPort") + types.AddKeyToken(udpEndpointEntry.UdpEndpointRemoteAddressType, "udpEndpointRemoteAddressType") + types.AddKeyToken(udpEndpointEntry.UdpEndpointRemoteAddress, "udpEndpointRemoteAddress") + types.AddKeyToken(udpEndpointEntry.UdpEndpointRemotePort, "udpEndpointRemotePort") + types.AddKeyToken(udpEndpointEntry.UdpEndpointInstance, "udpEndpointInstance")
+    udpEndpointEntry.EntityData.AbsolutePath = "UDP-MIB:UDP-MIB/udpEndpointTable/" + udpEndpointEntry.EntityData.SegmentPath
     udpEndpointEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     udpEndpointEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     udpEndpointEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

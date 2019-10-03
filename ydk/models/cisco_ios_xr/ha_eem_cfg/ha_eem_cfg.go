@@ -104,6 +104,7 @@ func (eventManager *EventManager) GetEntityData() *types.CommonEntityData {
     eventManager.EntityData.BundleName = "cisco_ios_xr"
     eventManager.EntityData.ParentYangName = "Cisco-IOS-XR-ha-eem-cfg"
     eventManager.EntityData.SegmentPath = "Cisco-IOS-XR-ha-eem-cfg:event-manager"
+    eventManager.EntityData.AbsolutePath = eventManager.EntityData.SegmentPath
     eventManager.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eventManager.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eventManager.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -139,6 +140,7 @@ func (policies *EventManager_Policies) GetEntityData() *types.CommonEntityData {
     policies.EntityData.BundleName = "cisco_ios_xr"
     policies.EntityData.ParentYangName = "event-manager"
     policies.EntityData.SegmentPath = "policies"
+    policies.EntityData.AbsolutePath = "Cisco-IOS-XR-ha-eem-cfg:event-manager/" + policies.EntityData.SegmentPath
     policies.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     policies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -160,6 +162,7 @@ func (policies *EventManager_Policies) GetEntityData() *types.CommonEntityData {
 type EventManager_Policies_Policy struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of the policy file. The type is string with
     // pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -197,6 +200,7 @@ func (policy *EventManager_Policies_Policy) GetEntityData() *types.CommonEntityD
     policy.EntityData.BundleName = "cisco_ios_xr"
     policy.EntityData.ParentYangName = "policies"
     policy.EntityData.SegmentPath = "policy" + types.AddKeyToken(policy.PolicyName, "policy-name")
+    policy.EntityData.AbsolutePath = "Cisco-IOS-XR-ha-eem-cfg:event-manager/policies/" + policy.EntityData.SegmentPath
     policy.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     policy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -233,6 +237,7 @@ func (schedulerScript *EventManager_SchedulerScript) GetEntityData() *types.Comm
     schedulerScript.EntityData.BundleName = "cisco_ios_xr"
     schedulerScript.EntityData.ParentYangName = "event-manager"
     schedulerScript.EntityData.SegmentPath = "scheduler-script"
+    schedulerScript.EntityData.AbsolutePath = "Cisco-IOS-XR-ha-eem-cfg:event-manager/" + schedulerScript.EntityData.SegmentPath
     schedulerScript.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     schedulerScript.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     schedulerScript.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -263,6 +268,7 @@ func (threadClasses *EventManager_SchedulerScript_ThreadClasses) GetEntityData()
     threadClasses.EntityData.BundleName = "cisco_ios_xr"
     threadClasses.EntityData.ParentYangName = "scheduler-script"
     threadClasses.EntityData.SegmentPath = "thread-classes"
+    threadClasses.EntityData.AbsolutePath = "Cisco-IOS-XR-ha-eem-cfg:event-manager/scheduler-script/" + threadClasses.EntityData.SegmentPath
     threadClasses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threadClasses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threadClasses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -284,6 +290,7 @@ func (threadClasses *EventManager_SchedulerScript_ThreadClasses) GetEntityData()
 type EventManager_SchedulerScript_ThreadClasses_ThreadClass struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of the global variable. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -300,6 +307,7 @@ func (threadClass *EventManager_SchedulerScript_ThreadClasses_ThreadClass) GetEn
     threadClass.EntityData.BundleName = "cisco_ios_xr"
     threadClass.EntityData.ParentYangName = "thread-classes"
     threadClass.EntityData.SegmentPath = "thread-class" + types.AddKeyToken(threadClass.ThreadClassName, "thread-class-name")
+    threadClass.EntityData.AbsolutePath = "Cisco-IOS-XR-ha-eem-cfg:event-manager/scheduler-script/thread-classes/" + threadClass.EntityData.SegmentPath
     threadClass.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threadClass.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threadClass.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -332,6 +340,7 @@ func (environments *EventManager_Environments) GetEntityData() *types.CommonEnti
     environments.EntityData.BundleName = "cisco_ios_xr"
     environments.EntityData.ParentYangName = "event-manager"
     environments.EntityData.SegmentPath = "environments"
+    environments.EntityData.AbsolutePath = "Cisco-IOS-XR-ha-eem-cfg:event-manager/" + environments.EntityData.SegmentPath
     environments.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     environments.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     environments.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -353,6 +362,7 @@ func (environments *EventManager_Environments) GetEntityData() *types.CommonEnti
 type EventManager_Environments_Environment struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of the global variable. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -369,6 +379,7 @@ func (environment *EventManager_Environments_Environment) GetEntityData() *types
     environment.EntityData.BundleName = "cisco_ios_xr"
     environment.EntityData.ParentYangName = "environments"
     environment.EntityData.SegmentPath = "environment" + types.AddKeyToken(environment.EnvironmentName, "environment-name")
+    environment.EntityData.AbsolutePath = "Cisco-IOS-XR-ha-eem-cfg:event-manager/environments/" + environment.EntityData.SegmentPath
     environment.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     environment.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     environment.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

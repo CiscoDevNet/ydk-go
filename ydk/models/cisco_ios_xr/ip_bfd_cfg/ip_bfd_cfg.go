@@ -129,6 +129,7 @@ func (bfd *Bfd) GetEntityData() *types.CommonEntityData {
     bfd.EntityData.BundleName = "cisco_ios_xr"
     bfd.EntityData.ParentYangName = "Cisco-IOS-XR-ip-bfd-cfg"
     bfd.EntityData.SegmentPath = "Cisco-IOS-XR-ip-bfd-cfg:bfd"
+    bfd.EntityData.AbsolutePath = bfd.EntityData.SegmentPath
     bfd.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bfd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bfd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -191,6 +192,7 @@ func (flapDamp *Bfd_FlapDamp) GetEntityData() *types.CommonEntityData {
     flapDamp.EntityData.BundleName = "cisco_ios_xr"
     flapDamp.EntityData.ParentYangName = "bfd"
     flapDamp.EntityData.SegmentPath = "flap-damp"
+    flapDamp.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-cfg:bfd/" + flapDamp.EntityData.SegmentPath
     flapDamp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     flapDamp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     flapDamp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -239,6 +241,7 @@ func (bundleMember *Bfd_FlapDamp_BundleMember) GetEntityData() *types.CommonEnti
     bundleMember.EntityData.BundleName = "cisco_ios_xr"
     bundleMember.EntityData.ParentYangName = "flap-damp"
     bundleMember.EntityData.SegmentPath = "bundle-member"
+    bundleMember.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-cfg:bfd/flap-damp/" + bundleMember.EntityData.SegmentPath
     bundleMember.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundleMember.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundleMember.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -271,6 +274,7 @@ func (extensions *Bfd_FlapDamp_Extensions) GetEntityData() *types.CommonEntityDa
     extensions.EntityData.BundleName = "cisco_ios_xr"
     extensions.EntityData.ParentYangName = "flap-damp"
     extensions.EntityData.SegmentPath = "extensions"
+    extensions.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-cfg:bfd/flap-damp/" + extensions.EntityData.SegmentPath
     extensions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     extensions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     extensions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -300,6 +304,7 @@ func (echoLatency *Bfd_EchoLatency) GetEntityData() *types.CommonEntityData {
     echoLatency.EntityData.BundleName = "cisco_ios_xr"
     echoLatency.EntityData.ParentYangName = "bfd"
     echoLatency.EntityData.SegmentPath = "echo-latency"
+    echoLatency.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-cfg:bfd/" + echoLatency.EntityData.SegmentPath
     echoLatency.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     echoLatency.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     echoLatency.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -336,6 +341,7 @@ func (detect *Bfd_EchoLatency_Detect) GetEntityData() *types.CommonEntityData {
     detect.EntityData.BundleName = "cisco_ios_xr"
     detect.EntityData.ParentYangName = "echo-latency"
     detect.EntityData.SegmentPath = "detect"
+    detect.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-cfg:bfd/echo-latency/" + detect.EntityData.SegmentPath
     detect.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     detect.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     detect.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -368,6 +374,7 @@ func (echoStartup *Bfd_EchoStartup) GetEntityData() *types.CommonEntityData {
     echoStartup.EntityData.BundleName = "cisco_ios_xr"
     echoStartup.EntityData.ParentYangName = "bfd"
     echoStartup.EntityData.SegmentPath = "echo-startup"
+    echoStartup.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-cfg:bfd/" + echoStartup.EntityData.SegmentPath
     echoStartup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     echoStartup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     echoStartup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -398,6 +405,7 @@ func (interfaces *Bfd_Interfaces) GetEntityData() *types.CommonEntityData {
     interfaces.EntityData.BundleName = "cisco_ios_xr"
     interfaces.EntityData.ParentYangName = "bfd"
     interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-cfg:bfd/" + interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -419,6 +427,7 @@ func (interfaces *Bfd_Interfaces) GetEntityData() *types.CommonEntityData {
 type Bfd_Interfaces_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface Name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -447,6 +456,7 @@ func (self *Bfd_Interfaces_Interface) GetEntityData() *types.CommonEntityData {
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-cfg:bfd/interfaces/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -480,6 +490,7 @@ func (multiPathIncludes *Bfd_MultiPathIncludes) GetEntityData() *types.CommonEnt
     multiPathIncludes.EntityData.BundleName = "cisco_ios_xr"
     multiPathIncludes.EntityData.ParentYangName = "bfd"
     multiPathIncludes.EntityData.SegmentPath = "multi-path-includes"
+    multiPathIncludes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-cfg:bfd/" + multiPathIncludes.EntityData.SegmentPath
     multiPathIncludes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     multiPathIncludes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     multiPathIncludes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -501,6 +512,7 @@ func (multiPathIncludes *Bfd_MultiPathIncludes) GetEntityData() *types.CommonEnt
 type Bfd_MultiPathIncludes_MultiPathInclude struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Location. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -513,6 +525,7 @@ func (multiPathInclude *Bfd_MultiPathIncludes_MultiPathInclude) GetEntityData() 
     multiPathInclude.EntityData.BundleName = "cisco_ios_xr"
     multiPathInclude.EntityData.ParentYangName = "multi-path-includes"
     multiPathInclude.EntityData.SegmentPath = "multi-path-include" + types.AddKeyToken(multiPathInclude.Location, "location")
+    multiPathInclude.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-cfg:bfd/multi-path-includes/" + multiPathInclude.EntityData.SegmentPath
     multiPathInclude.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     multiPathInclude.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     multiPathInclude.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -542,6 +555,7 @@ func (bundle *Bfd_Bundle) GetEntityData() *types.CommonEntityData {
     bundle.EntityData.BundleName = "cisco_ios_xr"
     bundle.EntityData.ParentYangName = "bfd"
     bundle.EntityData.SegmentPath = "bundle"
+    bundle.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-cfg:bfd/" + bundle.EntityData.SegmentPath
     bundle.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundle.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundle.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -572,6 +586,7 @@ func (coexistence *Bfd_Bundle_Coexistence) GetEntityData() *types.CommonEntityDa
     coexistence.EntityData.BundleName = "cisco_ios_xr"
     coexistence.EntityData.ParentYangName = "bundle"
     coexistence.EntityData.SegmentPath = "coexistence"
+    coexistence.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-cfg:bfd/bundle/" + coexistence.EntityData.SegmentPath
     coexistence.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     coexistence.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     coexistence.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

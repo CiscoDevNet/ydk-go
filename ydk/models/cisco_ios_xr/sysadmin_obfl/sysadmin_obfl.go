@@ -1,4 +1,10 @@
+// This module contains definitions
+// for the Calvados model objects.
+// 
 // This module holds OBFL data.
+// 
+// Copyright (c) 2012-2018 by Cisco Systems, Inc.
+// All rights reserved.
 package sysadmin_obfl
 
 import (
@@ -34,6 +40,7 @@ func (obfl *Obfl) GetEntityData() *types.CommonEntityData {
     obfl.EntityData.BundleName = "cisco_ios_xr"
     obfl.EntityData.ParentYangName = "Cisco-IOS-XR-sysadmin-obfl"
     obfl.EntityData.SegmentPath = "Cisco-IOS-XR-sysadmin-obfl:obfl"
+    obfl.EntityData.AbsolutePath = obfl.EntityData.SegmentPath
     obfl.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     obfl.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     obfl.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -63,6 +70,7 @@ func (obflMgr *Obfl_ObflMgr) GetEntityData() *types.CommonEntityData {
     obflMgr.EntityData.BundleName = "cisco_ios_xr"
     obflMgr.EntityData.ParentYangName = "obfl"
     obflMgr.EntityData.SegmentPath = "obfl_mgr"
+    obflMgr.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-obfl:obfl/" + obflMgr.EntityData.SegmentPath
     obflMgr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     obflMgr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     obflMgr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -84,6 +92,7 @@ func (obflMgr *Obfl_ObflMgr) GetEntityData() *types.CommonEntityData {
 type Obfl_ObflMgr_Trace struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     Buffer interface{}
@@ -98,6 +107,7 @@ func (trace *Obfl_ObflMgr_Trace) GetEntityData() *types.CommonEntityData {
     trace.EntityData.BundleName = "cisco_ios_xr"
     trace.EntityData.ParentYangName = "obfl_mgr"
     trace.EntityData.SegmentPath = "trace" + types.AddKeyToken(trace.Buffer, "buffer")
+    trace.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-obfl:obfl/obfl_mgr/" + trace.EntityData.SegmentPath
     trace.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trace.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trace.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -119,6 +129,7 @@ func (trace *Obfl_ObflMgr_Trace) GetEntityData() *types.CommonEntityData {
 type Obfl_ObflMgr_Trace_Location struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     LocationName interface{}
@@ -133,6 +144,7 @@ func (location *Obfl_ObflMgr_Trace_Location) GetEntityData() *types.CommonEntity
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "trace"
     location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.LocationName, "location_name")
+    location.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-obfl:obfl/obfl_mgr/trace/" + location.EntityData.SegmentPath
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -154,6 +166,7 @@ func (location *Obfl_ObflMgr_Trace_Location) GetEntityData() *types.CommonEntity
 type Obfl_ObflMgr_Trace_Location_AllOptions struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     Option interface{}
@@ -168,6 +181,7 @@ func (allOptions *Obfl_ObflMgr_Trace_Location_AllOptions) GetEntityData() *types
     allOptions.EntityData.BundleName = "cisco_ios_xr"
     allOptions.EntityData.ParentYangName = "location"
     allOptions.EntityData.SegmentPath = "all-options" + types.AddKeyToken(allOptions.Option, "option")
+    allOptions.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-obfl:obfl/obfl_mgr/trace/location/" + allOptions.EntityData.SegmentPath
     allOptions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     allOptions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     allOptions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -175,6 +189,7 @@ func (allOptions *Obfl_ObflMgr_Trace_Location_AllOptions) GetEntityData() *types
     allOptions.EntityData.Children = types.NewOrderedMap()
     allOptions.EntityData.Children.Append("trace-blocks", types.YChild{"TraceBlocks", nil})
     for i := range allOptions.TraceBlocks {
+        types.SetYListKey(allOptions.TraceBlocks[i], i)
         allOptions.EntityData.Children.Append(types.GetSegmentPath(allOptions.TraceBlocks[i]), types.YChild{"TraceBlocks", allOptions.TraceBlocks[i]})
     }
     allOptions.EntityData.Leafs = types.NewOrderedMap()
@@ -189,6 +204,7 @@ func (allOptions *Obfl_ObflMgr_Trace_Location_AllOptions) GetEntityData() *types
 type Obfl_ObflMgr_Trace_Location_AllOptions_TraceBlocks struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Trace output block. The type is string.
     Data interface{}
@@ -199,7 +215,8 @@ func (traceBlocks *Obfl_ObflMgr_Trace_Location_AllOptions_TraceBlocks) GetEntity
     traceBlocks.EntityData.YangName = "trace-blocks"
     traceBlocks.EntityData.BundleName = "cisco_ios_xr"
     traceBlocks.EntityData.ParentYangName = "all-options"
-    traceBlocks.EntityData.SegmentPath = "trace-blocks"
+    traceBlocks.EntityData.SegmentPath = "trace-blocks" + types.AddNoKeyToken(traceBlocks)
+    traceBlocks.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-obfl:obfl/obfl_mgr/trace/location/all-options/" + traceBlocks.EntityData.SegmentPath
     traceBlocks.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     traceBlocks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     traceBlocks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -228,6 +245,7 @@ func (obflShow *Obfl_ObflShow) GetEntityData() *types.CommonEntityData {
     obflShow.EntityData.BundleName = "cisco_ios_xr"
     obflShow.EntityData.ParentYangName = "obfl"
     obflShow.EntityData.SegmentPath = "obfl_show"
+    obflShow.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-obfl:obfl/" + obflShow.EntityData.SegmentPath
     obflShow.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     obflShow.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     obflShow.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -249,6 +267,7 @@ func (obflShow *Obfl_ObflShow) GetEntityData() *types.CommonEntityData {
 type Obfl_ObflShow_Trace struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     Buffer interface{}
@@ -263,6 +282,7 @@ func (trace *Obfl_ObflShow_Trace) GetEntityData() *types.CommonEntityData {
     trace.EntityData.BundleName = "cisco_ios_xr"
     trace.EntityData.ParentYangName = "obfl_show"
     trace.EntityData.SegmentPath = "trace" + types.AddKeyToken(trace.Buffer, "buffer")
+    trace.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-obfl:obfl/obfl_show/" + trace.EntityData.SegmentPath
     trace.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trace.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trace.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -284,6 +304,7 @@ func (trace *Obfl_ObflShow_Trace) GetEntityData() *types.CommonEntityData {
 type Obfl_ObflShow_Trace_Location struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     LocationName interface{}
@@ -298,6 +319,7 @@ func (location *Obfl_ObflShow_Trace_Location) GetEntityData() *types.CommonEntit
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "trace"
     location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.LocationName, "location_name")
+    location.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-obfl:obfl/obfl_show/trace/" + location.EntityData.SegmentPath
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -319,6 +341,7 @@ func (location *Obfl_ObflShow_Trace_Location) GetEntityData() *types.CommonEntit
 type Obfl_ObflShow_Trace_Location_AllOptions struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     Option interface{}
@@ -333,6 +356,7 @@ func (allOptions *Obfl_ObflShow_Trace_Location_AllOptions) GetEntityData() *type
     allOptions.EntityData.BundleName = "cisco_ios_xr"
     allOptions.EntityData.ParentYangName = "location"
     allOptions.EntityData.SegmentPath = "all-options" + types.AddKeyToken(allOptions.Option, "option")
+    allOptions.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-obfl:obfl/obfl_show/trace/location/" + allOptions.EntityData.SegmentPath
     allOptions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     allOptions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     allOptions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -340,6 +364,7 @@ func (allOptions *Obfl_ObflShow_Trace_Location_AllOptions) GetEntityData() *type
     allOptions.EntityData.Children = types.NewOrderedMap()
     allOptions.EntityData.Children.Append("trace-blocks", types.YChild{"TraceBlocks", nil})
     for i := range allOptions.TraceBlocks {
+        types.SetYListKey(allOptions.TraceBlocks[i], i)
         allOptions.EntityData.Children.Append(types.GetSegmentPath(allOptions.TraceBlocks[i]), types.YChild{"TraceBlocks", allOptions.TraceBlocks[i]})
     }
     allOptions.EntityData.Leafs = types.NewOrderedMap()
@@ -354,6 +379,7 @@ func (allOptions *Obfl_ObflShow_Trace_Location_AllOptions) GetEntityData() *type
 type Obfl_ObflShow_Trace_Location_AllOptions_TraceBlocks struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Trace output block. The type is string.
     Data interface{}
@@ -364,7 +390,8 @@ func (traceBlocks *Obfl_ObflShow_Trace_Location_AllOptions_TraceBlocks) GetEntit
     traceBlocks.EntityData.YangName = "trace-blocks"
     traceBlocks.EntityData.BundleName = "cisco_ios_xr"
     traceBlocks.EntityData.ParentYangName = "all-options"
-    traceBlocks.EntityData.SegmentPath = "trace-blocks"
+    traceBlocks.EntityData.SegmentPath = "trace-blocks" + types.AddNoKeyToken(traceBlocks)
+    traceBlocks.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-obfl:obfl/obfl_show/trace/location/all-options/" + traceBlocks.EntityData.SegmentPath
     traceBlocks.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     traceBlocks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     traceBlocks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

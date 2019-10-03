@@ -77,6 +77,7 @@ func (cISCOIETFPWMIB *CISCOIETFPWMIB) GetEntityData() *types.CommonEntityData {
     cISCOIETFPWMIB.EntityData.BundleName = "cisco_ios_xe"
     cISCOIETFPWMIB.EntityData.ParentYangName = "CISCO-IETF-PW-MIB"
     cISCOIETFPWMIB.EntityData.SegmentPath = "CISCO-IETF-PW-MIB:CISCO-IETF-PW-MIB"
+    cISCOIETFPWMIB.EntityData.AbsolutePath = cISCOIETFPWMIB.EntityData.SegmentPath
     cISCOIETFPWMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cISCOIETFPWMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOIETFPWMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -134,6 +135,7 @@ func (cpwVcObjects *CISCOIETFPWMIB_CpwVcObjects) GetEntityData() *types.CommonEn
     cpwVcObjects.EntityData.BundleName = "cisco_ios_xe"
     cpwVcObjects.EntityData.ParentYangName = "CISCO-IETF-PW-MIB"
     cpwVcObjects.EntityData.SegmentPath = "cpwVcObjects"
+    cpwVcObjects.EntityData.AbsolutePath = "CISCO-IETF-PW-MIB:CISCO-IETF-PW-MIB/" + cpwVcObjects.EntityData.SegmentPath
     cpwVcObjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cpwVcObjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cpwVcObjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -170,6 +172,7 @@ func (cpwVcTable *CISCOIETFPWMIB_CpwVcTable) GetEntityData() *types.CommonEntity
     cpwVcTable.EntityData.BundleName = "cisco_ios_xe"
     cpwVcTable.EntityData.ParentYangName = "CISCO-IETF-PW-MIB"
     cpwVcTable.EntityData.SegmentPath = "cpwVcTable"
+    cpwVcTable.EntityData.AbsolutePath = "CISCO-IETF-PW-MIB:CISCO-IETF-PW-MIB/" + cpwVcTable.EntityData.SegmentPath
     cpwVcTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cpwVcTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cpwVcTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -194,6 +197,7 @@ func (cpwVcTable *CISCOIETFPWMIB_CpwVcTable) GetEntityData() *types.CommonEntity
 type CISCOIETFPWMIB_CpwVcTable_CpwVcEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Index for the conceptual row identifying a VC
     // within   this PW Emulation VC table. The type is interface{} with range:
@@ -421,6 +425,7 @@ func (cpwVcEntry *CISCOIETFPWMIB_CpwVcTable_CpwVcEntry) GetEntityData() *types.C
     cpwVcEntry.EntityData.BundleName = "cisco_ios_xe"
     cpwVcEntry.EntityData.ParentYangName = "cpwVcTable"
     cpwVcEntry.EntityData.SegmentPath = "cpwVcEntry" + types.AddKeyToken(cpwVcEntry.CpwVcIndex, "cpwVcIndex")
+    cpwVcEntry.EntityData.AbsolutePath = "CISCO-IETF-PW-MIB:CISCO-IETF-PW-MIB/cpwVcTable/" + cpwVcEntry.EntityData.SegmentPath
     cpwVcEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cpwVcEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cpwVcEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -542,6 +547,7 @@ func (cpwVcPerfCurrentTable *CISCOIETFPWMIB_CpwVcPerfCurrentTable) GetEntityData
     cpwVcPerfCurrentTable.EntityData.BundleName = "cisco_ios_xe"
     cpwVcPerfCurrentTable.EntityData.ParentYangName = "CISCO-IETF-PW-MIB"
     cpwVcPerfCurrentTable.EntityData.SegmentPath = "cpwVcPerfCurrentTable"
+    cpwVcPerfCurrentTable.EntityData.AbsolutePath = "CISCO-IETF-PW-MIB:CISCO-IETF-PW-MIB/" + cpwVcPerfCurrentTable.EntityData.SegmentPath
     cpwVcPerfCurrentTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cpwVcPerfCurrentTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cpwVcPerfCurrentTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -564,6 +570,7 @@ func (cpwVcPerfCurrentTable *CISCOIETFPWMIB_CpwVcPerfCurrentTable) GetEntityData
 type CISCOIETFPWMIB_CpwVcPerfCurrentTable_CpwVcPerfCurrentEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 0..4294967295.
     // Refers to cisco_ietf_pw_mib.CISCOIETFPWMIB_CpwVcTable_CpwVcEntry_CpwVcIndex
@@ -596,6 +603,7 @@ func (cpwVcPerfCurrentEntry *CISCOIETFPWMIB_CpwVcPerfCurrentTable_CpwVcPerfCurre
     cpwVcPerfCurrentEntry.EntityData.BundleName = "cisco_ios_xe"
     cpwVcPerfCurrentEntry.EntityData.ParentYangName = "cpwVcPerfCurrentTable"
     cpwVcPerfCurrentEntry.EntityData.SegmentPath = "cpwVcPerfCurrentEntry" + types.AddKeyToken(cpwVcPerfCurrentEntry.CpwVcIndex, "cpwVcIndex")
+    cpwVcPerfCurrentEntry.EntityData.AbsolutePath = "CISCO-IETF-PW-MIB:CISCO-IETF-PW-MIB/cpwVcPerfCurrentTable/" + cpwVcPerfCurrentEntry.EntityData.SegmentPath
     cpwVcPerfCurrentEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cpwVcPerfCurrentEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cpwVcPerfCurrentEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -631,6 +639,7 @@ func (cpwVcPerfIntervalTable *CISCOIETFPWMIB_CpwVcPerfIntervalTable) GetEntityDa
     cpwVcPerfIntervalTable.EntityData.BundleName = "cisco_ios_xe"
     cpwVcPerfIntervalTable.EntityData.ParentYangName = "CISCO-IETF-PW-MIB"
     cpwVcPerfIntervalTable.EntityData.SegmentPath = "cpwVcPerfIntervalTable"
+    cpwVcPerfIntervalTable.EntityData.AbsolutePath = "CISCO-IETF-PW-MIB:CISCO-IETF-PW-MIB/" + cpwVcPerfIntervalTable.EntityData.SegmentPath
     cpwVcPerfIntervalTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cpwVcPerfIntervalTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cpwVcPerfIntervalTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -652,6 +661,7 @@ func (cpwVcPerfIntervalTable *CISCOIETFPWMIB_CpwVcPerfIntervalTable) GetEntityDa
 type CISCOIETFPWMIB_CpwVcPerfIntervalTable_CpwVcPerfIntervalEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 0..4294967295.
     // Refers to cisco_ietf_pw_mib.CISCOIETFPWMIB_CpwVcTable_CpwVcEntry_CpwVcIndex
@@ -703,6 +713,7 @@ func (cpwVcPerfIntervalEntry *CISCOIETFPWMIB_CpwVcPerfIntervalTable_CpwVcPerfInt
     cpwVcPerfIntervalEntry.EntityData.BundleName = "cisco_ios_xe"
     cpwVcPerfIntervalEntry.EntityData.ParentYangName = "cpwVcPerfIntervalTable"
     cpwVcPerfIntervalEntry.EntityData.SegmentPath = "cpwVcPerfIntervalEntry" + types.AddKeyToken(cpwVcPerfIntervalEntry.CpwVcIndex, "cpwVcIndex") + types.AddKeyToken(cpwVcPerfIntervalEntry.CpwVcPerfIntervalNumber, "cpwVcPerfIntervalNumber")
+    cpwVcPerfIntervalEntry.EntityData.AbsolutePath = "CISCO-IETF-PW-MIB:CISCO-IETF-PW-MIB/cpwVcPerfIntervalTable/" + cpwVcPerfIntervalEntry.EntityData.SegmentPath
     cpwVcPerfIntervalEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cpwVcPerfIntervalEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cpwVcPerfIntervalEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -741,6 +752,7 @@ func (cpwVcPerfTotalTable *CISCOIETFPWMIB_CpwVcPerfTotalTable) GetEntityData() *
     cpwVcPerfTotalTable.EntityData.BundleName = "cisco_ios_xe"
     cpwVcPerfTotalTable.EntityData.ParentYangName = "CISCO-IETF-PW-MIB"
     cpwVcPerfTotalTable.EntityData.SegmentPath = "cpwVcPerfTotalTable"
+    cpwVcPerfTotalTable.EntityData.AbsolutePath = "CISCO-IETF-PW-MIB:CISCO-IETF-PW-MIB/" + cpwVcPerfTotalTable.EntityData.SegmentPath
     cpwVcPerfTotalTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cpwVcPerfTotalTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cpwVcPerfTotalTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -762,6 +774,7 @@ func (cpwVcPerfTotalTable *CISCOIETFPWMIB_CpwVcPerfTotalTable) GetEntityData() *
 type CISCOIETFPWMIB_CpwVcPerfTotalTable_CpwVcPerfTotalEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 0..4294967295.
     // Refers to cisco_ietf_pw_mib.CISCOIETFPWMIB_CpwVcTable_CpwVcEntry_CpwVcIndex
@@ -797,6 +810,7 @@ func (cpwVcPerfTotalEntry *CISCOIETFPWMIB_CpwVcPerfTotalTable_CpwVcPerfTotalEntr
     cpwVcPerfTotalEntry.EntityData.BundleName = "cisco_ios_xe"
     cpwVcPerfTotalEntry.EntityData.ParentYangName = "cpwVcPerfTotalTable"
     cpwVcPerfTotalEntry.EntityData.SegmentPath = "cpwVcPerfTotalEntry" + types.AddKeyToken(cpwVcPerfTotalEntry.CpwVcIndex, "cpwVcIndex")
+    cpwVcPerfTotalEntry.EntityData.AbsolutePath = "CISCO-IETF-PW-MIB:CISCO-IETF-PW-MIB/cpwVcPerfTotalTable/" + cpwVcPerfTotalEntry.EntityData.SegmentPath
     cpwVcPerfTotalEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cpwVcPerfTotalEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cpwVcPerfTotalEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -835,6 +849,7 @@ func (cpwVcIdMappingTable *CISCOIETFPWMIB_CpwVcIdMappingTable) GetEntityData() *
     cpwVcIdMappingTable.EntityData.BundleName = "cisco_ios_xe"
     cpwVcIdMappingTable.EntityData.ParentYangName = "CISCO-IETF-PW-MIB"
     cpwVcIdMappingTable.EntityData.SegmentPath = "cpwVcIdMappingTable"
+    cpwVcIdMappingTable.EntityData.AbsolutePath = "CISCO-IETF-PW-MIB:CISCO-IETF-PW-MIB/" + cpwVcIdMappingTable.EntityData.SegmentPath
     cpwVcIdMappingTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cpwVcIdMappingTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cpwVcIdMappingTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -857,6 +872,7 @@ func (cpwVcIdMappingTable *CISCOIETFPWMIB_CpwVcIdMappingTable) GetEntityData() *
 type CISCOIETFPWMIB_CpwVcIdMappingTable_CpwVcIdMappingEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The VC type (indicate the service) of this VC. The
     // type is CpwVcType.
@@ -885,6 +901,7 @@ func (cpwVcIdMappingEntry *CISCOIETFPWMIB_CpwVcIdMappingTable_CpwVcIdMappingEntr
     cpwVcIdMappingEntry.EntityData.BundleName = "cisco_ios_xe"
     cpwVcIdMappingEntry.EntityData.ParentYangName = "cpwVcIdMappingTable"
     cpwVcIdMappingEntry.EntityData.SegmentPath = "cpwVcIdMappingEntry" + types.AddKeyToken(cpwVcIdMappingEntry.CpwVcIdMappingVcType, "cpwVcIdMappingVcType") + types.AddKeyToken(cpwVcIdMappingEntry.CpwVcIdMappingVcID, "cpwVcIdMappingVcID") + types.AddKeyToken(cpwVcIdMappingEntry.CpwVcIdMappingPeerAddrType, "cpwVcIdMappingPeerAddrType") + types.AddKeyToken(cpwVcIdMappingEntry.CpwVcIdMappingPeerAddr, "cpwVcIdMappingPeerAddr") + types.AddKeyToken(cpwVcIdMappingEntry.CpwVcIdMappingVcIndex, "cpwVcIdMappingVcIndex")
+    cpwVcIdMappingEntry.EntityData.AbsolutePath = "CISCO-IETF-PW-MIB:CISCO-IETF-PW-MIB/cpwVcIdMappingTable/" + cpwVcIdMappingEntry.EntityData.SegmentPath
     cpwVcIdMappingEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cpwVcIdMappingEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cpwVcIdMappingEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -922,6 +939,7 @@ func (cpwVcPeerMappingTable *CISCOIETFPWMIB_CpwVcPeerMappingTable) GetEntityData
     cpwVcPeerMappingTable.EntityData.BundleName = "cisco_ios_xe"
     cpwVcPeerMappingTable.EntityData.ParentYangName = "CISCO-IETF-PW-MIB"
     cpwVcPeerMappingTable.EntityData.SegmentPath = "cpwVcPeerMappingTable"
+    cpwVcPeerMappingTable.EntityData.AbsolutePath = "CISCO-IETF-PW-MIB:CISCO-IETF-PW-MIB/" + cpwVcPeerMappingTable.EntityData.SegmentPath
     cpwVcPeerMappingTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cpwVcPeerMappingTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cpwVcPeerMappingTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -944,6 +962,7 @@ func (cpwVcPeerMappingTable *CISCOIETFPWMIB_CpwVcPeerMappingTable) GetEntityData
 type CISCOIETFPWMIB_CpwVcPeerMappingTable_CpwVcPeerMappingEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IP address type of the peer node. The type is
     // InetAddressType.
@@ -972,6 +991,7 @@ func (cpwVcPeerMappingEntry *CISCOIETFPWMIB_CpwVcPeerMappingTable_CpwVcPeerMappi
     cpwVcPeerMappingEntry.EntityData.BundleName = "cisco_ios_xe"
     cpwVcPeerMappingEntry.EntityData.ParentYangName = "cpwVcPeerMappingTable"
     cpwVcPeerMappingEntry.EntityData.SegmentPath = "cpwVcPeerMappingEntry" + types.AddKeyToken(cpwVcPeerMappingEntry.CpwVcPeerMappingPeerAddrType, "cpwVcPeerMappingPeerAddrType") + types.AddKeyToken(cpwVcPeerMappingEntry.CpwVcPeerMappingPeerAddr, "cpwVcPeerMappingPeerAddr") + types.AddKeyToken(cpwVcPeerMappingEntry.CpwVcPeerMappingVcType, "cpwVcPeerMappingVcType") + types.AddKeyToken(cpwVcPeerMappingEntry.CpwVcPeerMappingVcID, "cpwVcPeerMappingVcID") + types.AddKeyToken(cpwVcPeerMappingEntry.CpwVcPeerMappingVcIndex, "cpwVcPeerMappingVcIndex")
+    cpwVcPeerMappingEntry.EntityData.AbsolutePath = "CISCO-IETF-PW-MIB:CISCO-IETF-PW-MIB/cpwVcPeerMappingTable/" + cpwVcPeerMappingEntry.EntityData.SegmentPath
     cpwVcPeerMappingEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cpwVcPeerMappingEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cpwVcPeerMappingEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

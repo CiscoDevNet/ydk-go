@@ -1,7 +1,13 @@
+// This module contains definitions
+// for the Calvados model objects.
+// 
 // This module contains a collection of YANG
 // definitions for Cisco IOS-XR SysAdmin configuration.
 // 
 // Copyright(c) 2012-2017 by Cisco Systems, Inc.
+// All rights reserved.
+// 
+// Copyright (c) 2012-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package sysadmin_vm_mgr
 
@@ -36,6 +42,7 @@ func (vM *VM) GetEntityData() *types.CommonEntityData {
     vM.EntityData.BundleName = "cisco_ios_xr"
     vM.EntityData.ParentYangName = "Cisco-IOS-XR-sysadmin-vm-mgr"
     vM.EntityData.SegmentPath = "Cisco-IOS-XR-sysadmin-vm-mgr:VM"
+    vM.EntityData.AbsolutePath = vM.EntityData.SegmentPath
     vM.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vM.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vM.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -56,6 +63,7 @@ func (vM *VM) GetEntityData() *types.CommonEntityData {
 type VM_AllLocations struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     Location interface{}
@@ -70,6 +78,7 @@ func (allLocations *VM_AllLocations) GetEntityData() *types.CommonEntityData {
     allLocations.EntityData.BundleName = "cisco_ios_xr"
     allLocations.EntityData.ParentYangName = "VM"
     allLocations.EntityData.SegmentPath = "all-locations" + types.AddKeyToken(allLocations.Location, "location")
+    allLocations.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-vm-mgr:VM/" + allLocations.EntityData.SegmentPath
     allLocations.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     allLocations.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     allLocations.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -91,6 +100,7 @@ func (allLocations *VM_AllLocations) GetEntityData() *types.CommonEntityData {
 type VM_AllLocations_AllUiids struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Unique Immutable ID. The type is string.
     Uiid interface{}
@@ -126,6 +136,7 @@ func (allUiids *VM_AllLocations_AllUiids) GetEntityData() *types.CommonEntityDat
     allUiids.EntityData.BundleName = "cisco_ios_xr"
     allUiids.EntityData.ParentYangName = "all-locations"
     allUiids.EntityData.SegmentPath = "all-uiids" + types.AddKeyToken(allUiids.Uiid, "uiid")
+    allUiids.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-vm-mgr:VM/all-locations/" + allUiids.EntityData.SegmentPath
     allUiids.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     allUiids.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     allUiids.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

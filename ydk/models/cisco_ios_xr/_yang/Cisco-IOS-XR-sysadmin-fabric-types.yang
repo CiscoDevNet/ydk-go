@@ -189,25 +189,25 @@ module Cisco-IOS-XR-sysadmin-fabric-types {
 
   typedef fabric_nc55_fixed_fgid_id_type {
     type int32 {
-      range "0..65535";
+      range "0..63535";
     }
   }
 
   typedef fabric_nc55_fixed_fgid_elements_type {
     type int32 {
-      range "0..65536";
+      range "0..63535";
     }
   }
 
   typedef fabric_nc55_fixed_fgid_start_id_type {
     type int32 {
-      range "0..65535";
+      range "0..63535";
     }
   }
 
   typedef fabric_nc55_fixed_fgid_end_id_type {
     type int32 {
-      range "0..65535";
+      range "0..63535";
     }
   }
 

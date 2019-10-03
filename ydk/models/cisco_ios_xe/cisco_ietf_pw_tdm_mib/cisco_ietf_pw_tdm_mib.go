@@ -68,6 +68,7 @@ func (cISCOIETFPWTDMMIB *CISCOIETFPWTDMMIB) GetEntityData() *types.CommonEntityD
     cISCOIETFPWTDMMIB.EntityData.BundleName = "cisco_ios_xe"
     cISCOIETFPWTDMMIB.EntityData.ParentYangName = "CISCO-IETF-PW-TDM-MIB"
     cISCOIETFPWTDMMIB.EntityData.SegmentPath = "CISCO-IETF-PW-TDM-MIB:CISCO-IETF-PW-TDM-MIB"
+    cISCOIETFPWTDMMIB.EntityData.AbsolutePath = cISCOIETFPWTDMMIB.EntityData.SegmentPath
     cISCOIETFPWTDMMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cISCOIETFPWTDMMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOIETFPWTDMMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -107,6 +108,7 @@ func (cpwCTDMObjects *CISCOIETFPWTDMMIB_CpwCTDMObjects) GetEntityData() *types.C
     cpwCTDMObjects.EntityData.BundleName = "cisco_ios_xe"
     cpwCTDMObjects.EntityData.ParentYangName = "CISCO-IETF-PW-TDM-MIB"
     cpwCTDMObjects.EntityData.SegmentPath = "cpwCTDMObjects"
+    cpwCTDMObjects.EntityData.AbsolutePath = "CISCO-IETF-PW-TDM-MIB:CISCO-IETF-PW-TDM-MIB/" + cpwCTDMObjects.EntityData.SegmentPath
     cpwCTDMObjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cpwCTDMObjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cpwCTDMObjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -144,6 +146,7 @@ func (cpwCTDMTable *CISCOIETFPWTDMMIB_CpwCTDMTable) GetEntityData() *types.Commo
     cpwCTDMTable.EntityData.BundleName = "cisco_ios_xe"
     cpwCTDMTable.EntityData.ParentYangName = "CISCO-IETF-PW-TDM-MIB"
     cpwCTDMTable.EntityData.SegmentPath = "cpwCTDMTable"
+    cpwCTDMTable.EntityData.AbsolutePath = "CISCO-IETF-PW-TDM-MIB:CISCO-IETF-PW-TDM-MIB/" + cpwCTDMTable.EntityData.SegmentPath
     cpwCTDMTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cpwCTDMTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cpwCTDMTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -176,6 +179,7 @@ func (cpwCTDMTable *CISCOIETFPWTDMMIB_CpwCTDMTable) GetEntityData() *types.Commo
 type CISCOIETFPWTDMMIB_CpwCTDMTable_CpwCTDMEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 0..4294967295.
     // Refers to cisco_ietf_pw_mib.CISCOIETFPWMIB_CpwVcTable_CpwVcEntry_CpwVcIndex
@@ -294,6 +298,7 @@ func (cpwCTDMEntry *CISCOIETFPWTDMMIB_CpwCTDMTable_CpwCTDMEntry) GetEntityData()
     cpwCTDMEntry.EntityData.BundleName = "cisco_ios_xe"
     cpwCTDMEntry.EntityData.ParentYangName = "cpwCTDMTable"
     cpwCTDMEntry.EntityData.SegmentPath = "cpwCTDMEntry" + types.AddKeyToken(cpwCTDMEntry.CpwVcIndex, "cpwVcIndex")
+    cpwCTDMEntry.EntityData.AbsolutePath = "CISCO-IETF-PW-TDM-MIB:CISCO-IETF-PW-TDM-MIB/cpwCTDMTable/" + cpwCTDMEntry.EntityData.SegmentPath
     cpwCTDMEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cpwCTDMEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cpwCTDMEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -338,6 +343,7 @@ func (cpwCTDMCfgTable *CISCOIETFPWTDMMIB_CpwCTDMCfgTable) GetEntityData() *types
     cpwCTDMCfgTable.EntityData.BundleName = "cisco_ios_xe"
     cpwCTDMCfgTable.EntityData.ParentYangName = "CISCO-IETF-PW-TDM-MIB"
     cpwCTDMCfgTable.EntityData.SegmentPath = "cpwCTDMCfgTable"
+    cpwCTDMCfgTable.EntityData.AbsolutePath = "CISCO-IETF-PW-TDM-MIB:CISCO-IETF-PW-TDM-MIB/" + cpwCTDMCfgTable.EntityData.SegmentPath
     cpwCTDMCfgTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cpwCTDMCfgTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cpwCTDMCfgTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -362,6 +368,7 @@ func (cpwCTDMCfgTable *CISCOIETFPWTDMMIB_CpwCTDMCfgTable) GetEntityData() *types
 type CISCOIETFPWTDMMIB_CpwCTDMCfgTable_CpwCTDMCfgEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Index to an entry in this table. The value is a
     // copy of the assigned cpwCTDMCfgIndexNext. The type is interface{} with
@@ -514,6 +521,7 @@ func (cpwCTDMCfgEntry *CISCOIETFPWTDMMIB_CpwCTDMCfgTable_CpwCTDMCfgEntry) GetEnt
     cpwCTDMCfgEntry.EntityData.BundleName = "cisco_ios_xe"
     cpwCTDMCfgEntry.EntityData.ParentYangName = "cpwCTDMCfgTable"
     cpwCTDMCfgEntry.EntityData.SegmentPath = "cpwCTDMCfgEntry" + types.AddKeyToken(cpwCTDMCfgEntry.CpwCTDMCfgIndex, "cpwCTDMCfgIndex")
+    cpwCTDMCfgEntry.EntityData.AbsolutePath = "CISCO-IETF-PW-TDM-MIB:CISCO-IETF-PW-TDM-MIB/cpwCTDMCfgTable/" + cpwCTDMCfgEntry.EntityData.SegmentPath
     cpwCTDMCfgEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cpwCTDMCfgEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cpwCTDMCfgEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -604,6 +612,7 @@ func (cpwCTDMPerfCurrentTable *CISCOIETFPWTDMMIB_CpwCTDMPerfCurrentTable) GetEnt
     cpwCTDMPerfCurrentTable.EntityData.BundleName = "cisco_ios_xe"
     cpwCTDMPerfCurrentTable.EntityData.ParentYangName = "CISCO-IETF-PW-TDM-MIB"
     cpwCTDMPerfCurrentTable.EntityData.SegmentPath = "cpwCTDMPerfCurrentTable"
+    cpwCTDMPerfCurrentTable.EntityData.AbsolutePath = "CISCO-IETF-PW-TDM-MIB:CISCO-IETF-PW-TDM-MIB/" + cpwCTDMPerfCurrentTable.EntityData.SegmentPath
     cpwCTDMPerfCurrentTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cpwCTDMPerfCurrentTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cpwCTDMPerfCurrentTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -629,6 +638,7 @@ func (cpwCTDMPerfCurrentTable *CISCOIETFPWTDMMIB_CpwCTDMPerfCurrentTable) GetEnt
 type CISCOIETFPWTDMMIB_CpwCTDMPerfCurrentTable_CpwCTDMPerfCurrentEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 0..4294967295.
     // Refers to cisco_ietf_pw_mib.CISCOIETFPWMIB_CpwVcTable_CpwVcEntry_CpwVcIndex
@@ -687,6 +697,7 @@ func (cpwCTDMPerfCurrentEntry *CISCOIETFPWTDMMIB_CpwCTDMPerfCurrentTable_CpwCTDM
     cpwCTDMPerfCurrentEntry.EntityData.BundleName = "cisco_ios_xe"
     cpwCTDMPerfCurrentEntry.EntityData.ParentYangName = "cpwCTDMPerfCurrentTable"
     cpwCTDMPerfCurrentEntry.EntityData.SegmentPath = "cpwCTDMPerfCurrentEntry" + types.AddKeyToken(cpwCTDMPerfCurrentEntry.CpwVcIndex, "cpwVcIndex")
+    cpwCTDMPerfCurrentEntry.EntityData.AbsolutePath = "CISCO-IETF-PW-TDM-MIB:CISCO-IETF-PW-TDM-MIB/cpwCTDMPerfCurrentTable/" + cpwCTDMPerfCurrentEntry.EntityData.SegmentPath
     cpwCTDMPerfCurrentEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cpwCTDMPerfCurrentEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cpwCTDMPerfCurrentEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -733,6 +744,7 @@ func (cpwCTDMPerfIntervalTable *CISCOIETFPWTDMMIB_CpwCTDMPerfIntervalTable) GetE
     cpwCTDMPerfIntervalTable.EntityData.BundleName = "cisco_ios_xe"
     cpwCTDMPerfIntervalTable.EntityData.ParentYangName = "CISCO-IETF-PW-TDM-MIB"
     cpwCTDMPerfIntervalTable.EntityData.SegmentPath = "cpwCTDMPerfIntervalTable"
+    cpwCTDMPerfIntervalTable.EntityData.AbsolutePath = "CISCO-IETF-PW-TDM-MIB:CISCO-IETF-PW-TDM-MIB/" + cpwCTDMPerfIntervalTable.EntityData.SegmentPath
     cpwCTDMPerfIntervalTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cpwCTDMPerfIntervalTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cpwCTDMPerfIntervalTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -758,6 +770,7 @@ func (cpwCTDMPerfIntervalTable *CISCOIETFPWTDMMIB_CpwCTDMPerfIntervalTable) GetE
 type CISCOIETFPWTDMMIB_CpwCTDMPerfIntervalTable_CpwCTDMPerfIntervalEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 0..4294967295.
     // Refers to cisco_ietf_pw_mib.CISCOIETFPWMIB_CpwVcTable_CpwVcEntry_CpwVcIndex
@@ -832,6 +845,7 @@ func (cpwCTDMPerfIntervalEntry *CISCOIETFPWTDMMIB_CpwCTDMPerfIntervalTable_CpwCT
     cpwCTDMPerfIntervalEntry.EntityData.BundleName = "cisco_ios_xe"
     cpwCTDMPerfIntervalEntry.EntityData.ParentYangName = "cpwCTDMPerfIntervalTable"
     cpwCTDMPerfIntervalEntry.EntityData.SegmentPath = "cpwCTDMPerfIntervalEntry" + types.AddKeyToken(cpwCTDMPerfIntervalEntry.CpwVcIndex, "cpwVcIndex") + types.AddKeyToken(cpwCTDMPerfIntervalEntry.CpwCTDMPerfIntervalNumber, "cpwCTDMPerfIntervalNumber")
+    cpwCTDMPerfIntervalEntry.EntityData.AbsolutePath = "CISCO-IETF-PW-TDM-MIB:CISCO-IETF-PW-TDM-MIB/cpwCTDMPerfIntervalTable/" + cpwCTDMPerfIntervalEntry.EntityData.SegmentPath
     cpwCTDMPerfIntervalEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cpwCTDMPerfIntervalEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cpwCTDMPerfIntervalEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -879,6 +893,7 @@ func (cpwCTDMPerf1DayIntervalTable *CISCOIETFPWTDMMIB_CpwCTDMPerf1DayIntervalTab
     cpwCTDMPerf1DayIntervalTable.EntityData.BundleName = "cisco_ios_xe"
     cpwCTDMPerf1DayIntervalTable.EntityData.ParentYangName = "CISCO-IETF-PW-TDM-MIB"
     cpwCTDMPerf1DayIntervalTable.EntityData.SegmentPath = "cpwCTDMPerf1DayIntervalTable"
+    cpwCTDMPerf1DayIntervalTable.EntityData.AbsolutePath = "CISCO-IETF-PW-TDM-MIB:CISCO-IETF-PW-TDM-MIB/" + cpwCTDMPerf1DayIntervalTable.EntityData.SegmentPath
     cpwCTDMPerf1DayIntervalTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cpwCTDMPerf1DayIntervalTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cpwCTDMPerf1DayIntervalTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -901,6 +916,7 @@ func (cpwCTDMPerf1DayIntervalTable *CISCOIETFPWTDMMIB_CpwCTDMPerf1DayIntervalTab
 type CISCOIETFPWTDMMIB_CpwCTDMPerf1DayIntervalTable_CpwCTDMPerf1DayIntervalEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 0..4294967295.
     // Refers to cisco_ietf_pw_mib.CISCOIETFPWMIB_CpwVcTable_CpwVcEntry_CpwVcIndex
@@ -970,6 +986,7 @@ func (cpwCTDMPerf1DayIntervalEntry *CISCOIETFPWTDMMIB_CpwCTDMPerf1DayIntervalTab
     cpwCTDMPerf1DayIntervalEntry.EntityData.BundleName = "cisco_ios_xe"
     cpwCTDMPerf1DayIntervalEntry.EntityData.ParentYangName = "cpwCTDMPerf1DayIntervalTable"
     cpwCTDMPerf1DayIntervalEntry.EntityData.SegmentPath = "cpwCTDMPerf1DayIntervalEntry" + types.AddKeyToken(cpwCTDMPerf1DayIntervalEntry.CpwVcIndex, "cpwVcIndex") + types.AddKeyToken(cpwCTDMPerf1DayIntervalEntry.CpwCTDMPerf1DayIntervalNumber, "cpwCTDMPerf1DayIntervalNumber")
+    cpwCTDMPerf1DayIntervalEntry.EntityData.AbsolutePath = "CISCO-IETF-PW-TDM-MIB:CISCO-IETF-PW-TDM-MIB/cpwCTDMPerf1DayIntervalTable/" + cpwCTDMPerf1DayIntervalEntry.EntityData.SegmentPath
     cpwCTDMPerf1DayIntervalEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cpwCTDMPerf1DayIntervalEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cpwCTDMPerf1DayIntervalEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

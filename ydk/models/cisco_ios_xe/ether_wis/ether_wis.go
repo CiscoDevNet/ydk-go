@@ -68,6 +68,7 @@ func (eTHERWIS *ETHERWIS) GetEntityData() *types.CommonEntityData {
     eTHERWIS.EntityData.BundleName = "cisco_ios_xe"
     eTHERWIS.EntityData.ParentYangName = "ETHER-WIS"
     eTHERWIS.EntityData.SegmentPath = "ETHER-WIS:ETHER-WIS"
+    eTHERWIS.EntityData.AbsolutePath = eTHERWIS.EntityData.SegmentPath
     eTHERWIS.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     eTHERWIS.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     eTHERWIS.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -102,6 +103,7 @@ func (etherWisDeviceTable *ETHERWIS_EtherWisDeviceTable) GetEntityData() *types.
     etherWisDeviceTable.EntityData.BundleName = "cisco_ios_xe"
     etherWisDeviceTable.EntityData.ParentYangName = "ETHER-WIS"
     etherWisDeviceTable.EntityData.SegmentPath = "etherWisDeviceTable"
+    etherWisDeviceTable.EntityData.AbsolutePath = "ETHER-WIS:ETHER-WIS/" + etherWisDeviceTable.EntityData.SegmentPath
     etherWisDeviceTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     etherWisDeviceTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     etherWisDeviceTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -125,6 +127,7 @@ func (etherWisDeviceTable *ETHERWIS_EtherWisDeviceTable) GetEntityData() *types.
 type ETHERWIS_EtherWisDeviceTable_EtherWisDeviceEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -178,6 +181,7 @@ func (etherWisDeviceEntry *ETHERWIS_EtherWisDeviceTable_EtherWisDeviceEntry) Get
     etherWisDeviceEntry.EntityData.BundleName = "cisco_ios_xe"
     etherWisDeviceEntry.EntityData.ParentYangName = "etherWisDeviceTable"
     etherWisDeviceEntry.EntityData.SegmentPath = "etherWisDeviceEntry" + types.AddKeyToken(etherWisDeviceEntry.IfIndex, "ifIndex")
+    etherWisDeviceEntry.EntityData.AbsolutePath = "ETHER-WIS:ETHER-WIS/etherWisDeviceTable/" + etherWisDeviceEntry.EntityData.SegmentPath
     etherWisDeviceEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     etherWisDeviceEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     etherWisDeviceEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -237,6 +241,7 @@ func (etherWisSectionCurrentTable *ETHERWIS_EtherWisSectionCurrentTable) GetEnti
     etherWisSectionCurrentTable.EntityData.BundleName = "cisco_ios_xe"
     etherWisSectionCurrentTable.EntityData.ParentYangName = "ETHER-WIS"
     etherWisSectionCurrentTable.EntityData.SegmentPath = "etherWisSectionCurrentTable"
+    etherWisSectionCurrentTable.EntityData.AbsolutePath = "ETHER-WIS:ETHER-WIS/" + etherWisSectionCurrentTable.EntityData.SegmentPath
     etherWisSectionCurrentTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     etherWisSectionCurrentTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     etherWisSectionCurrentTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -260,6 +265,7 @@ func (etherWisSectionCurrentTable *ETHERWIS_EtherWisSectionCurrentTable) GetEnti
 type ETHERWIS_EtherWisSectionCurrentTable_EtherWisSectionCurrentEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -269,11 +275,12 @@ type ETHERWIS_EtherWisSectionCurrentTable_EtherWisSectionCurrentEntry struct {
     // byte.  The value SHOULD be '89'h followed by fifteen octets of '00'h (or
     // some cyclic shift thereof) when the section trace function is not used, and
     // the implementation SHOULD use that value (or a cyclic shift thereof) as a
-    // default if no other value has been set. The type is string with length: 16.
+    // default if no other value has been set. The type is string with length:
+    // 16..16.
     EtherWisSectionCurrentJ0Transmitted interface{}
 
     // This is the 16-octet section trace message that was most recently received
-    // in the J0 byte. The type is string with length: 16.
+    // in the J0 byte. The type is string with length: 16..16.
     EtherWisSectionCurrentJ0Received interface{}
 }
 
@@ -283,6 +290,7 @@ func (etherWisSectionCurrentEntry *ETHERWIS_EtherWisSectionCurrentTable_EtherWis
     etherWisSectionCurrentEntry.EntityData.BundleName = "cisco_ios_xe"
     etherWisSectionCurrentEntry.EntityData.ParentYangName = "etherWisSectionCurrentTable"
     etherWisSectionCurrentEntry.EntityData.SegmentPath = "etherWisSectionCurrentEntry" + types.AddKeyToken(etherWisSectionCurrentEntry.IfIndex, "ifIndex")
+    etherWisSectionCurrentEntry.EntityData.AbsolutePath = "ETHER-WIS:ETHER-WIS/etherWisSectionCurrentTable/" + etherWisSectionCurrentEntry.EntityData.SegmentPath
     etherWisSectionCurrentEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     etherWisSectionCurrentEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     etherWisSectionCurrentEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -316,6 +324,7 @@ func (etherWisPathCurrentTable *ETHERWIS_EtherWisPathCurrentTable) GetEntityData
     etherWisPathCurrentTable.EntityData.BundleName = "cisco_ios_xe"
     etherWisPathCurrentTable.EntityData.ParentYangName = "ETHER-WIS"
     etherWisPathCurrentTable.EntityData.SegmentPath = "etherWisPathCurrentTable"
+    etherWisPathCurrentTable.EntityData.AbsolutePath = "ETHER-WIS:ETHER-WIS/" + etherWisPathCurrentTable.EntityData.SegmentPath
     etherWisPathCurrentTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     etherWisPathCurrentTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     etherWisPathCurrentTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -339,6 +348,7 @@ func (etherWisPathCurrentTable *ETHERWIS_EtherWisPathCurrentTable) GetEntityData
 type ETHERWIS_EtherWisPathCurrentTable_EtherWisPathCurrentEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -368,11 +378,12 @@ type ETHERWIS_EtherWisPathCurrentTable_EtherWisPathCurrentEntry struct {
     // The value SHOULD be '89'h followed by fifteen octets of '00'h (or some
     // cyclic shift thereof) when the path trace function is not used, and the
     // implementation SHOULD use that value (or a cyclic shift thereof) as a
-    // default if no other value has been set. The type is string with length: 16.
+    // default if no other value has been set. The type is string with length:
+    // 16..16.
     EtherWisPathCurrentJ1Transmitted interface{}
 
     // This is the 16-octet path trace message that was most recently received in
-    // the J1 byte. The type is string with length: 16.
+    // the J1 byte. The type is string with length: 16..16.
     EtherWisPathCurrentJ1Received interface{}
 }
 
@@ -382,6 +393,7 @@ func (etherWisPathCurrentEntry *ETHERWIS_EtherWisPathCurrentTable_EtherWisPathCu
     etherWisPathCurrentEntry.EntityData.BundleName = "cisco_ios_xe"
     etherWisPathCurrentEntry.EntityData.ParentYangName = "etherWisPathCurrentTable"
     etherWisPathCurrentEntry.EntityData.SegmentPath = "etherWisPathCurrentEntry" + types.AddKeyToken(etherWisPathCurrentEntry.IfIndex, "ifIndex")
+    etherWisPathCurrentEntry.EntityData.AbsolutePath = "ETHER-WIS:ETHER-WIS/etherWisPathCurrentTable/" + etherWisPathCurrentEntry.EntityData.SegmentPath
     etherWisPathCurrentEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     etherWisPathCurrentEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     etherWisPathCurrentEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -418,6 +430,7 @@ func (etherWisFarEndPathCurrentTable *ETHERWIS_EtherWisFarEndPathCurrentTable) G
     etherWisFarEndPathCurrentTable.EntityData.BundleName = "cisco_ios_xe"
     etherWisFarEndPathCurrentTable.EntityData.ParentYangName = "ETHER-WIS"
     etherWisFarEndPathCurrentTable.EntityData.SegmentPath = "etherWisFarEndPathCurrentTable"
+    etherWisFarEndPathCurrentTable.EntityData.AbsolutePath = "ETHER-WIS:ETHER-WIS/" + etherWisFarEndPathCurrentTable.EntityData.SegmentPath
     etherWisFarEndPathCurrentTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     etherWisFarEndPathCurrentTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     etherWisFarEndPathCurrentTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -441,6 +454,7 @@ func (etherWisFarEndPathCurrentTable *ETHERWIS_EtherWisFarEndPathCurrentTable) G
 type ETHERWIS_EtherWisFarEndPathCurrentTable_EtherWisFarEndPathCurrentEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -464,6 +478,7 @@ func (etherWisFarEndPathCurrentEntry *ETHERWIS_EtherWisFarEndPathCurrentTable_Et
     etherWisFarEndPathCurrentEntry.EntityData.BundleName = "cisco_ios_xe"
     etherWisFarEndPathCurrentEntry.EntityData.ParentYangName = "etherWisFarEndPathCurrentTable"
     etherWisFarEndPathCurrentEntry.EntityData.SegmentPath = "etherWisFarEndPathCurrentEntry" + types.AddKeyToken(etherWisFarEndPathCurrentEntry.IfIndex, "ifIndex")
+    etherWisFarEndPathCurrentEntry.EntityData.AbsolutePath = "ETHER-WIS:ETHER-WIS/etherWisFarEndPathCurrentTable/" + etherWisFarEndPathCurrentEntry.EntityData.SegmentPath
     etherWisFarEndPathCurrentEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     etherWisFarEndPathCurrentEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     etherWisFarEndPathCurrentEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

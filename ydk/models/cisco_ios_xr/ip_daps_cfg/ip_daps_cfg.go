@@ -40,6 +40,7 @@ func (addressPoolService *AddressPoolService) GetEntityData() *types.CommonEntit
     addressPoolService.EntityData.BundleName = "cisco_ios_xr"
     addressPoolService.EntityData.ParentYangName = "Cisco-IOS-XR-ip-daps-cfg"
     addressPoolService.EntityData.SegmentPath = "Cisco-IOS-XR-ip-daps-cfg:address-pool-service"
+    addressPoolService.EntityData.AbsolutePath = addressPoolService.EntityData.SegmentPath
     addressPoolService.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     addressPoolService.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     addressPoolService.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -69,6 +70,7 @@ func (vrfs *AddressPoolService_Vrfs) GetEntityData() *types.CommonEntityData {
     vrfs.EntityData.BundleName = "cisco_ios_xr"
     vrfs.EntityData.ParentYangName = "address-pool-service"
     vrfs.EntityData.SegmentPath = "vrfs"
+    vrfs.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-daps-cfg:address-pool-service/" + vrfs.EntityData.SegmentPath
     vrfs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -90,6 +92,7 @@ func (vrfs *AddressPoolService_Vrfs) GetEntityData() *types.CommonEntityData {
 type AddressPoolService_Vrfs_Vrf struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. none. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -108,6 +111,7 @@ func (vrf *AddressPoolService_Vrfs_Vrf) GetEntityData() *types.CommonEntityData 
     vrf.EntityData.BundleName = "cisco_ios_xr"
     vrf.EntityData.ParentYangName = "vrfs"
     vrf.EntityData.SegmentPath = "vrf" + types.AddKeyToken(vrf.VrfName, "vrf-name")
+    vrf.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-daps-cfg:address-pool-service/vrfs/" + vrf.EntityData.SegmentPath
     vrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -139,6 +143,7 @@ func (ipv6 *AddressPoolService_Vrfs_Vrf_Ipv6) GetEntityData() *types.CommonEntit
     ipv6.EntityData.BundleName = "cisco_ios_xr"
     ipv6.EntityData.ParentYangName = "vrf"
     ipv6.EntityData.SegmentPath = "ipv6"
+    ipv6.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-daps-cfg:address-pool-service/vrfs/vrf/" + ipv6.EntityData.SegmentPath
     ipv6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -169,6 +174,7 @@ func (pools *AddressPoolService_Vrfs_Vrf_Ipv6_Pools) GetEntityData() *types.Comm
     pools.EntityData.BundleName = "cisco_ios_xr"
     pools.EntityData.ParentYangName = "ipv6"
     pools.EntityData.SegmentPath = "pools"
+    pools.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-daps-cfg:address-pool-service/vrfs/vrf/ipv6/" + pools.EntityData.SegmentPath
     pools.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pools.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pools.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -190,6 +196,7 @@ func (pools *AddressPoolService_Vrfs_Vrf_Ipv6_Pools) GetEntityData() *types.Comm
 type AddressPoolService_Vrfs_Vrf_Ipv6_Pools_Pool struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Enter the IPv6 Pool name. The type is string with
     // pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -221,6 +228,7 @@ func (pool *AddressPoolService_Vrfs_Vrf_Ipv6_Pools_Pool) GetEntityData() *types.
     pool.EntityData.BundleName = "cisco_ios_xr"
     pool.EntityData.ParentYangName = "pools"
     pool.EntityData.SegmentPath = "pool" + types.AddKeyToken(pool.Ipv6PoolName, "ipv6-pool-name")
+    pool.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-daps-cfg:address-pool-service/vrfs/vrf/ipv6/pools/" + pool.EntityData.SegmentPath
     pool.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pool.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pool.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -257,6 +265,7 @@ func (addressRanges *AddressPoolService_Vrfs_Vrf_Ipv6_Pools_Pool_AddressRanges) 
     addressRanges.EntityData.BundleName = "cisco_ios_xr"
     addressRanges.EntityData.ParentYangName = "pool"
     addressRanges.EntityData.SegmentPath = "address-ranges"
+    addressRanges.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-daps-cfg:address-pool-service/vrfs/vrf/ipv6/pools/pool/" + addressRanges.EntityData.SegmentPath
     addressRanges.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     addressRanges.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     addressRanges.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -278,6 +287,7 @@ func (addressRanges *AddressPoolService_Vrfs_Vrf_Ipv6_Pools_Pool_AddressRanges) 
 type AddressPoolService_Vrfs_Vrf_Ipv6_Pools_Pool_AddressRanges_AddressRange struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Start address of the range. The type is one of the
     // following types: string with pattern:
@@ -304,6 +314,7 @@ func (addressRange *AddressPoolService_Vrfs_Vrf_Ipv6_Pools_Pool_AddressRanges_Ad
     addressRange.EntityData.BundleName = "cisco_ios_xr"
     addressRange.EntityData.ParentYangName = "address-ranges"
     addressRange.EntityData.SegmentPath = "address-range" + types.AddKeyToken(addressRange.StartAddress, "start-address")
+    addressRange.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-daps-cfg:address-pool-service/vrfs/vrf/ipv6/pools/pool/address-ranges/" + addressRange.EntityData.SegmentPath
     addressRange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     addressRange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     addressRange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -336,6 +347,7 @@ func (excludes *AddressPoolService_Vrfs_Vrf_Ipv6_Pools_Pool_Excludes) GetEntityD
     excludes.EntityData.BundleName = "cisco_ios_xr"
     excludes.EntityData.ParentYangName = "pool"
     excludes.EntityData.SegmentPath = "excludes"
+    excludes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-daps-cfg:address-pool-service/vrfs/vrf/ipv6/pools/pool/" + excludes.EntityData.SegmentPath
     excludes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     excludes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     excludes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -357,6 +369,7 @@ func (excludes *AddressPoolService_Vrfs_Vrf_Ipv6_Pools_Pool_Excludes) GetEntityD
 type AddressPoolService_Vrfs_Vrf_Ipv6_Pools_Pool_Excludes_Exclude struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. First Address in IPv6 exclude range. The type is
     // one of the following types: string with pattern:
@@ -380,6 +393,7 @@ func (exclude *AddressPoolService_Vrfs_Vrf_Ipv6_Pools_Pool_Excludes_Exclude) Get
     exclude.EntityData.BundleName = "cisco_ios_xr"
     exclude.EntityData.ParentYangName = "excludes"
     exclude.EntityData.SegmentPath = "exclude" + types.AddKeyToken(exclude.StartAddress, "start-address")
+    exclude.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-daps-cfg:address-pool-service/vrfs/vrf/ipv6/pools/pool/excludes/" + exclude.EntityData.SegmentPath
     exclude.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     exclude.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     exclude.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -417,6 +431,7 @@ func (utilizationMark *AddressPoolService_Vrfs_Vrf_Ipv6_Pools_Pool_UtilizationMa
     utilizationMark.EntityData.BundleName = "cisco_ios_xr"
     utilizationMark.EntityData.ParentYangName = "pool"
     utilizationMark.EntityData.SegmentPath = "utilization-mark"
+    utilizationMark.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-daps-cfg:address-pool-service/vrfs/vrf/ipv6/pools/pool/" + utilizationMark.EntityData.SegmentPath
     utilizationMark.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     utilizationMark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     utilizationMark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -448,6 +463,7 @@ func (prefixRanges *AddressPoolService_Vrfs_Vrf_Ipv6_Pools_Pool_PrefixRanges) Ge
     prefixRanges.EntityData.BundleName = "cisco_ios_xr"
     prefixRanges.EntityData.ParentYangName = "pool"
     prefixRanges.EntityData.SegmentPath = "prefix-ranges"
+    prefixRanges.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-daps-cfg:address-pool-service/vrfs/vrf/ipv6/pools/pool/" + prefixRanges.EntityData.SegmentPath
     prefixRanges.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefixRanges.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefixRanges.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -469,6 +485,7 @@ func (prefixRanges *AddressPoolService_Vrfs_Vrf_Ipv6_Pools_Pool_PrefixRanges) Ge
 type AddressPoolService_Vrfs_Vrf_Ipv6_Pools_Pool_PrefixRanges_PrefixRange struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. First prefix of range. The type is one of the
     // following types: string with pattern:
@@ -495,6 +512,7 @@ func (prefixRange *AddressPoolService_Vrfs_Vrf_Ipv6_Pools_Pool_PrefixRanges_Pref
     prefixRange.EntityData.BundleName = "cisco_ios_xr"
     prefixRange.EntityData.ParentYangName = "prefix-ranges"
     prefixRange.EntityData.SegmentPath = "prefix-range" + types.AddKeyToken(prefixRange.StartPrefix, "start-prefix")
+    prefixRange.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-daps-cfg:address-pool-service/vrfs/vrf/ipv6/pools/pool/prefix-ranges/" + prefixRange.EntityData.SegmentPath
     prefixRange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefixRange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefixRange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -527,6 +545,7 @@ func (networks *AddressPoolService_Vrfs_Vrf_Ipv6_Pools_Pool_Networks) GetEntityD
     networks.EntityData.BundleName = "cisco_ios_xr"
     networks.EntityData.ParentYangName = "pool"
     networks.EntityData.SegmentPath = "networks"
+    networks.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-daps-cfg:address-pool-service/vrfs/vrf/ipv6/pools/pool/" + networks.EntityData.SegmentPath
     networks.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     networks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     networks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -548,6 +567,7 @@ func (networks *AddressPoolService_Vrfs_Vrf_Ipv6_Pools_Pool_Networks) GetEntityD
 type AddressPoolService_Vrfs_Vrf_Ipv6_Pools_Pool_Networks_Network struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. None. The type is one of the following types:
     // string with pattern:
@@ -570,6 +590,7 @@ func (network *AddressPoolService_Vrfs_Vrf_Ipv6_Pools_Pool_Networks_Network) Get
     network.EntityData.BundleName = "cisco_ios_xr"
     network.EntityData.ParentYangName = "networks"
     network.EntityData.SegmentPath = "network" + types.AddKeyToken(network.Prefix, "prefix")
+    network.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-daps-cfg:address-pool-service/vrfs/vrf/ipv6/pools/pool/networks/" + network.EntityData.SegmentPath
     network.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     network.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     network.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -601,6 +622,7 @@ func (ipv4 *AddressPoolService_Vrfs_Vrf_Ipv4) GetEntityData() *types.CommonEntit
     ipv4.EntityData.BundleName = "cisco_ios_xr"
     ipv4.EntityData.ParentYangName = "vrf"
     ipv4.EntityData.SegmentPath = "ipv4"
+    ipv4.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-daps-cfg:address-pool-service/vrfs/vrf/" + ipv4.EntityData.SegmentPath
     ipv4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -631,6 +653,7 @@ func (pools *AddressPoolService_Vrfs_Vrf_Ipv4_Pools) GetEntityData() *types.Comm
     pools.EntityData.BundleName = "cisco_ios_xr"
     pools.EntityData.ParentYangName = "ipv4"
     pools.EntityData.SegmentPath = "pools"
+    pools.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-daps-cfg:address-pool-service/vrfs/vrf/ipv4/" + pools.EntityData.SegmentPath
     pools.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pools.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pools.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -652,6 +675,7 @@ func (pools *AddressPoolService_Vrfs_Vrf_Ipv4_Pools) GetEntityData() *types.Comm
 type AddressPoolService_Vrfs_Vrf_Ipv4_Pools_Pool struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Enter the IPv4 Pool name. The type is string with
     // pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -676,6 +700,7 @@ func (pool *AddressPoolService_Vrfs_Vrf_Ipv4_Pools_Pool) GetEntityData() *types.
     pool.EntityData.BundleName = "cisco_ios_xr"
     pool.EntityData.ParentYangName = "pools"
     pool.EntityData.SegmentPath = "pool" + types.AddKeyToken(pool.PoolName, "pool-name")
+    pool.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-daps-cfg:address-pool-service/vrfs/vrf/ipv4/pools/" + pool.EntityData.SegmentPath
     pool.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pool.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pool.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -710,6 +735,7 @@ func (addressRanges *AddressPoolService_Vrfs_Vrf_Ipv4_Pools_Pool_AddressRanges) 
     addressRanges.EntityData.BundleName = "cisco_ios_xr"
     addressRanges.EntityData.ParentYangName = "pool"
     addressRanges.EntityData.SegmentPath = "address-ranges"
+    addressRanges.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-daps-cfg:address-pool-service/vrfs/vrf/ipv4/pools/pool/" + addressRanges.EntityData.SegmentPath
     addressRanges.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     addressRanges.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     addressRanges.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -731,6 +757,7 @@ func (addressRanges *AddressPoolService_Vrfs_Vrf_Ipv4_Pools_Pool_AddressRanges) 
 type AddressPoolService_Vrfs_Vrf_Ipv4_Pools_Pool_AddressRanges_AddressRange struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Specify first address of the range. The type is
     // string with pattern:
@@ -755,6 +782,7 @@ func (addressRange *AddressPoolService_Vrfs_Vrf_Ipv4_Pools_Pool_AddressRanges_Ad
     addressRange.EntityData.BundleName = "cisco_ios_xr"
     addressRange.EntityData.ParentYangName = "address-ranges"
     addressRange.EntityData.SegmentPath = "address-range" + types.AddKeyToken(addressRange.StartAddress, "start-address")
+    addressRange.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-daps-cfg:address-pool-service/vrfs/vrf/ipv4/pools/pool/address-ranges/" + addressRange.EntityData.SegmentPath
     addressRange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     addressRange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     addressRange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -787,6 +815,7 @@ func (excludes *AddressPoolService_Vrfs_Vrf_Ipv4_Pools_Pool_Excludes) GetEntityD
     excludes.EntityData.BundleName = "cisco_ios_xr"
     excludes.EntityData.ParentYangName = "pool"
     excludes.EntityData.SegmentPath = "excludes"
+    excludes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-daps-cfg:address-pool-service/vrfs/vrf/ipv4/pools/pool/" + excludes.EntityData.SegmentPath
     excludes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     excludes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     excludes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -808,6 +837,7 @@ func (excludes *AddressPoolService_Vrfs_Vrf_Ipv4_Pools_Pool_Excludes) GetEntityD
 type AddressPoolService_Vrfs_Vrf_Ipv4_Pools_Pool_Excludes_Exclude struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. First address in exclude range. The type is string
     // with pattern:
@@ -829,6 +859,7 @@ func (exclude *AddressPoolService_Vrfs_Vrf_Ipv4_Pools_Pool_Excludes_Exclude) Get
     exclude.EntityData.BundleName = "cisco_ios_xr"
     exclude.EntityData.ParentYangName = "excludes"
     exclude.EntityData.SegmentPath = "exclude" + types.AddKeyToken(exclude.StartAddress, "start-address")
+    exclude.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-daps-cfg:address-pool-service/vrfs/vrf/ipv4/pools/pool/excludes/" + exclude.EntityData.SegmentPath
     exclude.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     exclude.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     exclude.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -866,6 +897,7 @@ func (utilizationMark *AddressPoolService_Vrfs_Vrf_Ipv4_Pools_Pool_UtilizationMa
     utilizationMark.EntityData.BundleName = "cisco_ios_xr"
     utilizationMark.EntityData.ParentYangName = "pool"
     utilizationMark.EntityData.SegmentPath = "utilization-mark"
+    utilizationMark.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-daps-cfg:address-pool-service/vrfs/vrf/ipv4/pools/pool/" + utilizationMark.EntityData.SegmentPath
     utilizationMark.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     utilizationMark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     utilizationMark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -897,6 +929,7 @@ func (networks *AddressPoolService_Vrfs_Vrf_Ipv4_Pools_Pool_Networks) GetEntityD
     networks.EntityData.BundleName = "cisco_ios_xr"
     networks.EntityData.ParentYangName = "pool"
     networks.EntityData.SegmentPath = "networks"
+    networks.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-daps-cfg:address-pool-service/vrfs/vrf/ipv4/pools/pool/" + networks.EntityData.SegmentPath
     networks.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     networks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     networks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -918,6 +951,7 @@ func (networks *AddressPoolService_Vrfs_Vrf_Ipv4_Pools_Pool_Networks) GetEntityD
 type AddressPoolService_Vrfs_Vrf_Ipv4_Pools_Pool_Networks_Network struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. None. The type is one of the following types:
     // string with pattern:
@@ -944,6 +978,7 @@ func (network *AddressPoolService_Vrfs_Vrf_Ipv4_Pools_Pool_Networks_Network) Get
     network.EntityData.BundleName = "cisco_ios_xr"
     network.EntityData.ParentYangName = "networks"
     network.EntityData.SegmentPath = "network" + types.AddKeyToken(network.Ipv4Prefix, "ipv4-prefix")
+    network.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-daps-cfg:address-pool-service/vrfs/vrf/ipv4/pools/pool/networks/" + network.EntityData.SegmentPath
     network.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     network.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     network.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

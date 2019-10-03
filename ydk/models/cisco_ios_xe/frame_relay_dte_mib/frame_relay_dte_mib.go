@@ -45,6 +45,7 @@ func (fRAMERELAYDTEMIB *FRAMERELAYDTEMIB) GetEntityData() *types.CommonEntityDat
     fRAMERELAYDTEMIB.EntityData.BundleName = "cisco_ios_xe"
     fRAMERELAYDTEMIB.EntityData.ParentYangName = "FRAME-RELAY-DTE-MIB"
     fRAMERELAYDTEMIB.EntityData.SegmentPath = "FRAME-RELAY-DTE-MIB:FRAME-RELAY-DTE-MIB"
+    fRAMERELAYDTEMIB.EntityData.AbsolutePath = fRAMERELAYDTEMIB.EntityData.SegmentPath
     fRAMERELAYDTEMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     fRAMERELAYDTEMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     fRAMERELAYDTEMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -83,6 +84,7 @@ func (frameRelayTrapControl *FRAMERELAYDTEMIB_FrameRelayTrapControl) GetEntityDa
     frameRelayTrapControl.EntityData.BundleName = "cisco_ios_xe"
     frameRelayTrapControl.EntityData.ParentYangName = "FRAME-RELAY-DTE-MIB"
     frameRelayTrapControl.EntityData.SegmentPath = "frameRelayTrapControl"
+    frameRelayTrapControl.EntityData.AbsolutePath = "FRAME-RELAY-DTE-MIB:FRAME-RELAY-DTE-MIB/" + frameRelayTrapControl.EntityData.SegmentPath
     frameRelayTrapControl.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     frameRelayTrapControl.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     frameRelayTrapControl.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -125,6 +127,7 @@ func (frDlcmiTable *FRAMERELAYDTEMIB_FrDlcmiTable) GetEntityData() *types.Common
     frDlcmiTable.EntityData.BundleName = "cisco_ios_xe"
     frDlcmiTable.EntityData.ParentYangName = "FRAME-RELAY-DTE-MIB"
     frDlcmiTable.EntityData.SegmentPath = "frDlcmiTable"
+    frDlcmiTable.EntityData.AbsolutePath = "FRAME-RELAY-DTE-MIB:FRAME-RELAY-DTE-MIB/" + frDlcmiTable.EntityData.SegmentPath
     frDlcmiTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     frDlcmiTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     frDlcmiTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -147,6 +150,7 @@ func (frDlcmiTable *FRAMERELAYDTEMIB_FrDlcmiTable) GetEntityData() *types.Common
 type FRAMERELAYDTEMIB_FrDlcmiTable_FrDlcmiEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The ifIndex value of the corresponding ifEntry.
     // The type is interface{} with range: 1..2147483647.
@@ -213,6 +217,7 @@ func (frDlcmiEntry *FRAMERELAYDTEMIB_FrDlcmiTable_FrDlcmiEntry) GetEntityData() 
     frDlcmiEntry.EntityData.BundleName = "cisco_ios_xe"
     frDlcmiEntry.EntityData.ParentYangName = "frDlcmiTable"
     frDlcmiEntry.EntityData.SegmentPath = "frDlcmiEntry" + types.AddKeyToken(frDlcmiEntry.FrDlcmiIfIndex, "frDlcmiIfIndex")
+    frDlcmiEntry.EntityData.AbsolutePath = "FRAME-RELAY-DTE-MIB:FRAME-RELAY-DTE-MIB/frDlcmiTable/" + frDlcmiEntry.EntityData.SegmentPath
     frDlcmiEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     frDlcmiEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     frDlcmiEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -318,6 +323,7 @@ func (frCircuitTable *FRAMERELAYDTEMIB_FrCircuitTable) GetEntityData() *types.Co
     frCircuitTable.EntityData.BundleName = "cisco_ios_xe"
     frCircuitTable.EntityData.ParentYangName = "FRAME-RELAY-DTE-MIB"
     frCircuitTable.EntityData.SegmentPath = "frCircuitTable"
+    frCircuitTable.EntityData.AbsolutePath = "FRAME-RELAY-DTE-MIB:FRAME-RELAY-DTE-MIB/" + frCircuitTable.EntityData.SegmentPath
     frCircuitTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     frCircuitTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     frCircuitTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -342,6 +348,7 @@ func (frCircuitTable *FRAMERELAYDTEMIB_FrCircuitTable) GetEntityData() *types.Co
 type FRAMERELAYDTEMIB_FrCircuitTable_FrCircuitEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The ifIndex Value of the ifEntry this virtual
     // circuit is layered onto. The type is interface{} with range: 1..2147483647.
@@ -478,6 +485,7 @@ func (frCircuitEntry *FRAMERELAYDTEMIB_FrCircuitTable_FrCircuitEntry) GetEntityD
     frCircuitEntry.EntityData.BundleName = "cisco_ios_xe"
     frCircuitEntry.EntityData.ParentYangName = "frCircuitTable"
     frCircuitEntry.EntityData.SegmentPath = "frCircuitEntry" + types.AddKeyToken(frCircuitEntry.FrCircuitIfIndex, "frCircuitIfIndex") + types.AddKeyToken(frCircuitEntry.FrCircuitDlci, "frCircuitDlci")
+    frCircuitEntry.EntityData.AbsolutePath = "FRAME-RELAY-DTE-MIB:FRAME-RELAY-DTE-MIB/frCircuitTable/" + frCircuitEntry.EntityData.SegmentPath
     frCircuitEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     frCircuitEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     frCircuitEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -564,6 +572,7 @@ func (frErrTable *FRAMERELAYDTEMIB_FrErrTable) GetEntityData() *types.CommonEnti
     frErrTable.EntityData.BundleName = "cisco_ios_xe"
     frErrTable.EntityData.ParentYangName = "FRAME-RELAY-DTE-MIB"
     frErrTable.EntityData.SegmentPath = "frErrTable"
+    frErrTable.EntityData.AbsolutePath = "FRAME-RELAY-DTE-MIB:FRAME-RELAY-DTE-MIB/" + frErrTable.EntityData.SegmentPath
     frErrTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     frErrTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     frErrTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -586,6 +595,7 @@ func (frErrTable *FRAMERELAYDTEMIB_FrErrTable) GetEntityData() *types.CommonEnti
 type FRAMERELAYDTEMIB_FrErrTable_FrErrEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The ifIndex Value of the corresponding ifEntry.
     // The type is interface{} with range: 1..2147483647.
@@ -639,6 +649,7 @@ func (frErrEntry *FRAMERELAYDTEMIB_FrErrTable_FrErrEntry) GetEntityData() *types
     frErrEntry.EntityData.BundleName = "cisco_ios_xe"
     frErrEntry.EntityData.ParentYangName = "frErrTable"
     frErrEntry.EntityData.SegmentPath = "frErrEntry" + types.AddKeyToken(frErrEntry.FrErrIfIndex, "frErrIfIndex")
+    frErrEntry.EntityData.AbsolutePath = "FRAME-RELAY-DTE-MIB:FRAME-RELAY-DTE-MIB/frErrTable/" + frErrEntry.EntityData.SegmentPath
     frErrEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     frErrEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     frErrEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

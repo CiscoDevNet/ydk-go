@@ -487,6 +487,20 @@ const (
     IsisMibDatabaseOverFlowBoolean_true_ IsisMibDatabaseOverFlowBoolean = "true"
 )
 
+// IsisConfigurableLevel represents Isis configurable level
+type IsisConfigurableLevel string
+
+const (
+    // Both Levels
+    IsisConfigurableLevel_level_12 IsisConfigurableLevel = "level-12"
+
+    // level 1
+    IsisConfigurableLevel_level_1 IsisConfigurableLevel = "level-1"
+
+    // level 2
+    IsisConfigurableLevel_level_2 IsisConfigurableLevel = "level-2"
+)
+
 // IsisApplicationAttribute represents Isis application attribute
 type IsisApplicationAttribute string
 
@@ -717,6 +731,7 @@ func (isis *Isis) GetEntityData() *types.CommonEntityData {
     isis.EntityData.BundleName = "cisco_ios_xr"
     isis.EntityData.ParentYangName = "Cisco-IOS-XR-clns-isis-cfg"
     isis.EntityData.SegmentPath = "Cisco-IOS-XR-clns-isis-cfg:isis"
+    isis.EntityData.AbsolutePath = isis.EntityData.SegmentPath
     isis.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     isis.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     isis.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -747,6 +762,7 @@ func (instances *Isis_Instances) GetEntityData() *types.CommonEntityData {
     instances.EntityData.BundleName = "cisco_ios_xr"
     instances.EntityData.ParentYangName = "isis"
     instances.EntityData.SegmentPath = "instances"
+    instances.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/" + instances.EntityData.SegmentPath
     instances.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     instances.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     instances.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -768,6 +784,7 @@ func (instances *Isis_Instances) GetEntityData() *types.CommonEntityData {
 type Isis_Instances_Instance struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Instance identifier. The type is string with
     // length: 1..36.
@@ -805,6 +822,10 @@ type Isis_Instances_Instance struct {
     // If TRUE, dynamic hostname resolution is disabled, and system IDs will
     // always be displayed by show and debug output. The type is bool.
     DynamicHostName interface{}
+
+    // Allow only authentication TLV in purge LSPs. The type is
+    // IsisConfigurableLevel. The default value is level-12.
+    PurgeTransmitStrict interface{}
 
     // IS-IS NSR configuration. The type is interface{}.
     Nsr interface{}
@@ -885,6 +906,7 @@ func (instance *Isis_Instances_Instance) GetEntityData() *types.CommonEntityData
     instance.EntityData.BundleName = "cisco_ios_xr"
     instance.EntityData.ParentYangName = "instances"
     instance.EntityData.SegmentPath = "instance" + types.AddKeyToken(instance.InstanceName, "instance-name")
+    instance.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/" + instance.EntityData.SegmentPath
     instance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     instance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     instance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -922,6 +944,7 @@ func (instance *Isis_Instances_Instance) GetEntityData() *types.CommonEntityData
     instance.EntityData.Leafs.Append("vrf-context", types.YLeaf{"VrfContext", instance.VrfContext})
     instance.EntityData.Leafs.Append("instance-id", types.YLeaf{"InstanceId", instance.InstanceId})
     instance.EntityData.Leafs.Append("dynamic-host-name", types.YLeaf{"DynamicHostName", instance.DynamicHostName})
+    instance.EntityData.Leafs.Append("purge-transmit-strict", types.YLeaf{"PurgeTransmitStrict", instance.PurgeTransmitStrict})
     instance.EntityData.Leafs.Append("nsr", types.YLeaf{"Nsr", instance.Nsr})
     instance.EntityData.Leafs.Append("log-pdu-drops", types.YLeaf{"LogPduDrops", instance.LogPduDrops})
 
@@ -953,6 +976,7 @@ func (srgb *Isis_Instances_Instance_Srgb) GetEntityData() *types.CommonEntityDat
     srgb.EntityData.BundleName = "cisco_ios_xr"
     srgb.EntityData.ParentYangName = "instance"
     srgb.EntityData.SegmentPath = "srgb"
+    srgb.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/" + srgb.EntityData.SegmentPath
     srgb.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     srgb.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     srgb.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -984,6 +1008,7 @@ func (lspGenerationIntervals *Isis_Instances_Instance_LspGenerationIntervals) Ge
     lspGenerationIntervals.EntityData.BundleName = "cisco_ios_xr"
     lspGenerationIntervals.EntityData.ParentYangName = "instance"
     lspGenerationIntervals.EntityData.SegmentPath = "lsp-generation-intervals"
+    lspGenerationIntervals.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/" + lspGenerationIntervals.EntityData.SegmentPath
     lspGenerationIntervals.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lspGenerationIntervals.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspGenerationIntervals.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1005,6 +1030,7 @@ func (lspGenerationIntervals *Isis_Instances_Instance_LspGenerationIntervals) Ge
 type Isis_Instances_Instance_LspGenerationIntervals_LspGenerationInterval struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Level to which configuration applies. The type is
     // IsisInternalLevel.
@@ -1029,6 +1055,7 @@ func (lspGenerationInterval *Isis_Instances_Instance_LspGenerationIntervals_LspG
     lspGenerationInterval.EntityData.BundleName = "cisco_ios_xr"
     lspGenerationInterval.EntityData.ParentYangName = "lsp-generation-intervals"
     lspGenerationInterval.EntityData.SegmentPath = "lsp-generation-interval" + types.AddKeyToken(lspGenerationInterval.Level, "level")
+    lspGenerationInterval.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/lsp-generation-intervals/" + lspGenerationInterval.EntityData.SegmentPath
     lspGenerationInterval.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lspGenerationInterval.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspGenerationInterval.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1062,6 +1089,7 @@ func (lspArrivalTimes *Isis_Instances_Instance_LspArrivalTimes) GetEntityData() 
     lspArrivalTimes.EntityData.BundleName = "cisco_ios_xr"
     lspArrivalTimes.EntityData.ParentYangName = "instance"
     lspArrivalTimes.EntityData.SegmentPath = "lsp-arrival-times"
+    lspArrivalTimes.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/" + lspArrivalTimes.EntityData.SegmentPath
     lspArrivalTimes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lspArrivalTimes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspArrivalTimes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1083,6 +1111,7 @@ func (lspArrivalTimes *Isis_Instances_Instance_LspArrivalTimes) GetEntityData() 
 type Isis_Instances_Instance_LspArrivalTimes_LspArrivalTime struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Level to which configuration applies. The type is
     // IsisInternalLevel.
@@ -1107,6 +1136,7 @@ func (lspArrivalTime *Isis_Instances_Instance_LspArrivalTimes_LspArrivalTime) Ge
     lspArrivalTime.EntityData.BundleName = "cisco_ios_xr"
     lspArrivalTime.EntityData.ParentYangName = "lsp-arrival-times"
     lspArrivalTime.EntityData.SegmentPath = "lsp-arrival-time" + types.AddKeyToken(lspArrivalTime.Level, "level")
+    lspArrivalTime.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/lsp-arrival-times/" + lspArrivalTime.EntityData.SegmentPath
     lspArrivalTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lspArrivalTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspArrivalTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1152,6 +1182,7 @@ func (traceBufferSize *Isis_Instances_Instance_TraceBufferSize) GetEntityData() 
     traceBufferSize.EntityData.BundleName = "cisco_ios_xr"
     traceBufferSize.EntityData.ParentYangName = "instance"
     traceBufferSize.EntityData.SegmentPath = "trace-buffer-size"
+    traceBufferSize.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/" + traceBufferSize.EntityData.SegmentPath
     traceBufferSize.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     traceBufferSize.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     traceBufferSize.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1185,6 +1216,7 @@ func (maxLinkMetrics *Isis_Instances_Instance_MaxLinkMetrics) GetEntityData() *t
     maxLinkMetrics.EntityData.BundleName = "cisco_ios_xr"
     maxLinkMetrics.EntityData.ParentYangName = "instance"
     maxLinkMetrics.EntityData.SegmentPath = "max-link-metrics"
+    maxLinkMetrics.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/" + maxLinkMetrics.EntityData.SegmentPath
     maxLinkMetrics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     maxLinkMetrics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     maxLinkMetrics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1206,6 +1238,7 @@ func (maxLinkMetrics *Isis_Instances_Instance_MaxLinkMetrics) GetEntityData() *t
 type Isis_Instances_Instance_MaxLinkMetrics_MaxLinkMetric struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Level to which configuration applies. The type is
     // IsisInternalLevel.
@@ -1218,6 +1251,7 @@ func (maxLinkMetric *Isis_Instances_Instance_MaxLinkMetrics_MaxLinkMetric) GetEn
     maxLinkMetric.EntityData.BundleName = "cisco_ios_xr"
     maxLinkMetric.EntityData.ParentYangName = "max-link-metrics"
     maxLinkMetric.EntityData.SegmentPath = "max-link-metric" + types.AddKeyToken(maxLinkMetric.Level, "level")
+    maxLinkMetric.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/max-link-metrics/" + maxLinkMetric.EntityData.SegmentPath
     maxLinkMetric.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     maxLinkMetric.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     maxLinkMetric.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1254,6 +1288,7 @@ func (adjacencyStagger *Isis_Instances_Instance_AdjacencyStagger) GetEntityData(
     adjacencyStagger.EntityData.BundleName = "cisco_ios_xr"
     adjacencyStagger.EntityData.ParentYangName = "instance"
     adjacencyStagger.EntityData.SegmentPath = "adjacency-stagger"
+    adjacencyStagger.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/" + adjacencyStagger.EntityData.SegmentPath
     adjacencyStagger.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     adjacencyStagger.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     adjacencyStagger.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1286,6 +1321,7 @@ func (afs *Isis_Instances_Instance_Afs) GetEntityData() *types.CommonEntityData 
     afs.EntityData.BundleName = "cisco_ios_xr"
     afs.EntityData.ParentYangName = "instance"
     afs.EntityData.SegmentPath = "afs"
+    afs.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/" + afs.EntityData.SegmentPath
     afs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     afs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     afs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1309,6 +1345,7 @@ func (afs *Isis_Instances_Instance_Afs) GetEntityData() *types.CommonEntityData 
 type Isis_Instances_Instance_Afs_Af struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Address family. The type is IsisAddressFamily.
     AfName interface{}
@@ -1331,6 +1368,7 @@ func (af *Isis_Instances_Instance_Afs_Af) GetEntityData() *types.CommonEntityDat
     af.EntityData.BundleName = "cisco_ios_xr"
     af.EntityData.ParentYangName = "afs"
     af.EntityData.SegmentPath = "af" + types.AddKeyToken(af.AfName, "af-name") + types.AddKeyToken(af.SafName, "saf-name")
+    af.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/" + af.EntityData.SegmentPath
     af.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     af.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     af.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1486,6 +1524,7 @@ func (afData *Isis_Instances_Instance_Afs_Af_AfData) GetEntityData() *types.Comm
     afData.EntityData.BundleName = "cisco_ios_xr"
     afData.EntityData.ParentYangName = "af"
     afData.EntityData.SegmentPath = "af-data"
+    afData.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/" + afData.EntityData.SegmentPath
     afData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     afData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     afData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1542,6 +1581,9 @@ type Isis_Instances_Instance_Afs_Af_AfData_SegmentRouting struct {
     // Enable per bundle member adjacency SID. The type is interface{}.
     BundleMemberAdjSid interface{}
 
+    // Only install SR labeled paths. The type is interface{}.
+    LabeledOnly interface{}
+
     // Prefer segment routing labels over LDP labels. The type is
     // IsisLabelPreference.
     Mpls interface{}
@@ -1559,6 +1601,7 @@ func (segmentRouting *Isis_Instances_Instance_Afs_Af_AfData_SegmentRouting) GetE
     segmentRouting.EntityData.BundleName = "cisco_ios_xr"
     segmentRouting.EntityData.ParentYangName = "af-data"
     segmentRouting.EntityData.SegmentPath = "segment-routing"
+    segmentRouting.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/af-data/" + segmentRouting.EntityData.SegmentPath
     segmentRouting.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     segmentRouting.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     segmentRouting.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1567,6 +1610,7 @@ func (segmentRouting *Isis_Instances_Instance_Afs_Af_AfData_SegmentRouting) GetE
     segmentRouting.EntityData.Children.Append("prefix-sid-map", types.YChild{"PrefixSidMap", &segmentRouting.PrefixSidMap})
     segmentRouting.EntityData.Leafs = types.NewOrderedMap()
     segmentRouting.EntityData.Leafs.Append("bundle-member-adj-sid", types.YLeaf{"BundleMemberAdjSid", segmentRouting.BundleMemberAdjSid})
+    segmentRouting.EntityData.Leafs.Append("labeled-only", types.YLeaf{"LabeledOnly", segmentRouting.LabeledOnly})
     segmentRouting.EntityData.Leafs.Append("mpls", types.YLeaf{"Mpls", segmentRouting.Mpls})
     segmentRouting.EntityData.Leafs.Append("srv6", types.YLeaf{"Srv6", segmentRouting.Srv6})
 
@@ -1597,6 +1641,7 @@ func (prefixSidMap *Isis_Instances_Instance_Afs_Af_AfData_SegmentRouting_PrefixS
     prefixSidMap.EntityData.BundleName = "cisco_ios_xr"
     prefixSidMap.EntityData.ParentYangName = "segment-routing"
     prefixSidMap.EntityData.SegmentPath = "prefix-sid-map"
+    prefixSidMap.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/af-data/segment-routing/" + prefixSidMap.EntityData.SegmentPath
     prefixSidMap.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefixSidMap.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefixSidMap.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1628,6 +1673,7 @@ func (metricStyles *Isis_Instances_Instance_Afs_Af_AfData_MetricStyles) GetEntit
     metricStyles.EntityData.BundleName = "cisco_ios_xr"
     metricStyles.EntityData.ParentYangName = "af-data"
     metricStyles.EntityData.SegmentPath = "metric-styles"
+    metricStyles.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/af-data/" + metricStyles.EntityData.SegmentPath
     metricStyles.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     metricStyles.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     metricStyles.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1649,6 +1695,7 @@ func (metricStyles *Isis_Instances_Instance_Afs_Af_AfData_MetricStyles) GetEntit
 type Isis_Instances_Instance_Afs_Af_AfData_MetricStyles_MetricStyle struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Level to which configuration applies. The type is
     // IsisInternalLevel.
@@ -1664,6 +1711,7 @@ func (metricStyle *Isis_Instances_Instance_Afs_Af_AfData_MetricStyles_MetricStyl
     metricStyle.EntityData.BundleName = "cisco_ios_xr"
     metricStyle.EntityData.ParentYangName = "metric-styles"
     metricStyle.EntityData.SegmentPath = "metric-style" + types.AddKeyToken(metricStyle.Level, "level")
+    metricStyle.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/af-data/metric-styles/" + metricStyle.EntityData.SegmentPath
     metricStyle.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     metricStyle.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     metricStyle.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1713,6 +1761,7 @@ func (frrTable *Isis_Instances_Instance_Afs_Af_AfData_FrrTable) GetEntityData() 
     frrTable.EntityData.BundleName = "cisco_ios_xr"
     frrTable.EntityData.ParentYangName = "af-data"
     frrTable.EntityData.SegmentPath = "frr-table"
+    frrTable.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/af-data/" + frrTable.EntityData.SegmentPath
     frrTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     frrTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     frrTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1750,6 +1799,7 @@ func (frrLoadSharings *Isis_Instances_Instance_Afs_Af_AfData_FrrTable_FrrLoadSha
     frrLoadSharings.EntityData.BundleName = "cisco_ios_xr"
     frrLoadSharings.EntityData.ParentYangName = "frr-table"
     frrLoadSharings.EntityData.SegmentPath = "frr-load-sharings"
+    frrLoadSharings.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/af-data/frr-table/" + frrLoadSharings.EntityData.SegmentPath
     frrLoadSharings.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     frrLoadSharings.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     frrLoadSharings.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1771,6 +1821,7 @@ func (frrLoadSharings *Isis_Instances_Instance_Afs_Af_AfData_FrrTable_FrrLoadSha
 type Isis_Instances_Instance_Afs_Af_AfData_FrrTable_FrrLoadSharings_FrrLoadSharing struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Level to which configuration applies. The type is
     // IsisInternalLevel.
@@ -1786,6 +1837,7 @@ func (frrLoadSharing *Isis_Instances_Instance_Afs_Af_AfData_FrrTable_FrrLoadShar
     frrLoadSharing.EntityData.BundleName = "cisco_ios_xr"
     frrLoadSharing.EntityData.ParentYangName = "frr-load-sharings"
     frrLoadSharing.EntityData.SegmentPath = "frr-load-sharing" + types.AddKeyToken(frrLoadSharing.Level, "level")
+    frrLoadSharing.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/af-data/frr-table/frr-load-sharings/" + frrLoadSharing.EntityData.SegmentPath
     frrLoadSharing.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     frrLoadSharing.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     frrLoadSharing.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1817,6 +1869,7 @@ func (frrsrlgProtectionTypes *Isis_Instances_Instance_Afs_Af_AfData_FrrTable_Frr
     frrsrlgProtectionTypes.EntityData.BundleName = "cisco_ios_xr"
     frrsrlgProtectionTypes.EntityData.ParentYangName = "frr-table"
     frrsrlgProtectionTypes.EntityData.SegmentPath = "frrsrlg-protection-types"
+    frrsrlgProtectionTypes.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/af-data/frr-table/" + frrsrlgProtectionTypes.EntityData.SegmentPath
     frrsrlgProtectionTypes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     frrsrlgProtectionTypes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     frrsrlgProtectionTypes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1838,6 +1891,7 @@ func (frrsrlgProtectionTypes *Isis_Instances_Instance_Afs_Af_AfData_FrrTable_Frr
 type Isis_Instances_Instance_Afs_Af_AfData_FrrTable_FrrsrlgProtectionTypes_FrrsrlgProtectionType struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Level to which configuration applies. The type is
     // IsisInternalLevel.
@@ -1854,6 +1908,7 @@ func (frrsrlgProtectionType *Isis_Instances_Instance_Afs_Af_AfData_FrrTable_Frrs
     frrsrlgProtectionType.EntityData.BundleName = "cisco_ios_xr"
     frrsrlgProtectionType.EntityData.ParentYangName = "frrsrlg-protection-types"
     frrsrlgProtectionType.EntityData.SegmentPath = "frrsrlg-protection-type" + types.AddKeyToken(frrsrlgProtectionType.Level, "level")
+    frrsrlgProtectionType.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/af-data/frr-table/frrsrlg-protection-types/" + frrsrlgProtectionType.EntityData.SegmentPath
     frrsrlgProtectionType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     frrsrlgProtectionType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     frrsrlgProtectionType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1885,6 +1940,7 @@ func (priorityLimits *Isis_Instances_Instance_Afs_Af_AfData_FrrTable_PriorityLim
     priorityLimits.EntityData.BundleName = "cisco_ios_xr"
     priorityLimits.EntityData.ParentYangName = "frr-table"
     priorityLimits.EntityData.SegmentPath = "priority-limits"
+    priorityLimits.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/af-data/frr-table/" + priorityLimits.EntityData.SegmentPath
     priorityLimits.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     priorityLimits.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     priorityLimits.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1907,13 +1963,11 @@ func (priorityLimits *Isis_Instances_Instance_Afs_Af_AfData_FrrTable_PriorityLim
 type Isis_Instances_Instance_Afs_Af_AfData_FrrTable_PriorityLimits_PriorityLimit struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Level to which configuration applies. The type is
     // IsisInternalLevel.
     Level interface{}
-
-    // Data container.
-    PriorityLimitData Isis_Instances_Instance_Afs_Af_AfData_FrrTable_PriorityLimits_PriorityLimit_PriorityLimitData
 
     // keys: frr-type. The type is slice of
     // Isis_Instances_Instance_Afs_Af_AfData_FrrTable_PriorityLimits_PriorityLimit_FrrType.
@@ -1926,12 +1980,12 @@ func (priorityLimit *Isis_Instances_Instance_Afs_Af_AfData_FrrTable_PriorityLimi
     priorityLimit.EntityData.BundleName = "cisco_ios_xr"
     priorityLimit.EntityData.ParentYangName = "priority-limits"
     priorityLimit.EntityData.SegmentPath = "priority-limit" + types.AddKeyToken(priorityLimit.Level, "level")
+    priorityLimit.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/af-data/frr-table/priority-limits/" + priorityLimit.EntityData.SegmentPath
     priorityLimit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     priorityLimit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     priorityLimit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     priorityLimit.EntityData.Children = types.NewOrderedMap()
-    priorityLimit.EntityData.Children.Append("priority-limit-data", types.YChild{"PriorityLimitData", &priorityLimit.PriorityLimitData})
     priorityLimit.EntityData.Children.Append("frr-type", types.YChild{"FrrType", nil})
     for i := range priorityLimit.FrrType {
         priorityLimit.EntityData.Children.Append(types.GetSegmentPath(priorityLimit.FrrType[i]), types.YChild{"FrrType", priorityLimit.FrrType[i]})
@@ -1944,41 +1998,12 @@ func (priorityLimit *Isis_Instances_Instance_Afs_Af_AfData_FrrTable_PriorityLimi
     return &(priorityLimit.EntityData)
 }
 
-// Isis_Instances_Instance_Afs_Af_AfData_FrrTable_PriorityLimits_PriorityLimit_PriorityLimitData
-// Data container.
-type Isis_Instances_Instance_Afs_Af_AfData_FrrTable_PriorityLimits_PriorityLimit_PriorityLimitData struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Compute for all prefixes upto the specified priority. The type is
-    // IsisPrefixPriority. This attribute is mandatory.
-    Priority interface{}
-}
-
-func (priorityLimitData *Isis_Instances_Instance_Afs_Af_AfData_FrrTable_PriorityLimits_PriorityLimit_PriorityLimitData) GetEntityData() *types.CommonEntityData {
-    priorityLimitData.EntityData.YFilter = priorityLimitData.YFilter
-    priorityLimitData.EntityData.YangName = "priority-limit-data"
-    priorityLimitData.EntityData.BundleName = "cisco_ios_xr"
-    priorityLimitData.EntityData.ParentYangName = "priority-limit"
-    priorityLimitData.EntityData.SegmentPath = "priority-limit-data"
-    priorityLimitData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    priorityLimitData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    priorityLimitData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    priorityLimitData.EntityData.Children = types.NewOrderedMap()
-    priorityLimitData.EntityData.Leafs = types.NewOrderedMap()
-    priorityLimitData.EntityData.Leafs.Append("priority", types.YLeaf{"Priority", priorityLimitData.Priority})
-
-    priorityLimitData.EntityData.YListKeys = []string {}
-
-    return &(priorityLimitData.EntityData)
-}
-
 // Isis_Instances_Instance_Afs_Af_AfData_FrrTable_PriorityLimits_PriorityLimit_FrrType
 // keys: frr-type
 type Isis_Instances_Instance_Afs_Af_AfData_FrrTable_PriorityLimits_PriorityLimit_FrrType struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Computation Type. The type is Isisfrr.
     FrrType interface{}
@@ -1994,6 +2019,7 @@ func (frrType *Isis_Instances_Instance_Afs_Af_AfData_FrrTable_PriorityLimits_Pri
     frrType.EntityData.BundleName = "cisco_ios_xr"
     frrType.EntityData.ParentYangName = "priority-limit"
     frrType.EntityData.SegmentPath = "frr-type" + types.AddKeyToken(frrType.FrrType, "frr-type")
+    frrType.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/af-data/frr-table/priority-limits/priority-limit/" + frrType.EntityData.SegmentPath
     frrType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     frrType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     frrType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2026,6 +2052,7 @@ func (frrRemoteLfaPrefixes *Isis_Instances_Instance_Afs_Af_AfData_FrrTable_FrrRe
     frrRemoteLfaPrefixes.EntityData.BundleName = "cisco_ios_xr"
     frrRemoteLfaPrefixes.EntityData.ParentYangName = "frr-table"
     frrRemoteLfaPrefixes.EntityData.SegmentPath = "frr-remote-lfa-prefixes"
+    frrRemoteLfaPrefixes.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/af-data/frr-table/" + frrRemoteLfaPrefixes.EntityData.SegmentPath
     frrRemoteLfaPrefixes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     frrRemoteLfaPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     frrRemoteLfaPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2048,6 +2075,7 @@ func (frrRemoteLfaPrefixes *Isis_Instances_Instance_Afs_Af_AfData_FrrTable_FrrRe
 type Isis_Instances_Instance_Afs_Af_AfData_FrrTable_FrrRemoteLfaPrefixes_FrrRemoteLfaPrefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Level to which configuration applies. The type is
     // IsisInternalLevel.
@@ -2064,6 +2092,7 @@ func (frrRemoteLfaPrefix *Isis_Instances_Instance_Afs_Af_AfData_FrrTable_FrrRemo
     frrRemoteLfaPrefix.EntityData.BundleName = "cisco_ios_xr"
     frrRemoteLfaPrefix.EntityData.ParentYangName = "frr-remote-lfa-prefixes"
     frrRemoteLfaPrefix.EntityData.SegmentPath = "frr-remote-lfa-prefix" + types.AddKeyToken(frrRemoteLfaPrefix.Level, "level")
+    frrRemoteLfaPrefix.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/af-data/frr-table/frr-remote-lfa-prefixes/" + frrRemoteLfaPrefix.EntityData.SegmentPath
     frrRemoteLfaPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     frrRemoteLfaPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     frrRemoteLfaPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2095,6 +2124,7 @@ func (frrTiebreakers *Isis_Instances_Instance_Afs_Af_AfData_FrrTable_FrrTiebreak
     frrTiebreakers.EntityData.BundleName = "cisco_ios_xr"
     frrTiebreakers.EntityData.ParentYangName = "frr-table"
     frrTiebreakers.EntityData.SegmentPath = "frr-tiebreakers"
+    frrTiebreakers.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/af-data/frr-table/" + frrTiebreakers.EntityData.SegmentPath
     frrTiebreakers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     frrTiebreakers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     frrTiebreakers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2116,6 +2146,7 @@ func (frrTiebreakers *Isis_Instances_Instance_Afs_Af_AfData_FrrTable_FrrTiebreak
 type Isis_Instances_Instance_Afs_Af_AfData_FrrTable_FrrTiebreakers_FrrTiebreaker struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Level to which configuration applies. The type is
     // IsisInternalLevel.
@@ -2136,6 +2167,7 @@ func (frrTiebreaker *Isis_Instances_Instance_Afs_Af_AfData_FrrTable_FrrTiebreake
     frrTiebreaker.EntityData.BundleName = "cisco_ios_xr"
     frrTiebreaker.EntityData.ParentYangName = "frr-tiebreakers"
     frrTiebreaker.EntityData.SegmentPath = "frr-tiebreaker" + types.AddKeyToken(frrTiebreaker.Level, "level") + types.AddKeyToken(frrTiebreaker.Tiebreaker, "tiebreaker")
+    frrTiebreaker.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/af-data/frr-table/frr-tiebreakers/" + frrTiebreaker.EntityData.SegmentPath
     frrTiebreaker.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     frrTiebreaker.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     frrTiebreaker.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2169,6 +2201,7 @@ func (frrUseCandOnlies *Isis_Instances_Instance_Afs_Af_AfData_FrrTable_FrrUseCan
     frrUseCandOnlies.EntityData.BundleName = "cisco_ios_xr"
     frrUseCandOnlies.EntityData.ParentYangName = "frr-table"
     frrUseCandOnlies.EntityData.SegmentPath = "frr-use-cand-onlies"
+    frrUseCandOnlies.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/af-data/frr-table/" + frrUseCandOnlies.EntityData.SegmentPath
     frrUseCandOnlies.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     frrUseCandOnlies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     frrUseCandOnlies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2191,6 +2224,7 @@ func (frrUseCandOnlies *Isis_Instances_Instance_Afs_Af_AfData_FrrTable_FrrUseCan
 type Isis_Instances_Instance_Afs_Af_AfData_FrrTable_FrrUseCandOnlies_FrrUseCandOnly struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Level to which configuration applies. The type is
     // IsisInternalLevel.
@@ -2206,6 +2240,7 @@ func (frrUseCandOnly *Isis_Instances_Instance_Afs_Af_AfData_FrrTable_FrrUseCandO
     frrUseCandOnly.EntityData.BundleName = "cisco_ios_xr"
     frrUseCandOnly.EntityData.ParentYangName = "frr-use-cand-onlies"
     frrUseCandOnly.EntityData.SegmentPath = "frr-use-cand-only" + types.AddKeyToken(frrUseCandOnly.Level, "level") + types.AddKeyToken(frrUseCandOnly.FrrType, "frr-type")
+    frrUseCandOnly.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/af-data/frr-table/frr-use-cand-onlies/" + frrUseCandOnly.EntityData.SegmentPath
     frrUseCandOnly.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     frrUseCandOnly.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     frrUseCandOnly.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2243,6 +2278,7 @@ func (routerId *Isis_Instances_Instance_Afs_Af_AfData_RouterId) GetEntityData() 
     routerId.EntityData.BundleName = "cisco_ios_xr"
     routerId.EntityData.ParentYangName = "af-data"
     routerId.EntityData.SegmentPath = "router-id"
+    routerId.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/af-data/" + routerId.EntityData.SegmentPath
     routerId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routerId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routerId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2274,6 +2310,7 @@ func (spfPrefixPriorities *Isis_Instances_Instance_Afs_Af_AfData_SpfPrefixPriori
     spfPrefixPriorities.EntityData.BundleName = "cisco_ios_xr"
     spfPrefixPriorities.EntityData.ParentYangName = "af-data"
     spfPrefixPriorities.EntityData.SegmentPath = "spf-prefix-priorities"
+    spfPrefixPriorities.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/af-data/" + spfPrefixPriorities.EntityData.SegmentPath
     spfPrefixPriorities.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     spfPrefixPriorities.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     spfPrefixPriorities.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2295,6 +2332,7 @@ func (spfPrefixPriorities *Isis_Instances_Instance_Afs_Af_AfData_SpfPrefixPriori
 type Isis_Instances_Instance_Afs_Af_AfData_SpfPrefixPriorities_SpfPrefixPriority struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. SPF Level for prefix prioritization. The type is
     // IsisInternalLevel.
@@ -2319,6 +2357,7 @@ func (spfPrefixPriority *Isis_Instances_Instance_Afs_Af_AfData_SpfPrefixPrioriti
     spfPrefixPriority.EntityData.BundleName = "cisco_ios_xr"
     spfPrefixPriority.EntityData.ParentYangName = "spf-prefix-priorities"
     spfPrefixPriority.EntityData.SegmentPath = "spf-prefix-priority" + types.AddKeyToken(spfPrefixPriority.Level, "level") + types.AddKeyToken(spfPrefixPriority.PrefixPriorityType, "prefix-priority-type")
+    spfPrefixPriority.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/af-data/spf-prefix-priorities/" + spfPrefixPriority.EntityData.SegmentPath
     spfPrefixPriority.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     spfPrefixPriority.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     spfPrefixPriority.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2352,6 +2391,7 @@ func (summaryPrefixes *Isis_Instances_Instance_Afs_Af_AfData_SummaryPrefixes) Ge
     summaryPrefixes.EntityData.BundleName = "cisco_ios_xr"
     summaryPrefixes.EntityData.ParentYangName = "af-data"
     summaryPrefixes.EntityData.SegmentPath = "summary-prefixes"
+    summaryPrefixes.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/af-data/" + summaryPrefixes.EntityData.SegmentPath
     summaryPrefixes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     summaryPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     summaryPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2373,6 +2413,7 @@ func (summaryPrefixes *Isis_Instances_Instance_Afs_Af_AfData_SummaryPrefixes) Ge
 type Isis_Instances_Instance_Afs_Af_AfData_SummaryPrefixes_SummaryPrefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IP summary address prefix. The type is one of the
     // following types: string with pattern:
@@ -2395,6 +2436,7 @@ func (summaryPrefix *Isis_Instances_Instance_Afs_Af_AfData_SummaryPrefixes_Summa
     summaryPrefix.EntityData.BundleName = "cisco_ios_xr"
     summaryPrefix.EntityData.ParentYangName = "summary-prefixes"
     summaryPrefix.EntityData.SegmentPath = "summary-prefix" + types.AddKeyToken(summaryPrefix.AddressPrefix, "address-prefix")
+    summaryPrefix.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/af-data/summary-prefixes/" + summaryPrefix.EntityData.SegmentPath
     summaryPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     summaryPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     summaryPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2431,6 +2473,7 @@ func (microLoopAvoidance *Isis_Instances_Instance_Afs_Af_AfData_MicroLoopAvoidan
     microLoopAvoidance.EntityData.BundleName = "cisco_ios_xr"
     microLoopAvoidance.EntityData.ParentYangName = "af-data"
     microLoopAvoidance.EntityData.SegmentPath = "micro-loop-avoidance"
+    microLoopAvoidance.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/af-data/" + microLoopAvoidance.EntityData.SegmentPath
     microLoopAvoidance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     microLoopAvoidance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     microLoopAvoidance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2469,6 +2512,7 @@ func (ucmp *Isis_Instances_Instance_Afs_Af_AfData_Ucmp) GetEntityData() *types.C
     ucmp.EntityData.BundleName = "cisco_ios_xr"
     ucmp.EntityData.ParentYangName = "af-data"
     ucmp.EntityData.SegmentPath = "ucmp"
+    ucmp.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/af-data/" + ucmp.EntityData.SegmentPath
     ucmp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ucmp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ucmp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2504,6 +2548,7 @@ func (enable *Isis_Instances_Instance_Afs_Af_AfData_Ucmp_Enable) GetEntityData()
     enable.EntityData.BundleName = "cisco_ios_xr"
     enable.EntityData.ParentYangName = "ucmp"
     enable.EntityData.SegmentPath = "enable"
+    enable.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/af-data/ucmp/" + enable.EntityData.SegmentPath
     enable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     enable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     enable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2536,6 +2581,7 @@ func (excludeInterfaces *Isis_Instances_Instance_Afs_Af_AfData_Ucmp_ExcludeInter
     excludeInterfaces.EntityData.BundleName = "cisco_ios_xr"
     excludeInterfaces.EntityData.ParentYangName = "ucmp"
     excludeInterfaces.EntityData.SegmentPath = "exclude-interfaces"
+    excludeInterfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/af-data/ucmp/" + excludeInterfaces.EntityData.SegmentPath
     excludeInterfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     excludeInterfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     excludeInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2558,6 +2604,7 @@ func (excludeInterfaces *Isis_Instances_Instance_Afs_Af_AfData_Ucmp_ExcludeInter
 type Isis_Instances_Instance_Afs_Af_AfData_Ucmp_ExcludeInterfaces_ExcludeInterface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of the interface to be excluded. The type is
     // string with pattern: [a-zA-Z0-9._/-]+.
@@ -2570,6 +2617,7 @@ func (excludeInterface *Isis_Instances_Instance_Afs_Af_AfData_Ucmp_ExcludeInterf
     excludeInterface.EntityData.BundleName = "cisco_ios_xr"
     excludeInterface.EntityData.ParentYangName = "exclude-interfaces"
     excludeInterface.EntityData.SegmentPath = "exclude-interface" + types.AddKeyToken(excludeInterface.InterfaceName, "interface-name")
+    excludeInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/af-data/ucmp/exclude-interfaces/" + excludeInterface.EntityData.SegmentPath
     excludeInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     excludeInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     excludeInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2602,6 +2650,7 @@ func (maxRedistPrefixes *Isis_Instances_Instance_Afs_Af_AfData_MaxRedistPrefixes
     maxRedistPrefixes.EntityData.BundleName = "cisco_ios_xr"
     maxRedistPrefixes.EntityData.ParentYangName = "af-data"
     maxRedistPrefixes.EntityData.SegmentPath = "max-redist-prefixes"
+    maxRedistPrefixes.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/af-data/" + maxRedistPrefixes.EntityData.SegmentPath
     maxRedistPrefixes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     maxRedistPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     maxRedistPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2625,6 +2674,7 @@ func (maxRedistPrefixes *Isis_Instances_Instance_Afs_Af_AfData_MaxRedistPrefixes
 type Isis_Instances_Instance_Afs_Af_AfData_MaxRedistPrefixes_MaxRedistPrefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Level to which configuration applies. The type is
     // IsisInternalLevel.
@@ -2641,6 +2691,7 @@ func (maxRedistPrefix *Isis_Instances_Instance_Afs_Af_AfData_MaxRedistPrefixes_M
     maxRedistPrefix.EntityData.BundleName = "cisco_ios_xr"
     maxRedistPrefix.EntityData.ParentYangName = "max-redist-prefixes"
     maxRedistPrefix.EntityData.SegmentPath = "max-redist-prefix" + types.AddKeyToken(maxRedistPrefix.Level, "level")
+    maxRedistPrefix.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/af-data/max-redist-prefixes/" + maxRedistPrefix.EntityData.SegmentPath
     maxRedistPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     maxRedistPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     maxRedistPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2672,6 +2723,7 @@ func (propagations *Isis_Instances_Instance_Afs_Af_AfData_Propagations) GetEntit
     propagations.EntityData.BundleName = "cisco_ios_xr"
     propagations.EntityData.ParentYangName = "af-data"
     propagations.EntityData.SegmentPath = "propagations"
+    propagations.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/af-data/" + propagations.EntityData.SegmentPath
     propagations.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     propagations.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     propagations.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2693,6 +2745,7 @@ func (propagations *Isis_Instances_Instance_Afs_Af_AfData_Propagations) GetEntit
 type Isis_Instances_Instance_Afs_Af_AfData_Propagations_Propagation struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Source level for routes. The type is
     // IsisInternalLevel.
@@ -2713,6 +2766,7 @@ func (propagation *Isis_Instances_Instance_Afs_Af_AfData_Propagations_Propagatio
     propagation.EntityData.BundleName = "cisco_ios_xr"
     propagation.EntityData.ParentYangName = "propagations"
     propagation.EntityData.SegmentPath = "propagation" + types.AddKeyToken(propagation.SourceLevel, "source-level") + types.AddKeyToken(propagation.DestinationLevel, "destination-level")
+    propagation.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/af-data/propagations/" + propagation.EntityData.SegmentPath
     propagation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     propagation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     propagation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2746,6 +2800,7 @@ func (redistributions *Isis_Instances_Instance_Afs_Af_AfData_Redistributions) Ge
     redistributions.EntityData.BundleName = "cisco_ios_xr"
     redistributions.EntityData.ParentYangName = "af-data"
     redistributions.EntityData.SegmentPath = "redistributions"
+    redistributions.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/af-data/" + redistributions.EntityData.SegmentPath
     redistributions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     redistributions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     redistributions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2768,6 +2823,7 @@ func (redistributions *Isis_Instances_Instance_Afs_Af_AfData_Redistributions) Ge
 type Isis_Instances_Instance_Afs_Af_AfData_Redistributions_Redistribution struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The protocol to be redistributed.  OSPFv3 may not
     // be specified for an IPv4 topology and OSPF may not be specified for an IPv6
@@ -2796,6 +2852,7 @@ func (redistribution *Isis_Instances_Instance_Afs_Af_AfData_Redistributions_Redi
     redistribution.EntityData.BundleName = "cisco_ios_xr"
     redistribution.EntityData.ParentYangName = "redistributions"
     redistribution.EntityData.SegmentPath = "redistribution" + types.AddKeyToken(redistribution.ProtocolName, "protocol-name")
+    redistribution.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/af-data/redistributions/" + redistribution.EntityData.SegmentPath
     redistribution.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     redistribution.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     redistribution.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2856,6 +2913,7 @@ func (connectedOrStaticOrRipOrSubscriberOrMobile *Isis_Instances_Instance_Afs_Af
     connectedOrStaticOrRipOrSubscriberOrMobile.EntityData.BundleName = "cisco_ios_xr"
     connectedOrStaticOrRipOrSubscriberOrMobile.EntityData.ParentYangName = "redistribution"
     connectedOrStaticOrRipOrSubscriberOrMobile.EntityData.SegmentPath = "connected-or-static-or-rip-or-subscriber-or-mobile"
+    connectedOrStaticOrRipOrSubscriberOrMobile.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/af-data/redistributions/redistribution/" + connectedOrStaticOrRipOrSubscriberOrMobile.EntityData.SegmentPath
     connectedOrStaticOrRipOrSubscriberOrMobile.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     connectedOrStaticOrRipOrSubscriberOrMobile.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     connectedOrStaticOrRipOrSubscriberOrMobile.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2878,6 +2936,7 @@ func (connectedOrStaticOrRipOrSubscriberOrMobile *Isis_Instances_Instance_Afs_Af
 type Isis_Instances_Instance_Afs_Af_AfData_Redistributions_Redistribution_OspfOrOspfv3OrIsisOrApplication struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Protocol Instance Identifier.  Mandatory for ISIS,
     // OSPF and application, must not be specified otherwise. The type is string
@@ -2909,6 +2968,7 @@ func (ospfOrOspfv3OrIsisOrApplication *Isis_Instances_Instance_Afs_Af_AfData_Red
     ospfOrOspfv3OrIsisOrApplication.EntityData.BundleName = "cisco_ios_xr"
     ospfOrOspfv3OrIsisOrApplication.EntityData.ParentYangName = "redistribution"
     ospfOrOspfv3OrIsisOrApplication.EntityData.SegmentPath = "ospf-or-ospfv3-or-isis-or-application" + types.AddKeyToken(ospfOrOspfv3OrIsisOrApplication.InstanceName, "instance-name")
+    ospfOrOspfv3OrIsisOrApplication.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/af-data/redistributions/redistribution/" + ospfOrOspfv3OrIsisOrApplication.EntityData.SegmentPath
     ospfOrOspfv3OrIsisOrApplication.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ospfOrOspfv3OrIsisOrApplication.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ospfOrOspfv3OrIsisOrApplication.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2932,6 +2992,7 @@ func (ospfOrOspfv3OrIsisOrApplication *Isis_Instances_Instance_Afs_Af_AfData_Red
 type Isis_Instances_Instance_Afs_Af_AfData_Redistributions_Redistribution_Bgp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. First half of BGP AS number in XX.YY format. 
     // Mandatory if Protocol is BGP and must not be specified otherwise. Must be a
@@ -2970,6 +3031,7 @@ func (bgp *Isis_Instances_Instance_Afs_Af_AfData_Redistributions_Redistribution_
     bgp.EntityData.BundleName = "cisco_ios_xr"
     bgp.EntityData.ParentYangName = "redistribution"
     bgp.EntityData.SegmentPath = "bgp" + types.AddKeyToken(bgp.AsXx, "as-xx") + types.AddKeyToken(bgp.AsYy, "as-yy")
+    bgp.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/af-data/redistributions/redistribution/" + bgp.EntityData.SegmentPath
     bgp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bgp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bgp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2994,6 +3056,7 @@ func (bgp *Isis_Instances_Instance_Afs_Af_AfData_Redistributions_Redistribution_
 type Isis_Instances_Instance_Afs_Af_AfData_Redistributions_Redistribution_Eigrp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Eigrp as number. The type is interface{} with
     // range: 1..65535.
@@ -3024,6 +3087,7 @@ func (eigrp *Isis_Instances_Instance_Afs_Af_AfData_Redistributions_Redistributio
     eigrp.EntityData.BundleName = "cisco_ios_xr"
     eigrp.EntityData.ParentYangName = "redistribution"
     eigrp.EntityData.SegmentPath = "eigrp" + types.AddKeyToken(eigrp.AsZz, "as-zz")
+    eigrp.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/af-data/redistributions/redistribution/" + eigrp.EntityData.SegmentPath
     eigrp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eigrp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eigrp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3059,6 +3123,7 @@ func (applicationTables *Isis_Instances_Instance_Afs_Af_AfData_ApplicationTables
     applicationTables.EntityData.BundleName = "cisco_ios_xr"
     applicationTables.EntityData.ParentYangName = "af-data"
     applicationTables.EntityData.SegmentPath = "application-tables"
+    applicationTables.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/af-data/" + applicationTables.EntityData.SegmentPath
     applicationTables.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     applicationTables.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     applicationTables.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3080,6 +3145,7 @@ func (applicationTables *Isis_Instances_Instance_Afs_Af_AfData_ApplicationTables
 type Isis_Instances_Instance_Afs_Af_AfData_ApplicationTables_ApplicationTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Application Type. The type is IsisApplication.
     AppType interface{}
@@ -3095,6 +3161,7 @@ func (applicationTable *Isis_Instances_Instance_Afs_Af_AfData_ApplicationTables_
     applicationTable.EntityData.BundleName = "cisco_ios_xr"
     applicationTable.EntityData.ParentYangName = "application-tables"
     applicationTable.EntityData.SegmentPath = "application-table" + types.AddKeyToken(applicationTable.AppType, "app-type")
+    applicationTable.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/af-data/application-tables/" + applicationTable.EntityData.SegmentPath
     applicationTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     applicationTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     applicationTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3117,6 +3184,7 @@ func (applicationTable *Isis_Instances_Instance_Afs_Af_AfData_ApplicationTables_
 type Isis_Instances_Instance_Afs_Af_AfData_ApplicationTables_ApplicationTable_AttributeTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Application Type. The type is
     // IsisApplicationAttribute.
@@ -3133,6 +3201,7 @@ func (attributeTable *Isis_Instances_Instance_Afs_Af_AfData_ApplicationTables_Ap
     attributeTable.EntityData.BundleName = "cisco_ios_xr"
     attributeTable.EntityData.ParentYangName = "application-table"
     attributeTable.EntityData.SegmentPath = "attribute-table" + types.AddKeyToken(attributeTable.AppType, "app-type")
+    attributeTable.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/af-data/application-tables/application-table/" + attributeTable.EntityData.SegmentPath
     attributeTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     attributeTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attributeTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3164,6 +3233,7 @@ func (spfPeriodicIntervals *Isis_Instances_Instance_Afs_Af_AfData_SpfPeriodicInt
     spfPeriodicIntervals.EntityData.BundleName = "cisco_ios_xr"
     spfPeriodicIntervals.EntityData.ParentYangName = "af-data"
     spfPeriodicIntervals.EntityData.SegmentPath = "spf-periodic-intervals"
+    spfPeriodicIntervals.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/af-data/" + spfPeriodicIntervals.EntityData.SegmentPath
     spfPeriodicIntervals.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     spfPeriodicIntervals.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     spfPeriodicIntervals.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3185,6 +3255,7 @@ func (spfPeriodicIntervals *Isis_Instances_Instance_Afs_Af_AfData_SpfPeriodicInt
 type Isis_Instances_Instance_Afs_Af_AfData_SpfPeriodicIntervals_SpfPeriodicInterval struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Level to which configuration applies. The type is
     // IsisInternalLevel.
@@ -3201,6 +3272,7 @@ func (spfPeriodicInterval *Isis_Instances_Instance_Afs_Af_AfData_SpfPeriodicInte
     spfPeriodicInterval.EntityData.BundleName = "cisco_ios_xr"
     spfPeriodicInterval.EntityData.ParentYangName = "spf-periodic-intervals"
     spfPeriodicInterval.EntityData.SegmentPath = "spf-periodic-interval" + types.AddKeyToken(spfPeriodicInterval.Level, "level")
+    spfPeriodicInterval.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/af-data/spf-periodic-intervals/" + spfPeriodicInterval.EntityData.SegmentPath
     spfPeriodicInterval.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     spfPeriodicInterval.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     spfPeriodicInterval.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3236,6 +3308,7 @@ func (distributeListIn *Isis_Instances_Instance_Afs_Af_AfData_DistributeListIn) 
     distributeListIn.EntityData.BundleName = "cisco_ios_xr"
     distributeListIn.EntityData.ParentYangName = "af-data"
     distributeListIn.EntityData.SegmentPath = "distribute-list-in"
+    distributeListIn.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/af-data/" + distributeListIn.EntityData.SegmentPath
     distributeListIn.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     distributeListIn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     distributeListIn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3267,6 +3340,7 @@ func (spfIntervals *Isis_Instances_Instance_Afs_Af_AfData_SpfIntervals) GetEntit
     spfIntervals.EntityData.BundleName = "cisco_ios_xr"
     spfIntervals.EntityData.ParentYangName = "af-data"
     spfIntervals.EntityData.SegmentPath = "spf-intervals"
+    spfIntervals.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/af-data/" + spfIntervals.EntityData.SegmentPath
     spfIntervals.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     spfIntervals.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     spfIntervals.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3288,6 +3362,7 @@ func (spfIntervals *Isis_Instances_Instance_Afs_Af_AfData_SpfIntervals) GetEntit
 type Isis_Instances_Instance_Afs_Af_AfData_SpfIntervals_SpfInterval struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Level to which configuration applies. The type is
     // IsisInternalLevel.
@@ -3312,6 +3387,7 @@ func (spfInterval *Isis_Instances_Instance_Afs_Af_AfData_SpfIntervals_SpfInterva
     spfInterval.EntityData.BundleName = "cisco_ios_xr"
     spfInterval.EntityData.ParentYangName = "spf-intervals"
     spfInterval.EntityData.SegmentPath = "spf-interval" + types.AddKeyToken(spfInterval.Level, "level")
+    spfInterval.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/af-data/spf-intervals/" + spfInterval.EntityData.SegmentPath
     spfInterval.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     spfInterval.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     spfInterval.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3351,6 +3427,7 @@ func (monitorConvergence *Isis_Instances_Instance_Afs_Af_AfData_MonitorConvergen
     monitorConvergence.EntityData.BundleName = "cisco_ios_xr"
     monitorConvergence.EntityData.ParentYangName = "af-data"
     monitorConvergence.EntityData.SegmentPath = "monitor-convergence"
+    monitorConvergence.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/af-data/" + monitorConvergence.EntityData.SegmentPath
     monitorConvergence.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     monitorConvergence.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     monitorConvergence.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3393,6 +3470,7 @@ func (defaultInformation *Isis_Instances_Instance_Afs_Af_AfData_DefaultInformati
     defaultInformation.EntityData.BundleName = "cisco_ios_xr"
     defaultInformation.EntityData.ParentYangName = "af-data"
     defaultInformation.EntityData.SegmentPath = "default-information"
+    defaultInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/af-data/" + defaultInformation.EntityData.SegmentPath
     defaultInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     defaultInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     defaultInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3428,6 +3506,7 @@ func (adminDistances *Isis_Instances_Instance_Afs_Af_AfData_AdminDistances) GetE
     adminDistances.EntityData.BundleName = "cisco_ios_xr"
     adminDistances.EntityData.ParentYangName = "af-data"
     adminDistances.EntityData.SegmentPath = "admin-distances"
+    adminDistances.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/af-data/" + adminDistances.EntityData.SegmentPath
     adminDistances.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     adminDistances.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     adminDistances.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3453,6 +3532,7 @@ func (adminDistances *Isis_Instances_Instance_Afs_Af_AfData_AdminDistances) GetE
 type Isis_Instances_Instance_Afs_Af_AfData_AdminDistances_AdminDistance struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IP route source prefix. The type is one of the
     // following types: string with pattern:
@@ -3476,6 +3556,7 @@ func (adminDistance *Isis_Instances_Instance_Afs_Af_AfData_AdminDistances_AdminD
     adminDistance.EntityData.BundleName = "cisco_ios_xr"
     adminDistance.EntityData.ParentYangName = "admin-distances"
     adminDistance.EntityData.SegmentPath = "admin-distance" + types.AddKeyToken(adminDistance.AddressPrefix, "address-prefix")
+    adminDistance.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/af-data/admin-distances/" + adminDistance.EntityData.SegmentPath
     adminDistance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     adminDistance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     adminDistance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3507,6 +3588,7 @@ func (ispf *Isis_Instances_Instance_Afs_Af_AfData_Ispf) GetEntityData() *types.C
     ispf.EntityData.BundleName = "cisco_ios_xr"
     ispf.EntityData.ParentYangName = "af-data"
     ispf.EntityData.SegmentPath = "ispf"
+    ispf.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/af-data/" + ispf.EntityData.SegmentPath
     ispf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ispf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ispf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3537,6 +3619,7 @@ func (states *Isis_Instances_Instance_Afs_Af_AfData_Ispf_States) GetEntityData()
     states.EntityData.BundleName = "cisco_ios_xr"
     states.EntityData.ParentYangName = "ispf"
     states.EntityData.SegmentPath = "states"
+    states.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/af-data/ispf/" + states.EntityData.SegmentPath
     states.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     states.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     states.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3558,6 +3641,7 @@ func (states *Isis_Instances_Instance_Afs_Af_AfData_Ispf_States) GetEntityData()
 type Isis_Instances_Instance_Afs_Af_AfData_Ispf_States_State struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Level to which configuration applies. The type is
     // IsisInternalLevel.
@@ -3573,6 +3657,7 @@ func (state *Isis_Instances_Instance_Afs_Af_AfData_Ispf_States_State) GetEntityD
     state.EntityData.BundleName = "cisco_ios_xr"
     state.EntityData.ParentYangName = "states"
     state.EntityData.SegmentPath = "state" + types.AddKeyToken(state.Level, "level")
+    state.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/af-data/ispf/states/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     state.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3606,6 +3691,7 @@ func (mplsLdpGlobal *Isis_Instances_Instance_Afs_Af_AfData_MplsLdpGlobal) GetEnt
     mplsLdpGlobal.EntityData.BundleName = "cisco_ios_xr"
     mplsLdpGlobal.EntityData.ParentYangName = "af-data"
     mplsLdpGlobal.EntityData.SegmentPath = "mpls-ldp-global"
+    mplsLdpGlobal.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/af-data/" + mplsLdpGlobal.EntityData.SegmentPath
     mplsLdpGlobal.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mplsLdpGlobal.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mplsLdpGlobal.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3647,6 +3733,7 @@ func (mpls *Isis_Instances_Instance_Afs_Af_AfData_Mpls) GetEntityData() *types.C
     mpls.EntityData.BundleName = "cisco_ios_xr"
     mpls.EntityData.ParentYangName = "af-data"
     mpls.EntityData.SegmentPath = "mpls"
+    mpls.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/af-data/" + mpls.EntityData.SegmentPath
     mpls.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mpls.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mpls.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3687,6 +3774,7 @@ func (routerId *Isis_Instances_Instance_Afs_Af_AfData_Mpls_RouterId) GetEntityDa
     routerId.EntityData.BundleName = "cisco_ios_xr"
     routerId.EntityData.ParentYangName = "mpls"
     routerId.EntityData.SegmentPath = "router-id"
+    routerId.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/af-data/mpls/" + routerId.EntityData.SegmentPath
     routerId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routerId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routerId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3721,6 +3809,7 @@ func (level *Isis_Instances_Instance_Afs_Af_AfData_Mpls_Level) GetEntityData() *
     level.EntityData.BundleName = "cisco_ios_xr"
     level.EntityData.ParentYangName = "mpls"
     level.EntityData.SegmentPath = "level"
+    level.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/af-data/mpls/" + level.EntityData.SegmentPath
     level.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     level.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     level.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3752,6 +3841,7 @@ func (manualAdjSids *Isis_Instances_Instance_Afs_Af_AfData_ManualAdjSids) GetEnt
     manualAdjSids.EntityData.BundleName = "cisco_ios_xr"
     manualAdjSids.EntityData.ParentYangName = "af-data"
     manualAdjSids.EntityData.SegmentPath = "manual-adj-sids"
+    manualAdjSids.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/af-data/" + manualAdjSids.EntityData.SegmentPath
     manualAdjSids.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     manualAdjSids.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     manualAdjSids.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3773,6 +3863,7 @@ func (manualAdjSids *Isis_Instances_Instance_Afs_Af_AfData_ManualAdjSids) GetEnt
 type Isis_Instances_Instance_Afs_Af_AfData_ManualAdjSids_ManualAdjSid struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Level to which configuration applies. The type is
     // IsisInternalLevel.
@@ -3796,6 +3887,7 @@ func (manualAdjSid *Isis_Instances_Instance_Afs_Af_AfData_ManualAdjSids_ManualAd
     manualAdjSid.EntityData.BundleName = "cisco_ios_xr"
     manualAdjSid.EntityData.ParentYangName = "manual-adj-sids"
     manualAdjSid.EntityData.SegmentPath = "manual-adj-sid" + types.AddKeyToken(manualAdjSid.Level, "level") + types.AddKeyToken(manualAdjSid.SidType, "sid-type") + types.AddKeyToken(manualAdjSid.Sid, "sid")
+    manualAdjSid.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/af-data/manual-adj-sids/" + manualAdjSid.EntityData.SegmentPath
     manualAdjSid.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     manualAdjSid.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     manualAdjSid.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3833,6 +3925,7 @@ func (metrics *Isis_Instances_Instance_Afs_Af_AfData_Metrics) GetEntityData() *t
     metrics.EntityData.BundleName = "cisco_ios_xr"
     metrics.EntityData.ParentYangName = "af-data"
     metrics.EntityData.SegmentPath = "metrics"
+    metrics.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/af-data/" + metrics.EntityData.SegmentPath
     metrics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     metrics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     metrics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3861,6 +3954,7 @@ func (metrics *Isis_Instances_Instance_Afs_Af_AfData_Metrics) GetEntityData() *t
 type Isis_Instances_Instance_Afs_Af_AfData_Metrics_Metric struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Level to which configuration applies. The type is
     // IsisInternalLevel.
@@ -3880,6 +3974,7 @@ func (metric *Isis_Instances_Instance_Afs_Af_AfData_Metrics_Metric) GetEntityDat
     metric.EntityData.BundleName = "cisco_ios_xr"
     metric.EntityData.ParentYangName = "metrics"
     metric.EntityData.SegmentPath = "metric" + types.AddKeyToken(metric.Level, "level")
+    metric.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/af-data/metrics/" + metric.EntityData.SegmentPath
     metric.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     metric.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     metric.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3920,6 +4015,7 @@ func (weights *Isis_Instances_Instance_Afs_Af_AfData_Weights) GetEntityData() *t
     weights.EntityData.BundleName = "cisco_ios_xr"
     weights.EntityData.ParentYangName = "af-data"
     weights.EntityData.SegmentPath = "weights"
+    weights.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/af-data/" + weights.EntityData.SegmentPath
     weights.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     weights.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     weights.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3942,6 +4038,7 @@ func (weights *Isis_Instances_Instance_Afs_Af_AfData_Weights) GetEntityData() *t
 type Isis_Instances_Instance_Afs_Af_AfData_Weights_Weight struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Level to which configuration applies. The type is
     // IsisInternalLevel.
@@ -3959,6 +4056,7 @@ func (weight *Isis_Instances_Instance_Afs_Af_AfData_Weights_Weight) GetEntityDat
     weight.EntityData.BundleName = "cisco_ios_xr"
     weight.EntityData.ParentYangName = "weights"
     weight.EntityData.SegmentPath = "weight" + types.AddKeyToken(weight.Level, "level")
+    weight.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/af-data/weights/" + weight.EntityData.SegmentPath
     weight.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     weight.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     weight.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3978,6 +4076,7 @@ func (weight *Isis_Instances_Instance_Afs_Af_AfData_Weights_Weight) GetEntityDat
 type Isis_Instances_Instance_Afs_Af_TopologyName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Topology Name. The type is string with length:
     // 1..32.
@@ -4111,6 +4210,7 @@ func (topologyName *Isis_Instances_Instance_Afs_Af_TopologyName) GetEntityData()
     topologyName.EntityData.BundleName = "cisco_ios_xr"
     topologyName.EntityData.ParentYangName = "af"
     topologyName.EntityData.SegmentPath = "topology-name" + types.AddKeyToken(topologyName.TopologyName, "topology-name")
+    topologyName.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/" + topologyName.EntityData.SegmentPath
     topologyName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     topologyName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     topologyName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4168,6 +4268,9 @@ type Isis_Instances_Instance_Afs_Af_TopologyName_SegmentRouting struct {
     // Enable per bundle member adjacency SID. The type is interface{}.
     BundleMemberAdjSid interface{}
 
+    // Only install SR labeled paths. The type is interface{}.
+    LabeledOnly interface{}
+
     // Prefer segment routing labels over LDP labels. The type is
     // IsisLabelPreference.
     Mpls interface{}
@@ -4185,6 +4288,7 @@ func (segmentRouting *Isis_Instances_Instance_Afs_Af_TopologyName_SegmentRouting
     segmentRouting.EntityData.BundleName = "cisco_ios_xr"
     segmentRouting.EntityData.ParentYangName = "topology-name"
     segmentRouting.EntityData.SegmentPath = "segment-routing"
+    segmentRouting.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/topology-name/" + segmentRouting.EntityData.SegmentPath
     segmentRouting.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     segmentRouting.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     segmentRouting.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4193,6 +4297,7 @@ func (segmentRouting *Isis_Instances_Instance_Afs_Af_TopologyName_SegmentRouting
     segmentRouting.EntityData.Children.Append("prefix-sid-map", types.YChild{"PrefixSidMap", &segmentRouting.PrefixSidMap})
     segmentRouting.EntityData.Leafs = types.NewOrderedMap()
     segmentRouting.EntityData.Leafs.Append("bundle-member-adj-sid", types.YLeaf{"BundleMemberAdjSid", segmentRouting.BundleMemberAdjSid})
+    segmentRouting.EntityData.Leafs.Append("labeled-only", types.YLeaf{"LabeledOnly", segmentRouting.LabeledOnly})
     segmentRouting.EntityData.Leafs.Append("mpls", types.YLeaf{"Mpls", segmentRouting.Mpls})
     segmentRouting.EntityData.Leafs.Append("srv6", types.YLeaf{"Srv6", segmentRouting.Srv6})
 
@@ -4223,6 +4328,7 @@ func (prefixSidMap *Isis_Instances_Instance_Afs_Af_TopologyName_SegmentRouting_P
     prefixSidMap.EntityData.BundleName = "cisco_ios_xr"
     prefixSidMap.EntityData.ParentYangName = "segment-routing"
     prefixSidMap.EntityData.SegmentPath = "prefix-sid-map"
+    prefixSidMap.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/topology-name/segment-routing/" + prefixSidMap.EntityData.SegmentPath
     prefixSidMap.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefixSidMap.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefixSidMap.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4254,6 +4360,7 @@ func (metricStyles *Isis_Instances_Instance_Afs_Af_TopologyName_MetricStyles) Ge
     metricStyles.EntityData.BundleName = "cisco_ios_xr"
     metricStyles.EntityData.ParentYangName = "topology-name"
     metricStyles.EntityData.SegmentPath = "metric-styles"
+    metricStyles.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/topology-name/" + metricStyles.EntityData.SegmentPath
     metricStyles.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     metricStyles.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     metricStyles.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4275,6 +4382,7 @@ func (metricStyles *Isis_Instances_Instance_Afs_Af_TopologyName_MetricStyles) Ge
 type Isis_Instances_Instance_Afs_Af_TopologyName_MetricStyles_MetricStyle struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Level to which configuration applies. The type is
     // IsisInternalLevel.
@@ -4290,6 +4398,7 @@ func (metricStyle *Isis_Instances_Instance_Afs_Af_TopologyName_MetricStyles_Metr
     metricStyle.EntityData.BundleName = "cisco_ios_xr"
     metricStyle.EntityData.ParentYangName = "metric-styles"
     metricStyle.EntityData.SegmentPath = "metric-style" + types.AddKeyToken(metricStyle.Level, "level")
+    metricStyle.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/topology-name/metric-styles/" + metricStyle.EntityData.SegmentPath
     metricStyle.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     metricStyle.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     metricStyle.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4339,6 +4448,7 @@ func (frrTable *Isis_Instances_Instance_Afs_Af_TopologyName_FrrTable) GetEntityD
     frrTable.EntityData.BundleName = "cisco_ios_xr"
     frrTable.EntityData.ParentYangName = "topology-name"
     frrTable.EntityData.SegmentPath = "frr-table"
+    frrTable.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/topology-name/" + frrTable.EntityData.SegmentPath
     frrTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     frrTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     frrTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4376,6 +4486,7 @@ func (frrLoadSharings *Isis_Instances_Instance_Afs_Af_TopologyName_FrrTable_FrrL
     frrLoadSharings.EntityData.BundleName = "cisco_ios_xr"
     frrLoadSharings.EntityData.ParentYangName = "frr-table"
     frrLoadSharings.EntityData.SegmentPath = "frr-load-sharings"
+    frrLoadSharings.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/topology-name/frr-table/" + frrLoadSharings.EntityData.SegmentPath
     frrLoadSharings.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     frrLoadSharings.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     frrLoadSharings.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4397,6 +4508,7 @@ func (frrLoadSharings *Isis_Instances_Instance_Afs_Af_TopologyName_FrrTable_FrrL
 type Isis_Instances_Instance_Afs_Af_TopologyName_FrrTable_FrrLoadSharings_FrrLoadSharing struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Level to which configuration applies. The type is
     // IsisInternalLevel.
@@ -4412,6 +4524,7 @@ func (frrLoadSharing *Isis_Instances_Instance_Afs_Af_TopologyName_FrrTable_FrrLo
     frrLoadSharing.EntityData.BundleName = "cisco_ios_xr"
     frrLoadSharing.EntityData.ParentYangName = "frr-load-sharings"
     frrLoadSharing.EntityData.SegmentPath = "frr-load-sharing" + types.AddKeyToken(frrLoadSharing.Level, "level")
+    frrLoadSharing.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/topology-name/frr-table/frr-load-sharings/" + frrLoadSharing.EntityData.SegmentPath
     frrLoadSharing.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     frrLoadSharing.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     frrLoadSharing.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4443,6 +4556,7 @@ func (frrsrlgProtectionTypes *Isis_Instances_Instance_Afs_Af_TopologyName_FrrTab
     frrsrlgProtectionTypes.EntityData.BundleName = "cisco_ios_xr"
     frrsrlgProtectionTypes.EntityData.ParentYangName = "frr-table"
     frrsrlgProtectionTypes.EntityData.SegmentPath = "frrsrlg-protection-types"
+    frrsrlgProtectionTypes.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/topology-name/frr-table/" + frrsrlgProtectionTypes.EntityData.SegmentPath
     frrsrlgProtectionTypes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     frrsrlgProtectionTypes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     frrsrlgProtectionTypes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4464,6 +4578,7 @@ func (frrsrlgProtectionTypes *Isis_Instances_Instance_Afs_Af_TopologyName_FrrTab
 type Isis_Instances_Instance_Afs_Af_TopologyName_FrrTable_FrrsrlgProtectionTypes_FrrsrlgProtectionType struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Level to which configuration applies. The type is
     // IsisInternalLevel.
@@ -4480,6 +4595,7 @@ func (frrsrlgProtectionType *Isis_Instances_Instance_Afs_Af_TopologyName_FrrTabl
     frrsrlgProtectionType.EntityData.BundleName = "cisco_ios_xr"
     frrsrlgProtectionType.EntityData.ParentYangName = "frrsrlg-protection-types"
     frrsrlgProtectionType.EntityData.SegmentPath = "frrsrlg-protection-type" + types.AddKeyToken(frrsrlgProtectionType.Level, "level")
+    frrsrlgProtectionType.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/topology-name/frr-table/frrsrlg-protection-types/" + frrsrlgProtectionType.EntityData.SegmentPath
     frrsrlgProtectionType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     frrsrlgProtectionType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     frrsrlgProtectionType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4511,6 +4627,7 @@ func (priorityLimits *Isis_Instances_Instance_Afs_Af_TopologyName_FrrTable_Prior
     priorityLimits.EntityData.BundleName = "cisco_ios_xr"
     priorityLimits.EntityData.ParentYangName = "frr-table"
     priorityLimits.EntityData.SegmentPath = "priority-limits"
+    priorityLimits.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/topology-name/frr-table/" + priorityLimits.EntityData.SegmentPath
     priorityLimits.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     priorityLimits.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     priorityLimits.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4533,13 +4650,11 @@ func (priorityLimits *Isis_Instances_Instance_Afs_Af_TopologyName_FrrTable_Prior
 type Isis_Instances_Instance_Afs_Af_TopologyName_FrrTable_PriorityLimits_PriorityLimit struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Level to which configuration applies. The type is
     // IsisInternalLevel.
     Level interface{}
-
-    // Data container.
-    PriorityLimitData Isis_Instances_Instance_Afs_Af_TopologyName_FrrTable_PriorityLimits_PriorityLimit_PriorityLimitData
 
     // keys: frr-type. The type is slice of
     // Isis_Instances_Instance_Afs_Af_TopologyName_FrrTable_PriorityLimits_PriorityLimit_FrrType.
@@ -4552,12 +4667,12 @@ func (priorityLimit *Isis_Instances_Instance_Afs_Af_TopologyName_FrrTable_Priori
     priorityLimit.EntityData.BundleName = "cisco_ios_xr"
     priorityLimit.EntityData.ParentYangName = "priority-limits"
     priorityLimit.EntityData.SegmentPath = "priority-limit" + types.AddKeyToken(priorityLimit.Level, "level")
+    priorityLimit.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/topology-name/frr-table/priority-limits/" + priorityLimit.EntityData.SegmentPath
     priorityLimit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     priorityLimit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     priorityLimit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     priorityLimit.EntityData.Children = types.NewOrderedMap()
-    priorityLimit.EntityData.Children.Append("priority-limit-data", types.YChild{"PriorityLimitData", &priorityLimit.PriorityLimitData})
     priorityLimit.EntityData.Children.Append("frr-type", types.YChild{"FrrType", nil})
     for i := range priorityLimit.FrrType {
         priorityLimit.EntityData.Children.Append(types.GetSegmentPath(priorityLimit.FrrType[i]), types.YChild{"FrrType", priorityLimit.FrrType[i]})
@@ -4570,41 +4685,12 @@ func (priorityLimit *Isis_Instances_Instance_Afs_Af_TopologyName_FrrTable_Priori
     return &(priorityLimit.EntityData)
 }
 
-// Isis_Instances_Instance_Afs_Af_TopologyName_FrrTable_PriorityLimits_PriorityLimit_PriorityLimitData
-// Data container.
-type Isis_Instances_Instance_Afs_Af_TopologyName_FrrTable_PriorityLimits_PriorityLimit_PriorityLimitData struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Compute for all prefixes upto the specified priority. The type is
-    // IsisPrefixPriority. This attribute is mandatory.
-    Priority interface{}
-}
-
-func (priorityLimitData *Isis_Instances_Instance_Afs_Af_TopologyName_FrrTable_PriorityLimits_PriorityLimit_PriorityLimitData) GetEntityData() *types.CommonEntityData {
-    priorityLimitData.EntityData.YFilter = priorityLimitData.YFilter
-    priorityLimitData.EntityData.YangName = "priority-limit-data"
-    priorityLimitData.EntityData.BundleName = "cisco_ios_xr"
-    priorityLimitData.EntityData.ParentYangName = "priority-limit"
-    priorityLimitData.EntityData.SegmentPath = "priority-limit-data"
-    priorityLimitData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    priorityLimitData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    priorityLimitData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    priorityLimitData.EntityData.Children = types.NewOrderedMap()
-    priorityLimitData.EntityData.Leafs = types.NewOrderedMap()
-    priorityLimitData.EntityData.Leafs.Append("priority", types.YLeaf{"Priority", priorityLimitData.Priority})
-
-    priorityLimitData.EntityData.YListKeys = []string {}
-
-    return &(priorityLimitData.EntityData)
-}
-
 // Isis_Instances_Instance_Afs_Af_TopologyName_FrrTable_PriorityLimits_PriorityLimit_FrrType
 // keys: frr-type
 type Isis_Instances_Instance_Afs_Af_TopologyName_FrrTable_PriorityLimits_PriorityLimit_FrrType struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Computation Type. The type is Isisfrr.
     FrrType interface{}
@@ -4620,6 +4706,7 @@ func (frrType *Isis_Instances_Instance_Afs_Af_TopologyName_FrrTable_PriorityLimi
     frrType.EntityData.BundleName = "cisco_ios_xr"
     frrType.EntityData.ParentYangName = "priority-limit"
     frrType.EntityData.SegmentPath = "frr-type" + types.AddKeyToken(frrType.FrrType, "frr-type")
+    frrType.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/topology-name/frr-table/priority-limits/priority-limit/" + frrType.EntityData.SegmentPath
     frrType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     frrType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     frrType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4652,6 +4739,7 @@ func (frrRemoteLfaPrefixes *Isis_Instances_Instance_Afs_Af_TopologyName_FrrTable
     frrRemoteLfaPrefixes.EntityData.BundleName = "cisco_ios_xr"
     frrRemoteLfaPrefixes.EntityData.ParentYangName = "frr-table"
     frrRemoteLfaPrefixes.EntityData.SegmentPath = "frr-remote-lfa-prefixes"
+    frrRemoteLfaPrefixes.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/topology-name/frr-table/" + frrRemoteLfaPrefixes.EntityData.SegmentPath
     frrRemoteLfaPrefixes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     frrRemoteLfaPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     frrRemoteLfaPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4674,6 +4762,7 @@ func (frrRemoteLfaPrefixes *Isis_Instances_Instance_Afs_Af_TopologyName_FrrTable
 type Isis_Instances_Instance_Afs_Af_TopologyName_FrrTable_FrrRemoteLfaPrefixes_FrrRemoteLfaPrefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Level to which configuration applies. The type is
     // IsisInternalLevel.
@@ -4690,6 +4779,7 @@ func (frrRemoteLfaPrefix *Isis_Instances_Instance_Afs_Af_TopologyName_FrrTable_F
     frrRemoteLfaPrefix.EntityData.BundleName = "cisco_ios_xr"
     frrRemoteLfaPrefix.EntityData.ParentYangName = "frr-remote-lfa-prefixes"
     frrRemoteLfaPrefix.EntityData.SegmentPath = "frr-remote-lfa-prefix" + types.AddKeyToken(frrRemoteLfaPrefix.Level, "level")
+    frrRemoteLfaPrefix.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/topology-name/frr-table/frr-remote-lfa-prefixes/" + frrRemoteLfaPrefix.EntityData.SegmentPath
     frrRemoteLfaPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     frrRemoteLfaPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     frrRemoteLfaPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4721,6 +4811,7 @@ func (frrTiebreakers *Isis_Instances_Instance_Afs_Af_TopologyName_FrrTable_FrrTi
     frrTiebreakers.EntityData.BundleName = "cisco_ios_xr"
     frrTiebreakers.EntityData.ParentYangName = "frr-table"
     frrTiebreakers.EntityData.SegmentPath = "frr-tiebreakers"
+    frrTiebreakers.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/topology-name/frr-table/" + frrTiebreakers.EntityData.SegmentPath
     frrTiebreakers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     frrTiebreakers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     frrTiebreakers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4742,6 +4833,7 @@ func (frrTiebreakers *Isis_Instances_Instance_Afs_Af_TopologyName_FrrTable_FrrTi
 type Isis_Instances_Instance_Afs_Af_TopologyName_FrrTable_FrrTiebreakers_FrrTiebreaker struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Level to which configuration applies. The type is
     // IsisInternalLevel.
@@ -4762,6 +4854,7 @@ func (frrTiebreaker *Isis_Instances_Instance_Afs_Af_TopologyName_FrrTable_FrrTie
     frrTiebreaker.EntityData.BundleName = "cisco_ios_xr"
     frrTiebreaker.EntityData.ParentYangName = "frr-tiebreakers"
     frrTiebreaker.EntityData.SegmentPath = "frr-tiebreaker" + types.AddKeyToken(frrTiebreaker.Level, "level") + types.AddKeyToken(frrTiebreaker.Tiebreaker, "tiebreaker")
+    frrTiebreaker.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/topology-name/frr-table/frr-tiebreakers/" + frrTiebreaker.EntityData.SegmentPath
     frrTiebreaker.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     frrTiebreaker.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     frrTiebreaker.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4795,6 +4888,7 @@ func (frrUseCandOnlies *Isis_Instances_Instance_Afs_Af_TopologyName_FrrTable_Frr
     frrUseCandOnlies.EntityData.BundleName = "cisco_ios_xr"
     frrUseCandOnlies.EntityData.ParentYangName = "frr-table"
     frrUseCandOnlies.EntityData.SegmentPath = "frr-use-cand-onlies"
+    frrUseCandOnlies.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/topology-name/frr-table/" + frrUseCandOnlies.EntityData.SegmentPath
     frrUseCandOnlies.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     frrUseCandOnlies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     frrUseCandOnlies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4817,6 +4911,7 @@ func (frrUseCandOnlies *Isis_Instances_Instance_Afs_Af_TopologyName_FrrTable_Frr
 type Isis_Instances_Instance_Afs_Af_TopologyName_FrrTable_FrrUseCandOnlies_FrrUseCandOnly struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Level to which configuration applies. The type is
     // IsisInternalLevel.
@@ -4832,6 +4927,7 @@ func (frrUseCandOnly *Isis_Instances_Instance_Afs_Af_TopologyName_FrrTable_FrrUs
     frrUseCandOnly.EntityData.BundleName = "cisco_ios_xr"
     frrUseCandOnly.EntityData.ParentYangName = "frr-use-cand-onlies"
     frrUseCandOnly.EntityData.SegmentPath = "frr-use-cand-only" + types.AddKeyToken(frrUseCandOnly.Level, "level") + types.AddKeyToken(frrUseCandOnly.FrrType, "frr-type")
+    frrUseCandOnly.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/topology-name/frr-table/frr-use-cand-onlies/" + frrUseCandOnly.EntityData.SegmentPath
     frrUseCandOnly.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     frrUseCandOnly.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     frrUseCandOnly.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4869,6 +4965,7 @@ func (routerId *Isis_Instances_Instance_Afs_Af_TopologyName_RouterId) GetEntityD
     routerId.EntityData.BundleName = "cisco_ios_xr"
     routerId.EntityData.ParentYangName = "topology-name"
     routerId.EntityData.SegmentPath = "router-id"
+    routerId.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/topology-name/" + routerId.EntityData.SegmentPath
     routerId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routerId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routerId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4900,6 +4997,7 @@ func (spfPrefixPriorities *Isis_Instances_Instance_Afs_Af_TopologyName_SpfPrefix
     spfPrefixPriorities.EntityData.BundleName = "cisco_ios_xr"
     spfPrefixPriorities.EntityData.ParentYangName = "topology-name"
     spfPrefixPriorities.EntityData.SegmentPath = "spf-prefix-priorities"
+    spfPrefixPriorities.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/topology-name/" + spfPrefixPriorities.EntityData.SegmentPath
     spfPrefixPriorities.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     spfPrefixPriorities.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     spfPrefixPriorities.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4921,6 +5019,7 @@ func (spfPrefixPriorities *Isis_Instances_Instance_Afs_Af_TopologyName_SpfPrefix
 type Isis_Instances_Instance_Afs_Af_TopologyName_SpfPrefixPriorities_SpfPrefixPriority struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. SPF Level for prefix prioritization. The type is
     // IsisInternalLevel.
@@ -4945,6 +5044,7 @@ func (spfPrefixPriority *Isis_Instances_Instance_Afs_Af_TopologyName_SpfPrefixPr
     spfPrefixPriority.EntityData.BundleName = "cisco_ios_xr"
     spfPrefixPriority.EntityData.ParentYangName = "spf-prefix-priorities"
     spfPrefixPriority.EntityData.SegmentPath = "spf-prefix-priority" + types.AddKeyToken(spfPrefixPriority.Level, "level") + types.AddKeyToken(spfPrefixPriority.PrefixPriorityType, "prefix-priority-type")
+    spfPrefixPriority.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/topology-name/spf-prefix-priorities/" + spfPrefixPriority.EntityData.SegmentPath
     spfPrefixPriority.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     spfPrefixPriority.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     spfPrefixPriority.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4978,6 +5078,7 @@ func (summaryPrefixes *Isis_Instances_Instance_Afs_Af_TopologyName_SummaryPrefix
     summaryPrefixes.EntityData.BundleName = "cisco_ios_xr"
     summaryPrefixes.EntityData.ParentYangName = "topology-name"
     summaryPrefixes.EntityData.SegmentPath = "summary-prefixes"
+    summaryPrefixes.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/topology-name/" + summaryPrefixes.EntityData.SegmentPath
     summaryPrefixes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     summaryPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     summaryPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4999,6 +5100,7 @@ func (summaryPrefixes *Isis_Instances_Instance_Afs_Af_TopologyName_SummaryPrefix
 type Isis_Instances_Instance_Afs_Af_TopologyName_SummaryPrefixes_SummaryPrefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IP summary address prefix. The type is one of the
     // following types: string with pattern:
@@ -5021,6 +5123,7 @@ func (summaryPrefix *Isis_Instances_Instance_Afs_Af_TopologyName_SummaryPrefixes
     summaryPrefix.EntityData.BundleName = "cisco_ios_xr"
     summaryPrefix.EntityData.ParentYangName = "summary-prefixes"
     summaryPrefix.EntityData.SegmentPath = "summary-prefix" + types.AddKeyToken(summaryPrefix.AddressPrefix, "address-prefix")
+    summaryPrefix.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/topology-name/summary-prefixes/" + summaryPrefix.EntityData.SegmentPath
     summaryPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     summaryPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     summaryPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5057,6 +5160,7 @@ func (microLoopAvoidance *Isis_Instances_Instance_Afs_Af_TopologyName_MicroLoopA
     microLoopAvoidance.EntityData.BundleName = "cisco_ios_xr"
     microLoopAvoidance.EntityData.ParentYangName = "topology-name"
     microLoopAvoidance.EntityData.SegmentPath = "micro-loop-avoidance"
+    microLoopAvoidance.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/topology-name/" + microLoopAvoidance.EntityData.SegmentPath
     microLoopAvoidance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     microLoopAvoidance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     microLoopAvoidance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5095,6 +5199,7 @@ func (ucmp *Isis_Instances_Instance_Afs_Af_TopologyName_Ucmp) GetEntityData() *t
     ucmp.EntityData.BundleName = "cisco_ios_xr"
     ucmp.EntityData.ParentYangName = "topology-name"
     ucmp.EntityData.SegmentPath = "ucmp"
+    ucmp.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/topology-name/" + ucmp.EntityData.SegmentPath
     ucmp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ucmp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ucmp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5130,6 +5235,7 @@ func (enable *Isis_Instances_Instance_Afs_Af_TopologyName_Ucmp_Enable) GetEntity
     enable.EntityData.BundleName = "cisco_ios_xr"
     enable.EntityData.ParentYangName = "ucmp"
     enable.EntityData.SegmentPath = "enable"
+    enable.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/topology-name/ucmp/" + enable.EntityData.SegmentPath
     enable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     enable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     enable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5162,6 +5268,7 @@ func (excludeInterfaces *Isis_Instances_Instance_Afs_Af_TopologyName_Ucmp_Exclud
     excludeInterfaces.EntityData.BundleName = "cisco_ios_xr"
     excludeInterfaces.EntityData.ParentYangName = "ucmp"
     excludeInterfaces.EntityData.SegmentPath = "exclude-interfaces"
+    excludeInterfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/topology-name/ucmp/" + excludeInterfaces.EntityData.SegmentPath
     excludeInterfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     excludeInterfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     excludeInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5184,6 +5291,7 @@ func (excludeInterfaces *Isis_Instances_Instance_Afs_Af_TopologyName_Ucmp_Exclud
 type Isis_Instances_Instance_Afs_Af_TopologyName_Ucmp_ExcludeInterfaces_ExcludeInterface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of the interface to be excluded. The type is
     // string with pattern: [a-zA-Z0-9._/-]+.
@@ -5196,6 +5304,7 @@ func (excludeInterface *Isis_Instances_Instance_Afs_Af_TopologyName_Ucmp_Exclude
     excludeInterface.EntityData.BundleName = "cisco_ios_xr"
     excludeInterface.EntityData.ParentYangName = "exclude-interfaces"
     excludeInterface.EntityData.SegmentPath = "exclude-interface" + types.AddKeyToken(excludeInterface.InterfaceName, "interface-name")
+    excludeInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/topology-name/ucmp/exclude-interfaces/" + excludeInterface.EntityData.SegmentPath
     excludeInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     excludeInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     excludeInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5228,6 +5337,7 @@ func (maxRedistPrefixes *Isis_Instances_Instance_Afs_Af_TopologyName_MaxRedistPr
     maxRedistPrefixes.EntityData.BundleName = "cisco_ios_xr"
     maxRedistPrefixes.EntityData.ParentYangName = "topology-name"
     maxRedistPrefixes.EntityData.SegmentPath = "max-redist-prefixes"
+    maxRedistPrefixes.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/topology-name/" + maxRedistPrefixes.EntityData.SegmentPath
     maxRedistPrefixes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     maxRedistPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     maxRedistPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5251,6 +5361,7 @@ func (maxRedistPrefixes *Isis_Instances_Instance_Afs_Af_TopologyName_MaxRedistPr
 type Isis_Instances_Instance_Afs_Af_TopologyName_MaxRedistPrefixes_MaxRedistPrefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Level to which configuration applies. The type is
     // IsisInternalLevel.
@@ -5267,6 +5378,7 @@ func (maxRedistPrefix *Isis_Instances_Instance_Afs_Af_TopologyName_MaxRedistPref
     maxRedistPrefix.EntityData.BundleName = "cisco_ios_xr"
     maxRedistPrefix.EntityData.ParentYangName = "max-redist-prefixes"
     maxRedistPrefix.EntityData.SegmentPath = "max-redist-prefix" + types.AddKeyToken(maxRedistPrefix.Level, "level")
+    maxRedistPrefix.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/topology-name/max-redist-prefixes/" + maxRedistPrefix.EntityData.SegmentPath
     maxRedistPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     maxRedistPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     maxRedistPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5298,6 +5410,7 @@ func (propagations *Isis_Instances_Instance_Afs_Af_TopologyName_Propagations) Ge
     propagations.EntityData.BundleName = "cisco_ios_xr"
     propagations.EntityData.ParentYangName = "topology-name"
     propagations.EntityData.SegmentPath = "propagations"
+    propagations.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/topology-name/" + propagations.EntityData.SegmentPath
     propagations.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     propagations.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     propagations.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5319,6 +5432,7 @@ func (propagations *Isis_Instances_Instance_Afs_Af_TopologyName_Propagations) Ge
 type Isis_Instances_Instance_Afs_Af_TopologyName_Propagations_Propagation struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Source level for routes. The type is
     // IsisInternalLevel.
@@ -5339,6 +5453,7 @@ func (propagation *Isis_Instances_Instance_Afs_Af_TopologyName_Propagations_Prop
     propagation.EntityData.BundleName = "cisco_ios_xr"
     propagation.EntityData.ParentYangName = "propagations"
     propagation.EntityData.SegmentPath = "propagation" + types.AddKeyToken(propagation.SourceLevel, "source-level") + types.AddKeyToken(propagation.DestinationLevel, "destination-level")
+    propagation.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/topology-name/propagations/" + propagation.EntityData.SegmentPath
     propagation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     propagation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     propagation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5372,6 +5487,7 @@ func (redistributions *Isis_Instances_Instance_Afs_Af_TopologyName_Redistributio
     redistributions.EntityData.BundleName = "cisco_ios_xr"
     redistributions.EntityData.ParentYangName = "topology-name"
     redistributions.EntityData.SegmentPath = "redistributions"
+    redistributions.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/topology-name/" + redistributions.EntityData.SegmentPath
     redistributions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     redistributions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     redistributions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5394,6 +5510,7 @@ func (redistributions *Isis_Instances_Instance_Afs_Af_TopologyName_Redistributio
 type Isis_Instances_Instance_Afs_Af_TopologyName_Redistributions_Redistribution struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The protocol to be redistributed.  OSPFv3 may not
     // be specified for an IPv4 topology and OSPF may not be specified for an IPv6
@@ -5422,6 +5539,7 @@ func (redistribution *Isis_Instances_Instance_Afs_Af_TopologyName_Redistribution
     redistribution.EntityData.BundleName = "cisco_ios_xr"
     redistribution.EntityData.ParentYangName = "redistributions"
     redistribution.EntityData.SegmentPath = "redistribution" + types.AddKeyToken(redistribution.ProtocolName, "protocol-name")
+    redistribution.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/topology-name/redistributions/" + redistribution.EntityData.SegmentPath
     redistribution.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     redistribution.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     redistribution.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5482,6 +5600,7 @@ func (connectedOrStaticOrRipOrSubscriberOrMobile *Isis_Instances_Instance_Afs_Af
     connectedOrStaticOrRipOrSubscriberOrMobile.EntityData.BundleName = "cisco_ios_xr"
     connectedOrStaticOrRipOrSubscriberOrMobile.EntityData.ParentYangName = "redistribution"
     connectedOrStaticOrRipOrSubscriberOrMobile.EntityData.SegmentPath = "connected-or-static-or-rip-or-subscriber-or-mobile"
+    connectedOrStaticOrRipOrSubscriberOrMobile.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/topology-name/redistributions/redistribution/" + connectedOrStaticOrRipOrSubscriberOrMobile.EntityData.SegmentPath
     connectedOrStaticOrRipOrSubscriberOrMobile.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     connectedOrStaticOrRipOrSubscriberOrMobile.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     connectedOrStaticOrRipOrSubscriberOrMobile.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5504,6 +5623,7 @@ func (connectedOrStaticOrRipOrSubscriberOrMobile *Isis_Instances_Instance_Afs_Af
 type Isis_Instances_Instance_Afs_Af_TopologyName_Redistributions_Redistribution_OspfOrOspfv3OrIsisOrApplication struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Protocol Instance Identifier.  Mandatory for ISIS,
     // OSPF and application, must not be specified otherwise. The type is string
@@ -5535,6 +5655,7 @@ func (ospfOrOspfv3OrIsisOrApplication *Isis_Instances_Instance_Afs_Af_TopologyNa
     ospfOrOspfv3OrIsisOrApplication.EntityData.BundleName = "cisco_ios_xr"
     ospfOrOspfv3OrIsisOrApplication.EntityData.ParentYangName = "redistribution"
     ospfOrOspfv3OrIsisOrApplication.EntityData.SegmentPath = "ospf-or-ospfv3-or-isis-or-application" + types.AddKeyToken(ospfOrOspfv3OrIsisOrApplication.InstanceName, "instance-name")
+    ospfOrOspfv3OrIsisOrApplication.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/topology-name/redistributions/redistribution/" + ospfOrOspfv3OrIsisOrApplication.EntityData.SegmentPath
     ospfOrOspfv3OrIsisOrApplication.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ospfOrOspfv3OrIsisOrApplication.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ospfOrOspfv3OrIsisOrApplication.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5558,6 +5679,7 @@ func (ospfOrOspfv3OrIsisOrApplication *Isis_Instances_Instance_Afs_Af_TopologyNa
 type Isis_Instances_Instance_Afs_Af_TopologyName_Redistributions_Redistribution_Bgp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. First half of BGP AS number in XX.YY format. 
     // Mandatory if Protocol is BGP and must not be specified otherwise. Must be a
@@ -5596,6 +5718,7 @@ func (bgp *Isis_Instances_Instance_Afs_Af_TopologyName_Redistributions_Redistrib
     bgp.EntityData.BundleName = "cisco_ios_xr"
     bgp.EntityData.ParentYangName = "redistribution"
     bgp.EntityData.SegmentPath = "bgp" + types.AddKeyToken(bgp.AsXx, "as-xx") + types.AddKeyToken(bgp.AsYy, "as-yy")
+    bgp.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/topology-name/redistributions/redistribution/" + bgp.EntityData.SegmentPath
     bgp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bgp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bgp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5620,6 +5743,7 @@ func (bgp *Isis_Instances_Instance_Afs_Af_TopologyName_Redistributions_Redistrib
 type Isis_Instances_Instance_Afs_Af_TopologyName_Redistributions_Redistribution_Eigrp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Eigrp as number. The type is interface{} with
     // range: 1..65535.
@@ -5650,6 +5774,7 @@ func (eigrp *Isis_Instances_Instance_Afs_Af_TopologyName_Redistributions_Redistr
     eigrp.EntityData.BundleName = "cisco_ios_xr"
     eigrp.EntityData.ParentYangName = "redistribution"
     eigrp.EntityData.SegmentPath = "eigrp" + types.AddKeyToken(eigrp.AsZz, "as-zz")
+    eigrp.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/topology-name/redistributions/redistribution/" + eigrp.EntityData.SegmentPath
     eigrp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eigrp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eigrp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5685,6 +5810,7 @@ func (applicationTables *Isis_Instances_Instance_Afs_Af_TopologyName_Application
     applicationTables.EntityData.BundleName = "cisco_ios_xr"
     applicationTables.EntityData.ParentYangName = "topology-name"
     applicationTables.EntityData.SegmentPath = "application-tables"
+    applicationTables.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/topology-name/" + applicationTables.EntityData.SegmentPath
     applicationTables.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     applicationTables.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     applicationTables.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5706,6 +5832,7 @@ func (applicationTables *Isis_Instances_Instance_Afs_Af_TopologyName_Application
 type Isis_Instances_Instance_Afs_Af_TopologyName_ApplicationTables_ApplicationTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Application Type. The type is IsisApplication.
     AppType interface{}
@@ -5721,6 +5848,7 @@ func (applicationTable *Isis_Instances_Instance_Afs_Af_TopologyName_ApplicationT
     applicationTable.EntityData.BundleName = "cisco_ios_xr"
     applicationTable.EntityData.ParentYangName = "application-tables"
     applicationTable.EntityData.SegmentPath = "application-table" + types.AddKeyToken(applicationTable.AppType, "app-type")
+    applicationTable.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/topology-name/application-tables/" + applicationTable.EntityData.SegmentPath
     applicationTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     applicationTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     applicationTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5743,6 +5871,7 @@ func (applicationTable *Isis_Instances_Instance_Afs_Af_TopologyName_ApplicationT
 type Isis_Instances_Instance_Afs_Af_TopologyName_ApplicationTables_ApplicationTable_AttributeTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Application Type. The type is
     // IsisApplicationAttribute.
@@ -5759,6 +5888,7 @@ func (attributeTable *Isis_Instances_Instance_Afs_Af_TopologyName_ApplicationTab
     attributeTable.EntityData.BundleName = "cisco_ios_xr"
     attributeTable.EntityData.ParentYangName = "application-table"
     attributeTable.EntityData.SegmentPath = "attribute-table" + types.AddKeyToken(attributeTable.AppType, "app-type")
+    attributeTable.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/topology-name/application-tables/application-table/" + attributeTable.EntityData.SegmentPath
     attributeTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     attributeTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attributeTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5790,6 +5920,7 @@ func (spfPeriodicIntervals *Isis_Instances_Instance_Afs_Af_TopologyName_SpfPerio
     spfPeriodicIntervals.EntityData.BundleName = "cisco_ios_xr"
     spfPeriodicIntervals.EntityData.ParentYangName = "topology-name"
     spfPeriodicIntervals.EntityData.SegmentPath = "spf-periodic-intervals"
+    spfPeriodicIntervals.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/topology-name/" + spfPeriodicIntervals.EntityData.SegmentPath
     spfPeriodicIntervals.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     spfPeriodicIntervals.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     spfPeriodicIntervals.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5811,6 +5942,7 @@ func (spfPeriodicIntervals *Isis_Instances_Instance_Afs_Af_TopologyName_SpfPerio
 type Isis_Instances_Instance_Afs_Af_TopologyName_SpfPeriodicIntervals_SpfPeriodicInterval struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Level to which configuration applies. The type is
     // IsisInternalLevel.
@@ -5827,6 +5959,7 @@ func (spfPeriodicInterval *Isis_Instances_Instance_Afs_Af_TopologyName_SpfPeriod
     spfPeriodicInterval.EntityData.BundleName = "cisco_ios_xr"
     spfPeriodicInterval.EntityData.ParentYangName = "spf-periodic-intervals"
     spfPeriodicInterval.EntityData.SegmentPath = "spf-periodic-interval" + types.AddKeyToken(spfPeriodicInterval.Level, "level")
+    spfPeriodicInterval.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/topology-name/spf-periodic-intervals/" + spfPeriodicInterval.EntityData.SegmentPath
     spfPeriodicInterval.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     spfPeriodicInterval.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     spfPeriodicInterval.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5862,6 +5995,7 @@ func (distributeListIn *Isis_Instances_Instance_Afs_Af_TopologyName_DistributeLi
     distributeListIn.EntityData.BundleName = "cisco_ios_xr"
     distributeListIn.EntityData.ParentYangName = "topology-name"
     distributeListIn.EntityData.SegmentPath = "distribute-list-in"
+    distributeListIn.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/topology-name/" + distributeListIn.EntityData.SegmentPath
     distributeListIn.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     distributeListIn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     distributeListIn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5893,6 +6027,7 @@ func (spfIntervals *Isis_Instances_Instance_Afs_Af_TopologyName_SpfIntervals) Ge
     spfIntervals.EntityData.BundleName = "cisco_ios_xr"
     spfIntervals.EntityData.ParentYangName = "topology-name"
     spfIntervals.EntityData.SegmentPath = "spf-intervals"
+    spfIntervals.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/topology-name/" + spfIntervals.EntityData.SegmentPath
     spfIntervals.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     spfIntervals.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     spfIntervals.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5914,6 +6049,7 @@ func (spfIntervals *Isis_Instances_Instance_Afs_Af_TopologyName_SpfIntervals) Ge
 type Isis_Instances_Instance_Afs_Af_TopologyName_SpfIntervals_SpfInterval struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Level to which configuration applies. The type is
     // IsisInternalLevel.
@@ -5938,6 +6074,7 @@ func (spfInterval *Isis_Instances_Instance_Afs_Af_TopologyName_SpfIntervals_SpfI
     spfInterval.EntityData.BundleName = "cisco_ios_xr"
     spfInterval.EntityData.ParentYangName = "spf-intervals"
     spfInterval.EntityData.SegmentPath = "spf-interval" + types.AddKeyToken(spfInterval.Level, "level")
+    spfInterval.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/topology-name/spf-intervals/" + spfInterval.EntityData.SegmentPath
     spfInterval.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     spfInterval.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     spfInterval.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5977,6 +6114,7 @@ func (monitorConvergence *Isis_Instances_Instance_Afs_Af_TopologyName_MonitorCon
     monitorConvergence.EntityData.BundleName = "cisco_ios_xr"
     monitorConvergence.EntityData.ParentYangName = "topology-name"
     monitorConvergence.EntityData.SegmentPath = "monitor-convergence"
+    monitorConvergence.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/topology-name/" + monitorConvergence.EntityData.SegmentPath
     monitorConvergence.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     monitorConvergence.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     monitorConvergence.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6019,6 +6157,7 @@ func (defaultInformation *Isis_Instances_Instance_Afs_Af_TopologyName_DefaultInf
     defaultInformation.EntityData.BundleName = "cisco_ios_xr"
     defaultInformation.EntityData.ParentYangName = "topology-name"
     defaultInformation.EntityData.SegmentPath = "default-information"
+    defaultInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/topology-name/" + defaultInformation.EntityData.SegmentPath
     defaultInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     defaultInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     defaultInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6054,6 +6193,7 @@ func (adminDistances *Isis_Instances_Instance_Afs_Af_TopologyName_AdminDistances
     adminDistances.EntityData.BundleName = "cisco_ios_xr"
     adminDistances.EntityData.ParentYangName = "topology-name"
     adminDistances.EntityData.SegmentPath = "admin-distances"
+    adminDistances.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/topology-name/" + adminDistances.EntityData.SegmentPath
     adminDistances.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     adminDistances.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     adminDistances.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6079,6 +6219,7 @@ func (adminDistances *Isis_Instances_Instance_Afs_Af_TopologyName_AdminDistances
 type Isis_Instances_Instance_Afs_Af_TopologyName_AdminDistances_AdminDistance struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IP route source prefix. The type is one of the
     // following types: string with pattern:
@@ -6102,6 +6243,7 @@ func (adminDistance *Isis_Instances_Instance_Afs_Af_TopologyName_AdminDistances_
     adminDistance.EntityData.BundleName = "cisco_ios_xr"
     adminDistance.EntityData.ParentYangName = "admin-distances"
     adminDistance.EntityData.SegmentPath = "admin-distance" + types.AddKeyToken(adminDistance.AddressPrefix, "address-prefix")
+    adminDistance.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/topology-name/admin-distances/" + adminDistance.EntityData.SegmentPath
     adminDistance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     adminDistance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     adminDistance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6133,6 +6275,7 @@ func (ispf *Isis_Instances_Instance_Afs_Af_TopologyName_Ispf) GetEntityData() *t
     ispf.EntityData.BundleName = "cisco_ios_xr"
     ispf.EntityData.ParentYangName = "topology-name"
     ispf.EntityData.SegmentPath = "ispf"
+    ispf.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/topology-name/" + ispf.EntityData.SegmentPath
     ispf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ispf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ispf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6163,6 +6306,7 @@ func (states *Isis_Instances_Instance_Afs_Af_TopologyName_Ispf_States) GetEntity
     states.EntityData.BundleName = "cisco_ios_xr"
     states.EntityData.ParentYangName = "ispf"
     states.EntityData.SegmentPath = "states"
+    states.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/topology-name/ispf/" + states.EntityData.SegmentPath
     states.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     states.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     states.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6184,6 +6328,7 @@ func (states *Isis_Instances_Instance_Afs_Af_TopologyName_Ispf_States) GetEntity
 type Isis_Instances_Instance_Afs_Af_TopologyName_Ispf_States_State struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Level to which configuration applies. The type is
     // IsisInternalLevel.
@@ -6199,6 +6344,7 @@ func (state *Isis_Instances_Instance_Afs_Af_TopologyName_Ispf_States_State) GetE
     state.EntityData.BundleName = "cisco_ios_xr"
     state.EntityData.ParentYangName = "states"
     state.EntityData.SegmentPath = "state" + types.AddKeyToken(state.Level, "level")
+    state.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/topology-name/ispf/states/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     state.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6232,6 +6378,7 @@ func (mplsLdpGlobal *Isis_Instances_Instance_Afs_Af_TopologyName_MplsLdpGlobal) 
     mplsLdpGlobal.EntityData.BundleName = "cisco_ios_xr"
     mplsLdpGlobal.EntityData.ParentYangName = "topology-name"
     mplsLdpGlobal.EntityData.SegmentPath = "mpls-ldp-global"
+    mplsLdpGlobal.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/topology-name/" + mplsLdpGlobal.EntityData.SegmentPath
     mplsLdpGlobal.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mplsLdpGlobal.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mplsLdpGlobal.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6273,6 +6420,7 @@ func (mpls *Isis_Instances_Instance_Afs_Af_TopologyName_Mpls) GetEntityData() *t
     mpls.EntityData.BundleName = "cisco_ios_xr"
     mpls.EntityData.ParentYangName = "topology-name"
     mpls.EntityData.SegmentPath = "mpls"
+    mpls.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/topology-name/" + mpls.EntityData.SegmentPath
     mpls.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mpls.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mpls.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6313,6 +6461,7 @@ func (routerId *Isis_Instances_Instance_Afs_Af_TopologyName_Mpls_RouterId) GetEn
     routerId.EntityData.BundleName = "cisco_ios_xr"
     routerId.EntityData.ParentYangName = "mpls"
     routerId.EntityData.SegmentPath = "router-id"
+    routerId.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/topology-name/mpls/" + routerId.EntityData.SegmentPath
     routerId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routerId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routerId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6347,6 +6496,7 @@ func (level *Isis_Instances_Instance_Afs_Af_TopologyName_Mpls_Level) GetEntityDa
     level.EntityData.BundleName = "cisco_ios_xr"
     level.EntityData.ParentYangName = "mpls"
     level.EntityData.SegmentPath = "level"
+    level.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/topology-name/mpls/" + level.EntityData.SegmentPath
     level.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     level.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     level.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6378,6 +6528,7 @@ func (manualAdjSids *Isis_Instances_Instance_Afs_Af_TopologyName_ManualAdjSids) 
     manualAdjSids.EntityData.BundleName = "cisco_ios_xr"
     manualAdjSids.EntityData.ParentYangName = "topology-name"
     manualAdjSids.EntityData.SegmentPath = "manual-adj-sids"
+    manualAdjSids.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/topology-name/" + manualAdjSids.EntityData.SegmentPath
     manualAdjSids.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     manualAdjSids.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     manualAdjSids.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6399,6 +6550,7 @@ func (manualAdjSids *Isis_Instances_Instance_Afs_Af_TopologyName_ManualAdjSids) 
 type Isis_Instances_Instance_Afs_Af_TopologyName_ManualAdjSids_ManualAdjSid struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Level to which configuration applies. The type is
     // IsisInternalLevel.
@@ -6422,6 +6574,7 @@ func (manualAdjSid *Isis_Instances_Instance_Afs_Af_TopologyName_ManualAdjSids_Ma
     manualAdjSid.EntityData.BundleName = "cisco_ios_xr"
     manualAdjSid.EntityData.ParentYangName = "manual-adj-sids"
     manualAdjSid.EntityData.SegmentPath = "manual-adj-sid" + types.AddKeyToken(manualAdjSid.Level, "level") + types.AddKeyToken(manualAdjSid.SidType, "sid-type") + types.AddKeyToken(manualAdjSid.Sid, "sid")
+    manualAdjSid.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/topology-name/manual-adj-sids/" + manualAdjSid.EntityData.SegmentPath
     manualAdjSid.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     manualAdjSid.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     manualAdjSid.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6460,6 +6613,7 @@ func (metrics *Isis_Instances_Instance_Afs_Af_TopologyName_Metrics) GetEntityDat
     metrics.EntityData.BundleName = "cisco_ios_xr"
     metrics.EntityData.ParentYangName = "topology-name"
     metrics.EntityData.SegmentPath = "metrics"
+    metrics.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/topology-name/" + metrics.EntityData.SegmentPath
     metrics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     metrics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     metrics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6488,6 +6642,7 @@ func (metrics *Isis_Instances_Instance_Afs_Af_TopologyName_Metrics) GetEntityDat
 type Isis_Instances_Instance_Afs_Af_TopologyName_Metrics_Metric struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Level to which configuration applies. The type is
     // IsisInternalLevel.
@@ -6507,6 +6662,7 @@ func (metric *Isis_Instances_Instance_Afs_Af_TopologyName_Metrics_Metric) GetEnt
     metric.EntityData.BundleName = "cisco_ios_xr"
     metric.EntityData.ParentYangName = "metrics"
     metric.EntityData.SegmentPath = "metric" + types.AddKeyToken(metric.Level, "level")
+    metric.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/topology-name/metrics/" + metric.EntityData.SegmentPath
     metric.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     metric.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     metric.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6547,6 +6703,7 @@ func (weights *Isis_Instances_Instance_Afs_Af_TopologyName_Weights) GetEntityDat
     weights.EntityData.BundleName = "cisco_ios_xr"
     weights.EntityData.ParentYangName = "topology-name"
     weights.EntityData.SegmentPath = "weights"
+    weights.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/topology-name/" + weights.EntityData.SegmentPath
     weights.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     weights.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     weights.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6569,6 +6726,7 @@ func (weights *Isis_Instances_Instance_Afs_Af_TopologyName_Weights) GetEntityDat
 type Isis_Instances_Instance_Afs_Af_TopologyName_Weights_Weight struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Level to which configuration applies. The type is
     // IsisInternalLevel.
@@ -6586,6 +6744,7 @@ func (weight *Isis_Instances_Instance_Afs_Af_TopologyName_Weights_Weight) GetEnt
     weight.EntityData.BundleName = "cisco_ios_xr"
     weight.EntityData.ParentYangName = "weights"
     weight.EntityData.SegmentPath = "weight" + types.AddKeyToken(weight.Level, "level")
+    weight.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/topology-name/weights/" + weight.EntityData.SegmentPath
     weight.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     weight.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     weight.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6617,6 +6776,7 @@ func (lspRefreshIntervals *Isis_Instances_Instance_LspRefreshIntervals) GetEntit
     lspRefreshIntervals.EntityData.BundleName = "cisco_ios_xr"
     lspRefreshIntervals.EntityData.ParentYangName = "instance"
     lspRefreshIntervals.EntityData.SegmentPath = "lsp-refresh-intervals"
+    lspRefreshIntervals.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/" + lspRefreshIntervals.EntityData.SegmentPath
     lspRefreshIntervals.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lspRefreshIntervals.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspRefreshIntervals.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6639,6 +6799,7 @@ func (lspRefreshIntervals *Isis_Instances_Instance_LspRefreshIntervals) GetEntit
 type Isis_Instances_Instance_LspRefreshIntervals_LspRefreshInterval struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Level to which configuration applies. The type is
     // IsisInternalLevel.
@@ -6655,6 +6816,7 @@ func (lspRefreshInterval *Isis_Instances_Instance_LspRefreshIntervals_LspRefresh
     lspRefreshInterval.EntityData.BundleName = "cisco_ios_xr"
     lspRefreshInterval.EntityData.ParentYangName = "lsp-refresh-intervals"
     lspRefreshInterval.EntityData.SegmentPath = "lsp-refresh-interval" + types.AddKeyToken(lspRefreshInterval.Level, "level")
+    lspRefreshInterval.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/lsp-refresh-intervals/" + lspRefreshInterval.EntityData.SegmentPath
     lspRefreshInterval.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lspRefreshInterval.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspRefreshInterval.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6693,6 +6855,7 @@ func (distribute *Isis_Instances_Instance_Distribute) GetEntityData() *types.Com
     distribute.EntityData.BundleName = "cisco_ios_xr"
     distribute.EntityData.ParentYangName = "instance"
     distribute.EntityData.SegmentPath = "distribute"
+    distribute.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/" + distribute.EntityData.SegmentPath
     distribute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     distribute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     distribute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6725,6 +6888,7 @@ func (flexAlgos *Isis_Instances_Instance_FlexAlgos) GetEntityData() *types.Commo
     flexAlgos.EntityData.BundleName = "cisco_ios_xr"
     flexAlgos.EntityData.ParentYangName = "instance"
     flexAlgos.EntityData.SegmentPath = "flex-algos"
+    flexAlgos.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/" + flexAlgos.EntityData.SegmentPath
     flexAlgos.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     flexAlgos.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     flexAlgos.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6746,6 +6910,7 @@ func (flexAlgos *Isis_Instances_Instance_FlexAlgos) GetEntityData() *types.Commo
 type Isis_Instances_Instance_FlexAlgos_FlexAlgo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Flex Algo. The type is interface{} with range:
     // 128..255.
@@ -6763,6 +6928,9 @@ type Isis_Instances_Instance_FlexAlgos_FlexAlgo struct {
     // Set the Flex-Algo priority. The type is interface{} with range: 0..255.
     Priority interface{}
 
+    // If TRUE, Flex-Algo definition is advertised. The type is bool.
+    AdvertiseDefinition interface{}
+
     // Set the exclude-any affinity.
     AffinityExcludeAnies Isis_Instances_Instance_FlexAlgos_FlexAlgo_AffinityExcludeAnies
 }
@@ -6773,6 +6941,7 @@ func (flexAlgo *Isis_Instances_Instance_FlexAlgos_FlexAlgo) GetEntityData() *typ
     flexAlgo.EntityData.BundleName = "cisco_ios_xr"
     flexAlgo.EntityData.ParentYangName = "flex-algos"
     flexAlgo.EntityData.SegmentPath = "flex-algo" + types.AddKeyToken(flexAlgo.FlexAlgo, "flex-algo")
+    flexAlgo.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/flex-algos/" + flexAlgo.EntityData.SegmentPath
     flexAlgo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     flexAlgo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     flexAlgo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6784,6 +6953,7 @@ func (flexAlgo *Isis_Instances_Instance_FlexAlgos_FlexAlgo) GetEntityData() *typ
     flexAlgo.EntityData.Leafs.Append("running", types.YLeaf{"Running", flexAlgo.Running})
     flexAlgo.EntityData.Leafs.Append("metric-type", types.YLeaf{"MetricType", flexAlgo.MetricType})
     flexAlgo.EntityData.Leafs.Append("priority", types.YLeaf{"Priority", flexAlgo.Priority})
+    flexAlgo.EntityData.Leafs.Append("advertise-definition", types.YLeaf{"AdvertiseDefinition", flexAlgo.AdvertiseDefinition})
 
     flexAlgo.EntityData.YListKeys = []string {"FlexAlgo"}
 
@@ -6806,6 +6976,7 @@ func (affinityExcludeAnies *Isis_Instances_Instance_FlexAlgos_FlexAlgo_AffinityE
     affinityExcludeAnies.EntityData.BundleName = "cisco_ios_xr"
     affinityExcludeAnies.EntityData.ParentYangName = "flex-algo"
     affinityExcludeAnies.EntityData.SegmentPath = "affinity-exclude-anies"
+    affinityExcludeAnies.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/flex-algos/flex-algo/" + affinityExcludeAnies.EntityData.SegmentPath
     affinityExcludeAnies.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     affinityExcludeAnies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     affinityExcludeAnies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6836,6 +7007,7 @@ func (affinityMappings *Isis_Instances_Instance_AffinityMappings) GetEntityData(
     affinityMappings.EntityData.BundleName = "cisco_ios_xr"
     affinityMappings.EntityData.ParentYangName = "instance"
     affinityMappings.EntityData.SegmentPath = "affinity-mappings"
+    affinityMappings.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/" + affinityMappings.EntityData.SegmentPath
     affinityMappings.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     affinityMappings.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     affinityMappings.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6857,6 +7029,7 @@ func (affinityMappings *Isis_Instances_Instance_AffinityMappings) GetEntityData(
 type Isis_Instances_Instance_AffinityMappings_AffinityMapping struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Affinity Name. The type is string with length:
     // 1..32.
@@ -6873,6 +7046,7 @@ func (affinityMapping *Isis_Instances_Instance_AffinityMappings_AffinityMapping)
     affinityMapping.EntityData.BundleName = "cisco_ios_xr"
     affinityMapping.EntityData.ParentYangName = "affinity-mappings"
     affinityMapping.EntityData.SegmentPath = "affinity-mapping" + types.AddKeyToken(affinityMapping.AffinityName, "affinity-name")
+    affinityMapping.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/affinity-mappings/" + affinityMapping.EntityData.SegmentPath
     affinityMapping.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     affinityMapping.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     affinityMapping.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6905,6 +7079,7 @@ func (lspAcceptPasswords *Isis_Instances_Instance_LspAcceptPasswords) GetEntityD
     lspAcceptPasswords.EntityData.BundleName = "cisco_ios_xr"
     lspAcceptPasswords.EntityData.ParentYangName = "instance"
     lspAcceptPasswords.EntityData.SegmentPath = "lsp-accept-passwords"
+    lspAcceptPasswords.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/" + lspAcceptPasswords.EntityData.SegmentPath
     lspAcceptPasswords.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lspAcceptPasswords.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspAcceptPasswords.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6928,6 +7103,7 @@ func (lspAcceptPasswords *Isis_Instances_Instance_LspAcceptPasswords) GetEntityD
 type Isis_Instances_Instance_LspAcceptPasswords_LspAcceptPassword struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Level to which configuration applies. The type is
     // IsisInternalLevel.
@@ -6944,6 +7120,7 @@ func (lspAcceptPassword *Isis_Instances_Instance_LspAcceptPasswords_LspAcceptPas
     lspAcceptPassword.EntityData.BundleName = "cisco_ios_xr"
     lspAcceptPassword.EntityData.ParentYangName = "lsp-accept-passwords"
     lspAcceptPassword.EntityData.SegmentPath = "lsp-accept-password" + types.AddKeyToken(lspAcceptPassword.Level, "level")
+    lspAcceptPassword.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/lsp-accept-passwords/" + lspAcceptPassword.EntityData.SegmentPath
     lspAcceptPassword.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lspAcceptPassword.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspAcceptPassword.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6974,6 +7151,7 @@ func (lspMtus *Isis_Instances_Instance_LspMtus) GetEntityData() *types.CommonEnt
     lspMtus.EntityData.BundleName = "cisco_ios_xr"
     lspMtus.EntityData.ParentYangName = "instance"
     lspMtus.EntityData.SegmentPath = "lsp-mtus"
+    lspMtus.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/" + lspMtus.EntityData.SegmentPath
     lspMtus.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lspMtus.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspMtus.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6995,6 +7173,7 @@ func (lspMtus *Isis_Instances_Instance_LspMtus) GetEntityData() *types.CommonEnt
 type Isis_Instances_Instance_LspMtus_LspMtu struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Level to which configuration applies. The type is
     // IsisInternalLevel.
@@ -7011,6 +7190,7 @@ func (lspMtu *Isis_Instances_Instance_LspMtus_LspMtu) GetEntityData() *types.Com
     lspMtu.EntityData.BundleName = "cisco_ios_xr"
     lspMtu.EntityData.ParentYangName = "lsp-mtus"
     lspMtu.EntityData.SegmentPath = "lsp-mtu" + types.AddKeyToken(lspMtu.Level, "level")
+    lspMtu.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/lsp-mtus/" + lspMtu.EntityData.SegmentPath
     lspMtu.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lspMtu.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspMtu.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7045,6 +7225,7 @@ func (srlgTable *Isis_Instances_Instance_SrlgTable) GetEntityData() *types.Commo
     srlgTable.EntityData.BundleName = "cisco_ios_xr"
     srlgTable.EntityData.ParentYangName = "instance"
     srlgTable.EntityData.SegmentPath = "srlg-table"
+    srlgTable.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/" + srlgTable.EntityData.SegmentPath
     srlgTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     srlgTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     srlgTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7076,6 +7257,7 @@ func (srlgNames *Isis_Instances_Instance_SrlgTable_SrlgNames) GetEntityData() *t
     srlgNames.EntityData.BundleName = "cisco_ios_xr"
     srlgNames.EntityData.ParentYangName = "srlg-table"
     srlgNames.EntityData.SegmentPath = "srlg-names"
+    srlgNames.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/srlg-table/" + srlgNames.EntityData.SegmentPath
     srlgNames.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     srlgNames.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     srlgNames.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7097,6 +7279,7 @@ func (srlgNames *Isis_Instances_Instance_SrlgTable_SrlgNames) GetEntityData() *t
 type Isis_Instances_Instance_SrlgTable_SrlgNames_SrlgName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Srlg name. The type is string with length: 1..64.
     SrlgName interface{}
@@ -7115,6 +7298,7 @@ func (srlgName *Isis_Instances_Instance_SrlgTable_SrlgNames_SrlgName) GetEntityD
     srlgName.EntityData.BundleName = "cisco_ios_xr"
     srlgName.EntityData.ParentYangName = "srlg-names"
     srlgName.EntityData.SegmentPath = "srlg-name" + types.AddKeyToken(srlgName.SrlgName, "srlg-name")
+    srlgName.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/srlg-table/srlg-names/" + srlgName.EntityData.SegmentPath
     srlgName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     srlgName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     srlgName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7147,6 +7331,7 @@ func (fromTos *Isis_Instances_Instance_SrlgTable_SrlgNames_SrlgName_FromTos) Get
     fromTos.EntityData.BundleName = "cisco_ios_xr"
     fromTos.EntityData.ParentYangName = "srlg-name"
     fromTos.EntityData.SegmentPath = "from-tos"
+    fromTos.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/srlg-table/srlg-names/srlg-name/" + fromTos.EntityData.SegmentPath
     fromTos.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fromTos.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fromTos.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7168,6 +7353,7 @@ func (fromTos *Isis_Instances_Instance_SrlgTable_SrlgNames_SrlgName_FromTos) Get
 type Isis_Instances_Instance_SrlgTable_SrlgNames_SrlgName_FromTos_FromTo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Local IPv4 address. The type is string with
     // pattern:
@@ -7186,6 +7372,7 @@ func (fromTo *Isis_Instances_Instance_SrlgTable_SrlgNames_SrlgName_FromTos_FromT
     fromTo.EntityData.BundleName = "cisco_ios_xr"
     fromTo.EntityData.ParentYangName = "from-tos"
     fromTo.EntityData.SegmentPath = "from-to" + types.AddKeyToken(fromTo.LocalIpv4Address, "local-ipv4-address") + types.AddKeyToken(fromTo.RemoteIpv4Address, "remote-ipv4-address")
+    fromTo.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/srlg-table/srlg-names/srlg-name/from-tos/" + fromTo.EntityData.SegmentPath
     fromTo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fromTo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fromTo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7233,6 +7420,7 @@ func (nsf *Isis_Instances_Instance_Nsf) GetEntityData() *types.CommonEntityData 
     nsf.EntityData.BundleName = "cisco_ios_xr"
     nsf.EntityData.ParentYangName = "instance"
     nsf.EntityData.SegmentPath = "nsf"
+    nsf.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/" + nsf.EntityData.SegmentPath
     nsf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nsf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nsf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7266,6 +7454,7 @@ func (linkGroups *Isis_Instances_Instance_LinkGroups) GetEntityData() *types.Com
     linkGroups.EntityData.BundleName = "cisco_ios_xr"
     linkGroups.EntityData.ParentYangName = "instance"
     linkGroups.EntityData.SegmentPath = "link-groups"
+    linkGroups.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/" + linkGroups.EntityData.SegmentPath
     linkGroups.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     linkGroups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     linkGroups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7287,6 +7476,7 @@ func (linkGroups *Isis_Instances_Instance_LinkGroups) GetEntityData() *types.Com
 type Isis_Instances_Instance_LinkGroups_LinkGroup struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Link Group Name. The type is string with length:
     // 1..40.
@@ -7311,6 +7501,7 @@ func (linkGroup *Isis_Instances_Instance_LinkGroups_LinkGroup) GetEntityData() *
     linkGroup.EntityData.BundleName = "cisco_ios_xr"
     linkGroup.EntityData.ParentYangName = "link-groups"
     linkGroup.EntityData.SegmentPath = "link-group" + types.AddKeyToken(linkGroup.LinkGroupName, "link-group-name")
+    linkGroup.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/link-groups/" + linkGroup.EntityData.SegmentPath
     linkGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     linkGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     linkGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7344,6 +7535,7 @@ func (lspCheckIntervals *Isis_Instances_Instance_LspCheckIntervals) GetEntityDat
     lspCheckIntervals.EntityData.BundleName = "cisco_ios_xr"
     lspCheckIntervals.EntityData.ParentYangName = "instance"
     lspCheckIntervals.EntityData.SegmentPath = "lsp-check-intervals"
+    lspCheckIntervals.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/" + lspCheckIntervals.EntityData.SegmentPath
     lspCheckIntervals.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lspCheckIntervals.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspCheckIntervals.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7365,6 +7557,7 @@ func (lspCheckIntervals *Isis_Instances_Instance_LspCheckIntervals) GetEntityDat
 type Isis_Instances_Instance_LspCheckIntervals_LspCheckInterval struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Level to which configuration applies. The type is
     // IsisInternalLevel.
@@ -7381,6 +7574,7 @@ func (lspCheckInterval *Isis_Instances_Instance_LspCheckIntervals_LspCheckInterv
     lspCheckInterval.EntityData.BundleName = "cisco_ios_xr"
     lspCheckInterval.EntityData.ParentYangName = "lsp-check-intervals"
     lspCheckInterval.EntityData.SegmentPath = "lsp-check-interval" + types.AddKeyToken(lspCheckInterval.Level, "level")
+    lspCheckInterval.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/lsp-check-intervals/" + lspCheckInterval.EntityData.SegmentPath
     lspCheckInterval.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lspCheckInterval.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspCheckInterval.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7413,6 +7607,7 @@ func (lspPasswords *Isis_Instances_Instance_LspPasswords) GetEntityData() *types
     lspPasswords.EntityData.BundleName = "cisco_ios_xr"
     lspPasswords.EntityData.ParentYangName = "instance"
     lspPasswords.EntityData.SegmentPath = "lsp-passwords"
+    lspPasswords.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/" + lspPasswords.EntityData.SegmentPath
     lspPasswords.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lspPasswords.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspPasswords.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7435,6 +7630,7 @@ func (lspPasswords *Isis_Instances_Instance_LspPasswords) GetEntityData() *types
 type Isis_Instances_Instance_LspPasswords_LspPassword struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Level to which configuration applies. The type is
     // IsisInternalLevel.
@@ -7466,6 +7662,7 @@ func (lspPassword *Isis_Instances_Instance_LspPasswords_LspPassword) GetEntityDa
     lspPassword.EntityData.BundleName = "cisco_ios_xr"
     lspPassword.EntityData.ParentYangName = "lsp-passwords"
     lspPassword.EntityData.SegmentPath = "lsp-password" + types.AddKeyToken(lspPassword.Level, "level")
+    lspPassword.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/lsp-passwords/" + lspPassword.EntityData.SegmentPath
     lspPassword.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lspPassword.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspPassword.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7501,6 +7698,7 @@ func (nets *Isis_Instances_Instance_Nets) GetEntityData() *types.CommonEntityDat
     nets.EntityData.BundleName = "cisco_ios_xr"
     nets.EntityData.ParentYangName = "instance"
     nets.EntityData.SegmentPath = "nets"
+    nets.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/" + nets.EntityData.SegmentPath
     nets.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nets.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nets.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7522,6 +7720,7 @@ func (nets *Isis_Instances_Instance_Nets) GetEntityData() *types.CommonEntityDat
 type Isis_Instances_Instance_Nets_Net struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Network Entity Title. The type is string with
     // pattern: [a-fA-F0-9]{2}(\.[a-fA-F0-9]{4}){3,9}\.[a-fA-F0-9]{2}.
@@ -7534,6 +7733,7 @@ func (net *Isis_Instances_Instance_Nets_Net) GetEntityData() *types.CommonEntity
     net.EntityData.BundleName = "cisco_ios_xr"
     net.EntityData.ParentYangName = "nets"
     net.EntityData.SegmentPath = "net" + types.AddKeyToken(net.NetName, "net-name")
+    net.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/nets/" + net.EntityData.SegmentPath
     net.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     net.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     net.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7564,6 +7764,7 @@ func (lspLifetimes *Isis_Instances_Instance_LspLifetimes) GetEntityData() *types
     lspLifetimes.EntityData.BundleName = "cisco_ios_xr"
     lspLifetimes.EntityData.ParentYangName = "instance"
     lspLifetimes.EntityData.SegmentPath = "lsp-lifetimes"
+    lspLifetimes.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/" + lspLifetimes.EntityData.SegmentPath
     lspLifetimes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lspLifetimes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspLifetimes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7585,6 +7786,7 @@ func (lspLifetimes *Isis_Instances_Instance_LspLifetimes) GetEntityData() *types
 type Isis_Instances_Instance_LspLifetimes_LspLifetime struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Level to which configuration applies. The type is
     // IsisInternalLevel.
@@ -7601,6 +7803,7 @@ func (lspLifetime *Isis_Instances_Instance_LspLifetimes_LspLifetime) GetEntityDa
     lspLifetime.EntityData.BundleName = "cisco_ios_xr"
     lspLifetime.EntityData.ParentYangName = "lsp-lifetimes"
     lspLifetime.EntityData.SegmentPath = "lsp-lifetime" + types.AddKeyToken(lspLifetime.Level, "level")
+    lspLifetime.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/lsp-lifetimes/" + lspLifetime.EntityData.SegmentPath
     lspLifetime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lspLifetime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspLifetime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7636,6 +7839,7 @@ func (overloadBits *Isis_Instances_Instance_OverloadBits) GetEntityData() *types
     overloadBits.EntityData.BundleName = "cisco_ios_xr"
     overloadBits.EntityData.ParentYangName = "instance"
     overloadBits.EntityData.SegmentPath = "overload-bits"
+    overloadBits.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/" + overloadBits.EntityData.SegmentPath
     overloadBits.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     overloadBits.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     overloadBits.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7664,6 +7868,7 @@ func (overloadBits *Isis_Instances_Instance_OverloadBits) GetEntityData() *types
 type Isis_Instances_Instance_OverloadBits_OverloadBit struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Level to which configuration applies. The type is
     // IsisInternalLevel.
@@ -7690,6 +7895,7 @@ func (overloadBit *Isis_Instances_Instance_OverloadBits_OverloadBit) GetEntityDa
     overloadBit.EntityData.BundleName = "cisco_ios_xr"
     overloadBit.EntityData.ParentYangName = "overload-bits"
     overloadBit.EntityData.SegmentPath = "overload-bit" + types.AddKeyToken(overloadBit.Level, "level")
+    overloadBit.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/overload-bits/" + overloadBit.EntityData.SegmentPath
     overloadBit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     overloadBit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     overloadBit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7724,6 +7930,7 @@ func (interfaces *Isis_Instances_Instance_Interfaces) GetEntityData() *types.Com
     interfaces.EntityData.BundleName = "cisco_ios_xr"
     interfaces.EntityData.ParentYangName = "instance"
     interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/" + interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7745,6 +7952,7 @@ func (interfaces *Isis_Instances_Instance_Interfaces) GetEntityData() *types.Com
 type Isis_Instances_Instance_Interfaces_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -7827,6 +8035,7 @@ func (self *Isis_Instances_Instance_Interfaces_Interface) GetEntityData() *types
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/interfaces/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7877,6 +8086,7 @@ func (intAffinityTable *Isis_Instances_Instance_Interfaces_Interface_IntAffinity
     intAffinityTable.EntityData.BundleName = "cisco_ios_xr"
     intAffinityTable.EntityData.ParentYangName = "interface"
     intAffinityTable.EntityData.SegmentPath = "int-affinity-table"
+    intAffinityTable.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/interfaces/interface/" + intAffinityTable.EntityData.SegmentPath
     intAffinityTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     intAffinityTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     intAffinityTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7907,6 +8117,7 @@ func (flexAlgos *Isis_Instances_Instance_Interfaces_Interface_IntAffinityTable_F
     flexAlgos.EntityData.BundleName = "cisco_ios_xr"
     flexAlgos.EntityData.ParentYangName = "int-affinity-table"
     flexAlgos.EntityData.SegmentPath = "flex-algos"
+    flexAlgos.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/interfaces/interface/int-affinity-table/" + flexAlgos.EntityData.SegmentPath
     flexAlgos.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     flexAlgos.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     flexAlgos.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7939,6 +8150,7 @@ func (lspRetransmitThrottleIntervals *Isis_Instances_Instance_Interfaces_Interfa
     lspRetransmitThrottleIntervals.EntityData.BundleName = "cisco_ios_xr"
     lspRetransmitThrottleIntervals.EntityData.ParentYangName = "interface"
     lspRetransmitThrottleIntervals.EntityData.SegmentPath = "lsp-retransmit-throttle-intervals"
+    lspRetransmitThrottleIntervals.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/interfaces/interface/" + lspRetransmitThrottleIntervals.EntityData.SegmentPath
     lspRetransmitThrottleIntervals.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lspRetransmitThrottleIntervals.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspRetransmitThrottleIntervals.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7961,6 +8173,7 @@ func (lspRetransmitThrottleIntervals *Isis_Instances_Instance_Interfaces_Interfa
 type Isis_Instances_Instance_Interfaces_Interface_LspRetransmitThrottleIntervals_LspRetransmitThrottleInterval struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Level to which configuration applies. The type is
     // IsisInternalLevel.
@@ -7977,6 +8190,7 @@ func (lspRetransmitThrottleInterval *Isis_Instances_Instance_Interfaces_Interfac
     lspRetransmitThrottleInterval.EntityData.BundleName = "cisco_ios_xr"
     lspRetransmitThrottleInterval.EntityData.ParentYangName = "lsp-retransmit-throttle-intervals"
     lspRetransmitThrottleInterval.EntityData.SegmentPath = "lsp-retransmit-throttle-interval" + types.AddKeyToken(lspRetransmitThrottleInterval.Level, "level")
+    lspRetransmitThrottleInterval.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/interfaces/interface/lsp-retransmit-throttle-intervals/" + lspRetransmitThrottleInterval.EntityData.SegmentPath
     lspRetransmitThrottleInterval.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lspRetransmitThrottleInterval.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspRetransmitThrottleInterval.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8008,6 +8222,7 @@ func (lspRetransmitIntervals *Isis_Instances_Instance_Interfaces_Interface_LspRe
     lspRetransmitIntervals.EntityData.BundleName = "cisco_ios_xr"
     lspRetransmitIntervals.EntityData.ParentYangName = "interface"
     lspRetransmitIntervals.EntityData.SegmentPath = "lsp-retransmit-intervals"
+    lspRetransmitIntervals.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/interfaces/interface/" + lspRetransmitIntervals.EntityData.SegmentPath
     lspRetransmitIntervals.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lspRetransmitIntervals.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspRetransmitIntervals.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8030,6 +8245,7 @@ func (lspRetransmitIntervals *Isis_Instances_Instance_Interfaces_Interface_LspRe
 type Isis_Instances_Instance_Interfaces_Interface_LspRetransmitIntervals_LspRetransmitInterval struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Level to which configuration applies. The type is
     // IsisInternalLevel.
@@ -8046,6 +8262,7 @@ func (lspRetransmitInterval *Isis_Instances_Instance_Interfaces_Interface_LspRet
     lspRetransmitInterval.EntityData.BundleName = "cisco_ios_xr"
     lspRetransmitInterval.EntityData.ParentYangName = "lsp-retransmit-intervals"
     lspRetransmitInterval.EntityData.SegmentPath = "lsp-retransmit-interval" + types.AddKeyToken(lspRetransmitInterval.Level, "level")
+    lspRetransmitInterval.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/interfaces/interface/lsp-retransmit-intervals/" + lspRetransmitInterval.EntityData.SegmentPath
     lspRetransmitInterval.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lspRetransmitInterval.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspRetransmitInterval.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8089,6 +8306,7 @@ func (bfd *Isis_Instances_Instance_Interfaces_Interface_Bfd) GetEntityData() *ty
     bfd.EntityData.BundleName = "cisco_ios_xr"
     bfd.EntityData.ParentYangName = "interface"
     bfd.EntityData.SegmentPath = "bfd"
+    bfd.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/interfaces/interface/" + bfd.EntityData.SegmentPath
     bfd.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bfd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bfd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8122,6 +8340,7 @@ func (priorities *Isis_Instances_Instance_Interfaces_Interface_Priorities) GetEn
     priorities.EntityData.BundleName = "cisco_ios_xr"
     priorities.EntityData.ParentYangName = "interface"
     priorities.EntityData.SegmentPath = "priorities"
+    priorities.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/interfaces/interface/" + priorities.EntityData.SegmentPath
     priorities.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     priorities.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     priorities.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8143,6 +8362,7 @@ func (priorities *Isis_Instances_Instance_Interfaces_Interface_Priorities) GetEn
 type Isis_Instances_Instance_Interfaces_Interface_Priorities_Priority struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Level to which configuration applies. The type is
     // IsisInternalLevel.
@@ -8159,6 +8379,7 @@ func (priority *Isis_Instances_Instance_Interfaces_Interface_Priorities_Priority
     priority.EntityData.BundleName = "cisco_ios_xr"
     priority.EntityData.ParentYangName = "priorities"
     priority.EntityData.SegmentPath = "priority" + types.AddKeyToken(priority.Level, "level")
+    priority.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/interfaces/interface/priorities/" + priority.EntityData.SegmentPath
     priority.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     priority.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     priority.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8191,6 +8412,7 @@ func (helloAcceptPasswords *Isis_Instances_Instance_Interfaces_Interface_HelloAc
     helloAcceptPasswords.EntityData.BundleName = "cisco_ios_xr"
     helloAcceptPasswords.EntityData.ParentYangName = "interface"
     helloAcceptPasswords.EntityData.SegmentPath = "hello-accept-passwords"
+    helloAcceptPasswords.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/interfaces/interface/" + helloAcceptPasswords.EntityData.SegmentPath
     helloAcceptPasswords.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     helloAcceptPasswords.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     helloAcceptPasswords.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8214,6 +8436,7 @@ func (helloAcceptPasswords *Isis_Instances_Instance_Interfaces_Interface_HelloAc
 type Isis_Instances_Instance_Interfaces_Interface_HelloAcceptPasswords_HelloAcceptPassword struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Level to which configuration applies. The type is
     // IsisInternalLevel.
@@ -8230,6 +8453,7 @@ func (helloAcceptPassword *Isis_Instances_Instance_Interfaces_Interface_HelloAcc
     helloAcceptPassword.EntityData.BundleName = "cisco_ios_xr"
     helloAcceptPassword.EntityData.ParentYangName = "hello-accept-passwords"
     helloAcceptPassword.EntityData.SegmentPath = "hello-accept-password" + types.AddKeyToken(helloAcceptPassword.Level, "level")
+    helloAcceptPassword.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/interfaces/interface/hello-accept-passwords/" + helloAcceptPassword.EntityData.SegmentPath
     helloAcceptPassword.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     helloAcceptPassword.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     helloAcceptPassword.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8262,6 +8486,7 @@ func (helloPasswords *Isis_Instances_Instance_Interfaces_Interface_HelloPassword
     helloPasswords.EntityData.BundleName = "cisco_ios_xr"
     helloPasswords.EntityData.ParentYangName = "interface"
     helloPasswords.EntityData.SegmentPath = "hello-passwords"
+    helloPasswords.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/interfaces/interface/" + helloPasswords.EntityData.SegmentPath
     helloPasswords.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     helloPasswords.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     helloPasswords.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8285,6 +8510,7 @@ func (helloPasswords *Isis_Instances_Instance_Interfaces_Interface_HelloPassword
 type Isis_Instances_Instance_Interfaces_Interface_HelloPasswords_HelloPassword struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Level to which configuration applies. The type is
     // IsisInternalLevel.
@@ -8309,6 +8535,7 @@ func (helloPassword *Isis_Instances_Instance_Interfaces_Interface_HelloPasswords
     helloPassword.EntityData.BundleName = "cisco_ios_xr"
     helloPassword.EntityData.ParentYangName = "hello-passwords"
     helloPassword.EntityData.SegmentPath = "hello-password" + types.AddKeyToken(helloPassword.Level, "level")
+    helloPassword.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/interfaces/interface/hello-passwords/" + helloPassword.EntityData.SegmentPath
     helloPassword.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     helloPassword.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     helloPassword.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8342,6 +8569,7 @@ func (helloPaddings *Isis_Instances_Instance_Interfaces_Interface_HelloPaddings)
     helloPaddings.EntityData.BundleName = "cisco_ios_xr"
     helloPaddings.EntityData.ParentYangName = "interface"
     helloPaddings.EntityData.SegmentPath = "hello-paddings"
+    helloPaddings.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/interfaces/interface/" + helloPaddings.EntityData.SegmentPath
     helloPaddings.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     helloPaddings.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     helloPaddings.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8363,6 +8591,7 @@ func (helloPaddings *Isis_Instances_Instance_Interfaces_Interface_HelloPaddings)
 type Isis_Instances_Instance_Interfaces_Interface_HelloPaddings_HelloPadding struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Level to which configuration applies. The type is
     // IsisInternalLevel.
@@ -8379,6 +8608,7 @@ func (helloPadding *Isis_Instances_Instance_Interfaces_Interface_HelloPaddings_H
     helloPadding.EntityData.BundleName = "cisco_ios_xr"
     helloPadding.EntityData.ParentYangName = "hello-paddings"
     helloPadding.EntityData.SegmentPath = "hello-padding" + types.AddKeyToken(helloPadding.Level, "level")
+    helloPadding.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/interfaces/interface/hello-paddings/" + helloPadding.EntityData.SegmentPath
     helloPadding.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     helloPadding.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     helloPadding.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8411,6 +8641,7 @@ func (helloMultipliers *Isis_Instances_Instance_Interfaces_Interface_HelloMultip
     helloMultipliers.EntityData.BundleName = "cisco_ios_xr"
     helloMultipliers.EntityData.ParentYangName = "interface"
     helloMultipliers.EntityData.SegmentPath = "hello-multipliers"
+    helloMultipliers.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/interfaces/interface/" + helloMultipliers.EntityData.SegmentPath
     helloMultipliers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     helloMultipliers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     helloMultipliers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8434,6 +8665,7 @@ func (helloMultipliers *Isis_Instances_Instance_Interfaces_Interface_HelloMultip
 type Isis_Instances_Instance_Interfaces_Interface_HelloMultipliers_HelloMultiplier struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Level to which configuration applies. The type is
     // IsisInternalLevel.
@@ -8450,6 +8682,7 @@ func (helloMultiplier *Isis_Instances_Instance_Interfaces_Interface_HelloMultipl
     helloMultiplier.EntityData.BundleName = "cisco_ios_xr"
     helloMultiplier.EntityData.ParentYangName = "hello-multipliers"
     helloMultiplier.EntityData.SegmentPath = "hello-multiplier" + types.AddKeyToken(helloMultiplier.Level, "level")
+    helloMultiplier.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/interfaces/interface/hello-multipliers/" + helloMultiplier.EntityData.SegmentPath
     helloMultiplier.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     helloMultiplier.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     helloMultiplier.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8481,6 +8714,7 @@ func (lspFastFloodThresholds *Isis_Instances_Instance_Interfaces_Interface_LspFa
     lspFastFloodThresholds.EntityData.BundleName = "cisco_ios_xr"
     lspFastFloodThresholds.EntityData.ParentYangName = "interface"
     lspFastFloodThresholds.EntityData.SegmentPath = "lsp-fast-flood-thresholds"
+    lspFastFloodThresholds.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/interfaces/interface/" + lspFastFloodThresholds.EntityData.SegmentPath
     lspFastFloodThresholds.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lspFastFloodThresholds.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspFastFloodThresholds.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8503,6 +8737,7 @@ func (lspFastFloodThresholds *Isis_Instances_Instance_Interfaces_Interface_LspFa
 type Isis_Instances_Instance_Interfaces_Interface_LspFastFloodThresholds_LspFastFloodThreshold struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Level to which configuration applies. The type is
     // IsisInternalLevel.
@@ -8519,6 +8754,7 @@ func (lspFastFloodThreshold *Isis_Instances_Instance_Interfaces_Interface_LspFas
     lspFastFloodThreshold.EntityData.BundleName = "cisco_ios_xr"
     lspFastFloodThreshold.EntityData.ParentYangName = "lsp-fast-flood-thresholds"
     lspFastFloodThreshold.EntityData.SegmentPath = "lsp-fast-flood-threshold" + types.AddKeyToken(lspFastFloodThreshold.Level, "level")
+    lspFastFloodThreshold.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/interfaces/interface/lsp-fast-flood-thresholds/" + lspFastFloodThreshold.EntityData.SegmentPath
     lspFastFloodThreshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lspFastFloodThreshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspFastFloodThreshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8550,6 +8786,7 @@ func (prefixAttributeNFlagClears *Isis_Instances_Instance_Interfaces_Interface_P
     prefixAttributeNFlagClears.EntityData.BundleName = "cisco_ios_xr"
     prefixAttributeNFlagClears.EntityData.ParentYangName = "interface"
     prefixAttributeNFlagClears.EntityData.SegmentPath = "prefix-attribute-n-flag-clears"
+    prefixAttributeNFlagClears.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/interfaces/interface/" + prefixAttributeNFlagClears.EntityData.SegmentPath
     prefixAttributeNFlagClears.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefixAttributeNFlagClears.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefixAttributeNFlagClears.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8572,6 +8809,7 @@ func (prefixAttributeNFlagClears *Isis_Instances_Instance_Interfaces_Interface_P
 type Isis_Instances_Instance_Interfaces_Interface_PrefixAttributeNFlagClears_PrefixAttributeNFlagClear struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Level to which configuration applies. The type is
     // IsisInternalLevel.
@@ -8584,6 +8822,7 @@ func (prefixAttributeNFlagClear *Isis_Instances_Instance_Interfaces_Interface_Pr
     prefixAttributeNFlagClear.EntityData.BundleName = "cisco_ios_xr"
     prefixAttributeNFlagClear.EntityData.ParentYangName = "prefix-attribute-n-flag-clears"
     prefixAttributeNFlagClear.EntityData.SegmentPath = "prefix-attribute-n-flag-clear" + types.AddKeyToken(prefixAttributeNFlagClear.Level, "level")
+    prefixAttributeNFlagClear.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/interfaces/interface/prefix-attribute-n-flag-clears/" + prefixAttributeNFlagClear.EntityData.SegmentPath
     prefixAttributeNFlagClear.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefixAttributeNFlagClear.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefixAttributeNFlagClear.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8616,6 +8855,7 @@ func (helloIntervals *Isis_Instances_Instance_Interfaces_Interface_HelloInterval
     helloIntervals.EntityData.BundleName = "cisco_ios_xr"
     helloIntervals.EntityData.ParentYangName = "interface"
     helloIntervals.EntityData.SegmentPath = "hello-intervals"
+    helloIntervals.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/interfaces/interface/" + helloIntervals.EntityData.SegmentPath
     helloIntervals.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     helloIntervals.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     helloIntervals.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8640,6 +8880,7 @@ func (helloIntervals *Isis_Instances_Instance_Interfaces_Interface_HelloInterval
 type Isis_Instances_Instance_Interfaces_Interface_HelloIntervals_HelloInterval struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Level to which configuration applies. The type is
     // IsisInternalLevel.
@@ -8656,6 +8897,7 @@ func (helloInterval *Isis_Instances_Instance_Interfaces_Interface_HelloIntervals
     helloInterval.EntityData.BundleName = "cisco_ios_xr"
     helloInterval.EntityData.ParentYangName = "hello-intervals"
     helloInterval.EntityData.SegmentPath = "hello-interval" + types.AddKeyToken(helloInterval.Level, "level")
+    helloInterval.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/interfaces/interface/hello-intervals/" + helloInterval.EntityData.SegmentPath
     helloInterval.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     helloInterval.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     helloInterval.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8690,6 +8932,7 @@ func (interfaceAfs *Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs) G
     interfaceAfs.EntityData.BundleName = "cisco_ios_xr"
     interfaceAfs.EntityData.ParentYangName = "interface"
     interfaceAfs.EntityData.SegmentPath = "interface-afs"
+    interfaceAfs.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/interfaces/interface/" + interfaceAfs.EntityData.SegmentPath
     interfaceAfs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceAfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceAfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8716,6 +8959,7 @@ func (interfaceAfs *Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs) G
 type Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_InterfaceAf struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Address family. The type is IsisAddressFamily.
     AfName interface{}
@@ -8738,6 +8982,7 @@ func (interfaceAf *Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_Int
     interfaceAf.EntityData.BundleName = "cisco_ios_xr"
     interfaceAf.EntityData.ParentYangName = "interface-afs"
     interfaceAf.EntityData.SegmentPath = "interface-af" + types.AddKeyToken(interfaceAf.AfName, "af-name") + types.AddKeyToken(interfaceAf.SafName, "saf-name")
+    interfaceAf.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/interfaces/interface/interface-afs/" + interfaceAf.EntityData.SegmentPath
     interfaceAf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceAf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceAf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8814,6 +9059,7 @@ func (interfaceAfData *Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs
     interfaceAfData.EntityData.BundleName = "cisco_ios_xr"
     interfaceAfData.EntityData.ParentYangName = "interface-af"
     interfaceAfData.EntityData.SegmentPath = "interface-af-data"
+    interfaceAfData.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/interfaces/interface/interface-afs/interface-af/" + interfaceAfData.EntityData.SegmentPath
     interfaceAfData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceAfData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceAfData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8877,6 +9123,7 @@ func (prefixSid *Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_Inter
     prefixSid.EntityData.BundleName = "cisco_ios_xr"
     prefixSid.EntityData.ParentYangName = "interface-af-data"
     prefixSid.EntityData.SegmentPath = "prefix-sid"
+    prefixSid.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/interfaces/interface/interface-afs/interface-af/interface-af-data/" + prefixSid.EntityData.SegmentPath
     prefixSid.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefixSid.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefixSid.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8931,6 +9178,7 @@ func (interfaceFrrTable *Isis_Instances_Instance_Interfaces_Interface_InterfaceA
     interfaceFrrTable.EntityData.BundleName = "cisco_ios_xr"
     interfaceFrrTable.EntityData.ParentYangName = "interface-af-data"
     interfaceFrrTable.EntityData.SegmentPath = "interface-frr-table"
+    interfaceFrrTable.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/interfaces/interface/interface-afs/interface-af/interface-af-data/" + interfaceFrrTable.EntityData.SegmentPath
     interfaceFrrTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceFrrTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceFrrTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8968,6 +9216,7 @@ func (frrlfaCandidateInterfaces *Isis_Instances_Instance_Interfaces_Interface_In
     frrlfaCandidateInterfaces.EntityData.BundleName = "cisco_ios_xr"
     frrlfaCandidateInterfaces.EntityData.ParentYangName = "interface-frr-table"
     frrlfaCandidateInterfaces.EntityData.SegmentPath = "frrlfa-candidate-interfaces"
+    frrlfaCandidateInterfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/interfaces/interface/interface-afs/interface-af/interface-af-data/interface-frr-table/" + frrlfaCandidateInterfaces.EntityData.SegmentPath
     frrlfaCandidateInterfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     frrlfaCandidateInterfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     frrlfaCandidateInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8990,6 +9239,7 @@ func (frrlfaCandidateInterfaces *Isis_Instances_Instance_Interfaces_Interface_In
 type Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_InterfaceAf_InterfaceAfData_InterfaceFrrTable_FrrlfaCandidateInterfaces_FrrlfaCandidateInterface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -9009,6 +9259,7 @@ func (frrlfaCandidateInterface *Isis_Instances_Instance_Interfaces_Interface_Int
     frrlfaCandidateInterface.EntityData.BundleName = "cisco_ios_xr"
     frrlfaCandidateInterface.EntityData.ParentYangName = "frrlfa-candidate-interfaces"
     frrlfaCandidateInterface.EntityData.SegmentPath = "frrlfa-candidate-interface" + types.AddKeyToken(frrlfaCandidateInterface.InterfaceName, "interface-name") + types.AddKeyToken(frrlfaCandidateInterface.FrrType, "frr-type")
+    frrlfaCandidateInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/interfaces/interface/interface-afs/interface-af/interface-af-data/interface-frr-table/frrlfa-candidate-interfaces/" + frrlfaCandidateInterface.EntityData.SegmentPath
     frrlfaCandidateInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     frrlfaCandidateInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     frrlfaCandidateInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9042,6 +9293,7 @@ func (frrRemoteLfaMaxMetrics *Isis_Instances_Instance_Interfaces_Interface_Inter
     frrRemoteLfaMaxMetrics.EntityData.BundleName = "cisco_ios_xr"
     frrRemoteLfaMaxMetrics.EntityData.ParentYangName = "interface-frr-table"
     frrRemoteLfaMaxMetrics.EntityData.SegmentPath = "frr-remote-lfa-max-metrics"
+    frrRemoteLfaMaxMetrics.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/interfaces/interface/interface-afs/interface-af/interface-af-data/interface-frr-table/" + frrRemoteLfaMaxMetrics.EntityData.SegmentPath
     frrRemoteLfaMaxMetrics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     frrRemoteLfaMaxMetrics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     frrRemoteLfaMaxMetrics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9064,6 +9316,7 @@ func (frrRemoteLfaMaxMetrics *Isis_Instances_Instance_Interfaces_Interface_Inter
 type Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_InterfaceAf_InterfaceAfData_InterfaceFrrTable_FrrRemoteLfaMaxMetrics_FrrRemoteLfaMaxMetric struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Level to which configuration applies. The type is
     // IsisInternalLevel.
@@ -9080,6 +9333,7 @@ func (frrRemoteLfaMaxMetric *Isis_Instances_Instance_Interfaces_Interface_Interf
     frrRemoteLfaMaxMetric.EntityData.BundleName = "cisco_ios_xr"
     frrRemoteLfaMaxMetric.EntityData.ParentYangName = "frr-remote-lfa-max-metrics"
     frrRemoteLfaMaxMetric.EntityData.SegmentPath = "frr-remote-lfa-max-metric" + types.AddKeyToken(frrRemoteLfaMaxMetric.Level, "level")
+    frrRemoteLfaMaxMetric.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/interfaces/interface/interface-afs/interface-af/interface-af-data/interface-frr-table/frr-remote-lfa-max-metrics/" + frrRemoteLfaMaxMetric.EntityData.SegmentPath
     frrRemoteLfaMaxMetric.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     frrRemoteLfaMaxMetric.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     frrRemoteLfaMaxMetric.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9112,6 +9366,7 @@ func (frrTypes *Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_Interf
     frrTypes.EntityData.BundleName = "cisco_ios_xr"
     frrTypes.EntityData.ParentYangName = "interface-frr-table"
     frrTypes.EntityData.SegmentPath = "frr-types"
+    frrTypes.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/interfaces/interface/interface-afs/interface-af/interface-af-data/interface-frr-table/" + frrTypes.EntityData.SegmentPath
     frrTypes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     frrTypes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     frrTypes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9134,6 +9389,7 @@ func (frrTypes *Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_Interf
 type Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_InterfaceAf_InterfaceAfData_InterfaceFrrTable_FrrTypes_FrrType struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Level to which configuration applies. The type is
     // IsisInternalLevel.
@@ -9149,6 +9405,7 @@ func (frrType *Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_Interfa
     frrType.EntityData.BundleName = "cisco_ios_xr"
     frrType.EntityData.ParentYangName = "frr-types"
     frrType.EntityData.SegmentPath = "frr-type" + types.AddKeyToken(frrType.Level, "level")
+    frrType.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/interfaces/interface/interface-afs/interface-af/interface-af-data/interface-frr-table/frr-types/" + frrType.EntityData.SegmentPath
     frrType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     frrType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     frrType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9180,6 +9437,7 @@ func (frrRemoteLfaTypes *Isis_Instances_Instance_Interfaces_Interface_InterfaceA
     frrRemoteLfaTypes.EntityData.BundleName = "cisco_ios_xr"
     frrRemoteLfaTypes.EntityData.ParentYangName = "interface-frr-table"
     frrRemoteLfaTypes.EntityData.SegmentPath = "frr-remote-lfa-types"
+    frrRemoteLfaTypes.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/interfaces/interface/interface-afs/interface-af/interface-af-data/interface-frr-table/" + frrRemoteLfaTypes.EntityData.SegmentPath
     frrRemoteLfaTypes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     frrRemoteLfaTypes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     frrRemoteLfaTypes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9202,6 +9460,7 @@ func (frrRemoteLfaTypes *Isis_Instances_Instance_Interfaces_Interface_InterfaceA
 type Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_InterfaceAf_InterfaceAfData_InterfaceFrrTable_FrrRemoteLfaTypes_FrrRemoteLfaType struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Level to which configuration applies. The type is
     // IsisInternalLevel.
@@ -9217,6 +9476,7 @@ func (frrRemoteLfaType *Isis_Instances_Instance_Interfaces_Interface_InterfaceAf
     frrRemoteLfaType.EntityData.BundleName = "cisco_ios_xr"
     frrRemoteLfaType.EntityData.ParentYangName = "frr-remote-lfa-types"
     frrRemoteLfaType.EntityData.SegmentPath = "frr-remote-lfa-type" + types.AddKeyToken(frrRemoteLfaType.Level, "level")
+    frrRemoteLfaType.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/interfaces/interface/interface-afs/interface-af/interface-af-data/interface-frr-table/frr-remote-lfa-types/" + frrRemoteLfaType.EntityData.SegmentPath
     frrRemoteLfaType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     frrRemoteLfaType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     frrRemoteLfaType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9249,6 +9509,7 @@ func (interfaceFrrTiebreakerDefaults *Isis_Instances_Instance_Interfaces_Interfa
     interfaceFrrTiebreakerDefaults.EntityData.BundleName = "cisco_ios_xr"
     interfaceFrrTiebreakerDefaults.EntityData.ParentYangName = "interface-frr-table"
     interfaceFrrTiebreakerDefaults.EntityData.SegmentPath = "interface-frr-tiebreaker-defaults"
+    interfaceFrrTiebreakerDefaults.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/interfaces/interface/interface-afs/interface-af/interface-af-data/interface-frr-table/" + interfaceFrrTiebreakerDefaults.EntityData.SegmentPath
     interfaceFrrTiebreakerDefaults.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceFrrTiebreakerDefaults.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceFrrTiebreakerDefaults.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9270,6 +9531,7 @@ func (interfaceFrrTiebreakerDefaults *Isis_Instances_Instance_Interfaces_Interfa
 type Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_InterfaceAf_InterfaceAfData_InterfaceFrrTable_InterfaceFrrTiebreakerDefaults_InterfaceFrrTiebreakerDefault struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Level to which configuration applies. The type is
     // IsisInternalLevel.
@@ -9282,6 +9544,7 @@ func (interfaceFrrTiebreakerDefault *Isis_Instances_Instance_Interfaces_Interfac
     interfaceFrrTiebreakerDefault.EntityData.BundleName = "cisco_ios_xr"
     interfaceFrrTiebreakerDefault.EntityData.ParentYangName = "interface-frr-tiebreaker-defaults"
     interfaceFrrTiebreakerDefault.EntityData.SegmentPath = "interface-frr-tiebreaker-default" + types.AddKeyToken(interfaceFrrTiebreakerDefault.Level, "level")
+    interfaceFrrTiebreakerDefault.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/interfaces/interface/interface-afs/interface-af/interface-af-data/interface-frr-table/interface-frr-tiebreaker-defaults/" + interfaceFrrTiebreakerDefault.EntityData.SegmentPath
     interfaceFrrTiebreakerDefault.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceFrrTiebreakerDefault.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceFrrTiebreakerDefault.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9312,6 +9575,7 @@ func (frrtilfaTypes *Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_I
     frrtilfaTypes.EntityData.BundleName = "cisco_ios_xr"
     frrtilfaTypes.EntityData.ParentYangName = "interface-frr-table"
     frrtilfaTypes.EntityData.SegmentPath = "frrtilfa-types"
+    frrtilfaTypes.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/interfaces/interface/interface-afs/interface-af/interface-af-data/interface-frr-table/" + frrtilfaTypes.EntityData.SegmentPath
     frrtilfaTypes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     frrtilfaTypes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     frrtilfaTypes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9333,6 +9597,7 @@ func (frrtilfaTypes *Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_I
 type Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_InterfaceAf_InterfaceAfData_InterfaceFrrTable_FrrtilfaTypes_FrrtilfaType struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Level to which configuration applies. The type is
     // IsisInternalLevel.
@@ -9345,6 +9610,7 @@ func (frrtilfaType *Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_In
     frrtilfaType.EntityData.BundleName = "cisco_ios_xr"
     frrtilfaType.EntityData.ParentYangName = "frrtilfa-types"
     frrtilfaType.EntityData.SegmentPath = "frrtilfa-type" + types.AddKeyToken(frrtilfaType.Level, "level")
+    frrtilfaType.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/interfaces/interface/interface-afs/interface-af/interface-af-data/interface-frr-table/frrtilfa-types/" + frrtilfaType.EntityData.SegmentPath
     frrtilfaType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     frrtilfaType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     frrtilfaType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9375,6 +9641,7 @@ func (frrExcludeInterfaces *Isis_Instances_Instance_Interfaces_Interface_Interfa
     frrExcludeInterfaces.EntityData.BundleName = "cisco_ios_xr"
     frrExcludeInterfaces.EntityData.ParentYangName = "interface-frr-table"
     frrExcludeInterfaces.EntityData.SegmentPath = "frr-exclude-interfaces"
+    frrExcludeInterfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/interfaces/interface/interface-afs/interface-af/interface-af-data/interface-frr-table/" + frrExcludeInterfaces.EntityData.SegmentPath
     frrExcludeInterfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     frrExcludeInterfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     frrExcludeInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9396,6 +9663,7 @@ func (frrExcludeInterfaces *Isis_Instances_Instance_Interfaces_Interface_Interfa
 type Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_InterfaceAf_InterfaceAfData_InterfaceFrrTable_FrrExcludeInterfaces_FrrExcludeInterface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -9415,6 +9683,7 @@ func (frrExcludeInterface *Isis_Instances_Instance_Interfaces_Interface_Interfac
     frrExcludeInterface.EntityData.BundleName = "cisco_ios_xr"
     frrExcludeInterface.EntityData.ParentYangName = "frr-exclude-interfaces"
     frrExcludeInterface.EntityData.SegmentPath = "frr-exclude-interface" + types.AddKeyToken(frrExcludeInterface.InterfaceName, "interface-name") + types.AddKeyToken(frrExcludeInterface.FrrType, "frr-type")
+    frrExcludeInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/interfaces/interface/interface-afs/interface-af/interface-af-data/interface-frr-table/frr-exclude-interfaces/" + frrExcludeInterface.EntityData.SegmentPath
     frrExcludeInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     frrExcludeInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     frrExcludeInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9447,6 +9716,7 @@ func (interfaceFrrTiebreakers *Isis_Instances_Instance_Interfaces_Interface_Inte
     interfaceFrrTiebreakers.EntityData.BundleName = "cisco_ios_xr"
     interfaceFrrTiebreakers.EntityData.ParentYangName = "interface-frr-table"
     interfaceFrrTiebreakers.EntityData.SegmentPath = "interface-frr-tiebreakers"
+    interfaceFrrTiebreakers.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/interfaces/interface/interface-afs/interface-af/interface-af-data/interface-frr-table/" + interfaceFrrTiebreakers.EntityData.SegmentPath
     interfaceFrrTiebreakers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceFrrTiebreakers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceFrrTiebreakers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9469,6 +9739,7 @@ func (interfaceFrrTiebreakers *Isis_Instances_Instance_Interfaces_Interface_Inte
 type Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_InterfaceAf_InterfaceAfData_InterfaceFrrTable_InterfaceFrrTiebreakers_InterfaceFrrTiebreaker struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Level to which configuration applies. The type is
     // IsisInternalLevel.
@@ -9489,6 +9760,7 @@ func (interfaceFrrTiebreaker *Isis_Instances_Instance_Interfaces_Interface_Inter
     interfaceFrrTiebreaker.EntityData.BundleName = "cisco_ios_xr"
     interfaceFrrTiebreaker.EntityData.ParentYangName = "interface-frr-tiebreakers"
     interfaceFrrTiebreaker.EntityData.SegmentPath = "interface-frr-tiebreaker" + types.AddKeyToken(interfaceFrrTiebreaker.Level, "level") + types.AddKeyToken(interfaceFrrTiebreaker.Tiebreaker, "tiebreaker")
+    interfaceFrrTiebreaker.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/interfaces/interface/interface-afs/interface-af/interface-af-data/interface-frr-table/interface-frr-tiebreakers/" + interfaceFrrTiebreaker.EntityData.SegmentPath
     interfaceFrrTiebreaker.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceFrrTiebreaker.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceFrrTiebreaker.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9521,6 +9793,7 @@ func (mplsLdp *Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_Interfa
     mplsLdp.EntityData.BundleName = "cisco_ios_xr"
     mplsLdp.EntityData.ParentYangName = "interface-af-data"
     mplsLdp.EntityData.SegmentPath = "mpls-ldp"
+    mplsLdp.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/interfaces/interface/interface-afs/interface-af/interface-af-data/" + mplsLdp.EntityData.SegmentPath
     mplsLdp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mplsLdp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mplsLdp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9572,6 +9845,7 @@ func (prefixSspfsid *Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_I
     prefixSspfsid.EntityData.BundleName = "cisco_ios_xr"
     prefixSspfsid.EntityData.ParentYangName = "interface-af-data"
     prefixSspfsid.EntityData.SegmentPath = "prefix-sspfsid"
+    prefixSspfsid.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/interfaces/interface/interface-afs/interface-af/interface-af-data/" + prefixSspfsid.EntityData.SegmentPath
     prefixSspfsid.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefixSspfsid.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefixSspfsid.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9608,6 +9882,7 @@ func (algorithmPrefixSids *Isis_Instances_Instance_Interfaces_Interface_Interfac
     algorithmPrefixSids.EntityData.BundleName = "cisco_ios_xr"
     algorithmPrefixSids.EntityData.ParentYangName = "interface-af-data"
     algorithmPrefixSids.EntityData.SegmentPath = "algorithm-prefix-sids"
+    algorithmPrefixSids.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/interfaces/interface/interface-afs/interface-af/interface-af-data/" + algorithmPrefixSids.EntityData.SegmentPath
     algorithmPrefixSids.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     algorithmPrefixSids.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     algorithmPrefixSids.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9632,6 +9907,7 @@ func (algorithmPrefixSids *Isis_Instances_Instance_Interfaces_Interface_Interfac
 type Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_InterfaceAf_InterfaceAfData_AlgorithmPrefixSids_AlgorithmPrefixSid struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Algorithm. The type is interface{} with range:
     // 128..255.
@@ -9664,6 +9940,7 @@ func (algorithmPrefixSid *Isis_Instances_Instance_Interfaces_Interface_Interface
     algorithmPrefixSid.EntityData.BundleName = "cisco_ios_xr"
     algorithmPrefixSid.EntityData.ParentYangName = "algorithm-prefix-sids"
     algorithmPrefixSid.EntityData.SegmentPath = "algorithm-prefix-sid" + types.AddKeyToken(algorithmPrefixSid.Algo, "algo")
+    algorithmPrefixSid.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/interfaces/interface/interface-afs/interface-af/interface-af-data/algorithm-prefix-sids/" + algorithmPrefixSid.EntityData.SegmentPath
     algorithmPrefixSid.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     algorithmPrefixSid.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     algorithmPrefixSid.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9703,6 +9980,7 @@ func (autoMetrics *Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_Int
     autoMetrics.EntityData.BundleName = "cisco_ios_xr"
     autoMetrics.EntityData.ParentYangName = "interface-af-data"
     autoMetrics.EntityData.SegmentPath = "auto-metrics"
+    autoMetrics.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/interfaces/interface/interface-afs/interface-af/interface-af-data/" + autoMetrics.EntityData.SegmentPath
     autoMetrics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     autoMetrics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     autoMetrics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9732,6 +10010,7 @@ func (autoMetrics *Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_Int
 type Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_InterfaceAf_InterfaceAfData_AutoMetrics_AutoMetric struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Level to which configuration applies. The type is
     // IsisInternalLevel.
@@ -9748,6 +10027,7 @@ func (autoMetric *Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_Inte
     autoMetric.EntityData.BundleName = "cisco_ios_xr"
     autoMetric.EntityData.ParentYangName = "auto-metrics"
     autoMetric.EntityData.SegmentPath = "auto-metric" + types.AddKeyToken(autoMetric.Level, "level")
+    autoMetric.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/interfaces/interface/interface-afs/interface-af/interface-af-data/auto-metrics/" + autoMetric.EntityData.SegmentPath
     autoMetric.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     autoMetric.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     autoMetric.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9779,6 +10059,7 @@ func (adminTags *Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_Inter
     adminTags.EntityData.BundleName = "cisco_ios_xr"
     adminTags.EntityData.ParentYangName = "interface-af-data"
     adminTags.EntityData.SegmentPath = "admin-tags"
+    adminTags.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/interfaces/interface/interface-afs/interface-af/interface-af-data/" + adminTags.EntityData.SegmentPath
     adminTags.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     adminTags.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     adminTags.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9801,6 +10082,7 @@ func (adminTags *Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_Inter
 type Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_InterfaceAf_InterfaceAfData_AdminTags_AdminTag struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Level to which configuration applies. The type is
     // IsisInternalLevel.
@@ -9817,6 +10099,7 @@ func (adminTag *Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_Interf
     adminTag.EntityData.BundleName = "cisco_ios_xr"
     adminTag.EntityData.ParentYangName = "admin-tags"
     adminTag.EntityData.SegmentPath = "admin-tag" + types.AddKeyToken(adminTag.Level, "level")
+    adminTag.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/interfaces/interface/interface-afs/interface-af/interface-af-data/admin-tags/" + adminTag.EntityData.SegmentPath
     adminTag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     adminTag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     adminTag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9854,6 +10137,7 @@ func (interfaceLinkGroup *Isis_Instances_Instance_Interfaces_Interface_Interface
     interfaceLinkGroup.EntityData.BundleName = "cisco_ios_xr"
     interfaceLinkGroup.EntityData.ParentYangName = "interface-af-data"
     interfaceLinkGroup.EntityData.SegmentPath = "interface-link-group"
+    interfaceLinkGroup.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/interfaces/interface/interface-afs/interface-af/interface-af-data/" + interfaceLinkGroup.EntityData.SegmentPath
     interfaceLinkGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceLinkGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceLinkGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9885,6 +10169,7 @@ func (manualAdjSids *Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_I
     manualAdjSids.EntityData.BundleName = "cisco_ios_xr"
     manualAdjSids.EntityData.ParentYangName = "interface-af-data"
     manualAdjSids.EntityData.SegmentPath = "manual-adj-sids"
+    manualAdjSids.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/interfaces/interface/interface-afs/interface-af/interface-af-data/" + manualAdjSids.EntityData.SegmentPath
     manualAdjSids.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     manualAdjSids.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     manualAdjSids.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9906,6 +10191,7 @@ func (manualAdjSids *Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_I
 type Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_InterfaceAf_InterfaceAfData_ManualAdjSids_ManualAdjSid struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Level to which configuration applies. The type is
     // IsisInternalLevel.
@@ -9929,6 +10215,7 @@ func (manualAdjSid *Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_In
     manualAdjSid.EntityData.BundleName = "cisco_ios_xr"
     manualAdjSid.EntityData.ParentYangName = "manual-adj-sids"
     manualAdjSid.EntityData.SegmentPath = "manual-adj-sid" + types.AddKeyToken(manualAdjSid.Level, "level") + types.AddKeyToken(manualAdjSid.SidType, "sid-type") + types.AddKeyToken(manualAdjSid.Sid, "sid")
+    manualAdjSid.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/interfaces/interface/interface-afs/interface-af/interface-af-data/manual-adj-sids/" + manualAdjSid.EntityData.SegmentPath
     manualAdjSid.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     manualAdjSid.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     manualAdjSid.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9967,6 +10254,7 @@ func (metrics *Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_Interfa
     metrics.EntityData.BundleName = "cisco_ios_xr"
     metrics.EntityData.ParentYangName = "interface-af-data"
     metrics.EntityData.SegmentPath = "metrics"
+    metrics.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/interfaces/interface/interface-afs/interface-af/interface-af-data/" + metrics.EntityData.SegmentPath
     metrics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     metrics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     metrics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9995,6 +10283,7 @@ func (metrics *Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_Interfa
 type Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_InterfaceAf_InterfaceAfData_Metrics_Metric struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Level to which configuration applies. The type is
     // IsisInternalLevel.
@@ -10014,6 +10303,7 @@ func (metric *Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_Interfac
     metric.EntityData.BundleName = "cisco_ios_xr"
     metric.EntityData.ParentYangName = "metrics"
     metric.EntityData.SegmentPath = "metric" + types.AddKeyToken(metric.Level, "level")
+    metric.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/interfaces/interface/interface-afs/interface-af/interface-af-data/metrics/" + metric.EntityData.SegmentPath
     metric.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     metric.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     metric.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10055,6 +10345,7 @@ func (weights *Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_Interfa
     weights.EntityData.BundleName = "cisco_ios_xr"
     weights.EntityData.ParentYangName = "interface-af-data"
     weights.EntityData.SegmentPath = "weights"
+    weights.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/interfaces/interface/interface-afs/interface-af/interface-af-data/" + weights.EntityData.SegmentPath
     weights.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     weights.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     weights.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10077,6 +10368,7 @@ func (weights *Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_Interfa
 type Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_InterfaceAf_InterfaceAfData_Weights_Weight struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Level to which configuration applies. The type is
     // IsisInternalLevel.
@@ -10094,6 +10386,7 @@ func (weight *Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_Interfac
     weight.EntityData.BundleName = "cisco_ios_xr"
     weight.EntityData.ParentYangName = "weights"
     weight.EntityData.SegmentPath = "weight" + types.AddKeyToken(weight.Level, "level")
+    weight.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/interfaces/interface/interface-afs/interface-af/interface-af-data/weights/" + weight.EntityData.SegmentPath
     weight.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     weight.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     weight.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10113,6 +10406,7 @@ func (weight *Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_Interfac
 type Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_InterfaceAf_TopologyName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Topology Name. The type is string with length:
     // 1..32.
@@ -10169,6 +10463,7 @@ func (topologyName *Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_In
     topologyName.EntityData.BundleName = "cisco_ios_xr"
     topologyName.EntityData.ParentYangName = "interface-af"
     topologyName.EntityData.SegmentPath = "topology-name" + types.AddKeyToken(topologyName.TopologyName, "topology-name")
+    topologyName.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/interfaces/interface/interface-afs/interface-af/" + topologyName.EntityData.SegmentPath
     topologyName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     topologyName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     topologyName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10233,6 +10528,7 @@ func (prefixSid *Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_Inter
     prefixSid.EntityData.BundleName = "cisco_ios_xr"
     prefixSid.EntityData.ParentYangName = "topology-name"
     prefixSid.EntityData.SegmentPath = "prefix-sid"
+    prefixSid.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/interfaces/interface/interface-afs/interface-af/topology-name/" + prefixSid.EntityData.SegmentPath
     prefixSid.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefixSid.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefixSid.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10287,6 +10583,7 @@ func (interfaceFrrTable *Isis_Instances_Instance_Interfaces_Interface_InterfaceA
     interfaceFrrTable.EntityData.BundleName = "cisco_ios_xr"
     interfaceFrrTable.EntityData.ParentYangName = "topology-name"
     interfaceFrrTable.EntityData.SegmentPath = "interface-frr-table"
+    interfaceFrrTable.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/interfaces/interface/interface-afs/interface-af/topology-name/" + interfaceFrrTable.EntityData.SegmentPath
     interfaceFrrTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceFrrTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceFrrTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10324,6 +10621,7 @@ func (frrlfaCandidateInterfaces *Isis_Instances_Instance_Interfaces_Interface_In
     frrlfaCandidateInterfaces.EntityData.BundleName = "cisco_ios_xr"
     frrlfaCandidateInterfaces.EntityData.ParentYangName = "interface-frr-table"
     frrlfaCandidateInterfaces.EntityData.SegmentPath = "frrlfa-candidate-interfaces"
+    frrlfaCandidateInterfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/interfaces/interface/interface-afs/interface-af/topology-name/interface-frr-table/" + frrlfaCandidateInterfaces.EntityData.SegmentPath
     frrlfaCandidateInterfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     frrlfaCandidateInterfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     frrlfaCandidateInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10346,6 +10644,7 @@ func (frrlfaCandidateInterfaces *Isis_Instances_Instance_Interfaces_Interface_In
 type Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_InterfaceAf_TopologyName_InterfaceFrrTable_FrrlfaCandidateInterfaces_FrrlfaCandidateInterface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -10365,6 +10664,7 @@ func (frrlfaCandidateInterface *Isis_Instances_Instance_Interfaces_Interface_Int
     frrlfaCandidateInterface.EntityData.BundleName = "cisco_ios_xr"
     frrlfaCandidateInterface.EntityData.ParentYangName = "frrlfa-candidate-interfaces"
     frrlfaCandidateInterface.EntityData.SegmentPath = "frrlfa-candidate-interface" + types.AddKeyToken(frrlfaCandidateInterface.InterfaceName, "interface-name") + types.AddKeyToken(frrlfaCandidateInterface.FrrType, "frr-type")
+    frrlfaCandidateInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/interfaces/interface/interface-afs/interface-af/topology-name/interface-frr-table/frrlfa-candidate-interfaces/" + frrlfaCandidateInterface.EntityData.SegmentPath
     frrlfaCandidateInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     frrlfaCandidateInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     frrlfaCandidateInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10398,6 +10698,7 @@ func (frrRemoteLfaMaxMetrics *Isis_Instances_Instance_Interfaces_Interface_Inter
     frrRemoteLfaMaxMetrics.EntityData.BundleName = "cisco_ios_xr"
     frrRemoteLfaMaxMetrics.EntityData.ParentYangName = "interface-frr-table"
     frrRemoteLfaMaxMetrics.EntityData.SegmentPath = "frr-remote-lfa-max-metrics"
+    frrRemoteLfaMaxMetrics.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/interfaces/interface/interface-afs/interface-af/topology-name/interface-frr-table/" + frrRemoteLfaMaxMetrics.EntityData.SegmentPath
     frrRemoteLfaMaxMetrics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     frrRemoteLfaMaxMetrics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     frrRemoteLfaMaxMetrics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10420,6 +10721,7 @@ func (frrRemoteLfaMaxMetrics *Isis_Instances_Instance_Interfaces_Interface_Inter
 type Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_InterfaceAf_TopologyName_InterfaceFrrTable_FrrRemoteLfaMaxMetrics_FrrRemoteLfaMaxMetric struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Level to which configuration applies. The type is
     // IsisInternalLevel.
@@ -10436,6 +10738,7 @@ func (frrRemoteLfaMaxMetric *Isis_Instances_Instance_Interfaces_Interface_Interf
     frrRemoteLfaMaxMetric.EntityData.BundleName = "cisco_ios_xr"
     frrRemoteLfaMaxMetric.EntityData.ParentYangName = "frr-remote-lfa-max-metrics"
     frrRemoteLfaMaxMetric.EntityData.SegmentPath = "frr-remote-lfa-max-metric" + types.AddKeyToken(frrRemoteLfaMaxMetric.Level, "level")
+    frrRemoteLfaMaxMetric.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/interfaces/interface/interface-afs/interface-af/topology-name/interface-frr-table/frr-remote-lfa-max-metrics/" + frrRemoteLfaMaxMetric.EntityData.SegmentPath
     frrRemoteLfaMaxMetric.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     frrRemoteLfaMaxMetric.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     frrRemoteLfaMaxMetric.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10468,6 +10771,7 @@ func (frrTypes *Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_Interf
     frrTypes.EntityData.BundleName = "cisco_ios_xr"
     frrTypes.EntityData.ParentYangName = "interface-frr-table"
     frrTypes.EntityData.SegmentPath = "frr-types"
+    frrTypes.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/interfaces/interface/interface-afs/interface-af/topology-name/interface-frr-table/" + frrTypes.EntityData.SegmentPath
     frrTypes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     frrTypes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     frrTypes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10490,6 +10794,7 @@ func (frrTypes *Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_Interf
 type Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_InterfaceAf_TopologyName_InterfaceFrrTable_FrrTypes_FrrType struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Level to which configuration applies. The type is
     // IsisInternalLevel.
@@ -10505,6 +10810,7 @@ func (frrType *Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_Interfa
     frrType.EntityData.BundleName = "cisco_ios_xr"
     frrType.EntityData.ParentYangName = "frr-types"
     frrType.EntityData.SegmentPath = "frr-type" + types.AddKeyToken(frrType.Level, "level")
+    frrType.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/interfaces/interface/interface-afs/interface-af/topology-name/interface-frr-table/frr-types/" + frrType.EntityData.SegmentPath
     frrType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     frrType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     frrType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10536,6 +10842,7 @@ func (frrRemoteLfaTypes *Isis_Instances_Instance_Interfaces_Interface_InterfaceA
     frrRemoteLfaTypes.EntityData.BundleName = "cisco_ios_xr"
     frrRemoteLfaTypes.EntityData.ParentYangName = "interface-frr-table"
     frrRemoteLfaTypes.EntityData.SegmentPath = "frr-remote-lfa-types"
+    frrRemoteLfaTypes.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/interfaces/interface/interface-afs/interface-af/topology-name/interface-frr-table/" + frrRemoteLfaTypes.EntityData.SegmentPath
     frrRemoteLfaTypes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     frrRemoteLfaTypes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     frrRemoteLfaTypes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10558,6 +10865,7 @@ func (frrRemoteLfaTypes *Isis_Instances_Instance_Interfaces_Interface_InterfaceA
 type Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_InterfaceAf_TopologyName_InterfaceFrrTable_FrrRemoteLfaTypes_FrrRemoteLfaType struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Level to which configuration applies. The type is
     // IsisInternalLevel.
@@ -10573,6 +10881,7 @@ func (frrRemoteLfaType *Isis_Instances_Instance_Interfaces_Interface_InterfaceAf
     frrRemoteLfaType.EntityData.BundleName = "cisco_ios_xr"
     frrRemoteLfaType.EntityData.ParentYangName = "frr-remote-lfa-types"
     frrRemoteLfaType.EntityData.SegmentPath = "frr-remote-lfa-type" + types.AddKeyToken(frrRemoteLfaType.Level, "level")
+    frrRemoteLfaType.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/interfaces/interface/interface-afs/interface-af/topology-name/interface-frr-table/frr-remote-lfa-types/" + frrRemoteLfaType.EntityData.SegmentPath
     frrRemoteLfaType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     frrRemoteLfaType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     frrRemoteLfaType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10605,6 +10914,7 @@ func (interfaceFrrTiebreakerDefaults *Isis_Instances_Instance_Interfaces_Interfa
     interfaceFrrTiebreakerDefaults.EntityData.BundleName = "cisco_ios_xr"
     interfaceFrrTiebreakerDefaults.EntityData.ParentYangName = "interface-frr-table"
     interfaceFrrTiebreakerDefaults.EntityData.SegmentPath = "interface-frr-tiebreaker-defaults"
+    interfaceFrrTiebreakerDefaults.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/interfaces/interface/interface-afs/interface-af/topology-name/interface-frr-table/" + interfaceFrrTiebreakerDefaults.EntityData.SegmentPath
     interfaceFrrTiebreakerDefaults.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceFrrTiebreakerDefaults.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceFrrTiebreakerDefaults.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10626,6 +10936,7 @@ func (interfaceFrrTiebreakerDefaults *Isis_Instances_Instance_Interfaces_Interfa
 type Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_InterfaceAf_TopologyName_InterfaceFrrTable_InterfaceFrrTiebreakerDefaults_InterfaceFrrTiebreakerDefault struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Level to which configuration applies. The type is
     // IsisInternalLevel.
@@ -10638,6 +10949,7 @@ func (interfaceFrrTiebreakerDefault *Isis_Instances_Instance_Interfaces_Interfac
     interfaceFrrTiebreakerDefault.EntityData.BundleName = "cisco_ios_xr"
     interfaceFrrTiebreakerDefault.EntityData.ParentYangName = "interface-frr-tiebreaker-defaults"
     interfaceFrrTiebreakerDefault.EntityData.SegmentPath = "interface-frr-tiebreaker-default" + types.AddKeyToken(interfaceFrrTiebreakerDefault.Level, "level")
+    interfaceFrrTiebreakerDefault.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/interfaces/interface/interface-afs/interface-af/topology-name/interface-frr-table/interface-frr-tiebreaker-defaults/" + interfaceFrrTiebreakerDefault.EntityData.SegmentPath
     interfaceFrrTiebreakerDefault.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceFrrTiebreakerDefault.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceFrrTiebreakerDefault.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10668,6 +10980,7 @@ func (frrtilfaTypes *Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_I
     frrtilfaTypes.EntityData.BundleName = "cisco_ios_xr"
     frrtilfaTypes.EntityData.ParentYangName = "interface-frr-table"
     frrtilfaTypes.EntityData.SegmentPath = "frrtilfa-types"
+    frrtilfaTypes.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/interfaces/interface/interface-afs/interface-af/topology-name/interface-frr-table/" + frrtilfaTypes.EntityData.SegmentPath
     frrtilfaTypes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     frrtilfaTypes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     frrtilfaTypes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10689,6 +11002,7 @@ func (frrtilfaTypes *Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_I
 type Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_InterfaceAf_TopologyName_InterfaceFrrTable_FrrtilfaTypes_FrrtilfaType struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Level to which configuration applies. The type is
     // IsisInternalLevel.
@@ -10701,6 +11015,7 @@ func (frrtilfaType *Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_In
     frrtilfaType.EntityData.BundleName = "cisco_ios_xr"
     frrtilfaType.EntityData.ParentYangName = "frrtilfa-types"
     frrtilfaType.EntityData.SegmentPath = "frrtilfa-type" + types.AddKeyToken(frrtilfaType.Level, "level")
+    frrtilfaType.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/interfaces/interface/interface-afs/interface-af/topology-name/interface-frr-table/frrtilfa-types/" + frrtilfaType.EntityData.SegmentPath
     frrtilfaType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     frrtilfaType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     frrtilfaType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10731,6 +11046,7 @@ func (frrExcludeInterfaces *Isis_Instances_Instance_Interfaces_Interface_Interfa
     frrExcludeInterfaces.EntityData.BundleName = "cisco_ios_xr"
     frrExcludeInterfaces.EntityData.ParentYangName = "interface-frr-table"
     frrExcludeInterfaces.EntityData.SegmentPath = "frr-exclude-interfaces"
+    frrExcludeInterfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/interfaces/interface/interface-afs/interface-af/topology-name/interface-frr-table/" + frrExcludeInterfaces.EntityData.SegmentPath
     frrExcludeInterfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     frrExcludeInterfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     frrExcludeInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10752,6 +11068,7 @@ func (frrExcludeInterfaces *Isis_Instances_Instance_Interfaces_Interface_Interfa
 type Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_InterfaceAf_TopologyName_InterfaceFrrTable_FrrExcludeInterfaces_FrrExcludeInterface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -10771,6 +11088,7 @@ func (frrExcludeInterface *Isis_Instances_Instance_Interfaces_Interface_Interfac
     frrExcludeInterface.EntityData.BundleName = "cisco_ios_xr"
     frrExcludeInterface.EntityData.ParentYangName = "frr-exclude-interfaces"
     frrExcludeInterface.EntityData.SegmentPath = "frr-exclude-interface" + types.AddKeyToken(frrExcludeInterface.InterfaceName, "interface-name") + types.AddKeyToken(frrExcludeInterface.FrrType, "frr-type")
+    frrExcludeInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/interfaces/interface/interface-afs/interface-af/topology-name/interface-frr-table/frr-exclude-interfaces/" + frrExcludeInterface.EntityData.SegmentPath
     frrExcludeInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     frrExcludeInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     frrExcludeInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10803,6 +11121,7 @@ func (interfaceFrrTiebreakers *Isis_Instances_Instance_Interfaces_Interface_Inte
     interfaceFrrTiebreakers.EntityData.BundleName = "cisco_ios_xr"
     interfaceFrrTiebreakers.EntityData.ParentYangName = "interface-frr-table"
     interfaceFrrTiebreakers.EntityData.SegmentPath = "interface-frr-tiebreakers"
+    interfaceFrrTiebreakers.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/interfaces/interface/interface-afs/interface-af/topology-name/interface-frr-table/" + interfaceFrrTiebreakers.EntityData.SegmentPath
     interfaceFrrTiebreakers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceFrrTiebreakers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceFrrTiebreakers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10825,6 +11144,7 @@ func (interfaceFrrTiebreakers *Isis_Instances_Instance_Interfaces_Interface_Inte
 type Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_InterfaceAf_TopologyName_InterfaceFrrTable_InterfaceFrrTiebreakers_InterfaceFrrTiebreaker struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Level to which configuration applies. The type is
     // IsisInternalLevel.
@@ -10845,6 +11165,7 @@ func (interfaceFrrTiebreaker *Isis_Instances_Instance_Interfaces_Interface_Inter
     interfaceFrrTiebreaker.EntityData.BundleName = "cisco_ios_xr"
     interfaceFrrTiebreaker.EntityData.ParentYangName = "interface-frr-tiebreakers"
     interfaceFrrTiebreaker.EntityData.SegmentPath = "interface-frr-tiebreaker" + types.AddKeyToken(interfaceFrrTiebreaker.Level, "level") + types.AddKeyToken(interfaceFrrTiebreaker.Tiebreaker, "tiebreaker")
+    interfaceFrrTiebreaker.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/interfaces/interface/interface-afs/interface-af/topology-name/interface-frr-table/interface-frr-tiebreakers/" + interfaceFrrTiebreaker.EntityData.SegmentPath
     interfaceFrrTiebreaker.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceFrrTiebreaker.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceFrrTiebreaker.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10877,6 +11198,7 @@ func (mplsLdp *Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_Interfa
     mplsLdp.EntityData.BundleName = "cisco_ios_xr"
     mplsLdp.EntityData.ParentYangName = "topology-name"
     mplsLdp.EntityData.SegmentPath = "mpls-ldp"
+    mplsLdp.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/interfaces/interface/interface-afs/interface-af/topology-name/" + mplsLdp.EntityData.SegmentPath
     mplsLdp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mplsLdp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mplsLdp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10928,6 +11250,7 @@ func (prefixSspfsid *Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_I
     prefixSspfsid.EntityData.BundleName = "cisco_ios_xr"
     prefixSspfsid.EntityData.ParentYangName = "topology-name"
     prefixSspfsid.EntityData.SegmentPath = "prefix-sspfsid"
+    prefixSspfsid.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/interfaces/interface/interface-afs/interface-af/topology-name/" + prefixSspfsid.EntityData.SegmentPath
     prefixSspfsid.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefixSspfsid.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefixSspfsid.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10964,6 +11287,7 @@ func (algorithmPrefixSids *Isis_Instances_Instance_Interfaces_Interface_Interfac
     algorithmPrefixSids.EntityData.BundleName = "cisco_ios_xr"
     algorithmPrefixSids.EntityData.ParentYangName = "topology-name"
     algorithmPrefixSids.EntityData.SegmentPath = "algorithm-prefix-sids"
+    algorithmPrefixSids.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/interfaces/interface/interface-afs/interface-af/topology-name/" + algorithmPrefixSids.EntityData.SegmentPath
     algorithmPrefixSids.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     algorithmPrefixSids.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     algorithmPrefixSids.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10988,6 +11312,7 @@ func (algorithmPrefixSids *Isis_Instances_Instance_Interfaces_Interface_Interfac
 type Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_InterfaceAf_TopologyName_AlgorithmPrefixSids_AlgorithmPrefixSid struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Algorithm. The type is interface{} with range:
     // 128..255.
@@ -11020,6 +11345,7 @@ func (algorithmPrefixSid *Isis_Instances_Instance_Interfaces_Interface_Interface
     algorithmPrefixSid.EntityData.BundleName = "cisco_ios_xr"
     algorithmPrefixSid.EntityData.ParentYangName = "algorithm-prefix-sids"
     algorithmPrefixSid.EntityData.SegmentPath = "algorithm-prefix-sid" + types.AddKeyToken(algorithmPrefixSid.Algo, "algo")
+    algorithmPrefixSid.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/interfaces/interface/interface-afs/interface-af/topology-name/algorithm-prefix-sids/" + algorithmPrefixSid.EntityData.SegmentPath
     algorithmPrefixSid.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     algorithmPrefixSid.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     algorithmPrefixSid.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11059,6 +11385,7 @@ func (autoMetrics *Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_Int
     autoMetrics.EntityData.BundleName = "cisco_ios_xr"
     autoMetrics.EntityData.ParentYangName = "topology-name"
     autoMetrics.EntityData.SegmentPath = "auto-metrics"
+    autoMetrics.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/interfaces/interface/interface-afs/interface-af/topology-name/" + autoMetrics.EntityData.SegmentPath
     autoMetrics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     autoMetrics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     autoMetrics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11088,6 +11415,7 @@ func (autoMetrics *Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_Int
 type Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_InterfaceAf_TopologyName_AutoMetrics_AutoMetric struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Level to which configuration applies. The type is
     // IsisInternalLevel.
@@ -11104,6 +11432,7 @@ func (autoMetric *Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_Inte
     autoMetric.EntityData.BundleName = "cisco_ios_xr"
     autoMetric.EntityData.ParentYangName = "auto-metrics"
     autoMetric.EntityData.SegmentPath = "auto-metric" + types.AddKeyToken(autoMetric.Level, "level")
+    autoMetric.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/interfaces/interface/interface-afs/interface-af/topology-name/auto-metrics/" + autoMetric.EntityData.SegmentPath
     autoMetric.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     autoMetric.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     autoMetric.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11135,6 +11464,7 @@ func (adminTags *Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_Inter
     adminTags.EntityData.BundleName = "cisco_ios_xr"
     adminTags.EntityData.ParentYangName = "topology-name"
     adminTags.EntityData.SegmentPath = "admin-tags"
+    adminTags.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/interfaces/interface/interface-afs/interface-af/topology-name/" + adminTags.EntityData.SegmentPath
     adminTags.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     adminTags.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     adminTags.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11157,6 +11487,7 @@ func (adminTags *Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_Inter
 type Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_InterfaceAf_TopologyName_AdminTags_AdminTag struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Level to which configuration applies. The type is
     // IsisInternalLevel.
@@ -11173,6 +11504,7 @@ func (adminTag *Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_Interf
     adminTag.EntityData.BundleName = "cisco_ios_xr"
     adminTag.EntityData.ParentYangName = "admin-tags"
     adminTag.EntityData.SegmentPath = "admin-tag" + types.AddKeyToken(adminTag.Level, "level")
+    adminTag.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/interfaces/interface/interface-afs/interface-af/topology-name/admin-tags/" + adminTag.EntityData.SegmentPath
     adminTag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     adminTag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     adminTag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11210,6 +11542,7 @@ func (interfaceLinkGroup *Isis_Instances_Instance_Interfaces_Interface_Interface
     interfaceLinkGroup.EntityData.BundleName = "cisco_ios_xr"
     interfaceLinkGroup.EntityData.ParentYangName = "topology-name"
     interfaceLinkGroup.EntityData.SegmentPath = "interface-link-group"
+    interfaceLinkGroup.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/interfaces/interface/interface-afs/interface-af/topology-name/" + interfaceLinkGroup.EntityData.SegmentPath
     interfaceLinkGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceLinkGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceLinkGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11241,6 +11574,7 @@ func (manualAdjSids *Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_I
     manualAdjSids.EntityData.BundleName = "cisco_ios_xr"
     manualAdjSids.EntityData.ParentYangName = "topology-name"
     manualAdjSids.EntityData.SegmentPath = "manual-adj-sids"
+    manualAdjSids.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/interfaces/interface/interface-afs/interface-af/topology-name/" + manualAdjSids.EntityData.SegmentPath
     manualAdjSids.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     manualAdjSids.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     manualAdjSids.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11262,6 +11596,7 @@ func (manualAdjSids *Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_I
 type Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_InterfaceAf_TopologyName_ManualAdjSids_ManualAdjSid struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Level to which configuration applies. The type is
     // IsisInternalLevel.
@@ -11285,6 +11620,7 @@ func (manualAdjSid *Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_In
     manualAdjSid.EntityData.BundleName = "cisco_ios_xr"
     manualAdjSid.EntityData.ParentYangName = "manual-adj-sids"
     manualAdjSid.EntityData.SegmentPath = "manual-adj-sid" + types.AddKeyToken(manualAdjSid.Level, "level") + types.AddKeyToken(manualAdjSid.SidType, "sid-type") + types.AddKeyToken(manualAdjSid.Sid, "sid")
+    manualAdjSid.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/interfaces/interface/interface-afs/interface-af/topology-name/manual-adj-sids/" + manualAdjSid.EntityData.SegmentPath
     manualAdjSid.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     manualAdjSid.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     manualAdjSid.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11323,6 +11659,7 @@ func (metrics *Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_Interfa
     metrics.EntityData.BundleName = "cisco_ios_xr"
     metrics.EntityData.ParentYangName = "topology-name"
     metrics.EntityData.SegmentPath = "metrics"
+    metrics.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/interfaces/interface/interface-afs/interface-af/topology-name/" + metrics.EntityData.SegmentPath
     metrics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     metrics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     metrics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11351,6 +11688,7 @@ func (metrics *Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_Interfa
 type Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_InterfaceAf_TopologyName_Metrics_Metric struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Level to which configuration applies. The type is
     // IsisInternalLevel.
@@ -11370,6 +11708,7 @@ func (metric *Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_Interfac
     metric.EntityData.BundleName = "cisco_ios_xr"
     metric.EntityData.ParentYangName = "metrics"
     metric.EntityData.SegmentPath = "metric" + types.AddKeyToken(metric.Level, "level")
+    metric.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/interfaces/interface/interface-afs/interface-af/topology-name/metrics/" + metric.EntityData.SegmentPath
     metric.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     metric.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     metric.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11411,6 +11750,7 @@ func (weights *Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_Interfa
     weights.EntityData.BundleName = "cisco_ios_xr"
     weights.EntityData.ParentYangName = "topology-name"
     weights.EntityData.SegmentPath = "weights"
+    weights.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/interfaces/interface/interface-afs/interface-af/topology-name/" + weights.EntityData.SegmentPath
     weights.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     weights.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     weights.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11433,6 +11773,7 @@ func (weights *Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_Interfa
 type Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_InterfaceAf_TopologyName_Weights_Weight struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Level to which configuration applies. The type is
     // IsisInternalLevel.
@@ -11450,6 +11791,7 @@ func (weight *Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_Interfac
     weight.EntityData.BundleName = "cisco_ios_xr"
     weight.EntityData.ParentYangName = "weights"
     weight.EntityData.SegmentPath = "weight" + types.AddKeyToken(weight.Level, "level")
+    weight.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/interfaces/interface/interface-afs/interface-af/topology-name/weights/" + weight.EntityData.SegmentPath
     weight.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     weight.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     weight.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11482,6 +11824,7 @@ func (csnpIntervals *Isis_Instances_Instance_Interfaces_Interface_CsnpIntervals)
     csnpIntervals.EntityData.BundleName = "cisco_ios_xr"
     csnpIntervals.EntityData.ParentYangName = "interface"
     csnpIntervals.EntityData.SegmentPath = "csnp-intervals"
+    csnpIntervals.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/interfaces/interface/" + csnpIntervals.EntityData.SegmentPath
     csnpIntervals.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     csnpIntervals.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csnpIntervals.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11505,6 +11848,7 @@ func (csnpIntervals *Isis_Instances_Instance_Interfaces_Interface_CsnpIntervals)
 type Isis_Instances_Instance_Interfaces_Interface_CsnpIntervals_CsnpInterval struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Level to which configuration applies. The type is
     // IsisInternalLevel.
@@ -11521,6 +11865,7 @@ func (csnpInterval *Isis_Instances_Instance_Interfaces_Interface_CsnpIntervals_C
     csnpInterval.EntityData.BundleName = "cisco_ios_xr"
     csnpInterval.EntityData.ParentYangName = "csnp-intervals"
     csnpInterval.EntityData.SegmentPath = "csnp-interval" + types.AddKeyToken(csnpInterval.Level, "level")
+    csnpInterval.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/interfaces/interface/csnp-intervals/" + csnpInterval.EntityData.SegmentPath
     csnpInterval.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     csnpInterval.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csnpInterval.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11552,6 +11897,7 @@ func (lspIntervals *Isis_Instances_Instance_Interfaces_Interface_LspIntervals) G
     lspIntervals.EntityData.BundleName = "cisco_ios_xr"
     lspIntervals.EntityData.ParentYangName = "interface"
     lspIntervals.EntityData.SegmentPath = "lsp-intervals"
+    lspIntervals.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/interfaces/interface/" + lspIntervals.EntityData.SegmentPath
     lspIntervals.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lspIntervals.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspIntervals.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11574,6 +11920,7 @@ func (lspIntervals *Isis_Instances_Instance_Interfaces_Interface_LspIntervals) G
 type Isis_Instances_Instance_Interfaces_Interface_LspIntervals_LspInterval struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Level to which configuration applies. The type is
     // IsisInternalLevel.
@@ -11590,6 +11937,7 @@ func (lspInterval *Isis_Instances_Instance_Interfaces_Interface_LspIntervals_Lsp
     lspInterval.EntityData.BundleName = "cisco_ios_xr"
     lspInterval.EntityData.ParentYangName = "lsp-intervals"
     lspInterval.EntityData.SegmentPath = "lsp-interval" + types.AddKeyToken(lspInterval.Level, "level")
+    lspInterval.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/interfaces/interface/lsp-intervals/" + lspInterval.EntityData.SegmentPath
     lspInterval.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lspInterval.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspInterval.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

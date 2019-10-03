@@ -44,6 +44,7 @@ func (activeNodes *ActiveNodes) GetEntityData() *types.CommonEntityData {
     activeNodes.EntityData.BundleName = "cisco_ios_xr"
     activeNodes.EntityData.ParentYangName = "Cisco-IOS-XR-config-mda-cfg"
     activeNodes.EntityData.SegmentPath = "Cisco-IOS-XR-config-mda-cfg:active-nodes"
+    activeNodes.EntityData.AbsolutePath = activeNodes.EntityData.SegmentPath
     activeNodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     activeNodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     activeNodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -65,13 +66,11 @@ func (activeNodes *ActiveNodes) GetEntityData() *types.CommonEntityData {
 type ActiveNodes_ActiveNode struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The identifier for this node. The type is string
     // with pattern: ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeName interface{}
-
-    // watchdog node threshold.
-    WatchdogNodeThreshold ActiveNodes_ActiveNode_WatchdogNodeThreshold
 
     // Ltrace Memory configuration.
     Ltrace ActiveNodes_ActiveNode_Ltrace
@@ -79,11 +78,26 @@ type ActiveNodes_ActiveNode struct {
     // Configuration for a clock interface.
     ClockInterface ActiveNodes_ActiveNode_ClockInterface
 
+    // Watchdog threshold configuration.
+    CiscoIOSXRWdCfgWatchdogNodeThreshold ActiveNodes_ActiveNode_CiscoIOSXRWdCfgWatchdogNodeThreshold
+
     // Per-node SSRP configuration data.
     SsrpGroup ActiveNodes_ActiveNode_SsrpGroup
 
+    // watchdog node threshold.
+    CiscoIOSXRWatchdCfgWatchdogNodeThreshold ActiveNodes_ActiveNode_CiscoIOSXRWatchdCfgWatchdogNodeThreshold
+
     // lpts node specific configuration commands.
     LptsLocal ActiveNodes_ActiveNode_LptsLocal
+
+    // fia buffer profile cfg.
+    FiaBufferProfileCfg ActiveNodes_ActiveNode_FiaBufferProfileCfg
+
+    // fia vqi shaper cfg.
+    FiaVqiShaperCfg ActiveNodes_ActiveNode_FiaVqiShaperCfg
+
+    // port queue remaps.
+    PortQueueRemaps ActiveNodes_ActiveNode_PortQueueRemaps
 }
 
 func (activeNode *ActiveNodes_ActiveNode) GetEntityData() *types.CommonEntityData {
@@ -92,129 +106,27 @@ func (activeNode *ActiveNodes_ActiveNode) GetEntityData() *types.CommonEntityDat
     activeNode.EntityData.BundleName = "cisco_ios_xr"
     activeNode.EntityData.ParentYangName = "active-nodes"
     activeNode.EntityData.SegmentPath = "active-node" + types.AddKeyToken(activeNode.NodeName, "node-name")
+    activeNode.EntityData.AbsolutePath = "Cisco-IOS-XR-config-mda-cfg:active-nodes/" + activeNode.EntityData.SegmentPath
     activeNode.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     activeNode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     activeNode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     activeNode.EntityData.Children = types.NewOrderedMap()
-    activeNode.EntityData.Children.Append("Cisco-IOS-XR-watchd-cfg:watchdog-node-threshold", types.YChild{"WatchdogNodeThreshold", &activeNode.WatchdogNodeThreshold})
     activeNode.EntityData.Children.Append("Cisco-IOS-XR-infra-ltrace-cfg:ltrace", types.YChild{"Ltrace", &activeNode.Ltrace})
     activeNode.EntityData.Children.Append("Cisco-IOS-XR-freqsync-cfg:clock-interface", types.YChild{"ClockInterface", &activeNode.ClockInterface})
+    activeNode.EntityData.Children.Append("Cisco-IOS-XR-wd-cfg:watchdog-node-threshold", types.YChild{"CiscoIOSXRWdCfgWatchdogNodeThreshold", &activeNode.CiscoIOSXRWdCfgWatchdogNodeThreshold})
     activeNode.EntityData.Children.Append("Cisco-IOS-XR-ppp-ma-ssrp-cfg:ssrp-group", types.YChild{"SsrpGroup", &activeNode.SsrpGroup})
+    activeNode.EntityData.Children.Append("Cisco-IOS-XR-watchd-cfg:watchdog-node-threshold", types.YChild{"CiscoIOSXRWatchdCfgWatchdogNodeThreshold", &activeNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold})
     activeNode.EntityData.Children.Append("Cisco-IOS-XR-lpts-pre-ifib-cfg:lpts-local", types.YChild{"LptsLocal", &activeNode.LptsLocal})
+    activeNode.EntityData.Children.Append("Cisco-IOS-XR-asr9k-fia-cfg:fia-buffer-profile-cfg", types.YChild{"FiaBufferProfileCfg", &activeNode.FiaBufferProfileCfg})
+    activeNode.EntityData.Children.Append("Cisco-IOS-XR-asr9k-fia-cfg:fia-vqi-shaper-cfg", types.YChild{"FiaVqiShaperCfg", &activeNode.FiaVqiShaperCfg})
+    activeNode.EntityData.Children.Append("Cisco-IOS-XR-asr9k-fia-cfg:port-queue-remaps", types.YChild{"PortQueueRemaps", &activeNode.PortQueueRemaps})
     activeNode.EntityData.Leafs = types.NewOrderedMap()
     activeNode.EntityData.Leafs.Append("node-name", types.YLeaf{"NodeName", activeNode.NodeName})
 
     activeNode.EntityData.YListKeys = []string {"NodeName"}
 
     return &(activeNode.EntityData)
-}
-
-// ActiveNodes_ActiveNode_WatchdogNodeThreshold
-// watchdog node threshold
-type ActiveNodes_ActiveNode_WatchdogNodeThreshold struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Disk thresholds.
-    DiskThreshold ActiveNodes_ActiveNode_WatchdogNodeThreshold_DiskThreshold
-
-    // Memory thresholds.
-    MemoryThreshold ActiveNodes_ActiveNode_WatchdogNodeThreshold_MemoryThreshold
-}
-
-func (watchdogNodeThreshold *ActiveNodes_ActiveNode_WatchdogNodeThreshold) GetEntityData() *types.CommonEntityData {
-    watchdogNodeThreshold.EntityData.YFilter = watchdogNodeThreshold.YFilter
-    watchdogNodeThreshold.EntityData.YangName = "watchdog-node-threshold"
-    watchdogNodeThreshold.EntityData.BundleName = "cisco_ios_xr"
-    watchdogNodeThreshold.EntityData.ParentYangName = "active-node"
-    watchdogNodeThreshold.EntityData.SegmentPath = "Cisco-IOS-XR-watchd-cfg:watchdog-node-threshold"
-    watchdogNodeThreshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    watchdogNodeThreshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    watchdogNodeThreshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    watchdogNodeThreshold.EntityData.Children = types.NewOrderedMap()
-    watchdogNodeThreshold.EntityData.Children.Append("disk-threshold", types.YChild{"DiskThreshold", &watchdogNodeThreshold.DiskThreshold})
-    watchdogNodeThreshold.EntityData.Children.Append("memory-threshold", types.YChild{"MemoryThreshold", &watchdogNodeThreshold.MemoryThreshold})
-    watchdogNodeThreshold.EntityData.Leafs = types.NewOrderedMap()
-
-    watchdogNodeThreshold.EntityData.YListKeys = []string {}
-
-    return &(watchdogNodeThreshold.EntityData)
-}
-
-// ActiveNodes_ActiveNode_WatchdogNodeThreshold_DiskThreshold
-// Disk thresholds
-type ActiveNodes_ActiveNode_WatchdogNodeThreshold_DiskThreshold struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Threshold, Range(5, 40). The type is interface{} with range: 5..40.
-    Minor interface{}
-
-    // Threshold, Range(4, minor). The type is interface{} with range: 4..40.
-    Severe interface{}
-
-    // Threshold, Range(3, severe). The type is interface{} with range: 3..40.
-    Critical interface{}
-}
-
-func (diskThreshold *ActiveNodes_ActiveNode_WatchdogNodeThreshold_DiskThreshold) GetEntityData() *types.CommonEntityData {
-    diskThreshold.EntityData.YFilter = diskThreshold.YFilter
-    diskThreshold.EntityData.YangName = "disk-threshold"
-    diskThreshold.EntityData.BundleName = "cisco_ios_xr"
-    diskThreshold.EntityData.ParentYangName = "watchdog-node-threshold"
-    diskThreshold.EntityData.SegmentPath = "disk-threshold"
-    diskThreshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    diskThreshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    diskThreshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    diskThreshold.EntityData.Children = types.NewOrderedMap()
-    diskThreshold.EntityData.Leafs = types.NewOrderedMap()
-    diskThreshold.EntityData.Leafs.Append("minor", types.YLeaf{"Minor", diskThreshold.Minor})
-    diskThreshold.EntityData.Leafs.Append("severe", types.YLeaf{"Severe", diskThreshold.Severe})
-    diskThreshold.EntityData.Leafs.Append("critical", types.YLeaf{"Critical", diskThreshold.Critical})
-
-    diskThreshold.EntityData.YListKeys = []string {}
-
-    return &(diskThreshold.EntityData)
-}
-
-// ActiveNodes_ActiveNode_WatchdogNodeThreshold_MemoryThreshold
-// Memory thresholds
-type ActiveNodes_ActiveNode_WatchdogNodeThreshold_MemoryThreshold struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Threshold, Range(5, 40). The type is interface{} with range: 5..40.
-    Minor interface{}
-
-    // Threshold, Range(4, minor). The type is interface{} with range: 4..40.
-    Severe interface{}
-
-    // Threshold, Range(3, severe). The type is interface{} with range: 3..40.
-    Critical interface{}
-}
-
-func (memoryThreshold *ActiveNodes_ActiveNode_WatchdogNodeThreshold_MemoryThreshold) GetEntityData() *types.CommonEntityData {
-    memoryThreshold.EntityData.YFilter = memoryThreshold.YFilter
-    memoryThreshold.EntityData.YangName = "memory-threshold"
-    memoryThreshold.EntityData.BundleName = "cisco_ios_xr"
-    memoryThreshold.EntityData.ParentYangName = "watchdog-node-threshold"
-    memoryThreshold.EntityData.SegmentPath = "memory-threshold"
-    memoryThreshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    memoryThreshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    memoryThreshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    memoryThreshold.EntityData.Children = types.NewOrderedMap()
-    memoryThreshold.EntityData.Leafs = types.NewOrderedMap()
-    memoryThreshold.EntityData.Leafs.Append("minor", types.YLeaf{"Minor", memoryThreshold.Minor})
-    memoryThreshold.EntityData.Leafs.Append("severe", types.YLeaf{"Severe", memoryThreshold.Severe})
-    memoryThreshold.EntityData.Leafs.Append("critical", types.YLeaf{"Critical", memoryThreshold.Critical})
-
-    memoryThreshold.EntityData.YListKeys = []string {}
-
-    return &(memoryThreshold.EntityData)
 }
 
 // ActiveNodes_ActiveNode_Ltrace
@@ -233,6 +145,7 @@ func (ltrace *ActiveNodes_ActiveNode_Ltrace) GetEntityData() *types.CommonEntity
     ltrace.EntityData.BundleName = "cisco_ios_xr"
     ltrace.EntityData.ParentYangName = "active-node"
     ltrace.EntityData.SegmentPath = "Cisco-IOS-XR-infra-ltrace-cfg:ltrace"
+    ltrace.EntityData.AbsolutePath = "Cisco-IOS-XR-config-mda-cfg:active-nodes/active-node/" + ltrace.EntityData.SegmentPath
     ltrace.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ltrace.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ltrace.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -266,6 +179,7 @@ func (allocationParams *ActiveNodes_ActiveNode_Ltrace_AllocationParams) GetEntit
     allocationParams.EntityData.BundleName = "cisco_ios_xr"
     allocationParams.EntityData.ParentYangName = "ltrace"
     allocationParams.EntityData.SegmentPath = "allocation-params"
+    allocationParams.EntityData.AbsolutePath = "Cisco-IOS-XR-config-mda-cfg:active-nodes/active-node/Cisco-IOS-XR-infra-ltrace-cfg:ltrace/" + allocationParams.EntityData.SegmentPath
     allocationParams.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     allocationParams.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     allocationParams.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -296,6 +210,7 @@ func (clockInterface *ActiveNodes_ActiveNode_ClockInterface) GetEntityData() *ty
     clockInterface.EntityData.BundleName = "cisco_ios_xr"
     clockInterface.EntityData.ParentYangName = "active-node"
     clockInterface.EntityData.SegmentPath = "Cisco-IOS-XR-freqsync-cfg:clock-interface"
+    clockInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-config-mda-cfg:active-nodes/active-node/" + clockInterface.EntityData.SegmentPath
     clockInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clockInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clockInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -326,6 +241,7 @@ func (clocks *ActiveNodes_ActiveNode_ClockInterface_Clocks) GetEntityData() *typ
     clocks.EntityData.BundleName = "cisco_ios_xr"
     clocks.EntityData.ParentYangName = "clock-interface"
     clocks.EntityData.SegmentPath = "clocks"
+    clocks.EntityData.AbsolutePath = "Cisco-IOS-XR-config-mda-cfg:active-nodes/active-node/Cisco-IOS-XR-freqsync-cfg:clock-interface/" + clocks.EntityData.SegmentPath
     clocks.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clocks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clocks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -347,6 +263,7 @@ func (clocks *ActiveNodes_ActiveNode_ClockInterface_Clocks) GetEntityData() *typ
 type ActiveNodes_ActiveNode_ClockInterface_Clocks_Clock struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Clock type. The type is FsyncClock.
     ClockType interface{}
@@ -368,6 +285,7 @@ func (clock *ActiveNodes_ActiveNode_ClockInterface_Clocks_Clock) GetEntityData()
     clock.EntityData.BundleName = "cisco_ios_xr"
     clock.EntityData.ParentYangName = "clocks"
     clock.EntityData.SegmentPath = "clock" + types.AddKeyToken(clock.ClockType, "clock-type") + types.AddKeyToken(clock.Port, "port")
+    clock.EntityData.AbsolutePath = "Cisco-IOS-XR-config-mda-cfg:active-nodes/active-node/Cisco-IOS-XR-freqsync-cfg:clock-interface/clocks/" + clock.EntityData.SegmentPath
     clock.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clock.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clock.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -421,6 +339,7 @@ func (frequencySynchronization *ActiveNodes_ActiveNode_ClockInterface_Clocks_Clo
     frequencySynchronization.EntityData.BundleName = "cisco_ios_xr"
     frequencySynchronization.EntityData.ParentYangName = "clock"
     frequencySynchronization.EntityData.SegmentPath = "frequency-synchronization"
+    frequencySynchronization.EntityData.AbsolutePath = "Cisco-IOS-XR-config-mda-cfg:active-nodes/active-node/Cisco-IOS-XR-freqsync-cfg:clock-interface/clocks/clock/" + frequencySynchronization.EntityData.SegmentPath
     frequencySynchronization.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     frequencySynchronization.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     frequencySynchronization.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -465,6 +384,7 @@ func (outputQualityLevel *ActiveNodes_ActiveNode_ClockInterface_Clocks_Clock_Fre
     outputQualityLevel.EntityData.BundleName = "cisco_ios_xr"
     outputQualityLevel.EntityData.ParentYangName = "frequency-synchronization"
     outputQualityLevel.EntityData.SegmentPath = "output-quality-level"
+    outputQualityLevel.EntityData.AbsolutePath = "Cisco-IOS-XR-config-mda-cfg:active-nodes/active-node/Cisco-IOS-XR-freqsync-cfg:clock-interface/clocks/clock/frequency-synchronization/" + outputQualityLevel.EntityData.SegmentPath
     outputQualityLevel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     outputQualityLevel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outputQualityLevel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -506,6 +426,7 @@ func (inputQualityLevel *ActiveNodes_ActiveNode_ClockInterface_Clocks_Clock_Freq
     inputQualityLevel.EntityData.BundleName = "cisco_ios_xr"
     inputQualityLevel.EntityData.ParentYangName = "frequency-synchronization"
     inputQualityLevel.EntityData.SegmentPath = "input-quality-level"
+    inputQualityLevel.EntityData.AbsolutePath = "Cisco-IOS-XR-config-mda-cfg:active-nodes/active-node/Cisco-IOS-XR-freqsync-cfg:clock-interface/clocks/clock/frequency-synchronization/" + inputQualityLevel.EntityData.SegmentPath
     inputQualityLevel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     inputQualityLevel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inputQualityLevel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -538,6 +459,7 @@ func (syncController *ActiveNodes_ActiveNode_ClockInterface_Clocks_Clock_SyncCon
     syncController.EntityData.BundleName = "cisco_ios_xr"
     syncController.EntityData.ParentYangName = "clock"
     syncController.EntityData.SegmentPath = "Cisco-IOS-XR-syncc-controller-cfg:sync-controller"
+    syncController.EntityData.AbsolutePath = "Cisco-IOS-XR-config-mda-cfg:active-nodes/active-node/Cisco-IOS-XR-freqsync-cfg:clock-interface/clocks/clock/" + syncController.EntityData.SegmentPath
     syncController.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     syncController.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     syncController.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -567,6 +489,7 @@ func (transportMode *ActiveNodes_ActiveNode_ClockInterface_Clocks_Clock_SyncCont
     transportMode.EntityData.BundleName = "cisco_ios_xr"
     transportMode.EntityData.ParentYangName = "sync-controller"
     transportMode.EntityData.SegmentPath = "transport-mode"
+    transportMode.EntityData.AbsolutePath = "Cisco-IOS-XR-config-mda-cfg:active-nodes/active-node/Cisco-IOS-XR-freqsync-cfg:clock-interface/clocks/clock/Cisco-IOS-XR-syncc-controller-cfg:sync-controller/" + transportMode.EntityData.SegmentPath
     transportMode.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     transportMode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transportMode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -708,6 +631,7 @@ func (frequencyMode *ActiveNodes_ActiveNode_ClockInterface_Clocks_Clock_SyncCont
     frequencyMode.EntityData.BundleName = "cisco_ios_xr"
     frequencyMode.EntityData.ParentYangName = "transport-mode"
     frequencyMode.EntityData.SegmentPath = "frequency-mode"
+    frequencyMode.EntityData.AbsolutePath = "Cisco-IOS-XR-config-mda-cfg:active-nodes/active-node/Cisco-IOS-XR-freqsync-cfg:clock-interface/clocks/clock/Cisco-IOS-XR-syncc-controller-cfg:sync-controller/transport-mode/" + frequencyMode.EntityData.SegmentPath
     frequencyMode.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     frequencyMode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     frequencyMode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -924,15 +848,15 @@ type ActiveNodes_ActiveNode_ClockInterface_Clocks_Clock_SyncController_Transport
     // is mandatory.
     Option1 interface{}
 
-    // Option value #2. The type is interface{} with range: 0..4. This attribute
+    // Option value #2. The type is interface{} with range: 0..10. This attribute
     // is mandatory.
     Option2 interface{}
 
-    // Option value #3. The type is interface{} with range: 0..1. This attribute
+    // Option value #3. The type is interface{} with range: 0..10. This attribute
     // is mandatory.
     Option3 interface{}
 
-    // Option value #4. The type is interface{} with range: 0..1. This attribute
+    // Option value #4. The type is interface{} with range: 0..10. This attribute
     // is mandatory.
     Option4 interface{}
 
@@ -947,6 +871,7 @@ func (portMode *ActiveNodes_ActiveNode_ClockInterface_Clocks_Clock_SyncControlle
     portMode.EntityData.BundleName = "cisco_ios_xr"
     portMode.EntityData.ParentYangName = "frequency-mode"
     portMode.EntityData.SegmentPath = "port-mode"
+    portMode.EntityData.AbsolutePath = "Cisco-IOS-XR-config-mda-cfg:active-nodes/active-node/Cisco-IOS-XR-freqsync-cfg:clock-interface/clocks/clock/Cisco-IOS-XR-syncc-controller-cfg:sync-controller/transport-mode/frequency-mode/" + portMode.EntityData.SegmentPath
     portMode.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     portMode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     portMode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -962,6 +887,74 @@ func (portMode *ActiveNodes_ActiveNode_ClockInterface_Clocks_Clock_SyncControlle
     portMode.EntityData.YListKeys = []string {}
 
     return &(portMode.EntityData)
+}
+
+// ActiveNodes_ActiveNode_CiscoIOSXRWdCfgWatchdogNodeThreshold
+// Watchdog threshold configuration
+type ActiveNodes_ActiveNode_CiscoIOSXRWdCfgWatchdogNodeThreshold struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Memory thresholds.
+    MemoryThreshold ActiveNodes_ActiveNode_CiscoIOSXRWdCfgWatchdogNodeThreshold_MemoryThreshold
+}
+
+func (ciscoIOSXRWdCfgWatchdogNodeThreshold *ActiveNodes_ActiveNode_CiscoIOSXRWdCfgWatchdogNodeThreshold) GetEntityData() *types.CommonEntityData {
+    ciscoIOSXRWdCfgWatchdogNodeThreshold.EntityData.YFilter = ciscoIOSXRWdCfgWatchdogNodeThreshold.YFilter
+    ciscoIOSXRWdCfgWatchdogNodeThreshold.EntityData.YangName = "watchdog-node-threshold"
+    ciscoIOSXRWdCfgWatchdogNodeThreshold.EntityData.BundleName = "cisco_ios_xr"
+    ciscoIOSXRWdCfgWatchdogNodeThreshold.EntityData.ParentYangName = "active-node"
+    ciscoIOSXRWdCfgWatchdogNodeThreshold.EntityData.SegmentPath = "Cisco-IOS-XR-wd-cfg:watchdog-node-threshold"
+    ciscoIOSXRWdCfgWatchdogNodeThreshold.EntityData.AbsolutePath = "Cisco-IOS-XR-config-mda-cfg:active-nodes/active-node/" + ciscoIOSXRWdCfgWatchdogNodeThreshold.EntityData.SegmentPath
+    ciscoIOSXRWdCfgWatchdogNodeThreshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ciscoIOSXRWdCfgWatchdogNodeThreshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ciscoIOSXRWdCfgWatchdogNodeThreshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ciscoIOSXRWdCfgWatchdogNodeThreshold.EntityData.Children = types.NewOrderedMap()
+    ciscoIOSXRWdCfgWatchdogNodeThreshold.EntityData.Children.Append("memory-threshold", types.YChild{"MemoryThreshold", &ciscoIOSXRWdCfgWatchdogNodeThreshold.MemoryThreshold})
+    ciscoIOSXRWdCfgWatchdogNodeThreshold.EntityData.Leafs = types.NewOrderedMap()
+
+    ciscoIOSXRWdCfgWatchdogNodeThreshold.EntityData.YListKeys = []string {}
+
+    return &(ciscoIOSXRWdCfgWatchdogNodeThreshold.EntityData)
+}
+
+// ActiveNodes_ActiveNode_CiscoIOSXRWdCfgWatchdogNodeThreshold_MemoryThreshold
+// Memory thresholds
+type ActiveNodes_ActiveNode_CiscoIOSXRWdCfgWatchdogNodeThreshold_MemoryThreshold struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Threshold, Range(5, 40). The type is interface{} with range: 5..40.
+    Minor interface{}
+
+    // Threshold, Range(4, minor). The type is interface{} with range: 4..40.
+    Severe interface{}
+
+    // Threshold, Range(3, severe). The type is interface{} with range: 3..40.
+    Critical interface{}
+}
+
+func (memoryThreshold *ActiveNodes_ActiveNode_CiscoIOSXRWdCfgWatchdogNodeThreshold_MemoryThreshold) GetEntityData() *types.CommonEntityData {
+    memoryThreshold.EntityData.YFilter = memoryThreshold.YFilter
+    memoryThreshold.EntityData.YangName = "memory-threshold"
+    memoryThreshold.EntityData.BundleName = "cisco_ios_xr"
+    memoryThreshold.EntityData.ParentYangName = "watchdog-node-threshold"
+    memoryThreshold.EntityData.SegmentPath = "memory-threshold"
+    memoryThreshold.EntityData.AbsolutePath = "Cisco-IOS-XR-config-mda-cfg:active-nodes/active-node/Cisco-IOS-XR-wd-cfg:watchdog-node-threshold/" + memoryThreshold.EntityData.SegmentPath
+    memoryThreshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    memoryThreshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    memoryThreshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    memoryThreshold.EntityData.Children = types.NewOrderedMap()
+    memoryThreshold.EntityData.Leafs = types.NewOrderedMap()
+    memoryThreshold.EntityData.Leafs.Append("minor", types.YLeaf{"Minor", memoryThreshold.Minor})
+    memoryThreshold.EntityData.Leafs.Append("severe", types.YLeaf{"Severe", memoryThreshold.Severe})
+    memoryThreshold.EntityData.Leafs.Append("critical", types.YLeaf{"Critical", memoryThreshold.Critical})
+
+    memoryThreshold.EntityData.YListKeys = []string {}
+
+    return &(memoryThreshold.EntityData)
 }
 
 // ActiveNodes_ActiveNode_SsrpGroup
@@ -980,6 +973,7 @@ func (ssrpGroup *ActiveNodes_ActiveNode_SsrpGroup) GetEntityData() *types.Common
     ssrpGroup.EntityData.BundleName = "cisco_ios_xr"
     ssrpGroup.EntityData.ParentYangName = "active-node"
     ssrpGroup.EntityData.SegmentPath = "Cisco-IOS-XR-ppp-ma-ssrp-cfg:ssrp-group"
+    ssrpGroup.EntityData.AbsolutePath = "Cisco-IOS-XR-config-mda-cfg:active-nodes/active-node/" + ssrpGroup.EntityData.SegmentPath
     ssrpGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ssrpGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ssrpGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1010,6 +1004,7 @@ func (groups *ActiveNodes_ActiveNode_SsrpGroup_Groups) GetEntityData() *types.Co
     groups.EntityData.BundleName = "cisco_ios_xr"
     groups.EntityData.ParentYangName = "ssrp-group"
     groups.EntityData.SegmentPath = "groups"
+    groups.EntityData.AbsolutePath = "Cisco-IOS-XR-config-mda-cfg:active-nodes/active-node/Cisco-IOS-XR-ppp-ma-ssrp-cfg:ssrp-group/" + groups.EntityData.SegmentPath
     groups.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     groups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     groups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1031,6 +1026,7 @@ func (groups *ActiveNodes_ActiveNode_SsrpGroup_Groups) GetEntityData() *types.Co
 type ActiveNodes_ActiveNode_SsrpGroup_Groups_Group struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The identifier for this group. The type is
     // interface{} with range: 1..65535.
@@ -1046,6 +1042,7 @@ func (group *ActiveNodes_ActiveNode_SsrpGroup_Groups_Group) GetEntityData() *typ
     group.EntityData.BundleName = "cisco_ios_xr"
     group.EntityData.ParentYangName = "groups"
     group.EntityData.SegmentPath = "group" + types.AddKeyToken(group.GroupId, "group-id")
+    group.EntityData.AbsolutePath = "Cisco-IOS-XR-config-mda-cfg:active-nodes/active-node/Cisco-IOS-XR-ppp-ma-ssrp-cfg:ssrp-group/groups/" + group.EntityData.SegmentPath
     group.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     group.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     group.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1058,6 +1055,116 @@ func (group *ActiveNodes_ActiveNode_SsrpGroup_Groups_Group) GetEntityData() *typ
     group.EntityData.YListKeys = []string {"GroupId"}
 
     return &(group.EntityData)
+}
+
+// ActiveNodes_ActiveNode_CiscoIOSXRWatchdCfgWatchdogNodeThreshold
+// watchdog node threshold
+type ActiveNodes_ActiveNode_CiscoIOSXRWatchdCfgWatchdogNodeThreshold struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Disk thresholds.
+    DiskThreshold ActiveNodes_ActiveNode_CiscoIOSXRWatchdCfgWatchdogNodeThreshold_DiskThreshold
+
+    // Memory thresholds.
+    MemoryThreshold ActiveNodes_ActiveNode_CiscoIOSXRWatchdCfgWatchdogNodeThreshold_MemoryThreshold
+}
+
+func (ciscoIOSXRWatchdCfgWatchdogNodeThreshold *ActiveNodes_ActiveNode_CiscoIOSXRWatchdCfgWatchdogNodeThreshold) GetEntityData() *types.CommonEntityData {
+    ciscoIOSXRWatchdCfgWatchdogNodeThreshold.EntityData.YFilter = ciscoIOSXRWatchdCfgWatchdogNodeThreshold.YFilter
+    ciscoIOSXRWatchdCfgWatchdogNodeThreshold.EntityData.YangName = "watchdog-node-threshold"
+    ciscoIOSXRWatchdCfgWatchdogNodeThreshold.EntityData.BundleName = "cisco_ios_xr"
+    ciscoIOSXRWatchdCfgWatchdogNodeThreshold.EntityData.ParentYangName = "active-node"
+    ciscoIOSXRWatchdCfgWatchdogNodeThreshold.EntityData.SegmentPath = "Cisco-IOS-XR-watchd-cfg:watchdog-node-threshold"
+    ciscoIOSXRWatchdCfgWatchdogNodeThreshold.EntityData.AbsolutePath = "Cisco-IOS-XR-config-mda-cfg:active-nodes/active-node/" + ciscoIOSXRWatchdCfgWatchdogNodeThreshold.EntityData.SegmentPath
+    ciscoIOSXRWatchdCfgWatchdogNodeThreshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ciscoIOSXRWatchdCfgWatchdogNodeThreshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ciscoIOSXRWatchdCfgWatchdogNodeThreshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ciscoIOSXRWatchdCfgWatchdogNodeThreshold.EntityData.Children = types.NewOrderedMap()
+    ciscoIOSXRWatchdCfgWatchdogNodeThreshold.EntityData.Children.Append("disk-threshold", types.YChild{"DiskThreshold", &ciscoIOSXRWatchdCfgWatchdogNodeThreshold.DiskThreshold})
+    ciscoIOSXRWatchdCfgWatchdogNodeThreshold.EntityData.Children.Append("memory-threshold", types.YChild{"MemoryThreshold", &ciscoIOSXRWatchdCfgWatchdogNodeThreshold.MemoryThreshold})
+    ciscoIOSXRWatchdCfgWatchdogNodeThreshold.EntityData.Leafs = types.NewOrderedMap()
+
+    ciscoIOSXRWatchdCfgWatchdogNodeThreshold.EntityData.YListKeys = []string {}
+
+    return &(ciscoIOSXRWatchdCfgWatchdogNodeThreshold.EntityData)
+}
+
+// ActiveNodes_ActiveNode_CiscoIOSXRWatchdCfgWatchdogNodeThreshold_DiskThreshold
+// Disk thresholds
+type ActiveNodes_ActiveNode_CiscoIOSXRWatchdCfgWatchdogNodeThreshold_DiskThreshold struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Threshold, Range(5, 40). The type is interface{} with range: 5..40.
+    Minor interface{}
+
+    // Threshold, Range(4, minor). The type is interface{} with range: 4..40.
+    Severe interface{}
+
+    // Threshold, Range(3, severe). The type is interface{} with range: 3..40.
+    Critical interface{}
+}
+
+func (diskThreshold *ActiveNodes_ActiveNode_CiscoIOSXRWatchdCfgWatchdogNodeThreshold_DiskThreshold) GetEntityData() *types.CommonEntityData {
+    diskThreshold.EntityData.YFilter = diskThreshold.YFilter
+    diskThreshold.EntityData.YangName = "disk-threshold"
+    diskThreshold.EntityData.BundleName = "cisco_ios_xr"
+    diskThreshold.EntityData.ParentYangName = "watchdog-node-threshold"
+    diskThreshold.EntityData.SegmentPath = "disk-threshold"
+    diskThreshold.EntityData.AbsolutePath = "Cisco-IOS-XR-config-mda-cfg:active-nodes/active-node/Cisco-IOS-XR-watchd-cfg:watchdog-node-threshold/" + diskThreshold.EntityData.SegmentPath
+    diskThreshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    diskThreshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    diskThreshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    diskThreshold.EntityData.Children = types.NewOrderedMap()
+    diskThreshold.EntityData.Leafs = types.NewOrderedMap()
+    diskThreshold.EntityData.Leafs.Append("minor", types.YLeaf{"Minor", diskThreshold.Minor})
+    diskThreshold.EntityData.Leafs.Append("severe", types.YLeaf{"Severe", diskThreshold.Severe})
+    diskThreshold.EntityData.Leafs.Append("critical", types.YLeaf{"Critical", diskThreshold.Critical})
+
+    diskThreshold.EntityData.YListKeys = []string {}
+
+    return &(diskThreshold.EntityData)
+}
+
+// ActiveNodes_ActiveNode_CiscoIOSXRWatchdCfgWatchdogNodeThreshold_MemoryThreshold
+// Memory thresholds
+type ActiveNodes_ActiveNode_CiscoIOSXRWatchdCfgWatchdogNodeThreshold_MemoryThreshold struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Threshold, Range(5, 40). The type is interface{} with range: 5..40.
+    Minor interface{}
+
+    // Threshold, Range(4, minor). The type is interface{} with range: 4..40.
+    Severe interface{}
+
+    // Threshold, Range(3, severe). The type is interface{} with range: 3..40.
+    Critical interface{}
+}
+
+func (memoryThreshold *ActiveNodes_ActiveNode_CiscoIOSXRWatchdCfgWatchdogNodeThreshold_MemoryThreshold) GetEntityData() *types.CommonEntityData {
+    memoryThreshold.EntityData.YFilter = memoryThreshold.YFilter
+    memoryThreshold.EntityData.YangName = "memory-threshold"
+    memoryThreshold.EntityData.BundleName = "cisco_ios_xr"
+    memoryThreshold.EntityData.ParentYangName = "watchdog-node-threshold"
+    memoryThreshold.EntityData.SegmentPath = "memory-threshold"
+    memoryThreshold.EntityData.AbsolutePath = "Cisco-IOS-XR-config-mda-cfg:active-nodes/active-node/Cisco-IOS-XR-watchd-cfg:watchdog-node-threshold/" + memoryThreshold.EntityData.SegmentPath
+    memoryThreshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    memoryThreshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    memoryThreshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    memoryThreshold.EntityData.Children = types.NewOrderedMap()
+    memoryThreshold.EntityData.Leafs = types.NewOrderedMap()
+    memoryThreshold.EntityData.Leafs.Append("minor", types.YLeaf{"Minor", memoryThreshold.Minor})
+    memoryThreshold.EntityData.Leafs.Append("severe", types.YLeaf{"Severe", memoryThreshold.Severe})
+    memoryThreshold.EntityData.Leafs.Append("critical", types.YLeaf{"Critical", memoryThreshold.Critical})
+
+    memoryThreshold.EntityData.YListKeys = []string {}
+
+    return &(memoryThreshold.EntityData)
 }
 
 // ActiveNodes_ActiveNode_LptsLocal
@@ -1085,6 +1192,7 @@ func (lptsLocal *ActiveNodes_ActiveNode_LptsLocal) GetEntityData() *types.Common
     lptsLocal.EntityData.BundleName = "cisco_ios_xr"
     lptsLocal.EntityData.ParentYangName = "active-node"
     lptsLocal.EntityData.SegmentPath = "Cisco-IOS-XR-lpts-pre-ifib-cfg:lpts-local"
+    lptsLocal.EntityData.AbsolutePath = "Cisco-IOS-XR-config-mda-cfg:active-nodes/active-node/" + lptsLocal.EntityData.SegmentPath
     lptsLocal.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lptsLocal.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lptsLocal.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1119,6 +1227,7 @@ func (ipolicerLocalTables *ActiveNodes_ActiveNode_LptsLocal_IpolicerLocalTables)
     ipolicerLocalTables.EntityData.BundleName = "cisco_ios_xr"
     ipolicerLocalTables.EntityData.ParentYangName = "lpts-local"
     ipolicerLocalTables.EntityData.SegmentPath = "ipolicer-local-tables"
+    ipolicerLocalTables.EntityData.AbsolutePath = "Cisco-IOS-XR-config-mda-cfg:active-nodes/active-node/Cisco-IOS-XR-lpts-pre-ifib-cfg:lpts-local/" + ipolicerLocalTables.EntityData.SegmentPath
     ipolicerLocalTables.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipolicerLocalTables.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipolicerLocalTables.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1141,6 +1250,7 @@ func (ipolicerLocalTables *ActiveNodes_ActiveNode_LptsLocal_IpolicerLocalTables)
 type ActiveNodes_ActiveNode_LptsLocal_IpolicerLocalTables_IpolicerLocalTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. none. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -1156,6 +1266,7 @@ func (ipolicerLocalTable *ActiveNodes_ActiveNode_LptsLocal_IpolicerLocalTables_I
     ipolicerLocalTable.EntityData.BundleName = "cisco_ios_xr"
     ipolicerLocalTable.EntityData.ParentYangName = "ipolicer-local-tables"
     ipolicerLocalTable.EntityData.SegmentPath = "ipolicer-local-table" + types.AddKeyToken(ipolicerLocalTable.Id1, "id1")
+    ipolicerLocalTable.EntityData.AbsolutePath = "Cisco-IOS-XR-config-mda-cfg:active-nodes/active-node/Cisco-IOS-XR-lpts-pre-ifib-cfg:lpts-local/ipolicer-local-tables/" + ipolicerLocalTable.EntityData.SegmentPath
     ipolicerLocalTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipolicerLocalTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipolicerLocalTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1187,6 +1298,7 @@ func (npFlows *ActiveNodes_ActiveNode_LptsLocal_IpolicerLocalTables_IpolicerLoca
     npFlows.EntityData.BundleName = "cisco_ios_xr"
     npFlows.EntityData.ParentYangName = "ipolicer-local-table"
     npFlows.EntityData.SegmentPath = "np-flows"
+    npFlows.EntityData.AbsolutePath = "Cisco-IOS-XR-config-mda-cfg:active-nodes/active-node/Cisco-IOS-XR-lpts-pre-ifib-cfg:lpts-local/ipolicer-local-tables/ipolicer-local-table/" + npFlows.EntityData.SegmentPath
     npFlows.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     npFlows.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     npFlows.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1208,6 +1320,7 @@ func (npFlows *ActiveNodes_ActiveNode_LptsLocal_IpolicerLocalTables_IpolicerLoca
 type ActiveNodes_ActiveNode_LptsLocal_IpolicerLocalTables_IpolicerLocalTable_NpFlows_NpFlow struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. LPTS Flow Type. The type is LptsFlow.
     FlowType interface{}
@@ -1222,6 +1335,7 @@ func (npFlow *ActiveNodes_ActiveNode_LptsLocal_IpolicerLocalTables_IpolicerLocal
     npFlow.EntityData.BundleName = "cisco_ios_xr"
     npFlow.EntityData.ParentYangName = "np-flows"
     npFlow.EntityData.SegmentPath = "np-flow" + types.AddKeyToken(npFlow.FlowType, "flow-type")
+    npFlow.EntityData.AbsolutePath = "Cisco-IOS-XR-config-mda-cfg:active-nodes/active-node/Cisco-IOS-XR-lpts-pre-ifib-cfg:lpts-local/ipolicer-local-tables/ipolicer-local-table/np-flows/" + npFlow.EntityData.SegmentPath
     npFlow.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     npFlow.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     npFlow.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1254,6 +1368,7 @@ func (dynamicFlowsTables *ActiveNodes_ActiveNode_LptsLocal_DynamicFlowsTables) G
     dynamicFlowsTables.EntityData.BundleName = "cisco_ios_xr"
     dynamicFlowsTables.EntityData.ParentYangName = "lpts-local"
     dynamicFlowsTables.EntityData.SegmentPath = "dynamic-flows-tables"
+    dynamicFlowsTables.EntityData.AbsolutePath = "Cisco-IOS-XR-config-mda-cfg:active-nodes/active-node/Cisco-IOS-XR-lpts-pre-ifib-cfg:lpts-local/" + dynamicFlowsTables.EntityData.SegmentPath
     dynamicFlowsTables.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dynamicFlowsTables.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dynamicFlowsTables.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1275,6 +1390,7 @@ func (dynamicFlowsTables *ActiveNodes_ActiveNode_LptsLocal_DynamicFlowsTables) G
 type ActiveNodes_ActiveNode_LptsLocal_DynamicFlowsTables_DynamicFlowsTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. LPTS Dynamic Flows Table Type. The type is
     // LptsDynamicFlowConfig.
@@ -1291,6 +1407,7 @@ func (dynamicFlowsTable *ActiveNodes_ActiveNode_LptsLocal_DynamicFlowsTables_Dyn
     dynamicFlowsTable.EntityData.BundleName = "cisco_ios_xr"
     dynamicFlowsTable.EntityData.ParentYangName = "dynamic-flows-tables"
     dynamicFlowsTable.EntityData.SegmentPath = "dynamic-flows-table" + types.AddKeyToken(dynamicFlowsTable.TableType, "table-type")
+    dynamicFlowsTable.EntityData.AbsolutePath = "Cisco-IOS-XR-config-mda-cfg:active-nodes/active-node/Cisco-IOS-XR-lpts-pre-ifib-cfg:lpts-local/dynamic-flows-tables/" + dynamicFlowsTable.EntityData.SegmentPath
     dynamicFlowsTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dynamicFlowsTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dynamicFlowsTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1313,6 +1430,7 @@ func (dynamicFlowsTable *ActiveNodes_ActiveNode_LptsLocal_DynamicFlowsTables_Dyn
 type ActiveNodes_ActiveNode_LptsLocal_DynamicFlowsTables_DynamicFlowsTable_FlowType struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. LPTS Flow Type. The type is LptsFlow.
     FlowType interface{}
@@ -1328,6 +1446,7 @@ func (flowType *ActiveNodes_ActiveNode_LptsLocal_DynamicFlowsTables_DynamicFlows
     flowType.EntityData.BundleName = "cisco_ios_xr"
     flowType.EntityData.ParentYangName = "dynamic-flows-table"
     flowType.EntityData.SegmentPath = "flow-type" + types.AddKeyToken(flowType.FlowType, "flow-type")
+    flowType.EntityData.AbsolutePath = "Cisco-IOS-XR-config-mda-cfg:active-nodes/active-node/Cisco-IOS-XR-lpts-pre-ifib-cfg:lpts-local/dynamic-flows-tables/dynamic-flows-table/" + flowType.EntityData.SegmentPath
     flowType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     flowType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     flowType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1364,6 +1483,7 @@ func (ipolicerLocal *ActiveNodes_ActiveNode_LptsLocal_IpolicerLocal) GetEntityDa
     ipolicerLocal.EntityData.BundleName = "cisco_ios_xr"
     ipolicerLocal.EntityData.ParentYangName = "lpts-local"
     ipolicerLocal.EntityData.SegmentPath = "ipolicer-local"
+    ipolicerLocal.EntityData.AbsolutePath = "Cisco-IOS-XR-config-mda-cfg:active-nodes/active-node/Cisco-IOS-XR-lpts-pre-ifib-cfg:lpts-local/" + ipolicerLocal.EntityData.SegmentPath
     ipolicerLocal.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipolicerLocal.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipolicerLocal.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1395,6 +1515,7 @@ func (flows *ActiveNodes_ActiveNode_LptsLocal_IpolicerLocal_Flows) GetEntityData
     flows.EntityData.BundleName = "cisco_ios_xr"
     flows.EntityData.ParentYangName = "ipolicer-local"
     flows.EntityData.SegmentPath = "flows"
+    flows.EntityData.AbsolutePath = "Cisco-IOS-XR-config-mda-cfg:active-nodes/active-node/Cisco-IOS-XR-lpts-pre-ifib-cfg:lpts-local/ipolicer-local/" + flows.EntityData.SegmentPath
     flows.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     flows.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     flows.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1416,6 +1537,7 @@ func (flows *ActiveNodes_ActiveNode_LptsLocal_IpolicerLocal_Flows) GetEntityData
 type ActiveNodes_ActiveNode_LptsLocal_IpolicerLocal_Flows_Flow struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. LPTS Flow Type. The type is LptsFlow.
     FlowType interface{}
@@ -1433,6 +1555,7 @@ func (flow *ActiveNodes_ActiveNode_LptsLocal_IpolicerLocal_Flows_Flow) GetEntity
     flow.EntityData.BundleName = "cisco_ios_xr"
     flow.EntityData.ParentYangName = "flows"
     flow.EntityData.SegmentPath = "flow" + types.AddKeyToken(flow.FlowType, "flow-type")
+    flow.EntityData.AbsolutePath = "Cisco-IOS-XR-config-mda-cfg:active-nodes/active-node/Cisco-IOS-XR-lpts-pre-ifib-cfg:lpts-local/ipolicer-local/flows/" + flow.EntityData.SegmentPath
     flow.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     flow.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     flow.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1467,6 +1590,7 @@ func (precedences *ActiveNodes_ActiveNode_LptsLocal_IpolicerLocal_Flows_Flow_Pre
     precedences.EntityData.BundleName = "cisco_ios_xr"
     precedences.EntityData.ParentYangName = "flow"
     precedences.EntityData.SegmentPath = "precedences"
+    precedences.EntityData.AbsolutePath = "Cisco-IOS-XR-config-mda-cfg:active-nodes/active-node/Cisco-IOS-XR-lpts-pre-ifib-cfg:lpts-local/ipolicer-local/flows/flow/" + precedences.EntityData.SegmentPath
     precedences.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     precedences.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     precedences.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1478,6 +1602,136 @@ func (precedences *ActiveNodes_ActiveNode_LptsLocal_IpolicerLocal_Flows_Flow_Pre
     precedences.EntityData.YListKeys = []string {}
 
     return &(precedences.EntityData)
+}
+
+// ActiveNodes_ActiveNode_FiaBufferProfileCfg
+// fia buffer profile cfg
+type ActiveNodes_ActiveNode_FiaBufferProfileCfg struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Enable to use Extra large Buffer profile. The type is bool.
+    Xl interface{}
+}
+
+func (fiaBufferProfileCfg *ActiveNodes_ActiveNode_FiaBufferProfileCfg) GetEntityData() *types.CommonEntityData {
+    fiaBufferProfileCfg.EntityData.YFilter = fiaBufferProfileCfg.YFilter
+    fiaBufferProfileCfg.EntityData.YangName = "fia-buffer-profile-cfg"
+    fiaBufferProfileCfg.EntityData.BundleName = "cisco_ios_xr"
+    fiaBufferProfileCfg.EntityData.ParentYangName = "active-node"
+    fiaBufferProfileCfg.EntityData.SegmentPath = "Cisco-IOS-XR-asr9k-fia-cfg:fia-buffer-profile-cfg"
+    fiaBufferProfileCfg.EntityData.AbsolutePath = "Cisco-IOS-XR-config-mda-cfg:active-nodes/active-node/" + fiaBufferProfileCfg.EntityData.SegmentPath
+    fiaBufferProfileCfg.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    fiaBufferProfileCfg.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    fiaBufferProfileCfg.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    fiaBufferProfileCfg.EntityData.Children = types.NewOrderedMap()
+    fiaBufferProfileCfg.EntityData.Leafs = types.NewOrderedMap()
+    fiaBufferProfileCfg.EntityData.Leafs.Append("xl", types.YLeaf{"Xl", fiaBufferProfileCfg.Xl})
+
+    fiaBufferProfileCfg.EntityData.YListKeys = []string {}
+
+    return &(fiaBufferProfileCfg.EntityData)
+}
+
+// ActiveNodes_ActiveNode_FiaVqiShaperCfg
+// fia vqi shaper cfg
+type ActiveNodes_ActiveNode_FiaVqiShaperCfg struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Enable to use Enhanced VQI shaper limit. The type is bool.
+    Enhance interface{}
+}
+
+func (fiaVqiShaperCfg *ActiveNodes_ActiveNode_FiaVqiShaperCfg) GetEntityData() *types.CommonEntityData {
+    fiaVqiShaperCfg.EntityData.YFilter = fiaVqiShaperCfg.YFilter
+    fiaVqiShaperCfg.EntityData.YangName = "fia-vqi-shaper-cfg"
+    fiaVqiShaperCfg.EntityData.BundleName = "cisco_ios_xr"
+    fiaVqiShaperCfg.EntityData.ParentYangName = "active-node"
+    fiaVqiShaperCfg.EntityData.SegmentPath = "Cisco-IOS-XR-asr9k-fia-cfg:fia-vqi-shaper-cfg"
+    fiaVqiShaperCfg.EntityData.AbsolutePath = "Cisco-IOS-XR-config-mda-cfg:active-nodes/active-node/" + fiaVqiShaperCfg.EntityData.SegmentPath
+    fiaVqiShaperCfg.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    fiaVqiShaperCfg.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    fiaVqiShaperCfg.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    fiaVqiShaperCfg.EntityData.Children = types.NewOrderedMap()
+    fiaVqiShaperCfg.EntityData.Leafs = types.NewOrderedMap()
+    fiaVqiShaperCfg.EntityData.Leafs.Append("enhance", types.YLeaf{"Enhance", fiaVqiShaperCfg.Enhance})
+
+    fiaVqiShaperCfg.EntityData.YListKeys = []string {}
+
+    return &(fiaVqiShaperCfg.EntityData)
+}
+
+// ActiveNodes_ActiveNode_PortQueueRemaps
+// port queue remaps
+type ActiveNodes_ActiveNode_PortQueueRemaps struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Front panel port number. The type is slice of
+    // ActiveNodes_ActiveNode_PortQueueRemaps_PortQueueRemap.
+    PortQueueRemap []*ActiveNodes_ActiveNode_PortQueueRemaps_PortQueueRemap
+}
+
+func (portQueueRemaps *ActiveNodes_ActiveNode_PortQueueRemaps) GetEntityData() *types.CommonEntityData {
+    portQueueRemaps.EntityData.YFilter = portQueueRemaps.YFilter
+    portQueueRemaps.EntityData.YangName = "port-queue-remaps"
+    portQueueRemaps.EntityData.BundleName = "cisco_ios_xr"
+    portQueueRemaps.EntityData.ParentYangName = "active-node"
+    portQueueRemaps.EntityData.SegmentPath = "Cisco-IOS-XR-asr9k-fia-cfg:port-queue-remaps"
+    portQueueRemaps.EntityData.AbsolutePath = "Cisco-IOS-XR-config-mda-cfg:active-nodes/active-node/" + portQueueRemaps.EntityData.SegmentPath
+    portQueueRemaps.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    portQueueRemaps.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    portQueueRemaps.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    portQueueRemaps.EntityData.Children = types.NewOrderedMap()
+    portQueueRemaps.EntityData.Children.Append("port-queue-remap", types.YChild{"PortQueueRemap", nil})
+    for i := range portQueueRemaps.PortQueueRemap {
+        portQueueRemaps.EntityData.Children.Append(types.GetSegmentPath(portQueueRemaps.PortQueueRemap[i]), types.YChild{"PortQueueRemap", portQueueRemaps.PortQueueRemap[i]})
+    }
+    portQueueRemaps.EntityData.Leafs = types.NewOrderedMap()
+
+    portQueueRemaps.EntityData.YListKeys = []string {}
+
+    return &(portQueueRemaps.EntityData)
+}
+
+// ActiveNodes_ActiveNode_PortQueueRemaps_PortQueueRemap
+// Front panel port number
+type ActiveNodes_ActiveNode_PortQueueRemaps_PortQueueRemap struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. port number <10,11,22,23 34,35,46,47>. The type is
+    // interface{} with range: 0..47.
+    Port interface{}
+
+    // queue number <0-19>. The type is interface{} with range: 0..19.
+    FabricQueue interface{}
+}
+
+func (portQueueRemap *ActiveNodes_ActiveNode_PortQueueRemaps_PortQueueRemap) GetEntityData() *types.CommonEntityData {
+    portQueueRemap.EntityData.YFilter = portQueueRemap.YFilter
+    portQueueRemap.EntityData.YangName = "port-queue-remap"
+    portQueueRemap.EntityData.BundleName = "cisco_ios_xr"
+    portQueueRemap.EntityData.ParentYangName = "port-queue-remaps"
+    portQueueRemap.EntityData.SegmentPath = "port-queue-remap" + types.AddKeyToken(portQueueRemap.Port, "port")
+    portQueueRemap.EntityData.AbsolutePath = "Cisco-IOS-XR-config-mda-cfg:active-nodes/active-node/Cisco-IOS-XR-asr9k-fia-cfg:port-queue-remaps/" + portQueueRemap.EntityData.SegmentPath
+    portQueueRemap.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    portQueueRemap.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    portQueueRemap.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    portQueueRemap.EntityData.Children = types.NewOrderedMap()
+    portQueueRemap.EntityData.Leafs = types.NewOrderedMap()
+    portQueueRemap.EntityData.Leafs.Append("port", types.YLeaf{"Port", portQueueRemap.Port})
+    portQueueRemap.EntityData.Leafs.Append("fabric-queue", types.YLeaf{"FabricQueue", portQueueRemap.FabricQueue})
+
+    portQueueRemap.EntityData.YListKeys = []string {"Port"}
+
+    return &(portQueueRemap.EntityData)
 }
 
 // PreconfiguredNodes
@@ -1497,6 +1751,7 @@ func (preconfiguredNodes *PreconfiguredNodes) GetEntityData() *types.CommonEntit
     preconfiguredNodes.EntityData.BundleName = "cisco_ios_xr"
     preconfiguredNodes.EntityData.ParentYangName = "Cisco-IOS-XR-config-mda-cfg"
     preconfiguredNodes.EntityData.SegmentPath = "Cisco-IOS-XR-config-mda-cfg:preconfigured-nodes"
+    preconfiguredNodes.EntityData.AbsolutePath = preconfiguredNodes.EntityData.SegmentPath
     preconfiguredNodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     preconfiguredNodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     preconfiguredNodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1518,13 +1773,11 @@ func (preconfiguredNodes *PreconfiguredNodes) GetEntityData() *types.CommonEntit
 type PreconfiguredNodes_PreconfiguredNode struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The identifier for this node. The type is string
     // with pattern: ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeName interface{}
-
-    // watchdog node threshold.
-    WatchdogNodeThreshold PreconfiguredNodes_PreconfiguredNode_WatchdogNodeThreshold
 
     // Ltrace Memory configuration.
     Ltrace PreconfiguredNodes_PreconfiguredNode_Ltrace
@@ -1532,8 +1785,23 @@ type PreconfiguredNodes_PreconfiguredNode struct {
     // Configuration for a clock interface.
     ClockInterface PreconfiguredNodes_PreconfiguredNode_ClockInterface
 
+    // Watchdog threshold configuration.
+    CiscoIOSXRWdCfgWatchdogNodeThreshold PreconfiguredNodes_PreconfiguredNode_CiscoIOSXRWdCfgWatchdogNodeThreshold
+
+    // watchdog node threshold.
+    CiscoIOSXRWatchdCfgWatchdogNodeThreshold PreconfiguredNodes_PreconfiguredNode_CiscoIOSXRWatchdCfgWatchdogNodeThreshold
+
     // lpts node specific configuration commands.
     LptsLocal PreconfiguredNodes_PreconfiguredNode_LptsLocal
+
+    // fia buffer profile cfg.
+    FiaBufferProfileCfg PreconfiguredNodes_PreconfiguredNode_FiaBufferProfileCfg
+
+    // fia vqi shaper cfg.
+    FiaVqiShaperCfg PreconfiguredNodes_PreconfiguredNode_FiaVqiShaperCfg
+
+    // port queue remaps.
+    PortQueueRemaps PreconfiguredNodes_PreconfiguredNode_PortQueueRemaps
 }
 
 func (preconfiguredNode *PreconfiguredNodes_PreconfiguredNode) GetEntityData() *types.CommonEntityData {
@@ -1542,128 +1810,26 @@ func (preconfiguredNode *PreconfiguredNodes_PreconfiguredNode) GetEntityData() *
     preconfiguredNode.EntityData.BundleName = "cisco_ios_xr"
     preconfiguredNode.EntityData.ParentYangName = "preconfigured-nodes"
     preconfiguredNode.EntityData.SegmentPath = "preconfigured-node" + types.AddKeyToken(preconfiguredNode.NodeName, "node-name")
+    preconfiguredNode.EntityData.AbsolutePath = "Cisco-IOS-XR-config-mda-cfg:preconfigured-nodes/" + preconfiguredNode.EntityData.SegmentPath
     preconfiguredNode.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     preconfiguredNode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     preconfiguredNode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     preconfiguredNode.EntityData.Children = types.NewOrderedMap()
-    preconfiguredNode.EntityData.Children.Append("Cisco-IOS-XR-watchd-cfg:watchdog-node-threshold", types.YChild{"WatchdogNodeThreshold", &preconfiguredNode.WatchdogNodeThreshold})
     preconfiguredNode.EntityData.Children.Append("Cisco-IOS-XR-infra-ltrace-cfg:ltrace", types.YChild{"Ltrace", &preconfiguredNode.Ltrace})
     preconfiguredNode.EntityData.Children.Append("Cisco-IOS-XR-freqsync-cfg:clock-interface", types.YChild{"ClockInterface", &preconfiguredNode.ClockInterface})
+    preconfiguredNode.EntityData.Children.Append("Cisco-IOS-XR-wd-cfg:watchdog-node-threshold", types.YChild{"CiscoIOSXRWdCfgWatchdogNodeThreshold", &preconfiguredNode.CiscoIOSXRWdCfgWatchdogNodeThreshold})
+    preconfiguredNode.EntityData.Children.Append("Cisco-IOS-XR-watchd-cfg:watchdog-node-threshold", types.YChild{"CiscoIOSXRWatchdCfgWatchdogNodeThreshold", &preconfiguredNode.CiscoIOSXRWatchdCfgWatchdogNodeThreshold})
     preconfiguredNode.EntityData.Children.Append("Cisco-IOS-XR-lpts-pre-ifib-cfg:lpts-local", types.YChild{"LptsLocal", &preconfiguredNode.LptsLocal})
+    preconfiguredNode.EntityData.Children.Append("Cisco-IOS-XR-asr9k-fia-cfg:fia-buffer-profile-cfg", types.YChild{"FiaBufferProfileCfg", &preconfiguredNode.FiaBufferProfileCfg})
+    preconfiguredNode.EntityData.Children.Append("Cisco-IOS-XR-asr9k-fia-cfg:fia-vqi-shaper-cfg", types.YChild{"FiaVqiShaperCfg", &preconfiguredNode.FiaVqiShaperCfg})
+    preconfiguredNode.EntityData.Children.Append("Cisco-IOS-XR-asr9k-fia-cfg:port-queue-remaps", types.YChild{"PortQueueRemaps", &preconfiguredNode.PortQueueRemaps})
     preconfiguredNode.EntityData.Leafs = types.NewOrderedMap()
     preconfiguredNode.EntityData.Leafs.Append("node-name", types.YLeaf{"NodeName", preconfiguredNode.NodeName})
 
     preconfiguredNode.EntityData.YListKeys = []string {"NodeName"}
 
     return &(preconfiguredNode.EntityData)
-}
-
-// PreconfiguredNodes_PreconfiguredNode_WatchdogNodeThreshold
-// watchdog node threshold
-type PreconfiguredNodes_PreconfiguredNode_WatchdogNodeThreshold struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Disk thresholds.
-    DiskThreshold PreconfiguredNodes_PreconfiguredNode_WatchdogNodeThreshold_DiskThreshold
-
-    // Memory thresholds.
-    MemoryThreshold PreconfiguredNodes_PreconfiguredNode_WatchdogNodeThreshold_MemoryThreshold
-}
-
-func (watchdogNodeThreshold *PreconfiguredNodes_PreconfiguredNode_WatchdogNodeThreshold) GetEntityData() *types.CommonEntityData {
-    watchdogNodeThreshold.EntityData.YFilter = watchdogNodeThreshold.YFilter
-    watchdogNodeThreshold.EntityData.YangName = "watchdog-node-threshold"
-    watchdogNodeThreshold.EntityData.BundleName = "cisco_ios_xr"
-    watchdogNodeThreshold.EntityData.ParentYangName = "preconfigured-node"
-    watchdogNodeThreshold.EntityData.SegmentPath = "Cisco-IOS-XR-watchd-cfg:watchdog-node-threshold"
-    watchdogNodeThreshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    watchdogNodeThreshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    watchdogNodeThreshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    watchdogNodeThreshold.EntityData.Children = types.NewOrderedMap()
-    watchdogNodeThreshold.EntityData.Children.Append("disk-threshold", types.YChild{"DiskThreshold", &watchdogNodeThreshold.DiskThreshold})
-    watchdogNodeThreshold.EntityData.Children.Append("memory-threshold", types.YChild{"MemoryThreshold", &watchdogNodeThreshold.MemoryThreshold})
-    watchdogNodeThreshold.EntityData.Leafs = types.NewOrderedMap()
-
-    watchdogNodeThreshold.EntityData.YListKeys = []string {}
-
-    return &(watchdogNodeThreshold.EntityData)
-}
-
-// PreconfiguredNodes_PreconfiguredNode_WatchdogNodeThreshold_DiskThreshold
-// Disk thresholds
-type PreconfiguredNodes_PreconfiguredNode_WatchdogNodeThreshold_DiskThreshold struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Threshold, Range(5, 40). The type is interface{} with range: 5..40.
-    Minor interface{}
-
-    // Threshold, Range(4, minor). The type is interface{} with range: 4..40.
-    Severe interface{}
-
-    // Threshold, Range(3, severe). The type is interface{} with range: 3..40.
-    Critical interface{}
-}
-
-func (diskThreshold *PreconfiguredNodes_PreconfiguredNode_WatchdogNodeThreshold_DiskThreshold) GetEntityData() *types.CommonEntityData {
-    diskThreshold.EntityData.YFilter = diskThreshold.YFilter
-    diskThreshold.EntityData.YangName = "disk-threshold"
-    diskThreshold.EntityData.BundleName = "cisco_ios_xr"
-    diskThreshold.EntityData.ParentYangName = "watchdog-node-threshold"
-    diskThreshold.EntityData.SegmentPath = "disk-threshold"
-    diskThreshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    diskThreshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    diskThreshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    diskThreshold.EntityData.Children = types.NewOrderedMap()
-    diskThreshold.EntityData.Leafs = types.NewOrderedMap()
-    diskThreshold.EntityData.Leafs.Append("minor", types.YLeaf{"Minor", diskThreshold.Minor})
-    diskThreshold.EntityData.Leafs.Append("severe", types.YLeaf{"Severe", diskThreshold.Severe})
-    diskThreshold.EntityData.Leafs.Append("critical", types.YLeaf{"Critical", diskThreshold.Critical})
-
-    diskThreshold.EntityData.YListKeys = []string {}
-
-    return &(diskThreshold.EntityData)
-}
-
-// PreconfiguredNodes_PreconfiguredNode_WatchdogNodeThreshold_MemoryThreshold
-// Memory thresholds
-type PreconfiguredNodes_PreconfiguredNode_WatchdogNodeThreshold_MemoryThreshold struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Threshold, Range(5, 40). The type is interface{} with range: 5..40.
-    Minor interface{}
-
-    // Threshold, Range(4, minor). The type is interface{} with range: 4..40.
-    Severe interface{}
-
-    // Threshold, Range(3, severe). The type is interface{} with range: 3..40.
-    Critical interface{}
-}
-
-func (memoryThreshold *PreconfiguredNodes_PreconfiguredNode_WatchdogNodeThreshold_MemoryThreshold) GetEntityData() *types.CommonEntityData {
-    memoryThreshold.EntityData.YFilter = memoryThreshold.YFilter
-    memoryThreshold.EntityData.YangName = "memory-threshold"
-    memoryThreshold.EntityData.BundleName = "cisco_ios_xr"
-    memoryThreshold.EntityData.ParentYangName = "watchdog-node-threshold"
-    memoryThreshold.EntityData.SegmentPath = "memory-threshold"
-    memoryThreshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    memoryThreshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    memoryThreshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    memoryThreshold.EntityData.Children = types.NewOrderedMap()
-    memoryThreshold.EntityData.Leafs = types.NewOrderedMap()
-    memoryThreshold.EntityData.Leafs.Append("minor", types.YLeaf{"Minor", memoryThreshold.Minor})
-    memoryThreshold.EntityData.Leafs.Append("severe", types.YLeaf{"Severe", memoryThreshold.Severe})
-    memoryThreshold.EntityData.Leafs.Append("critical", types.YLeaf{"Critical", memoryThreshold.Critical})
-
-    memoryThreshold.EntityData.YListKeys = []string {}
-
-    return &(memoryThreshold.EntityData)
 }
 
 // PreconfiguredNodes_PreconfiguredNode_Ltrace
@@ -1682,6 +1848,7 @@ func (ltrace *PreconfiguredNodes_PreconfiguredNode_Ltrace) GetEntityData() *type
     ltrace.EntityData.BundleName = "cisco_ios_xr"
     ltrace.EntityData.ParentYangName = "preconfigured-node"
     ltrace.EntityData.SegmentPath = "Cisco-IOS-XR-infra-ltrace-cfg:ltrace"
+    ltrace.EntityData.AbsolutePath = "Cisco-IOS-XR-config-mda-cfg:preconfigured-nodes/preconfigured-node/" + ltrace.EntityData.SegmentPath
     ltrace.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ltrace.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ltrace.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1715,6 +1882,7 @@ func (allocationParams *PreconfiguredNodes_PreconfiguredNode_Ltrace_AllocationPa
     allocationParams.EntityData.BundleName = "cisco_ios_xr"
     allocationParams.EntityData.ParentYangName = "ltrace"
     allocationParams.EntityData.SegmentPath = "allocation-params"
+    allocationParams.EntityData.AbsolutePath = "Cisco-IOS-XR-config-mda-cfg:preconfigured-nodes/preconfigured-node/Cisco-IOS-XR-infra-ltrace-cfg:ltrace/" + allocationParams.EntityData.SegmentPath
     allocationParams.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     allocationParams.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     allocationParams.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1745,6 +1913,7 @@ func (clockInterface *PreconfiguredNodes_PreconfiguredNode_ClockInterface) GetEn
     clockInterface.EntityData.BundleName = "cisco_ios_xr"
     clockInterface.EntityData.ParentYangName = "preconfigured-node"
     clockInterface.EntityData.SegmentPath = "Cisco-IOS-XR-freqsync-cfg:clock-interface"
+    clockInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-config-mda-cfg:preconfigured-nodes/preconfigured-node/" + clockInterface.EntityData.SegmentPath
     clockInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clockInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clockInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1775,6 +1944,7 @@ func (clocks *PreconfiguredNodes_PreconfiguredNode_ClockInterface_Clocks) GetEnt
     clocks.EntityData.BundleName = "cisco_ios_xr"
     clocks.EntityData.ParentYangName = "clock-interface"
     clocks.EntityData.SegmentPath = "clocks"
+    clocks.EntityData.AbsolutePath = "Cisco-IOS-XR-config-mda-cfg:preconfigured-nodes/preconfigured-node/Cisco-IOS-XR-freqsync-cfg:clock-interface/" + clocks.EntityData.SegmentPath
     clocks.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clocks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clocks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1796,6 +1966,7 @@ func (clocks *PreconfiguredNodes_PreconfiguredNode_ClockInterface_Clocks) GetEnt
 type PreconfiguredNodes_PreconfiguredNode_ClockInterface_Clocks_Clock struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Clock type. The type is FsyncClock.
     ClockType interface{}
@@ -1817,6 +1988,7 @@ func (clock *PreconfiguredNodes_PreconfiguredNode_ClockInterface_Clocks_Clock) G
     clock.EntityData.BundleName = "cisco_ios_xr"
     clock.EntityData.ParentYangName = "clocks"
     clock.EntityData.SegmentPath = "clock" + types.AddKeyToken(clock.ClockType, "clock-type") + types.AddKeyToken(clock.Port, "port")
+    clock.EntityData.AbsolutePath = "Cisco-IOS-XR-config-mda-cfg:preconfigured-nodes/preconfigured-node/Cisco-IOS-XR-freqsync-cfg:clock-interface/clocks/" + clock.EntityData.SegmentPath
     clock.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clock.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clock.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1870,6 +2042,7 @@ func (frequencySynchronization *PreconfiguredNodes_PreconfiguredNode_ClockInterf
     frequencySynchronization.EntityData.BundleName = "cisco_ios_xr"
     frequencySynchronization.EntityData.ParentYangName = "clock"
     frequencySynchronization.EntityData.SegmentPath = "frequency-synchronization"
+    frequencySynchronization.EntityData.AbsolutePath = "Cisco-IOS-XR-config-mda-cfg:preconfigured-nodes/preconfigured-node/Cisco-IOS-XR-freqsync-cfg:clock-interface/clocks/clock/" + frequencySynchronization.EntityData.SegmentPath
     frequencySynchronization.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     frequencySynchronization.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     frequencySynchronization.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1914,6 +2087,7 @@ func (outputQualityLevel *PreconfiguredNodes_PreconfiguredNode_ClockInterface_Cl
     outputQualityLevel.EntityData.BundleName = "cisco_ios_xr"
     outputQualityLevel.EntityData.ParentYangName = "frequency-synchronization"
     outputQualityLevel.EntityData.SegmentPath = "output-quality-level"
+    outputQualityLevel.EntityData.AbsolutePath = "Cisco-IOS-XR-config-mda-cfg:preconfigured-nodes/preconfigured-node/Cisco-IOS-XR-freqsync-cfg:clock-interface/clocks/clock/frequency-synchronization/" + outputQualityLevel.EntityData.SegmentPath
     outputQualityLevel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     outputQualityLevel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outputQualityLevel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1955,6 +2129,7 @@ func (inputQualityLevel *PreconfiguredNodes_PreconfiguredNode_ClockInterface_Clo
     inputQualityLevel.EntityData.BundleName = "cisco_ios_xr"
     inputQualityLevel.EntityData.ParentYangName = "frequency-synchronization"
     inputQualityLevel.EntityData.SegmentPath = "input-quality-level"
+    inputQualityLevel.EntityData.AbsolutePath = "Cisco-IOS-XR-config-mda-cfg:preconfigured-nodes/preconfigured-node/Cisco-IOS-XR-freqsync-cfg:clock-interface/clocks/clock/frequency-synchronization/" + inputQualityLevel.EntityData.SegmentPath
     inputQualityLevel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     inputQualityLevel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inputQualityLevel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1987,6 +2162,7 @@ func (syncController *PreconfiguredNodes_PreconfiguredNode_ClockInterface_Clocks
     syncController.EntityData.BundleName = "cisco_ios_xr"
     syncController.EntityData.ParentYangName = "clock"
     syncController.EntityData.SegmentPath = "Cisco-IOS-XR-syncc-controller-cfg:sync-controller"
+    syncController.EntityData.AbsolutePath = "Cisco-IOS-XR-config-mda-cfg:preconfigured-nodes/preconfigured-node/Cisco-IOS-XR-freqsync-cfg:clock-interface/clocks/clock/" + syncController.EntityData.SegmentPath
     syncController.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     syncController.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     syncController.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2016,6 +2192,7 @@ func (transportMode *PreconfiguredNodes_PreconfiguredNode_ClockInterface_Clocks_
     transportMode.EntityData.BundleName = "cisco_ios_xr"
     transportMode.EntityData.ParentYangName = "sync-controller"
     transportMode.EntityData.SegmentPath = "transport-mode"
+    transportMode.EntityData.AbsolutePath = "Cisco-IOS-XR-config-mda-cfg:preconfigured-nodes/preconfigured-node/Cisco-IOS-XR-freqsync-cfg:clock-interface/clocks/clock/Cisco-IOS-XR-syncc-controller-cfg:sync-controller/" + transportMode.EntityData.SegmentPath
     transportMode.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     transportMode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transportMode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2157,6 +2334,7 @@ func (frequencyMode *PreconfiguredNodes_PreconfiguredNode_ClockInterface_Clocks_
     frequencyMode.EntityData.BundleName = "cisco_ios_xr"
     frequencyMode.EntityData.ParentYangName = "transport-mode"
     frequencyMode.EntityData.SegmentPath = "frequency-mode"
+    frequencyMode.EntityData.AbsolutePath = "Cisco-IOS-XR-config-mda-cfg:preconfigured-nodes/preconfigured-node/Cisco-IOS-XR-freqsync-cfg:clock-interface/clocks/clock/Cisco-IOS-XR-syncc-controller-cfg:sync-controller/transport-mode/" + frequencyMode.EntityData.SegmentPath
     frequencyMode.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     frequencyMode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     frequencyMode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2373,15 +2551,15 @@ type PreconfiguredNodes_PreconfiguredNode_ClockInterface_Clocks_Clock_SyncContro
     // is mandatory.
     Option1 interface{}
 
-    // Option value #2. The type is interface{} with range: 0..4. This attribute
+    // Option value #2. The type is interface{} with range: 0..10. This attribute
     // is mandatory.
     Option2 interface{}
 
-    // Option value #3. The type is interface{} with range: 0..1. This attribute
+    // Option value #3. The type is interface{} with range: 0..10. This attribute
     // is mandatory.
     Option3 interface{}
 
-    // Option value #4. The type is interface{} with range: 0..1. This attribute
+    // Option value #4. The type is interface{} with range: 0..10. This attribute
     // is mandatory.
     Option4 interface{}
 
@@ -2396,6 +2574,7 @@ func (portMode *PreconfiguredNodes_PreconfiguredNode_ClockInterface_Clocks_Clock
     portMode.EntityData.BundleName = "cisco_ios_xr"
     portMode.EntityData.ParentYangName = "frequency-mode"
     portMode.EntityData.SegmentPath = "port-mode"
+    portMode.EntityData.AbsolutePath = "Cisco-IOS-XR-config-mda-cfg:preconfigured-nodes/preconfigured-node/Cisco-IOS-XR-freqsync-cfg:clock-interface/clocks/clock/Cisco-IOS-XR-syncc-controller-cfg:sync-controller/transport-mode/frequency-mode/" + portMode.EntityData.SegmentPath
     portMode.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     portMode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     portMode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2411,6 +2590,184 @@ func (portMode *PreconfiguredNodes_PreconfiguredNode_ClockInterface_Clocks_Clock
     portMode.EntityData.YListKeys = []string {}
 
     return &(portMode.EntityData)
+}
+
+// PreconfiguredNodes_PreconfiguredNode_CiscoIOSXRWdCfgWatchdogNodeThreshold
+// Watchdog threshold configuration
+type PreconfiguredNodes_PreconfiguredNode_CiscoIOSXRWdCfgWatchdogNodeThreshold struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Memory thresholds.
+    MemoryThreshold PreconfiguredNodes_PreconfiguredNode_CiscoIOSXRWdCfgWatchdogNodeThreshold_MemoryThreshold
+}
+
+func (ciscoIOSXRWdCfgWatchdogNodeThreshold *PreconfiguredNodes_PreconfiguredNode_CiscoIOSXRWdCfgWatchdogNodeThreshold) GetEntityData() *types.CommonEntityData {
+    ciscoIOSXRWdCfgWatchdogNodeThreshold.EntityData.YFilter = ciscoIOSXRWdCfgWatchdogNodeThreshold.YFilter
+    ciscoIOSXRWdCfgWatchdogNodeThreshold.EntityData.YangName = "watchdog-node-threshold"
+    ciscoIOSXRWdCfgWatchdogNodeThreshold.EntityData.BundleName = "cisco_ios_xr"
+    ciscoIOSXRWdCfgWatchdogNodeThreshold.EntityData.ParentYangName = "preconfigured-node"
+    ciscoIOSXRWdCfgWatchdogNodeThreshold.EntityData.SegmentPath = "Cisco-IOS-XR-wd-cfg:watchdog-node-threshold"
+    ciscoIOSXRWdCfgWatchdogNodeThreshold.EntityData.AbsolutePath = "Cisco-IOS-XR-config-mda-cfg:preconfigured-nodes/preconfigured-node/" + ciscoIOSXRWdCfgWatchdogNodeThreshold.EntityData.SegmentPath
+    ciscoIOSXRWdCfgWatchdogNodeThreshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ciscoIOSXRWdCfgWatchdogNodeThreshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ciscoIOSXRWdCfgWatchdogNodeThreshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ciscoIOSXRWdCfgWatchdogNodeThreshold.EntityData.Children = types.NewOrderedMap()
+    ciscoIOSXRWdCfgWatchdogNodeThreshold.EntityData.Children.Append("memory-threshold", types.YChild{"MemoryThreshold", &ciscoIOSXRWdCfgWatchdogNodeThreshold.MemoryThreshold})
+    ciscoIOSXRWdCfgWatchdogNodeThreshold.EntityData.Leafs = types.NewOrderedMap()
+
+    ciscoIOSXRWdCfgWatchdogNodeThreshold.EntityData.YListKeys = []string {}
+
+    return &(ciscoIOSXRWdCfgWatchdogNodeThreshold.EntityData)
+}
+
+// PreconfiguredNodes_PreconfiguredNode_CiscoIOSXRWdCfgWatchdogNodeThreshold_MemoryThreshold
+// Memory thresholds
+type PreconfiguredNodes_PreconfiguredNode_CiscoIOSXRWdCfgWatchdogNodeThreshold_MemoryThreshold struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Threshold, Range(5, 40). The type is interface{} with range: 5..40.
+    Minor interface{}
+
+    // Threshold, Range(4, minor). The type is interface{} with range: 4..40.
+    Severe interface{}
+
+    // Threshold, Range(3, severe). The type is interface{} with range: 3..40.
+    Critical interface{}
+}
+
+func (memoryThreshold *PreconfiguredNodes_PreconfiguredNode_CiscoIOSXRWdCfgWatchdogNodeThreshold_MemoryThreshold) GetEntityData() *types.CommonEntityData {
+    memoryThreshold.EntityData.YFilter = memoryThreshold.YFilter
+    memoryThreshold.EntityData.YangName = "memory-threshold"
+    memoryThreshold.EntityData.BundleName = "cisco_ios_xr"
+    memoryThreshold.EntityData.ParentYangName = "watchdog-node-threshold"
+    memoryThreshold.EntityData.SegmentPath = "memory-threshold"
+    memoryThreshold.EntityData.AbsolutePath = "Cisco-IOS-XR-config-mda-cfg:preconfigured-nodes/preconfigured-node/Cisco-IOS-XR-wd-cfg:watchdog-node-threshold/" + memoryThreshold.EntityData.SegmentPath
+    memoryThreshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    memoryThreshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    memoryThreshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    memoryThreshold.EntityData.Children = types.NewOrderedMap()
+    memoryThreshold.EntityData.Leafs = types.NewOrderedMap()
+    memoryThreshold.EntityData.Leafs.Append("minor", types.YLeaf{"Minor", memoryThreshold.Minor})
+    memoryThreshold.EntityData.Leafs.Append("severe", types.YLeaf{"Severe", memoryThreshold.Severe})
+    memoryThreshold.EntityData.Leafs.Append("critical", types.YLeaf{"Critical", memoryThreshold.Critical})
+
+    memoryThreshold.EntityData.YListKeys = []string {}
+
+    return &(memoryThreshold.EntityData)
+}
+
+// PreconfiguredNodes_PreconfiguredNode_CiscoIOSXRWatchdCfgWatchdogNodeThreshold
+// watchdog node threshold
+type PreconfiguredNodes_PreconfiguredNode_CiscoIOSXRWatchdCfgWatchdogNodeThreshold struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Disk thresholds.
+    DiskThreshold PreconfiguredNodes_PreconfiguredNode_CiscoIOSXRWatchdCfgWatchdogNodeThreshold_DiskThreshold
+
+    // Memory thresholds.
+    MemoryThreshold PreconfiguredNodes_PreconfiguredNode_CiscoIOSXRWatchdCfgWatchdogNodeThreshold_MemoryThreshold
+}
+
+func (ciscoIOSXRWatchdCfgWatchdogNodeThreshold *PreconfiguredNodes_PreconfiguredNode_CiscoIOSXRWatchdCfgWatchdogNodeThreshold) GetEntityData() *types.CommonEntityData {
+    ciscoIOSXRWatchdCfgWatchdogNodeThreshold.EntityData.YFilter = ciscoIOSXRWatchdCfgWatchdogNodeThreshold.YFilter
+    ciscoIOSXRWatchdCfgWatchdogNodeThreshold.EntityData.YangName = "watchdog-node-threshold"
+    ciscoIOSXRWatchdCfgWatchdogNodeThreshold.EntityData.BundleName = "cisco_ios_xr"
+    ciscoIOSXRWatchdCfgWatchdogNodeThreshold.EntityData.ParentYangName = "preconfigured-node"
+    ciscoIOSXRWatchdCfgWatchdogNodeThreshold.EntityData.SegmentPath = "Cisco-IOS-XR-watchd-cfg:watchdog-node-threshold"
+    ciscoIOSXRWatchdCfgWatchdogNodeThreshold.EntityData.AbsolutePath = "Cisco-IOS-XR-config-mda-cfg:preconfigured-nodes/preconfigured-node/" + ciscoIOSXRWatchdCfgWatchdogNodeThreshold.EntityData.SegmentPath
+    ciscoIOSXRWatchdCfgWatchdogNodeThreshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ciscoIOSXRWatchdCfgWatchdogNodeThreshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ciscoIOSXRWatchdCfgWatchdogNodeThreshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ciscoIOSXRWatchdCfgWatchdogNodeThreshold.EntityData.Children = types.NewOrderedMap()
+    ciscoIOSXRWatchdCfgWatchdogNodeThreshold.EntityData.Children.Append("disk-threshold", types.YChild{"DiskThreshold", &ciscoIOSXRWatchdCfgWatchdogNodeThreshold.DiskThreshold})
+    ciscoIOSXRWatchdCfgWatchdogNodeThreshold.EntityData.Children.Append("memory-threshold", types.YChild{"MemoryThreshold", &ciscoIOSXRWatchdCfgWatchdogNodeThreshold.MemoryThreshold})
+    ciscoIOSXRWatchdCfgWatchdogNodeThreshold.EntityData.Leafs = types.NewOrderedMap()
+
+    ciscoIOSXRWatchdCfgWatchdogNodeThreshold.EntityData.YListKeys = []string {}
+
+    return &(ciscoIOSXRWatchdCfgWatchdogNodeThreshold.EntityData)
+}
+
+// PreconfiguredNodes_PreconfiguredNode_CiscoIOSXRWatchdCfgWatchdogNodeThreshold_DiskThreshold
+// Disk thresholds
+type PreconfiguredNodes_PreconfiguredNode_CiscoIOSXRWatchdCfgWatchdogNodeThreshold_DiskThreshold struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Threshold, Range(5, 40). The type is interface{} with range: 5..40.
+    Minor interface{}
+
+    // Threshold, Range(4, minor). The type is interface{} with range: 4..40.
+    Severe interface{}
+
+    // Threshold, Range(3, severe). The type is interface{} with range: 3..40.
+    Critical interface{}
+}
+
+func (diskThreshold *PreconfiguredNodes_PreconfiguredNode_CiscoIOSXRWatchdCfgWatchdogNodeThreshold_DiskThreshold) GetEntityData() *types.CommonEntityData {
+    diskThreshold.EntityData.YFilter = diskThreshold.YFilter
+    diskThreshold.EntityData.YangName = "disk-threshold"
+    diskThreshold.EntityData.BundleName = "cisco_ios_xr"
+    diskThreshold.EntityData.ParentYangName = "watchdog-node-threshold"
+    diskThreshold.EntityData.SegmentPath = "disk-threshold"
+    diskThreshold.EntityData.AbsolutePath = "Cisco-IOS-XR-config-mda-cfg:preconfigured-nodes/preconfigured-node/Cisco-IOS-XR-watchd-cfg:watchdog-node-threshold/" + diskThreshold.EntityData.SegmentPath
+    diskThreshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    diskThreshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    diskThreshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    diskThreshold.EntityData.Children = types.NewOrderedMap()
+    diskThreshold.EntityData.Leafs = types.NewOrderedMap()
+    diskThreshold.EntityData.Leafs.Append("minor", types.YLeaf{"Minor", diskThreshold.Minor})
+    diskThreshold.EntityData.Leafs.Append("severe", types.YLeaf{"Severe", diskThreshold.Severe})
+    diskThreshold.EntityData.Leafs.Append("critical", types.YLeaf{"Critical", diskThreshold.Critical})
+
+    diskThreshold.EntityData.YListKeys = []string {}
+
+    return &(diskThreshold.EntityData)
+}
+
+// PreconfiguredNodes_PreconfiguredNode_CiscoIOSXRWatchdCfgWatchdogNodeThreshold_MemoryThreshold
+// Memory thresholds
+type PreconfiguredNodes_PreconfiguredNode_CiscoIOSXRWatchdCfgWatchdogNodeThreshold_MemoryThreshold struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Threshold, Range(5, 40). The type is interface{} with range: 5..40.
+    Minor interface{}
+
+    // Threshold, Range(4, minor). The type is interface{} with range: 4..40.
+    Severe interface{}
+
+    // Threshold, Range(3, severe). The type is interface{} with range: 3..40.
+    Critical interface{}
+}
+
+func (memoryThreshold *PreconfiguredNodes_PreconfiguredNode_CiscoIOSXRWatchdCfgWatchdogNodeThreshold_MemoryThreshold) GetEntityData() *types.CommonEntityData {
+    memoryThreshold.EntityData.YFilter = memoryThreshold.YFilter
+    memoryThreshold.EntityData.YangName = "memory-threshold"
+    memoryThreshold.EntityData.BundleName = "cisco_ios_xr"
+    memoryThreshold.EntityData.ParentYangName = "watchdog-node-threshold"
+    memoryThreshold.EntityData.SegmentPath = "memory-threshold"
+    memoryThreshold.EntityData.AbsolutePath = "Cisco-IOS-XR-config-mda-cfg:preconfigured-nodes/preconfigured-node/Cisco-IOS-XR-watchd-cfg:watchdog-node-threshold/" + memoryThreshold.EntityData.SegmentPath
+    memoryThreshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    memoryThreshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    memoryThreshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    memoryThreshold.EntityData.Children = types.NewOrderedMap()
+    memoryThreshold.EntityData.Leafs = types.NewOrderedMap()
+    memoryThreshold.EntityData.Leafs.Append("minor", types.YLeaf{"Minor", memoryThreshold.Minor})
+    memoryThreshold.EntityData.Leafs.Append("severe", types.YLeaf{"Severe", memoryThreshold.Severe})
+    memoryThreshold.EntityData.Leafs.Append("critical", types.YLeaf{"Critical", memoryThreshold.Critical})
+
+    memoryThreshold.EntityData.YListKeys = []string {}
+
+    return &(memoryThreshold.EntityData)
 }
 
 // PreconfiguredNodes_PreconfiguredNode_LptsLocal
@@ -2438,6 +2795,7 @@ func (lptsLocal *PreconfiguredNodes_PreconfiguredNode_LptsLocal) GetEntityData()
     lptsLocal.EntityData.BundleName = "cisco_ios_xr"
     lptsLocal.EntityData.ParentYangName = "preconfigured-node"
     lptsLocal.EntityData.SegmentPath = "Cisco-IOS-XR-lpts-pre-ifib-cfg:lpts-local"
+    lptsLocal.EntityData.AbsolutePath = "Cisco-IOS-XR-config-mda-cfg:preconfigured-nodes/preconfigured-node/" + lptsLocal.EntityData.SegmentPath
     lptsLocal.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lptsLocal.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lptsLocal.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2472,6 +2830,7 @@ func (ipolicerLocalTables *PreconfiguredNodes_PreconfiguredNode_LptsLocal_Ipolic
     ipolicerLocalTables.EntityData.BundleName = "cisco_ios_xr"
     ipolicerLocalTables.EntityData.ParentYangName = "lpts-local"
     ipolicerLocalTables.EntityData.SegmentPath = "ipolicer-local-tables"
+    ipolicerLocalTables.EntityData.AbsolutePath = "Cisco-IOS-XR-config-mda-cfg:preconfigured-nodes/preconfigured-node/Cisco-IOS-XR-lpts-pre-ifib-cfg:lpts-local/" + ipolicerLocalTables.EntityData.SegmentPath
     ipolicerLocalTables.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipolicerLocalTables.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipolicerLocalTables.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2494,6 +2853,7 @@ func (ipolicerLocalTables *PreconfiguredNodes_PreconfiguredNode_LptsLocal_Ipolic
 type PreconfiguredNodes_PreconfiguredNode_LptsLocal_IpolicerLocalTables_IpolicerLocalTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. none. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -2509,6 +2869,7 @@ func (ipolicerLocalTable *PreconfiguredNodes_PreconfiguredNode_LptsLocal_Ipolice
     ipolicerLocalTable.EntityData.BundleName = "cisco_ios_xr"
     ipolicerLocalTable.EntityData.ParentYangName = "ipolicer-local-tables"
     ipolicerLocalTable.EntityData.SegmentPath = "ipolicer-local-table" + types.AddKeyToken(ipolicerLocalTable.Id1, "id1")
+    ipolicerLocalTable.EntityData.AbsolutePath = "Cisco-IOS-XR-config-mda-cfg:preconfigured-nodes/preconfigured-node/Cisco-IOS-XR-lpts-pre-ifib-cfg:lpts-local/ipolicer-local-tables/" + ipolicerLocalTable.EntityData.SegmentPath
     ipolicerLocalTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipolicerLocalTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipolicerLocalTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2540,6 +2901,7 @@ func (npFlows *PreconfiguredNodes_PreconfiguredNode_LptsLocal_IpolicerLocalTable
     npFlows.EntityData.BundleName = "cisco_ios_xr"
     npFlows.EntityData.ParentYangName = "ipolicer-local-table"
     npFlows.EntityData.SegmentPath = "np-flows"
+    npFlows.EntityData.AbsolutePath = "Cisco-IOS-XR-config-mda-cfg:preconfigured-nodes/preconfigured-node/Cisco-IOS-XR-lpts-pre-ifib-cfg:lpts-local/ipolicer-local-tables/ipolicer-local-table/" + npFlows.EntityData.SegmentPath
     npFlows.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     npFlows.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     npFlows.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2561,6 +2923,7 @@ func (npFlows *PreconfiguredNodes_PreconfiguredNode_LptsLocal_IpolicerLocalTable
 type PreconfiguredNodes_PreconfiguredNode_LptsLocal_IpolicerLocalTables_IpolicerLocalTable_NpFlows_NpFlow struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. LPTS Flow Type. The type is LptsFlow.
     FlowType interface{}
@@ -2575,6 +2938,7 @@ func (npFlow *PreconfiguredNodes_PreconfiguredNode_LptsLocal_IpolicerLocalTables
     npFlow.EntityData.BundleName = "cisco_ios_xr"
     npFlow.EntityData.ParentYangName = "np-flows"
     npFlow.EntityData.SegmentPath = "np-flow" + types.AddKeyToken(npFlow.FlowType, "flow-type")
+    npFlow.EntityData.AbsolutePath = "Cisco-IOS-XR-config-mda-cfg:preconfigured-nodes/preconfigured-node/Cisco-IOS-XR-lpts-pre-ifib-cfg:lpts-local/ipolicer-local-tables/ipolicer-local-table/np-flows/" + npFlow.EntityData.SegmentPath
     npFlow.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     npFlow.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     npFlow.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2607,6 +2971,7 @@ func (dynamicFlowsTables *PreconfiguredNodes_PreconfiguredNode_LptsLocal_Dynamic
     dynamicFlowsTables.EntityData.BundleName = "cisco_ios_xr"
     dynamicFlowsTables.EntityData.ParentYangName = "lpts-local"
     dynamicFlowsTables.EntityData.SegmentPath = "dynamic-flows-tables"
+    dynamicFlowsTables.EntityData.AbsolutePath = "Cisco-IOS-XR-config-mda-cfg:preconfigured-nodes/preconfigured-node/Cisco-IOS-XR-lpts-pre-ifib-cfg:lpts-local/" + dynamicFlowsTables.EntityData.SegmentPath
     dynamicFlowsTables.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dynamicFlowsTables.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dynamicFlowsTables.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2628,6 +2993,7 @@ func (dynamicFlowsTables *PreconfiguredNodes_PreconfiguredNode_LptsLocal_Dynamic
 type PreconfiguredNodes_PreconfiguredNode_LptsLocal_DynamicFlowsTables_DynamicFlowsTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. LPTS Dynamic Flows Table Type. The type is
     // LptsDynamicFlowConfig.
@@ -2644,6 +3010,7 @@ func (dynamicFlowsTable *PreconfiguredNodes_PreconfiguredNode_LptsLocal_DynamicF
     dynamicFlowsTable.EntityData.BundleName = "cisco_ios_xr"
     dynamicFlowsTable.EntityData.ParentYangName = "dynamic-flows-tables"
     dynamicFlowsTable.EntityData.SegmentPath = "dynamic-flows-table" + types.AddKeyToken(dynamicFlowsTable.TableType, "table-type")
+    dynamicFlowsTable.EntityData.AbsolutePath = "Cisco-IOS-XR-config-mda-cfg:preconfigured-nodes/preconfigured-node/Cisco-IOS-XR-lpts-pre-ifib-cfg:lpts-local/dynamic-flows-tables/" + dynamicFlowsTable.EntityData.SegmentPath
     dynamicFlowsTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dynamicFlowsTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dynamicFlowsTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2666,6 +3033,7 @@ func (dynamicFlowsTable *PreconfiguredNodes_PreconfiguredNode_LptsLocal_DynamicF
 type PreconfiguredNodes_PreconfiguredNode_LptsLocal_DynamicFlowsTables_DynamicFlowsTable_FlowType struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. LPTS Flow Type. The type is LptsFlow.
     FlowType interface{}
@@ -2681,6 +3049,7 @@ func (flowType *PreconfiguredNodes_PreconfiguredNode_LptsLocal_DynamicFlowsTable
     flowType.EntityData.BundleName = "cisco_ios_xr"
     flowType.EntityData.ParentYangName = "dynamic-flows-table"
     flowType.EntityData.SegmentPath = "flow-type" + types.AddKeyToken(flowType.FlowType, "flow-type")
+    flowType.EntityData.AbsolutePath = "Cisco-IOS-XR-config-mda-cfg:preconfigured-nodes/preconfigured-node/Cisco-IOS-XR-lpts-pre-ifib-cfg:lpts-local/dynamic-flows-tables/dynamic-flows-table/" + flowType.EntityData.SegmentPath
     flowType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     flowType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     flowType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2717,6 +3086,7 @@ func (ipolicerLocal *PreconfiguredNodes_PreconfiguredNode_LptsLocal_IpolicerLoca
     ipolicerLocal.EntityData.BundleName = "cisco_ios_xr"
     ipolicerLocal.EntityData.ParentYangName = "lpts-local"
     ipolicerLocal.EntityData.SegmentPath = "ipolicer-local"
+    ipolicerLocal.EntityData.AbsolutePath = "Cisco-IOS-XR-config-mda-cfg:preconfigured-nodes/preconfigured-node/Cisco-IOS-XR-lpts-pre-ifib-cfg:lpts-local/" + ipolicerLocal.EntityData.SegmentPath
     ipolicerLocal.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipolicerLocal.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipolicerLocal.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2748,6 +3118,7 @@ func (flows *PreconfiguredNodes_PreconfiguredNode_LptsLocal_IpolicerLocal_Flows)
     flows.EntityData.BundleName = "cisco_ios_xr"
     flows.EntityData.ParentYangName = "ipolicer-local"
     flows.EntityData.SegmentPath = "flows"
+    flows.EntityData.AbsolutePath = "Cisco-IOS-XR-config-mda-cfg:preconfigured-nodes/preconfigured-node/Cisco-IOS-XR-lpts-pre-ifib-cfg:lpts-local/ipolicer-local/" + flows.EntityData.SegmentPath
     flows.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     flows.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     flows.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2769,6 +3140,7 @@ func (flows *PreconfiguredNodes_PreconfiguredNode_LptsLocal_IpolicerLocal_Flows)
 type PreconfiguredNodes_PreconfiguredNode_LptsLocal_IpolicerLocal_Flows_Flow struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. LPTS Flow Type. The type is LptsFlow.
     FlowType interface{}
@@ -2786,6 +3158,7 @@ func (flow *PreconfiguredNodes_PreconfiguredNode_LptsLocal_IpolicerLocal_Flows_F
     flow.EntityData.BundleName = "cisco_ios_xr"
     flow.EntityData.ParentYangName = "flows"
     flow.EntityData.SegmentPath = "flow" + types.AddKeyToken(flow.FlowType, "flow-type")
+    flow.EntityData.AbsolutePath = "Cisco-IOS-XR-config-mda-cfg:preconfigured-nodes/preconfigured-node/Cisco-IOS-XR-lpts-pre-ifib-cfg:lpts-local/ipolicer-local/flows/" + flow.EntityData.SegmentPath
     flow.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     flow.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     flow.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2820,6 +3193,7 @@ func (precedences *PreconfiguredNodes_PreconfiguredNode_LptsLocal_IpolicerLocal_
     precedences.EntityData.BundleName = "cisco_ios_xr"
     precedences.EntityData.ParentYangName = "flow"
     precedences.EntityData.SegmentPath = "precedences"
+    precedences.EntityData.AbsolutePath = "Cisco-IOS-XR-config-mda-cfg:preconfigured-nodes/preconfigured-node/Cisco-IOS-XR-lpts-pre-ifib-cfg:lpts-local/ipolicer-local/flows/flow/" + precedences.EntityData.SegmentPath
     precedences.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     precedences.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     precedences.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2831,5 +3205,135 @@ func (precedences *PreconfiguredNodes_PreconfiguredNode_LptsLocal_IpolicerLocal_
     precedences.EntityData.YListKeys = []string {}
 
     return &(precedences.EntityData)
+}
+
+// PreconfiguredNodes_PreconfiguredNode_FiaBufferProfileCfg
+// fia buffer profile cfg
+type PreconfiguredNodes_PreconfiguredNode_FiaBufferProfileCfg struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Enable to use Extra large Buffer profile. The type is bool.
+    Xl interface{}
+}
+
+func (fiaBufferProfileCfg *PreconfiguredNodes_PreconfiguredNode_FiaBufferProfileCfg) GetEntityData() *types.CommonEntityData {
+    fiaBufferProfileCfg.EntityData.YFilter = fiaBufferProfileCfg.YFilter
+    fiaBufferProfileCfg.EntityData.YangName = "fia-buffer-profile-cfg"
+    fiaBufferProfileCfg.EntityData.BundleName = "cisco_ios_xr"
+    fiaBufferProfileCfg.EntityData.ParentYangName = "preconfigured-node"
+    fiaBufferProfileCfg.EntityData.SegmentPath = "Cisco-IOS-XR-asr9k-fia-cfg:fia-buffer-profile-cfg"
+    fiaBufferProfileCfg.EntityData.AbsolutePath = "Cisco-IOS-XR-config-mda-cfg:preconfigured-nodes/preconfigured-node/" + fiaBufferProfileCfg.EntityData.SegmentPath
+    fiaBufferProfileCfg.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    fiaBufferProfileCfg.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    fiaBufferProfileCfg.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    fiaBufferProfileCfg.EntityData.Children = types.NewOrderedMap()
+    fiaBufferProfileCfg.EntityData.Leafs = types.NewOrderedMap()
+    fiaBufferProfileCfg.EntityData.Leafs.Append("xl", types.YLeaf{"Xl", fiaBufferProfileCfg.Xl})
+
+    fiaBufferProfileCfg.EntityData.YListKeys = []string {}
+
+    return &(fiaBufferProfileCfg.EntityData)
+}
+
+// PreconfiguredNodes_PreconfiguredNode_FiaVqiShaperCfg
+// fia vqi shaper cfg
+type PreconfiguredNodes_PreconfiguredNode_FiaVqiShaperCfg struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Enable to use Enhanced VQI shaper limit. The type is bool.
+    Enhance interface{}
+}
+
+func (fiaVqiShaperCfg *PreconfiguredNodes_PreconfiguredNode_FiaVqiShaperCfg) GetEntityData() *types.CommonEntityData {
+    fiaVqiShaperCfg.EntityData.YFilter = fiaVqiShaperCfg.YFilter
+    fiaVqiShaperCfg.EntityData.YangName = "fia-vqi-shaper-cfg"
+    fiaVqiShaperCfg.EntityData.BundleName = "cisco_ios_xr"
+    fiaVqiShaperCfg.EntityData.ParentYangName = "preconfigured-node"
+    fiaVqiShaperCfg.EntityData.SegmentPath = "Cisco-IOS-XR-asr9k-fia-cfg:fia-vqi-shaper-cfg"
+    fiaVqiShaperCfg.EntityData.AbsolutePath = "Cisco-IOS-XR-config-mda-cfg:preconfigured-nodes/preconfigured-node/" + fiaVqiShaperCfg.EntityData.SegmentPath
+    fiaVqiShaperCfg.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    fiaVqiShaperCfg.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    fiaVqiShaperCfg.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    fiaVqiShaperCfg.EntityData.Children = types.NewOrderedMap()
+    fiaVqiShaperCfg.EntityData.Leafs = types.NewOrderedMap()
+    fiaVqiShaperCfg.EntityData.Leafs.Append("enhance", types.YLeaf{"Enhance", fiaVqiShaperCfg.Enhance})
+
+    fiaVqiShaperCfg.EntityData.YListKeys = []string {}
+
+    return &(fiaVqiShaperCfg.EntityData)
+}
+
+// PreconfiguredNodes_PreconfiguredNode_PortQueueRemaps
+// port queue remaps
+type PreconfiguredNodes_PreconfiguredNode_PortQueueRemaps struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Front panel port number. The type is slice of
+    // PreconfiguredNodes_PreconfiguredNode_PortQueueRemaps_PortQueueRemap.
+    PortQueueRemap []*PreconfiguredNodes_PreconfiguredNode_PortQueueRemaps_PortQueueRemap
+}
+
+func (portQueueRemaps *PreconfiguredNodes_PreconfiguredNode_PortQueueRemaps) GetEntityData() *types.CommonEntityData {
+    portQueueRemaps.EntityData.YFilter = portQueueRemaps.YFilter
+    portQueueRemaps.EntityData.YangName = "port-queue-remaps"
+    portQueueRemaps.EntityData.BundleName = "cisco_ios_xr"
+    portQueueRemaps.EntityData.ParentYangName = "preconfigured-node"
+    portQueueRemaps.EntityData.SegmentPath = "Cisco-IOS-XR-asr9k-fia-cfg:port-queue-remaps"
+    portQueueRemaps.EntityData.AbsolutePath = "Cisco-IOS-XR-config-mda-cfg:preconfigured-nodes/preconfigured-node/" + portQueueRemaps.EntityData.SegmentPath
+    portQueueRemaps.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    portQueueRemaps.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    portQueueRemaps.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    portQueueRemaps.EntityData.Children = types.NewOrderedMap()
+    portQueueRemaps.EntityData.Children.Append("port-queue-remap", types.YChild{"PortQueueRemap", nil})
+    for i := range portQueueRemaps.PortQueueRemap {
+        portQueueRemaps.EntityData.Children.Append(types.GetSegmentPath(portQueueRemaps.PortQueueRemap[i]), types.YChild{"PortQueueRemap", portQueueRemaps.PortQueueRemap[i]})
+    }
+    portQueueRemaps.EntityData.Leafs = types.NewOrderedMap()
+
+    portQueueRemaps.EntityData.YListKeys = []string {}
+
+    return &(portQueueRemaps.EntityData)
+}
+
+// PreconfiguredNodes_PreconfiguredNode_PortQueueRemaps_PortQueueRemap
+// Front panel port number
+type PreconfiguredNodes_PreconfiguredNode_PortQueueRemaps_PortQueueRemap struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. port number <10,11,22,23 34,35,46,47>. The type is
+    // interface{} with range: 0..47.
+    Port interface{}
+
+    // queue number <0-19>. The type is interface{} with range: 0..19.
+    FabricQueue interface{}
+}
+
+func (portQueueRemap *PreconfiguredNodes_PreconfiguredNode_PortQueueRemaps_PortQueueRemap) GetEntityData() *types.CommonEntityData {
+    portQueueRemap.EntityData.YFilter = portQueueRemap.YFilter
+    portQueueRemap.EntityData.YangName = "port-queue-remap"
+    portQueueRemap.EntityData.BundleName = "cisco_ios_xr"
+    portQueueRemap.EntityData.ParentYangName = "port-queue-remaps"
+    portQueueRemap.EntityData.SegmentPath = "port-queue-remap" + types.AddKeyToken(portQueueRemap.Port, "port")
+    portQueueRemap.EntityData.AbsolutePath = "Cisco-IOS-XR-config-mda-cfg:preconfigured-nodes/preconfigured-node/Cisco-IOS-XR-asr9k-fia-cfg:port-queue-remaps/" + portQueueRemap.EntityData.SegmentPath
+    portQueueRemap.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    portQueueRemap.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    portQueueRemap.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    portQueueRemap.EntityData.Children = types.NewOrderedMap()
+    portQueueRemap.EntityData.Leafs = types.NewOrderedMap()
+    portQueueRemap.EntityData.Leafs.Append("port", types.YLeaf{"Port", portQueueRemap.Port})
+    portQueueRemap.EntityData.Leafs.Append("fabric-queue", types.YLeaf{"FabricQueue", portQueueRemap.FabricQueue})
+
+    portQueueRemap.EntityData.YListKeys = []string {"Port"}
+
+    return &(portQueueRemap.EntityData)
 }
 

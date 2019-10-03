@@ -54,6 +54,7 @@ func (mfwd *Mfwd) GetEntityData() *types.CommonEntityData {
     mfwd.EntityData.BundleName = "cisco_ios_xr"
     mfwd.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-mfwd-cfg"
     mfwd.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-mfwd-cfg:mfwd"
+    mfwd.EntityData.AbsolutePath = mfwd.EntityData.SegmentPath
     mfwd.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mfwd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mfwd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -87,6 +88,7 @@ func (defaultContext *Mfwd_DefaultContext) GetEntityData() *types.CommonEntityDa
     defaultContext.EntityData.BundleName = "cisco_ios_xr"
     defaultContext.EntityData.ParentYangName = "mfwd"
     defaultContext.EntityData.SegmentPath = "default-context"
+    defaultContext.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-mfwd-cfg:mfwd/" + defaultContext.EntityData.SegmentPath
     defaultContext.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     defaultContext.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     defaultContext.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -153,6 +155,7 @@ func (ipv6 *Mfwd_DefaultContext_Ipv6) GetEntityData() *types.CommonEntityData {
     ipv6.EntityData.BundleName = "cisco_ios_xr"
     ipv6.EntityData.ParentYangName = "default-context"
     ipv6.EntityData.SegmentPath = "ipv6"
+    ipv6.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-mfwd-cfg:mfwd/default-context/" + ipv6.EntityData.SegmentPath
     ipv6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -194,6 +197,7 @@ func (staticRpfRules *Mfwd_DefaultContext_Ipv6_StaticRpfRules) GetEntityData() *
     staticRpfRules.EntityData.BundleName = "cisco_ios_xr"
     staticRpfRules.EntityData.ParentYangName = "ipv6"
     staticRpfRules.EntityData.SegmentPath = "static-rpf-rules"
+    staticRpfRules.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-mfwd-cfg:mfwd/default-context/ipv6/" + staticRpfRules.EntityData.SegmentPath
     staticRpfRules.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     staticRpfRules.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     staticRpfRules.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -215,6 +219,7 @@ func (staticRpfRules *Mfwd_DefaultContext_Ipv6_StaticRpfRules) GetEntityData() *
 type Mfwd_DefaultContext_Ipv6_StaticRpfRules_StaticRpfRule struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IP address of the RPF prefix. The type is one of
     // the following types: string with pattern:
@@ -246,6 +251,7 @@ func (staticRpfRule *Mfwd_DefaultContext_Ipv6_StaticRpfRules_StaticRpfRule) GetE
     staticRpfRule.EntityData.BundleName = "cisco_ios_xr"
     staticRpfRule.EntityData.ParentYangName = "static-rpf-rules"
     staticRpfRule.EntityData.SegmentPath = "static-rpf-rule" + types.AddKeyToken(staticRpfRule.Address, "address") + types.AddKeyToken(staticRpfRule.PrefixMask, "prefix-mask")
+    staticRpfRule.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-mfwd-cfg:mfwd/default-context/ipv6/static-rpf-rules/" + staticRpfRule.EntityData.SegmentPath
     staticRpfRule.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     staticRpfRule.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     staticRpfRule.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -279,6 +285,7 @@ func (interfaces *Mfwd_DefaultContext_Ipv6_Interfaces) GetEntityData() *types.Co
     interfaces.EntityData.BundleName = "cisco_ios_xr"
     interfaces.EntityData.ParentYangName = "ipv6"
     interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-mfwd-cfg:mfwd/default-context/ipv6/" + interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -300,6 +307,7 @@ func (interfaces *Mfwd_DefaultContext_Ipv6_Interfaces) GetEntityData() *types.Co
 type Mfwd_DefaultContext_Ipv6_Interfaces_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -323,6 +331,7 @@ func (self *Mfwd_DefaultContext_Ipv6_Interfaces_Interface) GetEntityData() *type
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-mfwd-cfg:mfwd/default-context/ipv6/interfaces/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -394,6 +403,7 @@ func (ipv4 *Mfwd_DefaultContext_Ipv4) GetEntityData() *types.CommonEntityData {
     ipv4.EntityData.BundleName = "cisco_ios_xr"
     ipv4.EntityData.ParentYangName = "default-context"
     ipv4.EntityData.SegmentPath = "ipv4"
+    ipv4.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-mfwd-cfg:mfwd/default-context/" + ipv4.EntityData.SegmentPath
     ipv4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -436,6 +446,7 @@ func (staticRpfRules *Mfwd_DefaultContext_Ipv4_StaticRpfRules) GetEntityData() *
     staticRpfRules.EntityData.BundleName = "cisco_ios_xr"
     staticRpfRules.EntityData.ParentYangName = "ipv4"
     staticRpfRules.EntityData.SegmentPath = "static-rpf-rules"
+    staticRpfRules.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-mfwd-cfg:mfwd/default-context/ipv4/" + staticRpfRules.EntityData.SegmentPath
     staticRpfRules.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     staticRpfRules.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     staticRpfRules.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -457,6 +468,7 @@ func (staticRpfRules *Mfwd_DefaultContext_Ipv4_StaticRpfRules) GetEntityData() *
 type Mfwd_DefaultContext_Ipv4_StaticRpfRules_StaticRpfRule struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IP address of the RPF prefix. The type is one of
     // the following types: string with pattern:
@@ -488,6 +500,7 @@ func (staticRpfRule *Mfwd_DefaultContext_Ipv4_StaticRpfRules_StaticRpfRule) GetE
     staticRpfRule.EntityData.BundleName = "cisco_ios_xr"
     staticRpfRule.EntityData.ParentYangName = "static-rpf-rules"
     staticRpfRule.EntityData.SegmentPath = "static-rpf-rule" + types.AddKeyToken(staticRpfRule.Address, "address") + types.AddKeyToken(staticRpfRule.PrefixMask, "prefix-mask")
+    staticRpfRule.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-mfwd-cfg:mfwd/default-context/ipv4/static-rpf-rules/" + staticRpfRule.EntityData.SegmentPath
     staticRpfRule.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     staticRpfRule.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     staticRpfRule.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -521,6 +534,7 @@ func (interfaces *Mfwd_DefaultContext_Ipv4_Interfaces) GetEntityData() *types.Co
     interfaces.EntityData.BundleName = "cisco_ios_xr"
     interfaces.EntityData.ParentYangName = "ipv4"
     interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-mfwd-cfg:mfwd/default-context/ipv4/" + interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -542,6 +556,7 @@ func (interfaces *Mfwd_DefaultContext_Ipv4_Interfaces) GetEntityData() *types.Co
 type Mfwd_DefaultContext_Ipv4_Interfaces_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -565,6 +580,7 @@ func (self *Mfwd_DefaultContext_Ipv4_Interfaces_Interface) GetEntityData() *type
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-mfwd-cfg:mfwd/default-context/ipv4/interfaces/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -597,6 +613,7 @@ func (vrfs *Mfwd_Vrfs) GetEntityData() *types.CommonEntityData {
     vrfs.EntityData.BundleName = "cisco_ios_xr"
     vrfs.EntityData.ParentYangName = "mfwd"
     vrfs.EntityData.SegmentPath = "vrfs"
+    vrfs.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-mfwd-cfg:mfwd/" + vrfs.EntityData.SegmentPath
     vrfs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -618,6 +635,7 @@ func (vrfs *Mfwd_Vrfs) GetEntityData() *types.CommonEntityData {
 type Mfwd_Vrfs_Vrf struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. VRF Name. The type is string with length: 1..32.
     VrfName interface{}
@@ -635,6 +653,7 @@ func (vrf *Mfwd_Vrfs_Vrf) GetEntityData() *types.CommonEntityData {
     vrf.EntityData.BundleName = "cisco_ios_xr"
     vrf.EntityData.ParentYangName = "vrfs"
     vrf.EntityData.SegmentPath = "vrf" + types.AddKeyToken(vrf.VrfName, "vrf-name")
+    vrf.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-mfwd-cfg:mfwd/vrfs/" + vrf.EntityData.SegmentPath
     vrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -685,6 +704,7 @@ func (ipv6 *Mfwd_Vrfs_Vrf_Ipv6) GetEntityData() *types.CommonEntityData {
     ipv6.EntityData.BundleName = "cisco_ios_xr"
     ipv6.EntityData.ParentYangName = "vrf"
     ipv6.EntityData.SegmentPath = "ipv6"
+    ipv6.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-mfwd-cfg:mfwd/vrfs/vrf/" + ipv6.EntityData.SegmentPath
     ipv6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -721,6 +741,7 @@ func (staticRpfRules *Mfwd_Vrfs_Vrf_Ipv6_StaticRpfRules) GetEntityData() *types.
     staticRpfRules.EntityData.BundleName = "cisco_ios_xr"
     staticRpfRules.EntityData.ParentYangName = "ipv6"
     staticRpfRules.EntityData.SegmentPath = "static-rpf-rules"
+    staticRpfRules.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-mfwd-cfg:mfwd/vrfs/vrf/ipv6/" + staticRpfRules.EntityData.SegmentPath
     staticRpfRules.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     staticRpfRules.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     staticRpfRules.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -742,6 +763,7 @@ func (staticRpfRules *Mfwd_Vrfs_Vrf_Ipv6_StaticRpfRules) GetEntityData() *types.
 type Mfwd_Vrfs_Vrf_Ipv6_StaticRpfRules_StaticRpfRule struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IP address of the RPF prefix. The type is one of
     // the following types: string with pattern:
@@ -773,6 +795,7 @@ func (staticRpfRule *Mfwd_Vrfs_Vrf_Ipv6_StaticRpfRules_StaticRpfRule) GetEntityD
     staticRpfRule.EntityData.BundleName = "cisco_ios_xr"
     staticRpfRule.EntityData.ParentYangName = "static-rpf-rules"
     staticRpfRule.EntityData.SegmentPath = "static-rpf-rule" + types.AddKeyToken(staticRpfRule.Address, "address") + types.AddKeyToken(staticRpfRule.PrefixMask, "prefix-mask")
+    staticRpfRule.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-mfwd-cfg:mfwd/vrfs/vrf/ipv6/static-rpf-rules/" + staticRpfRule.EntityData.SegmentPath
     staticRpfRule.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     staticRpfRule.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     staticRpfRule.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -806,6 +829,7 @@ func (interfaces *Mfwd_Vrfs_Vrf_Ipv6_Interfaces) GetEntityData() *types.CommonEn
     interfaces.EntityData.BundleName = "cisco_ios_xr"
     interfaces.EntityData.ParentYangName = "ipv6"
     interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-mfwd-cfg:mfwd/vrfs/vrf/ipv6/" + interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -827,6 +851,7 @@ func (interfaces *Mfwd_Vrfs_Vrf_Ipv6_Interfaces) GetEntityData() *types.CommonEn
 type Mfwd_Vrfs_Vrf_Ipv6_Interfaces_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -850,6 +875,7 @@ func (self *Mfwd_Vrfs_Vrf_Ipv6_Interfaces_Interface) GetEntityData() *types.Comm
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-mfwd-cfg:mfwd/vrfs/vrf/ipv6/interfaces/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -901,6 +927,7 @@ func (ipv4 *Mfwd_Vrfs_Vrf_Ipv4) GetEntityData() *types.CommonEntityData {
     ipv4.EntityData.BundleName = "cisco_ios_xr"
     ipv4.EntityData.ParentYangName = "vrf"
     ipv4.EntityData.SegmentPath = "ipv4"
+    ipv4.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-mfwd-cfg:mfwd/vrfs/vrf/" + ipv4.EntityData.SegmentPath
     ipv4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -937,6 +964,7 @@ func (staticRpfRules *Mfwd_Vrfs_Vrf_Ipv4_StaticRpfRules) GetEntityData() *types.
     staticRpfRules.EntityData.BundleName = "cisco_ios_xr"
     staticRpfRules.EntityData.ParentYangName = "ipv4"
     staticRpfRules.EntityData.SegmentPath = "static-rpf-rules"
+    staticRpfRules.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-mfwd-cfg:mfwd/vrfs/vrf/ipv4/" + staticRpfRules.EntityData.SegmentPath
     staticRpfRules.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     staticRpfRules.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     staticRpfRules.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -958,6 +986,7 @@ func (staticRpfRules *Mfwd_Vrfs_Vrf_Ipv4_StaticRpfRules) GetEntityData() *types.
 type Mfwd_Vrfs_Vrf_Ipv4_StaticRpfRules_StaticRpfRule struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IP address of the RPF prefix. The type is one of
     // the following types: string with pattern:
@@ -989,6 +1018,7 @@ func (staticRpfRule *Mfwd_Vrfs_Vrf_Ipv4_StaticRpfRules_StaticRpfRule) GetEntityD
     staticRpfRule.EntityData.BundleName = "cisco_ios_xr"
     staticRpfRule.EntityData.ParentYangName = "static-rpf-rules"
     staticRpfRule.EntityData.SegmentPath = "static-rpf-rule" + types.AddKeyToken(staticRpfRule.Address, "address") + types.AddKeyToken(staticRpfRule.PrefixMask, "prefix-mask")
+    staticRpfRule.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-mfwd-cfg:mfwd/vrfs/vrf/ipv4/static-rpf-rules/" + staticRpfRule.EntityData.SegmentPath
     staticRpfRule.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     staticRpfRule.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     staticRpfRule.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1022,6 +1052,7 @@ func (interfaces *Mfwd_Vrfs_Vrf_Ipv4_Interfaces) GetEntityData() *types.CommonEn
     interfaces.EntityData.BundleName = "cisco_ios_xr"
     interfaces.EntityData.ParentYangName = "ipv4"
     interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-mfwd-cfg:mfwd/vrfs/vrf/ipv4/" + interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1043,6 +1074,7 @@ func (interfaces *Mfwd_Vrfs_Vrf_Ipv4_Interfaces) GetEntityData() *types.CommonEn
 type Mfwd_Vrfs_Vrf_Ipv4_Interfaces_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -1066,6 +1098,7 @@ func (self *Mfwd_Vrfs_Vrf_Ipv4_Interfaces_Interface) GetEntityData() *types.Comm
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-mfwd-cfg:mfwd/vrfs/vrf/ipv4/interfaces/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

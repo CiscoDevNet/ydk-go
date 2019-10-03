@@ -98,6 +98,7 @@ func (vrfGroup *VrfGroup) GetEntityData() *types.CommonEntityData {
     vrfGroup.EntityData.BundleName = "cisco_ios_xr"
     vrfGroup.EntityData.ParentYangName = "Cisco-IOS-XR-infra-rsi-oper"
     vrfGroup.EntityData.SegmentPath = "Cisco-IOS-XR-infra-rsi-oper:vrf-group"
+    vrfGroup.EntityData.AbsolutePath = vrfGroup.EntityData.SegmentPath
     vrfGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -127,6 +128,7 @@ func (nodes *VrfGroup_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.BundleName = "cisco_ios_xr"
     nodes.EntityData.ParentYangName = "vrf-group"
     nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rsi-oper:vrf-group/" + nodes.EntityData.SegmentPath
     nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -148,6 +150,7 @@ func (nodes *VrfGroup_Nodes) GetEntityData() *types.CommonEntityData {
 type VrfGroup_Nodes_Node struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Node. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -163,6 +166,7 @@ func (node *VrfGroup_Nodes_Node) GetEntityData() *types.CommonEntityData {
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
     node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeName, "node-name")
+    node.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rsi-oper:vrf-group/nodes/" + node.EntityData.SegmentPath
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -193,6 +197,7 @@ func (groups *VrfGroup_Nodes_Node_Groups) GetEntityData() *types.CommonEntityDat
     groups.EntityData.BundleName = "cisco_ios_xr"
     groups.EntityData.ParentYangName = "node"
     groups.EntityData.SegmentPath = "groups"
+    groups.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rsi-oper:vrf-group/nodes/node/" + groups.EntityData.SegmentPath
     groups.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     groups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     groups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -214,6 +219,7 @@ func (groups *VrfGroup_Nodes_Node_Groups) GetEntityData() *types.CommonEntityDat
 type VrfGroup_Nodes_Node_Groups_Group struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Group name. The type is string with length: 1..32.
     GroupName interface{}
@@ -235,6 +241,7 @@ func (group *VrfGroup_Nodes_Node_Groups_Group) GetEntityData() *types.CommonEnti
     group.EntityData.BundleName = "cisco_ios_xr"
     group.EntityData.ParentYangName = "groups"
     group.EntityData.SegmentPath = "group" + types.AddKeyToken(group.GroupName, "group-name")
+    group.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rsi-oper:vrf-group/nodes/node/groups/" + group.EntityData.SegmentPath
     group.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     group.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     group.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -242,6 +249,7 @@ func (group *VrfGroup_Nodes_Node_Groups_Group) GetEntityData() *types.CommonEnti
     group.EntityData.Children = types.NewOrderedMap()
     group.EntityData.Children.Append("vrf", types.YChild{"Vrf", nil})
     for i := range group.Vrf {
+        types.SetYListKey(group.Vrf[i], i)
         group.EntityData.Children.Append(types.GetSegmentPath(group.Vrf[i]), types.YChild{"Vrf", group.Vrf[i]})
     }
     group.EntityData.Leafs = types.NewOrderedMap()
@@ -259,6 +267,7 @@ func (group *VrfGroup_Nodes_Node_Groups_Group) GetEntityData() *types.CommonEnti
 type VrfGroup_Nodes_Node_Groups_Group_Vrf struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // VRF name. The type is string.
     VrfName interface{}
@@ -269,7 +278,8 @@ func (vrf *VrfGroup_Nodes_Node_Groups_Group_Vrf) GetEntityData() *types.CommonEn
     vrf.EntityData.YangName = "vrf"
     vrf.EntityData.BundleName = "cisco_ios_xr"
     vrf.EntityData.ParentYangName = "group"
-    vrf.EntityData.SegmentPath = "vrf"
+    vrf.EntityData.SegmentPath = "vrf" + types.AddNoKeyToken(vrf)
+    vrf.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rsi-oper:vrf-group/nodes/node/groups/group/" + vrf.EntityData.SegmentPath
     vrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -323,6 +333,7 @@ func (srlg *Srlg) GetEntityData() *types.CommonEntityData {
     srlg.EntityData.BundleName = "cisco_ios_xr"
     srlg.EntityData.ParentYangName = "Cisco-IOS-XR-infra-rsi-oper"
     srlg.EntityData.SegmentPath = "Cisco-IOS-XR-infra-rsi-oper:srlg"
+    srlg.EntityData.AbsolutePath = srlg.EntityData.SegmentPath
     srlg.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     srlg.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     srlg.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -360,6 +371,7 @@ func (groups *Srlg_Groups) GetEntityData() *types.CommonEntityData {
     groups.EntityData.BundleName = "cisco_ios_xr"
     groups.EntityData.ParentYangName = "srlg"
     groups.EntityData.SegmentPath = "groups"
+    groups.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rsi-oper:srlg/" + groups.EntityData.SegmentPath
     groups.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     groups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     groups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -381,6 +393,7 @@ func (groups *Srlg_Groups) GetEntityData() *types.CommonEntityData {
 type Srlg_Groups_Group struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Group name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -402,6 +415,7 @@ func (group *Srlg_Groups_Group) GetEntityData() *types.CommonEntityData {
     group.EntityData.BundleName = "cisco_ios_xr"
     group.EntityData.ParentYangName = "groups"
     group.EntityData.SegmentPath = "group" + types.AddKeyToken(group.GroupName, "group-name")
+    group.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rsi-oper:srlg/groups/" + group.EntityData.SegmentPath
     group.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     group.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     group.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -409,6 +423,7 @@ func (group *Srlg_Groups_Group) GetEntityData() *types.CommonEntityData {
     group.EntityData.Children = types.NewOrderedMap()
     group.EntityData.Children.Append("srlg-attribute", types.YChild{"SrlgAttribute", nil})
     for i := range group.SrlgAttribute {
+        types.SetYListKey(group.SrlgAttribute[i], i)
         group.EntityData.Children.Append(types.GetSegmentPath(group.SrlgAttribute[i]), types.YChild{"SrlgAttribute", group.SrlgAttribute[i]})
     }
     group.EntityData.Leafs = types.NewOrderedMap()
@@ -426,6 +441,7 @@ func (group *Srlg_Groups_Group) GetEntityData() *types.CommonEntityData {
 type Srlg_Groups_Group_SrlgAttribute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // SRLG value. The type is interface{} with range: 0..4294967295.
     SrlgValue interface{}
@@ -442,7 +458,8 @@ func (srlgAttribute *Srlg_Groups_Group_SrlgAttribute) GetEntityData() *types.Com
     srlgAttribute.EntityData.YangName = "srlg-attribute"
     srlgAttribute.EntityData.BundleName = "cisco_ios_xr"
     srlgAttribute.EntityData.ParentYangName = "group"
-    srlgAttribute.EntityData.SegmentPath = "srlg-attribute"
+    srlgAttribute.EntityData.SegmentPath = "srlg-attribute" + types.AddNoKeyToken(srlgAttribute)
+    srlgAttribute.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rsi-oper:srlg/groups/group/" + srlgAttribute.EntityData.SegmentPath
     srlgAttribute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     srlgAttribute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     srlgAttribute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -474,6 +491,7 @@ func (interfaces *Srlg_Interfaces) GetEntityData() *types.CommonEntityData {
     interfaces.EntityData.BundleName = "cisco_ios_xr"
     interfaces.EntityData.ParentYangName = "srlg"
     interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rsi-oper:srlg/" + interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -495,6 +513,7 @@ func (interfaces *Srlg_Interfaces) GetEntityData() *types.CommonEntityData {
 type Srlg_Interfaces_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -519,6 +538,7 @@ func (self *Srlg_Interfaces_Interface) GetEntityData() *types.CommonEntityData {
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rsi-oper:srlg/interfaces/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -552,6 +572,7 @@ func (rsips *Srlg_Rsips) GetEntityData() *types.CommonEntityData {
     rsips.EntityData.BundleName = "cisco_ios_xr"
     rsips.EntityData.ParentYangName = "srlg"
     rsips.EntityData.SegmentPath = "rsips"
+    rsips.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rsi-oper:srlg/" + rsips.EntityData.SegmentPath
     rsips.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rsips.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rsips.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -573,6 +594,7 @@ func (rsips *Srlg_Rsips) GetEntityData() *types.CommonEntityData {
 type Srlg_Rsips_Rsip struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -597,6 +619,7 @@ func (rsip *Srlg_Rsips_Rsip) GetEntityData() *types.CommonEntityData {
     rsip.EntityData.BundleName = "cisco_ios_xr"
     rsip.EntityData.ParentYangName = "rsips"
     rsip.EntityData.SegmentPath = "rsip" + types.AddKeyToken(rsip.RsipName, "rsip-name")
+    rsip.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rsi-oper:srlg/rsips/" + rsip.EntityData.SegmentPath
     rsip.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rsip.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rsip.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -604,6 +627,7 @@ func (rsip *Srlg_Rsips_Rsip) GetEntityData() *types.CommonEntityData {
     rsip.EntityData.Children = types.NewOrderedMap()
     rsip.EntityData.Children.Append("srlg-attribute", types.YChild{"SrlgAttribute", nil})
     for i := range rsip.SrlgAttribute {
+        types.SetYListKey(rsip.SrlgAttribute[i], i)
         rsip.EntityData.Children.Append(types.GetSegmentPath(rsip.SrlgAttribute[i]), types.YChild{"SrlgAttribute", rsip.SrlgAttribute[i]})
     }
     rsip.EntityData.Leafs = types.NewOrderedMap()
@@ -622,6 +646,7 @@ func (rsip *Srlg_Rsips_Rsip) GetEntityData() *types.CommonEntityData {
 type Srlg_Rsips_Rsip_SrlgAttribute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // SRLG value. The type is interface{} with range: 0..4294967295.
     SrlgValue interface{}
@@ -638,7 +663,8 @@ func (srlgAttribute *Srlg_Rsips_Rsip_SrlgAttribute) GetEntityData() *types.Commo
     srlgAttribute.EntityData.YangName = "srlg-attribute"
     srlgAttribute.EntityData.BundleName = "cisco_ios_xr"
     srlgAttribute.EntityData.ParentYangName = "rsip"
-    srlgAttribute.EntityData.SegmentPath = "srlg-attribute"
+    srlgAttribute.EntityData.SegmentPath = "srlg-attribute" + types.AddNoKeyToken(srlgAttribute)
+    srlgAttribute.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rsi-oper:srlg/rsips/rsip/" + srlgAttribute.EntityData.SegmentPath
     srlgAttribute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     srlgAttribute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     srlgAttribute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -670,6 +696,7 @@ func (srlgMaps *Srlg_SrlgMaps) GetEntityData() *types.CommonEntityData {
     srlgMaps.EntityData.BundleName = "cisco_ios_xr"
     srlgMaps.EntityData.ParentYangName = "srlg"
     srlgMaps.EntityData.SegmentPath = "srlg-maps"
+    srlgMaps.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rsi-oper:srlg/" + srlgMaps.EntityData.SegmentPath
     srlgMaps.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     srlgMaps.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     srlgMaps.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -691,6 +718,7 @@ func (srlgMaps *Srlg_SrlgMaps) GetEntityData() *types.CommonEntityData {
 type Srlg_SrlgMaps_SrlgMap struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. SRLG name. The type is string with length: 1..64.
     SrlgName interface{}
@@ -708,6 +736,7 @@ func (srlgMap *Srlg_SrlgMaps_SrlgMap) GetEntityData() *types.CommonEntityData {
     srlgMap.EntityData.BundleName = "cisco_ios_xr"
     srlgMap.EntityData.ParentYangName = "srlg-maps"
     srlgMap.EntityData.SegmentPath = "srlg-map" + types.AddKeyToken(srlgMap.SrlgName, "srlg-name")
+    srlgMap.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rsi-oper:srlg/srlg-maps/" + srlgMap.EntityData.SegmentPath
     srlgMap.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     srlgMap.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     srlgMap.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -739,6 +768,7 @@ func (nodes *Srlg_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.BundleName = "cisco_ios_xr"
     nodes.EntityData.ParentYangName = "srlg"
     nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rsi-oper:srlg/" + nodes.EntityData.SegmentPath
     nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -760,6 +790,7 @@ func (nodes *Srlg_Nodes) GetEntityData() *types.CommonEntityData {
 type Srlg_Nodes_Node struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Node. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -793,6 +824,7 @@ func (node *Srlg_Nodes_Node) GetEntityData() *types.CommonEntityData {
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
     node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeName, "node-name")
+    node.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rsi-oper:srlg/nodes/" + node.EntityData.SegmentPath
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -830,6 +862,7 @@ func (srlgMaps *Srlg_Nodes_Node_SrlgMaps) GetEntityData() *types.CommonEntityDat
     srlgMaps.EntityData.BundleName = "cisco_ios_xr"
     srlgMaps.EntityData.ParentYangName = "node"
     srlgMaps.EntityData.SegmentPath = "srlg-maps"
+    srlgMaps.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rsi-oper:srlg/nodes/node/" + srlgMaps.EntityData.SegmentPath
     srlgMaps.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     srlgMaps.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     srlgMaps.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -851,6 +884,7 @@ func (srlgMaps *Srlg_Nodes_Node_SrlgMaps) GetEntityData() *types.CommonEntityDat
 type Srlg_Nodes_Node_SrlgMaps_SrlgMap struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. SRLG name. The type is string with length: 1..64.
     SrlgName interface{}
@@ -868,6 +902,7 @@ func (srlgMap *Srlg_Nodes_Node_SrlgMaps_SrlgMap) GetEntityData() *types.CommonEn
     srlgMap.EntityData.BundleName = "cisco_ios_xr"
     srlgMap.EntityData.ParentYangName = "srlg-maps"
     srlgMap.EntityData.SegmentPath = "srlg-map" + types.AddKeyToken(srlgMap.SrlgName, "srlg-name")
+    srlgMap.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rsi-oper:srlg/nodes/node/srlg-maps/" + srlgMap.EntityData.SegmentPath
     srlgMap.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     srlgMap.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     srlgMap.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -899,6 +934,7 @@ func (groups *Srlg_Nodes_Node_Groups) GetEntityData() *types.CommonEntityData {
     groups.EntityData.BundleName = "cisco_ios_xr"
     groups.EntityData.ParentYangName = "node"
     groups.EntityData.SegmentPath = "groups"
+    groups.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rsi-oper:srlg/nodes/node/" + groups.EntityData.SegmentPath
     groups.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     groups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     groups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -920,6 +956,7 @@ func (groups *Srlg_Nodes_Node_Groups) GetEntityData() *types.CommonEntityData {
 type Srlg_Nodes_Node_Groups_Group struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Group name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -942,6 +979,7 @@ func (group *Srlg_Nodes_Node_Groups_Group) GetEntityData() *types.CommonEntityDa
     group.EntityData.BundleName = "cisco_ios_xr"
     group.EntityData.ParentYangName = "groups"
     group.EntityData.SegmentPath = "group" + types.AddKeyToken(group.GroupName, "group-name")
+    group.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rsi-oper:srlg/nodes/node/groups/" + group.EntityData.SegmentPath
     group.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     group.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     group.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -949,6 +987,7 @@ func (group *Srlg_Nodes_Node_Groups_Group) GetEntityData() *types.CommonEntityDa
     group.EntityData.Children = types.NewOrderedMap()
     group.EntityData.Children.Append("srlg-attribute", types.YChild{"SrlgAttribute", nil})
     for i := range group.SrlgAttribute {
+        types.SetYListKey(group.SrlgAttribute[i], i)
         group.EntityData.Children.Append(types.GetSegmentPath(group.SrlgAttribute[i]), types.YChild{"SrlgAttribute", group.SrlgAttribute[i]})
     }
     group.EntityData.Leafs = types.NewOrderedMap()
@@ -966,6 +1005,7 @@ func (group *Srlg_Nodes_Node_Groups_Group) GetEntityData() *types.CommonEntityDa
 type Srlg_Nodes_Node_Groups_Group_SrlgAttribute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // SRLG value. The type is interface{} with range: 0..4294967295.
     SrlgValue interface{}
@@ -982,7 +1022,8 @@ func (srlgAttribute *Srlg_Nodes_Node_Groups_Group_SrlgAttribute) GetEntityData()
     srlgAttribute.EntityData.YangName = "srlg-attribute"
     srlgAttribute.EntityData.BundleName = "cisco_ios_xr"
     srlgAttribute.EntityData.ParentYangName = "group"
-    srlgAttribute.EntityData.SegmentPath = "srlg-attribute"
+    srlgAttribute.EntityData.SegmentPath = "srlg-attribute" + types.AddNoKeyToken(srlgAttribute)
+    srlgAttribute.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rsi-oper:srlg/nodes/node/groups/group/" + srlgAttribute.EntityData.SegmentPath
     srlgAttribute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     srlgAttribute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     srlgAttribute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1015,6 +1056,7 @@ func (inheritNodes *Srlg_Nodes_Node_InheritNodes) GetEntityData() *types.CommonE
     inheritNodes.EntityData.BundleName = "cisco_ios_xr"
     inheritNodes.EntityData.ParentYangName = "node"
     inheritNodes.EntityData.SegmentPath = "inherit-nodes"
+    inheritNodes.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rsi-oper:srlg/nodes/node/" + inheritNodes.EntityData.SegmentPath
     inheritNodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     inheritNodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inheritNodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1036,6 +1078,7 @@ func (inheritNodes *Srlg_Nodes_Node_InheritNodes) GetEntityData() *types.CommonE
 type Srlg_Nodes_Node_InheritNodes_InheritNode struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Inherit node. The type is string with pattern:
     // ((([a-zA-Z0-9_]*\d+)|(\*))/){2}(([a-zA-Z0-9_]*\d+)|(\*)).
@@ -1058,6 +1101,7 @@ func (inheritNode *Srlg_Nodes_Node_InheritNodes_InheritNode) GetEntityData() *ty
     inheritNode.EntityData.BundleName = "cisco_ios_xr"
     inheritNode.EntityData.ParentYangName = "inherit-nodes"
     inheritNode.EntityData.SegmentPath = "inherit-node" + types.AddKeyToken(inheritNode.InheritNodeName, "inherit-node-name")
+    inheritNode.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rsi-oper:srlg/nodes/node/inherit-nodes/" + inheritNode.EntityData.SegmentPath
     inheritNode.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     inheritNode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inheritNode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1065,6 +1109,7 @@ func (inheritNode *Srlg_Nodes_Node_InheritNodes_InheritNode) GetEntityData() *ty
     inheritNode.EntityData.Children = types.NewOrderedMap()
     inheritNode.EntityData.Children.Append("srlg-attribute", types.YChild{"SrlgAttribute", nil})
     for i := range inheritNode.SrlgAttribute {
+        types.SetYListKey(inheritNode.SrlgAttribute[i], i)
         inheritNode.EntityData.Children.Append(types.GetSegmentPath(inheritNode.SrlgAttribute[i]), types.YChild{"SrlgAttribute", inheritNode.SrlgAttribute[i]})
     }
     inheritNode.EntityData.Leafs = types.NewOrderedMap()
@@ -1082,6 +1127,7 @@ func (inheritNode *Srlg_Nodes_Node_InheritNodes_InheritNode) GetEntityData() *ty
 type Srlg_Nodes_Node_InheritNodes_InheritNode_SrlgAttribute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // SRLG value. The type is interface{} with range: 0..4294967295.
     SrlgValue interface{}
@@ -1098,7 +1144,8 @@ func (srlgAttribute *Srlg_Nodes_Node_InheritNodes_InheritNode_SrlgAttribute) Get
     srlgAttribute.EntityData.YangName = "srlg-attribute"
     srlgAttribute.EntityData.BundleName = "cisco_ios_xr"
     srlgAttribute.EntityData.ParentYangName = "inherit-node"
-    srlgAttribute.EntityData.SegmentPath = "srlg-attribute"
+    srlgAttribute.EntityData.SegmentPath = "srlg-attribute" + types.AddNoKeyToken(srlgAttribute)
+    srlgAttribute.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rsi-oper:srlg/nodes/node/inherit-nodes/inherit-node/" + srlgAttribute.EntityData.SegmentPath
     srlgAttribute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     srlgAttribute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     srlgAttribute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1131,6 +1178,7 @@ func (interfaces *Srlg_Nodes_Node_Interfaces) GetEntityData() *types.CommonEntit
     interfaces.EntityData.BundleName = "cisco_ios_xr"
     interfaces.EntityData.ParentYangName = "node"
     interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rsi-oper:srlg/nodes/node/" + interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1152,6 +1200,7 @@ func (interfaces *Srlg_Nodes_Node_Interfaces) GetEntityData() *types.CommonEntit
 type Srlg_Nodes_Node_Interfaces_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -1176,6 +1225,7 @@ func (self *Srlg_Nodes_Node_Interfaces_Interface) GetEntityData() *types.CommonE
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rsi-oper:srlg/nodes/node/interfaces/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1210,6 +1260,7 @@ func (interfaceDetails *Srlg_Nodes_Node_InterfaceDetails) GetEntityData() *types
     interfaceDetails.EntityData.BundleName = "cisco_ios_xr"
     interfaceDetails.EntityData.ParentYangName = "node"
     interfaceDetails.EntityData.SegmentPath = "interface-details"
+    interfaceDetails.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rsi-oper:srlg/nodes/node/" + interfaceDetails.EntityData.SegmentPath
     interfaceDetails.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceDetails.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceDetails.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1231,6 +1282,7 @@ func (interfaceDetails *Srlg_Nodes_Node_InterfaceDetails) GetEntityData() *types
 type Srlg_Nodes_Node_InterfaceDetails_InterfaceDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -1257,6 +1309,7 @@ func (interfaceDetail *Srlg_Nodes_Node_InterfaceDetails_InterfaceDetail) GetEnti
     interfaceDetail.EntityData.BundleName = "cisco_ios_xr"
     interfaceDetail.EntityData.ParentYangName = "interface-details"
     interfaceDetail.EntityData.SegmentPath = "interface-detail" + types.AddKeyToken(interfaceDetail.InterfaceName, "interface-name")
+    interfaceDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rsi-oper:srlg/nodes/node/interface-details/" + interfaceDetail.EntityData.SegmentPath
     interfaceDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1264,10 +1317,12 @@ func (interfaceDetail *Srlg_Nodes_Node_InterfaceDetails_InterfaceDetail) GetEnti
     interfaceDetail.EntityData.Children = types.NewOrderedMap()
     interfaceDetail.EntityData.Children.Append("srlg-attribute", types.YChild{"SrlgAttribute", nil})
     for i := range interfaceDetail.SrlgAttribute {
+        types.SetYListKey(interfaceDetail.SrlgAttribute[i], i)
         interfaceDetail.EntityData.Children.Append(types.GetSegmentPath(interfaceDetail.SrlgAttribute[i]), types.YChild{"SrlgAttribute", interfaceDetail.SrlgAttribute[i]})
     }
     interfaceDetail.EntityData.Children.Append("rsip", types.YChild{"Rsip", nil})
     for i := range interfaceDetail.Rsip {
+        types.SetYListKey(interfaceDetail.Rsip[i], i)
         interfaceDetail.EntityData.Children.Append(types.GetSegmentPath(interfaceDetail.Rsip[i]), types.YChild{"Rsip", interfaceDetail.Rsip[i]})
     }
     interfaceDetail.EntityData.Leafs = types.NewOrderedMap()
@@ -1285,6 +1340,7 @@ func (interfaceDetail *Srlg_Nodes_Node_InterfaceDetails_InterfaceDetail) GetEnti
 type Srlg_Nodes_Node_InterfaceDetails_InterfaceDetail_SrlgAttribute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // SRLG value. The type is interface{} with range: 0..4294967295.
     SrlgValue interface{}
@@ -1307,7 +1363,8 @@ func (srlgAttribute *Srlg_Nodes_Node_InterfaceDetails_InterfaceDetail_SrlgAttrib
     srlgAttribute.EntityData.YangName = "srlg-attribute"
     srlgAttribute.EntityData.BundleName = "cisco_ios_xr"
     srlgAttribute.EntityData.ParentYangName = "interface-detail"
-    srlgAttribute.EntityData.SegmentPath = "srlg-attribute"
+    srlgAttribute.EntityData.SegmentPath = "srlg-attribute" + types.AddNoKeyToken(srlgAttribute)
+    srlgAttribute.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rsi-oper:srlg/nodes/node/interface-details/interface-detail/" + srlgAttribute.EntityData.SegmentPath
     srlgAttribute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     srlgAttribute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     srlgAttribute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1330,6 +1387,7 @@ func (srlgAttribute *Srlg_Nodes_Node_InterfaceDetails_InterfaceDetail_SrlgAttrib
 type Srlg_Nodes_Node_InterfaceDetails_InterfaceDetail_Rsip struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // list of names matching rsip. The type is string.
     RsipName interface{}
@@ -1340,7 +1398,8 @@ func (rsip *Srlg_Nodes_Node_InterfaceDetails_InterfaceDetail_Rsip) GetEntityData
     rsip.EntityData.YangName = "rsip"
     rsip.EntityData.BundleName = "cisco_ios_xr"
     rsip.EntityData.ParentYangName = "interface-detail"
-    rsip.EntityData.SegmentPath = "rsip"
+    rsip.EntityData.SegmentPath = "rsip" + types.AddNoKeyToken(rsip)
+    rsip.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rsi-oper:srlg/nodes/node/interface-details/interface-detail/" + rsip.EntityData.SegmentPath
     rsip.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rsip.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rsip.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1371,6 +1430,7 @@ func (srlgValues *Srlg_Nodes_Node_SrlgValues) GetEntityData() *types.CommonEntit
     srlgValues.EntityData.BundleName = "cisco_ios_xr"
     srlgValues.EntityData.ParentYangName = "node"
     srlgValues.EntityData.SegmentPath = "srlg-values"
+    srlgValues.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rsi-oper:srlg/nodes/node/" + srlgValues.EntityData.SegmentPath
     srlgValues.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     srlgValues.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     srlgValues.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1392,6 +1452,7 @@ func (srlgValues *Srlg_Nodes_Node_SrlgValues) GetEntityData() *types.CommonEntit
 type Srlg_Nodes_Node_SrlgValues_SrlgValue struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. SRLG value. The type is interface{} with range:
     // 0..4294967295.
@@ -1407,6 +1468,7 @@ func (srlgValue *Srlg_Nodes_Node_SrlgValues_SrlgValue) GetEntityData() *types.Co
     srlgValue.EntityData.BundleName = "cisco_ios_xr"
     srlgValue.EntityData.ParentYangName = "srlg-values"
     srlgValue.EntityData.SegmentPath = "srlg-value" + types.AddKeyToken(srlgValue.Value, "value")
+    srlgValue.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rsi-oper:srlg/nodes/node/srlg-values/" + srlgValue.EntityData.SegmentPath
     srlgValue.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     srlgValue.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     srlgValue.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1438,6 +1500,7 @@ func (interfaceSrlgNames *Srlg_Nodes_Node_InterfaceSrlgNames) GetEntityData() *t
     interfaceSrlgNames.EntityData.BundleName = "cisco_ios_xr"
     interfaceSrlgNames.EntityData.ParentYangName = "node"
     interfaceSrlgNames.EntityData.SegmentPath = "interface-srlg-names"
+    interfaceSrlgNames.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rsi-oper:srlg/nodes/node/" + interfaceSrlgNames.EntityData.SegmentPath
     interfaceSrlgNames.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceSrlgNames.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceSrlgNames.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1459,6 +1522,7 @@ func (interfaceSrlgNames *Srlg_Nodes_Node_InterfaceSrlgNames) GetEntityData() *t
 type Srlg_Nodes_Node_InterfaceSrlgNames_InterfaceSrlgName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. SRLG name. The type is string with length: 1..64.
     SrlgName interface{}
@@ -1479,6 +1543,7 @@ func (interfaceSrlgName *Srlg_Nodes_Node_InterfaceSrlgNames_InterfaceSrlgName) G
     interfaceSrlgName.EntityData.BundleName = "cisco_ios_xr"
     interfaceSrlgName.EntityData.ParentYangName = "interface-srlg-names"
     interfaceSrlgName.EntityData.SegmentPath = "interface-srlg-name" + types.AddKeyToken(interfaceSrlgName.SrlgName, "srlg-name")
+    interfaceSrlgName.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rsi-oper:srlg/nodes/node/interface-srlg-names/" + interfaceSrlgName.EntityData.SegmentPath
     interfaceSrlgName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceSrlgName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceSrlgName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1511,6 +1576,7 @@ func (interfaces *Srlg_Nodes_Node_InterfaceSrlgNames_InterfaceSrlgName_Interface
     interfaces.EntityData.BundleName = "cisco_ios_xr"
     interfaces.EntityData.ParentYangName = "interface-srlg-name"
     interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rsi-oper:srlg/nodes/node/interface-srlg-names/interface-srlg-name/" + interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1541,6 +1607,7 @@ func (interfaceSrlgNames *Srlg_InterfaceSrlgNames) GetEntityData() *types.Common
     interfaceSrlgNames.EntityData.BundleName = "cisco_ios_xr"
     interfaceSrlgNames.EntityData.ParentYangName = "srlg"
     interfaceSrlgNames.EntityData.SegmentPath = "interface-srlg-names"
+    interfaceSrlgNames.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rsi-oper:srlg/" + interfaceSrlgNames.EntityData.SegmentPath
     interfaceSrlgNames.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceSrlgNames.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceSrlgNames.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1562,6 +1629,7 @@ func (interfaceSrlgNames *Srlg_InterfaceSrlgNames) GetEntityData() *types.Common
 type Srlg_InterfaceSrlgNames_InterfaceSrlgName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. SRLG name. The type is string with length: 1..64.
     SrlgName interface{}
@@ -1582,6 +1650,7 @@ func (interfaceSrlgName *Srlg_InterfaceSrlgNames_InterfaceSrlgName) GetEntityDat
     interfaceSrlgName.EntityData.BundleName = "cisco_ios_xr"
     interfaceSrlgName.EntityData.ParentYangName = "interface-srlg-names"
     interfaceSrlgName.EntityData.SegmentPath = "interface-srlg-name" + types.AddKeyToken(interfaceSrlgName.SrlgName, "srlg-name")
+    interfaceSrlgName.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rsi-oper:srlg/interface-srlg-names/" + interfaceSrlgName.EntityData.SegmentPath
     interfaceSrlgName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceSrlgName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceSrlgName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1614,6 +1683,7 @@ func (interfaces *Srlg_InterfaceSrlgNames_InterfaceSrlgName_Interfaces) GetEntit
     interfaces.EntityData.BundleName = "cisco_ios_xr"
     interfaces.EntityData.ParentYangName = "interface-srlg-name"
     interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rsi-oper:srlg/interface-srlg-names/interface-srlg-name/" + interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1644,6 +1714,7 @@ func (inheritNodes *Srlg_InheritNodes) GetEntityData() *types.CommonEntityData {
     inheritNodes.EntityData.BundleName = "cisco_ios_xr"
     inheritNodes.EntityData.ParentYangName = "srlg"
     inheritNodes.EntityData.SegmentPath = "inherit-nodes"
+    inheritNodes.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rsi-oper:srlg/" + inheritNodes.EntityData.SegmentPath
     inheritNodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     inheritNodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inheritNodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1665,6 +1736,7 @@ func (inheritNodes *Srlg_InheritNodes) GetEntityData() *types.CommonEntityData {
 type Srlg_InheritNodes_InheritNode struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Inherit Locatio. The type is string with pattern:
     // ((([a-zA-Z0-9_]*\d+)|(\*))/){2}(([a-zA-Z0-9_]*\d+)|(\*)).
@@ -1687,6 +1759,7 @@ func (inheritNode *Srlg_InheritNodes_InheritNode) GetEntityData() *types.CommonE
     inheritNode.EntityData.BundleName = "cisco_ios_xr"
     inheritNode.EntityData.ParentYangName = "inherit-nodes"
     inheritNode.EntityData.SegmentPath = "inherit-node" + types.AddKeyToken(inheritNode.InheritNodeName, "inherit-node-name")
+    inheritNode.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rsi-oper:srlg/inherit-nodes/" + inheritNode.EntityData.SegmentPath
     inheritNode.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     inheritNode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inheritNode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1694,6 +1767,7 @@ func (inheritNode *Srlg_InheritNodes_InheritNode) GetEntityData() *types.CommonE
     inheritNode.EntityData.Children = types.NewOrderedMap()
     inheritNode.EntityData.Children.Append("srlg-attribute", types.YChild{"SrlgAttribute", nil})
     for i := range inheritNode.SrlgAttribute {
+        types.SetYListKey(inheritNode.SrlgAttribute[i], i)
         inheritNode.EntityData.Children.Append(types.GetSegmentPath(inheritNode.SrlgAttribute[i]), types.YChild{"SrlgAttribute", inheritNode.SrlgAttribute[i]})
     }
     inheritNode.EntityData.Leafs = types.NewOrderedMap()
@@ -1711,6 +1785,7 @@ func (inheritNode *Srlg_InheritNodes_InheritNode) GetEntityData() *types.CommonE
 type Srlg_InheritNodes_InheritNode_SrlgAttribute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // SRLG value. The type is interface{} with range: 0..4294967295.
     SrlgValue interface{}
@@ -1727,7 +1802,8 @@ func (srlgAttribute *Srlg_InheritNodes_InheritNode_SrlgAttribute) GetEntityData(
     srlgAttribute.EntityData.YangName = "srlg-attribute"
     srlgAttribute.EntityData.BundleName = "cisco_ios_xr"
     srlgAttribute.EntityData.ParentYangName = "inherit-node"
-    srlgAttribute.EntityData.SegmentPath = "srlg-attribute"
+    srlgAttribute.EntityData.SegmentPath = "srlg-attribute" + types.AddNoKeyToken(srlgAttribute)
+    srlgAttribute.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rsi-oper:srlg/inherit-nodes/inherit-node/" + srlgAttribute.EntityData.SegmentPath
     srlgAttribute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     srlgAttribute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     srlgAttribute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1760,6 +1836,7 @@ func (srlgValues *Srlg_SrlgValues) GetEntityData() *types.CommonEntityData {
     srlgValues.EntityData.BundleName = "cisco_ios_xr"
     srlgValues.EntityData.ParentYangName = "srlg"
     srlgValues.EntityData.SegmentPath = "srlg-values"
+    srlgValues.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rsi-oper:srlg/" + srlgValues.EntityData.SegmentPath
     srlgValues.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     srlgValues.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     srlgValues.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1781,6 +1858,7 @@ func (srlgValues *Srlg_SrlgValues) GetEntityData() *types.CommonEntityData {
 type Srlg_SrlgValues_SrlgValue struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. SRLG value. The type is interface{} with range:
     // 0..4294967295.
@@ -1796,6 +1874,7 @@ func (srlgValue *Srlg_SrlgValues_SrlgValue) GetEntityData() *types.CommonEntityD
     srlgValue.EntityData.BundleName = "cisco_ios_xr"
     srlgValue.EntityData.ParentYangName = "srlg-values"
     srlgValue.EntityData.SegmentPath = "srlg-value" + types.AddKeyToken(srlgValue.Value, "value")
+    srlgValue.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rsi-oper:srlg/srlg-values/" + srlgValue.EntityData.SegmentPath
     srlgValue.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     srlgValue.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     srlgValue.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1827,6 +1906,7 @@ func (interfaceDetails *Srlg_InterfaceDetails) GetEntityData() *types.CommonEnti
     interfaceDetails.EntityData.BundleName = "cisco_ios_xr"
     interfaceDetails.EntityData.ParentYangName = "srlg"
     interfaceDetails.EntityData.SegmentPath = "interface-details"
+    interfaceDetails.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rsi-oper:srlg/" + interfaceDetails.EntityData.SegmentPath
     interfaceDetails.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceDetails.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceDetails.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1848,6 +1928,7 @@ func (interfaceDetails *Srlg_InterfaceDetails) GetEntityData() *types.CommonEnti
 type Srlg_InterfaceDetails_InterfaceDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -1873,6 +1954,7 @@ func (interfaceDetail *Srlg_InterfaceDetails_InterfaceDetail) GetEntityData() *t
     interfaceDetail.EntityData.BundleName = "cisco_ios_xr"
     interfaceDetail.EntityData.ParentYangName = "interface-details"
     interfaceDetail.EntityData.SegmentPath = "interface-detail" + types.AddKeyToken(interfaceDetail.InterfaceName, "interface-name")
+    interfaceDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rsi-oper:srlg/interface-details/" + interfaceDetail.EntityData.SegmentPath
     interfaceDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1880,10 +1962,12 @@ func (interfaceDetail *Srlg_InterfaceDetails_InterfaceDetail) GetEntityData() *t
     interfaceDetail.EntityData.Children = types.NewOrderedMap()
     interfaceDetail.EntityData.Children.Append("srlg-attribute", types.YChild{"SrlgAttribute", nil})
     for i := range interfaceDetail.SrlgAttribute {
+        types.SetYListKey(interfaceDetail.SrlgAttribute[i], i)
         interfaceDetail.EntityData.Children.Append(types.GetSegmentPath(interfaceDetail.SrlgAttribute[i]), types.YChild{"SrlgAttribute", interfaceDetail.SrlgAttribute[i]})
     }
     interfaceDetail.EntityData.Children.Append("rsip", types.YChild{"Rsip", nil})
     for i := range interfaceDetail.Rsip {
+        types.SetYListKey(interfaceDetail.Rsip[i], i)
         interfaceDetail.EntityData.Children.Append(types.GetSegmentPath(interfaceDetail.Rsip[i]), types.YChild{"Rsip", interfaceDetail.Rsip[i]})
     }
     interfaceDetail.EntityData.Leafs = types.NewOrderedMap()
@@ -1901,6 +1985,7 @@ func (interfaceDetail *Srlg_InterfaceDetails_InterfaceDetail) GetEntityData() *t
 type Srlg_InterfaceDetails_InterfaceDetail_SrlgAttribute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // SRLG value. The type is interface{} with range: 0..4294967295.
     SrlgValue interface{}
@@ -1923,7 +2008,8 @@ func (srlgAttribute *Srlg_InterfaceDetails_InterfaceDetail_SrlgAttribute) GetEnt
     srlgAttribute.EntityData.YangName = "srlg-attribute"
     srlgAttribute.EntityData.BundleName = "cisco_ios_xr"
     srlgAttribute.EntityData.ParentYangName = "interface-detail"
-    srlgAttribute.EntityData.SegmentPath = "srlg-attribute"
+    srlgAttribute.EntityData.SegmentPath = "srlg-attribute" + types.AddNoKeyToken(srlgAttribute)
+    srlgAttribute.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rsi-oper:srlg/interface-details/interface-detail/" + srlgAttribute.EntityData.SegmentPath
     srlgAttribute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     srlgAttribute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     srlgAttribute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1946,6 +2032,7 @@ func (srlgAttribute *Srlg_InterfaceDetails_InterfaceDetail_SrlgAttribute) GetEnt
 type Srlg_InterfaceDetails_InterfaceDetail_Rsip struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // list of names matching rsip. The type is string.
     RsipName interface{}
@@ -1956,7 +2043,8 @@ func (rsip *Srlg_InterfaceDetails_InterfaceDetail_Rsip) GetEntityData() *types.C
     rsip.EntityData.YangName = "rsip"
     rsip.EntityData.BundleName = "cisco_ios_xr"
     rsip.EntityData.ParentYangName = "interface-detail"
-    rsip.EntityData.SegmentPath = "rsip"
+    rsip.EntityData.SegmentPath = "rsip" + types.AddNoKeyToken(rsip)
+    rsip.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rsi-oper:srlg/interface-details/interface-detail/" + rsip.EntityData.SegmentPath
     rsip.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rsip.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rsip.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1986,6 +2074,7 @@ func (selectiveVrfDownload *SelectiveVrfDownload) GetEntityData() *types.CommonE
     selectiveVrfDownload.EntityData.BundleName = "cisco_ios_xr"
     selectiveVrfDownload.EntityData.ParentYangName = "Cisco-IOS-XR-infra-rsi-oper"
     selectiveVrfDownload.EntityData.SegmentPath = "Cisco-IOS-XR-infra-rsi-oper:selective-vrf-download"
+    selectiveVrfDownload.EntityData.AbsolutePath = selectiveVrfDownload.EntityData.SegmentPath
     selectiveVrfDownload.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     selectiveVrfDownload.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     selectiveVrfDownload.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2018,6 +2107,7 @@ func (state *SelectiveVrfDownload_State) GetEntityData() *types.CommonEntityData
     state.EntityData.BundleName = "cisco_ios_xr"
     state.EntityData.ParentYangName = "selective-vrf-download"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rsi-oper:selective-vrf-download/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     state.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

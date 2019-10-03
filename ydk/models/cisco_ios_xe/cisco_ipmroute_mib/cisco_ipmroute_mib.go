@@ -37,6 +37,7 @@ func (cISCOIPMROUTEMIB *CISCOIPMROUTEMIB) GetEntityData() *types.CommonEntityDat
     cISCOIPMROUTEMIB.EntityData.BundleName = "cisco_ios_xe"
     cISCOIPMROUTEMIB.EntityData.ParentYangName = "CISCO-IPMROUTE-MIB"
     cISCOIPMROUTEMIB.EntityData.SegmentPath = "CISCO-IPMROUTE-MIB:CISCO-IPMROUTE-MIB"
+    cISCOIPMROUTEMIB.EntityData.AbsolutePath = cISCOIPMROUTEMIB.EntityData.SegmentPath
     cISCOIPMROUTEMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cISCOIPMROUTEMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOIPMROUTEMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -67,6 +68,7 @@ func (ciscoIpMRoute *CISCOIPMROUTEMIB_CiscoIpMRoute) GetEntityData() *types.Comm
     ciscoIpMRoute.EntityData.BundleName = "cisco_ios_xe"
     ciscoIpMRoute.EntityData.ParentYangName = "CISCO-IPMROUTE-MIB"
     ciscoIpMRoute.EntityData.SegmentPath = "ciscoIpMRoute"
+    ciscoIpMRoute.EntityData.AbsolutePath = "CISCO-IPMROUTE-MIB:CISCO-IPMROUTE-MIB/" + ciscoIpMRoute.EntityData.SegmentPath
     ciscoIpMRoute.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ciscoIpMRoute.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ciscoIpMRoute.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -100,6 +102,7 @@ func (ciscoIpMRouteHeartBeatTable *CISCOIPMROUTEMIB_CiscoIpMRouteHeartBeatTable)
     ciscoIpMRouteHeartBeatTable.EntityData.BundleName = "cisco_ios_xe"
     ciscoIpMRouteHeartBeatTable.EntityData.ParentYangName = "CISCO-IPMROUTE-MIB"
     ciscoIpMRouteHeartBeatTable.EntityData.SegmentPath = "ciscoIpMRouteHeartBeatTable"
+    ciscoIpMRouteHeartBeatTable.EntityData.AbsolutePath = "CISCO-IPMROUTE-MIB:CISCO-IPMROUTE-MIB/" + ciscoIpMRouteHeartBeatTable.EntityData.SegmentPath
     ciscoIpMRouteHeartBeatTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ciscoIpMRouteHeartBeatTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ciscoIpMRouteHeartBeatTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -122,6 +125,7 @@ func (ciscoIpMRouteHeartBeatTable *CISCOIPMROUTEMIB_CiscoIpMRouteHeartBeatTable)
 type CISCOIPMROUTEMIB_CiscoIpMRouteHeartBeatTable_CiscoIpMRouteHeartBeatEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Multicast group address used to receive heartbeat
     // packets. The type is string with pattern:
@@ -172,6 +176,7 @@ func (ciscoIpMRouteHeartBeatEntry *CISCOIPMROUTEMIB_CiscoIpMRouteHeartBeatTable_
     ciscoIpMRouteHeartBeatEntry.EntityData.BundleName = "cisco_ios_xe"
     ciscoIpMRouteHeartBeatEntry.EntityData.ParentYangName = "ciscoIpMRouteHeartBeatTable"
     ciscoIpMRouteHeartBeatEntry.EntityData.SegmentPath = "ciscoIpMRouteHeartBeatEntry" + types.AddKeyToken(ciscoIpMRouteHeartBeatEntry.CiscoIpMRouteHeartBeatGroupAddr, "ciscoIpMRouteHeartBeatGroupAddr")
+    ciscoIpMRouteHeartBeatEntry.EntityData.AbsolutePath = "CISCO-IPMROUTE-MIB:CISCO-IPMROUTE-MIB/ciscoIpMRouteHeartBeatTable/" + ciscoIpMRouteHeartBeatEntry.EntityData.SegmentPath
     ciscoIpMRouteHeartBeatEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ciscoIpMRouteHeartBeatEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ciscoIpMRouteHeartBeatEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

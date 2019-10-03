@@ -391,6 +391,7 @@ func (dOCSIF3MIB *DOCSIF3MIB) GetEntityData() *types.CommonEntityData {
     dOCSIF3MIB.EntityData.BundleName = "cisco_ios_xe"
     dOCSIF3MIB.EntityData.ParentYangName = "DOCS-IF3-MIB"
     dOCSIF3MIB.EntityData.SegmentPath = "DOCS-IF3-MIB:DOCS-IF3-MIB"
+    dOCSIF3MIB.EntityData.AbsolutePath = dOCSIF3MIB.EntityData.SegmentPath
     dOCSIF3MIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dOCSIF3MIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dOCSIF3MIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -447,12 +448,12 @@ type DOCSIF3MIB_DocsIf3CmCapabilities struct {
 
     // This attribute contains the TLV encoding for TLV-5 sent in a REG-REQ.  The
     // first byte of this encoding is expected to be '05'H. The type is string
-    // with length: 0 | 2..255.
+    // with length: 0..0 | 2..255.
     DocsIf3CmCapabilitiesReq interface{}
 
     // This attribute contains the TLV encoding for TLV-5 received in a REG-RSP.
     // The first byte of this encoding is expected to be '05'H. The type is string
-    // with length: 0 | 2..255.
+    // with length: 0..0 | 2..255.
     DocsIf3CmCapabilitiesRsp interface{}
 }
 
@@ -462,6 +463,7 @@ func (docsIf3CmCapabilities *DOCSIF3MIB_DocsIf3CmCapabilities) GetEntityData() *
     docsIf3CmCapabilities.EntityData.BundleName = "cisco_ios_xe"
     docsIf3CmCapabilities.EntityData.ParentYangName = "DOCS-IF3-MIB"
     docsIf3CmCapabilities.EntityData.SegmentPath = "docsIf3CmCapabilities"
+    docsIf3CmCapabilities.EntityData.AbsolutePath = "DOCS-IF3-MIB:DOCS-IF3-MIB/" + docsIf3CmCapabilities.EntityData.SegmentPath
     docsIf3CmCapabilities.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIf3CmCapabilities.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIf3CmCapabilities.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -524,6 +526,7 @@ func (docsIf3CmtsCmCtrl *DOCSIF3MIB_DocsIf3CmtsCmCtrl) GetEntityData() *types.Co
     docsIf3CmtsCmCtrl.EntityData.BundleName = "cisco_ios_xe"
     docsIf3CmtsCmCtrl.EntityData.ParentYangName = "DOCS-IF3-MIB"
     docsIf3CmtsCmCtrl.EntityData.SegmentPath = "docsIf3CmtsCmCtrl"
+    docsIf3CmtsCmCtrl.EntityData.AbsolutePath = "DOCS-IF3-MIB:DOCS-IF3-MIB/" + docsIf3CmtsCmCtrl.EntityData.SegmentPath
     docsIf3CmtsCmCtrl.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIf3CmtsCmCtrl.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIf3CmtsCmCtrl.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -582,6 +585,7 @@ func (docsIf3CmEnergyMgtCfg *DOCSIF3MIB_DocsIf3CmEnergyMgtCfg) GetEntityData() *
     docsIf3CmEnergyMgtCfg.EntityData.BundleName = "cisco_ios_xe"
     docsIf3CmEnergyMgtCfg.EntityData.ParentYangName = "DOCS-IF3-MIB"
     docsIf3CmEnergyMgtCfg.EntityData.SegmentPath = "docsIf3CmEnergyMgtCfg"
+    docsIf3CmEnergyMgtCfg.EntityData.AbsolutePath = "DOCS-IF3-MIB:DOCS-IF3-MIB/" + docsIf3CmEnergyMgtCfg.EntityData.SegmentPath
     docsIf3CmEnergyMgtCfg.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIf3CmEnergyMgtCfg.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIf3CmEnergyMgtCfg.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -725,6 +729,7 @@ func (docsIf3CmSpectrumAnalysisCtrlCmd *DOCSIF3MIB_DocsIf3CmSpectrumAnalysisCtrl
     docsIf3CmSpectrumAnalysisCtrlCmd.EntityData.BundleName = "cisco_ios_xe"
     docsIf3CmSpectrumAnalysisCtrlCmd.EntityData.ParentYangName = "DOCS-IF3-MIB"
     docsIf3CmSpectrumAnalysisCtrlCmd.EntityData.SegmentPath = "docsIf3CmSpectrumAnalysisCtrlCmd"
+    docsIf3CmSpectrumAnalysisCtrlCmd.EntityData.AbsolutePath = "DOCS-IF3-MIB:DOCS-IF3-MIB/" + docsIf3CmSpectrumAnalysisCtrlCmd.EntityData.SegmentPath
     docsIf3CmSpectrumAnalysisCtrlCmd.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIf3CmSpectrumAnalysisCtrlCmd.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIf3CmSpectrumAnalysisCtrlCmd.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -767,6 +772,7 @@ func (docsIf3CmStatusTable *DOCSIF3MIB_DocsIf3CmStatusTable) GetEntityData() *ty
     docsIf3CmStatusTable.EntityData.BundleName = "cisco_ios_xe"
     docsIf3CmStatusTable.EntityData.ParentYangName = "DOCS-IF3-MIB"
     docsIf3CmStatusTable.EntityData.SegmentPath = "docsIf3CmStatusTable"
+    docsIf3CmStatusTable.EntityData.AbsolutePath = "DOCS-IF3-MIB:DOCS-IF3-MIB/" + docsIf3CmStatusTable.EntityData.SegmentPath
     docsIf3CmStatusTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIf3CmStatusTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIf3CmStatusTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -789,6 +795,7 @@ func (docsIf3CmStatusTable *DOCSIF3MIB_DocsIf3CmStatusTable) GetEntityData() *ty
 type DOCSIF3MIB_DocsIf3CmStatusTable_DocsIf3CmStatusEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -805,7 +812,7 @@ type DOCSIF3MIB_DocsIf3CmStatusTable_DocsIf3CmStatusEntry struct {
     // error groups, followed by a two- or three-digit number indicating the
     // status condition, followed by a decimal. An example of a returned value
     // could be 'T101.0'. The zero-length hex string indicates no status code yet
-    // registered. The type is string with length: 0 | 5..7.
+    // registered. The type is string with length: 0..0 | 5..7.
     DocsIf3CmStatusCode interface{}
 
     // This attribute denotes the number of times the CM reset or initialized this
@@ -892,6 +899,7 @@ func (docsIf3CmStatusEntry *DOCSIF3MIB_DocsIf3CmStatusTable_DocsIf3CmStatusEntry
     docsIf3CmStatusEntry.EntityData.BundleName = "cisco_ios_xe"
     docsIf3CmStatusEntry.EntityData.ParentYangName = "docsIf3CmStatusTable"
     docsIf3CmStatusEntry.EntityData.SegmentPath = "docsIf3CmStatusEntry" + types.AddKeyToken(docsIf3CmStatusEntry.IfIndex, "ifIndex")
+    docsIf3CmStatusEntry.EntityData.AbsolutePath = "DOCS-IF3-MIB:DOCS-IF3-MIB/docsIf3CmStatusTable/" + docsIf3CmStatusEntry.EntityData.SegmentPath
     docsIf3CmStatusEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIf3CmStatusEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIf3CmStatusEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -942,6 +950,7 @@ func (docsIf3CmStatusUsTable *DOCSIF3MIB_DocsIf3CmStatusUsTable) GetEntityData()
     docsIf3CmStatusUsTable.EntityData.BundleName = "cisco_ios_xe"
     docsIf3CmStatusUsTable.EntityData.ParentYangName = "DOCS-IF3-MIB"
     docsIf3CmStatusUsTable.EntityData.SegmentPath = "docsIf3CmStatusUsTable"
+    docsIf3CmStatusUsTable.EntityData.AbsolutePath = "DOCS-IF3-MIB:DOCS-IF3-MIB/" + docsIf3CmStatusUsTable.EntityData.SegmentPath
     docsIf3CmStatusUsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIf3CmStatusUsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIf3CmStatusUsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -965,6 +974,7 @@ func (docsIf3CmStatusUsTable *DOCSIF3MIB_DocsIf3CmStatusUsTable) GetEntityData()
 type DOCSIF3MIB_DocsIf3CmStatusUsTable_DocsIf3CmStatusUsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -1013,7 +1023,7 @@ type DOCSIF3MIB_DocsIf3CmStatusUsTable_DocsIf3CmStatusUsEntry struct {
     // This attribute indicates the pre-equalization data for the specified
     // upstream Channel on this CM after convolution with data indicated in the
     // RNG-RSP. This data is valid when docsIfUpChannelPreEqEnable RFC 4546 is set
-    // to true. The type is string with length: 0 | 36..260.
+    // to true. The type is string with length: 0..0 | 36..260.
     DocsIf3CmStatusUsEqData interface{}
 
     // This attribute denotes the number of times for excessive T3 timeouts.
@@ -1038,6 +1048,7 @@ func (docsIf3CmStatusUsEntry *DOCSIF3MIB_DocsIf3CmStatusUsTable_DocsIf3CmStatusU
     docsIf3CmStatusUsEntry.EntityData.BundleName = "cisco_ios_xe"
     docsIf3CmStatusUsEntry.EntityData.ParentYangName = "docsIf3CmStatusUsTable"
     docsIf3CmStatusUsEntry.EntityData.SegmentPath = "docsIf3CmStatusUsEntry" + types.AddKeyToken(docsIf3CmStatusUsEntry.IfIndex, "ifIndex")
+    docsIf3CmStatusUsEntry.EntityData.AbsolutePath = "DOCS-IF3-MIB:DOCS-IF3-MIB/docsIf3CmStatusUsTable/" + docsIf3CmStatusUsEntry.EntityData.SegmentPath
     docsIf3CmStatusUsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIf3CmStatusUsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIf3CmStatusUsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1080,6 +1091,7 @@ func (docsIf3CmtsCmRegStatusTable *DOCSIF3MIB_DocsIf3CmtsCmRegStatusTable) GetEn
     docsIf3CmtsCmRegStatusTable.EntityData.BundleName = "cisco_ios_xe"
     docsIf3CmtsCmRegStatusTable.EntityData.ParentYangName = "DOCS-IF3-MIB"
     docsIf3CmtsCmRegStatusTable.EntityData.SegmentPath = "docsIf3CmtsCmRegStatusTable"
+    docsIf3CmtsCmRegStatusTable.EntityData.AbsolutePath = "DOCS-IF3-MIB:DOCS-IF3-MIB/" + docsIf3CmtsCmRegStatusTable.EntityData.SegmentPath
     docsIf3CmtsCmRegStatusTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIf3CmtsCmRegStatusTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIf3CmtsCmRegStatusTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1101,6 +1113,7 @@ func (docsIf3CmtsCmRegStatusTable *DOCSIF3MIB_DocsIf3CmtsCmRegStatusTable) GetEn
 type DOCSIF3MIB_DocsIf3CmtsCmRegStatusTable_DocsIf3CmtsCmRegStatusEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. This attribute uniquely identifies a CM.  The CMTS
     // must assign a single id value for each CM MAC address seen by the CMTS. 
@@ -1147,7 +1160,7 @@ type DOCSIF3MIB_DocsIf3CmtsCmRegStatusTable_DocsIf3CmtsCmRegStatusEntry struct {
     // This attribute represents the RCP-ID associated with the CM if the CM is in
     // DOCSIS 3.0 mode. If the  RCP-ID is unknown or the CM is in DOCSIS 3.1 mode,
     // the CMTS returns a five octet long string of zeros. The type is string with
-    // length: 5.
+    // length: 5..5.
     DocsIf3CmtsCmRegStatusRcpId interface{}
 
     // This attribute represents the RCC Id the CMTS used to configure the CM
@@ -1215,6 +1228,7 @@ func (docsIf3CmtsCmRegStatusEntry *DOCSIF3MIB_DocsIf3CmtsCmRegStatusTable_DocsIf
     docsIf3CmtsCmRegStatusEntry.EntityData.BundleName = "cisco_ios_xe"
     docsIf3CmtsCmRegStatusEntry.EntityData.ParentYangName = "docsIf3CmtsCmRegStatusTable"
     docsIf3CmtsCmRegStatusEntry.EntityData.SegmentPath = "docsIf3CmtsCmRegStatusEntry" + types.AddKeyToken(docsIf3CmtsCmRegStatusEntry.DocsIf3CmtsCmRegStatusId, "docsIf3CmtsCmRegStatusId")
+    docsIf3CmtsCmRegStatusEntry.EntityData.AbsolutePath = "DOCS-IF3-MIB:DOCS-IF3-MIB/docsIf3CmtsCmRegStatusTable/" + docsIf3CmtsCmRegStatusEntry.EntityData.SegmentPath
     docsIf3CmtsCmRegStatusEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIf3CmtsCmRegStatusEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIf3CmtsCmRegStatusEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1263,6 +1277,7 @@ func (docsIf3CmtsCmUsStatusTable *DOCSIF3MIB_DocsIf3CmtsCmUsStatusTable) GetEnti
     docsIf3CmtsCmUsStatusTable.EntityData.BundleName = "cisco_ios_xe"
     docsIf3CmtsCmUsStatusTable.EntityData.ParentYangName = "DOCS-IF3-MIB"
     docsIf3CmtsCmUsStatusTable.EntityData.SegmentPath = "docsIf3CmtsCmUsStatusTable"
+    docsIf3CmtsCmUsStatusTable.EntityData.AbsolutePath = "DOCS-IF3-MIB:DOCS-IF3-MIB/" + docsIf3CmtsCmUsStatusTable.EntityData.SegmentPath
     docsIf3CmtsCmUsStatusTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIf3CmtsCmUsStatusTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIf3CmtsCmUsStatusTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1284,6 +1299,7 @@ func (docsIf3CmtsCmUsStatusTable *DOCSIF3MIB_DocsIf3CmtsCmUsStatusTable) GetEnti
 type DOCSIF3MIB_DocsIf3CmtsCmUsStatusTable_DocsIf3CmtsCmUsStatusEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..4294967295.
     // Refers to
@@ -1317,7 +1333,7 @@ type DOCSIF3MIB_DocsIf3CmtsCmUsStatusTable_DocsIf3CmtsCmUsStatusEntry struct {
     DocsIf3CmtsCmUsStatusMicroreflections interface{}
 
     // This attribute represents the equalization data for the CM on this upstream
-    // channel. The type is string with length: 0 | 36..260.
+    // channel. The type is string with length: 0..0 | 36..260.
     DocsIf3CmtsCmUsStatusEqData interface{}
 
     // This attribute represents the codewords received without error from the CM
@@ -1365,6 +1381,7 @@ func (docsIf3CmtsCmUsStatusEntry *DOCSIF3MIB_DocsIf3CmtsCmUsStatusTable_DocsIf3C
     docsIf3CmtsCmUsStatusEntry.EntityData.BundleName = "cisco_ios_xe"
     docsIf3CmtsCmUsStatusEntry.EntityData.ParentYangName = "docsIf3CmtsCmUsStatusTable"
     docsIf3CmtsCmUsStatusEntry.EntityData.SegmentPath = "docsIf3CmtsCmUsStatusEntry" + types.AddKeyToken(docsIf3CmtsCmUsStatusEntry.DocsIf3CmtsCmRegStatusId, "docsIf3CmtsCmRegStatusId") + types.AddKeyToken(docsIf3CmtsCmUsStatusEntry.DocsIf3CmtsCmUsStatusChIfIndex, "docsIf3CmtsCmUsStatusChIfIndex")
+    docsIf3CmtsCmUsStatusEntry.EntityData.AbsolutePath = "DOCS-IF3-MIB:DOCS-IF3-MIB/docsIf3CmtsCmUsStatusTable/" + docsIf3CmtsCmUsStatusEntry.EntityData.SegmentPath
     docsIf3CmtsCmUsStatusEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIf3CmtsCmUsStatusEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIf3CmtsCmUsStatusEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1425,6 +1442,7 @@ func (docsIf3MdChCfgTable *DOCSIF3MIB_DocsIf3MdChCfgTable) GetEntityData() *type
     docsIf3MdChCfgTable.EntityData.BundleName = "cisco_ios_xe"
     docsIf3MdChCfgTable.EntityData.ParentYangName = "DOCS-IF3-MIB"
     docsIf3MdChCfgTable.EntityData.SegmentPath = "docsIf3MdChCfgTable"
+    docsIf3MdChCfgTable.EntityData.AbsolutePath = "DOCS-IF3-MIB:DOCS-IF3-MIB/" + docsIf3MdChCfgTable.EntityData.SegmentPath
     docsIf3MdChCfgTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIf3MdChCfgTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIf3MdChCfgTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1450,6 +1468,7 @@ func (docsIf3MdChCfgTable *DOCSIF3MIB_DocsIf3MdChCfgTable) GetEntityData() *type
 type DOCSIF3MIB_DocsIf3MdChCfgTable_DocsIf3MdChCfgEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -1490,6 +1509,7 @@ func (docsIf3MdChCfgEntry *DOCSIF3MIB_DocsIf3MdChCfgTable_DocsIf3MdChCfgEntry) G
     docsIf3MdChCfgEntry.EntityData.BundleName = "cisco_ios_xe"
     docsIf3MdChCfgEntry.EntityData.ParentYangName = "docsIf3MdChCfgTable"
     docsIf3MdChCfgEntry.EntityData.SegmentPath = "docsIf3MdChCfgEntry" + types.AddKeyToken(docsIf3MdChCfgEntry.IfIndex, "ifIndex") + types.AddKeyToken(docsIf3MdChCfgEntry.DocsIf3MdChCfgChIfIndex, "docsIf3MdChCfgChIfIndex")
+    docsIf3MdChCfgEntry.EntityData.AbsolutePath = "DOCS-IF3-MIB:DOCS-IF3-MIB/docsIf3MdChCfgTable/" + docsIf3MdChCfgEntry.EntityData.SegmentPath
     docsIf3MdChCfgEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIf3MdChCfgEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIf3MdChCfgEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1533,6 +1553,7 @@ func (docsIf3RccCfgTable *DOCSIF3MIB_DocsIf3RccCfgTable) GetEntityData() *types.
     docsIf3RccCfgTable.EntityData.BundleName = "cisco_ios_xe"
     docsIf3RccCfgTable.EntityData.ParentYangName = "DOCS-IF3-MIB"
     docsIf3RccCfgTable.EntityData.SegmentPath = "docsIf3RccCfgTable"
+    docsIf3RccCfgTable.EntityData.AbsolutePath = "DOCS-IF3-MIB:DOCS-IF3-MIB/" + docsIf3RccCfgTable.EntityData.SegmentPath
     docsIf3RccCfgTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIf3RccCfgTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIf3RccCfgTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1558,6 +1579,7 @@ func (docsIf3RccCfgTable *DOCSIF3MIB_DocsIf3RccCfgTable) GetEntityData() *types.
 type DOCSIF3MIB_DocsIf3RccCfgTable_DocsIf3RccCfgEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -1565,7 +1587,7 @@ type DOCSIF3MIB_DocsIf3RccCfgTable_DocsIf3RccCfgEntry struct {
 
     // This attribute is a key. This key represents the 'Receive Channel Profile
     // Identifier' (RCP-ID) configured for the MAC Domain indicated by this
-    // instance. The type is string with length: 5.
+    // instance. The type is string with length: 5..5.
     DocsIf3RccCfgRcpId interface{}
 
     // This attribute is a key. This key denotes an RCC combination assignment for
@@ -1591,6 +1613,7 @@ func (docsIf3RccCfgEntry *DOCSIF3MIB_DocsIf3RccCfgTable_DocsIf3RccCfgEntry) GetE
     docsIf3RccCfgEntry.EntityData.BundleName = "cisco_ios_xe"
     docsIf3RccCfgEntry.EntityData.ParentYangName = "docsIf3RccCfgTable"
     docsIf3RccCfgEntry.EntityData.SegmentPath = "docsIf3RccCfgEntry" + types.AddKeyToken(docsIf3RccCfgEntry.IfIndex, "ifIndex") + types.AddKeyToken(docsIf3RccCfgEntry.DocsIf3RccCfgRcpId, "docsIf3RccCfgRcpId") + types.AddKeyToken(docsIf3RccCfgEntry.DocsIf3RccCfgRccCfgId, "docsIf3RccCfgRccCfgId")
+    docsIf3RccCfgEntry.EntityData.AbsolutePath = "DOCS-IF3-MIB:DOCS-IF3-MIB/docsIf3RccCfgTable/" + docsIf3RccCfgEntry.EntityData.SegmentPath
     docsIf3RccCfgEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIf3RccCfgEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIf3RccCfgEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1632,6 +1655,7 @@ func (docsIf3RccStatusTable *DOCSIF3MIB_DocsIf3RccStatusTable) GetEntityData() *
     docsIf3RccStatusTable.EntityData.BundleName = "cisco_ios_xe"
     docsIf3RccStatusTable.EntityData.ParentYangName = "DOCS-IF3-MIB"
     docsIf3RccStatusTable.EntityData.SegmentPath = "docsIf3RccStatusTable"
+    docsIf3RccStatusTable.EntityData.AbsolutePath = "DOCS-IF3-MIB:DOCS-IF3-MIB/" + docsIf3RccStatusTable.EntityData.SegmentPath
     docsIf3RccStatusTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIf3RccStatusTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIf3RccStatusTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1655,13 +1679,14 @@ func (docsIf3RccStatusTable *DOCSIF3MIB_DocsIf3RccStatusTable) GetEntityData() *
 type DOCSIF3MIB_DocsIf3RccStatusTable_DocsIf3RccStatusEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
     IfIndex interface{}
 
     // This attribute is a key. This key represents the RCP-ID to which this
-    // instance applies. The type is string with length: 5.
+    // instance applies. The type is string with length: 5..5.
     DocsIf3RccStatusRcpId interface{}
 
     // This attribute is a key. This key represents an RCC combination for a
@@ -1693,6 +1718,7 @@ func (docsIf3RccStatusEntry *DOCSIF3MIB_DocsIf3RccStatusTable_DocsIf3RccStatusEn
     docsIf3RccStatusEntry.EntityData.BundleName = "cisco_ios_xe"
     docsIf3RccStatusEntry.EntityData.ParentYangName = "docsIf3RccStatusTable"
     docsIf3RccStatusEntry.EntityData.SegmentPath = "docsIf3RccStatusEntry" + types.AddKeyToken(docsIf3RccStatusEntry.IfIndex, "ifIndex") + types.AddKeyToken(docsIf3RccStatusEntry.DocsIf3RccStatusRcpId, "docsIf3RccStatusRcpId") + types.AddKeyToken(docsIf3RccStatusEntry.DocsIf3RccStatusRccStatusId, "docsIf3RccStatusRccStatusId")
+    docsIf3RccStatusEntry.EntityData.AbsolutePath = "DOCS-IF3-MIB:DOCS-IF3-MIB/docsIf3RccStatusTable/" + docsIf3RccStatusEntry.EntityData.SegmentPath
     docsIf3RccStatusEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIf3RccStatusEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIf3RccStatusEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1777,6 +1803,7 @@ func (docsIf3RxChCfgTable *DOCSIF3MIB_DocsIf3RxChCfgTable) GetEntityData() *type
     docsIf3RxChCfgTable.EntityData.BundleName = "cisco_ios_xe"
     docsIf3RxChCfgTable.EntityData.ParentYangName = "DOCS-IF3-MIB"
     docsIf3RxChCfgTable.EntityData.SegmentPath = "docsIf3RxChCfgTable"
+    docsIf3RxChCfgTable.EntityData.AbsolutePath = "DOCS-IF3-MIB:DOCS-IF3-MIB/" + docsIf3RxChCfgTable.EntityData.SegmentPath
     docsIf3RxChCfgTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIf3RxChCfgTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIf3RxChCfgTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1802,12 +1829,13 @@ func (docsIf3RxChCfgTable *DOCSIF3MIB_DocsIf3RxChCfgTable) GetEntityData() *type
 type DOCSIF3MIB_DocsIf3RxChCfgTable_DocsIf3RxChCfgEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
     IfIndex interface{}
 
-    // This attribute is a key. The type is string with length: 5. Refers to
+    // This attribute is a key. The type is string with length: 5..5. Refers to
     // docs_if3_mib.DOCSIF3MIB_DocsIf3RccCfgTable_DocsIf3RccCfgEntry_DocsIf3RccCfgRcpId
     DocsIf3RccCfgRcpId interface{}
 
@@ -1849,6 +1877,7 @@ func (docsIf3RxChCfgEntry *DOCSIF3MIB_DocsIf3RxChCfgTable_DocsIf3RxChCfgEntry) G
     docsIf3RxChCfgEntry.EntityData.BundleName = "cisco_ios_xe"
     docsIf3RxChCfgEntry.EntityData.ParentYangName = "docsIf3RxChCfgTable"
     docsIf3RxChCfgEntry.EntityData.SegmentPath = "docsIf3RxChCfgEntry" + types.AddKeyToken(docsIf3RxChCfgEntry.IfIndex, "ifIndex") + types.AddKeyToken(docsIf3RxChCfgEntry.DocsIf3RccCfgRcpId, "docsIf3RccCfgRcpId") + types.AddKeyToken(docsIf3RxChCfgEntry.DocsIf3RccCfgRccCfgId, "docsIf3RccCfgRccCfgId") + types.AddKeyToken(docsIf3RxChCfgEntry.DocsIf3RxChCfgRcId, "docsIf3RxChCfgRcId")
+    docsIf3RxChCfgEntry.EntityData.AbsolutePath = "DOCS-IF3-MIB:DOCS-IF3-MIB/docsIf3RxChCfgTable/" + docsIf3RxChCfgEntry.EntityData.SegmentPath
     docsIf3RxChCfgEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIf3RxChCfgEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIf3RxChCfgEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1890,6 +1919,7 @@ func (docsIf3RxChStatusTable *DOCSIF3MIB_DocsIf3RxChStatusTable) GetEntityData()
     docsIf3RxChStatusTable.EntityData.BundleName = "cisco_ios_xe"
     docsIf3RxChStatusTable.EntityData.ParentYangName = "DOCS-IF3-MIB"
     docsIf3RxChStatusTable.EntityData.SegmentPath = "docsIf3RxChStatusTable"
+    docsIf3RxChStatusTable.EntityData.AbsolutePath = "DOCS-IF3-MIB:DOCS-IF3-MIB/" + docsIf3RxChStatusTable.EntityData.SegmentPath
     docsIf3RxChStatusTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIf3RxChStatusTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIf3RxChStatusTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1914,12 +1944,13 @@ func (docsIf3RxChStatusTable *DOCSIF3MIB_DocsIf3RxChStatusTable) GetEntityData()
 type DOCSIF3MIB_DocsIf3RxChStatusTable_DocsIf3RxChStatusEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
     IfIndex interface{}
 
-    // This attribute is a key. The type is string with length: 5. Refers to
+    // This attribute is a key. The type is string with length: 5..5. Refers to
     // docs_if3_mib.DOCSIF3MIB_DocsIf3RccStatusTable_DocsIf3RccStatusEntry_DocsIf3RccStatusRcpId
     DocsIf3RccStatusRcpId interface{}
 
@@ -1956,6 +1987,7 @@ func (docsIf3RxChStatusEntry *DOCSIF3MIB_DocsIf3RxChStatusTable_DocsIf3RxChStatu
     docsIf3RxChStatusEntry.EntityData.BundleName = "cisco_ios_xe"
     docsIf3RxChStatusEntry.EntityData.ParentYangName = "docsIf3RxChStatusTable"
     docsIf3RxChStatusEntry.EntityData.SegmentPath = "docsIf3RxChStatusEntry" + types.AddKeyToken(docsIf3RxChStatusEntry.IfIndex, "ifIndex") + types.AddKeyToken(docsIf3RxChStatusEntry.DocsIf3RccStatusRcpId, "docsIf3RccStatusRcpId") + types.AddKeyToken(docsIf3RxChStatusEntry.DocsIf3RccStatusRccStatusId, "docsIf3RccStatusRccStatusId") + types.AddKeyToken(docsIf3RxChStatusEntry.DocsIf3RxChStatusRcId, "docsIf3RxChStatusRcId")
+    docsIf3RxChStatusEntry.EntityData.AbsolutePath = "DOCS-IF3-MIB:DOCS-IF3-MIB/docsIf3RxChStatusTable/" + docsIf3RxChStatusEntry.EntityData.SegmentPath
     docsIf3RxChStatusEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIf3RxChStatusEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIf3RxChStatusEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2017,6 +2049,7 @@ func (docsIf3RxModuleCfgTable *DOCSIF3MIB_DocsIf3RxModuleCfgTable) GetEntityData
     docsIf3RxModuleCfgTable.EntityData.BundleName = "cisco_ios_xe"
     docsIf3RxModuleCfgTable.EntityData.ParentYangName = "DOCS-IF3-MIB"
     docsIf3RxModuleCfgTable.EntityData.SegmentPath = "docsIf3RxModuleCfgTable"
+    docsIf3RxModuleCfgTable.EntityData.AbsolutePath = "DOCS-IF3-MIB:DOCS-IF3-MIB/" + docsIf3RxModuleCfgTable.EntityData.SegmentPath
     docsIf3RxModuleCfgTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIf3RxModuleCfgTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIf3RxModuleCfgTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2040,12 +2073,13 @@ func (docsIf3RxModuleCfgTable *DOCSIF3MIB_DocsIf3RxModuleCfgTable) GetEntityData
 type DOCSIF3MIB_DocsIf3RxModuleCfgTable_DocsIf3RxModuleCfgEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
     IfIndex interface{}
 
-    // This attribute is a key. The type is string with length: 5. Refers to
+    // This attribute is a key. The type is string with length: 5..5. Refers to
     // docs_if3_mib.DOCSIF3MIB_DocsIf3RccCfgTable_DocsIf3RccCfgEntry_DocsIf3RccCfgRcpId
     DocsIf3RccCfgRcpId interface{}
 
@@ -2085,6 +2119,7 @@ func (docsIf3RxModuleCfgEntry *DOCSIF3MIB_DocsIf3RxModuleCfgTable_DocsIf3RxModul
     docsIf3RxModuleCfgEntry.EntityData.BundleName = "cisco_ios_xe"
     docsIf3RxModuleCfgEntry.EntityData.ParentYangName = "docsIf3RxModuleCfgTable"
     docsIf3RxModuleCfgEntry.EntityData.SegmentPath = "docsIf3RxModuleCfgEntry" + types.AddKeyToken(docsIf3RxModuleCfgEntry.IfIndex, "ifIndex") + types.AddKeyToken(docsIf3RxModuleCfgEntry.DocsIf3RccCfgRcpId, "docsIf3RccCfgRcpId") + types.AddKeyToken(docsIf3RxModuleCfgEntry.DocsIf3RccCfgRccCfgId, "docsIf3RccCfgRccCfgId") + types.AddKeyToken(docsIf3RxModuleCfgEntry.DocsIf3RxModuleCfgRmId, "docsIf3RxModuleCfgRmId")
+    docsIf3RxModuleCfgEntry.EntityData.AbsolutePath = "DOCS-IF3-MIB:DOCS-IF3-MIB/docsIf3RxModuleCfgTable/" + docsIf3RxModuleCfgEntry.EntityData.SegmentPath
     docsIf3RxModuleCfgEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIf3RxModuleCfgEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIf3RxModuleCfgEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2126,6 +2161,7 @@ func (docsIf3RxModuleStatusTable *DOCSIF3MIB_DocsIf3RxModuleStatusTable) GetEnti
     docsIf3RxModuleStatusTable.EntityData.BundleName = "cisco_ios_xe"
     docsIf3RxModuleStatusTable.EntityData.ParentYangName = "DOCS-IF3-MIB"
     docsIf3RxModuleStatusTable.EntityData.SegmentPath = "docsIf3RxModuleStatusTable"
+    docsIf3RxModuleStatusTable.EntityData.AbsolutePath = "DOCS-IF3-MIB:DOCS-IF3-MIB/" + docsIf3RxModuleStatusTable.EntityData.SegmentPath
     docsIf3RxModuleStatusTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIf3RxModuleStatusTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIf3RxModuleStatusTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2150,12 +2186,13 @@ func (docsIf3RxModuleStatusTable *DOCSIF3MIB_DocsIf3RxModuleStatusTable) GetEnti
 type DOCSIF3MIB_DocsIf3RxModuleStatusTable_DocsIf3RxModuleStatusEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
     IfIndex interface{}
 
-    // This attribute is a key. The type is string with length: 5. Refers to
+    // This attribute is a key. The type is string with length: 5..5. Refers to
     // docs_if3_mib.DOCSIF3MIB_DocsIf3RccStatusTable_DocsIf3RccStatusEntry_DocsIf3RccStatusRcpId
     DocsIf3RccStatusRcpId interface{}
 
@@ -2188,6 +2225,7 @@ func (docsIf3RxModuleStatusEntry *DOCSIF3MIB_DocsIf3RxModuleStatusTable_DocsIf3R
     docsIf3RxModuleStatusEntry.EntityData.BundleName = "cisco_ios_xe"
     docsIf3RxModuleStatusEntry.EntityData.ParentYangName = "docsIf3RxModuleStatusTable"
     docsIf3RxModuleStatusEntry.EntityData.SegmentPath = "docsIf3RxModuleStatusEntry" + types.AddKeyToken(docsIf3RxModuleStatusEntry.IfIndex, "ifIndex") + types.AddKeyToken(docsIf3RxModuleStatusEntry.DocsIf3RccStatusRcpId, "docsIf3RccStatusRcpId") + types.AddKeyToken(docsIf3RxModuleStatusEntry.DocsIf3RccStatusRccStatusId, "docsIf3RccStatusRccStatusId") + types.AddKeyToken(docsIf3RxModuleStatusEntry.DocsIf3RxModuleStatusRmId, "docsIf3RxModuleStatusRmId")
+    docsIf3RxModuleStatusEntry.EntityData.AbsolutePath = "DOCS-IF3-MIB:DOCS-IF3-MIB/docsIf3RxModuleStatusTable/" + docsIf3RxModuleStatusEntry.EntityData.SegmentPath
     docsIf3RxModuleStatusEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIf3RxModuleStatusEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIf3RxModuleStatusEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2226,6 +2264,7 @@ func (docsIf3MdNodeStatusTable *DOCSIF3MIB_DocsIf3MdNodeStatusTable) GetEntityDa
     docsIf3MdNodeStatusTable.EntityData.BundleName = "cisco_ios_xe"
     docsIf3MdNodeStatusTable.EntityData.ParentYangName = "DOCS-IF3-MIB"
     docsIf3MdNodeStatusTable.EntityData.SegmentPath = "docsIf3MdNodeStatusTable"
+    docsIf3MdNodeStatusTable.EntityData.AbsolutePath = "DOCS-IF3-MIB:DOCS-IF3-MIB/" + docsIf3MdNodeStatusTable.EntityData.SegmentPath
     docsIf3MdNodeStatusTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIf3MdNodeStatusTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIf3MdNodeStatusTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2249,6 +2288,7 @@ func (docsIf3MdNodeStatusTable *DOCSIF3MIB_DocsIf3MdNodeStatusTable) GetEntityDa
 type DOCSIF3MIB_DocsIf3MdNodeStatusTable_DocsIf3MdNodeStatusEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -2282,6 +2322,7 @@ func (docsIf3MdNodeStatusEntry *DOCSIF3MIB_DocsIf3MdNodeStatusTable_DocsIf3MdNod
     docsIf3MdNodeStatusEntry.EntityData.BundleName = "cisco_ios_xe"
     docsIf3MdNodeStatusEntry.EntityData.ParentYangName = "docsIf3MdNodeStatusTable"
     docsIf3MdNodeStatusEntry.EntityData.SegmentPath = "docsIf3MdNodeStatusEntry" + types.AddKeyToken(docsIf3MdNodeStatusEntry.IfIndex, "ifIndex") + types.AddKeyToken(docsIf3MdNodeStatusEntry.DocsIf3MdNodeStatusNodeName, "docsIf3MdNodeStatusNodeName") + types.AddKeyToken(docsIf3MdNodeStatusEntry.DocsIf3MdNodeStatusMdCmSgId, "docsIf3MdNodeStatusMdCmSgId")
+    docsIf3MdNodeStatusEntry.EntityData.AbsolutePath = "DOCS-IF3-MIB:DOCS-IF3-MIB/docsIf3MdNodeStatusTable/" + docsIf3MdNodeStatusEntry.EntityData.SegmentPath
     docsIf3MdNodeStatusEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIf3MdNodeStatusEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIf3MdNodeStatusEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2320,6 +2361,7 @@ func (docsIf3MdDsSgStatusTable *DOCSIF3MIB_DocsIf3MdDsSgStatusTable) GetEntityDa
     docsIf3MdDsSgStatusTable.EntityData.BundleName = "cisco_ios_xe"
     docsIf3MdDsSgStatusTable.EntityData.ParentYangName = "DOCS-IF3-MIB"
     docsIf3MdDsSgStatusTable.EntityData.SegmentPath = "docsIf3MdDsSgStatusTable"
+    docsIf3MdDsSgStatusTable.EntityData.AbsolutePath = "DOCS-IF3-MIB:DOCS-IF3-MIB/" + docsIf3MdDsSgStatusTable.EntityData.SegmentPath
     docsIf3MdDsSgStatusTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIf3MdDsSgStatusTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIf3MdDsSgStatusTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2345,6 +2387,7 @@ func (docsIf3MdDsSgStatusTable *DOCSIF3MIB_DocsIf3MdDsSgStatusTable) GetEntityDa
 type DOCSIF3MIB_DocsIf3MdDsSgStatusTable_DocsIf3MdDsSgStatusEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -2365,6 +2408,7 @@ func (docsIf3MdDsSgStatusEntry *DOCSIF3MIB_DocsIf3MdDsSgStatusTable_DocsIf3MdDsS
     docsIf3MdDsSgStatusEntry.EntityData.BundleName = "cisco_ios_xe"
     docsIf3MdDsSgStatusEntry.EntityData.ParentYangName = "docsIf3MdDsSgStatusTable"
     docsIf3MdDsSgStatusEntry.EntityData.SegmentPath = "docsIf3MdDsSgStatusEntry" + types.AddKeyToken(docsIf3MdDsSgStatusEntry.IfIndex, "ifIndex") + types.AddKeyToken(docsIf3MdDsSgStatusEntry.DocsIf3MdDsSgStatusMdDsSgId, "docsIf3MdDsSgStatusMdDsSgId")
+    docsIf3MdDsSgStatusEntry.EntityData.AbsolutePath = "DOCS-IF3-MIB:DOCS-IF3-MIB/docsIf3MdDsSgStatusTable/" + docsIf3MdDsSgStatusEntry.EntityData.SegmentPath
     docsIf3MdDsSgStatusEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIf3MdDsSgStatusEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIf3MdDsSgStatusEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2401,6 +2445,7 @@ func (docsIf3MdUsSgStatusTable *DOCSIF3MIB_DocsIf3MdUsSgStatusTable) GetEntityDa
     docsIf3MdUsSgStatusTable.EntityData.BundleName = "cisco_ios_xe"
     docsIf3MdUsSgStatusTable.EntityData.ParentYangName = "DOCS-IF3-MIB"
     docsIf3MdUsSgStatusTable.EntityData.SegmentPath = "docsIf3MdUsSgStatusTable"
+    docsIf3MdUsSgStatusTable.EntityData.AbsolutePath = "DOCS-IF3-MIB:DOCS-IF3-MIB/" + docsIf3MdUsSgStatusTable.EntityData.SegmentPath
     docsIf3MdUsSgStatusTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIf3MdUsSgStatusTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIf3MdUsSgStatusTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2426,6 +2471,7 @@ func (docsIf3MdUsSgStatusTable *DOCSIF3MIB_DocsIf3MdUsSgStatusTable) GetEntityDa
 type DOCSIF3MIB_DocsIf3MdUsSgStatusTable_DocsIf3MdUsSgStatusEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -2446,6 +2492,7 @@ func (docsIf3MdUsSgStatusEntry *DOCSIF3MIB_DocsIf3MdUsSgStatusTable_DocsIf3MdUsS
     docsIf3MdUsSgStatusEntry.EntityData.BundleName = "cisco_ios_xe"
     docsIf3MdUsSgStatusEntry.EntityData.ParentYangName = "docsIf3MdUsSgStatusTable"
     docsIf3MdUsSgStatusEntry.EntityData.SegmentPath = "docsIf3MdUsSgStatusEntry" + types.AddKeyToken(docsIf3MdUsSgStatusEntry.IfIndex, "ifIndex") + types.AddKeyToken(docsIf3MdUsSgStatusEntry.DocsIf3MdUsSgStatusMdUsSgId, "docsIf3MdUsSgStatusMdUsSgId")
+    docsIf3MdUsSgStatusEntry.EntityData.AbsolutePath = "DOCS-IF3-MIB:DOCS-IF3-MIB/docsIf3MdUsSgStatusTable/" + docsIf3MdUsSgStatusEntry.EntityData.SegmentPath
     docsIf3MdUsSgStatusEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIf3MdUsSgStatusEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIf3MdUsSgStatusEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2480,6 +2527,7 @@ func (docsIf3MdUsToDsChMappingTable *DOCSIF3MIB_DocsIf3MdUsToDsChMappingTable) G
     docsIf3MdUsToDsChMappingTable.EntityData.BundleName = "cisco_ios_xe"
     docsIf3MdUsToDsChMappingTable.EntityData.ParentYangName = "DOCS-IF3-MIB"
     docsIf3MdUsToDsChMappingTable.EntityData.SegmentPath = "docsIf3MdUsToDsChMappingTable"
+    docsIf3MdUsToDsChMappingTable.EntityData.AbsolutePath = "DOCS-IF3-MIB:DOCS-IF3-MIB/" + docsIf3MdUsToDsChMappingTable.EntityData.SegmentPath
     docsIf3MdUsToDsChMappingTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIf3MdUsToDsChMappingTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIf3MdUsToDsChMappingTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2501,6 +2549,7 @@ func (docsIf3MdUsToDsChMappingTable *DOCSIF3MIB_DocsIf3MdUsToDsChMappingTable) G
 type DOCSIF3MIB_DocsIf3MdUsToDsChMappingTable_DocsIf3MdUsToDsChMappingEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. This key represents the interface index of the
     // upstream channel to which this instance applies. The type is interface{}
@@ -2525,6 +2574,7 @@ func (docsIf3MdUsToDsChMappingEntry *DOCSIF3MIB_DocsIf3MdUsToDsChMappingTable_Do
     docsIf3MdUsToDsChMappingEntry.EntityData.BundleName = "cisco_ios_xe"
     docsIf3MdUsToDsChMappingEntry.EntityData.ParentYangName = "docsIf3MdUsToDsChMappingTable"
     docsIf3MdUsToDsChMappingEntry.EntityData.SegmentPath = "docsIf3MdUsToDsChMappingEntry" + types.AddKeyToken(docsIf3MdUsToDsChMappingEntry.DocsIf3MdUsToDsChMappingUsIfIndex, "docsIf3MdUsToDsChMappingUsIfIndex") + types.AddKeyToken(docsIf3MdUsToDsChMappingEntry.DocsIf3MdUsToDsChMappingDsIfIndex, "docsIf3MdUsToDsChMappingDsIfIndex") + types.AddKeyToken(docsIf3MdUsToDsChMappingEntry.DocsIf3MdUsToDsChMappingMdIfIndex, "docsIf3MdUsToDsChMappingMdIfIndex")
+    docsIf3MdUsToDsChMappingEntry.EntityData.AbsolutePath = "DOCS-IF3-MIB:DOCS-IF3-MIB/docsIf3MdUsToDsChMappingTable/" + docsIf3MdUsToDsChMappingEntry.EntityData.SegmentPath
     docsIf3MdUsToDsChMappingEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIf3MdUsToDsChMappingEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIf3MdUsToDsChMappingEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2560,6 +2610,7 @@ func (docsIf3MdCfgTable *DOCSIF3MIB_DocsIf3MdCfgTable) GetEntityData() *types.Co
     docsIf3MdCfgTable.EntityData.BundleName = "cisco_ios_xe"
     docsIf3MdCfgTable.EntityData.ParentYangName = "DOCS-IF3-MIB"
     docsIf3MdCfgTable.EntityData.SegmentPath = "docsIf3MdCfgTable"
+    docsIf3MdCfgTable.EntityData.AbsolutePath = "DOCS-IF3-MIB:DOCS-IF3-MIB/" + docsIf3MdCfgTable.EntityData.SegmentPath
     docsIf3MdCfgTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIf3MdCfgTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIf3MdCfgTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2584,6 +2635,7 @@ func (docsIf3MdCfgTable *DOCSIF3MIB_DocsIf3MdCfgTable) GetEntityData() *types.Co
 type DOCSIF3MIB_DocsIf3MdCfgTable_DocsIf3MdCfgEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -2717,6 +2769,7 @@ func (docsIf3MdCfgEntry *DOCSIF3MIB_DocsIf3MdCfgTable_DocsIf3MdCfgEntry) GetEnti
     docsIf3MdCfgEntry.EntityData.BundleName = "cisco_ios_xe"
     docsIf3MdCfgEntry.EntityData.ParentYangName = "docsIf3MdCfgTable"
     docsIf3MdCfgEntry.EntityData.SegmentPath = "docsIf3MdCfgEntry" + types.AddKeyToken(docsIf3MdCfgEntry.IfIndex, "ifIndex")
+    docsIf3MdCfgEntry.EntityData.AbsolutePath = "DOCS-IF3-MIB:DOCS-IF3-MIB/docsIf3MdCfgTable/" + docsIf3MdCfgEntry.EntityData.SegmentPath
     docsIf3MdCfgEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIf3MdCfgEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIf3MdCfgEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2837,6 +2890,7 @@ func (docsIf3BondingGrpCfgTable *DOCSIF3MIB_DocsIf3BondingGrpCfgTable) GetEntity
     docsIf3BondingGrpCfgTable.EntityData.BundleName = "cisco_ios_xe"
     docsIf3BondingGrpCfgTable.EntityData.ParentYangName = "DOCS-IF3-MIB"
     docsIf3BondingGrpCfgTable.EntityData.SegmentPath = "docsIf3BondingGrpCfgTable"
+    docsIf3BondingGrpCfgTable.EntityData.AbsolutePath = "DOCS-IF3-MIB:DOCS-IF3-MIB/" + docsIf3BondingGrpCfgTable.EntityData.SegmentPath
     docsIf3BondingGrpCfgTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIf3BondingGrpCfgTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIf3BondingGrpCfgTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2862,6 +2916,7 @@ func (docsIf3BondingGrpCfgTable *DOCSIF3MIB_DocsIf3BondingGrpCfgTable) GetEntity
 type DOCSIF3MIB_DocsIf3BondingGrpCfgTable_DocsIf3BondingGrpCfgEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -2891,7 +2946,7 @@ type DOCSIF3MIB_DocsIf3BondingGrpCfgTable_DocsIf3BondingGrpCfgEntry struct {
     // Resequencing Wait Time is determined by the CMTS. The value zero in not
     // supported for downstream  bonding groups. For an Upstream Bonding Group,
     // this attribute has no meaning and returns the value 0. The type is
-    // interface{} with range: 0..180 | 255..None. Units are hundredMicroseconds.
+    // interface{} with range: 0..180 | 255..255. Units are hundredMicroseconds.
     DocsIf3BondingGrpCfgDsidReseqWaitTime interface{}
 
     // For a Downstream Bonding Group, this attribute provides the DSID
@@ -2901,7 +2956,7 @@ type DOCSIF3MIB_DocsIf3BondingGrpCfgTable_DocsIf3BondingGrpCfgEntry struct {
     // of 0 indicates that the threshold warnings are disabled.  When  the value
     // of DsidReseqWaitTime is not equal to 0 or 255, the CMTS must ensure that
     // the value of this object is either  255 or less than the value of
-    // DsidReseqWaitTime. The type is interface{} with range: 0..179 | 255..None.
+    // DsidReseqWaitTime. The type is interface{} with range: 0..179 | 255..255.
     // Units are hundredMicroseconds.
     DocsIf3BondingGrpCfgDsidReseqWarnThrshld interface{}
 
@@ -2915,6 +2970,7 @@ func (docsIf3BondingGrpCfgEntry *DOCSIF3MIB_DocsIf3BondingGrpCfgTable_DocsIf3Bon
     docsIf3BondingGrpCfgEntry.EntityData.BundleName = "cisco_ios_xe"
     docsIf3BondingGrpCfgEntry.EntityData.ParentYangName = "docsIf3BondingGrpCfgTable"
     docsIf3BondingGrpCfgEntry.EntityData.SegmentPath = "docsIf3BondingGrpCfgEntry" + types.AddKeyToken(docsIf3BondingGrpCfgEntry.IfIndex, "ifIndex") + types.AddKeyToken(docsIf3BondingGrpCfgEntry.DocsIf3BondingGrpCfgDir, "docsIf3BondingGrpCfgDir") + types.AddKeyToken(docsIf3BondingGrpCfgEntry.DocsIf3BondingGrpCfgCfgId, "docsIf3BondingGrpCfgCfgId")
+    docsIf3BondingGrpCfgEntry.EntityData.AbsolutePath = "DOCS-IF3-MIB:DOCS-IF3-MIB/docsIf3BondingGrpCfgTable/" + docsIf3BondingGrpCfgEntry.EntityData.SegmentPath
     docsIf3BondingGrpCfgEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIf3BondingGrpCfgEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIf3BondingGrpCfgEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2955,6 +3011,7 @@ func (docsIf3DsBondingGrpStatusTable *DOCSIF3MIB_DocsIf3DsBondingGrpStatusTable)
     docsIf3DsBondingGrpStatusTable.EntityData.BundleName = "cisco_ios_xe"
     docsIf3DsBondingGrpStatusTable.EntityData.ParentYangName = "DOCS-IF3-MIB"
     docsIf3DsBondingGrpStatusTable.EntityData.SegmentPath = "docsIf3DsBondingGrpStatusTable"
+    docsIf3DsBondingGrpStatusTable.EntityData.AbsolutePath = "DOCS-IF3-MIB:DOCS-IF3-MIB/" + docsIf3DsBondingGrpStatusTable.EntityData.SegmentPath
     docsIf3DsBondingGrpStatusTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIf3DsBondingGrpStatusTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIf3DsBondingGrpStatusTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2978,6 +3035,7 @@ func (docsIf3DsBondingGrpStatusTable *DOCSIF3MIB_DocsIf3DsBondingGrpStatusTable)
 type DOCSIF3MIB_DocsIf3DsBondingGrpStatusTable_DocsIf3DsBondingGrpStatusEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -3008,6 +3066,7 @@ func (docsIf3DsBondingGrpStatusEntry *DOCSIF3MIB_DocsIf3DsBondingGrpStatusTable_
     docsIf3DsBondingGrpStatusEntry.EntityData.BundleName = "cisco_ios_xe"
     docsIf3DsBondingGrpStatusEntry.EntityData.ParentYangName = "docsIf3DsBondingGrpStatusTable"
     docsIf3DsBondingGrpStatusEntry.EntityData.SegmentPath = "docsIf3DsBondingGrpStatusEntry" + types.AddKeyToken(docsIf3DsBondingGrpStatusEntry.IfIndex, "ifIndex") + types.AddKeyToken(docsIf3DsBondingGrpStatusEntry.DocsIf3DsBondingGrpStatusChSetId, "docsIf3DsBondingGrpStatusChSetId")
+    docsIf3DsBondingGrpStatusEntry.EntityData.AbsolutePath = "DOCS-IF3-MIB:DOCS-IF3-MIB/docsIf3DsBondingGrpStatusTable/" + docsIf3DsBondingGrpStatusEntry.EntityData.SegmentPath
     docsIf3DsBondingGrpStatusEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIf3DsBondingGrpStatusEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIf3DsBondingGrpStatusEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3044,6 +3103,7 @@ func (docsIf3UsBondingGrpStatusTable *DOCSIF3MIB_DocsIf3UsBondingGrpStatusTable)
     docsIf3UsBondingGrpStatusTable.EntityData.BundleName = "cisco_ios_xe"
     docsIf3UsBondingGrpStatusTable.EntityData.ParentYangName = "DOCS-IF3-MIB"
     docsIf3UsBondingGrpStatusTable.EntityData.SegmentPath = "docsIf3UsBondingGrpStatusTable"
+    docsIf3UsBondingGrpStatusTable.EntityData.AbsolutePath = "DOCS-IF3-MIB:DOCS-IF3-MIB/" + docsIf3UsBondingGrpStatusTable.EntityData.SegmentPath
     docsIf3UsBondingGrpStatusTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIf3UsBondingGrpStatusTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIf3UsBondingGrpStatusTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3067,6 +3127,7 @@ func (docsIf3UsBondingGrpStatusTable *DOCSIF3MIB_DocsIf3UsBondingGrpStatusTable)
 type DOCSIF3MIB_DocsIf3UsBondingGrpStatusTable_DocsIf3UsBondingGrpStatusEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -3097,6 +3158,7 @@ func (docsIf3UsBondingGrpStatusEntry *DOCSIF3MIB_DocsIf3UsBondingGrpStatusTable_
     docsIf3UsBondingGrpStatusEntry.EntityData.BundleName = "cisco_ios_xe"
     docsIf3UsBondingGrpStatusEntry.EntityData.ParentYangName = "docsIf3UsBondingGrpStatusTable"
     docsIf3UsBondingGrpStatusEntry.EntityData.SegmentPath = "docsIf3UsBondingGrpStatusEntry" + types.AddKeyToken(docsIf3UsBondingGrpStatusEntry.IfIndex, "ifIndex") + types.AddKeyToken(docsIf3UsBondingGrpStatusEntry.DocsIf3UsBondingGrpStatusChSetId, "docsIf3UsBondingGrpStatusChSetId")
+    docsIf3UsBondingGrpStatusEntry.EntityData.AbsolutePath = "DOCS-IF3-MIB:DOCS-IF3-MIB/docsIf3UsBondingGrpStatusTable/" + docsIf3UsBondingGrpStatusEntry.EntityData.SegmentPath
     docsIf3UsBondingGrpStatusEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIf3UsBondingGrpStatusEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIf3UsBondingGrpStatusEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3132,6 +3194,7 @@ func (docsIf3UsChExtTable *DOCSIF3MIB_DocsIf3UsChExtTable) GetEntityData() *type
     docsIf3UsChExtTable.EntityData.BundleName = "cisco_ios_xe"
     docsIf3UsChExtTable.EntityData.ParentYangName = "DOCS-IF3-MIB"
     docsIf3UsChExtTable.EntityData.SegmentPath = "docsIf3UsChExtTable"
+    docsIf3UsChExtTable.EntityData.AbsolutePath = "DOCS-IF3-MIB:DOCS-IF3-MIB/" + docsIf3UsChExtTable.EntityData.SegmentPath
     docsIf3UsChExtTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIf3UsChExtTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIf3UsChExtTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3155,6 +3218,7 @@ func (docsIf3UsChExtTable *DOCSIF3MIB_DocsIf3UsChExtTable) GetEntityData() *type
 type DOCSIF3MIB_DocsIf3UsChExtTable_DocsIf3UsChExtEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -3171,7 +3235,7 @@ type DOCSIF3MIB_DocsIf3UsChExtTable_DocsIf3UsChExtEntry struct {
 
     // This attribute represents the active codes of the upstream channel and it
     // is applicable only when SacCodeHoppingSelectionMode is
-    // 'sac2CodeHoppingMode2. The type is string with length: 0 | 16.
+    // 'sac2CodeHoppingMode2. The type is string with length: 0..0 | 16..16.
     DocsIf3UsChExtScdmaSelectionStringActiveCodes interface{}
 }
 
@@ -3181,6 +3245,7 @@ func (docsIf3UsChExtEntry *DOCSIF3MIB_DocsIf3UsChExtTable_DocsIf3UsChExtEntry) G
     docsIf3UsChExtEntry.EntityData.BundleName = "cisco_ios_xe"
     docsIf3UsChExtEntry.EntityData.ParentYangName = "docsIf3UsChExtTable"
     docsIf3UsChExtEntry.EntityData.SegmentPath = "docsIf3UsChExtEntry" + types.AddKeyToken(docsIf3UsChExtEntry.IfIndex, "ifIndex")
+    docsIf3UsChExtEntry.EntityData.AbsolutePath = "DOCS-IF3-MIB:DOCS-IF3-MIB/docsIf3UsChExtTable/" + docsIf3UsChExtEntry.EntityData.SegmentPath
     docsIf3UsChExtEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIf3UsChExtEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIf3UsChExtEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3232,6 +3297,7 @@ func (docsIf3UsChSetTable *DOCSIF3MIB_DocsIf3UsChSetTable) GetEntityData() *type
     docsIf3UsChSetTable.EntityData.BundleName = "cisco_ios_xe"
     docsIf3UsChSetTable.EntityData.ParentYangName = "DOCS-IF3-MIB"
     docsIf3UsChSetTable.EntityData.SegmentPath = "docsIf3UsChSetTable"
+    docsIf3UsChSetTable.EntityData.AbsolutePath = "DOCS-IF3-MIB:DOCS-IF3-MIB/" + docsIf3UsChSetTable.EntityData.SegmentPath
     docsIf3UsChSetTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIf3UsChSetTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIf3UsChSetTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3255,6 +3321,7 @@ func (docsIf3UsChSetTable *DOCSIF3MIB_DocsIf3UsChSetTable) GetEntityData() *type
 type DOCSIF3MIB_DocsIf3UsChSetTable_DocsIf3UsChSetEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -3266,7 +3333,7 @@ type DOCSIF3MIB_DocsIf3UsChSetTable_DocsIf3UsChSetEntry struct {
     DocsIf3UsChSetId interface{}
 
     // This attribute defines the ordered list of channels that comprise the
-    // upstream channel set. The type is string with length: 0 | 2..255.
+    // upstream channel set. The type is string with length: 0..0 | 2..255.
     DocsIf3UsChSetChList interface{}
 }
 
@@ -3276,6 +3343,7 @@ func (docsIf3UsChSetEntry *DOCSIF3MIB_DocsIf3UsChSetTable_DocsIf3UsChSetEntry) G
     docsIf3UsChSetEntry.EntityData.BundleName = "cisco_ios_xe"
     docsIf3UsChSetEntry.EntityData.ParentYangName = "docsIf3UsChSetTable"
     docsIf3UsChSetEntry.EntityData.SegmentPath = "docsIf3UsChSetEntry" + types.AddKeyToken(docsIf3UsChSetEntry.IfIndex, "ifIndex") + types.AddKeyToken(docsIf3UsChSetEntry.DocsIf3UsChSetId, "docsIf3UsChSetId")
+    docsIf3UsChSetEntry.EntityData.AbsolutePath = "DOCS-IF3-MIB:DOCS-IF3-MIB/docsIf3UsChSetTable/" + docsIf3UsChSetEntry.EntityData.SegmentPath
     docsIf3UsChSetEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIf3UsChSetEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIf3UsChSetEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3312,6 +3380,7 @@ func (docsIf3DsChSetTable *DOCSIF3MIB_DocsIf3DsChSetTable) GetEntityData() *type
     docsIf3DsChSetTable.EntityData.BundleName = "cisco_ios_xe"
     docsIf3DsChSetTable.EntityData.ParentYangName = "DOCS-IF3-MIB"
     docsIf3DsChSetTable.EntityData.SegmentPath = "docsIf3DsChSetTable"
+    docsIf3DsChSetTable.EntityData.AbsolutePath = "DOCS-IF3-MIB:DOCS-IF3-MIB/" + docsIf3DsChSetTable.EntityData.SegmentPath
     docsIf3DsChSetTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIf3DsChSetTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIf3DsChSetTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3335,6 +3404,7 @@ func (docsIf3DsChSetTable *DOCSIF3MIB_DocsIf3DsChSetTable) GetEntityData() *type
 type DOCSIF3MIB_DocsIf3DsChSetTable_DocsIf3DsChSetEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -3346,7 +3416,7 @@ type DOCSIF3MIB_DocsIf3DsChSetTable_DocsIf3DsChSetEntry struct {
     DocsIf3DsChSetId interface{}
 
     // This attribute defines the ordered list of channels that comprise the
-    // downstream channel set. The type is string with length: 0 | 2..255.
+    // downstream channel set. The type is string with length: 0..0 | 2..255.
     DocsIf3DsChSetChList interface{}
 }
 
@@ -3356,6 +3426,7 @@ func (docsIf3DsChSetEntry *DOCSIF3MIB_DocsIf3DsChSetTable_DocsIf3DsChSetEntry) G
     docsIf3DsChSetEntry.EntityData.BundleName = "cisco_ios_xe"
     docsIf3DsChSetEntry.EntityData.ParentYangName = "docsIf3DsChSetTable"
     docsIf3DsChSetEntry.EntityData.SegmentPath = "docsIf3DsChSetEntry" + types.AddKeyToken(docsIf3DsChSetEntry.IfIndex, "ifIndex") + types.AddKeyToken(docsIf3DsChSetEntry.DocsIf3DsChSetId, "docsIf3DsChSetId")
+    docsIf3DsChSetEntry.EntityData.AbsolutePath = "DOCS-IF3-MIB:DOCS-IF3-MIB/docsIf3DsChSetTable/" + docsIf3DsChSetEntry.EntityData.SegmentPath
     docsIf3DsChSetEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIf3DsChSetEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIf3DsChSetEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3395,6 +3466,7 @@ func (docsIf3SignalQualityExtTable *DOCSIF3MIB_DocsIf3SignalQualityExtTable) Get
     docsIf3SignalQualityExtTable.EntityData.BundleName = "cisco_ios_xe"
     docsIf3SignalQualityExtTable.EntityData.ParentYangName = "DOCS-IF3-MIB"
     docsIf3SignalQualityExtTable.EntityData.SegmentPath = "docsIf3SignalQualityExtTable"
+    docsIf3SignalQualityExtTable.EntityData.AbsolutePath = "DOCS-IF3-MIB:DOCS-IF3-MIB/" + docsIf3SignalQualityExtTable.EntityData.SegmentPath
     docsIf3SignalQualityExtTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIf3SignalQualityExtTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIf3SignalQualityExtTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3424,6 +3496,7 @@ func (docsIf3SignalQualityExtTable *DOCSIF3MIB_DocsIf3SignalQualityExtTable) Get
 type DOCSIF3MIB_DocsIf3SignalQualityExtTable_DocsIf3SignalQualityExtEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -3455,6 +3528,7 @@ func (docsIf3SignalQualityExtEntry *DOCSIF3MIB_DocsIf3SignalQualityExtTable_Docs
     docsIf3SignalQualityExtEntry.EntityData.BundleName = "cisco_ios_xe"
     docsIf3SignalQualityExtEntry.EntityData.ParentYangName = "docsIf3SignalQualityExtTable"
     docsIf3SignalQualityExtEntry.EntityData.SegmentPath = "docsIf3SignalQualityExtEntry" + types.AddKeyToken(docsIf3SignalQualityExtEntry.IfIndex, "ifIndex")
+    docsIf3SignalQualityExtEntry.EntityData.AbsolutePath = "DOCS-IF3-MIB:DOCS-IF3-MIB/docsIf3SignalQualityExtTable/" + docsIf3SignalQualityExtEntry.EntityData.SegmentPath
     docsIf3SignalQualityExtEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIf3SignalQualityExtEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIf3SignalQualityExtEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3492,6 +3566,7 @@ func (docsIf3CmtsSignalQualityExtTable *DOCSIF3MIB_DocsIf3CmtsSignalQualityExtTa
     docsIf3CmtsSignalQualityExtTable.EntityData.BundleName = "cisco_ios_xe"
     docsIf3CmtsSignalQualityExtTable.EntityData.ParentYangName = "DOCS-IF3-MIB"
     docsIf3CmtsSignalQualityExtTable.EntityData.SegmentPath = "docsIf3CmtsSignalQualityExtTable"
+    docsIf3CmtsSignalQualityExtTable.EntityData.AbsolutePath = "DOCS-IF3-MIB:DOCS-IF3-MIB/" + docsIf3CmtsSignalQualityExtTable.EntityData.SegmentPath
     docsIf3CmtsSignalQualityExtTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIf3CmtsSignalQualityExtTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIf3CmtsSignalQualityExtTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3517,6 +3592,7 @@ func (docsIf3CmtsSignalQualityExtTable *DOCSIF3MIB_DocsIf3CmtsSignalQualityExtTa
 type DOCSIF3MIB_DocsIf3CmtsSignalQualityExtTable_DocsIf3CmtsSignalQualityExtEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -3546,6 +3622,7 @@ func (docsIf3CmtsSignalQualityExtEntry *DOCSIF3MIB_DocsIf3CmtsSignalQualityExtTa
     docsIf3CmtsSignalQualityExtEntry.EntityData.BundleName = "cisco_ios_xe"
     docsIf3CmtsSignalQualityExtEntry.EntityData.ParentYangName = "docsIf3CmtsSignalQualityExtTable"
     docsIf3CmtsSignalQualityExtEntry.EntityData.SegmentPath = "docsIf3CmtsSignalQualityExtEntry" + types.AddKeyToken(docsIf3CmtsSignalQualityExtEntry.IfIndex, "ifIndex")
+    docsIf3CmtsSignalQualityExtEntry.EntityData.AbsolutePath = "DOCS-IF3-MIB:DOCS-IF3-MIB/docsIf3CmtsSignalQualityExtTable/" + docsIf3CmtsSignalQualityExtEntry.EntityData.SegmentPath
     docsIf3CmtsSignalQualityExtEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIf3CmtsSignalQualityExtEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIf3CmtsSignalQualityExtEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3583,6 +3660,7 @@ func (docsIf3CmtsSpectrumAnalysisMeasTable *DOCSIF3MIB_DocsIf3CmtsSpectrumAnalys
     docsIf3CmtsSpectrumAnalysisMeasTable.EntityData.BundleName = "cisco_ios_xe"
     docsIf3CmtsSpectrumAnalysisMeasTable.EntityData.ParentYangName = "DOCS-IF3-MIB"
     docsIf3CmtsSpectrumAnalysisMeasTable.EntityData.SegmentPath = "docsIf3CmtsSpectrumAnalysisMeasTable"
+    docsIf3CmtsSpectrumAnalysisMeasTable.EntityData.AbsolutePath = "DOCS-IF3-MIB:DOCS-IF3-MIB/" + docsIf3CmtsSpectrumAnalysisMeasTable.EntityData.SegmentPath
     docsIf3CmtsSpectrumAnalysisMeasTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIf3CmtsSpectrumAnalysisMeasTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIf3CmtsSpectrumAnalysisMeasTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3608,6 +3686,7 @@ func (docsIf3CmtsSpectrumAnalysisMeasTable *DOCSIF3MIB_DocsIf3CmtsSpectrumAnalys
 type DOCSIF3MIB_DocsIf3CmtsSpectrumAnalysisMeasTable_DocsIf3CmtsSpectrumAnalysisMeasEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -3624,7 +3703,7 @@ type DOCSIF3MIB_DocsIf3CmtsSpectrumAnalysisMeasTable_DocsIf3CmtsSpectrumAnalysis
     // 6.4 MHz.  The CMTS must not exceed 25 kHz bin spacing for measurement of
     // frequency spans less than or equal to 6.4 MHz.  The bins measurements are
     // updated periodically at time intervals given by the TimeInterval attribute.
-    // The type is string with length: 0 | 2..4116.
+    // The type is string with length: 0..0 | 2..4116.
     DocsIf3CmtsSpectrumAnalysisMeasAmplitudeData interface{}
 
     // TimeInterval is the CMTS estimated average repetition period of
@@ -3643,6 +3722,7 @@ func (docsIf3CmtsSpectrumAnalysisMeasEntry *DOCSIF3MIB_DocsIf3CmtsSpectrumAnalys
     docsIf3CmtsSpectrumAnalysisMeasEntry.EntityData.BundleName = "cisco_ios_xe"
     docsIf3CmtsSpectrumAnalysisMeasEntry.EntityData.ParentYangName = "docsIf3CmtsSpectrumAnalysisMeasTable"
     docsIf3CmtsSpectrumAnalysisMeasEntry.EntityData.SegmentPath = "docsIf3CmtsSpectrumAnalysisMeasEntry" + types.AddKeyToken(docsIf3CmtsSpectrumAnalysisMeasEntry.IfIndex, "ifIndex")
+    docsIf3CmtsSpectrumAnalysisMeasEntry.EntityData.AbsolutePath = "DOCS-IF3-MIB:DOCS-IF3-MIB/docsIf3CmtsSpectrumAnalysisMeasTable/" + docsIf3CmtsSpectrumAnalysisMeasEntry.EntityData.SegmentPath
     docsIf3CmtsSpectrumAnalysisMeasEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIf3CmtsSpectrumAnalysisMeasEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIf3CmtsSpectrumAnalysisMeasEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3681,6 +3761,7 @@ func (docsIf3CmDpvStatsTable *DOCSIF3MIB_DocsIf3CmDpvStatsTable) GetEntityData()
     docsIf3CmDpvStatsTable.EntityData.BundleName = "cisco_ios_xe"
     docsIf3CmDpvStatsTable.EntityData.ParentYangName = "DOCS-IF3-MIB"
     docsIf3CmDpvStatsTable.EntityData.SegmentPath = "docsIf3CmDpvStatsTable"
+    docsIf3CmDpvStatsTable.EntityData.AbsolutePath = "DOCS-IF3-MIB:DOCS-IF3-MIB/" + docsIf3CmDpvStatsTable.EntityData.SegmentPath
     docsIf3CmDpvStatsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIf3CmDpvStatsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIf3CmDpvStatsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3702,6 +3783,7 @@ func (docsIf3CmDpvStatsTable *DOCSIF3MIB_DocsIf3CmDpvStatsTable) GetEntityData()
 type DOCSIF3MIB_DocsIf3CmDpvStatsTable_DocsIf3CmDpvStatsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -3757,6 +3839,7 @@ func (docsIf3CmDpvStatsEntry *DOCSIF3MIB_DocsIf3CmDpvStatsTable_DocsIf3CmDpvStat
     docsIf3CmDpvStatsEntry.EntityData.BundleName = "cisco_ios_xe"
     docsIf3CmDpvStatsEntry.EntityData.ParentYangName = "docsIf3CmDpvStatsTable"
     docsIf3CmDpvStatsEntry.EntityData.SegmentPath = "docsIf3CmDpvStatsEntry" + types.AddKeyToken(docsIf3CmDpvStatsEntry.IfIndex, "ifIndex") + types.AddKeyToken(docsIf3CmDpvStatsEntry.DocsIf3CmDpvStatsGrpId, "docsIf3CmDpvStatsGrpId")
+    docsIf3CmDpvStatsEntry.EntityData.AbsolutePath = "DOCS-IF3-MIB:DOCS-IF3-MIB/docsIf3CmDpvStatsTable/" + docsIf3CmDpvStatsEntry.EntityData.SegmentPath
     docsIf3CmDpvStatsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIf3CmDpvStatsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIf3CmDpvStatsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3809,6 +3892,7 @@ func (docsIf3CmEventCtrlTable *DOCSIF3MIB_DocsIf3CmEventCtrlTable) GetEntityData
     docsIf3CmEventCtrlTable.EntityData.BundleName = "cisco_ios_xe"
     docsIf3CmEventCtrlTable.EntityData.ParentYangName = "DOCS-IF3-MIB"
     docsIf3CmEventCtrlTable.EntityData.SegmentPath = "docsIf3CmEventCtrlTable"
+    docsIf3CmEventCtrlTable.EntityData.AbsolutePath = "DOCS-IF3-MIB:DOCS-IF3-MIB/" + docsIf3CmEventCtrlTable.EntityData.SegmentPath
     docsIf3CmEventCtrlTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIf3CmEventCtrlTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIf3CmEventCtrlTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3830,6 +3914,7 @@ func (docsIf3CmEventCtrlTable *DOCSIF3MIB_DocsIf3CmEventCtrlTable) GetEntityData
 type DOCSIF3MIB_DocsIf3CmEventCtrlTable_DocsIf3CmEventCtrlEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. This key represents the Event ID of the event
     // being  enabled for delivery to a dispatch mechanism (e.g., syslog). The
@@ -3846,6 +3931,7 @@ func (docsIf3CmEventCtrlEntry *DOCSIF3MIB_DocsIf3CmEventCtrlTable_DocsIf3CmEvent
     docsIf3CmEventCtrlEntry.EntityData.BundleName = "cisco_ios_xe"
     docsIf3CmEventCtrlEntry.EntityData.ParentYangName = "docsIf3CmEventCtrlTable"
     docsIf3CmEventCtrlEntry.EntityData.SegmentPath = "docsIf3CmEventCtrlEntry" + types.AddKeyToken(docsIf3CmEventCtrlEntry.DocsIf3CmEventCtrlEventId, "docsIf3CmEventCtrlEventId")
+    docsIf3CmEventCtrlEntry.EntityData.AbsolutePath = "DOCS-IF3-MIB:DOCS-IF3-MIB/docsIf3CmEventCtrlTable/" + docsIf3CmEventCtrlEntry.EntityData.SegmentPath
     docsIf3CmEventCtrlEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIf3CmEventCtrlEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIf3CmEventCtrlEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3891,6 +3977,7 @@ func (docsIf3CmtsEventCtrlTable *DOCSIF3MIB_DocsIf3CmtsEventCtrlTable) GetEntity
     docsIf3CmtsEventCtrlTable.EntityData.BundleName = "cisco_ios_xe"
     docsIf3CmtsEventCtrlTable.EntityData.ParentYangName = "DOCS-IF3-MIB"
     docsIf3CmtsEventCtrlTable.EntityData.SegmentPath = "docsIf3CmtsEventCtrlTable"
+    docsIf3CmtsEventCtrlTable.EntityData.AbsolutePath = "DOCS-IF3-MIB:DOCS-IF3-MIB/" + docsIf3CmtsEventCtrlTable.EntityData.SegmentPath
     docsIf3CmtsEventCtrlTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIf3CmtsEventCtrlTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIf3CmtsEventCtrlTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3912,6 +3999,7 @@ func (docsIf3CmtsEventCtrlTable *DOCSIF3MIB_DocsIf3CmtsEventCtrlTable) GetEntity
 type DOCSIF3MIB_DocsIf3CmtsEventCtrlTable_DocsIf3CmtsEventCtrlEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. This key represents the Event ID of the event
     // being  enabled for delivery to a dispatch mechanism (e.g., syslog). The
@@ -3928,6 +4016,7 @@ func (docsIf3CmtsEventCtrlEntry *DOCSIF3MIB_DocsIf3CmtsEventCtrlTable_DocsIf3Cmt
     docsIf3CmtsEventCtrlEntry.EntityData.BundleName = "cisco_ios_xe"
     docsIf3CmtsEventCtrlEntry.EntityData.ParentYangName = "docsIf3CmtsEventCtrlTable"
     docsIf3CmtsEventCtrlEntry.EntityData.SegmentPath = "docsIf3CmtsEventCtrlEntry" + types.AddKeyToken(docsIf3CmtsEventCtrlEntry.DocsIf3CmtsEventCtrlEventId, "docsIf3CmtsEventCtrlEventId")
+    docsIf3CmtsEventCtrlEntry.EntityData.AbsolutePath = "DOCS-IF3-MIB:DOCS-IF3-MIB/docsIf3CmtsEventCtrlTable/" + docsIf3CmtsEventCtrlEntry.EntityData.SegmentPath
     docsIf3CmtsEventCtrlEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIf3CmtsEventCtrlEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIf3CmtsEventCtrlEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3961,6 +4050,7 @@ func (docsIf3CmMdCfgTable *DOCSIF3MIB_DocsIf3CmMdCfgTable) GetEntityData() *type
     docsIf3CmMdCfgTable.EntityData.BundleName = "cisco_ios_xe"
     docsIf3CmMdCfgTable.EntityData.ParentYangName = "DOCS-IF3-MIB"
     docsIf3CmMdCfgTable.EntityData.SegmentPath = "docsIf3CmMdCfgTable"
+    docsIf3CmMdCfgTable.EntityData.AbsolutePath = "DOCS-IF3-MIB:DOCS-IF3-MIB/" + docsIf3CmMdCfgTable.EntityData.SegmentPath
     docsIf3CmMdCfgTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIf3CmMdCfgTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIf3CmMdCfgTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3983,6 +4073,7 @@ func (docsIf3CmMdCfgTable *DOCSIF3MIB_DocsIf3CmMdCfgTable) GetEntityData() *type
 type DOCSIF3MIB_DocsIf3CmMdCfgTable_DocsIf3CmMdCfgEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -4034,6 +4125,7 @@ func (docsIf3CmMdCfgEntry *DOCSIF3MIB_DocsIf3CmMdCfgTable_DocsIf3CmMdCfgEntry) G
     docsIf3CmMdCfgEntry.EntityData.BundleName = "cisco_ios_xe"
     docsIf3CmMdCfgEntry.EntityData.ParentYangName = "docsIf3CmMdCfgTable"
     docsIf3CmMdCfgEntry.EntityData.SegmentPath = "docsIf3CmMdCfgEntry" + types.AddKeyToken(docsIf3CmMdCfgEntry.IfIndex, "ifIndex")
+    docsIf3CmMdCfgEntry.EntityData.AbsolutePath = "DOCS-IF3-MIB:DOCS-IF3-MIB/docsIf3CmMdCfgTable/" + docsIf3CmMdCfgEntry.EntityData.SegmentPath
     docsIf3CmMdCfgEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIf3CmMdCfgEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIf3CmMdCfgEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -4080,6 +4172,7 @@ func (docsIf3CmEnergyMgt1x1CfgTable *DOCSIF3MIB_DocsIf3CmEnergyMgt1x1CfgTable) G
     docsIf3CmEnergyMgt1x1CfgTable.EntityData.BundleName = "cisco_ios_xe"
     docsIf3CmEnergyMgt1x1CfgTable.EntityData.ParentYangName = "DOCS-IF3-MIB"
     docsIf3CmEnergyMgt1x1CfgTable.EntityData.SegmentPath = "docsIf3CmEnergyMgt1x1CfgTable"
+    docsIf3CmEnergyMgt1x1CfgTable.EntityData.AbsolutePath = "DOCS-IF3-MIB:DOCS-IF3-MIB/" + docsIf3CmEnergyMgt1x1CfgTable.EntityData.SegmentPath
     docsIf3CmEnergyMgt1x1CfgTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIf3CmEnergyMgt1x1CfgTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIf3CmEnergyMgt1x1CfgTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -4101,6 +4194,7 @@ func (docsIf3CmEnergyMgt1x1CfgTable *DOCSIF3MIB_DocsIf3CmEnergyMgt1x1CfgTable) G
 type DOCSIF3MIB_DocsIf3CmEnergyMgt1x1CfgTable_DocsIf3CmEnergyMgt1x1CfgEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. This index indicates whether the threshold applies
     // to the  upstream or downstream. The type is IfDirection.
@@ -4139,6 +4233,7 @@ func (docsIf3CmEnergyMgt1x1CfgEntry *DOCSIF3MIB_DocsIf3CmEnergyMgt1x1CfgTable_Do
     docsIf3CmEnergyMgt1x1CfgEntry.EntityData.BundleName = "cisco_ios_xe"
     docsIf3CmEnergyMgt1x1CfgEntry.EntityData.ParentYangName = "docsIf3CmEnergyMgt1x1CfgTable"
     docsIf3CmEnergyMgt1x1CfgEntry.EntityData.SegmentPath = "docsIf3CmEnergyMgt1x1CfgEntry" + types.AddKeyToken(docsIf3CmEnergyMgt1x1CfgEntry.DocsIf3CmEnergyMgt1x1CfgDirection, "docsIf3CmEnergyMgt1x1CfgDirection")
+    docsIf3CmEnergyMgt1x1CfgEntry.EntityData.AbsolutePath = "DOCS-IF3-MIB:DOCS-IF3-MIB/docsIf3CmEnergyMgt1x1CfgTable/" + docsIf3CmEnergyMgt1x1CfgEntry.EntityData.SegmentPath
     docsIf3CmEnergyMgt1x1CfgEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIf3CmEnergyMgt1x1CfgEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIf3CmEnergyMgt1x1CfgEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -4177,6 +4272,7 @@ func (docsIf3CmSpectrumAnalysisMeasTable *DOCSIF3MIB_DocsIf3CmSpectrumAnalysisMe
     docsIf3CmSpectrumAnalysisMeasTable.EntityData.BundleName = "cisco_ios_xe"
     docsIf3CmSpectrumAnalysisMeasTable.EntityData.ParentYangName = "DOCS-IF3-MIB"
     docsIf3CmSpectrumAnalysisMeasTable.EntityData.SegmentPath = "docsIf3CmSpectrumAnalysisMeasTable"
+    docsIf3CmSpectrumAnalysisMeasTable.EntityData.AbsolutePath = "DOCS-IF3-MIB:DOCS-IF3-MIB/" + docsIf3CmSpectrumAnalysisMeasTable.EntityData.SegmentPath
     docsIf3CmSpectrumAnalysisMeasTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIf3CmSpectrumAnalysisMeasTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIf3CmSpectrumAnalysisMeasTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -4200,6 +4296,7 @@ func (docsIf3CmSpectrumAnalysisMeasTable *DOCSIF3MIB_DocsIf3CmSpectrumAnalysisMe
 type DOCSIF3MIB_DocsIf3CmSpectrumAnalysisMeasTable_DocsIf3CmSpectrumAnalysisMeasEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. This index indicates the center frequency of the
     // spectral analysis span which is represented by this instance. The type is
@@ -4211,7 +4308,7 @@ type DOCSIF3MIB_DocsIf3CmSpectrumAnalysisMeasTable_DocsIf3CmSpectrumAnalysisMeas
     // are ordered from lowest to highest  frequencies covering the frequency
     // span. Information about the center frequency, frequency span, number of
     // bins and resolution bandwidth are included to provide context to the
-    // measurement  point. The type is string with length: 0 | 2..4116.
+    // measurement  point. The type is string with length: 0..0 | 2..4116.
     DocsIf3CmSpectrumAnalysisMeasAmplitudeData interface{}
 
     // This attribute provides the total RF power present in the  segment with the
@@ -4229,6 +4326,7 @@ func (docsIf3CmSpectrumAnalysisMeasEntry *DOCSIF3MIB_DocsIf3CmSpectrumAnalysisMe
     docsIf3CmSpectrumAnalysisMeasEntry.EntityData.BundleName = "cisco_ios_xe"
     docsIf3CmSpectrumAnalysisMeasEntry.EntityData.ParentYangName = "docsIf3CmSpectrumAnalysisMeasTable"
     docsIf3CmSpectrumAnalysisMeasEntry.EntityData.SegmentPath = "docsIf3CmSpectrumAnalysisMeasEntry" + types.AddKeyToken(docsIf3CmSpectrumAnalysisMeasEntry.DocsIf3CmSpectrumAnalysisMeasFrequency, "docsIf3CmSpectrumAnalysisMeasFrequency")
+    docsIf3CmSpectrumAnalysisMeasEntry.EntityData.AbsolutePath = "DOCS-IF3-MIB:DOCS-IF3-MIB/docsIf3CmSpectrumAnalysisMeasTable/" + docsIf3CmSpectrumAnalysisMeasEntry.EntityData.SegmentPath
     docsIf3CmSpectrumAnalysisMeasEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIf3CmSpectrumAnalysisMeasEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIf3CmSpectrumAnalysisMeasEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -4266,6 +4364,7 @@ func (docsIf3CmtsCmEmStatsTable *DOCSIF3MIB_DocsIf3CmtsCmEmStatsTable) GetEntity
     docsIf3CmtsCmEmStatsTable.EntityData.BundleName = "cisco_ios_xe"
     docsIf3CmtsCmEmStatsTable.EntityData.ParentYangName = "DOCS-IF3-MIB"
     docsIf3CmtsCmEmStatsTable.EntityData.SegmentPath = "docsIf3CmtsCmEmStatsTable"
+    docsIf3CmtsCmEmStatsTable.EntityData.AbsolutePath = "DOCS-IF3-MIB:DOCS-IF3-MIB/" + docsIf3CmtsCmEmStatsTable.EntityData.SegmentPath
     docsIf3CmtsCmEmStatsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIf3CmtsCmEmStatsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIf3CmtsCmEmStatsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -4287,6 +4386,7 @@ func (docsIf3CmtsCmEmStatsTable *DOCSIF3MIB_DocsIf3CmtsCmEmStatsTable) GetEntity
 type DOCSIF3MIB_DocsIf3CmtsCmEmStatsTable_DocsIf3CmtsCmEmStatsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..4294967295.
     // Refers to
@@ -4307,6 +4407,7 @@ func (docsIf3CmtsCmEmStatsEntry *DOCSIF3MIB_DocsIf3CmtsCmEmStatsTable_DocsIf3Cmt
     docsIf3CmtsCmEmStatsEntry.EntityData.BundleName = "cisco_ios_xe"
     docsIf3CmtsCmEmStatsEntry.EntityData.ParentYangName = "docsIf3CmtsCmEmStatsTable"
     docsIf3CmtsCmEmStatsEntry.EntityData.SegmentPath = "docsIf3CmtsCmEmStatsEntry" + types.AddKeyToken(docsIf3CmtsCmEmStatsEntry.DocsIf3CmtsCmRegStatusId, "docsIf3CmtsCmRegStatusId")
+    docsIf3CmtsCmEmStatsEntry.EntityData.AbsolutePath = "DOCS-IF3-MIB:DOCS-IF3-MIB/docsIf3CmtsCmEmStatsTable/" + docsIf3CmtsCmEmStatsEntry.EntityData.SegmentPath
     docsIf3CmtsCmEmStatsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIf3CmtsCmEmStatsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIf3CmtsCmEmStatsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -4345,6 +4446,7 @@ func (docsIf3CmEm1x1StatsTable *DOCSIF3MIB_DocsIf3CmEm1x1StatsTable) GetEntityDa
     docsIf3CmEm1x1StatsTable.EntityData.BundleName = "cisco_ios_xe"
     docsIf3CmEm1x1StatsTable.EntityData.ParentYangName = "DOCS-IF3-MIB"
     docsIf3CmEm1x1StatsTable.EntityData.SegmentPath = "docsIf3CmEm1x1StatsTable"
+    docsIf3CmEm1x1StatsTable.EntityData.AbsolutePath = "DOCS-IF3-MIB:DOCS-IF3-MIB/" + docsIf3CmEm1x1StatsTable.EntityData.SegmentPath
     docsIf3CmEm1x1StatsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIf3CmEm1x1StatsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIf3CmEm1x1StatsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -4367,6 +4469,7 @@ func (docsIf3CmEm1x1StatsTable *DOCSIF3MIB_DocsIf3CmEm1x1StatsTable) GetEntityDa
 type DOCSIF3MIB_DocsIf3CmEm1x1StatsTable_DocsIf3CmEm1x1StatsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -4424,6 +4527,7 @@ func (docsIf3CmEm1x1StatsEntry *DOCSIF3MIB_DocsIf3CmEm1x1StatsTable_DocsIf3CmEm1
     docsIf3CmEm1x1StatsEntry.EntityData.BundleName = "cisco_ios_xe"
     docsIf3CmEm1x1StatsEntry.EntityData.ParentYangName = "docsIf3CmEm1x1StatsTable"
     docsIf3CmEm1x1StatsEntry.EntityData.SegmentPath = "docsIf3CmEm1x1StatsEntry" + types.AddKeyToken(docsIf3CmEm1x1StatsEntry.IfIndex, "ifIndex")
+    docsIf3CmEm1x1StatsEntry.EntityData.AbsolutePath = "DOCS-IF3-MIB:DOCS-IF3-MIB/docsIf3CmEm1x1StatsTable/" + docsIf3CmEm1x1StatsEntry.EntityData.SegmentPath
     docsIf3CmEm1x1StatsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     docsIf3CmEm1x1StatsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     docsIf3CmEm1x1StatsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

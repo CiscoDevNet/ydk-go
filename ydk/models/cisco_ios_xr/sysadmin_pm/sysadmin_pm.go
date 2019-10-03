@@ -1,9 +1,15 @@
+// This module contains definitions
+// for the Calvados model objects.
+// 
 // This module contains a collection of YANG
 // definitions for Cisco IOS-XR SysAdmin configuration.
 // 
 // The Process Manager (PM).
 // 
 // Copyright(c) 2011-2017 by Cisco Systems, Inc.
+// All rights reserved.
+// 
+// Copyright (c) 2012-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package sysadmin_pm
 
@@ -101,6 +107,7 @@ func (processes *Processes) GetEntityData() *types.CommonEntityData {
     processes.EntityData.BundleName = "cisco_ios_xr"
     processes.EntityData.ParentYangName = "Cisco-IOS-XR-sysadmin-pm"
     processes.EntityData.SegmentPath = "Cisco-IOS-XR-sysadmin-pm:processes"
+    processes.EntityData.AbsolutePath = processes.EntityData.SegmentPath
     processes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     processes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     processes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -121,6 +128,7 @@ func (processes *Processes) GetEntityData() *types.CommonEntityData {
 type Processes_AllLocations struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     Location interface{}
@@ -146,6 +154,7 @@ func (allLocations *Processes_AllLocations) GetEntityData() *types.CommonEntityD
     allLocations.EntityData.BundleName = "cisco_ios_xr"
     allLocations.EntityData.ParentYangName = "processes"
     allLocations.EntityData.SegmentPath = "all-locations" + types.AddKeyToken(allLocations.Location, "location")
+    allLocations.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-pm:processes/" + allLocations.EntityData.SegmentPath
     allLocations.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     allLocations.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     allLocations.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -169,6 +178,7 @@ func (allLocations *Processes_AllLocations) GetEntityData() *types.CommonEntityD
 type Processes_AllLocations_Name struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of the process. The type is string.
     ProcName interface{}
@@ -244,6 +254,7 @@ func (name *Processes_AllLocations_Name) GetEntityData() *types.CommonEntityData
     name.EntityData.BundleName = "cisco_ios_xr"
     name.EntityData.ParentYangName = "all-locations"
     name.EntityData.SegmentPath = "name" + types.AddKeyToken(name.ProcName, "proc-name") + types.AddKeyToken(name.InstanceId, "instance-id")
+    name.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-pm:processes/all-locations/" + name.EntityData.SegmentPath
     name.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     name.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     name.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -284,6 +295,7 @@ func (name *Processes_AllLocations_Name) GetEntityData() *types.CommonEntityData
 type Processes_AllLocations_Name_Services struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of the service. The type is string.
     ServiceName interface{}
@@ -340,6 +352,7 @@ func (services *Processes_AllLocations_Name_Services) GetEntityData() *types.Com
     services.EntityData.BundleName = "cisco_ios_xr"
     services.EntityData.ParentYangName = "name"
     services.EntityData.SegmentPath = "services" + types.AddKeyToken(services.ServiceName, "service-name")
+    services.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-pm:processes/all-locations/name/" + services.EntityData.SegmentPath
     services.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     services.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     services.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -381,6 +394,7 @@ func (processManager *ProcessManager) GetEntityData() *types.CommonEntityData {
     processManager.EntityData.BundleName = "cisco_ios_xr"
     processManager.EntityData.ParentYangName = "Cisco-IOS-XR-sysadmin-pm"
     processManager.EntityData.SegmentPath = "Cisco-IOS-XR-sysadmin-pm:process-manager"
+    processManager.EntityData.AbsolutePath = processManager.EntityData.SegmentPath
     processManager.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     processManager.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     processManager.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -401,6 +415,7 @@ func (processManager *ProcessManager) GetEntityData() *types.CommonEntityData {
 type ProcessManager_AllLocationsInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     LocationInfo interface{}
@@ -438,6 +453,7 @@ func (allLocationsInfo *ProcessManager_AllLocationsInfo) GetEntityData() *types.
     allLocationsInfo.EntityData.BundleName = "cisco_ios_xr"
     allLocationsInfo.EntityData.ParentYangName = "process-manager"
     allLocationsInfo.EntityData.SegmentPath = "all-locations-info" + types.AddKeyToken(allLocationsInfo.LocationInfo, "location-info")
+    allLocationsInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-pm:process-manager/" + allLocationsInfo.EntityData.SegmentPath
     allLocationsInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     allLocationsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     allLocationsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -473,6 +489,7 @@ func (pm *Pm) GetEntityData() *types.CommonEntityData {
     pm.EntityData.BundleName = "cisco_ios_xr"
     pm.EntityData.ParentYangName = "Cisco-IOS-XR-sysadmin-pm"
     pm.EntityData.SegmentPath = "Cisco-IOS-XR-sysadmin-pm:pm"
+    pm.EntityData.AbsolutePath = pm.EntityData.SegmentPath
     pm.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pm.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pm.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -501,6 +518,7 @@ func (pm *Pm_Pm) GetEntityData() *types.CommonEntityData {
     pm.EntityData.BundleName = "cisco_ios_xr"
     pm.EntityData.ParentYangName = "pm"
     pm.EntityData.SegmentPath = "pm"
+    pm.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-pm:pm/" + pm.EntityData.SegmentPath
     pm.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pm.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pm.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -522,6 +540,7 @@ func (pm *Pm_Pm) GetEntityData() *types.CommonEntityData {
 type Pm_Pm_Trace struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     Buffer interface{}
@@ -536,6 +555,7 @@ func (trace *Pm_Pm_Trace) GetEntityData() *types.CommonEntityData {
     trace.EntityData.BundleName = "cisco_ios_xr"
     trace.EntityData.ParentYangName = "pm"
     trace.EntityData.SegmentPath = "trace" + types.AddKeyToken(trace.Buffer, "buffer")
+    trace.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-pm:pm/pm/" + trace.EntityData.SegmentPath
     trace.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trace.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trace.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -557,6 +577,7 @@ func (trace *Pm_Pm_Trace) GetEntityData() *types.CommonEntityData {
 type Pm_Pm_Trace_Location struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     LocationName interface{}
@@ -571,6 +592,7 @@ func (location *Pm_Pm_Trace_Location) GetEntityData() *types.CommonEntityData {
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "trace"
     location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.LocationName, "location_name")
+    location.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-pm:pm/pm/trace/" + location.EntityData.SegmentPath
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -592,6 +614,7 @@ func (location *Pm_Pm_Trace_Location) GetEntityData() *types.CommonEntityData {
 type Pm_Pm_Trace_Location_AllOptions struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     Option interface{}
@@ -606,6 +629,7 @@ func (allOptions *Pm_Pm_Trace_Location_AllOptions) GetEntityData() *types.Common
     allOptions.EntityData.BundleName = "cisco_ios_xr"
     allOptions.EntityData.ParentYangName = "location"
     allOptions.EntityData.SegmentPath = "all-options" + types.AddKeyToken(allOptions.Option, "option")
+    allOptions.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-pm:pm/pm/trace/location/" + allOptions.EntityData.SegmentPath
     allOptions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     allOptions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     allOptions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -613,6 +637,7 @@ func (allOptions *Pm_Pm_Trace_Location_AllOptions) GetEntityData() *types.Common
     allOptions.EntityData.Children = types.NewOrderedMap()
     allOptions.EntityData.Children.Append("trace-blocks", types.YChild{"TraceBlocks", nil})
     for i := range allOptions.TraceBlocks {
+        types.SetYListKey(allOptions.TraceBlocks[i], i)
         allOptions.EntityData.Children.Append(types.GetSegmentPath(allOptions.TraceBlocks[i]), types.YChild{"TraceBlocks", allOptions.TraceBlocks[i]})
     }
     allOptions.EntityData.Leafs = types.NewOrderedMap()
@@ -627,6 +652,7 @@ func (allOptions *Pm_Pm_Trace_Location_AllOptions) GetEntityData() *types.Common
 type Pm_Pm_Trace_Location_AllOptions_TraceBlocks struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Trace output block. The type is string.
     Data interface{}
@@ -637,7 +663,8 @@ func (traceBlocks *Pm_Pm_Trace_Location_AllOptions_TraceBlocks) GetEntityData() 
     traceBlocks.EntityData.YangName = "trace-blocks"
     traceBlocks.EntityData.BundleName = "cisco_ios_xr"
     traceBlocks.EntityData.ParentYangName = "all-options"
-    traceBlocks.EntityData.SegmentPath = "trace-blocks"
+    traceBlocks.EntityData.SegmentPath = "trace-blocks" + types.AddNoKeyToken(traceBlocks)
+    traceBlocks.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-pm:pm/pm/trace/location/all-options/" + traceBlocks.EntityData.SegmentPath
     traceBlocks.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     traceBlocks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     traceBlocks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

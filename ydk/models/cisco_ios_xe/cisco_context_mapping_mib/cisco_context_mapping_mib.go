@@ -113,6 +113,7 @@ func (cISCOCONTEXTMAPPINGMIB *CISCOCONTEXTMAPPINGMIB) GetEntityData() *types.Com
     cISCOCONTEXTMAPPINGMIB.EntityData.BundleName = "cisco_ios_xe"
     cISCOCONTEXTMAPPINGMIB.EntityData.ParentYangName = "CISCO-CONTEXT-MAPPING-MIB"
     cISCOCONTEXTMAPPINGMIB.EntityData.SegmentPath = "CISCO-CONTEXT-MAPPING-MIB:CISCO-CONTEXT-MAPPING-MIB"
+    cISCOCONTEXTMAPPINGMIB.EntityData.AbsolutePath = cISCOCONTEXTMAPPINGMIB.EntityData.SegmentPath
     cISCOCONTEXTMAPPINGMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cISCOCONTEXTMAPPINGMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOCONTEXTMAPPINGMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -165,6 +166,7 @@ func (cContextMappingTable *CISCOCONTEXTMAPPINGMIB_CContextMappingTable) GetEnti
     cContextMappingTable.EntityData.BundleName = "cisco_ios_xe"
     cContextMappingTable.EntityData.ParentYangName = "CISCO-CONTEXT-MAPPING-MIB"
     cContextMappingTable.EntityData.SegmentPath = "cContextMappingTable"
+    cContextMappingTable.EntityData.AbsolutePath = "CISCO-CONTEXT-MAPPING-MIB:CISCO-CONTEXT-MAPPING-MIB/" + cContextMappingTable.EntityData.SegmentPath
     cContextMappingTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cContextMappingTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cContextMappingTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -189,6 +191,7 @@ func (cContextMappingTable *CISCOCONTEXTMAPPINGMIB_CContextMappingTable) GetEnti
 type CISCOCONTEXTMAPPINGMIB_CContextMappingTable_CContextMappingEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The vacmContextName given to the SNMP context. 
     // This is a human readable name identifying a particular SNMP VACM context at
@@ -237,6 +240,7 @@ func (cContextMappingEntry *CISCOCONTEXTMAPPINGMIB_CContextMappingTable_CContext
     cContextMappingEntry.EntityData.BundleName = "cisco_ios_xe"
     cContextMappingEntry.EntityData.ParentYangName = "cContextMappingTable"
     cContextMappingEntry.EntityData.SegmentPath = "cContextMappingEntry" + types.AddKeyToken(cContextMappingEntry.CContextMappingVacmContextName, "cContextMappingVacmContextName")
+    cContextMappingEntry.EntityData.AbsolutePath = "CISCO-CONTEXT-MAPPING-MIB:CISCO-CONTEXT-MAPPING-MIB/cContextMappingTable/" + cContextMappingEntry.EntityData.SegmentPath
     cContextMappingEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cContextMappingEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cContextMappingEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -289,6 +293,7 @@ func (cContextMappingBridgeDomainTable *CISCOCONTEXTMAPPINGMIB_CContextMappingBr
     cContextMappingBridgeDomainTable.EntityData.BundleName = "cisco_ios_xe"
     cContextMappingBridgeDomainTable.EntityData.ParentYangName = "CISCO-CONTEXT-MAPPING-MIB"
     cContextMappingBridgeDomainTable.EntityData.SegmentPath = "cContextMappingBridgeDomainTable"
+    cContextMappingBridgeDomainTable.EntityData.AbsolutePath = "CISCO-CONTEXT-MAPPING-MIB:CISCO-CONTEXT-MAPPING-MIB/" + cContextMappingBridgeDomainTable.EntityData.SegmentPath
     cContextMappingBridgeDomainTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cContextMappingBridgeDomainTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cContextMappingBridgeDomainTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -319,6 +324,7 @@ func (cContextMappingBridgeDomainTable *CISCOCONTEXTMAPPINGMIB_CContextMappingBr
 type CISCOCONTEXTMAPPINGMIB_CContextMappingBridgeDomainTable_CContextMappingBridgeDomainEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with length: 0..32. Refers to
     // cisco_context_mapping_mib.CISCOCONTEXTMAPPINGMIB_CContextMappingTable_CContextMappingEntry_CContextMappingVacmContextName
@@ -345,6 +351,7 @@ func (cContextMappingBridgeDomainEntry *CISCOCONTEXTMAPPINGMIB_CContextMappingBr
     cContextMappingBridgeDomainEntry.EntityData.BundleName = "cisco_ios_xe"
     cContextMappingBridgeDomainEntry.EntityData.ParentYangName = "cContextMappingBridgeDomainTable"
     cContextMappingBridgeDomainEntry.EntityData.SegmentPath = "cContextMappingBridgeDomainEntry" + types.AddKeyToken(cContextMappingBridgeDomainEntry.CContextMappingVacmContextName, "cContextMappingVacmContextName")
+    cContextMappingBridgeDomainEntry.EntityData.AbsolutePath = "CISCO-CONTEXT-MAPPING-MIB:CISCO-CONTEXT-MAPPING-MIB/cContextMappingBridgeDomainTable/" + cContextMappingBridgeDomainEntry.EntityData.SegmentPath
     cContextMappingBridgeDomainEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cContextMappingBridgeDomainEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cContextMappingBridgeDomainEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -393,6 +400,7 @@ func (cContextMappingBridgeInstanceTable *CISCOCONTEXTMAPPINGMIB_CContextMapping
     cContextMappingBridgeInstanceTable.EntityData.BundleName = "cisco_ios_xe"
     cContextMappingBridgeInstanceTable.EntityData.ParentYangName = "CISCO-CONTEXT-MAPPING-MIB"
     cContextMappingBridgeInstanceTable.EntityData.SegmentPath = "cContextMappingBridgeInstanceTable"
+    cContextMappingBridgeInstanceTable.EntityData.AbsolutePath = "CISCO-CONTEXT-MAPPING-MIB:CISCO-CONTEXT-MAPPING-MIB/" + cContextMappingBridgeInstanceTable.EntityData.SegmentPath
     cContextMappingBridgeInstanceTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cContextMappingBridgeInstanceTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cContextMappingBridgeInstanceTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -423,6 +431,7 @@ func (cContextMappingBridgeInstanceTable *CISCOCONTEXTMAPPINGMIB_CContextMapping
 type CISCOCONTEXTMAPPINGMIB_CContextMappingBridgeInstanceTable_CContextMappingBridgeInstanceEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with length: 0..32. Refers to
     // cisco_context_mapping_mib.CISCOCONTEXTMAPPINGMIB_CContextMappingTable_CContextMappingEntry_CContextMappingVacmContextName
@@ -454,6 +463,7 @@ func (cContextMappingBridgeInstanceEntry *CISCOCONTEXTMAPPINGMIB_CContextMapping
     cContextMappingBridgeInstanceEntry.EntityData.BundleName = "cisco_ios_xe"
     cContextMappingBridgeInstanceEntry.EntityData.ParentYangName = "cContextMappingBridgeInstanceTable"
     cContextMappingBridgeInstanceEntry.EntityData.SegmentPath = "cContextMappingBridgeInstanceEntry" + types.AddKeyToken(cContextMappingBridgeInstanceEntry.CContextMappingVacmContextName, "cContextMappingVacmContextName")
+    cContextMappingBridgeInstanceEntry.EntityData.AbsolutePath = "CISCO-CONTEXT-MAPPING-MIB:CISCO-CONTEXT-MAPPING-MIB/cContextMappingBridgeInstanceTable/" + cContextMappingBridgeInstanceEntry.EntityData.SegmentPath
     cContextMappingBridgeInstanceEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cContextMappingBridgeInstanceEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cContextMappingBridgeInstanceEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -492,6 +502,7 @@ func (cContextMappingLicenseGroupTable *CISCOCONTEXTMAPPINGMIB_CContextMappingLi
     cContextMappingLicenseGroupTable.EntityData.BundleName = "cisco_ios_xe"
     cContextMappingLicenseGroupTable.EntityData.ParentYangName = "CISCO-CONTEXT-MAPPING-MIB"
     cContextMappingLicenseGroupTable.EntityData.SegmentPath = "cContextMappingLicenseGroupTable"
+    cContextMappingLicenseGroupTable.EntityData.AbsolutePath = "CISCO-CONTEXT-MAPPING-MIB:CISCO-CONTEXT-MAPPING-MIB/" + cContextMappingLicenseGroupTable.EntityData.SegmentPath
     cContextMappingLicenseGroupTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cContextMappingLicenseGroupTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cContextMappingLicenseGroupTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -515,6 +526,7 @@ func (cContextMappingLicenseGroupTable *CISCOCONTEXTMAPPINGMIB_CContextMappingLi
 type CISCOCONTEXTMAPPINGMIB_CContextMappingLicenseGroupTable_CContextMappingLicenseGroupEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with length: 0..32. Refers to
     // cisco_context_mapping_mib.CISCOCONTEXTMAPPINGMIB_CContextMappingTable_CContextMappingEntry_CContextMappingVacmContextName
@@ -550,6 +562,7 @@ func (cContextMappingLicenseGroupEntry *CISCOCONTEXTMAPPINGMIB_CContextMappingLi
     cContextMappingLicenseGroupEntry.EntityData.BundleName = "cisco_ios_xe"
     cContextMappingLicenseGroupEntry.EntityData.ParentYangName = "cContextMappingLicenseGroupTable"
     cContextMappingLicenseGroupEntry.EntityData.SegmentPath = "cContextMappingLicenseGroupEntry" + types.AddKeyToken(cContextMappingLicenseGroupEntry.CContextMappingVacmContextName, "cContextMappingVacmContextName")
+    cContextMappingLicenseGroupEntry.EntityData.AbsolutePath = "CISCO-CONTEXT-MAPPING-MIB:CISCO-CONTEXT-MAPPING-MIB/cContextMappingLicenseGroupTable/" + cContextMappingLicenseGroupEntry.EntityData.SegmentPath
     cContextMappingLicenseGroupEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cContextMappingLicenseGroupEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cContextMappingLicenseGroupEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

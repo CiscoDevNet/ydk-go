@@ -54,6 +54,7 @@ func (tUNNELMIB *TUNNELMIB) GetEntityData() *types.CommonEntityData {
     tUNNELMIB.EntityData.BundleName = "cisco_ios_xe"
     tUNNELMIB.EntityData.ParentYangName = "TUNNEL-MIB"
     tUNNELMIB.EntityData.SegmentPath = "TUNNEL-MIB:TUNNEL-MIB"
+    tUNNELMIB.EntityData.AbsolutePath = tUNNELMIB.EntityData.SegmentPath
     tUNNELMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     tUNNELMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     tUNNELMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -88,6 +89,7 @@ func (tunnelIfTable *TUNNELMIB_TunnelIfTable) GetEntityData() *types.CommonEntit
     tunnelIfTable.EntityData.BundleName = "cisco_ios_xe"
     tunnelIfTable.EntityData.ParentYangName = "TUNNEL-MIB"
     tunnelIfTable.EntityData.SegmentPath = "tunnelIfTable"
+    tunnelIfTable.EntityData.AbsolutePath = "TUNNEL-MIB:TUNNEL-MIB/" + tunnelIfTable.EntityData.SegmentPath
     tunnelIfTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     tunnelIfTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     tunnelIfTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -110,6 +112,7 @@ func (tunnelIfTable *TUNNELMIB_TunnelIfTable) GetEntityData() *types.CommonEntit
 type TUNNELMIB_TunnelIfTable_TunnelIfEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -196,6 +199,7 @@ func (tunnelIfEntry *TUNNELMIB_TunnelIfTable_TunnelIfEntry) GetEntityData() *typ
     tunnelIfEntry.EntityData.BundleName = "cisco_ios_xe"
     tunnelIfEntry.EntityData.ParentYangName = "tunnelIfTable"
     tunnelIfEntry.EntityData.SegmentPath = "tunnelIfEntry" + types.AddKeyToken(tunnelIfEntry.IfIndex, "ifIndex")
+    tunnelIfEntry.EntityData.AbsolutePath = "TUNNEL-MIB:TUNNEL-MIB/tunnelIfTable/" + tunnelIfEntry.EntityData.SegmentPath
     tunnelIfEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     tunnelIfEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     tunnelIfEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -260,6 +264,7 @@ func (tunnelConfigTable *TUNNELMIB_TunnelConfigTable) GetEntityData() *types.Com
     tunnelConfigTable.EntityData.BundleName = "cisco_ios_xe"
     tunnelConfigTable.EntityData.ParentYangName = "TUNNEL-MIB"
     tunnelConfigTable.EntityData.SegmentPath = "tunnelConfigTable"
+    tunnelConfigTable.EntityData.AbsolutePath = "TUNNEL-MIB:TUNNEL-MIB/" + tunnelConfigTable.EntityData.SegmentPath
     tunnelConfigTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     tunnelConfigTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     tunnelConfigTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -285,6 +290,7 @@ func (tunnelConfigTable *TUNNELMIB_TunnelConfigTable) GetEntityData() *types.Com
 type TUNNELMIB_TunnelConfigTable_TunnelConfigEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The address of the local endpoint of the tunnel,
     // or 0.0.0.0 if the device is free to choose any of its addresses at tunnel
@@ -355,6 +361,7 @@ func (tunnelConfigEntry *TUNNELMIB_TunnelConfigTable_TunnelConfigEntry) GetEntit
     tunnelConfigEntry.EntityData.BundleName = "cisco_ios_xe"
     tunnelConfigEntry.EntityData.ParentYangName = "tunnelConfigTable"
     tunnelConfigEntry.EntityData.SegmentPath = "tunnelConfigEntry" + types.AddKeyToken(tunnelConfigEntry.TunnelConfigLocalAddress, "tunnelConfigLocalAddress") + types.AddKeyToken(tunnelConfigEntry.TunnelConfigRemoteAddress, "tunnelConfigRemoteAddress") + types.AddKeyToken(tunnelConfigEntry.TunnelConfigEncapsMethod, "tunnelConfigEncapsMethod") + types.AddKeyToken(tunnelConfigEntry.TunnelConfigID, "tunnelConfigID")
+    tunnelConfigEntry.EntityData.AbsolutePath = "TUNNEL-MIB:TUNNEL-MIB/tunnelConfigTable/" + tunnelConfigEntry.EntityData.SegmentPath
     tunnelConfigEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     tunnelConfigEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     tunnelConfigEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -406,6 +413,7 @@ func (tunnelInetConfigTable *TUNNELMIB_TunnelInetConfigTable) GetEntityData() *t
     tunnelInetConfigTable.EntityData.BundleName = "cisco_ios_xe"
     tunnelInetConfigTable.EntityData.ParentYangName = "TUNNEL-MIB"
     tunnelInetConfigTable.EntityData.SegmentPath = "tunnelInetConfigTable"
+    tunnelInetConfigTable.EntityData.AbsolutePath = "TUNNEL-MIB:TUNNEL-MIB/" + tunnelInetConfigTable.EntityData.SegmentPath
     tunnelInetConfigTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     tunnelInetConfigTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     tunnelInetConfigTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -440,6 +448,7 @@ func (tunnelInetConfigTable *TUNNELMIB_TunnelInetConfigTable) GetEntityData() *t
 type TUNNELMIB_TunnelInetConfigTable_TunnelInetConfigEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The address type over which the tunnel
     // encapsulates packets. The type is InetAddressType.
@@ -511,6 +520,7 @@ func (tunnelInetConfigEntry *TUNNELMIB_TunnelInetConfigTable_TunnelInetConfigEnt
     tunnelInetConfigEntry.EntityData.BundleName = "cisco_ios_xe"
     tunnelInetConfigEntry.EntityData.ParentYangName = "tunnelInetConfigTable"
     tunnelInetConfigEntry.EntityData.SegmentPath = "tunnelInetConfigEntry" + types.AddKeyToken(tunnelInetConfigEntry.TunnelInetConfigAddressType, "tunnelInetConfigAddressType") + types.AddKeyToken(tunnelInetConfigEntry.TunnelInetConfigLocalAddress, "tunnelInetConfigLocalAddress") + types.AddKeyToken(tunnelInetConfigEntry.TunnelInetConfigRemoteAddress, "tunnelInetConfigRemoteAddress") + types.AddKeyToken(tunnelInetConfigEntry.TunnelInetConfigEncapsMethod, "tunnelInetConfigEncapsMethod") + types.AddKeyToken(tunnelInetConfigEntry.TunnelInetConfigID, "tunnelInetConfigID")
+    tunnelInetConfigEntry.EntityData.AbsolutePath = "TUNNEL-MIB:TUNNEL-MIB/tunnelInetConfigTable/" + tunnelInetConfigEntry.EntityData.SegmentPath
     tunnelInetConfigEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     tunnelInetConfigEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     tunnelInetConfigEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

@@ -90,6 +90,7 @@ func (cISCOTAP2MIB *CISCOTAP2MIB) GetEntityData() *types.CommonEntityData {
     cISCOTAP2MIB.EntityData.BundleName = "cisco_ios_xe"
     cISCOTAP2MIB.EntityData.ParentYangName = "CISCO-TAP2-MIB"
     cISCOTAP2MIB.EntityData.SegmentPath = "CISCO-TAP2-MIB:CISCO-TAP2-MIB"
+    cISCOTAP2MIB.EntityData.AbsolutePath = cISCOTAP2MIB.EntityData.SegmentPath
     cISCOTAP2MIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cISCOTAP2MIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOTAP2MIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -161,6 +162,7 @@ func (cTap2MediationGroup *CISCOTAP2MIB_CTap2MediationGroup) GetEntityData() *ty
     cTap2MediationGroup.EntityData.BundleName = "cisco_ios_xe"
     cTap2MediationGroup.EntityData.ParentYangName = "CISCO-TAP2-MIB"
     cTap2MediationGroup.EntityData.SegmentPath = "cTap2MediationGroup"
+    cTap2MediationGroup.EntityData.AbsolutePath = "CISCO-TAP2-MIB:CISCO-TAP2-MIB/" + cTap2MediationGroup.EntityData.SegmentPath
     cTap2MediationGroup.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cTap2MediationGroup.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cTap2MediationGroup.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -200,6 +202,7 @@ func (cTap2DebugGroup *CISCOTAP2MIB_CTap2DebugGroup) GetEntityData() *types.Comm
     cTap2DebugGroup.EntityData.BundleName = "cisco_ios_xe"
     cTap2DebugGroup.EntityData.ParentYangName = "CISCO-TAP2-MIB"
     cTap2DebugGroup.EntityData.SegmentPath = "cTap2DebugGroup"
+    cTap2DebugGroup.EntityData.AbsolutePath = "CISCO-TAP2-MIB:CISCO-TAP2-MIB/" + cTap2DebugGroup.EntityData.SegmentPath
     cTap2DebugGroup.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cTap2DebugGroup.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cTap2DebugGroup.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -242,6 +245,7 @@ func (cTap2MediationTable *CISCOTAP2MIB_CTap2MediationTable) GetEntityData() *ty
     cTap2MediationTable.EntityData.BundleName = "cisco_ios_xe"
     cTap2MediationTable.EntityData.ParentYangName = "CISCO-TAP2-MIB"
     cTap2MediationTable.EntityData.SegmentPath = "cTap2MediationTable"
+    cTap2MediationTable.EntityData.AbsolutePath = "CISCO-TAP2-MIB:CISCO-TAP2-MIB/" + cTap2MediationTable.EntityData.SegmentPath
     cTap2MediationTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cTap2MediationTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cTap2MediationTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -264,6 +268,7 @@ func (cTap2MediationTable *CISCOTAP2MIB_CTap2MediationTable) GetEntityData() *ty
 type CISCOTAP2MIB_CTap2MediationTable_CTap2MediationEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. cTap2MediationContentId is a session identifier,
     // from the intercept application's perspective, and a content identifier from
@@ -362,6 +367,7 @@ func (cTap2MediationEntry *CISCOTAP2MIB_CTap2MediationTable_CTap2MediationEntry)
     cTap2MediationEntry.EntityData.BundleName = "cisco_ios_xe"
     cTap2MediationEntry.EntityData.ParentYangName = "cTap2MediationTable"
     cTap2MediationEntry.EntityData.SegmentPath = "cTap2MediationEntry" + types.AddKeyToken(cTap2MediationEntry.CTap2MediationContentId, "cTap2MediationContentId")
+    cTap2MediationEntry.EntityData.AbsolutePath = "CISCO-TAP2-MIB:CISCO-TAP2-MIB/cTap2MediationTable/" + cTap2MediationEntry.EntityData.SegmentPath
     cTap2MediationEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cTap2MediationEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cTap2MediationEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -451,6 +457,7 @@ func (cTap2StreamTable *CISCOTAP2MIB_CTap2StreamTable) GetEntityData() *types.Co
     cTap2StreamTable.EntityData.BundleName = "cisco_ios_xe"
     cTap2StreamTable.EntityData.ParentYangName = "CISCO-TAP2-MIB"
     cTap2StreamTable.EntityData.SegmentPath = "cTap2StreamTable"
+    cTap2StreamTable.EntityData.AbsolutePath = "CISCO-TAP2-MIB:CISCO-TAP2-MIB/" + cTap2StreamTable.EntityData.SegmentPath
     cTap2StreamTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cTap2StreamTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cTap2StreamTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -475,6 +482,7 @@ func (cTap2StreamTable *CISCOTAP2MIB_CTap2StreamTable) GetEntityData() *types.Co
 type CISCOTAP2MIB_CTap2StreamTable_CTap2StreamEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -552,6 +560,7 @@ func (cTap2StreamEntry *CISCOTAP2MIB_CTap2StreamTable_CTap2StreamEntry) GetEntit
     cTap2StreamEntry.EntityData.BundleName = "cisco_ios_xe"
     cTap2StreamEntry.EntityData.ParentYangName = "cTap2StreamTable"
     cTap2StreamEntry.EntityData.SegmentPath = "cTap2StreamEntry" + types.AddKeyToken(cTap2StreamEntry.CTap2MediationContentId, "cTap2MediationContentId") + types.AddKeyToken(cTap2StreamEntry.CTap2StreamIndex, "cTap2StreamIndex")
+    cTap2StreamEntry.EntityData.AbsolutePath = "CISCO-TAP2-MIB:CISCO-TAP2-MIB/cTap2StreamTable/" + cTap2StreamEntry.EntityData.SegmentPath
     cTap2StreamEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cTap2StreamEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cTap2StreamEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -627,6 +636,7 @@ func (cTap2DebugTable *CISCOTAP2MIB_CTap2DebugTable) GetEntityData() *types.Comm
     cTap2DebugTable.EntityData.BundleName = "cisco_ios_xe"
     cTap2DebugTable.EntityData.ParentYangName = "CISCO-TAP2-MIB"
     cTap2DebugTable.EntityData.SegmentPath = "cTap2DebugTable"
+    cTap2DebugTable.EntityData.AbsolutePath = "CISCO-TAP2-MIB:CISCO-TAP2-MIB/" + cTap2DebugTable.EntityData.SegmentPath
     cTap2DebugTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cTap2DebugTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cTap2DebugTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -648,6 +658,7 @@ func (cTap2DebugTable *CISCOTAP2MIB_CTap2DebugTable) GetEntityData() *types.Comm
 type CISCOTAP2MIB_CTap2DebugTable_CTap2DebugEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Index to the debug table. The type is interface{}
     // with range: 1..2147483647.
@@ -687,6 +698,7 @@ func (cTap2DebugEntry *CISCOTAP2MIB_CTap2DebugTable_CTap2DebugEntry) GetEntityDa
     cTap2DebugEntry.EntityData.BundleName = "cisco_ios_xe"
     cTap2DebugEntry.EntityData.ParentYangName = "cTap2DebugTable"
     cTap2DebugEntry.EntityData.SegmentPath = "cTap2DebugEntry" + types.AddKeyToken(cTap2DebugEntry.CTap2DebugIndex, "cTap2DebugIndex")
+    cTap2DebugEntry.EntityData.AbsolutePath = "CISCO-TAP2-MIB:CISCO-TAP2-MIB/cTap2DebugTable/" + cTap2DebugEntry.EntityData.SegmentPath
     cTap2DebugEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cTap2DebugEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cTap2DebugEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -731,6 +743,7 @@ func (cTap2DebugUserTable *CISCOTAP2MIB_CTap2DebugUserTable) GetEntityData() *ty
     cTap2DebugUserTable.EntityData.BundleName = "cisco_ios_xe"
     cTap2DebugUserTable.EntityData.ParentYangName = "CISCO-TAP2-MIB"
     cTap2DebugUserTable.EntityData.SegmentPath = "cTap2DebugUserTable"
+    cTap2DebugUserTable.EntityData.AbsolutePath = "CISCO-TAP2-MIB:CISCO-TAP2-MIB/" + cTap2DebugUserTable.EntityData.SegmentPath
     cTap2DebugUserTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cTap2DebugUserTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cTap2DebugUserTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -756,6 +769,7 @@ func (cTap2DebugUserTable *CISCOTAP2MIB_CTap2DebugUserTable) GetEntityData() *ty
 type CISCOTAP2MIB_CTap2DebugUserTable_CTap2DebugUserEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -791,6 +805,7 @@ func (cTap2DebugUserEntry *CISCOTAP2MIB_CTap2DebugUserTable_CTap2DebugUserEntry)
     cTap2DebugUserEntry.EntityData.BundleName = "cisco_ios_xe"
     cTap2DebugUserEntry.EntityData.ParentYangName = "cTap2DebugUserTable"
     cTap2DebugUserEntry.EntityData.SegmentPath = "cTap2DebugUserEntry" + types.AddKeyToken(cTap2DebugUserEntry.CTap2MediationContentId, "cTap2MediationContentId") + types.AddKeyToken(cTap2DebugUserEntry.CTap2DebugUserName, "cTap2DebugUserName")
+    cTap2DebugUserEntry.EntityData.AbsolutePath = "CISCO-TAP2-MIB:CISCO-TAP2-MIB/cTap2DebugUserTable/" + cTap2DebugUserEntry.EntityData.SegmentPath
     cTap2DebugUserEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cTap2DebugUserEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cTap2DebugUserEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

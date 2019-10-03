@@ -29,6 +29,10 @@ module Cisco-IOS-XR-sysadmin-issu {
      Copyright(c) 2016-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-08-24 {
+    description
+      "Addition of some more leaves to op_start_output, and some more options to the op-start-result enum.";
+  }
   revision 2018-03-12 {
     description
       "Initial revision";
@@ -59,6 +63,14 @@ module Cisco-IOS-XR-sysadmin-issu {
       enum "start-error-internal" {
         description
           "An internal error occured while attempting to start the operation";
+      }
+      enum "prepare-error-previous-operation-not-committed" {
+        description
+          "A previous install operation has not been committed";
+      }
+      enum "prepare-error-already-in-progress" {
+        description
+          "An install operation is already in progress";
       }
     }
     description
@@ -178,12 +190,32 @@ module Cisco-IOS-XR-sysadmin-issu {
     leaf result {
       type op-start-result;
       description
-        "An indication of whether the operation was started successfully and which error was encountered, if any";
+        "Enumeration value representing the result of the operation start request. In the error case this is duplicated by failure-enum.";
+    }
+    leaf failure-enum {
+      type op-start-result;
+      description
+        "Enumeration value representing the error case that was hit. This is only present if the operation failed to start i.e. when op-initiated is False.";
     }
     leaf id {
       type uint32;
       description
+        "On success, the ID of the started operationDuplicate of the operation-id leaf, included for backwards compatibility.";
+    }
+    leaf operation-id {
+      type uint32;
+      description
         "On success, the ID of the started operation";
+    }
+    leaf op-initiated {
+      type boolean;
+      description
+        "True if the operation was started sucessfully, False otherwise";
+    }
+    leaf more-details {
+      type string;
+      description
+        "More details on the cause of failure";
     }
   }
 

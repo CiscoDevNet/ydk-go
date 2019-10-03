@@ -35,6 +35,7 @@ func (channelMonitors *ChannelMonitors) GetEntityData() *types.CommonEntityData 
     channelMonitors.EntityData.BundleName = "openconfig"
     channelMonitors.EntityData.ParentYangName = "openconfig-channel-monitor"
     channelMonitors.EntityData.SegmentPath = "openconfig-channel-monitor:channel-monitors"
+    channelMonitors.EntityData.AbsolutePath = channelMonitors.EntityData.SegmentPath
     channelMonitors.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     channelMonitors.EntityData.NamespaceTable = openconfig.GetNamespaces()
     channelMonitors.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -56,6 +57,7 @@ func (channelMonitors *ChannelMonitors) GetEntityData() *types.CommonEntityData 
 type ChannelMonitors_ChannelMonitor struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. References the optical channel monitor name. The
     // type is string. Refers to
@@ -79,6 +81,7 @@ func (channelMonitor *ChannelMonitors_ChannelMonitor) GetEntityData() *types.Com
     channelMonitor.EntityData.BundleName = "openconfig"
     channelMonitor.EntityData.ParentYangName = "channel-monitors"
     channelMonitor.EntityData.SegmentPath = "channel-monitor" + types.AddKeyToken(channelMonitor.Name, "name")
+    channelMonitor.EntityData.AbsolutePath = "openconfig-channel-monitor:channel-monitors/" + channelMonitor.EntityData.SegmentPath
     channelMonitor.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     channelMonitor.EntityData.NamespaceTable = openconfig.GetNamespaces()
     channelMonitor.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -124,6 +127,7 @@ func (config *ChannelMonitors_ChannelMonitor_Config) GetEntityData() *types.Comm
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "channel-monitor"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-channel-monitor:channel-monitors/channel-monitor/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -167,6 +171,7 @@ func (state *ChannelMonitors_ChannelMonitor_State) GetEntityData() *types.Common
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "channel-monitor"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-channel-monitor:channel-monitors/channel-monitor/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -199,6 +204,7 @@ func (channels *ChannelMonitors_ChannelMonitor_Channels) GetEntityData() *types.
     channels.EntityData.BundleName = "openconfig"
     channels.EntityData.ParentYangName = "channel-monitor"
     channels.EntityData.SegmentPath = "channels"
+    channels.EntityData.AbsolutePath = "openconfig-channel-monitor:channel-monitors/channel-monitor/" + channels.EntityData.SegmentPath
     channels.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     channels.EntityData.NamespaceTable = openconfig.GetNamespaces()
     channels.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -220,6 +226,7 @@ func (channels *ChannelMonitors_ChannelMonitor_Channels) GetEntityData() *types.
 type ChannelMonitors_ChannelMonitor_Channels_Channel struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the list key. The type is string with
     // range: 0..18446744073709551615. Refers to
@@ -241,6 +248,7 @@ func (channel *ChannelMonitors_ChannelMonitor_Channels_Channel) GetEntityData() 
     channel.EntityData.BundleName = "openconfig"
     channel.EntityData.ParentYangName = "channels"
     channel.EntityData.SegmentPath = "channel" + types.AddKeyToken(channel.LowerFrequency, "lower-frequency") + types.AddKeyToken(channel.UpperFrequency, "upper-frequency")
+    channel.EntityData.AbsolutePath = "openconfig-channel-monitor:channel-monitors/channel-monitor/channels/" + channel.EntityData.SegmentPath
     channel.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     channel.EntityData.NamespaceTable = openconfig.GetNamespaces()
     channel.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -274,8 +282,8 @@ type ChannelMonitors_ChannelMonitor_Channels_Channel_State struct {
     // units allow the value to often be greater than 1.0.  It also avoids dealing
     // with zero values for 0dBm.  For example, a 40GHz wide channel with 0dBm
     // power would be:  0dBm = 1mW = 10^6nW  40GHz = 40,000MHz  0dBm/40GHz =
-    // 10^6nW/40,000MHz = 1000/40 = 25. The type is string with length: 32. Units
-    // are nW/MHz.
+    // 10^6nW/40,000MHz = 1000/40 = 25. The type is string with length: 32..32.
+    // Units are nW/MHz.
     Psd interface{}
 }
 
@@ -285,6 +293,7 @@ func (state *ChannelMonitors_ChannelMonitor_Channels_Channel_State) GetEntityDat
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "channel"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-channel-monitor:channel-monitors/channel-monitor/channels/channel/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()

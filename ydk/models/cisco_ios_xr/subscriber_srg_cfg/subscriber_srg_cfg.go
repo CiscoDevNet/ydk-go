@@ -88,6 +88,10 @@ type SubscriberRedundancy struct {
     // Units are minute.
     HoldTimer interface{}
 
+    // Set sync time (in Minutes). The type is interface{} with range: 1..255.
+    // Units are minute.
+    SyncTimer interface{}
+
     // Disable. The type is interface{}.
     RedundancyDisable interface{}
 
@@ -104,6 +108,7 @@ func (subscriberRedundancy *SubscriberRedundancy) GetEntityData() *types.CommonE
     subscriberRedundancy.EntityData.BundleName = "cisco_ios_xr"
     subscriberRedundancy.EntityData.ParentYangName = "Cisco-IOS-XR-subscriber-srg-cfg"
     subscriberRedundancy.EntityData.SegmentPath = "Cisco-IOS-XR-subscriber-srg-cfg:subscriber-redundancy"
+    subscriberRedundancy.EntityData.AbsolutePath = subscriberRedundancy.EntityData.SegmentPath
     subscriberRedundancy.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     subscriberRedundancy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     subscriberRedundancy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -118,6 +123,7 @@ func (subscriberRedundancy *SubscriberRedundancy) GetEntityData() *types.CommonE
     subscriberRedundancy.EntityData.Leafs.Append("source-interface", types.YLeaf{"SourceInterface", subscriberRedundancy.SourceInterface})
     subscriberRedundancy.EntityData.Leafs.Append("slave-mode", types.YLeaf{"SlaveMode", subscriberRedundancy.SlaveMode})
     subscriberRedundancy.EntityData.Leafs.Append("hold-timer", types.YLeaf{"HoldTimer", subscriberRedundancy.HoldTimer})
+    subscriberRedundancy.EntityData.Leafs.Append("sync-timer", types.YLeaf{"SyncTimer", subscriberRedundancy.SyncTimer})
     subscriberRedundancy.EntityData.Leafs.Append("redundancy-disable", types.YLeaf{"RedundancyDisable", subscriberRedundancy.RedundancyDisable})
 
     subscriberRedundancy.EntityData.YListKeys = []string {}
@@ -142,6 +148,7 @@ func (groups *SubscriberRedundancy_Groups) GetEntityData() *types.CommonEntityDa
     groups.EntityData.BundleName = "cisco_ios_xr"
     groups.EntityData.ParentYangName = "subscriber-redundancy"
     groups.EntityData.SegmentPath = "groups"
+    groups.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-srg-cfg:subscriber-redundancy/" + groups.EntityData.SegmentPath
     groups.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     groups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     groups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -163,6 +170,7 @@ func (groups *SubscriberRedundancy_Groups) GetEntityData() *types.CommonEntityDa
 type SubscriberRedundancy_Groups_Group struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Group ID. The type is interface{} with range:
     // 1..4000.
@@ -227,6 +235,7 @@ func (group *SubscriberRedundancy_Groups_Group) GetEntityData() *types.CommonEnt
     group.EntityData.BundleName = "cisco_ios_xr"
     group.EntityData.ParentYangName = "groups"
     group.EntityData.SegmentPath = "group" + types.AddKeyToken(group.GroupId, "group-id")
+    group.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-srg-cfg:subscriber-redundancy/groups/" + group.EntityData.SegmentPath
     group.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     group.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     group.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -282,6 +291,7 @@ func (interfaceList *SubscriberRedundancy_Groups_Group_InterfaceList) GetEntityD
     interfaceList.EntityData.BundleName = "cisco_ios_xr"
     interfaceList.EntityData.ParentYangName = "group"
     interfaceList.EntityData.SegmentPath = "interface-list"
+    interfaceList.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-srg-cfg:subscriber-redundancy/groups/group/" + interfaceList.EntityData.SegmentPath
     interfaceList.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceList.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceList.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -314,6 +324,7 @@ func (interfaces *SubscriberRedundancy_Groups_Group_InterfaceList_Interfaces) Ge
     interfaces.EntityData.BundleName = "cisco_ios_xr"
     interfaces.EntityData.ParentYangName = "interface-list"
     interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-srg-cfg:subscriber-redundancy/groups/group/interface-list/" + interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -335,6 +346,7 @@ func (interfaces *SubscriberRedundancy_Groups_Group_InterfaceList_Interfaces) Ge
 type SubscriberRedundancy_Groups_Group_InterfaceList_Interfaces_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -351,6 +363,7 @@ func (self *SubscriberRedundancy_Groups_Group_InterfaceList_Interfaces_Interface
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-srg-cfg:subscriber-redundancy/groups/group/interface-list/interfaces/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -382,6 +395,7 @@ func (interfaceRanges *SubscriberRedundancy_Groups_Group_InterfaceList_Interface
     interfaceRanges.EntityData.BundleName = "cisco_ios_xr"
     interfaceRanges.EntityData.ParentYangName = "interface-list"
     interfaceRanges.EntityData.SegmentPath = "interface-ranges"
+    interfaceRanges.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-srg-cfg:subscriber-redundancy/groups/group/interface-list/" + interfaceRanges.EntityData.SegmentPath
     interfaceRanges.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceRanges.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceRanges.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -403,6 +417,7 @@ func (interfaceRanges *SubscriberRedundancy_Groups_Group_InterfaceList_Interface
 type SubscriberRedundancy_Groups_Group_InterfaceList_InterfaceRanges_InterfaceRange struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -429,6 +444,7 @@ func (interfaceRange *SubscriberRedundancy_Groups_Group_InterfaceList_InterfaceR
     interfaceRange.EntityData.BundleName = "cisco_ios_xr"
     interfaceRange.EntityData.ParentYangName = "interface-ranges"
     interfaceRange.EntityData.SegmentPath = "interface-range" + types.AddKeyToken(interfaceRange.InterfaceName, "interface-name") + types.AddKeyToken(interfaceRange.SubInterfaceRangeStart, "sub-interface-range-start") + types.AddKeyToken(interfaceRange.SubInterfaceRangeEnd, "sub-interface-range-end")
+    interfaceRange.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-srg-cfg:subscriber-redundancy/groups/group/interface-list/interface-ranges/" + interfaceRange.EntityData.SegmentPath
     interfaceRange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceRange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceRange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -465,6 +481,7 @@ func (peer *SubscriberRedundancy_Groups_Group_Peer) GetEntityData() *types.Commo
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "group"
     peer.EntityData.SegmentPath = "peer"
+    peer.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-srg-cfg:subscriber-redundancy/groups/group/" + peer.EntityData.SegmentPath
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -502,6 +519,7 @@ func (ipaddress *SubscriberRedundancy_Groups_Group_Peer_Ipaddress) GetEntityData
     ipaddress.EntityData.BundleName = "cisco_ios_xr"
     ipaddress.EntityData.ParentYangName = "peer"
     ipaddress.EntityData.SegmentPath = "ipaddress"
+    ipaddress.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-srg-cfg:subscriber-redundancy/groups/group/peer/" + ipaddress.EntityData.SegmentPath
     ipaddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipaddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipaddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -536,6 +554,7 @@ func (revertiveTimer *SubscriberRedundancy_Groups_Group_RevertiveTimer) GetEntit
     revertiveTimer.EntityData.BundleName = "cisco_ios_xr"
     revertiveTimer.EntityData.ParentYangName = "group"
     revertiveTimer.EntityData.SegmentPath = "revertive-timer"
+    revertiveTimer.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-srg-cfg:subscriber-redundancy/groups/group/" + revertiveTimer.EntityData.SegmentPath
     revertiveTimer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     revertiveTimer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     revertiveTimer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -570,6 +589,7 @@ func (virtualMac *SubscriberRedundancy_Groups_Group_VirtualMac) GetEntityData() 
     virtualMac.EntityData.BundleName = "cisco_ios_xr"
     virtualMac.EntityData.ParentYangName = "group"
     virtualMac.EntityData.SegmentPath = "virtual-mac"
+    virtualMac.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-srg-cfg:subscriber-redundancy/groups/group/" + virtualMac.EntityData.SegmentPath
     virtualMac.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     virtualMac.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     virtualMac.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -603,6 +623,7 @@ func (stateControlRoute *SubscriberRedundancy_Groups_Group_StateControlRoute) Ge
     stateControlRoute.EntityData.BundleName = "cisco_ios_xr"
     stateControlRoute.EntityData.ParentYangName = "group"
     stateControlRoute.EntityData.SegmentPath = "state-control-route"
+    stateControlRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-srg-cfg:subscriber-redundancy/groups/group/" + stateControlRoute.EntityData.SegmentPath
     stateControlRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     stateControlRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stateControlRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -634,6 +655,7 @@ func (ipv4Routes *SubscriberRedundancy_Groups_Group_StateControlRoute_Ipv4Routes
     ipv4Routes.EntityData.BundleName = "cisco_ios_xr"
     ipv4Routes.EntityData.ParentYangName = "state-control-route"
     ipv4Routes.EntityData.SegmentPath = "ipv4-routes"
+    ipv4Routes.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-srg-cfg:subscriber-redundancy/groups/group/state-control-route/" + ipv4Routes.EntityData.SegmentPath
     ipv4Routes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4Routes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4Routes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -655,6 +677,7 @@ func (ipv4Routes *SubscriberRedundancy_Groups_Group_StateControlRoute_Ipv4Routes
 type SubscriberRedundancy_Groups_Group_StateControlRoute_Ipv4Routes_Ipv4Route struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. VRF name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -682,6 +705,7 @@ func (ipv4Route *SubscriberRedundancy_Groups_Group_StateControlRoute_Ipv4Routes_
     ipv4Route.EntityData.BundleName = "cisco_ios_xr"
     ipv4Route.EntityData.ParentYangName = "ipv4-routes"
     ipv4Route.EntityData.SegmentPath = "ipv4-route" + types.AddKeyToken(ipv4Route.Vrfname, "vrfname") + types.AddKeyToken(ipv4Route.PrefixLength, "prefix-length") + types.AddKeyToken(ipv4Route.PrefixString, "prefix-string")
+    ipv4Route.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-srg-cfg:subscriber-redundancy/groups/group/state-control-route/ipv4-routes/" + ipv4Route.EntityData.SegmentPath
     ipv4Route.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4Route.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4Route.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -717,6 +741,7 @@ func (ipv6Route *SubscriberRedundancy_Groups_Group_StateControlRoute_Ipv6Route) 
     ipv6Route.EntityData.BundleName = "cisco_ios_xr"
     ipv6Route.EntityData.ParentYangName = "state-control-route"
     ipv6Route.EntityData.SegmentPath = "ipv6-route"
+    ipv6Route.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-srg-cfg:subscriber-redundancy/groups/group/state-control-route/" + ipv6Route.EntityData.SegmentPath
     ipv6Route.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6Route.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6Route.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -748,6 +773,7 @@ func (ipv6naRoutes *SubscriberRedundancy_Groups_Group_StateControlRoute_Ipv6Rout
     ipv6naRoutes.EntityData.BundleName = "cisco_ios_xr"
     ipv6naRoutes.EntityData.ParentYangName = "ipv6-route"
     ipv6naRoutes.EntityData.SegmentPath = "ipv6na-routes"
+    ipv6naRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-srg-cfg:subscriber-redundancy/groups/group/state-control-route/ipv6-route/" + ipv6naRoutes.EntityData.SegmentPath
     ipv6naRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6naRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6naRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -769,6 +795,7 @@ func (ipv6naRoutes *SubscriberRedundancy_Groups_Group_StateControlRoute_Ipv6Rout
 type SubscriberRedundancy_Groups_Group_StateControlRoute_Ipv6Route_Ipv6naRoutes_Ipv6naRoute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. VRF name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -796,6 +823,7 @@ func (ipv6naRoute *SubscriberRedundancy_Groups_Group_StateControlRoute_Ipv6Route
     ipv6naRoute.EntityData.BundleName = "cisco_ios_xr"
     ipv6naRoute.EntityData.ParentYangName = "ipv6na-routes"
     ipv6naRoute.EntityData.SegmentPath = "ipv6na-route" + types.AddKeyToken(ipv6naRoute.Vrfname, "vrfname") + types.AddKeyToken(ipv6naRoute.PrefixLength, "prefix-length") + types.AddKeyToken(ipv6naRoute.PrefixString, "prefix-string")
+    ipv6naRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-srg-cfg:subscriber-redundancy/groups/group/state-control-route/ipv6-route/ipv6na-routes/" + ipv6naRoute.EntityData.SegmentPath
     ipv6naRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6naRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6naRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -829,6 +857,7 @@ func (ipv6pdRoutes *SubscriberRedundancy_Groups_Group_StateControlRoute_Ipv6Rout
     ipv6pdRoutes.EntityData.BundleName = "cisco_ios_xr"
     ipv6pdRoutes.EntityData.ParentYangName = "ipv6-route"
     ipv6pdRoutes.EntityData.SegmentPath = "ipv6pd-routes"
+    ipv6pdRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-srg-cfg:subscriber-redundancy/groups/group/state-control-route/ipv6-route/" + ipv6pdRoutes.EntityData.SegmentPath
     ipv6pdRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6pdRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6pdRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -850,6 +879,7 @@ func (ipv6pdRoutes *SubscriberRedundancy_Groups_Group_StateControlRoute_Ipv6Rout
 type SubscriberRedundancy_Groups_Group_StateControlRoute_Ipv6Route_Ipv6pdRoutes_Ipv6pdRoute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. VRF name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -877,6 +907,7 @@ func (ipv6pdRoute *SubscriberRedundancy_Groups_Group_StateControlRoute_Ipv6Route
     ipv6pdRoute.EntityData.BundleName = "cisco_ios_xr"
     ipv6pdRoute.EntityData.ParentYangName = "ipv6pd-routes"
     ipv6pdRoute.EntityData.SegmentPath = "ipv6pd-route" + types.AddKeyToken(ipv6pdRoute.Vrfname, "vrfname") + types.AddKeyToken(ipv6pdRoute.PrefixLength, "prefix-length") + types.AddKeyToken(ipv6pdRoute.PrefixString, "prefix-string")
+    ipv6pdRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-srg-cfg:subscriber-redundancy/groups/group/state-control-route/ipv6-route/ipv6pd-routes/" + ipv6pdRoute.EntityData.SegmentPath
     ipv6pdRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6pdRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6pdRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -913,6 +944,7 @@ func (revertiveTimer *SubscriberRedundancy_RevertiveTimer) GetEntityData() *type
     revertiveTimer.EntityData.BundleName = "cisco_ios_xr"
     revertiveTimer.EntityData.ParentYangName = "subscriber-redundancy"
     revertiveTimer.EntityData.SegmentPath = "revertive-timer"
+    revertiveTimer.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-srg-cfg:subscriber-redundancy/" + revertiveTimer.EntityData.SegmentPath
     revertiveTimer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     revertiveTimer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     revertiveTimer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

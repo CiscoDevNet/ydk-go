@@ -80,6 +80,7 @@ func (components *Components) GetEntityData() *types.CommonEntityData {
     components.EntityData.BundleName = "cisco_ios_xe"
     components.EntityData.ParentYangName = "Cisco-IOS-XE-platform-oper"
     components.EntityData.SegmentPath = "Cisco-IOS-XE-platform-oper:components"
+    components.EntityData.AbsolutePath = components.EntityData.SegmentPath
     components.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     components.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     components.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -101,6 +102,7 @@ func (components *Components) GetEntityData() *types.CommonEntityData {
 type Components_Component struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. References component name. The type is string.
     Cname interface{}
@@ -121,6 +123,7 @@ func (component *Components_Component) GetEntityData() *types.CommonEntityData {
     component.EntityData.BundleName = "cisco_ios_xe"
     component.EntityData.ParentYangName = "components"
     component.EntityData.SegmentPath = "component" + types.AddKeyToken(component.Cname, "cname")
+    component.EntityData.AbsolutePath = "Cisco-IOS-XE-platform-oper:components/" + component.EntityData.SegmentPath
     component.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     component.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     component.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -184,6 +187,7 @@ func (state *Components_Component_State) GetEntityData() *types.CommonEntityData
     state.EntityData.BundleName = "cisco_ios_xe"
     state.EntityData.ParentYangName = "component"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "Cisco-IOS-XE-platform-oper:components/component/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     state.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -236,6 +240,7 @@ func (temp *Components_Component_State_Temp) GetEntityData() *types.CommonEntity
     temp.EntityData.BundleName = "cisco_ios_xe"
     temp.EntityData.ParentYangName = "state"
     temp.EntityData.SegmentPath = "temp"
+    temp.EntityData.AbsolutePath = "Cisco-IOS-XE-platform-oper:components/component/state/" + temp.EntityData.SegmentPath
     temp.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     temp.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     temp.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -269,6 +274,7 @@ func (platformProperties *Components_Component_PlatformProperties) GetEntityData
     platformProperties.EntityData.BundleName = "cisco_ios_xe"
     platformProperties.EntityData.ParentYangName = "component"
     platformProperties.EntityData.SegmentPath = "platform-properties"
+    platformProperties.EntityData.AbsolutePath = "Cisco-IOS-XE-platform-oper:components/component/" + platformProperties.EntityData.SegmentPath
     platformProperties.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     platformProperties.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     platformProperties.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -290,6 +296,7 @@ func (platformProperties *Components_Component_PlatformProperties) GetEntityData
 type Components_Component_PlatformProperties_PlatformProperty struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Property name. The type is string.
     Name interface{}
@@ -307,6 +314,7 @@ func (platformProperty *Components_Component_PlatformProperties_PlatformProperty
     platformProperty.EntityData.BundleName = "cisco_ios_xe"
     platformProperty.EntityData.ParentYangName = "platform-properties"
     platformProperty.EntityData.SegmentPath = "platform-property" + types.AddKeyToken(platformProperty.Name, "name")
+    platformProperty.EntityData.AbsolutePath = "Cisco-IOS-XE-platform-oper:components/component/platform-properties/" + platformProperty.EntityData.SegmentPath
     platformProperty.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     platformProperty.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     platformProperty.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -353,6 +361,7 @@ func (value *Components_Component_PlatformProperties_PlatformProperty_Value) Get
     value.EntityData.BundleName = "cisco_ios_xe"
     value.EntityData.ParentYangName = "platform-property"
     value.EntityData.SegmentPath = "value"
+    value.EntityData.AbsolutePath = "Cisco-IOS-XE-platform-oper:components/component/platform-properties/platform-property/" + value.EntityData.SegmentPath
     value.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     value.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     value.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -387,6 +396,7 @@ func (platformSubcomponents *Components_Component_PlatformSubcomponents) GetEnti
     platformSubcomponents.EntityData.BundleName = "cisco_ios_xe"
     platformSubcomponents.EntityData.ParentYangName = "component"
     platformSubcomponents.EntityData.SegmentPath = "platform-subcomponents"
+    platformSubcomponents.EntityData.AbsolutePath = "Cisco-IOS-XE-platform-oper:components/component/" + platformSubcomponents.EntityData.SegmentPath
     platformSubcomponents.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     platformSubcomponents.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     platformSubcomponents.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -408,6 +418,7 @@ func (platformSubcomponents *Components_Component_PlatformSubcomponents) GetEnti
 type Components_Component_PlatformSubcomponents_PlatformSubcomponent struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Subcomponent name. The type is string.
     Name interface{}
@@ -419,6 +430,7 @@ func (platformSubcomponent *Components_Component_PlatformSubcomponents_PlatformS
     platformSubcomponent.EntityData.BundleName = "cisco_ios_xe"
     platformSubcomponent.EntityData.ParentYangName = "platform-subcomponents"
     platformSubcomponent.EntityData.SegmentPath = "platform-subcomponent" + types.AddKeyToken(platformSubcomponent.Name, "name")
+    platformSubcomponent.EntityData.AbsolutePath = "Cisco-IOS-XE-platform-oper:components/component/platform-subcomponents/" + platformSubcomponent.EntityData.SegmentPath
     platformSubcomponent.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     platformSubcomponent.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     platformSubcomponent.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

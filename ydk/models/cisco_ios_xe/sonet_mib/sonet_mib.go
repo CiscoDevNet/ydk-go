@@ -80,6 +80,7 @@ func (sONETMIB *SONETMIB) GetEntityData() *types.CommonEntityData {
     sONETMIB.EntityData.BundleName = "cisco_ios_xe"
     sONETMIB.EntityData.ParentYangName = "SONET-MIB"
     sONETMIB.EntityData.SegmentPath = "SONET-MIB:SONET-MIB"
+    sONETMIB.EntityData.AbsolutePath = sONETMIB.EntityData.SegmentPath
     sONETMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     sONETMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     sONETMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -132,6 +133,7 @@ func (sonetMedium *SONETMIB_SonetMedium) GetEntityData() *types.CommonEntityData
     sonetMedium.EntityData.BundleName = "cisco_ios_xe"
     sonetMedium.EntityData.ParentYangName = "SONET-MIB"
     sonetMedium.EntityData.SegmentPath = "sonetMedium"
+    sonetMedium.EntityData.AbsolutePath = "SONET-MIB:SONET-MIB/" + sonetMedium.EntityData.SegmentPath
     sonetMedium.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     sonetMedium.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     sonetMedium.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -177,6 +179,7 @@ func (sonetMediumTable *SONETMIB_SonetMediumTable) GetEntityData() *types.Common
     sonetMediumTable.EntityData.BundleName = "cisco_ios_xe"
     sonetMediumTable.EntityData.ParentYangName = "SONET-MIB"
     sonetMediumTable.EntityData.SegmentPath = "sonetMediumTable"
+    sonetMediumTable.EntityData.AbsolutePath = "SONET-MIB:SONET-MIB/" + sonetMediumTable.EntityData.SegmentPath
     sonetMediumTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     sonetMediumTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     sonetMediumTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -198,6 +201,7 @@ func (sonetMediumTable *SONETMIB_SonetMediumTable) GetEntityData() *types.Common
 type SONETMIB_SonetMediumTable_SonetMediumEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -269,6 +273,7 @@ func (sonetMediumEntry *SONETMIB_SonetMediumTable_SonetMediumEntry) GetEntityDat
     sonetMediumEntry.EntityData.BundleName = "cisco_ios_xe"
     sonetMediumEntry.EntityData.ParentYangName = "sonetMediumTable"
     sonetMediumEntry.EntityData.SegmentPath = "sonetMediumEntry" + types.AddKeyToken(sonetMediumEntry.IfIndex, "ifIndex")
+    sonetMediumEntry.EntityData.AbsolutePath = "SONET-MIB:SONET-MIB/sonetMediumTable/" + sonetMediumEntry.EntityData.SegmentPath
     sonetMediumEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     sonetMediumEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     sonetMediumEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -348,6 +353,7 @@ func (sonetSectionCurrentTable *SONETMIB_SonetSectionCurrentTable) GetEntityData
     sonetSectionCurrentTable.EntityData.BundleName = "cisco_ios_xe"
     sonetSectionCurrentTable.EntityData.ParentYangName = "SONET-MIB"
     sonetSectionCurrentTable.EntityData.SegmentPath = "sonetSectionCurrentTable"
+    sonetSectionCurrentTable.EntityData.AbsolutePath = "SONET-MIB:SONET-MIB/" + sonetSectionCurrentTable.EntityData.SegmentPath
     sonetSectionCurrentTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     sonetSectionCurrentTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     sonetSectionCurrentTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -369,6 +375,7 @@ func (sonetSectionCurrentTable *SONETMIB_SonetSectionCurrentTable) GetEntityData
 type SONETMIB_SonetSectionCurrentTable_SonetSectionCurrentEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -409,6 +416,7 @@ func (sonetSectionCurrentEntry *SONETMIB_SonetSectionCurrentTable_SonetSectionCu
     sonetSectionCurrentEntry.EntityData.BundleName = "cisco_ios_xe"
     sonetSectionCurrentEntry.EntityData.ParentYangName = "sonetSectionCurrentTable"
     sonetSectionCurrentEntry.EntityData.SegmentPath = "sonetSectionCurrentEntry" + types.AddKeyToken(sonetSectionCurrentEntry.IfIndex, "ifIndex")
+    sonetSectionCurrentEntry.EntityData.AbsolutePath = "SONET-MIB:SONET-MIB/sonetSectionCurrentTable/" + sonetSectionCurrentEntry.EntityData.SegmentPath
     sonetSectionCurrentEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     sonetSectionCurrentEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     sonetSectionCurrentEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -444,6 +452,7 @@ func (sonetSectionIntervalTable *SONETMIB_SonetSectionIntervalTable) GetEntityDa
     sonetSectionIntervalTable.EntityData.BundleName = "cisco_ios_xe"
     sonetSectionIntervalTable.EntityData.ParentYangName = "SONET-MIB"
     sonetSectionIntervalTable.EntityData.SegmentPath = "sonetSectionIntervalTable"
+    sonetSectionIntervalTable.EntityData.AbsolutePath = "SONET-MIB:SONET-MIB/" + sonetSectionIntervalTable.EntityData.SegmentPath
     sonetSectionIntervalTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     sonetSectionIntervalTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     sonetSectionIntervalTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -465,6 +474,7 @@ func (sonetSectionIntervalTable *SONETMIB_SonetSectionIntervalTable) GetEntityDa
 type SONETMIB_SonetSectionIntervalTable_SonetSectionIntervalEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -508,6 +518,7 @@ func (sonetSectionIntervalEntry *SONETMIB_SonetSectionIntervalTable_SonetSection
     sonetSectionIntervalEntry.EntityData.BundleName = "cisco_ios_xe"
     sonetSectionIntervalEntry.EntityData.ParentYangName = "sonetSectionIntervalTable"
     sonetSectionIntervalEntry.EntityData.SegmentPath = "sonetSectionIntervalEntry" + types.AddKeyToken(sonetSectionIntervalEntry.IfIndex, "ifIndex") + types.AddKeyToken(sonetSectionIntervalEntry.SonetSectionIntervalNumber, "sonetSectionIntervalNumber")
+    sonetSectionIntervalEntry.EntityData.AbsolutePath = "SONET-MIB:SONET-MIB/sonetSectionIntervalTable/" + sonetSectionIntervalEntry.EntityData.SegmentPath
     sonetSectionIntervalEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     sonetSectionIntervalEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     sonetSectionIntervalEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -544,6 +555,7 @@ func (sonetLineCurrentTable *SONETMIB_SonetLineCurrentTable) GetEntityData() *ty
     sonetLineCurrentTable.EntityData.BundleName = "cisco_ios_xe"
     sonetLineCurrentTable.EntityData.ParentYangName = "SONET-MIB"
     sonetLineCurrentTable.EntityData.SegmentPath = "sonetLineCurrentTable"
+    sonetLineCurrentTable.EntityData.AbsolutePath = "SONET-MIB:SONET-MIB/" + sonetLineCurrentTable.EntityData.SegmentPath
     sonetLineCurrentTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     sonetLineCurrentTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     sonetLineCurrentTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -565,6 +577,7 @@ func (sonetLineCurrentTable *SONETMIB_SonetLineCurrentTable) GetEntityData() *ty
 type SONETMIB_SonetLineCurrentTable_SonetLineCurrentEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -605,6 +618,7 @@ func (sonetLineCurrentEntry *SONETMIB_SonetLineCurrentTable_SonetLineCurrentEntr
     sonetLineCurrentEntry.EntityData.BundleName = "cisco_ios_xe"
     sonetLineCurrentEntry.EntityData.ParentYangName = "sonetLineCurrentTable"
     sonetLineCurrentEntry.EntityData.SegmentPath = "sonetLineCurrentEntry" + types.AddKeyToken(sonetLineCurrentEntry.IfIndex, "ifIndex")
+    sonetLineCurrentEntry.EntityData.AbsolutePath = "SONET-MIB:SONET-MIB/sonetLineCurrentTable/" + sonetLineCurrentEntry.EntityData.SegmentPath
     sonetLineCurrentEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     sonetLineCurrentEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     sonetLineCurrentEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -640,6 +654,7 @@ func (sonetLineIntervalTable *SONETMIB_SonetLineIntervalTable) GetEntityData() *
     sonetLineIntervalTable.EntityData.BundleName = "cisco_ios_xe"
     sonetLineIntervalTable.EntityData.ParentYangName = "SONET-MIB"
     sonetLineIntervalTable.EntityData.SegmentPath = "sonetLineIntervalTable"
+    sonetLineIntervalTable.EntityData.AbsolutePath = "SONET-MIB:SONET-MIB/" + sonetLineIntervalTable.EntityData.SegmentPath
     sonetLineIntervalTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     sonetLineIntervalTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     sonetLineIntervalTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -661,6 +676,7 @@ func (sonetLineIntervalTable *SONETMIB_SonetLineIntervalTable) GetEntityData() *
 type SONETMIB_SonetLineIntervalTable_SonetLineIntervalEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -704,6 +720,7 @@ func (sonetLineIntervalEntry *SONETMIB_SonetLineIntervalTable_SonetLineIntervalE
     sonetLineIntervalEntry.EntityData.BundleName = "cisco_ios_xe"
     sonetLineIntervalEntry.EntityData.ParentYangName = "sonetLineIntervalTable"
     sonetLineIntervalEntry.EntityData.SegmentPath = "sonetLineIntervalEntry" + types.AddKeyToken(sonetLineIntervalEntry.IfIndex, "ifIndex") + types.AddKeyToken(sonetLineIntervalEntry.SonetLineIntervalNumber, "sonetLineIntervalNumber")
+    sonetLineIntervalEntry.EntityData.AbsolutePath = "SONET-MIB:SONET-MIB/sonetLineIntervalTable/" + sonetLineIntervalEntry.EntityData.SegmentPath
     sonetLineIntervalEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     sonetLineIntervalEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     sonetLineIntervalEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -740,6 +757,7 @@ func (sonetFarEndLineCurrentTable *SONETMIB_SonetFarEndLineCurrentTable) GetEnti
     sonetFarEndLineCurrentTable.EntityData.BundleName = "cisco_ios_xe"
     sonetFarEndLineCurrentTable.EntityData.ParentYangName = "SONET-MIB"
     sonetFarEndLineCurrentTable.EntityData.SegmentPath = "sonetFarEndLineCurrentTable"
+    sonetFarEndLineCurrentTable.EntityData.AbsolutePath = "SONET-MIB:SONET-MIB/" + sonetFarEndLineCurrentTable.EntityData.SegmentPath
     sonetFarEndLineCurrentTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     sonetFarEndLineCurrentTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     sonetFarEndLineCurrentTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -761,6 +779,7 @@ func (sonetFarEndLineCurrentTable *SONETMIB_SonetFarEndLineCurrentTable) GetEnti
 type SONETMIB_SonetFarEndLineCurrentTable_SonetFarEndLineCurrentEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -794,6 +813,7 @@ func (sonetFarEndLineCurrentEntry *SONETMIB_SonetFarEndLineCurrentTable_SonetFar
     sonetFarEndLineCurrentEntry.EntityData.BundleName = "cisco_ios_xe"
     sonetFarEndLineCurrentEntry.EntityData.ParentYangName = "sonetFarEndLineCurrentTable"
     sonetFarEndLineCurrentEntry.EntityData.SegmentPath = "sonetFarEndLineCurrentEntry" + types.AddKeyToken(sonetFarEndLineCurrentEntry.IfIndex, "ifIndex")
+    sonetFarEndLineCurrentEntry.EntityData.AbsolutePath = "SONET-MIB:SONET-MIB/sonetFarEndLineCurrentTable/" + sonetFarEndLineCurrentEntry.EntityData.SegmentPath
     sonetFarEndLineCurrentEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     sonetFarEndLineCurrentEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     sonetFarEndLineCurrentEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -828,6 +848,7 @@ func (sonetFarEndLineIntervalTable *SONETMIB_SonetFarEndLineIntervalTable) GetEn
     sonetFarEndLineIntervalTable.EntityData.BundleName = "cisco_ios_xe"
     sonetFarEndLineIntervalTable.EntityData.ParentYangName = "SONET-MIB"
     sonetFarEndLineIntervalTable.EntityData.SegmentPath = "sonetFarEndLineIntervalTable"
+    sonetFarEndLineIntervalTable.EntityData.AbsolutePath = "SONET-MIB:SONET-MIB/" + sonetFarEndLineIntervalTable.EntityData.SegmentPath
     sonetFarEndLineIntervalTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     sonetFarEndLineIntervalTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     sonetFarEndLineIntervalTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -850,6 +871,7 @@ func (sonetFarEndLineIntervalTable *SONETMIB_SonetFarEndLineIntervalTable) GetEn
 type SONETMIB_SonetFarEndLineIntervalTable_SonetFarEndLineIntervalEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -897,6 +919,7 @@ func (sonetFarEndLineIntervalEntry *SONETMIB_SonetFarEndLineIntervalTable_SonetF
     sonetFarEndLineIntervalEntry.EntityData.BundleName = "cisco_ios_xe"
     sonetFarEndLineIntervalEntry.EntityData.ParentYangName = "sonetFarEndLineIntervalTable"
     sonetFarEndLineIntervalEntry.EntityData.SegmentPath = "sonetFarEndLineIntervalEntry" + types.AddKeyToken(sonetFarEndLineIntervalEntry.IfIndex, "ifIndex") + types.AddKeyToken(sonetFarEndLineIntervalEntry.SonetFarEndLineIntervalNumber, "sonetFarEndLineIntervalNumber")
+    sonetFarEndLineIntervalEntry.EntityData.AbsolutePath = "SONET-MIB:SONET-MIB/sonetFarEndLineIntervalTable/" + sonetFarEndLineIntervalEntry.EntityData.SegmentPath
     sonetFarEndLineIntervalEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     sonetFarEndLineIntervalEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     sonetFarEndLineIntervalEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -933,6 +956,7 @@ func (sonetPathCurrentTable *SONETMIB_SonetPathCurrentTable) GetEntityData() *ty
     sonetPathCurrentTable.EntityData.BundleName = "cisco_ios_xe"
     sonetPathCurrentTable.EntityData.ParentYangName = "SONET-MIB"
     sonetPathCurrentTable.EntityData.SegmentPath = "sonetPathCurrentTable"
+    sonetPathCurrentTable.EntityData.AbsolutePath = "SONET-MIB:SONET-MIB/" + sonetPathCurrentTable.EntityData.SegmentPath
     sonetPathCurrentTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     sonetPathCurrentTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     sonetPathCurrentTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -954,6 +978,7 @@ func (sonetPathCurrentTable *SONETMIB_SonetPathCurrentTable) GetEntityData() *ty
 type SONETMIB_SonetPathCurrentTable_SonetPathCurrentEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -1043,6 +1068,7 @@ func (sonetPathCurrentEntry *SONETMIB_SonetPathCurrentTable_SonetPathCurrentEntr
     sonetPathCurrentEntry.EntityData.BundleName = "cisco_ios_xe"
     sonetPathCurrentEntry.EntityData.ParentYangName = "sonetPathCurrentTable"
     sonetPathCurrentEntry.EntityData.SegmentPath = "sonetPathCurrentEntry" + types.AddKeyToken(sonetPathCurrentEntry.IfIndex, "ifIndex")
+    sonetPathCurrentEntry.EntityData.AbsolutePath = "SONET-MIB:SONET-MIB/sonetPathCurrentTable/" + sonetPathCurrentEntry.EntityData.SegmentPath
     sonetPathCurrentEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     sonetPathCurrentEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     sonetPathCurrentEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1156,6 +1182,7 @@ func (sonetPathIntervalTable *SONETMIB_SonetPathIntervalTable) GetEntityData() *
     sonetPathIntervalTable.EntityData.BundleName = "cisco_ios_xe"
     sonetPathIntervalTable.EntityData.ParentYangName = "SONET-MIB"
     sonetPathIntervalTable.EntityData.SegmentPath = "sonetPathIntervalTable"
+    sonetPathIntervalTable.EntityData.AbsolutePath = "SONET-MIB:SONET-MIB/" + sonetPathIntervalTable.EntityData.SegmentPath
     sonetPathIntervalTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     sonetPathIntervalTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     sonetPathIntervalTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1177,6 +1204,7 @@ func (sonetPathIntervalTable *SONETMIB_SonetPathIntervalTable) GetEntityData() *
 type SONETMIB_SonetPathIntervalTable_SonetPathIntervalEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -1220,6 +1248,7 @@ func (sonetPathIntervalEntry *SONETMIB_SonetPathIntervalTable_SonetPathIntervalE
     sonetPathIntervalEntry.EntityData.BundleName = "cisco_ios_xe"
     sonetPathIntervalEntry.EntityData.ParentYangName = "sonetPathIntervalTable"
     sonetPathIntervalEntry.EntityData.SegmentPath = "sonetPathIntervalEntry" + types.AddKeyToken(sonetPathIntervalEntry.IfIndex, "ifIndex") + types.AddKeyToken(sonetPathIntervalEntry.SonetPathIntervalNumber, "sonetPathIntervalNumber")
+    sonetPathIntervalEntry.EntityData.AbsolutePath = "SONET-MIB:SONET-MIB/sonetPathIntervalTable/" + sonetPathIntervalEntry.EntityData.SegmentPath
     sonetPathIntervalEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     sonetPathIntervalEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     sonetPathIntervalEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1256,6 +1285,7 @@ func (sonetFarEndPathCurrentTable *SONETMIB_SonetFarEndPathCurrentTable) GetEnti
     sonetFarEndPathCurrentTable.EntityData.BundleName = "cisco_ios_xe"
     sonetFarEndPathCurrentTable.EntityData.ParentYangName = "SONET-MIB"
     sonetFarEndPathCurrentTable.EntityData.SegmentPath = "sonetFarEndPathCurrentTable"
+    sonetFarEndPathCurrentTable.EntityData.AbsolutePath = "SONET-MIB:SONET-MIB/" + sonetFarEndPathCurrentTable.EntityData.SegmentPath
     sonetFarEndPathCurrentTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     sonetFarEndPathCurrentTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     sonetFarEndPathCurrentTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1277,6 +1307,7 @@ func (sonetFarEndPathCurrentTable *SONETMIB_SonetFarEndPathCurrentTable) GetEnti
 type SONETMIB_SonetFarEndPathCurrentTable_SonetFarEndPathCurrentEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -1310,6 +1341,7 @@ func (sonetFarEndPathCurrentEntry *SONETMIB_SonetFarEndPathCurrentTable_SonetFar
     sonetFarEndPathCurrentEntry.EntityData.BundleName = "cisco_ios_xe"
     sonetFarEndPathCurrentEntry.EntityData.ParentYangName = "sonetFarEndPathCurrentTable"
     sonetFarEndPathCurrentEntry.EntityData.SegmentPath = "sonetFarEndPathCurrentEntry" + types.AddKeyToken(sonetFarEndPathCurrentEntry.IfIndex, "ifIndex")
+    sonetFarEndPathCurrentEntry.EntityData.AbsolutePath = "SONET-MIB:SONET-MIB/sonetFarEndPathCurrentTable/" + sonetFarEndPathCurrentEntry.EntityData.SegmentPath
     sonetFarEndPathCurrentEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     sonetFarEndPathCurrentEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     sonetFarEndPathCurrentEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1344,6 +1376,7 @@ func (sonetFarEndPathIntervalTable *SONETMIB_SonetFarEndPathIntervalTable) GetEn
     sonetFarEndPathIntervalTable.EntityData.BundleName = "cisco_ios_xe"
     sonetFarEndPathIntervalTable.EntityData.ParentYangName = "SONET-MIB"
     sonetFarEndPathIntervalTable.EntityData.SegmentPath = "sonetFarEndPathIntervalTable"
+    sonetFarEndPathIntervalTable.EntityData.AbsolutePath = "SONET-MIB:SONET-MIB/" + sonetFarEndPathIntervalTable.EntityData.SegmentPath
     sonetFarEndPathIntervalTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     sonetFarEndPathIntervalTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     sonetFarEndPathIntervalTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1366,6 +1399,7 @@ func (sonetFarEndPathIntervalTable *SONETMIB_SonetFarEndPathIntervalTable) GetEn
 type SONETMIB_SonetFarEndPathIntervalTable_SonetFarEndPathIntervalEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -1413,6 +1447,7 @@ func (sonetFarEndPathIntervalEntry *SONETMIB_SonetFarEndPathIntervalTable_SonetF
     sonetFarEndPathIntervalEntry.EntityData.BundleName = "cisco_ios_xe"
     sonetFarEndPathIntervalEntry.EntityData.ParentYangName = "sonetFarEndPathIntervalTable"
     sonetFarEndPathIntervalEntry.EntityData.SegmentPath = "sonetFarEndPathIntervalEntry" + types.AddKeyToken(sonetFarEndPathIntervalEntry.IfIndex, "ifIndex") + types.AddKeyToken(sonetFarEndPathIntervalEntry.SonetFarEndPathIntervalNumber, "sonetFarEndPathIntervalNumber")
+    sonetFarEndPathIntervalEntry.EntityData.AbsolutePath = "SONET-MIB:SONET-MIB/sonetFarEndPathIntervalTable/" + sonetFarEndPathIntervalEntry.EntityData.SegmentPath
     sonetFarEndPathIntervalEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     sonetFarEndPathIntervalEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     sonetFarEndPathIntervalEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1449,6 +1484,7 @@ func (sonetVTCurrentTable *SONETMIB_SonetVTCurrentTable) GetEntityData() *types.
     sonetVTCurrentTable.EntityData.BundleName = "cisco_ios_xe"
     sonetVTCurrentTable.EntityData.ParentYangName = "SONET-MIB"
     sonetVTCurrentTable.EntityData.SegmentPath = "sonetVTCurrentTable"
+    sonetVTCurrentTable.EntityData.AbsolutePath = "SONET-MIB:SONET-MIB/" + sonetVTCurrentTable.EntityData.SegmentPath
     sonetVTCurrentTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     sonetVTCurrentTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     sonetVTCurrentTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1470,6 +1506,7 @@ func (sonetVTCurrentTable *SONETMIB_SonetVTCurrentTable) GetEntityData() *types.
 type SONETMIB_SonetVTCurrentTable_SonetVTCurrentEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -1517,6 +1554,7 @@ func (sonetVTCurrentEntry *SONETMIB_SonetVTCurrentTable_SonetVTCurrentEntry) Get
     sonetVTCurrentEntry.EntityData.BundleName = "cisco_ios_xe"
     sonetVTCurrentEntry.EntityData.ParentYangName = "sonetVTCurrentTable"
     sonetVTCurrentEntry.EntityData.SegmentPath = "sonetVTCurrentEntry" + types.AddKeyToken(sonetVTCurrentEntry.IfIndex, "ifIndex")
+    sonetVTCurrentEntry.EntityData.AbsolutePath = "SONET-MIB:SONET-MIB/sonetVTCurrentTable/" + sonetVTCurrentEntry.EntityData.SegmentPath
     sonetVTCurrentEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     sonetVTCurrentEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     sonetVTCurrentEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1568,6 +1606,7 @@ func (sonetVTIntervalTable *SONETMIB_SonetVTIntervalTable) GetEntityData() *type
     sonetVTIntervalTable.EntityData.BundleName = "cisco_ios_xe"
     sonetVTIntervalTable.EntityData.ParentYangName = "SONET-MIB"
     sonetVTIntervalTable.EntityData.SegmentPath = "sonetVTIntervalTable"
+    sonetVTIntervalTable.EntityData.AbsolutePath = "SONET-MIB:SONET-MIB/" + sonetVTIntervalTable.EntityData.SegmentPath
     sonetVTIntervalTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     sonetVTIntervalTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     sonetVTIntervalTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1589,6 +1628,7 @@ func (sonetVTIntervalTable *SONETMIB_SonetVTIntervalTable) GetEntityData() *type
 type SONETMIB_SonetVTIntervalTable_SonetVTIntervalEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -1632,6 +1672,7 @@ func (sonetVTIntervalEntry *SONETMIB_SonetVTIntervalTable_SonetVTIntervalEntry) 
     sonetVTIntervalEntry.EntityData.BundleName = "cisco_ios_xe"
     sonetVTIntervalEntry.EntityData.ParentYangName = "sonetVTIntervalTable"
     sonetVTIntervalEntry.EntityData.SegmentPath = "sonetVTIntervalEntry" + types.AddKeyToken(sonetVTIntervalEntry.IfIndex, "ifIndex") + types.AddKeyToken(sonetVTIntervalEntry.SonetVTIntervalNumber, "sonetVTIntervalNumber")
+    sonetVTIntervalEntry.EntityData.AbsolutePath = "SONET-MIB:SONET-MIB/sonetVTIntervalTable/" + sonetVTIntervalEntry.EntityData.SegmentPath
     sonetVTIntervalEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     sonetVTIntervalEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     sonetVTIntervalEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1668,6 +1709,7 @@ func (sonetFarEndVTCurrentTable *SONETMIB_SonetFarEndVTCurrentTable) GetEntityDa
     sonetFarEndVTCurrentTable.EntityData.BundleName = "cisco_ios_xe"
     sonetFarEndVTCurrentTable.EntityData.ParentYangName = "SONET-MIB"
     sonetFarEndVTCurrentTable.EntityData.SegmentPath = "sonetFarEndVTCurrentTable"
+    sonetFarEndVTCurrentTable.EntityData.AbsolutePath = "SONET-MIB:SONET-MIB/" + sonetFarEndVTCurrentTable.EntityData.SegmentPath
     sonetFarEndVTCurrentTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     sonetFarEndVTCurrentTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     sonetFarEndVTCurrentTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1689,6 +1731,7 @@ func (sonetFarEndVTCurrentTable *SONETMIB_SonetFarEndVTCurrentTable) GetEntityDa
 type SONETMIB_SonetFarEndVTCurrentTable_SonetFarEndVTCurrentEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -1722,6 +1765,7 @@ func (sonetFarEndVTCurrentEntry *SONETMIB_SonetFarEndVTCurrentTable_SonetFarEndV
     sonetFarEndVTCurrentEntry.EntityData.BundleName = "cisco_ios_xe"
     sonetFarEndVTCurrentEntry.EntityData.ParentYangName = "sonetFarEndVTCurrentTable"
     sonetFarEndVTCurrentEntry.EntityData.SegmentPath = "sonetFarEndVTCurrentEntry" + types.AddKeyToken(sonetFarEndVTCurrentEntry.IfIndex, "ifIndex")
+    sonetFarEndVTCurrentEntry.EntityData.AbsolutePath = "SONET-MIB:SONET-MIB/sonetFarEndVTCurrentTable/" + sonetFarEndVTCurrentEntry.EntityData.SegmentPath
     sonetFarEndVTCurrentEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     sonetFarEndVTCurrentEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     sonetFarEndVTCurrentEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1756,6 +1800,7 @@ func (sonetFarEndVTIntervalTable *SONETMIB_SonetFarEndVTIntervalTable) GetEntity
     sonetFarEndVTIntervalTable.EntityData.BundleName = "cisco_ios_xe"
     sonetFarEndVTIntervalTable.EntityData.ParentYangName = "SONET-MIB"
     sonetFarEndVTIntervalTable.EntityData.SegmentPath = "sonetFarEndVTIntervalTable"
+    sonetFarEndVTIntervalTable.EntityData.AbsolutePath = "SONET-MIB:SONET-MIB/" + sonetFarEndVTIntervalTable.EntityData.SegmentPath
     sonetFarEndVTIntervalTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     sonetFarEndVTIntervalTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     sonetFarEndVTIntervalTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1778,6 +1823,7 @@ func (sonetFarEndVTIntervalTable *SONETMIB_SonetFarEndVTIntervalTable) GetEntity
 type SONETMIB_SonetFarEndVTIntervalTable_SonetFarEndVTIntervalEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -1822,6 +1868,7 @@ func (sonetFarEndVTIntervalEntry *SONETMIB_SonetFarEndVTIntervalTable_SonetFarEn
     sonetFarEndVTIntervalEntry.EntityData.BundleName = "cisco_ios_xe"
     sonetFarEndVTIntervalEntry.EntityData.ParentYangName = "sonetFarEndVTIntervalTable"
     sonetFarEndVTIntervalEntry.EntityData.SegmentPath = "sonetFarEndVTIntervalEntry" + types.AddKeyToken(sonetFarEndVTIntervalEntry.IfIndex, "ifIndex") + types.AddKeyToken(sonetFarEndVTIntervalEntry.SonetFarEndVTIntervalNumber, "sonetFarEndVTIntervalNumber")
+    sonetFarEndVTIntervalEntry.EntityData.AbsolutePath = "SONET-MIB:SONET-MIB/sonetFarEndVTIntervalTable/" + sonetFarEndVTIntervalEntry.EntityData.SegmentPath
     sonetFarEndVTIntervalEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     sonetFarEndVTIntervalEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     sonetFarEndVTIntervalEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

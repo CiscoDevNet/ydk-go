@@ -384,6 +384,7 @@ func (cISCORTTMONMIB *CISCORTTMONMIB) GetEntityData() *types.CommonEntityData {
     cISCORTTMONMIB.EntityData.BundleName = "cisco_ios_xe"
     cISCORTTMONMIB.EntityData.ParentYangName = "CISCO-RTTMON-MIB"
     cISCORTTMONMIB.EntityData.SegmentPath = "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB"
+    cISCORTTMONMIB.EntityData.AbsolutePath = cISCORTTMONMIB.EntityData.SegmentPath
     cISCORTTMONMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cISCORTTMONMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCORTTMONMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -512,6 +513,7 @@ func (rttMonAppl *CISCORTTMONMIB_RttMonAppl) GetEntityData() *types.CommonEntity
     rttMonAppl.EntityData.BundleName = "cisco_ios_xe"
     rttMonAppl.EntityData.ParentYangName = "CISCO-RTTMON-MIB"
     rttMonAppl.EntityData.SegmentPath = "rttMonAppl"
+    rttMonAppl.EntityData.AbsolutePath = "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/" + rttMonAppl.EntityData.SegmentPath
     rttMonAppl.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     rttMonAppl.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     rttMonAppl.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -556,6 +558,7 @@ func (rttMonApplSupportedRttTypesTable *CISCORTTMONMIB_RttMonApplSupportedRttTyp
     rttMonApplSupportedRttTypesTable.EntityData.BundleName = "cisco_ios_xe"
     rttMonApplSupportedRttTypesTable.EntityData.ParentYangName = "CISCO-RTTMON-MIB"
     rttMonApplSupportedRttTypesTable.EntityData.SegmentPath = "rttMonApplSupportedRttTypesTable"
+    rttMonApplSupportedRttTypesTable.EntityData.AbsolutePath = "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/" + rttMonApplSupportedRttTypesTable.EntityData.SegmentPath
     rttMonApplSupportedRttTypesTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     rttMonApplSupportedRttTypesTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     rttMonApplSupportedRttTypesTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -578,6 +581,7 @@ func (rttMonApplSupportedRttTypesTable *CISCORTTMONMIB_RttMonApplSupportedRttTyp
 type CISCORTTMONMIB_RttMonApplSupportedRttTypesTable_RttMonApplSupportedRttTypesEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. This object indexes the supported 'RttMonRttType'
     // types. The type is RttMonRttType.
@@ -593,6 +597,7 @@ func (rttMonApplSupportedRttTypesEntry *CISCORTTMONMIB_RttMonApplSupportedRttTyp
     rttMonApplSupportedRttTypesEntry.EntityData.BundleName = "cisco_ios_xe"
     rttMonApplSupportedRttTypesEntry.EntityData.ParentYangName = "rttMonApplSupportedRttTypesTable"
     rttMonApplSupportedRttTypesEntry.EntityData.SegmentPath = "rttMonApplSupportedRttTypesEntry" + types.AddKeyToken(rttMonApplSupportedRttTypesEntry.RttMonApplSupportedRttTypes, "rttMonApplSupportedRttTypes")
+    rttMonApplSupportedRttTypesEntry.EntityData.AbsolutePath = "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/rttMonApplSupportedRttTypesTable/" + rttMonApplSupportedRttTypesEntry.EntityData.SegmentPath
     rttMonApplSupportedRttTypesEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     rttMonApplSupportedRttTypesEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     rttMonApplSupportedRttTypesEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -628,6 +633,7 @@ func (rttMonApplSupportedProtocolsTable *CISCORTTMONMIB_RttMonApplSupportedProto
     rttMonApplSupportedProtocolsTable.EntityData.BundleName = "cisco_ios_xe"
     rttMonApplSupportedProtocolsTable.EntityData.ParentYangName = "CISCO-RTTMON-MIB"
     rttMonApplSupportedProtocolsTable.EntityData.SegmentPath = "rttMonApplSupportedProtocolsTable"
+    rttMonApplSupportedProtocolsTable.EntityData.AbsolutePath = "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/" + rttMonApplSupportedProtocolsTable.EntityData.SegmentPath
     rttMonApplSupportedProtocolsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     rttMonApplSupportedProtocolsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     rttMonApplSupportedProtocolsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -650,6 +656,7 @@ func (rttMonApplSupportedProtocolsTable *CISCORTTMONMIB_RttMonApplSupportedProto
 type CISCORTTMONMIB_RttMonApplSupportedProtocolsTable_RttMonApplSupportedProtocolsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. This object indexes the supported 'RttMonProtocol'
     // protocols. The type is RttMonProtocol.
@@ -666,6 +673,7 @@ func (rttMonApplSupportedProtocolsEntry *CISCORTTMONMIB_RttMonApplSupportedProto
     rttMonApplSupportedProtocolsEntry.EntityData.BundleName = "cisco_ios_xe"
     rttMonApplSupportedProtocolsEntry.EntityData.ParentYangName = "rttMonApplSupportedProtocolsTable"
     rttMonApplSupportedProtocolsEntry.EntityData.SegmentPath = "rttMonApplSupportedProtocolsEntry" + types.AddKeyToken(rttMonApplSupportedProtocolsEntry.RttMonApplSupportedProtocols, "rttMonApplSupportedProtocols")
+    rttMonApplSupportedProtocolsEntry.EntityData.AbsolutePath = "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/rttMonApplSupportedProtocolsTable/" + rttMonApplSupportedProtocolsEntry.EntityData.SegmentPath
     rttMonApplSupportedProtocolsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     rttMonApplSupportedProtocolsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     rttMonApplSupportedProtocolsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -703,6 +711,7 @@ func (rttMonApplPreConfigedTable *CISCORTTMONMIB_RttMonApplPreConfigedTable) Get
     rttMonApplPreConfigedTable.EntityData.BundleName = "cisco_ios_xe"
     rttMonApplPreConfigedTable.EntityData.ParentYangName = "CISCO-RTTMON-MIB"
     rttMonApplPreConfigedTable.EntityData.SegmentPath = "rttMonApplPreConfigedTable"
+    rttMonApplPreConfigedTable.EntityData.AbsolutePath = "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/" + rttMonApplPreConfigedTable.EntityData.SegmentPath
     rttMonApplPreConfigedTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     rttMonApplPreConfigedTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     rttMonApplPreConfigedTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -725,6 +734,7 @@ func (rttMonApplPreConfigedTable *CISCORTTMONMIB_RttMonApplPreConfigedTable) Get
 type CISCORTTMONMIB_RttMonApplPreConfigedTable_RttMonApplPreConfigedEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. This is the type of value being stored in the
     // rttMonApplPreConfigedName object. The type is RttMonApplPreConfigedType.
@@ -753,6 +763,7 @@ func (rttMonApplPreConfigedEntry *CISCORTTMONMIB_RttMonApplPreConfigedTable_RttM
     rttMonApplPreConfigedEntry.EntityData.BundleName = "cisco_ios_xe"
     rttMonApplPreConfigedEntry.EntityData.ParentYangName = "rttMonApplPreConfigedTable"
     rttMonApplPreConfigedEntry.EntityData.SegmentPath = "rttMonApplPreConfigedEntry" + types.AddKeyToken(rttMonApplPreConfigedEntry.RttMonApplPreConfigedType, "rttMonApplPreConfigedType") + types.AddKeyToken(rttMonApplPreConfigedEntry.RttMonApplPreConfigedName, "rttMonApplPreConfigedName")
+    rttMonApplPreConfigedEntry.EntityData.AbsolutePath = "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/rttMonApplPreConfigedTable/" + rttMonApplPreConfigedEntry.EntityData.SegmentPath
     rttMonApplPreConfigedEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     rttMonApplPreConfigedEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     rttMonApplPreConfigedEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -796,6 +807,7 @@ func (rttMonApplAuthTable *CISCORTTMONMIB_RttMonApplAuthTable) GetEntityData() *
     rttMonApplAuthTable.EntityData.BundleName = "cisco_ios_xe"
     rttMonApplAuthTable.EntityData.ParentYangName = "CISCO-RTTMON-MIB"
     rttMonApplAuthTable.EntityData.SegmentPath = "rttMonApplAuthTable"
+    rttMonApplAuthTable.EntityData.AbsolutePath = "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/" + rttMonApplAuthTable.EntityData.SegmentPath
     rttMonApplAuthTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     rttMonApplAuthTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     rttMonApplAuthTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -818,6 +830,7 @@ func (rttMonApplAuthTable *CISCORTTMONMIB_RttMonApplAuthTable) GetEntityData() *
 type CISCORTTMONMIB_RttMonApplAuthTable_RttMonApplAuthEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Uniquely identifies a row in the
     // rttMonApplAuthTable. This is a pseudo-random number selected by the
@@ -862,6 +875,7 @@ func (rttMonApplAuthEntry *CISCORTTMONMIB_RttMonApplAuthTable_RttMonApplAuthEntr
     rttMonApplAuthEntry.EntityData.BundleName = "cisco_ios_xe"
     rttMonApplAuthEntry.EntityData.ParentYangName = "rttMonApplAuthTable"
     rttMonApplAuthEntry.EntityData.SegmentPath = "rttMonApplAuthEntry" + types.AddKeyToken(rttMonApplAuthEntry.RttMonApplAuthIndex, "rttMonApplAuthIndex")
+    rttMonApplAuthEntry.EntityData.AbsolutePath = "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/rttMonApplAuthTable/" + rttMonApplAuthEntry.EntityData.SegmentPath
     rttMonApplAuthEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     rttMonApplAuthEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     rttMonApplAuthEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -911,6 +925,7 @@ func (rttMonCtrlAdminTable *CISCORTTMONMIB_RttMonCtrlAdminTable) GetEntityData()
     rttMonCtrlAdminTable.EntityData.BundleName = "cisco_ios_xe"
     rttMonCtrlAdminTable.EntityData.ParentYangName = "CISCO-RTTMON-MIB"
     rttMonCtrlAdminTable.EntityData.SegmentPath = "rttMonCtrlAdminTable"
+    rttMonCtrlAdminTable.EntityData.AbsolutePath = "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/" + rttMonCtrlAdminTable.EntityData.SegmentPath
     rttMonCtrlAdminTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     rttMonCtrlAdminTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     rttMonCtrlAdminTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -933,6 +948,7 @@ func (rttMonCtrlAdminTable *CISCORTTMONMIB_RttMonCtrlAdminTable) GetEntityData()
 type CISCORTTMONMIB_RttMonCtrlAdminTable_RttMonCtrlAdminEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Uniquely identifies a row in the
     // rttMonCtrlAdminTable. This is a pseudo-random number, selected by the
@@ -1566,6 +1582,7 @@ func (rttMonCtrlAdminEntry *CISCORTTMONMIB_RttMonCtrlAdminTable_RttMonCtrlAdminE
     rttMonCtrlAdminEntry.EntityData.BundleName = "cisco_ios_xe"
     rttMonCtrlAdminEntry.EntityData.ParentYangName = "rttMonCtrlAdminTable"
     rttMonCtrlAdminEntry.EntityData.SegmentPath = "rttMonCtrlAdminEntry" + types.AddKeyToken(rttMonCtrlAdminEntry.RttMonCtrlAdminIndex, "rttMonCtrlAdminIndex")
+    rttMonCtrlAdminEntry.EntityData.AbsolutePath = "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/rttMonCtrlAdminTable/" + rttMonCtrlAdminEntry.EntityData.SegmentPath
     rttMonCtrlAdminEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     rttMonCtrlAdminEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     rttMonCtrlAdminEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1719,6 +1736,7 @@ func (rttMonEchoAdminTable *CISCORTTMONMIB_RttMonEchoAdminTable) GetEntityData()
     rttMonEchoAdminTable.EntityData.BundleName = "cisco_ios_xe"
     rttMonEchoAdminTable.EntityData.ParentYangName = "CISCO-RTTMON-MIB"
     rttMonEchoAdminTable.EntityData.SegmentPath = "rttMonEchoAdminTable"
+    rttMonEchoAdminTable.EntityData.AbsolutePath = "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/" + rttMonEchoAdminTable.EntityData.SegmentPath
     rttMonEchoAdminTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     rttMonEchoAdminTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     rttMonEchoAdminTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1741,6 +1759,7 @@ func (rttMonEchoAdminTable *CISCORTTMONMIB_RttMonEchoAdminTable) GetEntityData()
 type CISCORTTMONMIB_RttMonEchoAdminTable_RttMonEchoAdminEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -2031,7 +2050,7 @@ type CISCORTTMONMIB_RttMonEchoAdminTable_RttMonEchoAdminEntry struct {
     // echo reply packet. The value of this object will be in range of DiffServ
     // codepoint values between 0 to 63.  Note: This object cannot be set to value
     // of 255. This default value specifies that DSCP is not set for this row. The
-    // type is interface{} with range: 0..63 | 255..None.
+    // type is interface{} with range: 0..63 | 255..255.
     RttMonEchoAdminLSPReplyDscp interface{}
 
     // This object specifies if the explicit-null label is to be added to LSP echo
@@ -2209,6 +2228,7 @@ func (rttMonEchoAdminEntry *CISCORTTMONMIB_RttMonEchoAdminTable_RttMonEchoAdminE
     rttMonEchoAdminEntry.EntityData.BundleName = "cisco_ios_xe"
     rttMonEchoAdminEntry.EntityData.ParentYangName = "rttMonEchoAdminTable"
     rttMonEchoAdminEntry.EntityData.SegmentPath = "rttMonEchoAdminEntry" + types.AddKeyToken(rttMonEchoAdminEntry.RttMonCtrlAdminIndex, "rttMonCtrlAdminIndex")
+    rttMonEchoAdminEntry.EntityData.AbsolutePath = "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/rttMonEchoAdminTable/" + rttMonEchoAdminEntry.EntityData.SegmentPath
     rttMonEchoAdminEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     rttMonEchoAdminEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     rttMonEchoAdminEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2369,6 +2389,7 @@ func (rttMonFileIOAdminTable *CISCORTTMONMIB_RttMonFileIOAdminTable) GetEntityDa
     rttMonFileIOAdminTable.EntityData.BundleName = "cisco_ios_xe"
     rttMonFileIOAdminTable.EntityData.ParentYangName = "CISCO-RTTMON-MIB"
     rttMonFileIOAdminTable.EntityData.SegmentPath = "rttMonFileIOAdminTable"
+    rttMonFileIOAdminTable.EntityData.AbsolutePath = "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/" + rttMonFileIOAdminTable.EntityData.SegmentPath
     rttMonFileIOAdminTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     rttMonFileIOAdminTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     rttMonFileIOAdminTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2391,6 +2412,7 @@ func (rttMonFileIOAdminTable *CISCORTTMONMIB_RttMonFileIOAdminTable) GetEntityDa
 type CISCORTTMONMIB_RttMonFileIOAdminTable_RttMonFileIOAdminEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -2416,6 +2438,7 @@ func (rttMonFileIOAdminEntry *CISCORTTMONMIB_RttMonFileIOAdminTable_RttMonFileIO
     rttMonFileIOAdminEntry.EntityData.BundleName = "cisco_ios_xe"
     rttMonFileIOAdminEntry.EntityData.ParentYangName = "rttMonFileIOAdminTable"
     rttMonFileIOAdminEntry.EntityData.SegmentPath = "rttMonFileIOAdminEntry" + types.AddKeyToken(rttMonFileIOAdminEntry.RttMonCtrlAdminIndex, "rttMonCtrlAdminIndex")
+    rttMonFileIOAdminEntry.EntityData.AbsolutePath = "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/rttMonFileIOAdminTable/" + rttMonFileIOAdminEntry.EntityData.SegmentPath
     rttMonFileIOAdminEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     rttMonFileIOAdminEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     rttMonFileIOAdminEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2484,6 +2507,7 @@ func (rttMonScriptAdminTable *CISCORTTMONMIB_RttMonScriptAdminTable) GetEntityDa
     rttMonScriptAdminTable.EntityData.BundleName = "cisco_ios_xe"
     rttMonScriptAdminTable.EntityData.ParentYangName = "CISCO-RTTMON-MIB"
     rttMonScriptAdminTable.EntityData.SegmentPath = "rttMonScriptAdminTable"
+    rttMonScriptAdminTable.EntityData.AbsolutePath = "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/" + rttMonScriptAdminTable.EntityData.SegmentPath
     rttMonScriptAdminTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     rttMonScriptAdminTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     rttMonScriptAdminTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2506,6 +2530,7 @@ func (rttMonScriptAdminTable *CISCORTTMONMIB_RttMonScriptAdminTable) GetEntityDa
 type CISCORTTMONMIB_RttMonScriptAdminTable_RttMonScriptAdminEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -2528,6 +2553,7 @@ func (rttMonScriptAdminEntry *CISCORTTMONMIB_RttMonScriptAdminTable_RttMonScript
     rttMonScriptAdminEntry.EntityData.BundleName = "cisco_ios_xe"
     rttMonScriptAdminEntry.EntityData.ParentYangName = "rttMonScriptAdminTable"
     rttMonScriptAdminEntry.EntityData.SegmentPath = "rttMonScriptAdminEntry" + types.AddKeyToken(rttMonScriptAdminEntry.RttMonCtrlAdminIndex, "rttMonCtrlAdminIndex")
+    rttMonScriptAdminEntry.EntityData.AbsolutePath = "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/rttMonScriptAdminTable/" + rttMonScriptAdminEntry.EntityData.SegmentPath
     rttMonScriptAdminEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     rttMonScriptAdminEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     rttMonScriptAdminEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2596,6 +2622,7 @@ func (rttMonReactTriggerAdminTable *CISCORTTMONMIB_RttMonReactTriggerAdminTable)
     rttMonReactTriggerAdminTable.EntityData.BundleName = "cisco_ios_xe"
     rttMonReactTriggerAdminTable.EntityData.ParentYangName = "CISCO-RTTMON-MIB"
     rttMonReactTriggerAdminTable.EntityData.SegmentPath = "rttMonReactTriggerAdminTable"
+    rttMonReactTriggerAdminTable.EntityData.AbsolutePath = "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/" + rttMonReactTriggerAdminTable.EntityData.SegmentPath
     rttMonReactTriggerAdminTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     rttMonReactTriggerAdminTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     rttMonReactTriggerAdminTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2618,6 +2645,7 @@ func (rttMonReactTriggerAdminTable *CISCORTTMONMIB_RttMonReactTriggerAdminTable)
 type CISCORTTMONMIB_RttMonReactTriggerAdminTable_RttMonReactTriggerAdminEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -2650,6 +2678,7 @@ func (rttMonReactTriggerAdminEntry *CISCORTTMONMIB_RttMonReactTriggerAdminTable_
     rttMonReactTriggerAdminEntry.EntityData.BundleName = "cisco_ios_xe"
     rttMonReactTriggerAdminEntry.EntityData.ParentYangName = "rttMonReactTriggerAdminTable"
     rttMonReactTriggerAdminEntry.EntityData.SegmentPath = "rttMonReactTriggerAdminEntry" + types.AddKeyToken(rttMonReactTriggerAdminEntry.RttMonCtrlAdminIndex, "rttMonCtrlAdminIndex") + types.AddKeyToken(rttMonReactTriggerAdminEntry.RttMonReactTriggerAdminRttMonCtrlAdminIndex, "rttMonReactTriggerAdminRttMonCtrlAdminIndex")
+    rttMonReactTriggerAdminEntry.EntityData.AbsolutePath = "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/rttMonReactTriggerAdminTable/" + rttMonReactTriggerAdminEntry.EntityData.SegmentPath
     rttMonReactTriggerAdminEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     rttMonReactTriggerAdminEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     rttMonReactTriggerAdminEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2704,6 +2733,7 @@ func (rttMonEchoPathAdminTable *CISCORTTMONMIB_RttMonEchoPathAdminTable) GetEnti
     rttMonEchoPathAdminTable.EntityData.BundleName = "cisco_ios_xe"
     rttMonEchoPathAdminTable.EntityData.ParentYangName = "CISCO-RTTMON-MIB"
     rttMonEchoPathAdminTable.EntityData.SegmentPath = "rttMonEchoPathAdminTable"
+    rttMonEchoPathAdminTable.EntityData.AbsolutePath = "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/" + rttMonEchoPathAdminTable.EntityData.SegmentPath
     rttMonEchoPathAdminTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     rttMonEchoPathAdminTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     rttMonEchoPathAdminTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2729,6 +2759,7 @@ func (rttMonEchoPathAdminTable *CISCORTTMONMIB_RttMonEchoPathAdminTable) GetEnti
 type CISCORTTMONMIB_RttMonEchoPathAdminTable_RttMonEchoPathAdminEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -2754,6 +2785,7 @@ func (rttMonEchoPathAdminEntry *CISCORTTMONMIB_RttMonEchoPathAdminTable_RttMonEc
     rttMonEchoPathAdminEntry.EntityData.BundleName = "cisco_ios_xe"
     rttMonEchoPathAdminEntry.EntityData.ParentYangName = "rttMonEchoPathAdminTable"
     rttMonEchoPathAdminEntry.EntityData.SegmentPath = "rttMonEchoPathAdminEntry" + types.AddKeyToken(rttMonEchoPathAdminEntry.RttMonCtrlAdminIndex, "rttMonCtrlAdminIndex") + types.AddKeyToken(rttMonEchoPathAdminEntry.RttMonEchoPathAdminHopIndex, "rttMonEchoPathAdminHopIndex")
+    rttMonEchoPathAdminEntry.EntityData.AbsolutePath = "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/rttMonEchoPathAdminTable/" + rttMonEchoPathAdminEntry.EntityData.SegmentPath
     rttMonEchoPathAdminEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     rttMonEchoPathAdminEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     rttMonEchoPathAdminEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2795,6 +2827,7 @@ func (rttMonGrpScheduleAdminTable *CISCORTTMONMIB_RttMonGrpScheduleAdminTable) G
     rttMonGrpScheduleAdminTable.EntityData.BundleName = "cisco_ios_xe"
     rttMonGrpScheduleAdminTable.EntityData.ParentYangName = "CISCO-RTTMON-MIB"
     rttMonGrpScheduleAdminTable.EntityData.SegmentPath = "rttMonGrpScheduleAdminTable"
+    rttMonGrpScheduleAdminTable.EntityData.AbsolutePath = "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/" + rttMonGrpScheduleAdminTable.EntityData.SegmentPath
     rttMonGrpScheduleAdminTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     rttMonGrpScheduleAdminTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     rttMonGrpScheduleAdminTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2817,6 +2850,7 @@ func (rttMonGrpScheduleAdminTable *CISCORTTMONMIB_RttMonGrpScheduleAdminTable) G
 type CISCORTTMONMIB_RttMonGrpScheduleAdminTable_RttMonGrpScheduleAdminEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Uniquely identifies a row in the
     // rttMonGrpScheduleAdminTable.  This is a pseudo-random number selected by
@@ -2929,6 +2963,7 @@ func (rttMonGrpScheduleAdminEntry *CISCORTTMONMIB_RttMonGrpScheduleAdminTable_Rt
     rttMonGrpScheduleAdminEntry.EntityData.BundleName = "cisco_ios_xe"
     rttMonGrpScheduleAdminEntry.EntityData.ParentYangName = "rttMonGrpScheduleAdminTable"
     rttMonGrpScheduleAdminEntry.EntityData.SegmentPath = "rttMonGrpScheduleAdminEntry" + types.AddKeyToken(rttMonGrpScheduleAdminEntry.RttMonGrpScheduleAdminIndex, "rttMonGrpScheduleAdminIndex")
+    rttMonGrpScheduleAdminEntry.EntityData.AbsolutePath = "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/rttMonGrpScheduleAdminTable/" + rttMonGrpScheduleAdminEntry.EntityData.SegmentPath
     rttMonGrpScheduleAdminEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     rttMonGrpScheduleAdminEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     rttMonGrpScheduleAdminEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2988,6 +3023,7 @@ func (rttMplsVpnMonCtrlTable *CISCORTTMONMIB_RttMplsVpnMonCtrlTable) GetEntityDa
     rttMplsVpnMonCtrlTable.EntityData.BundleName = "cisco_ios_xe"
     rttMplsVpnMonCtrlTable.EntityData.ParentYangName = "CISCO-RTTMON-MIB"
     rttMplsVpnMonCtrlTable.EntityData.SegmentPath = "rttMplsVpnMonCtrlTable"
+    rttMplsVpnMonCtrlTable.EntityData.AbsolutePath = "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/" + rttMplsVpnMonCtrlTable.EntityData.SegmentPath
     rttMplsVpnMonCtrlTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     rttMplsVpnMonCtrlTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     rttMplsVpnMonCtrlTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3010,6 +3046,7 @@ func (rttMplsVpnMonCtrlTable *CISCORTTMONMIB_RttMplsVpnMonCtrlTable) GetEntityDa
 type CISCORTTMONMIB_RttMplsVpnMonCtrlTable_RttMplsVpnMonCtrlEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Uniquely identifies a row in the
     // rttMplsVpnMonCtrlTable.  This is a pseudo-random number selected by the
@@ -3257,7 +3294,7 @@ type CISCORTTMONMIB_RttMplsVpnMonCtrlTable_RttMplsVpnMonCtrlEntry struct {
     // echo reply packet. The value of this object will be in range of DiffServ
     // codepoint values between 0 to 63.  Note: This object cannot be set to value
     // of 255. This default value specifies that DSCP is not set for this row. The
-    // type is interface{} with range: 0..63 | 255..None.
+    // type is interface{} with range: 0..63 | 255..255.
     RttMplsVpnMonTypeLSPReplyDscp interface{}
 
     // This object represents the number of concurrent path discovery requests
@@ -3424,6 +3461,7 @@ func (rttMplsVpnMonCtrlEntry *CISCORTTMONMIB_RttMplsVpnMonCtrlTable_RttMplsVpnMo
     rttMplsVpnMonCtrlEntry.EntityData.BundleName = "cisco_ios_xe"
     rttMplsVpnMonCtrlEntry.EntityData.ParentYangName = "rttMplsVpnMonCtrlTable"
     rttMplsVpnMonCtrlEntry.EntityData.SegmentPath = "rttMplsVpnMonCtrlEntry" + types.AddKeyToken(rttMplsVpnMonCtrlEntry.RttMplsVpnMonCtrlIndex, "rttMplsVpnMonCtrlIndex")
+    rttMplsVpnMonCtrlEntry.EntityData.AbsolutePath = "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/rttMplsVpnMonCtrlTable/" + rttMplsVpnMonCtrlEntry.EntityData.SegmentPath
     rttMplsVpnMonCtrlEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     rttMplsVpnMonCtrlEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     rttMplsVpnMonCtrlEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3553,6 +3591,7 @@ func (rttMonReactTable *CISCORTTMONMIB_RttMonReactTable) GetEntityData() *types.
     rttMonReactTable.EntityData.BundleName = "cisco_ios_xe"
     rttMonReactTable.EntityData.ParentYangName = "CISCO-RTTMON-MIB"
     rttMonReactTable.EntityData.SegmentPath = "rttMonReactTable"
+    rttMonReactTable.EntityData.AbsolutePath = "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/" + rttMonReactTable.EntityData.SegmentPath
     rttMonReactTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     rttMonReactTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     rttMonReactTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3575,6 +3614,7 @@ func (rttMonReactTable *CISCORTTMONMIB_RttMonReactTable) GetEntityData() *types.
 type CISCORTTMONMIB_RttMonReactTable_RttMonReactEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -3758,6 +3798,7 @@ func (rttMonReactEntry *CISCORTTMONMIB_RttMonReactTable_RttMonReactEntry) GetEnt
     rttMonReactEntry.EntityData.BundleName = "cisco_ios_xe"
     rttMonReactEntry.EntityData.ParentYangName = "rttMonReactTable"
     rttMonReactEntry.EntityData.SegmentPath = "rttMonReactEntry" + types.AddKeyToken(rttMonReactEntry.RttMonCtrlAdminIndex, "rttMonCtrlAdminIndex") + types.AddKeyToken(rttMonReactEntry.RttMonReactConfigIndex, "rttMonReactConfigIndex")
+    rttMonReactEntry.EntityData.AbsolutePath = "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/rttMonReactTable/" + rttMonReactEntry.EntityData.SegmentPath
     rttMonReactEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     rttMonReactEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     rttMonReactEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3833,6 +3874,7 @@ func (rttMonGeneratedOperTable *CISCORTTMONMIB_RttMonGeneratedOperTable) GetEnti
     rttMonGeneratedOperTable.EntityData.BundleName = "cisco_ios_xe"
     rttMonGeneratedOperTable.EntityData.ParentYangName = "CISCO-RTTMON-MIB"
     rttMonGeneratedOperTable.EntityData.SegmentPath = "rttMonGeneratedOperTable"
+    rttMonGeneratedOperTable.EntityData.AbsolutePath = "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/" + rttMonGeneratedOperTable.EntityData.SegmentPath
     rttMonGeneratedOperTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     rttMonGeneratedOperTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     rttMonGeneratedOperTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3856,6 +3898,7 @@ func (rttMonGeneratedOperTable *CISCORTTMONMIB_RttMonGeneratedOperTable) GetEnti
 type CISCORTTMONMIB_RttMonGeneratedOperTable_RttMonGeneratedOperEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -3884,6 +3927,7 @@ func (rttMonGeneratedOperEntry *CISCORTTMONMIB_RttMonGeneratedOperTable_RttMonGe
     rttMonGeneratedOperEntry.EntityData.BundleName = "cisco_ios_xe"
     rttMonGeneratedOperEntry.EntityData.ParentYangName = "rttMonGeneratedOperTable"
     rttMonGeneratedOperEntry.EntityData.SegmentPath = "rttMonGeneratedOperEntry" + types.AddKeyToken(rttMonGeneratedOperEntry.RttMonCtrlAdminIndex, "rttMonCtrlAdminIndex") + types.AddKeyToken(rttMonGeneratedOperEntry.RttMonGeneratedOperRespIpAddrType, "rttMonGeneratedOperRespIpAddrType") + types.AddKeyToken(rttMonGeneratedOperEntry.RttMonGeneratedOperRespIpAddr, "rttMonGeneratedOperRespIpAddr")
+    rttMonGeneratedOperEntry.EntityData.AbsolutePath = "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/rttMonGeneratedOperTable/" + rttMonGeneratedOperEntry.EntityData.SegmentPath
     rttMonGeneratedOperEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     rttMonGeneratedOperEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     rttMonGeneratedOperEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3994,6 +4038,7 @@ func (rttMonStatsCaptureTable *CISCORTTMONMIB_RttMonStatsCaptureTable) GetEntity
     rttMonStatsCaptureTable.EntityData.BundleName = "cisco_ios_xe"
     rttMonStatsCaptureTable.EntityData.ParentYangName = "CISCO-RTTMON-MIB"
     rttMonStatsCaptureTable.EntityData.SegmentPath = "rttMonStatsCaptureTable"
+    rttMonStatsCaptureTable.EntityData.AbsolutePath = "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/" + rttMonStatsCaptureTable.EntityData.SegmentPath
     rttMonStatsCaptureTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     rttMonStatsCaptureTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     rttMonStatsCaptureTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -4054,6 +4099,7 @@ func (rttMonStatsCaptureTable *CISCORTTMONMIB_RttMonStatsCaptureTable) GetEntity
 type CISCORTTMONMIB_RttMonStatsCaptureTable_RttMonStatsCaptureEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -4163,6 +4209,7 @@ func (rttMonStatsCaptureEntry *CISCORTTMONMIB_RttMonStatsCaptureTable_RttMonStat
     rttMonStatsCaptureEntry.EntityData.BundleName = "cisco_ios_xe"
     rttMonStatsCaptureEntry.EntityData.ParentYangName = "rttMonStatsCaptureTable"
     rttMonStatsCaptureEntry.EntityData.SegmentPath = "rttMonStatsCaptureEntry" + types.AddKeyToken(rttMonStatsCaptureEntry.RttMonCtrlAdminIndex, "rttMonCtrlAdminIndex") + types.AddKeyToken(rttMonStatsCaptureEntry.RttMonStatsCaptureStartTimeIndex, "rttMonStatsCaptureStartTimeIndex") + types.AddKeyToken(rttMonStatsCaptureEntry.RttMonStatsCapturePathIndex, "rttMonStatsCapturePathIndex") + types.AddKeyToken(rttMonStatsCaptureEntry.RttMonStatsCaptureHopIndex, "rttMonStatsCaptureHopIndex") + types.AddKeyToken(rttMonStatsCaptureEntry.RttMonStatsCaptureDistIndex, "rttMonStatsCaptureDistIndex")
+    rttMonStatsCaptureEntry.EntityData.AbsolutePath = "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/rttMonStatsCaptureTable/" + rttMonStatsCaptureEntry.EntityData.SegmentPath
     rttMonStatsCaptureEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     rttMonStatsCaptureEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     rttMonStatsCaptureEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -4215,6 +4262,7 @@ func (rttMonStatsCollectTable *CISCORTTMONMIB_RttMonStatsCollectTable) GetEntity
     rttMonStatsCollectTable.EntityData.BundleName = "cisco_ios_xe"
     rttMonStatsCollectTable.EntityData.ParentYangName = "CISCO-RTTMON-MIB"
     rttMonStatsCollectTable.EntityData.SegmentPath = "rttMonStatsCollectTable"
+    rttMonStatsCollectTable.EntityData.AbsolutePath = "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/" + rttMonStatsCollectTable.EntityData.SegmentPath
     rttMonStatsCollectTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     rttMonStatsCollectTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     rttMonStatsCollectTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -4244,6 +4292,7 @@ func (rttMonStatsCollectTable *CISCORTTMONMIB_RttMonStatsCollectTable) GetEntity
 type CISCORTTMONMIB_RttMonStatsCollectTable_RttMonStatsCollectEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -4408,6 +4457,7 @@ func (rttMonStatsCollectEntry *CISCORTTMONMIB_RttMonStatsCollectTable_RttMonStat
     rttMonStatsCollectEntry.EntityData.BundleName = "cisco_ios_xe"
     rttMonStatsCollectEntry.EntityData.ParentYangName = "rttMonStatsCollectTable"
     rttMonStatsCollectEntry.EntityData.SegmentPath = "rttMonStatsCollectEntry" + types.AddKeyToken(rttMonStatsCollectEntry.RttMonCtrlAdminIndex, "rttMonCtrlAdminIndex") + types.AddKeyToken(rttMonStatsCollectEntry.RttMonStatsCaptureStartTimeIndex, "rttMonStatsCaptureStartTimeIndex") + types.AddKeyToken(rttMonStatsCollectEntry.RttMonStatsCapturePathIndex, "rttMonStatsCapturePathIndex") + types.AddKeyToken(rttMonStatsCollectEntry.RttMonStatsCaptureHopIndex, "rttMonStatsCaptureHopIndex")
+    rttMonStatsCollectEntry.EntityData.AbsolutePath = "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/rttMonStatsCollectTable/" + rttMonStatsCollectEntry.EntityData.SegmentPath
     rttMonStatsCollectEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     rttMonStatsCollectEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     rttMonStatsCollectEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -4464,6 +4514,7 @@ func (rttMonStatsTotalsTable *CISCORTTMONMIB_RttMonStatsTotalsTable) GetEntityDa
     rttMonStatsTotalsTable.EntityData.BundleName = "cisco_ios_xe"
     rttMonStatsTotalsTable.EntityData.ParentYangName = "CISCO-RTTMON-MIB"
     rttMonStatsTotalsTable.EntityData.SegmentPath = "rttMonStatsTotalsTable"
+    rttMonStatsTotalsTable.EntityData.AbsolutePath = "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/" + rttMonStatsTotalsTable.EntityData.SegmentPath
     rttMonStatsTotalsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     rttMonStatsTotalsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     rttMonStatsTotalsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -4493,6 +4544,7 @@ func (rttMonStatsTotalsTable *CISCORTTMONMIB_RttMonStatsTotalsTable) GetEntityDa
 type CISCORTTMONMIB_RttMonStatsTotalsTable_RttMonStatsTotalsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -4522,6 +4574,7 @@ func (rttMonStatsTotalsEntry *CISCORTTMONMIB_RttMonStatsTotalsTable_RttMonStatsT
     rttMonStatsTotalsEntry.EntityData.BundleName = "cisco_ios_xe"
     rttMonStatsTotalsEntry.EntityData.ParentYangName = "rttMonStatsTotalsTable"
     rttMonStatsTotalsEntry.EntityData.SegmentPath = "rttMonStatsTotalsEntry" + types.AddKeyToken(rttMonStatsTotalsEntry.RttMonCtrlAdminIndex, "rttMonCtrlAdminIndex") + types.AddKeyToken(rttMonStatsTotalsEntry.RttMonStatsCaptureStartTimeIndex, "rttMonStatsCaptureStartTimeIndex")
+    rttMonStatsTotalsEntry.EntityData.AbsolutePath = "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/rttMonStatsTotalsTable/" + rttMonStatsTotalsEntry.EntityData.SegmentPath
     rttMonStatsTotalsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     rttMonStatsTotalsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     rttMonStatsTotalsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -4567,6 +4620,7 @@ func (rttMonHTTPStatsTable *CISCORTTMONMIB_RttMonHTTPStatsTable) GetEntityData()
     rttMonHTTPStatsTable.EntityData.BundleName = "cisco_ios_xe"
     rttMonHTTPStatsTable.EntityData.ParentYangName = "CISCO-RTTMON-MIB"
     rttMonHTTPStatsTable.EntityData.SegmentPath = "rttMonHTTPStatsTable"
+    rttMonHTTPStatsTable.EntityData.AbsolutePath = "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/" + rttMonHTTPStatsTable.EntityData.SegmentPath
     rttMonHTTPStatsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     rttMonHTTPStatsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     rttMonHTTPStatsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -4593,6 +4647,7 @@ func (rttMonHTTPStatsTable *CISCORTTMONMIB_RttMonHTTPStatsTable) GetEntityData()
 type CISCORTTMONMIB_RttMonHTTPStatsTable_RttMonHTTPStatsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -4685,6 +4740,7 @@ func (rttMonHTTPStatsEntry *CISCORTTMONMIB_RttMonHTTPStatsTable_RttMonHTTPStatsE
     rttMonHTTPStatsEntry.EntityData.BundleName = "cisco_ios_xe"
     rttMonHTTPStatsEntry.EntityData.ParentYangName = "rttMonHTTPStatsTable"
     rttMonHTTPStatsEntry.EntityData.SegmentPath = "rttMonHTTPStatsEntry" + types.AddKeyToken(rttMonHTTPStatsEntry.RttMonCtrlAdminIndex, "rttMonCtrlAdminIndex") + types.AddKeyToken(rttMonHTTPStatsEntry.RttMonHTTPStatsStartTimeIndex, "rttMonHTTPStatsStartTimeIndex")
+    rttMonHTTPStatsEntry.EntityData.AbsolutePath = "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/rttMonHTTPStatsTable/" + rttMonHTTPStatsEntry.EntityData.SegmentPath
     rttMonHTTPStatsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     rttMonHTTPStatsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     rttMonHTTPStatsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -4746,6 +4802,7 @@ func (rttMonJitterStatsTable *CISCORTTMONMIB_RttMonJitterStatsTable) GetEntityDa
     rttMonJitterStatsTable.EntityData.BundleName = "cisco_ios_xe"
     rttMonJitterStatsTable.EntityData.ParentYangName = "CISCO-RTTMON-MIB"
     rttMonJitterStatsTable.EntityData.SegmentPath = "rttMonJitterStatsTable"
+    rttMonJitterStatsTable.EntityData.AbsolutePath = "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/" + rttMonJitterStatsTable.EntityData.SegmentPath
     rttMonJitterStatsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     rttMonJitterStatsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     rttMonJitterStatsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -4772,6 +4829,7 @@ func (rttMonJitterStatsTable *CISCORTTMONMIB_RttMonJitterStatsTable) GetEntityDa
 type CISCORTTMONMIB_RttMonJitterStatsTable_RttMonJitterStatsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -5029,14 +5087,14 @@ type CISCORTTMONMIB_RttMonJitterStatsTable_RttMonJitterStatsEntry struct {
     // value will be 0 if   - rttMonEchoAdminCodecType of the operation is
     // notApplicable   - the operation is not started   - the operation is started
     // but failed This value will be 1 for packet loss of 10% or more. The type is
-    // interface{} with range: 0..None | 100..500.
+    // interface{} with range: 0..0 | 100..500.
     RttMonJitterStatsMinOfMOS interface{}
 
     // The maximum of all MOS values for the jitter operations in hunderds.  This
     // value will be 0 if   - rttMonEchoAdminCodecType of the operation is
     // notApplicable   - the operation is not started   - the operation is started
     // but failed This value will be 1 for packet loss of 10% or more. The type is
-    // interface{} with range: 0..None | 100..500.
+    // interface{} with range: 0..0 | 100..500.
     RttMonJitterStatsMaxOfMOS interface{}
 
     // The minimum of all ICPIF values for the jitter operations.  This value will
@@ -5097,6 +5155,7 @@ func (rttMonJitterStatsEntry *CISCORTTMONMIB_RttMonJitterStatsTable_RttMonJitter
     rttMonJitterStatsEntry.EntityData.BundleName = "cisco_ios_xe"
     rttMonJitterStatsEntry.EntityData.ParentYangName = "rttMonJitterStatsTable"
     rttMonJitterStatsEntry.EntityData.SegmentPath = "rttMonJitterStatsEntry" + types.AddKeyToken(rttMonJitterStatsEntry.RttMonCtrlAdminIndex, "rttMonCtrlAdminIndex") + types.AddKeyToken(rttMonJitterStatsEntry.RttMonJitterStatsStartTimeIndex, "rttMonJitterStatsStartTimeIndex")
+    rttMonJitterStatsEntry.EntityData.AbsolutePath = "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/rttMonJitterStatsTable/" + rttMonJitterStatsEntry.EntityData.SegmentPath
     rttMonJitterStatsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     rttMonJitterStatsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     rttMonJitterStatsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -5228,6 +5287,7 @@ func (rttMonLpdGrpStatsTable *CISCORTTMONMIB_RttMonLpdGrpStatsTable) GetEntityDa
     rttMonLpdGrpStatsTable.EntityData.BundleName = "cisco_ios_xe"
     rttMonLpdGrpStatsTable.EntityData.ParentYangName = "CISCO-RTTMON-MIB"
     rttMonLpdGrpStatsTable.EntityData.SegmentPath = "rttMonLpdGrpStatsTable"
+    rttMonLpdGrpStatsTable.EntityData.AbsolutePath = "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/" + rttMonLpdGrpStatsTable.EntityData.SegmentPath
     rttMonLpdGrpStatsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     rttMonLpdGrpStatsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     rttMonLpdGrpStatsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -5266,6 +5326,7 @@ func (rttMonLpdGrpStatsTable *CISCORTTMONMIB_RttMonLpdGrpStatsTable) GetEntityDa
 type CISCORTTMONMIB_RttMonLpdGrpStatsTable_RttMonLpdGrpStatsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Uniquely identifies a row in
     // rttMonLpdGrpStatsTable.  This is a pseudo-random number which identifies a
@@ -5414,6 +5475,7 @@ func (rttMonLpdGrpStatsEntry *CISCORTTMONMIB_RttMonLpdGrpStatsTable_RttMonLpdGrp
     rttMonLpdGrpStatsEntry.EntityData.BundleName = "cisco_ios_xe"
     rttMonLpdGrpStatsEntry.EntityData.ParentYangName = "rttMonLpdGrpStatsTable"
     rttMonLpdGrpStatsEntry.EntityData.SegmentPath = "rttMonLpdGrpStatsEntry" + types.AddKeyToken(rttMonLpdGrpStatsEntry.RttMonLpdGrpStatsGroupIndex, "rttMonLpdGrpStatsGroupIndex") + types.AddKeyToken(rttMonLpdGrpStatsEntry.RttMonLpdGrpStatsStartTimeIndex, "rttMonLpdGrpStatsStartTimeIndex")
+    rttMonLpdGrpStatsEntry.EntityData.AbsolutePath = "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/rttMonLpdGrpStatsTable/" + rttMonLpdGrpStatsEntry.EntityData.SegmentPath
     rttMonLpdGrpStatsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     rttMonLpdGrpStatsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     rttMonLpdGrpStatsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -5497,6 +5559,7 @@ func (rttMonHistoryCollectionTable *CISCORTTMONMIB_RttMonHistoryCollectionTable)
     rttMonHistoryCollectionTable.EntityData.BundleName = "cisco_ios_xe"
     rttMonHistoryCollectionTable.EntityData.ParentYangName = "CISCO-RTTMON-MIB"
     rttMonHistoryCollectionTable.EntityData.SegmentPath = "rttMonHistoryCollectionTable"
+    rttMonHistoryCollectionTable.EntityData.AbsolutePath = "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/" + rttMonHistoryCollectionTable.EntityData.SegmentPath
     rttMonHistoryCollectionTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     rttMonHistoryCollectionTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     rttMonHistoryCollectionTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -5545,6 +5608,7 @@ func (rttMonHistoryCollectionTable *CISCORTTMONMIB_RttMonHistoryCollectionTable)
 type CISCORTTMONMIB_RttMonHistoryCollectionTable_RttMonHistoryCollectionEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -5630,6 +5694,7 @@ func (rttMonHistoryCollectionEntry *CISCORTTMONMIB_RttMonHistoryCollectionTable_
     rttMonHistoryCollectionEntry.EntityData.BundleName = "cisco_ios_xe"
     rttMonHistoryCollectionEntry.EntityData.ParentYangName = "rttMonHistoryCollectionTable"
     rttMonHistoryCollectionEntry.EntityData.SegmentPath = "rttMonHistoryCollectionEntry" + types.AddKeyToken(rttMonHistoryCollectionEntry.RttMonCtrlAdminIndex, "rttMonCtrlAdminIndex") + types.AddKeyToken(rttMonHistoryCollectionEntry.RttMonHistoryCollectionLifeIndex, "rttMonHistoryCollectionLifeIndex") + types.AddKeyToken(rttMonHistoryCollectionEntry.RttMonHistoryCollectionBucketIndex, "rttMonHistoryCollectionBucketIndex") + types.AddKeyToken(rttMonHistoryCollectionEntry.RttMonHistoryCollectionSampleIndex, "rttMonHistoryCollectionSampleIndex")
+    rttMonHistoryCollectionEntry.EntityData.AbsolutePath = "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/rttMonHistoryCollectionTable/" + rttMonHistoryCollectionEntry.EntityData.SegmentPath
     rttMonHistoryCollectionEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     rttMonHistoryCollectionEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     rttMonHistoryCollectionEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -5673,6 +5738,7 @@ func (rttMonLatestHTTPOperTable *CISCORTTMONMIB_RttMonLatestHTTPOperTable) GetEn
     rttMonLatestHTTPOperTable.EntityData.BundleName = "cisco_ios_xe"
     rttMonLatestHTTPOperTable.EntityData.ParentYangName = "CISCO-RTTMON-MIB"
     rttMonLatestHTTPOperTable.EntityData.SegmentPath = "rttMonLatestHTTPOperTable"
+    rttMonLatestHTTPOperTable.EntityData.AbsolutePath = "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/" + rttMonLatestHTTPOperTable.EntityData.SegmentPath
     rttMonLatestHTTPOperTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     rttMonLatestHTTPOperTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     rttMonLatestHTTPOperTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -5697,6 +5763,7 @@ func (rttMonLatestHTTPOperTable *CISCORTTMONMIB_RttMonLatestHTTPOperTable) GetEn
 type CISCORTTMONMIB_RttMonLatestHTTPOperTable_RttMonLatestHTTPOperEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -5740,6 +5807,7 @@ func (rttMonLatestHTTPOperEntry *CISCORTTMONMIB_RttMonLatestHTTPOperTable_RttMon
     rttMonLatestHTTPOperEntry.EntityData.BundleName = "cisco_ios_xe"
     rttMonLatestHTTPOperEntry.EntityData.ParentYangName = "rttMonLatestHTTPOperTable"
     rttMonLatestHTTPOperEntry.EntityData.SegmentPath = "rttMonLatestHTTPOperEntry" + types.AddKeyToken(rttMonLatestHTTPOperEntry.RttMonCtrlAdminIndex, "rttMonCtrlAdminIndex")
+    rttMonLatestHTTPOperEntry.EntityData.AbsolutePath = "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/rttMonLatestHTTPOperTable/" + rttMonLatestHTTPOperEntry.EntityData.SegmentPath
     rttMonLatestHTTPOperEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     rttMonLatestHTTPOperEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     rttMonLatestHTTPOperEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -5779,6 +5847,7 @@ func (rttMonLatestJitterOperTable *CISCORTTMONMIB_RttMonLatestJitterOperTable) G
     rttMonLatestJitterOperTable.EntityData.BundleName = "cisco_ios_xe"
     rttMonLatestJitterOperTable.EntityData.ParentYangName = "CISCO-RTTMON-MIB"
     rttMonLatestJitterOperTable.EntityData.SegmentPath = "rttMonLatestJitterOperTable"
+    rttMonLatestJitterOperTable.EntityData.AbsolutePath = "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/" + rttMonLatestJitterOperTable.EntityData.SegmentPath
     rttMonLatestJitterOperTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     rttMonLatestJitterOperTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     rttMonLatestJitterOperTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -5801,6 +5870,7 @@ func (rttMonLatestJitterOperTable *CISCORTTMONMIB_RttMonLatestJitterOperTable) G
 type CISCORTTMONMIB_RttMonLatestJitterOperTable_RttMonLatestJitterOperEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -5990,7 +6060,7 @@ type CISCORTTMONMIB_RttMonLatestJitterOperTable_RttMonLatestJitterOperEntry stru
     // be 0 if   - rttMonEchoAdminCodecType of the operation is notApplicable   -
     // the operation is not started   - the operation is started but failed This
     // value will be 1 for packet loss of 10% or more. The type is interface{}
-    // with range: 0..None | 100..500.
+    // with range: 0..0 | 100..500.
     RttMonLatestJitterOperMOS interface{}
 
     // Represents ICPIF value for the latest jitter operation.  This value will be
@@ -6078,6 +6148,7 @@ func (rttMonLatestJitterOperEntry *CISCORTTMONMIB_RttMonLatestJitterOperTable_Rt
     rttMonLatestJitterOperEntry.EntityData.BundleName = "cisco_ios_xe"
     rttMonLatestJitterOperEntry.EntityData.ParentYangName = "rttMonLatestJitterOperTable"
     rttMonLatestJitterOperEntry.EntityData.SegmentPath = "rttMonLatestJitterOperEntry" + types.AddKeyToken(rttMonLatestJitterOperEntry.RttMonCtrlAdminIndex, "rttMonCtrlAdminIndex")
+    rttMonLatestJitterOperEntry.EntityData.AbsolutePath = "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB/rttMonLatestJitterOperTable/" + rttMonLatestJitterOperEntry.EntityData.SegmentPath
     rttMonLatestJitterOperEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     rttMonLatestJitterOperEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     rttMonLatestJitterOperEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

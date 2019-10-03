@@ -48,6 +48,7 @@ func (environment *Environment) GetEntityData() *types.CommonEntityData {
     environment.EntityData.BundleName = "cisco_ios_xr"
     environment.EntityData.ParentYangName = "Cisco-IOS-XR-sysadmin-envmon-ui"
     environment.EntityData.SegmentPath = "Cisco-IOS-XR-sysadmin-envmon-ui:environment"
+    environment.EntityData.AbsolutePath = environment.EntityData.SegmentPath
     environment.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     environment.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     environment.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -98,6 +99,7 @@ func (oper *Environment_Oper) GetEntityData() *types.CommonEntityData {
     oper.EntityData.BundleName = "cisco_ios_xr"
     oper.EntityData.ParentYangName = "environment"
     oper.EntityData.SegmentPath = "oper"
+    oper.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:environment/" + oper.EntityData.SegmentPath
     oper.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     oper.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     oper.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -131,6 +133,7 @@ func (temperatures *Environment_Oper_Temperatures) GetEntityData() *types.Common
     temperatures.EntityData.BundleName = "cisco_ios_xr"
     temperatures.EntityData.ParentYangName = "oper"
     temperatures.EntityData.SegmentPath = "temperatures"
+    temperatures.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:environment/oper/" + temperatures.EntityData.SegmentPath
     temperatures.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     temperatures.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     temperatures.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -151,6 +154,7 @@ func (temperatures *Environment_Oper_Temperatures) GetEntityData() *types.Common
 type Environment_Oper_Temperatures_Location struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     Location interface{}
@@ -172,6 +176,7 @@ func (location *Environment_Oper_Temperatures_Location) GetEntityData() *types.C
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "temperatures"
     location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.Location, "location")
+    location.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:environment/oper/temperatures/" + location.EntityData.SegmentPath
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -195,6 +200,7 @@ func (location *Environment_Oper_Temperatures_Location) GetEntityData() *types.C
 type Environment_Oper_Temperatures_Location_SensorAttributes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     Sensor interface{}
@@ -236,6 +242,7 @@ func (sensorAttributes *Environment_Oper_Temperatures_Location_SensorAttributes)
     sensorAttributes.EntityData.BundleName = "cisco_ios_xr"
     sensorAttributes.EntityData.ParentYangName = "location"
     sensorAttributes.EntityData.SegmentPath = "sensor_attributes" + types.AddKeyToken(sensorAttributes.Sensor, "sensor")
+    sensorAttributes.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:environment/oper/temperatures/location/" + sensorAttributes.EntityData.SegmentPath
     sensorAttributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sensorAttributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sensorAttributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -274,6 +281,7 @@ func (voltages *Environment_Oper_Voltages) GetEntityData() *types.CommonEntityDa
     voltages.EntityData.BundleName = "cisco_ios_xr"
     voltages.EntityData.ParentYangName = "oper"
     voltages.EntityData.SegmentPath = "voltages"
+    voltages.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:environment/oper/" + voltages.EntityData.SegmentPath
     voltages.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     voltages.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     voltages.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -294,6 +302,7 @@ func (voltages *Environment_Oper_Voltages) GetEntityData() *types.CommonEntityDa
 type Environment_Oper_Voltages_Location struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     Location interface{}
@@ -314,6 +323,7 @@ func (location *Environment_Oper_Voltages_Location) GetEntityData() *types.Commo
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "voltages"
     location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.Location, "location")
+    location.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:environment/oper/voltages/" + location.EntityData.SegmentPath
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -337,6 +347,7 @@ func (location *Environment_Oper_Voltages_Location) GetEntityData() *types.Commo
 type Environment_Oper_Voltages_Location_SensorAttributes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     Sensor interface{}
@@ -378,6 +389,7 @@ func (sensorAttributes *Environment_Oper_Voltages_Location_SensorAttributes) Get
     sensorAttributes.EntityData.BundleName = "cisco_ios_xr"
     sensorAttributes.EntityData.ParentYangName = "location"
     sensorAttributes.EntityData.SegmentPath = "sensor_attributes" + types.AddKeyToken(sensorAttributes.Sensor, "sensor")
+    sensorAttributes.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:environment/oper/voltages/location/" + sensorAttributes.EntityData.SegmentPath
     sensorAttributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sensorAttributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sensorAttributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -416,6 +428,7 @@ func (current *Environment_Oper_Current) GetEntityData() *types.CommonEntityData
     current.EntityData.BundleName = "cisco_ios_xr"
     current.EntityData.ParentYangName = "oper"
     current.EntityData.SegmentPath = "current"
+    current.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:environment/oper/" + current.EntityData.SegmentPath
     current.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     current.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     current.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -436,6 +449,7 @@ func (current *Environment_Oper_Current) GetEntityData() *types.CommonEntityData
 type Environment_Oper_Current_Location struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     Location interface{}
@@ -456,6 +470,7 @@ func (location *Environment_Oper_Current_Location) GetEntityData() *types.Common
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "current"
     location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.Location, "location")
+    location.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:environment/oper/current/" + location.EntityData.SegmentPath
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -479,6 +494,7 @@ func (location *Environment_Oper_Current_Location) GetEntityData() *types.Common
 type Environment_Oper_Current_Location_SensorAttributes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     Sensor interface{}
@@ -502,6 +518,7 @@ func (sensorAttributes *Environment_Oper_Current_Location_SensorAttributes) GetE
     sensorAttributes.EntityData.BundleName = "cisco_ios_xr"
     sensorAttributes.EntityData.ParentYangName = "location"
     sensorAttributes.EntityData.SegmentPath = "sensor_attributes" + types.AddKeyToken(sensorAttributes.Sensor, "sensor")
+    sensorAttributes.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:environment/oper/current/location/" + sensorAttributes.EntityData.SegmentPath
     sensorAttributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sensorAttributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sensorAttributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -534,6 +551,7 @@ func (fan *Environment_Oper_Fan) GetEntityData() *types.CommonEntityData {
     fan.EntityData.BundleName = "cisco_ios_xr"
     fan.EntityData.ParentYangName = "oper"
     fan.EntityData.SegmentPath = "fan"
+    fan.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:environment/oper/" + fan.EntityData.SegmentPath
     fan.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fan.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fan.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -554,6 +572,7 @@ func (fan *Environment_Oper_Fan) GetEntityData() *types.CommonEntityData {
 type Environment_Oper_Fan_Location struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     Location interface{}
@@ -574,6 +593,7 @@ func (location *Environment_Oper_Fan_Location) GetEntityData() *types.CommonEnti
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "fan"
     location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.Location, "location")
+    location.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:environment/oper/fan/" + location.EntityData.SegmentPath
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -597,6 +617,7 @@ func (location *Environment_Oper_Fan_Location) GetEntityData() *types.CommonEnti
 type Environment_Oper_Fan_Location_FanAttributes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     LogicalSlot interface{}
@@ -626,6 +647,7 @@ func (fanAttributes *Environment_Oper_Fan_Location_FanAttributes) GetEntityData(
     fanAttributes.EntityData.BundleName = "cisco_ios_xr"
     fanAttributes.EntityData.ParentYangName = "location"
     fanAttributes.EntityData.SegmentPath = "fan_attributes" + types.AddKeyToken(fanAttributes.LogicalSlot, "logical_slot")
+    fanAttributes.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:environment/oper/fan/location/" + fanAttributes.EntityData.SegmentPath
     fanAttributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fanAttributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fanAttributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -660,6 +682,7 @@ func (power *Environment_Oper_Power) GetEntityData() *types.CommonEntityData {
     power.EntityData.BundleName = "cisco_ios_xr"
     power.EntityData.ParentYangName = "oper"
     power.EntityData.SegmentPath = "power"
+    power.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:environment/oper/" + power.EntityData.SegmentPath
     power.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     power.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     power.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -680,6 +703,7 @@ func (power *Environment_Oper_Power) GetEntityData() *types.CommonEntityData {
 type Environment_Oper_Power_Location struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     Location interface{}
@@ -694,6 +718,7 @@ func (location *Environment_Oper_Power_Location) GetEntityData() *types.CommonEn
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "power"
     location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.Location, "location")
+    location.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:environment/oper/power/" + location.EntityData.SegmentPath
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -715,6 +740,7 @@ func (location *Environment_Oper_Power_Location) GetEntityData() *types.CommonEn
 type Environment_Oper_Power_Location_PemAttributes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     Pem interface{}
@@ -807,6 +833,7 @@ func (pemAttributes *Environment_Oper_Power_Location_PemAttributes) GetEntityDat
     pemAttributes.EntityData.BundleName = "cisco_ios_xr"
     pemAttributes.EntityData.ParentYangName = "location"
     pemAttributes.EntityData.SegmentPath = "pem_attributes" + types.AddKeyToken(pemAttributes.Pem, "pem")
+    pemAttributes.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:environment/oper/power/location/" + pemAttributes.EntityData.SegmentPath
     pemAttributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pemAttributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pemAttributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -862,6 +889,7 @@ func (altitude *Environment_Oper_Altitude) GetEntityData() *types.CommonEntityDa
     altitude.EntityData.BundleName = "cisco_ios_xr"
     altitude.EntityData.ParentYangName = "oper"
     altitude.EntityData.SegmentPath = "altitude"
+    altitude.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:environment/oper/" + altitude.EntityData.SegmentPath
     altitude.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     altitude.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     altitude.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -882,6 +910,7 @@ func (altitude *Environment_Oper_Altitude) GetEntityData() *types.CommonEntityDa
 type Environment_Oper_Altitude_Location struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     Location interface{}
@@ -896,6 +925,7 @@ func (location *Environment_Oper_Altitude_Location) GetEntityData() *types.Commo
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "altitude"
     location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.Location, "location")
+    location.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:environment/oper/altitude/" + location.EntityData.SegmentPath
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -917,6 +947,7 @@ func (location *Environment_Oper_Altitude_Location) GetEntityData() *types.Commo
 type Environment_Oper_Altitude_Location_AltAttributes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     Sensor interface{}
@@ -940,6 +971,7 @@ func (altAttributes *Environment_Oper_Altitude_Location_AltAttributes) GetEntity
     altAttributes.EntityData.BundleName = "cisco_ios_xr"
     altAttributes.EntityData.ParentYangName = "location"
     altAttributes.EntityData.SegmentPath = "alt_attributes" + types.AddKeyToken(altAttributes.Sensor, "sensor")
+    altAttributes.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:environment/oper/altitude/location/" + altAttributes.EntityData.SegmentPath
     altAttributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     altAttributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     altAttributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -972,6 +1004,7 @@ func (all *Environment_All) GetEntityData() *types.CommonEntityData {
     all.EntityData.BundleName = "cisco_ios_xr"
     all.EntityData.ParentYangName = "environment"
     all.EntityData.SegmentPath = "all"
+    all.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:environment/" + all.EntityData.SegmentPath
     all.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     all.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     all.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -992,6 +1025,7 @@ func (all *Environment_All) GetEntityData() *types.CommonEntityData {
 type Environment_All_Location struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     Location interface{}
@@ -1021,6 +1055,7 @@ func (location *Environment_All_Location) GetEntityData() *types.CommonEntityDat
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "all"
     location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.Location, "location")
+    location.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:environment/all/" + location.EntityData.SegmentPath
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1062,6 +1097,7 @@ func (location *Environment_All_Location) GetEntityData() *types.CommonEntityDat
 type Environment_All_Location_Temperatures struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     LocIden interface{}
@@ -1080,6 +1116,7 @@ func (temperatures *Environment_All_Location_Temperatures) GetEntityData() *type
     temperatures.EntityData.BundleName = "cisco_ios_xr"
     temperatures.EntityData.ParentYangName = "location"
     temperatures.EntityData.SegmentPath = "temperatures" + types.AddKeyToken(temperatures.LocIden, "loc_iden")
+    temperatures.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:environment/all/location/" + temperatures.EntityData.SegmentPath
     temperatures.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     temperatures.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     temperatures.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1102,6 +1139,7 @@ func (temperatures *Environment_All_Location_Temperatures) GetEntityData() *type
 type Environment_All_Location_Temperatures_SensorAttributes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     Sensor interface{}
@@ -1143,6 +1181,7 @@ func (sensorAttributes *Environment_All_Location_Temperatures_SensorAttributes) 
     sensorAttributes.EntityData.BundleName = "cisco_ios_xr"
     sensorAttributes.EntityData.ParentYangName = "temperatures"
     sensorAttributes.EntityData.SegmentPath = "sensor_attributes" + types.AddKeyToken(sensorAttributes.Sensor, "sensor")
+    sensorAttributes.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:environment/all/location/temperatures/" + sensorAttributes.EntityData.SegmentPath
     sensorAttributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sensorAttributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sensorAttributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1170,6 +1209,7 @@ func (sensorAttributes *Environment_All_Location_Temperatures_SensorAttributes) 
 type Environment_All_Location_Voltages struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     LocIden interface{}
@@ -1187,6 +1227,7 @@ func (voltages *Environment_All_Location_Voltages) GetEntityData() *types.Common
     voltages.EntityData.BundleName = "cisco_ios_xr"
     voltages.EntityData.ParentYangName = "location"
     voltages.EntityData.SegmentPath = "voltages" + types.AddKeyToken(voltages.LocIden, "loc_iden")
+    voltages.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:environment/all/location/" + voltages.EntityData.SegmentPath
     voltages.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     voltages.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     voltages.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1209,6 +1250,7 @@ func (voltages *Environment_All_Location_Voltages) GetEntityData() *types.Common
 type Environment_All_Location_Voltages_SensorAttributes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     Sensor interface{}
@@ -1250,6 +1292,7 @@ func (sensorAttributes *Environment_All_Location_Voltages_SensorAttributes) GetE
     sensorAttributes.EntityData.BundleName = "cisco_ios_xr"
     sensorAttributes.EntityData.ParentYangName = "voltages"
     sensorAttributes.EntityData.SegmentPath = "sensor_attributes" + types.AddKeyToken(sensorAttributes.Sensor, "sensor")
+    sensorAttributes.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:environment/all/location/voltages/" + sensorAttributes.EntityData.SegmentPath
     sensorAttributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sensorAttributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sensorAttributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1277,6 +1320,7 @@ func (sensorAttributes *Environment_All_Location_Voltages_SensorAttributes) GetE
 type Environment_All_Location_Current struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     LocIden interface{}
@@ -1294,6 +1338,7 @@ func (current *Environment_All_Location_Current) GetEntityData() *types.CommonEn
     current.EntityData.BundleName = "cisco_ios_xr"
     current.EntityData.ParentYangName = "location"
     current.EntityData.SegmentPath = "current" + types.AddKeyToken(current.LocIden, "loc_iden")
+    current.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:environment/all/location/" + current.EntityData.SegmentPath
     current.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     current.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     current.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1316,6 +1361,7 @@ func (current *Environment_All_Location_Current) GetEntityData() *types.CommonEn
 type Environment_All_Location_Current_SensorAttributes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     Sensor interface{}
@@ -1333,6 +1379,7 @@ func (sensorAttributes *Environment_All_Location_Current_SensorAttributes) GetEn
     sensorAttributes.EntityData.BundleName = "cisco_ios_xr"
     sensorAttributes.EntityData.ParentYangName = "current"
     sensorAttributes.EntityData.SegmentPath = "sensor_attributes" + types.AddKeyToken(sensorAttributes.Sensor, "sensor")
+    sensorAttributes.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:environment/all/location/current/" + sensorAttributes.EntityData.SegmentPath
     sensorAttributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sensorAttributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sensorAttributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1352,6 +1399,7 @@ func (sensorAttributes *Environment_All_Location_Current_SensorAttributes) GetEn
 type Environment_All_Location_Fan struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     LocIden interface{}
@@ -1366,6 +1414,7 @@ func (fan *Environment_All_Location_Fan) GetEntityData() *types.CommonEntityData
     fan.EntityData.BundleName = "cisco_ios_xr"
     fan.EntityData.ParentYangName = "location"
     fan.EntityData.SegmentPath = "fan" + types.AddKeyToken(fan.LocIden, "loc_iden")
+    fan.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:environment/all/location/" + fan.EntityData.SegmentPath
     fan.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fan.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fan.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1387,6 +1436,7 @@ func (fan *Environment_All_Location_Fan) GetEntityData() *types.CommonEntityData
 type Environment_All_Location_Fan_FanAttributes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     LogicalSlot interface{}
@@ -1416,6 +1466,7 @@ func (fanAttributes *Environment_All_Location_Fan_FanAttributes) GetEntityData()
     fanAttributes.EntityData.BundleName = "cisco_ios_xr"
     fanAttributes.EntityData.ParentYangName = "fan"
     fanAttributes.EntityData.SegmentPath = "fan_attributes" + types.AddKeyToken(fanAttributes.LogicalSlot, "logical_slot")
+    fanAttributes.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:environment/all/location/fan/" + fanAttributes.EntityData.SegmentPath
     fanAttributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fanAttributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fanAttributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1439,6 +1490,7 @@ func (fanAttributes *Environment_All_Location_Fan_FanAttributes) GetEntityData()
 type Environment_All_Location_Power struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     LocIden interface{}
@@ -1453,6 +1505,7 @@ func (power *Environment_All_Location_Power) GetEntityData() *types.CommonEntity
     power.EntityData.BundleName = "cisco_ios_xr"
     power.EntityData.ParentYangName = "location"
     power.EntityData.SegmentPath = "power" + types.AddKeyToken(power.LocIden, "loc_iden")
+    power.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:environment/all/location/" + power.EntityData.SegmentPath
     power.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     power.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     power.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1474,6 +1527,7 @@ func (power *Environment_All_Location_Power) GetEntityData() *types.CommonEntity
 type Environment_All_Location_Power_PemAttributes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     Pem interface{}
@@ -1566,6 +1620,7 @@ func (pemAttributes *Environment_All_Location_Power_PemAttributes) GetEntityData
     pemAttributes.EntityData.BundleName = "cisco_ios_xr"
     pemAttributes.EntityData.ParentYangName = "power"
     pemAttributes.EntityData.SegmentPath = "pem_attributes" + types.AddKeyToken(pemAttributes.Pem, "pem")
+    pemAttributes.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:environment/all/location/power/" + pemAttributes.EntityData.SegmentPath
     pemAttributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pemAttributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pemAttributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1610,6 +1665,7 @@ func (pemAttributes *Environment_All_Location_Power_PemAttributes) GetEntityData
 type Environment_All_Location_Altitude struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     LocIden interface{}
@@ -1624,6 +1680,7 @@ func (altitude *Environment_All_Location_Altitude) GetEntityData() *types.Common
     altitude.EntityData.BundleName = "cisco_ios_xr"
     altitude.EntityData.ParentYangName = "location"
     altitude.EntityData.SegmentPath = "altitude" + types.AddKeyToken(altitude.LocIden, "loc_iden")
+    altitude.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:environment/all/location/" + altitude.EntityData.SegmentPath
     altitude.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     altitude.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     altitude.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1645,6 +1702,7 @@ func (altitude *Environment_All_Location_Altitude) GetEntityData() *types.Common
 type Environment_All_Location_Altitude_AltAttributes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     Sensor interface{}
@@ -1668,6 +1726,7 @@ func (altAttributes *Environment_All_Location_Altitude_AltAttributes) GetEntityD
     altAttributes.EntityData.BundleName = "cisco_ios_xr"
     altAttributes.EntityData.ParentYangName = "altitude"
     altAttributes.EntityData.SegmentPath = "alt_attributes" + types.AddKeyToken(altAttributes.Sensor, "sensor")
+    altAttributes.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:environment/all/location/altitude/" + altAttributes.EntityData.SegmentPath
     altAttributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     altAttributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     altAttributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1691,15 +1750,6 @@ type Environment_Config struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // The type is interface{} with range: 0..100.
-    RaiseFanSpeed interface{}
-
-    // The type is interface{} with range: 0..1.
-    FanCtrlOptics interface{}
-
-    // The type is interface{} with range: 0..1.
-    GracefulShutdown interface{}
-
     
     Router Environment_Config_Router
 
@@ -1714,6 +1764,15 @@ type Environment_Config struct {
 
     
     Monitoring Environment_Config_Monitoring
+
+    
+    RaiseFanSpeed Environment_Config_RaiseFanSpeed
+
+    
+    FanCtrlOptics Environment_Config_FanCtrlOptics
+
+    
+    GracefulShutdown Environment_Config_GracefulShutdown
 }
 
 func (config *Environment_Config) GetEntityData() *types.CommonEntityData {
@@ -1722,6 +1781,7 @@ func (config *Environment_Config) GetEntityData() *types.CommonEntityData {
     config.EntityData.BundleName = "cisco_ios_xr"
     config.EntityData.ParentYangName = "environment"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:environment/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     config.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1732,10 +1792,10 @@ func (config *Environment_Config) GetEntityData() *types.CommonEntityData {
     config.EntityData.Children.Append("fan-ctrl", types.YChild{"FanCtrl", &config.FanCtrl})
     config.EntityData.Children.Append("temperature", types.YChild{"Temperature", &config.Temperature})
     config.EntityData.Children.Append("monitoring", types.YChild{"Monitoring", &config.Monitoring})
+    config.EntityData.Children.Append("raise-fan-speed", types.YChild{"RaiseFanSpeed", &config.RaiseFanSpeed})
+    config.EntityData.Children.Append("fan-ctrl-optics", types.YChild{"FanCtrlOptics", &config.FanCtrlOptics})
+    config.EntityData.Children.Append("graceful-shutdown", types.YChild{"GracefulShutdown", &config.GracefulShutdown})
     config.EntityData.Leafs = types.NewOrderedMap()
-    config.EntityData.Leafs.Append("raise-fan-speed", types.YLeaf{"RaiseFanSpeed", config.RaiseFanSpeed})
-    config.EntityData.Leafs.Append("fan-ctrl-optics", types.YLeaf{"FanCtrlOptics", config.FanCtrlOptics})
-    config.EntityData.Leafs.Append("graceful-shutdown", types.YLeaf{"GracefulShutdown", config.GracefulShutdown})
 
     config.EntityData.YListKeys = []string {}
 
@@ -1757,6 +1817,7 @@ func (router *Environment_Config_Router) GetEntityData() *types.CommonEntityData
     router.EntityData.BundleName = "cisco_ios_xr"
     router.EntityData.ParentYangName = "config"
     router.EntityData.SegmentPath = "router"
+    router.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:environment/config/" + router.EntityData.SegmentPath
     router.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     router.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     router.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1788,6 +1849,7 @@ func (altitude *Environment_Config_Router_Altitude) GetEntityData() *types.Commo
     altitude.EntityData.BundleName = "cisco_ios_xr"
     altitude.EntityData.ParentYangName = "router"
     altitude.EntityData.SegmentPath = "altitude"
+    altitude.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:environment/config/router/" + altitude.EntityData.SegmentPath
     altitude.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     altitude.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     altitude.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1817,6 +1879,7 @@ func (all *Environment_Config_Router_Altitude_All) GetEntityData() *types.Common
     all.EntityData.BundleName = "cisco_ios_xr"
     all.EntityData.ParentYangName = "altitude"
     all.EntityData.SegmentPath = "all"
+    all.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:environment/config/router/altitude/" + all.EntityData.SegmentPath
     all.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     all.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     all.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1845,6 +1908,7 @@ func (rackLoc *Environment_Config_Router_Altitude_RackLoc) GetEntityData() *type
     rackLoc.EntityData.BundleName = "cisco_ios_xr"
     rackLoc.EntityData.ParentYangName = "altitude"
     rackLoc.EntityData.SegmentPath = "rack_loc"
+    rackLoc.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:environment/config/router/altitude/" + rackLoc.EntityData.SegmentPath
     rackLoc.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rackLoc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rackLoc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1865,6 +1929,7 @@ func (rackLoc *Environment_Config_Router_Altitude_RackLoc) GetEntityData() *type
 type Environment_Config_Router_Altitude_RackLoc_Location struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is RackId.
     RackId interface{}
@@ -1879,6 +1944,7 @@ func (location *Environment_Config_Router_Altitude_RackLoc_Location) GetEntityDa
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "rack_loc"
     location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.RackId, "rackId")
+    location.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:environment/config/router/altitude/rack_loc/" + location.EntityData.SegmentPath
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1908,6 +1974,7 @@ func (airFilter *Environment_Config_AirFilter) GetEntityData() *types.CommonEnti
     airFilter.EntityData.BundleName = "cisco_ios_xr"
     airFilter.EntityData.ParentYangName = "config"
     airFilter.EntityData.SegmentPath = "air-filter"
+    airFilter.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:environment/config/" + airFilter.EntityData.SegmentPath
     airFilter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     airFilter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     airFilter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1939,6 +2006,7 @@ func (replaced *Environment_Config_AirFilter_Replaced) GetEntityData() *types.Co
     replaced.EntityData.BundleName = "cisco_ios_xr"
     replaced.EntityData.ParentYangName = "air-filter"
     replaced.EntityData.SegmentPath = "replaced"
+    replaced.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:environment/config/air-filter/" + replaced.EntityData.SegmentPath
     replaced.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     replaced.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     replaced.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1968,6 +2036,7 @@ func (all *Environment_Config_AirFilter_Replaced_All) GetEntityData() *types.Com
     all.EntityData.BundleName = "cisco_ios_xr"
     all.EntityData.ParentYangName = "replaced"
     all.EntityData.SegmentPath = "all"
+    all.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:environment/config/air-filter/replaced/" + all.EntityData.SegmentPath
     all.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     all.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     all.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1997,6 +2066,7 @@ func (rackLoc *Environment_Config_AirFilter_Replaced_RackLoc) GetEntityData() *t
     rackLoc.EntityData.BundleName = "cisco_ios_xr"
     rackLoc.EntityData.ParentYangName = "replaced"
     rackLoc.EntityData.SegmentPath = "rack_loc"
+    rackLoc.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:environment/config/air-filter/replaced/" + rackLoc.EntityData.SegmentPath
     rackLoc.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rackLoc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rackLoc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2017,6 +2087,7 @@ func (rackLoc *Environment_Config_AirFilter_Replaced_RackLoc) GetEntityData() *t
 type Environment_Config_AirFilter_Replaced_RackLoc_Location struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is RackId.
     RackId interface{}
@@ -2031,6 +2102,7 @@ func (location *Environment_Config_AirFilter_Replaced_RackLoc_Location) GetEntit
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "rack_loc"
     location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.RackId, "rackId")
+    location.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:environment/config/air-filter/replaced/rack_loc/" + location.EntityData.SegmentPath
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2060,6 +2132,7 @@ func (fanCtrl *Environment_Config_FanCtrl) GetEntityData() *types.CommonEntityDa
     fanCtrl.EntityData.BundleName = "cisco_ios_xr"
     fanCtrl.EntityData.ParentYangName = "config"
     fanCtrl.EntityData.SegmentPath = "fan-ctrl"
+    fanCtrl.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:environment/config/" + fanCtrl.EntityData.SegmentPath
     fanCtrl.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fanCtrl.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fanCtrl.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2088,6 +2161,7 @@ func (disable *Environment_Config_FanCtrl_Disable) GetEntityData() *types.Common
     disable.EntityData.BundleName = "cisco_ios_xr"
     disable.EntityData.ParentYangName = "fan-ctrl"
     disable.EntityData.SegmentPath = "disable"
+    disable.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:environment/config/fan-ctrl/" + disable.EntityData.SegmentPath
     disable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     disable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     disable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2119,6 +2193,7 @@ func (rackLoc *Environment_Config_FanCtrl_Disable_RackLoc) GetEntityData() *type
     rackLoc.EntityData.BundleName = "cisco_ios_xr"
     rackLoc.EntityData.ParentYangName = "disable"
     rackLoc.EntityData.SegmentPath = "rack_loc"
+    rackLoc.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:environment/config/fan-ctrl/disable/" + rackLoc.EntityData.SegmentPath
     rackLoc.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rackLoc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rackLoc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2140,6 +2215,7 @@ func (rackLoc *Environment_Config_FanCtrl_Disable_RackLoc) GetEntityData() *type
 type Environment_Config_FanCtrl_Disable_RackLoc_Location struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is RackId.
     RackId interface{}
@@ -2151,6 +2227,7 @@ func (location *Environment_Config_FanCtrl_Disable_RackLoc_Location) GetEntityDa
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "rack_loc"
     location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.RackId, "rackId")
+    location.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:environment/config/fan-ctrl/disable/rack_loc/" + location.EntityData.SegmentPath
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2179,6 +2256,7 @@ func (temperature *Environment_Config_Temperature) GetEntityData() *types.Common
     temperature.EntityData.BundleName = "cisco_ios_xr"
     temperature.EntityData.ParentYangName = "config"
     temperature.EntityData.SegmentPath = "temperature"
+    temperature.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:environment/config/" + temperature.EntityData.SegmentPath
     temperature.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     temperature.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     temperature.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2207,6 +2285,7 @@ func (disable *Environment_Config_Temperature_Disable) GetEntityData() *types.Co
     disable.EntityData.BundleName = "cisco_ios_xr"
     disable.EntityData.ParentYangName = "temperature"
     disable.EntityData.SegmentPath = "disable"
+    disable.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:environment/config/temperature/" + disable.EntityData.SegmentPath
     disable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     disable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     disable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2239,6 +2318,7 @@ func (rackLoc *Environment_Config_Temperature_Disable_RackLoc) GetEntityData() *
     rackLoc.EntityData.BundleName = "cisco_ios_xr"
     rackLoc.EntityData.ParentYangName = "disable"
     rackLoc.EntityData.SegmentPath = "rack_loc"
+    rackLoc.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:environment/config/temperature/disable/" + rackLoc.EntityData.SegmentPath
     rackLoc.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rackLoc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rackLoc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2260,6 +2340,7 @@ func (rackLoc *Environment_Config_Temperature_Disable_RackLoc) GetEntityData() *
 type Environment_Config_Temperature_Disable_RackLoc_Location struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is RackId.
     RackId interface{}
@@ -2271,6 +2352,7 @@ func (location *Environment_Config_Temperature_Disable_RackLoc_Location) GetEnti
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "rack_loc"
     location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.RackId, "rackId")
+    location.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:environment/config/temperature/disable/rack_loc/" + location.EntityData.SegmentPath
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2299,6 +2381,7 @@ func (monitoring *Environment_Config_Monitoring) GetEntityData() *types.CommonEn
     monitoring.EntityData.BundleName = "cisco_ios_xr"
     monitoring.EntityData.ParentYangName = "config"
     monitoring.EntityData.SegmentPath = "monitoring"
+    monitoring.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:environment/config/" + monitoring.EntityData.SegmentPath
     monitoring.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     monitoring.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     monitoring.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2327,6 +2410,7 @@ func (disable *Environment_Config_Monitoring_Disable) GetEntityData() *types.Com
     disable.EntityData.BundleName = "cisco_ios_xr"
     disable.EntityData.ParentYangName = "monitoring"
     disable.EntityData.SegmentPath = "disable"
+    disable.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:environment/config/monitoring/" + disable.EntityData.SegmentPath
     disable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     disable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     disable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2359,6 +2443,7 @@ func (rackLoc *Environment_Config_Monitoring_Disable_RackLoc) GetEntityData() *t
     rackLoc.EntityData.BundleName = "cisco_ios_xr"
     rackLoc.EntityData.ParentYangName = "disable"
     rackLoc.EntityData.SegmentPath = "rack_loc"
+    rackLoc.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:environment/config/monitoring/disable/" + rackLoc.EntityData.SegmentPath
     rackLoc.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rackLoc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rackLoc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2380,6 +2465,7 @@ func (rackLoc *Environment_Config_Monitoring_Disable_RackLoc) GetEntityData() *t
 type Environment_Config_Monitoring_Disable_RackLoc_Location struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is RackId.
     RackId interface{}
@@ -2391,6 +2477,385 @@ func (location *Environment_Config_Monitoring_Disable_RackLoc_Location) GetEntit
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "rack_loc"
     location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.RackId, "rackId")
+    location.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:environment/config/monitoring/disable/rack_loc/" + location.EntityData.SegmentPath
+    location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    location.EntityData.Children = types.NewOrderedMap()
+    location.EntityData.Leafs = types.NewOrderedMap()
+    location.EntityData.Leafs.Append("rackId", types.YLeaf{"RackId", location.RackId})
+
+    location.EntityData.YListKeys = []string {"RackId"}
+
+    return &(location.EntityData)
+}
+
+// Environment_Config_RaiseFanSpeed
+type Environment_Config_RaiseFanSpeed struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    
+    All Environment_Config_RaiseFanSpeed_All
+
+    
+    RackLoc Environment_Config_RaiseFanSpeed_RackLoc
+}
+
+func (raiseFanSpeed *Environment_Config_RaiseFanSpeed) GetEntityData() *types.CommonEntityData {
+    raiseFanSpeed.EntityData.YFilter = raiseFanSpeed.YFilter
+    raiseFanSpeed.EntityData.YangName = "raise-fan-speed"
+    raiseFanSpeed.EntityData.BundleName = "cisco_ios_xr"
+    raiseFanSpeed.EntityData.ParentYangName = "config"
+    raiseFanSpeed.EntityData.SegmentPath = "raise-fan-speed"
+    raiseFanSpeed.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:environment/config/" + raiseFanSpeed.EntityData.SegmentPath
+    raiseFanSpeed.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    raiseFanSpeed.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    raiseFanSpeed.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    raiseFanSpeed.EntityData.Children = types.NewOrderedMap()
+    raiseFanSpeed.EntityData.Children.Append("all", types.YChild{"All", &raiseFanSpeed.All})
+    raiseFanSpeed.EntityData.Children.Append("rack_loc", types.YChild{"RackLoc", &raiseFanSpeed.RackLoc})
+    raiseFanSpeed.EntityData.Leafs = types.NewOrderedMap()
+
+    raiseFanSpeed.EntityData.YListKeys = []string {}
+
+    return &(raiseFanSpeed.EntityData)
+}
+
+// Environment_Config_RaiseFanSpeed_All
+type Environment_Config_RaiseFanSpeed_All struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // The type is interface{} with range: 0..100.
+    SpeedPwm interface{}
+}
+
+func (all *Environment_Config_RaiseFanSpeed_All) GetEntityData() *types.CommonEntityData {
+    all.EntityData.YFilter = all.YFilter
+    all.EntityData.YangName = "all"
+    all.EntityData.BundleName = "cisco_ios_xr"
+    all.EntityData.ParentYangName = "raise-fan-speed"
+    all.EntityData.SegmentPath = "all"
+    all.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:environment/config/raise-fan-speed/" + all.EntityData.SegmentPath
+    all.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    all.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    all.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    all.EntityData.Children = types.NewOrderedMap()
+    all.EntityData.Leafs = types.NewOrderedMap()
+    all.EntityData.Leafs.Append("speed_pwm", types.YLeaf{"SpeedPwm", all.SpeedPwm})
+
+    all.EntityData.YListKeys = []string {}
+
+    return &(all.EntityData)
+}
+
+// Environment_Config_RaiseFanSpeed_RackLoc
+type Environment_Config_RaiseFanSpeed_RackLoc struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // The type is slice of Environment_Config_RaiseFanSpeed_RackLoc_Location.
+    Location []*Environment_Config_RaiseFanSpeed_RackLoc_Location
+}
+
+func (rackLoc *Environment_Config_RaiseFanSpeed_RackLoc) GetEntityData() *types.CommonEntityData {
+    rackLoc.EntityData.YFilter = rackLoc.YFilter
+    rackLoc.EntityData.YangName = "rack_loc"
+    rackLoc.EntityData.BundleName = "cisco_ios_xr"
+    rackLoc.EntityData.ParentYangName = "raise-fan-speed"
+    rackLoc.EntityData.SegmentPath = "rack_loc"
+    rackLoc.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:environment/config/raise-fan-speed/" + rackLoc.EntityData.SegmentPath
+    rackLoc.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    rackLoc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    rackLoc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    rackLoc.EntityData.Children = types.NewOrderedMap()
+    rackLoc.EntityData.Children.Append("location", types.YChild{"Location", nil})
+    for i := range rackLoc.Location {
+        rackLoc.EntityData.Children.Append(types.GetSegmentPath(rackLoc.Location[i]), types.YChild{"Location", rackLoc.Location[i]})
+    }
+    rackLoc.EntityData.Leafs = types.NewOrderedMap()
+
+    rackLoc.EntityData.YListKeys = []string {}
+
+    return &(rackLoc.EntityData)
+}
+
+// Environment_Config_RaiseFanSpeed_RackLoc_Location
+type Environment_Config_RaiseFanSpeed_RackLoc_Location struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. The type is RackId.
+    RackId interface{}
+
+    // The type is interface{} with range: 0..100.
+    SpeedPwm interface{}
+}
+
+func (location *Environment_Config_RaiseFanSpeed_RackLoc_Location) GetEntityData() *types.CommonEntityData {
+    location.EntityData.YFilter = location.YFilter
+    location.EntityData.YangName = "location"
+    location.EntityData.BundleName = "cisco_ios_xr"
+    location.EntityData.ParentYangName = "rack_loc"
+    location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.RackId, "rackId")
+    location.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:environment/config/raise-fan-speed/rack_loc/" + location.EntityData.SegmentPath
+    location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    location.EntityData.Children = types.NewOrderedMap()
+    location.EntityData.Leafs = types.NewOrderedMap()
+    location.EntityData.Leafs.Append("rackId", types.YLeaf{"RackId", location.RackId})
+    location.EntityData.Leafs.Append("speed_pwm", types.YLeaf{"SpeedPwm", location.SpeedPwm})
+
+    location.EntityData.YListKeys = []string {"RackId"}
+
+    return &(location.EntityData)
+}
+
+// Environment_Config_FanCtrlOptics
+type Environment_Config_FanCtrlOptics struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    
+    Enable Environment_Config_FanCtrlOptics_Enable
+}
+
+func (fanCtrlOptics *Environment_Config_FanCtrlOptics) GetEntityData() *types.CommonEntityData {
+    fanCtrlOptics.EntityData.YFilter = fanCtrlOptics.YFilter
+    fanCtrlOptics.EntityData.YangName = "fan-ctrl-optics"
+    fanCtrlOptics.EntityData.BundleName = "cisco_ios_xr"
+    fanCtrlOptics.EntityData.ParentYangName = "config"
+    fanCtrlOptics.EntityData.SegmentPath = "fan-ctrl-optics"
+    fanCtrlOptics.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:environment/config/" + fanCtrlOptics.EntityData.SegmentPath
+    fanCtrlOptics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    fanCtrlOptics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    fanCtrlOptics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    fanCtrlOptics.EntityData.Children = types.NewOrderedMap()
+    fanCtrlOptics.EntityData.Children.Append("enable", types.YChild{"Enable", &fanCtrlOptics.Enable})
+    fanCtrlOptics.EntityData.Leafs = types.NewOrderedMap()
+
+    fanCtrlOptics.EntityData.YListKeys = []string {}
+
+    return &(fanCtrlOptics.EntityData)
+}
+
+// Environment_Config_FanCtrlOptics_Enable
+type Environment_Config_FanCtrlOptics_Enable struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    
+    RackLoc Environment_Config_FanCtrlOptics_Enable_RackLoc
+}
+
+func (enable *Environment_Config_FanCtrlOptics_Enable) GetEntityData() *types.CommonEntityData {
+    enable.EntityData.YFilter = enable.YFilter
+    enable.EntityData.YangName = "enable"
+    enable.EntityData.BundleName = "cisco_ios_xr"
+    enable.EntityData.ParentYangName = "fan-ctrl-optics"
+    enable.EntityData.SegmentPath = "enable"
+    enable.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:environment/config/fan-ctrl-optics/" + enable.EntityData.SegmentPath
+    enable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    enable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    enable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    enable.EntityData.Children = types.NewOrderedMap()
+    enable.EntityData.Children.Append("rack_loc", types.YChild{"RackLoc", &enable.RackLoc})
+    enable.EntityData.Leafs = types.NewOrderedMap()
+
+    enable.EntityData.YListKeys = []string {}
+
+    return &(enable.EntityData)
+}
+
+// Environment_Config_FanCtrlOptics_Enable_RackLoc
+type Environment_Config_FanCtrlOptics_Enable_RackLoc struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // The type is interface{}.
+    All interface{}
+
+    // The type is slice of
+    // Environment_Config_FanCtrlOptics_Enable_RackLoc_Location.
+    Location []*Environment_Config_FanCtrlOptics_Enable_RackLoc_Location
+}
+
+func (rackLoc *Environment_Config_FanCtrlOptics_Enable_RackLoc) GetEntityData() *types.CommonEntityData {
+    rackLoc.EntityData.YFilter = rackLoc.YFilter
+    rackLoc.EntityData.YangName = "rack_loc"
+    rackLoc.EntityData.BundleName = "cisco_ios_xr"
+    rackLoc.EntityData.ParentYangName = "enable"
+    rackLoc.EntityData.SegmentPath = "rack_loc"
+    rackLoc.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:environment/config/fan-ctrl-optics/enable/" + rackLoc.EntityData.SegmentPath
+    rackLoc.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    rackLoc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    rackLoc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    rackLoc.EntityData.Children = types.NewOrderedMap()
+    rackLoc.EntityData.Children.Append("location", types.YChild{"Location", nil})
+    for i := range rackLoc.Location {
+        rackLoc.EntityData.Children.Append(types.GetSegmentPath(rackLoc.Location[i]), types.YChild{"Location", rackLoc.Location[i]})
+    }
+    rackLoc.EntityData.Leafs = types.NewOrderedMap()
+    rackLoc.EntityData.Leafs.Append("all", types.YLeaf{"All", rackLoc.All})
+
+    rackLoc.EntityData.YListKeys = []string {}
+
+    return &(rackLoc.EntityData)
+}
+
+// Environment_Config_FanCtrlOptics_Enable_RackLoc_Location
+type Environment_Config_FanCtrlOptics_Enable_RackLoc_Location struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. The type is RackId.
+    RackId interface{}
+}
+
+func (location *Environment_Config_FanCtrlOptics_Enable_RackLoc_Location) GetEntityData() *types.CommonEntityData {
+    location.EntityData.YFilter = location.YFilter
+    location.EntityData.YangName = "location"
+    location.EntityData.BundleName = "cisco_ios_xr"
+    location.EntityData.ParentYangName = "rack_loc"
+    location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.RackId, "rackId")
+    location.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:environment/config/fan-ctrl-optics/enable/rack_loc/" + location.EntityData.SegmentPath
+    location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    location.EntityData.Children = types.NewOrderedMap()
+    location.EntityData.Leafs = types.NewOrderedMap()
+    location.EntityData.Leafs.Append("rackId", types.YLeaf{"RackId", location.RackId})
+
+    location.EntityData.YListKeys = []string {"RackId"}
+
+    return &(location.EntityData)
+}
+
+// Environment_Config_GracefulShutdown
+type Environment_Config_GracefulShutdown struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    
+    Disable Environment_Config_GracefulShutdown_Disable
+}
+
+func (gracefulShutdown *Environment_Config_GracefulShutdown) GetEntityData() *types.CommonEntityData {
+    gracefulShutdown.EntityData.YFilter = gracefulShutdown.YFilter
+    gracefulShutdown.EntityData.YangName = "graceful-shutdown"
+    gracefulShutdown.EntityData.BundleName = "cisco_ios_xr"
+    gracefulShutdown.EntityData.ParentYangName = "config"
+    gracefulShutdown.EntityData.SegmentPath = "graceful-shutdown"
+    gracefulShutdown.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:environment/config/" + gracefulShutdown.EntityData.SegmentPath
+    gracefulShutdown.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    gracefulShutdown.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    gracefulShutdown.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    gracefulShutdown.EntityData.Children = types.NewOrderedMap()
+    gracefulShutdown.EntityData.Children.Append("disable", types.YChild{"Disable", &gracefulShutdown.Disable})
+    gracefulShutdown.EntityData.Leafs = types.NewOrderedMap()
+
+    gracefulShutdown.EntityData.YListKeys = []string {}
+
+    return &(gracefulShutdown.EntityData)
+}
+
+// Environment_Config_GracefulShutdown_Disable
+type Environment_Config_GracefulShutdown_Disable struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    
+    RackLoc Environment_Config_GracefulShutdown_Disable_RackLoc
+}
+
+func (disable *Environment_Config_GracefulShutdown_Disable) GetEntityData() *types.CommonEntityData {
+    disable.EntityData.YFilter = disable.YFilter
+    disable.EntityData.YangName = "disable"
+    disable.EntityData.BundleName = "cisco_ios_xr"
+    disable.EntityData.ParentYangName = "graceful-shutdown"
+    disable.EntityData.SegmentPath = "disable"
+    disable.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:environment/config/graceful-shutdown/" + disable.EntityData.SegmentPath
+    disable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    disable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    disable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    disable.EntityData.Children = types.NewOrderedMap()
+    disable.EntityData.Children.Append("rack_loc", types.YChild{"RackLoc", &disable.RackLoc})
+    disable.EntityData.Leafs = types.NewOrderedMap()
+
+    disable.EntityData.YListKeys = []string {}
+
+    return &(disable.EntityData)
+}
+
+// Environment_Config_GracefulShutdown_Disable_RackLoc
+type Environment_Config_GracefulShutdown_Disable_RackLoc struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // The type is interface{}.
+    All interface{}
+
+    // The type is slice of
+    // Environment_Config_GracefulShutdown_Disable_RackLoc_Location.
+    Location []*Environment_Config_GracefulShutdown_Disable_RackLoc_Location
+}
+
+func (rackLoc *Environment_Config_GracefulShutdown_Disable_RackLoc) GetEntityData() *types.CommonEntityData {
+    rackLoc.EntityData.YFilter = rackLoc.YFilter
+    rackLoc.EntityData.YangName = "rack_loc"
+    rackLoc.EntityData.BundleName = "cisco_ios_xr"
+    rackLoc.EntityData.ParentYangName = "disable"
+    rackLoc.EntityData.SegmentPath = "rack_loc"
+    rackLoc.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:environment/config/graceful-shutdown/disable/" + rackLoc.EntityData.SegmentPath
+    rackLoc.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    rackLoc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    rackLoc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    rackLoc.EntityData.Children = types.NewOrderedMap()
+    rackLoc.EntityData.Children.Append("location", types.YChild{"Location", nil})
+    for i := range rackLoc.Location {
+        rackLoc.EntityData.Children.Append(types.GetSegmentPath(rackLoc.Location[i]), types.YChild{"Location", rackLoc.Location[i]})
+    }
+    rackLoc.EntityData.Leafs = types.NewOrderedMap()
+    rackLoc.EntityData.Leafs.Append("all", types.YLeaf{"All", rackLoc.All})
+
+    rackLoc.EntityData.YListKeys = []string {}
+
+    return &(rackLoc.EntityData)
+}
+
+// Environment_Config_GracefulShutdown_Disable_RackLoc_Location
+type Environment_Config_GracefulShutdown_Disable_RackLoc_Location struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. The type is RackId.
+    RackId interface{}
+}
+
+func (location *Environment_Config_GracefulShutdown_Disable_RackLoc_Location) GetEntityData() *types.CommonEntityData {
+    location.EntityData.YFilter = location.YFilter
+    location.EntityData.YangName = "location"
+    location.EntityData.BundleName = "cisco_ios_xr"
+    location.EntityData.ParentYangName = "rack_loc"
+    location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.RackId, "rackId")
+    location.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:environment/config/graceful-shutdown/disable/rack_loc/" + location.EntityData.SegmentPath
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2409,6 +2874,7 @@ func (location *Environment_Config_Monitoring_Disable_RackLoc_Location) GetEntit
 type Environment_Trace struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     Buffer interface{}
@@ -2423,6 +2889,7 @@ func (trace *Environment_Trace) GetEntityData() *types.CommonEntityData {
     trace.EntityData.BundleName = "cisco_ios_xr"
     trace.EntityData.ParentYangName = "environment"
     trace.EntityData.SegmentPath = "trace" + types.AddKeyToken(trace.Buffer, "buffer")
+    trace.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:environment/" + trace.EntityData.SegmentPath
     trace.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trace.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trace.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2444,6 +2911,7 @@ func (trace *Environment_Trace) GetEntityData() *types.CommonEntityData {
 type Environment_Trace_Location struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     LocationName interface{}
@@ -2458,6 +2926,7 @@ func (location *Environment_Trace_Location) GetEntityData() *types.CommonEntityD
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "trace"
     location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.LocationName, "location_name")
+    location.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:environment/trace/" + location.EntityData.SegmentPath
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2479,6 +2948,7 @@ func (location *Environment_Trace_Location) GetEntityData() *types.CommonEntityD
 type Environment_Trace_Location_AllOptions struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     Option interface{}
@@ -2493,6 +2963,7 @@ func (allOptions *Environment_Trace_Location_AllOptions) GetEntityData() *types.
     allOptions.EntityData.BundleName = "cisco_ios_xr"
     allOptions.EntityData.ParentYangName = "location"
     allOptions.EntityData.SegmentPath = "all-options" + types.AddKeyToken(allOptions.Option, "option")
+    allOptions.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:environment/trace/location/" + allOptions.EntityData.SegmentPath
     allOptions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     allOptions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     allOptions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2500,6 +2971,7 @@ func (allOptions *Environment_Trace_Location_AllOptions) GetEntityData() *types.
     allOptions.EntityData.Children = types.NewOrderedMap()
     allOptions.EntityData.Children.Append("trace-blocks", types.YChild{"TraceBlocks", nil})
     for i := range allOptions.TraceBlocks {
+        types.SetYListKey(allOptions.TraceBlocks[i], i)
         allOptions.EntityData.Children.Append(types.GetSegmentPath(allOptions.TraceBlocks[i]), types.YChild{"TraceBlocks", allOptions.TraceBlocks[i]})
     }
     allOptions.EntityData.Leafs = types.NewOrderedMap()
@@ -2514,6 +2986,7 @@ func (allOptions *Environment_Trace_Location_AllOptions) GetEntityData() *types.
 type Environment_Trace_Location_AllOptions_TraceBlocks struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Trace output block. The type is string.
     Data interface{}
@@ -2524,7 +2997,8 @@ func (traceBlocks *Environment_Trace_Location_AllOptions_TraceBlocks) GetEntityD
     traceBlocks.EntityData.YangName = "trace-blocks"
     traceBlocks.EntityData.BundleName = "cisco_ios_xr"
     traceBlocks.EntityData.ParentYangName = "all-options"
-    traceBlocks.EntityData.SegmentPath = "trace-blocks"
+    traceBlocks.EntityData.SegmentPath = "trace-blocks" + types.AddNoKeyToken(traceBlocks)
+    traceBlocks.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:environment/trace/location/all-options/" + traceBlocks.EntityData.SegmentPath
     traceBlocks.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     traceBlocks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     traceBlocks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2553,6 +3027,7 @@ func (powerMgmt *PowerMgmt) GetEntityData() *types.CommonEntityData {
     powerMgmt.EntityData.BundleName = "cisco_ios_xr"
     powerMgmt.EntityData.ParentYangName = "Cisco-IOS-XR-sysadmin-envmon-ui"
     powerMgmt.EntityData.SegmentPath = "Cisco-IOS-XR-sysadmin-envmon-ui:power-mgmt"
+    powerMgmt.EntityData.AbsolutePath = powerMgmt.EntityData.SegmentPath
     powerMgmt.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     powerMgmt.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     powerMgmt.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2594,6 +3069,7 @@ func (config *PowerMgmt_Config) GetEntityData() *types.CommonEntityData {
     config.EntityData.BundleName = "cisco_ios_xr"
     config.EntityData.ParentYangName = "power-mgmt"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:power-mgmt/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     config.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2626,6 +3102,7 @@ func (action *PowerMgmt_Config_Action) GetEntityData() *types.CommonEntityData {
     action.EntityData.BundleName = "cisco_ios_xr"
     action.EntityData.ParentYangName = "config"
     action.EntityData.SegmentPath = "action"
+    action.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:power-mgmt/config/" + action.EntityData.SegmentPath
     action.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     action.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     action.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2654,6 +3131,7 @@ func (disable *PowerMgmt_Config_Action_Disable) GetEntityData() *types.CommonEnt
     disable.EntityData.BundleName = "cisco_ios_xr"
     disable.EntityData.ParentYangName = "action"
     disable.EntityData.SegmentPath = "disable"
+    disable.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:power-mgmt/config/action/" + disable.EntityData.SegmentPath
     disable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     disable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     disable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2685,6 +3163,7 @@ func (rackLoc *PowerMgmt_Config_Action_Disable_RackLoc) GetEntityData() *types.C
     rackLoc.EntityData.BundleName = "cisco_ios_xr"
     rackLoc.EntityData.ParentYangName = "disable"
     rackLoc.EntityData.SegmentPath = "rack_loc"
+    rackLoc.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:power-mgmt/config/action/disable/" + rackLoc.EntityData.SegmentPath
     rackLoc.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rackLoc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rackLoc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2706,6 +3185,7 @@ func (rackLoc *PowerMgmt_Config_Action_Disable_RackLoc) GetEntityData() *types.C
 type PowerMgmt_Config_Action_Disable_RackLoc_Location struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is RackId.
     RackId interface{}
@@ -2717,6 +3197,7 @@ func (location *PowerMgmt_Config_Action_Disable_RackLoc_Location) GetEntityData(
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "rack_loc"
     location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.RackId, "rackId")
+    location.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:power-mgmt/config/action/disable/rack_loc/" + location.EntityData.SegmentPath
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2745,6 +3226,7 @@ func (singleFeedMode *PowerMgmt_Config_SingleFeedMode) GetEntityData() *types.Co
     singleFeedMode.EntityData.BundleName = "cisco_ios_xr"
     singleFeedMode.EntityData.ParentYangName = "config"
     singleFeedMode.EntityData.SegmentPath = "single-feed-mode"
+    singleFeedMode.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:power-mgmt/config/" + singleFeedMode.EntityData.SegmentPath
     singleFeedMode.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     singleFeedMode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     singleFeedMode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2773,6 +3255,7 @@ func (enable *PowerMgmt_Config_SingleFeedMode_Enable) GetEntityData() *types.Com
     enable.EntityData.BundleName = "cisco_ios_xr"
     enable.EntityData.ParentYangName = "single-feed-mode"
     enable.EntityData.SegmentPath = "enable"
+    enable.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:power-mgmt/config/single-feed-mode/" + enable.EntityData.SegmentPath
     enable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     enable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     enable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2805,6 +3288,7 @@ func (rackLoc *PowerMgmt_Config_SingleFeedMode_Enable_RackLoc) GetEntityData() *
     rackLoc.EntityData.BundleName = "cisco_ios_xr"
     rackLoc.EntityData.ParentYangName = "enable"
     rackLoc.EntityData.SegmentPath = "rack_loc"
+    rackLoc.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:power-mgmt/config/single-feed-mode/enable/" + rackLoc.EntityData.SegmentPath
     rackLoc.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rackLoc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rackLoc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2826,6 +3310,7 @@ func (rackLoc *PowerMgmt_Config_SingleFeedMode_Enable_RackLoc) GetEntityData() *
 type PowerMgmt_Config_SingleFeedMode_Enable_RackLoc_Location struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is RackId.
     RackId interface{}
@@ -2837,6 +3322,7 @@ func (location *PowerMgmt_Config_SingleFeedMode_Enable_RackLoc_Location) GetEnti
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "rack_loc"
     location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.RackId, "rackId")
+    location.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:power-mgmt/config/single-feed-mode/enable/rack_loc/" + location.EntityData.SegmentPath
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2865,6 +3351,7 @@ func (extendedTemp *PowerMgmt_Config_ExtendedTemp) GetEntityData() *types.Common
     extendedTemp.EntityData.BundleName = "cisco_ios_xr"
     extendedTemp.EntityData.ParentYangName = "config"
     extendedTemp.EntityData.SegmentPath = "extended-temp"
+    extendedTemp.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:power-mgmt/config/" + extendedTemp.EntityData.SegmentPath
     extendedTemp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     extendedTemp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     extendedTemp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2893,6 +3380,7 @@ func (enable *PowerMgmt_Config_ExtendedTemp_Enable) GetEntityData() *types.Commo
     enable.EntityData.BundleName = "cisco_ios_xr"
     enable.EntityData.ParentYangName = "extended-temp"
     enable.EntityData.SegmentPath = "enable"
+    enable.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:power-mgmt/config/extended-temp/" + enable.EntityData.SegmentPath
     enable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     enable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     enable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2924,6 +3412,7 @@ func (rackLoc *PowerMgmt_Config_ExtendedTemp_Enable_RackLoc) GetEntityData() *ty
     rackLoc.EntityData.BundleName = "cisco_ios_xr"
     rackLoc.EntityData.ParentYangName = "enable"
     rackLoc.EntityData.SegmentPath = "rack_loc"
+    rackLoc.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:power-mgmt/config/extended-temp/enable/" + rackLoc.EntityData.SegmentPath
     rackLoc.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rackLoc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rackLoc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2945,6 +3434,7 @@ func (rackLoc *PowerMgmt_Config_ExtendedTemp_Enable_RackLoc) GetEntityData() *ty
 type PowerMgmt_Config_ExtendedTemp_Enable_RackLoc_Location struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is RackId.
     RackId interface{}
@@ -2956,6 +3446,7 @@ func (location *PowerMgmt_Config_ExtendedTemp_Enable_RackLoc_Location) GetEntity
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "rack_loc"
     location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.RackId, "rackId")
+    location.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:power-mgmt/config/extended-temp/enable/rack_loc/" + location.EntityData.SegmentPath
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2987,6 +3478,7 @@ func (redundancyNumPms *PowerMgmt_Config_RedundancyNumPms) GetEntityData() *type
     redundancyNumPms.EntityData.BundleName = "cisco_ios_xr"
     redundancyNumPms.EntityData.ParentYangName = "config"
     redundancyNumPms.EntityData.SegmentPath = "redundancy-num-pms"
+    redundancyNumPms.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:power-mgmt/config/" + redundancyNumPms.EntityData.SegmentPath
     redundancyNumPms.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     redundancyNumPms.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     redundancyNumPms.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3006,7 +3498,7 @@ type PowerMgmt_Config_RedundancyNumPms_All struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // The type is interface{} with range: 0..1.
+    // The type is interface{} with range: 0..5.
     NumPm interface{}
 }
 
@@ -3016,6 +3508,7 @@ func (all *PowerMgmt_Config_RedundancyNumPms_All) GetEntityData() *types.CommonE
     all.EntityData.BundleName = "cisco_ios_xr"
     all.EntityData.ParentYangName = "redundancy-num-pms"
     all.EntityData.SegmentPath = "all"
+    all.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:power-mgmt/config/redundancy-num-pms/" + all.EntityData.SegmentPath
     all.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     all.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     all.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3044,6 +3537,7 @@ func (rackLoc *PowerMgmt_Config_RedundancyNumPms_RackLoc) GetEntityData() *types
     rackLoc.EntityData.BundleName = "cisco_ios_xr"
     rackLoc.EntityData.ParentYangName = "redundancy-num-pms"
     rackLoc.EntityData.SegmentPath = "rack_loc"
+    rackLoc.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:power-mgmt/config/redundancy-num-pms/" + rackLoc.EntityData.SegmentPath
     rackLoc.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rackLoc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rackLoc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3064,11 +3558,12 @@ func (rackLoc *PowerMgmt_Config_RedundancyNumPms_RackLoc) GetEntityData() *types
 type PowerMgmt_Config_RedundancyNumPms_RackLoc_Location struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is RackId.
     RackId interface{}
 
-    // The type is interface{} with range: 0..1.
+    // The type is interface{} with range: 0..5.
     NumPm interface{}
 }
 
@@ -3078,6 +3573,7 @@ func (location *PowerMgmt_Config_RedundancyNumPms_RackLoc_Location) GetEntityDat
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "rack_loc"
     location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.RackId, "rackId")
+    location.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:power-mgmt/config/redundancy-num-pms/rack_loc/" + location.EntityData.SegmentPath
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3107,6 +3603,7 @@ func (progressive *PowerMgmt_Config_Progressive) GetEntityData() *types.CommonEn
     progressive.EntityData.BundleName = "cisco_ios_xr"
     progressive.EntityData.ParentYangName = "config"
     progressive.EntityData.SegmentPath = "progressive"
+    progressive.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:power-mgmt/config/" + progressive.EntityData.SegmentPath
     progressive.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     progressive.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     progressive.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3127,6 +3624,7 @@ func (progressive *PowerMgmt_Config_Progressive) GetEntityData() *types.CommonEn
 type PowerMgmt_Config_Progressive_Enable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is Enabled.
     Enabled interface{}
@@ -3147,6 +3645,7 @@ func (enable *PowerMgmt_Config_Progressive_Enable) GetEntityData() *types.Common
     enable.EntityData.BundleName = "cisco_ios_xr"
     enable.EntityData.ParentYangName = "progressive"
     enable.EntityData.SegmentPath = "enable" + types.AddKeyToken(enable.Enabled, "enabled")
+    enable.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:power-mgmt/config/progressive/" + enable.EntityData.SegmentPath
     enable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     enable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     enable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3178,6 +3677,7 @@ func (priority *PowerMgmt_Config_Progressive_Enable_Priority) GetEntityData() *t
     priority.EntityData.BundleName = "cisco_ios_xr"
     priority.EntityData.ParentYangName = "enable"
     priority.EntityData.SegmentPath = "priority"
+    priority.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:power-mgmt/config/progressive/enable/" + priority.EntityData.SegmentPath
     priority.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     priority.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     priority.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3198,6 +3698,7 @@ func (priority *PowerMgmt_Config_Progressive_Enable_Priority) GetEntityData() *t
 type PowerMgmt_Config_Progressive_Enable_Priority_Location struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with pattern: 0/([0-9]|1[0-9]).
     Loc interface{}
@@ -3212,6 +3713,7 @@ func (location *PowerMgmt_Config_Progressive_Enable_Priority_Location) GetEntity
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "priority"
     location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.Loc, "loc")
+    location.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-envmon-ui:power-mgmt/config/progressive/enable/priority/" + location.EntityData.SegmentPath
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

@@ -36,6 +36,7 @@ func (memoryUsageProcesses *MemoryUsageProcesses) GetEntityData() *types.CommonE
     memoryUsageProcesses.EntityData.BundleName = "cisco_ios_xe"
     memoryUsageProcesses.EntityData.ParentYangName = "Cisco-IOS-XE-process-memory-oper"
     memoryUsageProcesses.EntityData.SegmentPath = "Cisco-IOS-XE-process-memory-oper:memory-usage-processes"
+    memoryUsageProcesses.EntityData.AbsolutePath = memoryUsageProcesses.EntityData.SegmentPath
     memoryUsageProcesses.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     memoryUsageProcesses.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     memoryUsageProcesses.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -57,6 +58,7 @@ func (memoryUsageProcesses *MemoryUsageProcesses) GetEntityData() *types.CommonE
 type MemoryUsageProcesses_MemoryUsageProcess struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Process-ID of the process. The type is interface{}
     // with range: 0..4294967295.
@@ -95,6 +97,7 @@ func (memoryUsageProcess *MemoryUsageProcesses_MemoryUsageProcess) GetEntityData
     memoryUsageProcess.EntityData.BundleName = "cisco_ios_xe"
     memoryUsageProcess.EntityData.ParentYangName = "memory-usage-processes"
     memoryUsageProcess.EntityData.SegmentPath = "memory-usage-process" + types.AddKeyToken(memoryUsageProcess.Pid, "pid") + types.AddKeyToken(memoryUsageProcess.Name, "name")
+    memoryUsageProcess.EntityData.AbsolutePath = "Cisco-IOS-XE-process-memory-oper:memory-usage-processes/" + memoryUsageProcess.EntityData.SegmentPath
     memoryUsageProcess.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     memoryUsageProcess.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     memoryUsageProcess.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

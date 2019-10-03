@@ -39,6 +39,7 @@ func (lldp *Lldp) GetEntityData() *types.CommonEntityData {
     lldp.EntityData.BundleName = "openconfig"
     lldp.EntityData.ParentYangName = "openconfig-lldp"
     lldp.EntityData.SegmentPath = "openconfig-lldp:lldp"
+    lldp.EntityData.AbsolutePath = lldp.EntityData.SegmentPath
     lldp.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     lldp.EntityData.NamespaceTable = openconfig.GetNamespaces()
     lldp.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -71,9 +72,9 @@ type Lldp_Config struct {
     // Indicates whether the local system should suppress the advertisement of
     // particular TLVs with the LLDP PDUs that it transmits. Where a TLV type is
     // specified within this list, it should not be included in any LLDP PDU
-    // transmitted by the local agent. The type is slice of ['SYSTEMNAME',
-    // 'PORTDESCRIPTION', 'SYSTEMDESCRIPTION', 'CHASSISID', 'SYSTEMCAPABILITIES',
-    // 'MANAGEMENTADDRESS', 'PORTID'].
+    // transmitted by the local agent. The type is slice of [u'SYSTEMNAME',
+    // u'PORTDESCRIPTION', u'SYSTEMDESCRIPTION', u'CHASSISID',
+    // u'SYSTEMCAPABILITIES', u'MANAGEMENTADDRESS', u'PORTID'].
     SuppressTlvAdvertisement []interface{}
 
     // The system name field shall contain an alpha-numeric string that indicates
@@ -108,6 +109,7 @@ func (config *Lldp_Config) GetEntityData() *types.CommonEntityData {
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "lldp"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-lldp:lldp/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -144,9 +146,9 @@ type Lldp_State struct {
     // Indicates whether the local system should suppress the advertisement of
     // particular TLVs with the LLDP PDUs that it transmits. Where a TLV type is
     // specified within this list, it should not be included in any LLDP PDU
-    // transmitted by the local agent. The type is slice of ['SYSTEMNAME',
-    // 'PORTDESCRIPTION', 'SYSTEMDESCRIPTION', 'CHASSISID', 'SYSTEMCAPABILITIES',
-    // 'MANAGEMENTADDRESS', 'PORTID'].
+    // transmitted by the local agent. The type is slice of [u'SYSTEMNAME',
+    // u'PORTDESCRIPTION', u'SYSTEMDESCRIPTION', u'CHASSISID',
+    // u'SYSTEMCAPABILITIES', u'MANAGEMENTADDRESS', u'PORTID'].
     SuppressTlvAdvertisement []interface{}
 
     // The system name field shall contain an alpha-numeric string that indicates
@@ -184,6 +186,7 @@ func (state *Lldp_State) GetEntityData() *types.CommonEntityData {
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "lldp"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-lldp:lldp/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -253,6 +256,7 @@ func (counters *Lldp_State_Counters) GetEntityData() *types.CommonEntityData {
     counters.EntityData.BundleName = "openconfig"
     counters.EntityData.ParentYangName = "state"
     counters.EntityData.SegmentPath = "counters"
+    counters.EntityData.AbsolutePath = "openconfig-lldp:lldp/state/" + counters.EntityData.SegmentPath
     counters.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     counters.EntityData.NamespaceTable = openconfig.GetNamespaces()
     counters.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -291,6 +295,7 @@ func (interfaces *Lldp_Interfaces) GetEntityData() *types.CommonEntityData {
     interfaces.EntityData.BundleName = "openconfig"
     interfaces.EntityData.ParentYangName = "lldp"
     interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.AbsolutePath = "openconfig-lldp:lldp/" + interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     interfaces.EntityData.NamespaceTable = openconfig.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -312,6 +317,7 @@ func (interfaces *Lldp_Interfaces) GetEntityData() *types.CommonEntityData {
 type Lldp_Interfaces_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the list key. The type is string.
     // Refers to lldp.Lldp_Interfaces_Interface_Config_Name
@@ -333,6 +339,7 @@ func (self *Lldp_Interfaces_Interface) GetEntityData() *types.CommonEntityData {
     self.EntityData.BundleName = "openconfig"
     self.EntityData.ParentYangName = "interfaces"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.Name, "name")
+    self.EntityData.AbsolutePath = "openconfig-lldp:lldp/interfaces/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     self.EntityData.NamespaceTable = openconfig.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -370,6 +377,7 @@ func (config *Lldp_Interfaces_Interface_Config) GetEntityData() *types.CommonEnt
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "interface"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-lldp:lldp/interfaces/interface/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -408,6 +416,7 @@ func (state *Lldp_Interfaces_Interface_State) GetEntityData() *types.CommonEntit
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "interface"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-lldp:lldp/interfaces/interface/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -468,6 +477,7 @@ func (counters *Lldp_Interfaces_Interface_State_Counters) GetEntityData() *types
     counters.EntityData.BundleName = "openconfig"
     counters.EntityData.ParentYangName = "state"
     counters.EntityData.SegmentPath = "counters"
+    counters.EntityData.AbsolutePath = "openconfig-lldp:lldp/interfaces/interface/state/" + counters.EntityData.SegmentPath
     counters.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     counters.EntityData.NamespaceTable = openconfig.GetNamespaces()
     counters.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -506,6 +516,7 @@ func (neighbors *Lldp_Interfaces_Interface_Neighbors) GetEntityData() *types.Com
     neighbors.EntityData.BundleName = "openconfig"
     neighbors.EntityData.ParentYangName = "interface"
     neighbors.EntityData.SegmentPath = "neighbors"
+    neighbors.EntityData.AbsolutePath = "openconfig-lldp:lldp/interfaces/interface/" + neighbors.EntityData.SegmentPath
     neighbors.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     neighbors.EntityData.NamespaceTable = openconfig.GetNamespaces()
     neighbors.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -527,6 +538,7 @@ func (neighbors *Lldp_Interfaces_Interface_Neighbors) GetEntityData() *types.Com
 type Lldp_Interfaces_Interface_Neighbors_Neighbor struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key.  . The type is string. Refers to
     // lldp.Lldp_Interfaces_Interface_Neighbors_Neighbor_State_Id
@@ -551,6 +563,7 @@ func (neighbor *Lldp_Interfaces_Interface_Neighbors_Neighbor) GetEntityData() *t
     neighbor.EntityData.BundleName = "openconfig"
     neighbor.EntityData.ParentYangName = "neighbors"
     neighbor.EntityData.SegmentPath = "neighbor" + types.AddKeyToken(neighbor.Id, "id")
+    neighbor.EntityData.AbsolutePath = "openconfig-lldp:lldp/interfaces/interface/neighbors/" + neighbor.EntityData.SegmentPath
     neighbor.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     neighbor.EntityData.NamespaceTable = openconfig.GetNamespaces()
     neighbor.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -581,6 +594,7 @@ func (config *Lldp_Interfaces_Interface_Neighbors_Neighbor_Config) GetEntityData
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "neighbor"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-lldp:lldp/interfaces/interface/neighbors/neighbor/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -669,6 +683,7 @@ func (state *Lldp_Interfaces_Interface_Neighbors_Neighbor_State) GetEntityData()
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "neighbor"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-lldp:lldp/interfaces/interface/neighbors/neighbor/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -711,6 +726,7 @@ func (customTlvs *Lldp_Interfaces_Interface_Neighbors_Neighbor_CustomTlvs) GetEn
     customTlvs.EntityData.BundleName = "openconfig"
     customTlvs.EntityData.ParentYangName = "neighbor"
     customTlvs.EntityData.SegmentPath = "custom-tlvs"
+    customTlvs.EntityData.AbsolutePath = "openconfig-lldp:lldp/interfaces/interface/neighbors/neighbor/" + customTlvs.EntityData.SegmentPath
     customTlvs.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     customTlvs.EntityData.NamespaceTable = openconfig.GetNamespaces()
     customTlvs.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -732,6 +748,7 @@ func (customTlvs *Lldp_Interfaces_Interface_Neighbors_Neighbor_CustomTlvs) GetEn
 type Lldp_Interfaces_Interface_Neighbors_Neighbor_CustomTlvs_Tlv struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to type list key. The type is string
     // with range: -2147483648..2147483647. Refers to
@@ -761,6 +778,7 @@ func (tlv *Lldp_Interfaces_Interface_Neighbors_Neighbor_CustomTlvs_Tlv) GetEntit
     tlv.EntityData.BundleName = "openconfig"
     tlv.EntityData.ParentYangName = "custom-tlvs"
     tlv.EntityData.SegmentPath = "tlv" + types.AddKeyToken(tlv.Type, "type") + types.AddKeyToken(tlv.Oui, "oui") + types.AddKeyToken(tlv.OuiSubtype, "oui-subtype")
+    tlv.EntityData.AbsolutePath = "openconfig-lldp:lldp/interfaces/interface/neighbors/neighbor/custom-tlvs/" + tlv.EntityData.SegmentPath
     tlv.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     tlv.EntityData.NamespaceTable = openconfig.GetNamespaces()
     tlv.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -791,6 +809,7 @@ func (config *Lldp_Interfaces_Interface_Neighbors_Neighbor_CustomTlvs_Tlv_Config
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "tlv"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-lldp:lldp/interfaces/interface/neighbors/neighbor/custom-tlvs/tlv/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -835,6 +854,7 @@ func (state *Lldp_Interfaces_Interface_Neighbors_Neighbor_CustomTlvs_Tlv_State) 
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "tlv"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-lldp:lldp/interfaces/interface/neighbors/neighbor/custom-tlvs/tlv/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -869,6 +889,7 @@ func (capabilities *Lldp_Interfaces_Interface_Neighbors_Neighbor_Capabilities) G
     capabilities.EntityData.BundleName = "openconfig"
     capabilities.EntityData.ParentYangName = "neighbor"
     capabilities.EntityData.SegmentPath = "capabilities"
+    capabilities.EntityData.AbsolutePath = "openconfig-lldp:lldp/interfaces/interface/neighbors/neighbor/" + capabilities.EntityData.SegmentPath
     capabilities.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     capabilities.EntityData.NamespaceTable = openconfig.GetNamespaces()
     capabilities.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -891,6 +912,7 @@ func (capabilities *Lldp_Interfaces_Interface_Neighbors_Neighbor_Capabilities) G
 type Lldp_Interfaces_Interface_Neighbors_Neighbor_Capabilities_Capability struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to capabilities list key. The type is
     // one of the following:
@@ -910,6 +932,7 @@ func (capability *Lldp_Interfaces_Interface_Neighbors_Neighbor_Capabilities_Capa
     capability.EntityData.BundleName = "openconfig"
     capability.EntityData.ParentYangName = "capabilities"
     capability.EntityData.SegmentPath = "capability" + types.AddKeyToken(capability.Name, "name")
+    capability.EntityData.AbsolutePath = "openconfig-lldp:lldp/interfaces/interface/neighbors/neighbor/capabilities/" + capability.EntityData.SegmentPath
     capability.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     capability.EntityData.NamespaceTable = openconfig.GetNamespaces()
     capability.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -938,6 +961,7 @@ func (config *Lldp_Interfaces_Interface_Neighbors_Neighbor_Capabilities_Capabili
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "capability"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-lldp:lldp/interfaces/interface/neighbors/neighbor/capabilities/capability/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -974,6 +998,7 @@ func (state *Lldp_Interfaces_Interface_Neighbors_Neighbor_Capabilities_Capabilit
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "capability"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-lldp:lldp/interfaces/interface/neighbors/neighbor/capabilities/capability/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()

@@ -52,6 +52,7 @@ func (hwModuleProfileConfig *HwModuleProfileConfig) GetEntityData() *types.Commo
     hwModuleProfileConfig.EntityData.BundleName = "cisco_ios_xr"
     hwModuleProfileConfig.EntityData.ParentYangName = "Cisco-IOS-XR-fia-hw-profile-cfg"
     hwModuleProfileConfig.EntityData.SegmentPath = "Cisco-IOS-XR-fia-hw-profile-cfg:hw-module-profile-config"
+    hwModuleProfileConfig.EntityData.AbsolutePath = hwModuleProfileConfig.EntityData.SegmentPath
     hwModuleProfileConfig.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hwModuleProfileConfig.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hwModuleProfileConfig.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -82,7 +83,7 @@ type HwModuleProfileConfig_Profile struct {
     Netflow HwModuleProfileConfig_Profile_Netflow
 
     // Configure Flowspec profile.
-    Flowspecs HwModuleProfileConfig_Profile_Flowspecs
+    FlowspecTable HwModuleProfileConfig_Profile_FlowspecTable
 
     // Configure Segment Routing profile.
     SegmentRoutings HwModuleProfileConfig_Profile_SegmentRoutings
@@ -95,6 +96,9 @@ type HwModuleProfileConfig_Profile struct {
 
     // Configure acl profile.
     ProfileAcl HwModuleProfileConfig_Profile_ProfileAcl
+
+    // Configure IPV6 NULL label autopush for SR policy.
+    SrPolicies HwModuleProfileConfig_Profile_SrPolicies
 
     // Configure Bundle profile.
     BundleScale HwModuleProfileConfig_Profile_BundleScale
@@ -112,6 +116,7 @@ func (profile *HwModuleProfileConfig_Profile) GetEntityData() *types.CommonEntit
     profile.EntityData.BundleName = "cisco_ios_xr"
     profile.EntityData.ParentYangName = "hw-module-profile-config"
     profile.EntityData.SegmentPath = "profile"
+    profile.EntityData.AbsolutePath = "Cisco-IOS-XR-fia-hw-profile-cfg:hw-module-profile-config/" + profile.EntityData.SegmentPath
     profile.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     profile.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     profile.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -119,11 +124,12 @@ func (profile *HwModuleProfileConfig_Profile) GetEntityData() *types.CommonEntit
     profile.EntityData.Children = types.NewOrderedMap()
     profile.EntityData.Children.Append("tcam-table", types.YChild{"TcamTable", &profile.TcamTable})
     profile.EntityData.Children.Append("netflow", types.YChild{"Netflow", &profile.Netflow})
-    profile.EntityData.Children.Append("flowspecs", types.YChild{"Flowspecs", &profile.Flowspecs})
+    profile.EntityData.Children.Append("flowspec-table", types.YChild{"FlowspecTable", &profile.FlowspecTable})
     profile.EntityData.Children.Append("segment-routings", types.YChild{"SegmentRoutings", &profile.SegmentRoutings})
     profile.EntityData.Children.Append("load-balance", types.YChild{"LoadBalance", &profile.LoadBalance})
     profile.EntityData.Children.Append("stats", types.YChild{"Stats", &profile.Stats})
     profile.EntityData.Children.Append("profile-acl", types.YChild{"ProfileAcl", &profile.ProfileAcl})
+    profile.EntityData.Children.Append("sr-policies", types.YChild{"SrPolicies", &profile.SrPolicies})
     profile.EntityData.Children.Append("bundle-scale", types.YChild{"BundleScale", &profile.BundleScale})
     profile.EntityData.Children.Append("profile-tcam", types.YChild{"ProfileTcam", &profile.ProfileTcam})
     profile.EntityData.Children.Append("qos", types.YChild{"Qos", &profile.Qos})
@@ -150,6 +156,7 @@ func (tcamTable *HwModuleProfileConfig_Profile_TcamTable) GetEntityData() *types
     tcamTable.EntityData.BundleName = "cisco_ios_xr"
     tcamTable.EntityData.ParentYangName = "profile"
     tcamTable.EntityData.SegmentPath = "tcam-table"
+    tcamTable.EntityData.AbsolutePath = "Cisco-IOS-XR-fia-hw-profile-cfg:hw-module-profile-config/profile/" + tcamTable.EntityData.SegmentPath
     tcamTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tcamTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tcamTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -182,6 +189,7 @@ func (fibTable *HwModuleProfileConfig_Profile_TcamTable_FibTable) GetEntityData(
     fibTable.EntityData.BundleName = "cisco_ios_xr"
     fibTable.EntityData.ParentYangName = "tcam-table"
     fibTable.EntityData.SegmentPath = "fib-table"
+    fibTable.EntityData.AbsolutePath = "Cisco-IOS-XR-fia-hw-profile-cfg:hw-module-profile-config/profile/tcam-table/" + fibTable.EntityData.SegmentPath
     fibTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fibTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fibTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -212,6 +220,7 @@ func (ipv4Address *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv4Address)
     ipv4Address.EntityData.BundleName = "cisco_ios_xr"
     ipv4Address.EntityData.ParentYangName = "fib-table"
     ipv4Address.EntityData.SegmentPath = "ipv4-address"
+    ipv4Address.EntityData.AbsolutePath = "Cisco-IOS-XR-fia-hw-profile-cfg:hw-module-profile-config/profile/tcam-table/fib-table/" + ipv4Address.EntityData.SegmentPath
     ipv4Address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4Address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4Address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -245,6 +254,7 @@ func (ipv4Unicast *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv4Address_
     ipv4Unicast.EntityData.BundleName = "cisco_ios_xr"
     ipv4Unicast.EntityData.ParentYangName = "ipv4-address"
     ipv4Unicast.EntityData.SegmentPath = "ipv4-unicast"
+    ipv4Unicast.EntityData.AbsolutePath = "Cisco-IOS-XR-fia-hw-profile-cfg:hw-module-profile-config/profile/tcam-table/fib-table/ipv4-address/" + ipv4Unicast.EntityData.SegmentPath
     ipv4Unicast.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4Unicast.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4Unicast.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -276,6 +286,7 @@ func (ipv4UnicastPrefixLengths *HwModuleProfileConfig_Profile_TcamTable_FibTable
     ipv4UnicastPrefixLengths.EntityData.BundleName = "cisco_ios_xr"
     ipv4UnicastPrefixLengths.EntityData.ParentYangName = "ipv4-unicast"
     ipv4UnicastPrefixLengths.EntityData.SegmentPath = "ipv4-unicast-prefix-lengths"
+    ipv4UnicastPrefixLengths.EntityData.AbsolutePath = "Cisco-IOS-XR-fia-hw-profile-cfg:hw-module-profile-config/profile/tcam-table/fib-table/ipv4-address/ipv4-unicast/" + ipv4UnicastPrefixLengths.EntityData.SegmentPath
     ipv4UnicastPrefixLengths.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4UnicastPrefixLengths.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4UnicastPrefixLengths.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -297,6 +308,7 @@ func (ipv4UnicastPrefixLengths *HwModuleProfileConfig_Profile_TcamTable_FibTable
 type HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv4Address_Ipv4Unicast_Ipv4UnicastPrefixLengths_Ipv4UnicastPrefixLength struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix length. The type is interface{} with range:
     // 0..32.
@@ -313,6 +325,7 @@ func (ipv4UnicastPrefixLength *HwModuleProfileConfig_Profile_TcamTable_FibTable_
     ipv4UnicastPrefixLength.EntityData.BundleName = "cisco_ios_xr"
     ipv4UnicastPrefixLength.EntityData.ParentYangName = "ipv4-unicast-prefix-lengths"
     ipv4UnicastPrefixLength.EntityData.SegmentPath = "ipv4-unicast-prefix-length" + types.AddKeyToken(ipv4UnicastPrefixLength.PrefixLength, "prefix-length")
+    ipv4UnicastPrefixLength.EntityData.AbsolutePath = "Cisco-IOS-XR-fia-hw-profile-cfg:hw-module-profile-config/profile/tcam-table/fib-table/ipv4-address/ipv4-unicast/ipv4-unicast-prefix-lengths/" + ipv4UnicastPrefixLength.EntityData.SegmentPath
     ipv4UnicastPrefixLength.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4UnicastPrefixLength.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4UnicastPrefixLength.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -343,6 +356,7 @@ func (ipv6Address *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv6Address)
     ipv6Address.EntityData.BundleName = "cisco_ios_xr"
     ipv6Address.EntityData.ParentYangName = "fib-table"
     ipv6Address.EntityData.SegmentPath = "ipv6-address"
+    ipv6Address.EntityData.AbsolutePath = "Cisco-IOS-XR-fia-hw-profile-cfg:hw-module-profile-config/profile/tcam-table/fib-table/" + ipv6Address.EntityData.SegmentPath
     ipv6Address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6Address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6Address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -376,6 +390,7 @@ func (ipv6Unicast *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv6Address_
     ipv6Unicast.EntityData.BundleName = "cisco_ios_xr"
     ipv6Unicast.EntityData.ParentYangName = "ipv6-address"
     ipv6Unicast.EntityData.SegmentPath = "ipv6-unicast"
+    ipv6Unicast.EntityData.AbsolutePath = "Cisco-IOS-XR-fia-hw-profile-cfg:hw-module-profile-config/profile/tcam-table/fib-table/ipv6-address/" + ipv6Unicast.EntityData.SegmentPath
     ipv6Unicast.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6Unicast.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6Unicast.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -407,6 +422,7 @@ func (ipv6UnicastPrefixLengths *HwModuleProfileConfig_Profile_TcamTable_FibTable
     ipv6UnicastPrefixLengths.EntityData.BundleName = "cisco_ios_xr"
     ipv6UnicastPrefixLengths.EntityData.ParentYangName = "ipv6-unicast"
     ipv6UnicastPrefixLengths.EntityData.SegmentPath = "ipv6-unicast-prefix-lengths"
+    ipv6UnicastPrefixLengths.EntityData.AbsolutePath = "Cisco-IOS-XR-fia-hw-profile-cfg:hw-module-profile-config/profile/tcam-table/fib-table/ipv6-address/ipv6-unicast/" + ipv6UnicastPrefixLengths.EntityData.SegmentPath
     ipv6UnicastPrefixLengths.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6UnicastPrefixLengths.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6UnicastPrefixLengths.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -428,6 +444,7 @@ func (ipv6UnicastPrefixLengths *HwModuleProfileConfig_Profile_TcamTable_FibTable
 type HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv6Address_Ipv6Unicast_Ipv6UnicastPrefixLengths_Ipv6UnicastPrefixLength struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. prefix length. The type is interface{} with range:
     // 0..128.
@@ -444,6 +461,7 @@ func (ipv6UnicastPrefixLength *HwModuleProfileConfig_Profile_TcamTable_FibTable_
     ipv6UnicastPrefixLength.EntityData.BundleName = "cisco_ios_xr"
     ipv6UnicastPrefixLength.EntityData.ParentYangName = "ipv6-unicast-prefix-lengths"
     ipv6UnicastPrefixLength.EntityData.SegmentPath = "ipv6-unicast-prefix-length" + types.AddKeyToken(ipv6UnicastPrefixLength.PrefixLength, "prefix-length")
+    ipv6UnicastPrefixLength.EntityData.AbsolutePath = "Cisco-IOS-XR-fia-hw-profile-cfg:hw-module-profile-config/profile/tcam-table/fib-table/ipv6-address/ipv6-unicast/ipv6-unicast-prefix-lengths/" + ipv6UnicastPrefixLength.EntityData.SegmentPath
     ipv6UnicastPrefixLength.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6UnicastPrefixLength.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6UnicastPrefixLength.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -477,6 +495,7 @@ func (netflow *HwModuleProfileConfig_Profile_Netflow) GetEntityData() *types.Com
     netflow.EntityData.BundleName = "cisco_ios_xr"
     netflow.EntityData.ParentYangName = "profile"
     netflow.EntityData.SegmentPath = "netflow"
+    netflow.EntityData.AbsolutePath = "Cisco-IOS-XR-fia-hw-profile-cfg:hw-module-profile-config/profile/" + netflow.EntityData.SegmentPath
     netflow.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     netflow.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     netflow.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -508,6 +527,7 @@ func (netflowLocations *HwModuleProfileConfig_Profile_Netflow_NetflowLocations) 
     netflowLocations.EntityData.BundleName = "cisco_ios_xr"
     netflowLocations.EntityData.ParentYangName = "netflow"
     netflowLocations.EntityData.SegmentPath = "netflow-locations"
+    netflowLocations.EntityData.AbsolutePath = "Cisco-IOS-XR-fia-hw-profile-cfg:hw-module-profile-config/profile/netflow/" + netflowLocations.EntityData.SegmentPath
     netflowLocations.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     netflowLocations.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     netflowLocations.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -529,6 +549,7 @@ func (netflowLocations *HwModuleProfileConfig_Profile_Netflow_NetflowLocations) 
 type HwModuleProfileConfig_Profile_Netflow_NetflowLocations_NetflowLocation struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Location of NETFLOW config. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -545,6 +566,7 @@ func (netflowLocation *HwModuleProfileConfig_Profile_Netflow_NetflowLocations_Ne
     netflowLocation.EntityData.BundleName = "cisco_ios_xr"
     netflowLocation.EntityData.ParentYangName = "netflow-locations"
     netflowLocation.EntityData.SegmentPath = "netflow-location" + types.AddKeyToken(netflowLocation.LocationString, "location-string")
+    netflowLocation.EntityData.AbsolutePath = "Cisco-IOS-XR-fia-hw-profile-cfg:hw-module-profile-config/profile/netflow/netflow-locations/" + netflowLocation.EntityData.SegmentPath
     netflowLocation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     netflowLocation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     netflowLocation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -567,6 +589,7 @@ func (netflowLocation *HwModuleProfileConfig_Profile_Netflow_NetflowLocations_Ne
 type HwModuleProfileConfig_Profile_Netflow_NetflowLocations_NetflowLocation_NetflowLocationLeaf struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Location ID. The type is interface{} with range:
     // 0..4294967295.
@@ -583,6 +606,7 @@ func (netflowLocationLeaf *HwModuleProfileConfig_Profile_Netflow_NetflowLocation
     netflowLocationLeaf.EntityData.BundleName = "cisco_ios_xr"
     netflowLocationLeaf.EntityData.ParentYangName = "netflow-location"
     netflowLocationLeaf.EntityData.SegmentPath = "netflow-location-leaf" + types.AddKeyToken(netflowLocationLeaf.LocationId, "location-id")
+    netflowLocationLeaf.EntityData.AbsolutePath = "Cisco-IOS-XR-fia-hw-profile-cfg:hw-module-profile-config/profile/netflow/netflow-locations/netflow-location/" + netflowLocationLeaf.EntityData.SegmentPath
     netflowLocationLeaf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     netflowLocationLeaf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     netflowLocationLeaf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -614,6 +638,7 @@ func (locationAll *HwModuleProfileConfig_Profile_Netflow_LocationAll) GetEntityD
     locationAll.EntityData.BundleName = "cisco_ios_xr"
     locationAll.EntityData.ParentYangName = "netflow"
     locationAll.EntityData.SegmentPath = "location-all"
+    locationAll.EntityData.AbsolutePath = "Cisco-IOS-XR-fia-hw-profile-cfg:hw-module-profile-config/profile/netflow/" + locationAll.EntityData.SegmentPath
     locationAll.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     locationAll.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     locationAll.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -627,23 +652,54 @@ func (locationAll *HwModuleProfileConfig_Profile_Netflow_LocationAll) GetEntityD
     return &(locationAll.EntityData)
 }
 
-// HwModuleProfileConfig_Profile_Flowspecs
+// HwModuleProfileConfig_Profile_FlowspecTable
 // Configure Flowspec profile.
-type HwModuleProfileConfig_Profile_Flowspecs struct {
+type HwModuleProfileConfig_Profile_FlowspecTable struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Configure v6 enable on Flowspec profile.
+    Flowspecs HwModuleProfileConfig_Profile_FlowspecTable_Flowspecs
+}
+
+func (flowspecTable *HwModuleProfileConfig_Profile_FlowspecTable) GetEntityData() *types.CommonEntityData {
+    flowspecTable.EntityData.YFilter = flowspecTable.YFilter
+    flowspecTable.EntityData.YangName = "flowspec-table"
+    flowspecTable.EntityData.BundleName = "cisco_ios_xr"
+    flowspecTable.EntityData.ParentYangName = "profile"
+    flowspecTable.EntityData.SegmentPath = "flowspec-table"
+    flowspecTable.EntityData.AbsolutePath = "Cisco-IOS-XR-fia-hw-profile-cfg:hw-module-profile-config/profile/" + flowspecTable.EntityData.SegmentPath
+    flowspecTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    flowspecTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    flowspecTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    flowspecTable.EntityData.Children = types.NewOrderedMap()
+    flowspecTable.EntityData.Children.Append("flowspecs", types.YChild{"Flowspecs", &flowspecTable.Flowspecs})
+    flowspecTable.EntityData.Leafs = types.NewOrderedMap()
+
+    flowspecTable.EntityData.YListKeys = []string {}
+
+    return &(flowspecTable.EntityData)
+}
+
+// HwModuleProfileConfig_Profile_FlowspecTable_Flowspecs
+// Configure v6 enable on Flowspec profile.
+type HwModuleProfileConfig_Profile_FlowspecTable_Flowspecs struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // none. The type is slice of
-    // HwModuleProfileConfig_Profile_Flowspecs_Flowspec.
-    Flowspec []*HwModuleProfileConfig_Profile_Flowspecs_Flowspec
+    // HwModuleProfileConfig_Profile_FlowspecTable_Flowspecs_Flowspec.
+    Flowspec []*HwModuleProfileConfig_Profile_FlowspecTable_Flowspecs_Flowspec
 }
 
-func (flowspecs *HwModuleProfileConfig_Profile_Flowspecs) GetEntityData() *types.CommonEntityData {
+func (flowspecs *HwModuleProfileConfig_Profile_FlowspecTable_Flowspecs) GetEntityData() *types.CommonEntityData {
     flowspecs.EntityData.YFilter = flowspecs.YFilter
     flowspecs.EntityData.YangName = "flowspecs"
     flowspecs.EntityData.BundleName = "cisco_ios_xr"
-    flowspecs.EntityData.ParentYangName = "profile"
+    flowspecs.EntityData.ParentYangName = "flowspec-table"
     flowspecs.EntityData.SegmentPath = "flowspecs"
+    flowspecs.EntityData.AbsolutePath = "Cisco-IOS-XR-fia-hw-profile-cfg:hw-module-profile-config/profile/flowspec-table/" + flowspecs.EntityData.SegmentPath
     flowspecs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     flowspecs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     flowspecs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -660,47 +716,44 @@ func (flowspecs *HwModuleProfileConfig_Profile_Flowspecs) GetEntityData() *types
     return &(flowspecs.EntityData)
 }
 
-// HwModuleProfileConfig_Profile_Flowspecs_Flowspec
+// HwModuleProfileConfig_Profile_FlowspecTable_Flowspecs_Flowspec
 // none
-type HwModuleProfileConfig_Profile_Flowspecs_Flowspec struct {
+type HwModuleProfileConfig_Profile_FlowspecTable_Flowspecs_Flowspec struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
-
-    // This attribute is a key. none. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
-    V6Enable interface{}
+    YListKey string
 
     // This attribute is a key. Location of FLOWSPEC config. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     LocationString interface{}
 
-    // This attribute is a key. Location ID hex to Decimal 0xffff for all. The
-    // type is interface{} with range: 0..4294967295.
+    // This attribute is a key. Location ID hex to Decimal 65535. The type is
+    // interface{} with range: 0..4294967295.
     LocationId interface{}
 
-    // If Enabled set value to 65535. The type is interface{} with range:
+    // If Enabled set value to 1. The type is interface{} with range:
     // 0..4294967295. This attribute is mandatory.
     EnableVal interface{}
 }
 
-func (flowspec *HwModuleProfileConfig_Profile_Flowspecs_Flowspec) GetEntityData() *types.CommonEntityData {
+func (flowspec *HwModuleProfileConfig_Profile_FlowspecTable_Flowspecs_Flowspec) GetEntityData() *types.CommonEntityData {
     flowspec.EntityData.YFilter = flowspec.YFilter
     flowspec.EntityData.YangName = "flowspec"
     flowspec.EntityData.BundleName = "cisco_ios_xr"
     flowspec.EntityData.ParentYangName = "flowspecs"
-    flowspec.EntityData.SegmentPath = "flowspec" + types.AddKeyToken(flowspec.V6Enable, "v6-enable") + types.AddKeyToken(flowspec.LocationString, "location-string") + types.AddKeyToken(flowspec.LocationId, "location-id")
+    flowspec.EntityData.SegmentPath = "flowspec" + types.AddKeyToken(flowspec.LocationString, "location-string") + types.AddKeyToken(flowspec.LocationId, "location-id")
+    flowspec.EntityData.AbsolutePath = "Cisco-IOS-XR-fia-hw-profile-cfg:hw-module-profile-config/profile/flowspec-table/flowspecs/" + flowspec.EntityData.SegmentPath
     flowspec.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     flowspec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     flowspec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     flowspec.EntityData.Children = types.NewOrderedMap()
     flowspec.EntityData.Leafs = types.NewOrderedMap()
-    flowspec.EntityData.Leafs.Append("v6-enable", types.YLeaf{"V6Enable", flowspec.V6Enable})
     flowspec.EntityData.Leafs.Append("location-string", types.YLeaf{"LocationString", flowspec.LocationString})
     flowspec.EntityData.Leafs.Append("location-id", types.YLeaf{"LocationId", flowspec.LocationId})
     flowspec.EntityData.Leafs.Append("enable-val", types.YLeaf{"EnableVal", flowspec.EnableVal})
 
-    flowspec.EntityData.YListKeys = []string {"V6Enable", "LocationString", "LocationId"}
+    flowspec.EntityData.YListKeys = []string {"LocationString", "LocationId"}
 
     return &(flowspec.EntityData)
 }
@@ -722,6 +775,7 @@ func (segmentRoutings *HwModuleProfileConfig_Profile_SegmentRoutings) GetEntityD
     segmentRoutings.EntityData.BundleName = "cisco_ios_xr"
     segmentRoutings.EntityData.ParentYangName = "profile"
     segmentRoutings.EntityData.SegmentPath = "segment-routings"
+    segmentRoutings.EntityData.AbsolutePath = "Cisco-IOS-XR-fia-hw-profile-cfg:hw-module-profile-config/profile/" + segmentRoutings.EntityData.SegmentPath
     segmentRoutings.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     segmentRoutings.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     segmentRoutings.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -743,6 +797,7 @@ func (segmentRoutings *HwModuleProfileConfig_Profile_SegmentRoutings) GetEntityD
 type HwModuleProfileConfig_Profile_SegmentRoutings_SegmentRouting struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. none. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -759,6 +814,7 @@ func (segmentRouting *HwModuleProfileConfig_Profile_SegmentRoutings_SegmentRouti
     segmentRouting.EntityData.BundleName = "cisco_ios_xr"
     segmentRouting.EntityData.ParentYangName = "segment-routings"
     segmentRouting.EntityData.SegmentPath = "segment-routing" + types.AddKeyToken(segmentRouting.Srv6, "srv6")
+    segmentRouting.EntityData.AbsolutePath = "Cisco-IOS-XR-fia-hw-profile-cfg:hw-module-profile-config/profile/segment-routings/" + segmentRouting.EntityData.SegmentPath
     segmentRouting.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     segmentRouting.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     segmentRouting.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -790,6 +846,7 @@ func (loadBalance *HwModuleProfileConfig_Profile_LoadBalance) GetEntityData() *t
     loadBalance.EntityData.BundleName = "cisco_ios_xr"
     loadBalance.EntityData.ParentYangName = "profile"
     loadBalance.EntityData.SegmentPath = "load-balance"
+    loadBalance.EntityData.AbsolutePath = "Cisco-IOS-XR-fia-hw-profile-cfg:hw-module-profile-config/profile/" + loadBalance.EntityData.SegmentPath
     loadBalance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     loadBalance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     loadBalance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -819,6 +876,7 @@ func (stats *HwModuleProfileConfig_Profile_Stats) GetEntityData() *types.CommonE
     stats.EntityData.BundleName = "cisco_ios_xr"
     stats.EntityData.ParentYangName = "profile"
     stats.EntityData.SegmentPath = "stats"
+    stats.EntityData.AbsolutePath = "Cisco-IOS-XR-fia-hw-profile-cfg:hw-module-profile-config/profile/" + stats.EntityData.SegmentPath
     stats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     stats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -839,7 +897,8 @@ type HwModuleProfileConfig_Profile_Stats_StatsProfileModes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Configure stats for qos-enhanced and acl-permit. The type is slice of
+    // Configure stats for qos-enhanced, acl-permit and ingress-sr. The type is
+    // slice of
     // HwModuleProfileConfig_Profile_Stats_StatsProfileModes_StatsProfileMode.
     StatsProfileMode []*HwModuleProfileConfig_Profile_Stats_StatsProfileModes_StatsProfileMode
 }
@@ -850,6 +909,7 @@ func (statsProfileModes *HwModuleProfileConfig_Profile_Stats_StatsProfileModes) 
     statsProfileModes.EntityData.BundleName = "cisco_ios_xr"
     statsProfileModes.EntityData.ParentYangName = "stats"
     statsProfileModes.EntityData.SegmentPath = "stats-profile-modes"
+    statsProfileModes.EntityData.AbsolutePath = "Cisco-IOS-XR-fia-hw-profile-cfg:hw-module-profile-config/profile/stats/" + statsProfileModes.EntityData.SegmentPath
     statsProfileModes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statsProfileModes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statsProfileModes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -867,11 +927,12 @@ func (statsProfileModes *HwModuleProfileConfig_Profile_Stats_StatsProfileModes) 
 }
 
 // HwModuleProfileConfig_Profile_Stats_StatsProfileModes_StatsProfileMode
-// Configure stats for qos-enhanced and
-// acl-permit
+// Configure stats for qos-enhanced, acl-permit
+// and ingress-sr
 type HwModuleProfileConfig_Profile_Stats_StatsProfileModes_StatsProfileMode struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Give Default Stats Mode. The type is interface{}
     // with range: 0..4294967295.
@@ -888,6 +949,7 @@ func (statsProfileMode *HwModuleProfileConfig_Profile_Stats_StatsProfileModes_St
     statsProfileMode.EntityData.BundleName = "cisco_ios_xr"
     statsProfileMode.EntityData.ParentYangName = "stats-profile-modes"
     statsProfileMode.EntityData.SegmentPath = "stats-profile-mode" + types.AddKeyToken(statsProfileMode.StatsModeDefault, "stats-mode-default")
+    statsProfileMode.EntityData.AbsolutePath = "Cisco-IOS-XR-fia-hw-profile-cfg:hw-module-profile-config/profile/stats/stats-profile-modes/" + statsProfileMode.EntityData.SegmentPath
     statsProfileMode.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statsProfileMode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statsProfileMode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -918,6 +980,7 @@ func (profileAcl *HwModuleProfileConfig_Profile_ProfileAcl) GetEntityData() *typ
     profileAcl.EntityData.BundleName = "cisco_ios_xr"
     profileAcl.EntityData.ParentYangName = "profile"
     profileAcl.EntityData.SegmentPath = "profile-acl"
+    profileAcl.EntityData.AbsolutePath = "Cisco-IOS-XR-fia-hw-profile-cfg:hw-module-profile-config/profile/" + profileAcl.EntityData.SegmentPath
     profileAcl.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     profileAcl.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     profileAcl.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -929,6 +992,78 @@ func (profileAcl *HwModuleProfileConfig_Profile_ProfileAcl) GetEntityData() *typ
     profileAcl.EntityData.YListKeys = []string {}
 
     return &(profileAcl.EntityData)
+}
+
+// HwModuleProfileConfig_Profile_SrPolicies
+// Configure IPV6 NULL label autopush for SR
+// policy.
+type HwModuleProfileConfig_Profile_SrPolicies struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // none. The type is slice of
+    // HwModuleProfileConfig_Profile_SrPolicies_SrPolicy.
+    SrPolicy []*HwModuleProfileConfig_Profile_SrPolicies_SrPolicy
+}
+
+func (srPolicies *HwModuleProfileConfig_Profile_SrPolicies) GetEntityData() *types.CommonEntityData {
+    srPolicies.EntityData.YFilter = srPolicies.YFilter
+    srPolicies.EntityData.YangName = "sr-policies"
+    srPolicies.EntityData.BundleName = "cisco_ios_xr"
+    srPolicies.EntityData.ParentYangName = "profile"
+    srPolicies.EntityData.SegmentPath = "sr-policies"
+    srPolicies.EntityData.AbsolutePath = "Cisco-IOS-XR-fia-hw-profile-cfg:hw-module-profile-config/profile/" + srPolicies.EntityData.SegmentPath
+    srPolicies.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    srPolicies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    srPolicies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    srPolicies.EntityData.Children = types.NewOrderedMap()
+    srPolicies.EntityData.Children.Append("sr-policy", types.YChild{"SrPolicy", nil})
+    for i := range srPolicies.SrPolicy {
+        srPolicies.EntityData.Children.Append(types.GetSegmentPath(srPolicies.SrPolicy[i]), types.YChild{"SrPolicy", srPolicies.SrPolicy[i]})
+    }
+    srPolicies.EntityData.Leafs = types.NewOrderedMap()
+
+    srPolicies.EntityData.YListKeys = []string {}
+
+    return &(srPolicies.EntityData)
+}
+
+// HwModuleProfileConfig_Profile_SrPolicies_SrPolicy
+// none
+type HwModuleProfileConfig_Profile_SrPolicies_SrPolicy struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. none. The type is string with pattern:
+    // [\w\-\.:,_@#%$\+=\|;]+.
+    NullLabelAutopush interface{}
+
+    // If Enabled set value to 1. The type is interface{} with range:
+    // 0..4294967295. This attribute is mandatory.
+    EnableVal interface{}
+}
+
+func (srPolicy *HwModuleProfileConfig_Profile_SrPolicies_SrPolicy) GetEntityData() *types.CommonEntityData {
+    srPolicy.EntityData.YFilter = srPolicy.YFilter
+    srPolicy.EntityData.YangName = "sr-policy"
+    srPolicy.EntityData.BundleName = "cisco_ios_xr"
+    srPolicy.EntityData.ParentYangName = "sr-policies"
+    srPolicy.EntityData.SegmentPath = "sr-policy" + types.AddKeyToken(srPolicy.NullLabelAutopush, "null-label-autopush")
+    srPolicy.EntityData.AbsolutePath = "Cisco-IOS-XR-fia-hw-profile-cfg:hw-module-profile-config/profile/sr-policies/" + srPolicy.EntityData.SegmentPath
+    srPolicy.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    srPolicy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    srPolicy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    srPolicy.EntityData.Children = types.NewOrderedMap()
+    srPolicy.EntityData.Leafs = types.NewOrderedMap()
+    srPolicy.EntityData.Leafs.Append("null-label-autopush", types.YLeaf{"NullLabelAutopush", srPolicy.NullLabelAutopush})
+    srPolicy.EntityData.Leafs.Append("enable-val", types.YLeaf{"EnableVal", srPolicy.EnableVal})
+
+    srPolicy.EntityData.YListKeys = []string {"NullLabelAutopush"}
+
+    return &(srPolicy.EntityData)
 }
 
 // HwModuleProfileConfig_Profile_BundleScale
@@ -948,6 +1083,7 @@ func (bundleScale *HwModuleProfileConfig_Profile_BundleScale) GetEntityData() *t
     bundleScale.EntityData.BundleName = "cisco_ios_xr"
     bundleScale.EntityData.ParentYangName = "profile"
     bundleScale.EntityData.SegmentPath = "bundle-scale"
+    bundleScale.EntityData.AbsolutePath = "Cisco-IOS-XR-fia-hw-profile-cfg:hw-module-profile-config/profile/" + bundleScale.EntityData.SegmentPath
     bundleScale.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundleScale.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundleScale.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -977,6 +1113,7 @@ func (profileTcam *HwModuleProfileConfig_Profile_ProfileTcam) GetEntityData() *t
     profileTcam.EntityData.BundleName = "cisco_ios_xr"
     profileTcam.EntityData.ParentYangName = "profile"
     profileTcam.EntityData.SegmentPath = "profile-tcam"
+    profileTcam.EntityData.AbsolutePath = "Cisco-IOS-XR-fia-hw-profile-cfg:hw-module-profile-config/profile/" + profileTcam.EntityData.SegmentPath
     profileTcam.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     profileTcam.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     profileTcam.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1006,6 +1143,7 @@ func (keyFormat *HwModuleProfileConfig_Profile_ProfileTcam_KeyFormat) GetEntityD
     keyFormat.EntityData.BundleName = "cisco_ios_xr"
     keyFormat.EntityData.ParentYangName = "profile-tcam"
     keyFormat.EntityData.SegmentPath = "key-format"
+    keyFormat.EntityData.AbsolutePath = "Cisco-IOS-XR-fia-hw-profile-cfg:hw-module-profile-config/profile/profile-tcam/" + keyFormat.EntityData.SegmentPath
     keyFormat.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     keyFormat.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     keyFormat.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1038,6 +1176,7 @@ func (keyFormatAclTable *HwModuleProfileConfig_Profile_ProfileTcam_KeyFormat_Key
     keyFormatAclTable.EntityData.BundleName = "cisco_ios_xr"
     keyFormatAclTable.EntityData.ParentYangName = "key-format"
     keyFormatAclTable.EntityData.SegmentPath = "key-format-acl-table"
+    keyFormatAclTable.EntityData.AbsolutePath = "Cisco-IOS-XR-fia-hw-profile-cfg:hw-module-profile-config/profile/profile-tcam/key-format/" + keyFormatAclTable.EntityData.SegmentPath
     keyFormatAclTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     keyFormatAclTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     keyFormatAclTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1069,6 +1208,7 @@ func (ipv6AclTables *HwModuleProfileConfig_Profile_ProfileTcam_KeyFormat_KeyForm
     ipv6AclTables.EntityData.BundleName = "cisco_ios_xr"
     ipv6AclTables.EntityData.ParentYangName = "key-format-acl-table"
     ipv6AclTables.EntityData.SegmentPath = "ipv6-acl-tables"
+    ipv6AclTables.EntityData.AbsolutePath = "Cisco-IOS-XR-fia-hw-profile-cfg:hw-module-profile-config/profile/profile-tcam/key-format/key-format-acl-table/" + ipv6AclTables.EntityData.SegmentPath
     ipv6AclTables.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6AclTables.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6AclTables.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1090,6 +1230,7 @@ func (ipv6AclTables *HwModuleProfileConfig_Profile_ProfileTcam_KeyFormat_KeyForm
 type HwModuleProfileConfig_Profile_ProfileTcam_KeyFormat_KeyFormatAclTable_Ipv6AclTables_Ipv6AclTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Location string (all) if for all LCs. The type is
     // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -1167,6 +1308,7 @@ func (ipv6AclTable *HwModuleProfileConfig_Profile_ProfileTcam_KeyFormat_KeyForma
     ipv6AclTable.EntityData.BundleName = "cisco_ios_xr"
     ipv6AclTable.EntityData.ParentYangName = "ipv6-acl-tables"
     ipv6AclTable.EntityData.SegmentPath = "ipv6-acl-table" + types.AddKeyToken(ipv6AclTable.LocationString, "location-string") + types.AddKeyToken(ipv6AclTable.LocationId, "location-id")
+    ipv6AclTable.EntityData.AbsolutePath = "Cisco-IOS-XR-fia-hw-profile-cfg:hw-module-profile-config/profile/profile-tcam/key-format/key-format-acl-table/ipv6-acl-tables/" + ipv6AclTable.EntityData.SegmentPath
     ipv6AclTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6AclTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6AclTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1218,6 +1360,7 @@ func (ipv4AclTables *HwModuleProfileConfig_Profile_ProfileTcam_KeyFormat_KeyForm
     ipv4AclTables.EntityData.BundleName = "cisco_ios_xr"
     ipv4AclTables.EntityData.ParentYangName = "key-format-acl-table"
     ipv4AclTables.EntityData.SegmentPath = "ipv4-acl-tables"
+    ipv4AclTables.EntityData.AbsolutePath = "Cisco-IOS-XR-fia-hw-profile-cfg:hw-module-profile-config/profile/profile-tcam/key-format/key-format-acl-table/" + ipv4AclTables.EntityData.SegmentPath
     ipv4AclTables.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4AclTables.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4AclTables.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1239,6 +1382,7 @@ func (ipv4AclTables *HwModuleProfileConfig_Profile_ProfileTcam_KeyFormat_KeyForm
 type HwModuleProfileConfig_Profile_ProfileTcam_KeyFormat_KeyFormatAclTable_Ipv4AclTables_Ipv4AclTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Location string (all) if for all LCs. The type is
     // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -1322,6 +1466,7 @@ func (ipv4AclTable *HwModuleProfileConfig_Profile_ProfileTcam_KeyFormat_KeyForma
     ipv4AclTable.EntityData.BundleName = "cisco_ios_xr"
     ipv4AclTable.EntityData.ParentYangName = "ipv4-acl-tables"
     ipv4AclTable.EntityData.SegmentPath = "ipv4-acl-table" + types.AddKeyToken(ipv4AclTable.LocationString, "location-string") + types.AddKeyToken(ipv4AclTable.LocationId, "location-id")
+    ipv4AclTable.EntityData.AbsolutePath = "Cisco-IOS-XR-fia-hw-profile-cfg:hw-module-profile-config/profile/profile-tcam/key-format/key-format-acl-table/ipv4-acl-tables/" + ipv4AclTable.EntityData.SegmentPath
     ipv4AclTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4AclTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4AclTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1386,6 +1531,7 @@ func (qos *HwModuleProfileConfig_Profile_Qos) GetEntityData() *types.CommonEntit
     qos.EntityData.BundleName = "cisco_ios_xr"
     qos.EntityData.ParentYangName = "profile"
     qos.EntityData.SegmentPath = "qos"
+    qos.EntityData.AbsolutePath = "Cisco-IOS-XR-fia-hw-profile-cfg:hw-module-profile-config/profile/" + qos.EntityData.SegmentPath
     qos.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     qos.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     qos.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1419,6 +1565,7 @@ func (hqosEnableAll *HwModuleProfileConfig_Profile_Qos_HqosEnableAll) GetEntityD
     hqosEnableAll.EntityData.BundleName = "cisco_ios_xr"
     hqosEnableAll.EntityData.ParentYangName = "qos"
     hqosEnableAll.EntityData.SegmentPath = "hqos-enable-all"
+    hqosEnableAll.EntityData.AbsolutePath = "Cisco-IOS-XR-fia-hw-profile-cfg:hw-module-profile-config/profile/qos/" + hqosEnableAll.EntityData.SegmentPath
     hqosEnableAll.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hqosEnableAll.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hqosEnableAll.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1448,6 +1595,7 @@ func (ingressModelRootDef *HwModuleProfileConfig_Profile_Qos_IngressModelRootDef
     ingressModelRootDef.EntityData.BundleName = "cisco_ios_xr"
     ingressModelRootDef.EntityData.ParentYangName = "qos"
     ingressModelRootDef.EntityData.SegmentPath = "ingress-model-root-def"
+    ingressModelRootDef.EntityData.AbsolutePath = "Cisco-IOS-XR-fia-hw-profile-cfg:hw-module-profile-config/profile/qos/" + ingressModelRootDef.EntityData.SegmentPath
     ingressModelRootDef.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ingressModelRootDef.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ingressModelRootDef.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1478,6 +1626,7 @@ func (ingressModels *HwModuleProfileConfig_Profile_Qos_IngressModels) GetEntityD
     ingressModels.EntityData.BundleName = "cisco_ios_xr"
     ingressModels.EntityData.ParentYangName = "qos"
     ingressModels.EntityData.SegmentPath = "ingress-models"
+    ingressModels.EntityData.AbsolutePath = "Cisco-IOS-XR-fia-hw-profile-cfg:hw-module-profile-config/profile/qos/" + ingressModels.EntityData.SegmentPath
     ingressModels.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ingressModels.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ingressModels.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1499,6 +1648,7 @@ func (ingressModels *HwModuleProfileConfig_Profile_Qos_IngressModels) GetEntityD
 type HwModuleProfileConfig_Profile_Qos_IngressModels_IngressModel struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. NodeName. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -1515,6 +1665,7 @@ func (ingressModel *HwModuleProfileConfig_Profile_Qos_IngressModels_IngressModel
     ingressModel.EntityData.BundleName = "cisco_ios_xr"
     ingressModel.EntityData.ParentYangName = "ingress-models"
     ingressModel.EntityData.SegmentPath = "ingress-model" + types.AddKeyToken(ingressModel.NodeName, "node-name")
+    ingressModel.EntityData.AbsolutePath = "Cisco-IOS-XR-fia-hw-profile-cfg:hw-module-profile-config/profile/qos/ingress-models/" + ingressModel.EntityData.SegmentPath
     ingressModel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ingressModel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ingressModel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1537,6 +1688,7 @@ func (ingressModel *HwModuleProfileConfig_Profile_Qos_IngressModels_IngressModel
 type HwModuleProfileConfig_Profile_Qos_IngressModels_IngressModel_IngressModelLeaf struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Location. The type is interface{} with range:
     // 0..4294967295.
@@ -1553,6 +1705,7 @@ func (ingressModelLeaf *HwModuleProfileConfig_Profile_Qos_IngressModels_IngressM
     ingressModelLeaf.EntityData.BundleName = "cisco_ios_xr"
     ingressModelLeaf.EntityData.ParentYangName = "ingress-model"
     ingressModelLeaf.EntityData.SegmentPath = "ingress-model-leaf" + types.AddKeyToken(ingressModelLeaf.Location, "location")
+    ingressModelLeaf.EntityData.AbsolutePath = "Cisco-IOS-XR-fia-hw-profile-cfg:hw-module-profile-config/profile/qos/ingress-models/ingress-model/" + ingressModelLeaf.EntityData.SegmentPath
     ingressModelLeaf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ingressModelLeaf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ingressModelLeaf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1583,6 +1736,7 @@ func (classMapsRootDef *HwModuleProfileConfig_Profile_Qos_ClassMapsRootDef) GetE
     classMapsRootDef.EntityData.BundleName = "cisco_ios_xr"
     classMapsRootDef.EntityData.ParentYangName = "qos"
     classMapsRootDef.EntityData.SegmentPath = "class-maps-root-def"
+    classMapsRootDef.EntityData.AbsolutePath = "Cisco-IOS-XR-fia-hw-profile-cfg:hw-module-profile-config/profile/qos/" + classMapsRootDef.EntityData.SegmentPath
     classMapsRootDef.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     classMapsRootDef.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     classMapsRootDef.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1613,6 +1767,7 @@ func (classMaps *HwModuleProfileConfig_Profile_Qos_ClassMaps) GetEntityData() *t
     classMaps.EntityData.BundleName = "cisco_ios_xr"
     classMaps.EntityData.ParentYangName = "qos"
     classMaps.EntityData.SegmentPath = "class-maps"
+    classMaps.EntityData.AbsolutePath = "Cisco-IOS-XR-fia-hw-profile-cfg:hw-module-profile-config/profile/qos/" + classMaps.EntityData.SegmentPath
     classMaps.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     classMaps.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     classMaps.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1634,6 +1789,7 @@ func (classMaps *HwModuleProfileConfig_Profile_Qos_ClassMaps) GetEntityData() *t
 type HwModuleProfileConfig_Profile_Qos_ClassMaps_ClassMap struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. NodeName. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -1650,6 +1806,7 @@ func (classMap *HwModuleProfileConfig_Profile_Qos_ClassMaps_ClassMap) GetEntityD
     classMap.EntityData.BundleName = "cisco_ios_xr"
     classMap.EntityData.ParentYangName = "class-maps"
     classMap.EntityData.SegmentPath = "class-map" + types.AddKeyToken(classMap.NodeName, "node-name")
+    classMap.EntityData.AbsolutePath = "Cisco-IOS-XR-fia-hw-profile-cfg:hw-module-profile-config/profile/qos/class-maps/" + classMap.EntityData.SegmentPath
     classMap.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     classMap.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     classMap.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1672,6 +1829,7 @@ func (classMap *HwModuleProfileConfig_Profile_Qos_ClassMaps_ClassMap) GetEntityD
 type HwModuleProfileConfig_Profile_Qos_ClassMaps_ClassMap_ClassMapSize struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Location. The type is interface{} with range:
     // 0..4294967295.
@@ -1688,6 +1846,7 @@ func (classMapSize *HwModuleProfileConfig_Profile_Qos_ClassMaps_ClassMap_ClassMa
     classMapSize.EntityData.BundleName = "cisco_ios_xr"
     classMapSize.EntityData.ParentYangName = "class-map"
     classMapSize.EntityData.SegmentPath = "class-map-size" + types.AddKeyToken(classMapSize.Location, "location")
+    classMapSize.EntityData.AbsolutePath = "Cisco-IOS-XR-fia-hw-profile-cfg:hw-module-profile-config/profile/qos/class-maps/class-map/" + classMapSize.EntityData.SegmentPath
     classMapSize.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     classMapSize.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     classMapSize.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1721,6 +1880,7 @@ func (fibScale *HwModuleProfileConfig_FibScale) GetEntityData() *types.CommonEnt
     fibScale.EntityData.BundleName = "cisco_ios_xr"
     fibScale.EntityData.ParentYangName = "hw-module-profile-config"
     fibScale.EntityData.SegmentPath = "fib-scale"
+    fibScale.EntityData.AbsolutePath = "Cisco-IOS-XR-fia-hw-profile-cfg:hw-module-profile-config/" + fibScale.EntityData.SegmentPath
     fibScale.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fibScale.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fibScale.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1751,6 +1911,7 @@ func (ipv6UnicastScaleNoTcam *HwModuleProfileConfig_FibScale_Ipv6UnicastScaleNoT
     ipv6UnicastScaleNoTcam.EntityData.BundleName = "cisco_ios_xr"
     ipv6UnicastScaleNoTcam.EntityData.ParentYangName = "fib-scale"
     ipv6UnicastScaleNoTcam.EntityData.SegmentPath = "ipv6-unicast-scale-no-tcam"
+    ipv6UnicastScaleNoTcam.EntityData.AbsolutePath = "Cisco-IOS-XR-fia-hw-profile-cfg:hw-module-profile-config/fib-scale/" + ipv6UnicastScaleNoTcam.EntityData.SegmentPath
     ipv6UnicastScaleNoTcam.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6UnicastScaleNoTcam.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6UnicastScaleNoTcam.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1780,6 +1941,7 @@ func (scaleIpv6NoTcam *HwModuleProfileConfig_FibScale_Ipv6UnicastScaleNoTcam_Sca
     scaleIpv6NoTcam.EntityData.BundleName = "cisco_ios_xr"
     scaleIpv6NoTcam.EntityData.ParentYangName = "ipv6-unicast-scale-no-tcam"
     scaleIpv6NoTcam.EntityData.SegmentPath = "scale-ipv6-no-tcam"
+    scaleIpv6NoTcam.EntityData.AbsolutePath = "Cisco-IOS-XR-fia-hw-profile-cfg:hw-module-profile-config/fib-scale/ipv6-unicast-scale-no-tcam/" + scaleIpv6NoTcam.EntityData.SegmentPath
     scaleIpv6NoTcam.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     scaleIpv6NoTcam.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     scaleIpv6NoTcam.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1809,6 +1971,7 @@ func (ipv4UnicastScaleNoTcam *HwModuleProfileConfig_FibScale_Ipv4UnicastScaleNoT
     ipv4UnicastScaleNoTcam.EntityData.BundleName = "cisco_ios_xr"
     ipv4UnicastScaleNoTcam.EntityData.ParentYangName = "fib-scale"
     ipv4UnicastScaleNoTcam.EntityData.SegmentPath = "ipv4-unicast-scale-no-tcam"
+    ipv4UnicastScaleNoTcam.EntityData.AbsolutePath = "Cisco-IOS-XR-fia-hw-profile-cfg:hw-module-profile-config/fib-scale/" + ipv4UnicastScaleNoTcam.EntityData.SegmentPath
     ipv4UnicastScaleNoTcam.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4UnicastScaleNoTcam.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4UnicastScaleNoTcam.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1838,6 +2001,7 @@ func (scaleIpv4NoTcam *HwModuleProfileConfig_FibScale_Ipv4UnicastScaleNoTcam_Sca
     scaleIpv4NoTcam.EntityData.BundleName = "cisco_ios_xr"
     scaleIpv4NoTcam.EntityData.ParentYangName = "ipv4-unicast-scale-no-tcam"
     scaleIpv4NoTcam.EntityData.SegmentPath = "scale-ipv4-no-tcam"
+    scaleIpv4NoTcam.EntityData.AbsolutePath = "Cisco-IOS-XR-fia-hw-profile-cfg:hw-module-profile-config/fib-scale/ipv4-unicast-scale-no-tcam/" + scaleIpv4NoTcam.EntityData.SegmentPath
     scaleIpv4NoTcam.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     scaleIpv4NoTcam.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     scaleIpv4NoTcam.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1867,6 +2031,7 @@ func (orchestratedLinecardReload *HwModuleProfileConfig_OrchestratedLinecardRelo
     orchestratedLinecardReload.EntityData.BundleName = "cisco_ios_xr"
     orchestratedLinecardReload.EntityData.ParentYangName = "hw-module-profile-config"
     orchestratedLinecardReload.EntityData.SegmentPath = "orchestrated-linecard-reload"
+    orchestratedLinecardReload.EntityData.AbsolutePath = "Cisco-IOS-XR-fia-hw-profile-cfg:hw-module-profile-config/" + orchestratedLinecardReload.EntityData.SegmentPath
     orchestratedLinecardReload.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     orchestratedLinecardReload.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     orchestratedLinecardReload.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1897,6 +2062,7 @@ func (planeTableEntries *HwModuleProfileConfig_OrchestratedLinecardReload_PlaneT
     planeTableEntries.EntityData.BundleName = "cisco_ios_xr"
     planeTableEntries.EntityData.ParentYangName = "orchestrated-linecard-reload"
     planeTableEntries.EntityData.SegmentPath = "plane-table-entries"
+    planeTableEntries.EntityData.AbsolutePath = "Cisco-IOS-XR-fia-hw-profile-cfg:hw-module-profile-config/orchestrated-linecard-reload/" + planeTableEntries.EntityData.SegmentPath
     planeTableEntries.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     planeTableEntries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     planeTableEntries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1918,6 +2084,7 @@ func (planeTableEntries *HwModuleProfileConfig_OrchestratedLinecardReload_PlaneT
 type HwModuleProfileConfig_OrchestratedLinecardReload_PlaneTableEntries_PlaneTableEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Plane Name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -1933,6 +2100,7 @@ func (planeTableEntry *HwModuleProfileConfig_OrchestratedLinecardReload_PlaneTab
     planeTableEntry.EntityData.BundleName = "cisco_ios_xr"
     planeTableEntry.EntityData.ParentYangName = "plane-table-entries"
     planeTableEntry.EntityData.SegmentPath = "plane-table-entry" + types.AddKeyToken(planeTableEntry.PlaneName, "plane-name")
+    planeTableEntry.EntityData.AbsolutePath = "Cisco-IOS-XR-fia-hw-profile-cfg:hw-module-profile-config/orchestrated-linecard-reload/plane-table-entries/" + planeTableEntry.EntityData.SegmentPath
     planeTableEntry.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     planeTableEntry.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     planeTableEntry.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1964,6 +2132,7 @@ func (rackTableEntries *HwModuleProfileConfig_OrchestratedLinecardReload_PlaneTa
     rackTableEntries.EntityData.BundleName = "cisco_ios_xr"
     rackTableEntries.EntityData.ParentYangName = "plane-table-entry"
     rackTableEntries.EntityData.SegmentPath = "rack-table-entries"
+    rackTableEntries.EntityData.AbsolutePath = "Cisco-IOS-XR-fia-hw-profile-cfg:hw-module-profile-config/orchestrated-linecard-reload/plane-table-entries/plane-table-entry/" + rackTableEntries.EntityData.SegmentPath
     rackTableEntries.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rackTableEntries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rackTableEntries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1985,6 +2154,7 @@ func (rackTableEntries *HwModuleProfileConfig_OrchestratedLinecardReload_PlaneTa
 type HwModuleProfileConfig_OrchestratedLinecardReload_PlaneTableEntries_PlaneTableEntry_RackTableEntries_RackTableEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Rack Number. The type is interface{} with range:
     // 0..15.
@@ -2001,6 +2171,7 @@ func (rackTableEntry *HwModuleProfileConfig_OrchestratedLinecardReload_PlaneTabl
     rackTableEntry.EntityData.BundleName = "cisco_ios_xr"
     rackTableEntry.EntityData.ParentYangName = "rack-table-entries"
     rackTableEntry.EntityData.SegmentPath = "rack-table-entry" + types.AddKeyToken(rackTableEntry.RackNum, "rack-num")
+    rackTableEntry.EntityData.AbsolutePath = "Cisco-IOS-XR-fia-hw-profile-cfg:hw-module-profile-config/orchestrated-linecard-reload/plane-table-entries/plane-table-entry/rack-table-entries/" + rackTableEntry.EntityData.SegmentPath
     rackTableEntry.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rackTableEntry.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rackTableEntry.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2031,6 +2202,7 @@ func (tcam *HwModuleProfileConfig_Tcam) GetEntityData() *types.CommonEntityData 
     tcam.EntityData.BundleName = "cisco_ios_xr"
     tcam.EntityData.ParentYangName = "hw-module-profile-config"
     tcam.EntityData.SegmentPath = "tcam"
+    tcam.EntityData.AbsolutePath = "Cisco-IOS-XR-fia-hw-profile-cfg:hw-module-profile-config/" + tcam.EntityData.SegmentPath
     tcam.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tcam.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tcam.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2060,6 +2232,7 @@ func (fibTcamScale *HwModuleProfileConfig_Tcam_FibTcamScale) GetEntityData() *ty
     fibTcamScale.EntityData.BundleName = "cisco_ios_xr"
     fibTcamScale.EntityData.ParentYangName = "tcam"
     fibTcamScale.EntityData.SegmentPath = "fib-tcam-scale"
+    fibTcamScale.EntityData.AbsolutePath = "Cisco-IOS-XR-fia-hw-profile-cfg:hw-module-profile-config/tcam/" + fibTcamScale.EntityData.SegmentPath
     fibTcamScale.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fibTcamScale.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fibTcamScale.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2089,6 +2262,7 @@ func (ipv4UnicastScale *HwModuleProfileConfig_Tcam_FibTcamScale_Ipv4UnicastScale
     ipv4UnicastScale.EntityData.BundleName = "cisco_ios_xr"
     ipv4UnicastScale.EntityData.ParentYangName = "fib-tcam-scale"
     ipv4UnicastScale.EntityData.SegmentPath = "ipv4-unicast-scale"
+    ipv4UnicastScale.EntityData.AbsolutePath = "Cisco-IOS-XR-fia-hw-profile-cfg:hw-module-profile-config/tcam/fib-tcam-scale/" + ipv4UnicastScale.EntityData.SegmentPath
     ipv4UnicastScale.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4UnicastScale.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4UnicastScale.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2118,6 +2292,7 @@ func (qosqppb *HwModuleProfileConfig_Qosqppb) GetEntityData() *types.CommonEntit
     qosqppb.EntityData.BundleName = "cisco_ios_xr"
     qosqppb.EntityData.ParentYangName = "hw-module-profile-config"
     qosqppb.EntityData.SegmentPath = "qosqppb"
+    qosqppb.EntityData.AbsolutePath = "Cisco-IOS-XR-fia-hw-profile-cfg:hw-module-profile-config/" + qosqppb.EntityData.SegmentPath
     qosqppb.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     qosqppb.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     qosqppb.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2147,6 +2322,7 @@ func (ipv6Scale *HwModuleProfileConfig_Qosqppb_Ipv6Scale) GetEntityData() *types
     ipv6Scale.EntityData.BundleName = "cisco_ios_xr"
     ipv6Scale.EntityData.ParentYangName = "qosqppb"
     ipv6Scale.EntityData.SegmentPath = "ipv6-scale"
+    ipv6Scale.EntityData.AbsolutePath = "Cisco-IOS-XR-fia-hw-profile-cfg:hw-module-profile-config/qosqppb/" + ipv6Scale.EntityData.SegmentPath
     ipv6Scale.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6Scale.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6Scale.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

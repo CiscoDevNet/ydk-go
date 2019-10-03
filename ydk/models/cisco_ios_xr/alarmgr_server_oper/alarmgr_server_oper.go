@@ -282,6 +282,7 @@ func (alarms *Alarms) GetEntityData() *types.CommonEntityData {
     alarms.EntityData.BundleName = "cisco_ios_xr"
     alarms.EntityData.ParentYangName = "Cisco-IOS-XR-alarmgr-server-oper"
     alarms.EntityData.SegmentPath = "Cisco-IOS-XR-alarmgr-server-oper:alarms"
+    alarms.EntityData.AbsolutePath = alarms.EntityData.SegmentPath
     alarms.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     alarms.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     alarms.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -315,6 +316,7 @@ func (detail *Alarms_Detail) GetEntityData() *types.CommonEntityData {
     detail.EntityData.BundleName = "cisco_ios_xr"
     detail.EntityData.ParentYangName = "alarms"
     detail.EntityData.SegmentPath = "detail"
+    detail.EntityData.AbsolutePath = "Cisco-IOS-XR-alarmgr-server-oper:alarms/" + detail.EntityData.SegmentPath
     detail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     detail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     detail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -360,6 +362,7 @@ func (detailSystem *Alarms_Detail_DetailSystem) GetEntityData() *types.CommonEnt
     detailSystem.EntityData.BundleName = "cisco_ios_xr"
     detailSystem.EntityData.ParentYangName = "detail"
     detailSystem.EntityData.SegmentPath = "detail-system"
+    detailSystem.EntityData.AbsolutePath = "Cisco-IOS-XR-alarmgr-server-oper:alarms/detail/" + detailSystem.EntityData.SegmentPath
     detailSystem.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     detailSystem.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     detailSystem.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -395,6 +398,7 @@ func (conditions *Alarms_Detail_DetailSystem_Conditions) GetEntityData() *types.
     conditions.EntityData.BundleName = "cisco_ios_xr"
     conditions.EntityData.ParentYangName = "detail-system"
     conditions.EntityData.SegmentPath = "conditions"
+    conditions.EntityData.AbsolutePath = "Cisco-IOS-XR-alarmgr-server-oper:alarms/detail/detail-system/" + conditions.EntityData.SegmentPath
     conditions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     conditions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     conditions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -402,6 +406,7 @@ func (conditions *Alarms_Detail_DetailSystem_Conditions) GetEntityData() *types.
     conditions.EntityData.Children = types.NewOrderedMap()
     conditions.EntityData.Children.Append("alarm-info", types.YChild{"AlarmInfo", nil})
     for i := range conditions.AlarmInfo {
+        types.SetYListKey(conditions.AlarmInfo[i], i)
         conditions.EntityData.Children.Append(types.GetSegmentPath(conditions.AlarmInfo[i]), types.YChild{"AlarmInfo", conditions.AlarmInfo[i]})
     }
     conditions.EntityData.Leafs = types.NewOrderedMap()
@@ -416,6 +421,7 @@ func (conditions *Alarms_Detail_DetailSystem_Conditions) GetEntityData() *types.
 type Alarms_Detail_DetailSystem_Conditions_AlarmInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Alarm description. The type is string with length: 0..256.
     Description interface{}
@@ -488,7 +494,8 @@ func (alarmInfo *Alarms_Detail_DetailSystem_Conditions_AlarmInfo) GetEntityData(
     alarmInfo.EntityData.YangName = "alarm-info"
     alarmInfo.EntityData.BundleName = "cisco_ios_xr"
     alarmInfo.EntityData.ParentYangName = "conditions"
-    alarmInfo.EntityData.SegmentPath = "alarm-info"
+    alarmInfo.EntityData.SegmentPath = "alarm-info" + types.AddNoKeyToken(alarmInfo)
+    alarmInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-alarmgr-server-oper:alarms/detail/detail-system/conditions/" + alarmInfo.EntityData.SegmentPath
     alarmInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     alarmInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     alarmInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -541,6 +548,7 @@ func (otn *Alarms_Detail_DetailSystem_Conditions_AlarmInfo_Otn) GetEntityData() 
     otn.EntityData.BundleName = "cisco_ios_xr"
     otn.EntityData.ParentYangName = "alarm-info"
     otn.EntityData.SegmentPath = "otn"
+    otn.EntityData.AbsolutePath = "Cisco-IOS-XR-alarmgr-server-oper:alarms/detail/detail-system/conditions/alarm-info/" + otn.EntityData.SegmentPath
     otn.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     otn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     otn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -577,6 +585,7 @@ func (tca *Alarms_Detail_DetailSystem_Conditions_AlarmInfo_Tca) GetEntityData() 
     tca.EntityData.BundleName = "cisco_ios_xr"
     tca.EntityData.ParentYangName = "alarm-info"
     tca.EntityData.SegmentPath = "tca"
+    tca.EntityData.AbsolutePath = "Cisco-IOS-XR-alarmgr-server-oper:alarms/detail/detail-system/conditions/alarm-info/" + tca.EntityData.SegmentPath
     tca.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tca.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tca.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -609,6 +618,7 @@ func (active *Alarms_Detail_DetailSystem_Active) GetEntityData() *types.CommonEn
     active.EntityData.BundleName = "cisco_ios_xr"
     active.EntityData.ParentYangName = "detail-system"
     active.EntityData.SegmentPath = "active"
+    active.EntityData.AbsolutePath = "Cisco-IOS-XR-alarmgr-server-oper:alarms/detail/detail-system/" + active.EntityData.SegmentPath
     active.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     active.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     active.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -616,6 +626,7 @@ func (active *Alarms_Detail_DetailSystem_Active) GetEntityData() *types.CommonEn
     active.EntityData.Children = types.NewOrderedMap()
     active.EntityData.Children.Append("alarm-info", types.YChild{"AlarmInfo", nil})
     for i := range active.AlarmInfo {
+        types.SetYListKey(active.AlarmInfo[i], i)
         active.EntityData.Children.Append(types.GetSegmentPath(active.AlarmInfo[i]), types.YChild{"AlarmInfo", active.AlarmInfo[i]})
     }
     active.EntityData.Leafs = types.NewOrderedMap()
@@ -630,6 +641,7 @@ func (active *Alarms_Detail_DetailSystem_Active) GetEntityData() *types.CommonEn
 type Alarms_Detail_DetailSystem_Active_AlarmInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Alarm description. The type is string with length: 0..256.
     Description interface{}
@@ -702,7 +714,8 @@ func (alarmInfo *Alarms_Detail_DetailSystem_Active_AlarmInfo) GetEntityData() *t
     alarmInfo.EntityData.YangName = "alarm-info"
     alarmInfo.EntityData.BundleName = "cisco_ios_xr"
     alarmInfo.EntityData.ParentYangName = "active"
-    alarmInfo.EntityData.SegmentPath = "alarm-info"
+    alarmInfo.EntityData.SegmentPath = "alarm-info" + types.AddNoKeyToken(alarmInfo)
+    alarmInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-alarmgr-server-oper:alarms/detail/detail-system/active/" + alarmInfo.EntityData.SegmentPath
     alarmInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     alarmInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     alarmInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -755,6 +768,7 @@ func (otn *Alarms_Detail_DetailSystem_Active_AlarmInfo_Otn) GetEntityData() *typ
     otn.EntityData.BundleName = "cisco_ios_xr"
     otn.EntityData.ParentYangName = "alarm-info"
     otn.EntityData.SegmentPath = "otn"
+    otn.EntityData.AbsolutePath = "Cisco-IOS-XR-alarmgr-server-oper:alarms/detail/detail-system/active/alarm-info/" + otn.EntityData.SegmentPath
     otn.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     otn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     otn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -791,6 +805,7 @@ func (tca *Alarms_Detail_DetailSystem_Active_AlarmInfo_Tca) GetEntityData() *typ
     tca.EntityData.BundleName = "cisco_ios_xr"
     tca.EntityData.ParentYangName = "alarm-info"
     tca.EntityData.SegmentPath = "tca"
+    tca.EntityData.AbsolutePath = "Cisco-IOS-XR-alarmgr-server-oper:alarms/detail/detail-system/active/alarm-info/" + tca.EntityData.SegmentPath
     tca.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tca.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tca.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -823,6 +838,7 @@ func (history *Alarms_Detail_DetailSystem_History) GetEntityData() *types.Common
     history.EntityData.BundleName = "cisco_ios_xr"
     history.EntityData.ParentYangName = "detail-system"
     history.EntityData.SegmentPath = "history"
+    history.EntityData.AbsolutePath = "Cisco-IOS-XR-alarmgr-server-oper:alarms/detail/detail-system/" + history.EntityData.SegmentPath
     history.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     history.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     history.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -830,6 +846,7 @@ func (history *Alarms_Detail_DetailSystem_History) GetEntityData() *types.Common
     history.EntityData.Children = types.NewOrderedMap()
     history.EntityData.Children.Append("alarm-info", types.YChild{"AlarmInfo", nil})
     for i := range history.AlarmInfo {
+        types.SetYListKey(history.AlarmInfo[i], i)
         history.EntityData.Children.Append(types.GetSegmentPath(history.AlarmInfo[i]), types.YChild{"AlarmInfo", history.AlarmInfo[i]})
     }
     history.EntityData.Leafs = types.NewOrderedMap()
@@ -844,6 +861,7 @@ func (history *Alarms_Detail_DetailSystem_History) GetEntityData() *types.Common
 type Alarms_Detail_DetailSystem_History_AlarmInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Alarm description. The type is string with length: 0..256.
     Description interface{}
@@ -916,7 +934,8 @@ func (alarmInfo *Alarms_Detail_DetailSystem_History_AlarmInfo) GetEntityData() *
     alarmInfo.EntityData.YangName = "alarm-info"
     alarmInfo.EntityData.BundleName = "cisco_ios_xr"
     alarmInfo.EntityData.ParentYangName = "history"
-    alarmInfo.EntityData.SegmentPath = "alarm-info"
+    alarmInfo.EntityData.SegmentPath = "alarm-info" + types.AddNoKeyToken(alarmInfo)
+    alarmInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-alarmgr-server-oper:alarms/detail/detail-system/history/" + alarmInfo.EntityData.SegmentPath
     alarmInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     alarmInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     alarmInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -969,6 +988,7 @@ func (otn *Alarms_Detail_DetailSystem_History_AlarmInfo_Otn) GetEntityData() *ty
     otn.EntityData.BundleName = "cisco_ios_xr"
     otn.EntityData.ParentYangName = "alarm-info"
     otn.EntityData.SegmentPath = "otn"
+    otn.EntityData.AbsolutePath = "Cisco-IOS-XR-alarmgr-server-oper:alarms/detail/detail-system/history/alarm-info/" + otn.EntityData.SegmentPath
     otn.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     otn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     otn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1005,6 +1025,7 @@ func (tca *Alarms_Detail_DetailSystem_History_AlarmInfo_Tca) GetEntityData() *ty
     tca.EntityData.BundleName = "cisco_ios_xr"
     tca.EntityData.ParentYangName = "alarm-info"
     tca.EntityData.SegmentPath = "tca"
+    tca.EntityData.AbsolutePath = "Cisco-IOS-XR-alarmgr-server-oper:alarms/detail/detail-system/history/alarm-info/" + tca.EntityData.SegmentPath
     tca.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tca.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tca.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1037,6 +1058,7 @@ func (suppressed *Alarms_Detail_DetailSystem_Suppressed) GetEntityData() *types.
     suppressed.EntityData.BundleName = "cisco_ios_xr"
     suppressed.EntityData.ParentYangName = "detail-system"
     suppressed.EntityData.SegmentPath = "suppressed"
+    suppressed.EntityData.AbsolutePath = "Cisco-IOS-XR-alarmgr-server-oper:alarms/detail/detail-system/" + suppressed.EntityData.SegmentPath
     suppressed.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     suppressed.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     suppressed.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1044,6 +1066,7 @@ func (suppressed *Alarms_Detail_DetailSystem_Suppressed) GetEntityData() *types.
     suppressed.EntityData.Children = types.NewOrderedMap()
     suppressed.EntityData.Children.Append("suppressed-info", types.YChild{"SuppressedInfo", nil})
     for i := range suppressed.SuppressedInfo {
+        types.SetYListKey(suppressed.SuppressedInfo[i], i)
         suppressed.EntityData.Children.Append(types.GetSegmentPath(suppressed.SuppressedInfo[i]), types.YChild{"SuppressedInfo", suppressed.SuppressedInfo[i]})
     }
     suppressed.EntityData.Leafs = types.NewOrderedMap()
@@ -1058,6 +1081,7 @@ func (suppressed *Alarms_Detail_DetailSystem_Suppressed) GetEntityData() *types.
 type Alarms_Detail_DetailSystem_Suppressed_SuppressedInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Alarm description. The type is string with length: 0..256.
     Description interface{}
@@ -1124,7 +1148,8 @@ func (suppressedInfo *Alarms_Detail_DetailSystem_Suppressed_SuppressedInfo) GetE
     suppressedInfo.EntityData.YangName = "suppressed-info"
     suppressedInfo.EntityData.BundleName = "cisco_ios_xr"
     suppressedInfo.EntityData.ParentYangName = "suppressed"
-    suppressedInfo.EntityData.SegmentPath = "suppressed-info"
+    suppressedInfo.EntityData.SegmentPath = "suppressed-info" + types.AddNoKeyToken(suppressedInfo)
+    suppressedInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-alarmgr-server-oper:alarms/detail/detail-system/suppressed/" + suppressedInfo.EntityData.SegmentPath
     suppressedInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     suppressedInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     suppressedInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1175,6 +1200,7 @@ func (otn *Alarms_Detail_DetailSystem_Suppressed_SuppressedInfo_Otn) GetEntityDa
     otn.EntityData.BundleName = "cisco_ios_xr"
     otn.EntityData.ParentYangName = "suppressed-info"
     otn.EntityData.SegmentPath = "otn"
+    otn.EntityData.AbsolutePath = "Cisco-IOS-XR-alarmgr-server-oper:alarms/detail/detail-system/suppressed/suppressed-info/" + otn.EntityData.SegmentPath
     otn.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     otn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     otn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1263,6 +1289,7 @@ func (stats *Alarms_Detail_DetailSystem_Stats) GetEntityData() *types.CommonEnti
     stats.EntityData.BundleName = "cisco_ios_xr"
     stats.EntityData.ParentYangName = "detail-system"
     stats.EntityData.SegmentPath = "stats"
+    stats.EntityData.AbsolutePath = "Cisco-IOS-XR-alarmgr-server-oper:alarms/detail/detail-system/" + stats.EntityData.SegmentPath
     stats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     stats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1307,6 +1334,7 @@ func (clients *Alarms_Detail_DetailSystem_Clients) GetEntityData() *types.Common
     clients.EntityData.BundleName = "cisco_ios_xr"
     clients.EntityData.ParentYangName = "detail-system"
     clients.EntityData.SegmentPath = "clients"
+    clients.EntityData.AbsolutePath = "Cisco-IOS-XR-alarmgr-server-oper:alarms/detail/detail-system/" + clients.EntityData.SegmentPath
     clients.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clients.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clients.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1314,6 +1342,7 @@ func (clients *Alarms_Detail_DetailSystem_Clients) GetEntityData() *types.Common
     clients.EntityData.Children = types.NewOrderedMap()
     clients.EntityData.Children.Append("client-info", types.YChild{"ClientInfo", nil})
     for i := range clients.ClientInfo {
+        types.SetYListKey(clients.ClientInfo[i], i)
         clients.EntityData.Children.Append(types.GetSegmentPath(clients.ClientInfo[i]), types.YChild{"ClientInfo", clients.ClientInfo[i]})
     }
     clients.EntityData.Leafs = types.NewOrderedMap()
@@ -1328,6 +1357,7 @@ func (clients *Alarms_Detail_DetailSystem_Clients) GetEntityData() *types.Common
 type Alarms_Detail_DetailSystem_Clients_ClientInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Alarm client. The type is string with length: 0..128.
     Name interface{}
@@ -1390,7 +1420,8 @@ func (clientInfo *Alarms_Detail_DetailSystem_Clients_ClientInfo) GetEntityData()
     clientInfo.EntityData.YangName = "client-info"
     clientInfo.EntityData.BundleName = "cisco_ios_xr"
     clientInfo.EntityData.ParentYangName = "clients"
-    clientInfo.EntityData.SegmentPath = "client-info"
+    clientInfo.EntityData.SegmentPath = "client-info" + types.AddNoKeyToken(clientInfo)
+    clientInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-alarmgr-server-oper:alarms/detail/detail-system/clients/" + clientInfo.EntityData.SegmentPath
     clientInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clientInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clientInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1435,6 +1466,7 @@ func (detailCard *Alarms_Detail_DetailCard) GetEntityData() *types.CommonEntityD
     detailCard.EntityData.BundleName = "cisco_ios_xr"
     detailCard.EntityData.ParentYangName = "detail"
     detailCard.EntityData.SegmentPath = "detail-card"
+    detailCard.EntityData.AbsolutePath = "Cisco-IOS-XR-alarmgr-server-oper:alarms/detail/" + detailCard.EntityData.SegmentPath
     detailCard.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     detailCard.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     detailCard.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1465,6 +1497,7 @@ func (detailLocations *Alarms_Detail_DetailCard_DetailLocations) GetEntityData()
     detailLocations.EntityData.BundleName = "cisco_ios_xr"
     detailLocations.EntityData.ParentYangName = "detail-card"
     detailLocations.EntityData.SegmentPath = "detail-locations"
+    detailLocations.EntityData.AbsolutePath = "Cisco-IOS-XR-alarmgr-server-oper:alarms/detail/detail-card/" + detailLocations.EntityData.SegmentPath
     detailLocations.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     detailLocations.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     detailLocations.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1486,6 +1519,7 @@ func (detailLocations *Alarms_Detail_DetailCard_DetailLocations) GetEntityData()
 type Alarms_Detail_DetailCard_DetailLocations_DetailLocation struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. NodeID of the Location. The type is string with
     // pattern: ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -1516,6 +1550,7 @@ func (detailLocation *Alarms_Detail_DetailCard_DetailLocations_DetailLocation) G
     detailLocation.EntityData.BundleName = "cisco_ios_xr"
     detailLocation.EntityData.ParentYangName = "detail-locations"
     detailLocation.EntityData.SegmentPath = "detail-location" + types.AddKeyToken(detailLocation.NodeId, "node-id")
+    detailLocation.EntityData.AbsolutePath = "Cisco-IOS-XR-alarmgr-server-oper:alarms/detail/detail-card/detail-locations/" + detailLocation.EntityData.SegmentPath
     detailLocation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     detailLocation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     detailLocation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1552,6 +1587,7 @@ func (conditions *Alarms_Detail_DetailCard_DetailLocations_DetailLocation_Condit
     conditions.EntityData.BundleName = "cisco_ios_xr"
     conditions.EntityData.ParentYangName = "detail-location"
     conditions.EntityData.SegmentPath = "conditions"
+    conditions.EntityData.AbsolutePath = "Cisco-IOS-XR-alarmgr-server-oper:alarms/detail/detail-card/detail-locations/detail-location/" + conditions.EntityData.SegmentPath
     conditions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     conditions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     conditions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1559,6 +1595,7 @@ func (conditions *Alarms_Detail_DetailCard_DetailLocations_DetailLocation_Condit
     conditions.EntityData.Children = types.NewOrderedMap()
     conditions.EntityData.Children.Append("alarm-info", types.YChild{"AlarmInfo", nil})
     for i := range conditions.AlarmInfo {
+        types.SetYListKey(conditions.AlarmInfo[i], i)
         conditions.EntityData.Children.Append(types.GetSegmentPath(conditions.AlarmInfo[i]), types.YChild{"AlarmInfo", conditions.AlarmInfo[i]})
     }
     conditions.EntityData.Leafs = types.NewOrderedMap()
@@ -1573,6 +1610,7 @@ func (conditions *Alarms_Detail_DetailCard_DetailLocations_DetailLocation_Condit
 type Alarms_Detail_DetailCard_DetailLocations_DetailLocation_Conditions_AlarmInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Alarm description. The type is string with length: 0..256.
     Description interface{}
@@ -1645,7 +1683,8 @@ func (alarmInfo *Alarms_Detail_DetailCard_DetailLocations_DetailLocation_Conditi
     alarmInfo.EntityData.YangName = "alarm-info"
     alarmInfo.EntityData.BundleName = "cisco_ios_xr"
     alarmInfo.EntityData.ParentYangName = "conditions"
-    alarmInfo.EntityData.SegmentPath = "alarm-info"
+    alarmInfo.EntityData.SegmentPath = "alarm-info" + types.AddNoKeyToken(alarmInfo)
+    alarmInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-alarmgr-server-oper:alarms/detail/detail-card/detail-locations/detail-location/conditions/" + alarmInfo.EntityData.SegmentPath
     alarmInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     alarmInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     alarmInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1698,6 +1737,7 @@ func (otn *Alarms_Detail_DetailCard_DetailLocations_DetailLocation_Conditions_Al
     otn.EntityData.BundleName = "cisco_ios_xr"
     otn.EntityData.ParentYangName = "alarm-info"
     otn.EntityData.SegmentPath = "otn"
+    otn.EntityData.AbsolutePath = "Cisco-IOS-XR-alarmgr-server-oper:alarms/detail/detail-card/detail-locations/detail-location/conditions/alarm-info/" + otn.EntityData.SegmentPath
     otn.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     otn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     otn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1734,6 +1774,7 @@ func (tca *Alarms_Detail_DetailCard_DetailLocations_DetailLocation_Conditions_Al
     tca.EntityData.BundleName = "cisco_ios_xr"
     tca.EntityData.ParentYangName = "alarm-info"
     tca.EntityData.SegmentPath = "tca"
+    tca.EntityData.AbsolutePath = "Cisco-IOS-XR-alarmgr-server-oper:alarms/detail/detail-card/detail-locations/detail-location/conditions/alarm-info/" + tca.EntityData.SegmentPath
     tca.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tca.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tca.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1766,6 +1807,7 @@ func (active *Alarms_Detail_DetailCard_DetailLocations_DetailLocation_Active) Ge
     active.EntityData.BundleName = "cisco_ios_xr"
     active.EntityData.ParentYangName = "detail-location"
     active.EntityData.SegmentPath = "active"
+    active.EntityData.AbsolutePath = "Cisco-IOS-XR-alarmgr-server-oper:alarms/detail/detail-card/detail-locations/detail-location/" + active.EntityData.SegmentPath
     active.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     active.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     active.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1773,6 +1815,7 @@ func (active *Alarms_Detail_DetailCard_DetailLocations_DetailLocation_Active) Ge
     active.EntityData.Children = types.NewOrderedMap()
     active.EntityData.Children.Append("alarm-info", types.YChild{"AlarmInfo", nil})
     for i := range active.AlarmInfo {
+        types.SetYListKey(active.AlarmInfo[i], i)
         active.EntityData.Children.Append(types.GetSegmentPath(active.AlarmInfo[i]), types.YChild{"AlarmInfo", active.AlarmInfo[i]})
     }
     active.EntityData.Leafs = types.NewOrderedMap()
@@ -1787,6 +1830,7 @@ func (active *Alarms_Detail_DetailCard_DetailLocations_DetailLocation_Active) Ge
 type Alarms_Detail_DetailCard_DetailLocations_DetailLocation_Active_AlarmInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Alarm description. The type is string with length: 0..256.
     Description interface{}
@@ -1859,7 +1903,8 @@ func (alarmInfo *Alarms_Detail_DetailCard_DetailLocations_DetailLocation_Active_
     alarmInfo.EntityData.YangName = "alarm-info"
     alarmInfo.EntityData.BundleName = "cisco_ios_xr"
     alarmInfo.EntityData.ParentYangName = "active"
-    alarmInfo.EntityData.SegmentPath = "alarm-info"
+    alarmInfo.EntityData.SegmentPath = "alarm-info" + types.AddNoKeyToken(alarmInfo)
+    alarmInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-alarmgr-server-oper:alarms/detail/detail-card/detail-locations/detail-location/active/" + alarmInfo.EntityData.SegmentPath
     alarmInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     alarmInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     alarmInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1912,6 +1957,7 @@ func (otn *Alarms_Detail_DetailCard_DetailLocations_DetailLocation_Active_AlarmI
     otn.EntityData.BundleName = "cisco_ios_xr"
     otn.EntityData.ParentYangName = "alarm-info"
     otn.EntityData.SegmentPath = "otn"
+    otn.EntityData.AbsolutePath = "Cisco-IOS-XR-alarmgr-server-oper:alarms/detail/detail-card/detail-locations/detail-location/active/alarm-info/" + otn.EntityData.SegmentPath
     otn.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     otn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     otn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1948,6 +1994,7 @@ func (tca *Alarms_Detail_DetailCard_DetailLocations_DetailLocation_Active_AlarmI
     tca.EntityData.BundleName = "cisco_ios_xr"
     tca.EntityData.ParentYangName = "alarm-info"
     tca.EntityData.SegmentPath = "tca"
+    tca.EntityData.AbsolutePath = "Cisco-IOS-XR-alarmgr-server-oper:alarms/detail/detail-card/detail-locations/detail-location/active/alarm-info/" + tca.EntityData.SegmentPath
     tca.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tca.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tca.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1980,6 +2027,7 @@ func (history *Alarms_Detail_DetailCard_DetailLocations_DetailLocation_History) 
     history.EntityData.BundleName = "cisco_ios_xr"
     history.EntityData.ParentYangName = "detail-location"
     history.EntityData.SegmentPath = "history"
+    history.EntityData.AbsolutePath = "Cisco-IOS-XR-alarmgr-server-oper:alarms/detail/detail-card/detail-locations/detail-location/" + history.EntityData.SegmentPath
     history.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     history.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     history.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1987,6 +2035,7 @@ func (history *Alarms_Detail_DetailCard_DetailLocations_DetailLocation_History) 
     history.EntityData.Children = types.NewOrderedMap()
     history.EntityData.Children.Append("alarm-info", types.YChild{"AlarmInfo", nil})
     for i := range history.AlarmInfo {
+        types.SetYListKey(history.AlarmInfo[i], i)
         history.EntityData.Children.Append(types.GetSegmentPath(history.AlarmInfo[i]), types.YChild{"AlarmInfo", history.AlarmInfo[i]})
     }
     history.EntityData.Leafs = types.NewOrderedMap()
@@ -2001,6 +2050,7 @@ func (history *Alarms_Detail_DetailCard_DetailLocations_DetailLocation_History) 
 type Alarms_Detail_DetailCard_DetailLocations_DetailLocation_History_AlarmInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Alarm description. The type is string with length: 0..256.
     Description interface{}
@@ -2073,7 +2123,8 @@ func (alarmInfo *Alarms_Detail_DetailCard_DetailLocations_DetailLocation_History
     alarmInfo.EntityData.YangName = "alarm-info"
     alarmInfo.EntityData.BundleName = "cisco_ios_xr"
     alarmInfo.EntityData.ParentYangName = "history"
-    alarmInfo.EntityData.SegmentPath = "alarm-info"
+    alarmInfo.EntityData.SegmentPath = "alarm-info" + types.AddNoKeyToken(alarmInfo)
+    alarmInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-alarmgr-server-oper:alarms/detail/detail-card/detail-locations/detail-location/history/" + alarmInfo.EntityData.SegmentPath
     alarmInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     alarmInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     alarmInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2126,6 +2177,7 @@ func (otn *Alarms_Detail_DetailCard_DetailLocations_DetailLocation_History_Alarm
     otn.EntityData.BundleName = "cisco_ios_xr"
     otn.EntityData.ParentYangName = "alarm-info"
     otn.EntityData.SegmentPath = "otn"
+    otn.EntityData.AbsolutePath = "Cisco-IOS-XR-alarmgr-server-oper:alarms/detail/detail-card/detail-locations/detail-location/history/alarm-info/" + otn.EntityData.SegmentPath
     otn.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     otn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     otn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2162,6 +2214,7 @@ func (tca *Alarms_Detail_DetailCard_DetailLocations_DetailLocation_History_Alarm
     tca.EntityData.BundleName = "cisco_ios_xr"
     tca.EntityData.ParentYangName = "alarm-info"
     tca.EntityData.SegmentPath = "tca"
+    tca.EntityData.AbsolutePath = "Cisco-IOS-XR-alarmgr-server-oper:alarms/detail/detail-card/detail-locations/detail-location/history/alarm-info/" + tca.EntityData.SegmentPath
     tca.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tca.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tca.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2194,6 +2247,7 @@ func (suppressed *Alarms_Detail_DetailCard_DetailLocations_DetailLocation_Suppre
     suppressed.EntityData.BundleName = "cisco_ios_xr"
     suppressed.EntityData.ParentYangName = "detail-location"
     suppressed.EntityData.SegmentPath = "suppressed"
+    suppressed.EntityData.AbsolutePath = "Cisco-IOS-XR-alarmgr-server-oper:alarms/detail/detail-card/detail-locations/detail-location/" + suppressed.EntityData.SegmentPath
     suppressed.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     suppressed.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     suppressed.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2201,6 +2255,7 @@ func (suppressed *Alarms_Detail_DetailCard_DetailLocations_DetailLocation_Suppre
     suppressed.EntityData.Children = types.NewOrderedMap()
     suppressed.EntityData.Children.Append("suppressed-info", types.YChild{"SuppressedInfo", nil})
     for i := range suppressed.SuppressedInfo {
+        types.SetYListKey(suppressed.SuppressedInfo[i], i)
         suppressed.EntityData.Children.Append(types.GetSegmentPath(suppressed.SuppressedInfo[i]), types.YChild{"SuppressedInfo", suppressed.SuppressedInfo[i]})
     }
     suppressed.EntityData.Leafs = types.NewOrderedMap()
@@ -2215,6 +2270,7 @@ func (suppressed *Alarms_Detail_DetailCard_DetailLocations_DetailLocation_Suppre
 type Alarms_Detail_DetailCard_DetailLocations_DetailLocation_Suppressed_SuppressedInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Alarm description. The type is string with length: 0..256.
     Description interface{}
@@ -2281,7 +2337,8 @@ func (suppressedInfo *Alarms_Detail_DetailCard_DetailLocations_DetailLocation_Su
     suppressedInfo.EntityData.YangName = "suppressed-info"
     suppressedInfo.EntityData.BundleName = "cisco_ios_xr"
     suppressedInfo.EntityData.ParentYangName = "suppressed"
-    suppressedInfo.EntityData.SegmentPath = "suppressed-info"
+    suppressedInfo.EntityData.SegmentPath = "suppressed-info" + types.AddNoKeyToken(suppressedInfo)
+    suppressedInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-alarmgr-server-oper:alarms/detail/detail-card/detail-locations/detail-location/suppressed/" + suppressedInfo.EntityData.SegmentPath
     suppressedInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     suppressedInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     suppressedInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2332,6 +2389,7 @@ func (otn *Alarms_Detail_DetailCard_DetailLocations_DetailLocation_Suppressed_Su
     otn.EntityData.BundleName = "cisco_ios_xr"
     otn.EntityData.ParentYangName = "suppressed-info"
     otn.EntityData.SegmentPath = "otn"
+    otn.EntityData.AbsolutePath = "Cisco-IOS-XR-alarmgr-server-oper:alarms/detail/detail-card/detail-locations/detail-location/suppressed/suppressed-info/" + otn.EntityData.SegmentPath
     otn.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     otn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     otn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2420,6 +2478,7 @@ func (stats *Alarms_Detail_DetailCard_DetailLocations_DetailLocation_Stats) GetE
     stats.EntityData.BundleName = "cisco_ios_xr"
     stats.EntityData.ParentYangName = "detail-location"
     stats.EntityData.SegmentPath = "stats"
+    stats.EntityData.AbsolutePath = "Cisco-IOS-XR-alarmgr-server-oper:alarms/detail/detail-card/detail-locations/detail-location/" + stats.EntityData.SegmentPath
     stats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     stats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2465,6 +2524,7 @@ func (clients *Alarms_Detail_DetailCard_DetailLocations_DetailLocation_Clients) 
     clients.EntityData.BundleName = "cisco_ios_xr"
     clients.EntityData.ParentYangName = "detail-location"
     clients.EntityData.SegmentPath = "clients"
+    clients.EntityData.AbsolutePath = "Cisco-IOS-XR-alarmgr-server-oper:alarms/detail/detail-card/detail-locations/detail-location/" + clients.EntityData.SegmentPath
     clients.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clients.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clients.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2472,6 +2532,7 @@ func (clients *Alarms_Detail_DetailCard_DetailLocations_DetailLocation_Clients) 
     clients.EntityData.Children = types.NewOrderedMap()
     clients.EntityData.Children.Append("client-info", types.YChild{"ClientInfo", nil})
     for i := range clients.ClientInfo {
+        types.SetYListKey(clients.ClientInfo[i], i)
         clients.EntityData.Children.Append(types.GetSegmentPath(clients.ClientInfo[i]), types.YChild{"ClientInfo", clients.ClientInfo[i]})
     }
     clients.EntityData.Leafs = types.NewOrderedMap()
@@ -2486,6 +2547,7 @@ func (clients *Alarms_Detail_DetailCard_DetailLocations_DetailLocation_Clients) 
 type Alarms_Detail_DetailCard_DetailLocations_DetailLocation_Clients_ClientInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Alarm client. The type is string with length: 0..128.
     Name interface{}
@@ -2548,7 +2610,8 @@ func (clientInfo *Alarms_Detail_DetailCard_DetailLocations_DetailLocation_Client
     clientInfo.EntityData.YangName = "client-info"
     clientInfo.EntityData.BundleName = "cisco_ios_xr"
     clientInfo.EntityData.ParentYangName = "clients"
-    clientInfo.EntityData.SegmentPath = "client-info"
+    clientInfo.EntityData.SegmentPath = "client-info" + types.AddNoKeyToken(clientInfo)
+    clientInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-alarmgr-server-oper:alarms/detail/detail-card/detail-locations/detail-location/clients/" + clientInfo.EntityData.SegmentPath
     clientInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clientInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clientInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2588,6 +2651,9 @@ type Alarms_Brief struct {
 
     // Show brief system scope alarm related data.
     BriefSystem Alarms_Brief_BriefSystem
+
+    // Show brief system scope alarm related data.
+    AlarmId Alarms_Brief_AlarmId
 }
 
 func (brief *Alarms_Brief) GetEntityData() *types.CommonEntityData {
@@ -2596,6 +2662,7 @@ func (brief *Alarms_Brief) GetEntityData() *types.CommonEntityData {
     brief.EntityData.BundleName = "cisco_ios_xr"
     brief.EntityData.ParentYangName = "alarms"
     brief.EntityData.SegmentPath = "brief"
+    brief.EntityData.AbsolutePath = "Cisco-IOS-XR-alarmgr-server-oper:alarms/" + brief.EntityData.SegmentPath
     brief.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     brief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     brief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2603,6 +2670,7 @@ func (brief *Alarms_Brief) GetEntityData() *types.CommonEntityData {
     brief.EntityData.Children = types.NewOrderedMap()
     brief.EntityData.Children.Append("brief-card", types.YChild{"BriefCard", &brief.BriefCard})
     brief.EntityData.Children.Append("brief-system", types.YChild{"BriefSystem", &brief.BriefSystem})
+    brief.EntityData.Children.Append("alarm-id", types.YChild{"AlarmId", &brief.AlarmId})
     brief.EntityData.Leafs = types.NewOrderedMap()
 
     brief.EntityData.YListKeys = []string {}
@@ -2626,6 +2694,7 @@ func (briefCard *Alarms_Brief_BriefCard) GetEntityData() *types.CommonEntityData
     briefCard.EntityData.BundleName = "cisco_ios_xr"
     briefCard.EntityData.ParentYangName = "brief"
     briefCard.EntityData.SegmentPath = "brief-card"
+    briefCard.EntityData.AbsolutePath = "Cisco-IOS-XR-alarmgr-server-oper:alarms/brief/" + briefCard.EntityData.SegmentPath
     briefCard.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     briefCard.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     briefCard.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2656,6 +2725,7 @@ func (briefLocations *Alarms_Brief_BriefCard_BriefLocations) GetEntityData() *ty
     briefLocations.EntityData.BundleName = "cisco_ios_xr"
     briefLocations.EntityData.ParentYangName = "brief-card"
     briefLocations.EntityData.SegmentPath = "brief-locations"
+    briefLocations.EntityData.AbsolutePath = "Cisco-IOS-XR-alarmgr-server-oper:alarms/brief/brief-card/" + briefLocations.EntityData.SegmentPath
     briefLocations.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     briefLocations.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     briefLocations.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2677,6 +2747,7 @@ func (briefLocations *Alarms_Brief_BriefCard_BriefLocations) GetEntityData() *ty
 type Alarms_Brief_BriefCard_BriefLocations_BriefLocation struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. NodeID of the Location. The type is string with
     // pattern: ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -2701,6 +2772,7 @@ func (briefLocation *Alarms_Brief_BriefCard_BriefLocations_BriefLocation) GetEnt
     briefLocation.EntityData.BundleName = "cisco_ios_xr"
     briefLocation.EntityData.ParentYangName = "brief-locations"
     briefLocation.EntityData.SegmentPath = "brief-location" + types.AddKeyToken(briefLocation.NodeId, "node-id")
+    briefLocation.EntityData.AbsolutePath = "Cisco-IOS-XR-alarmgr-server-oper:alarms/brief/brief-card/brief-locations/" + briefLocation.EntityData.SegmentPath
     briefLocation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     briefLocation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     briefLocation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2735,6 +2807,7 @@ func (conditions *Alarms_Brief_BriefCard_BriefLocations_BriefLocation_Conditions
     conditions.EntityData.BundleName = "cisco_ios_xr"
     conditions.EntityData.ParentYangName = "brief-location"
     conditions.EntityData.SegmentPath = "conditions"
+    conditions.EntityData.AbsolutePath = "Cisco-IOS-XR-alarmgr-server-oper:alarms/brief/brief-card/brief-locations/brief-location/" + conditions.EntityData.SegmentPath
     conditions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     conditions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     conditions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2742,6 +2815,7 @@ func (conditions *Alarms_Brief_BriefCard_BriefLocations_BriefLocation_Conditions
     conditions.EntityData.Children = types.NewOrderedMap()
     conditions.EntityData.Children.Append("alarm-info", types.YChild{"AlarmInfo", nil})
     for i := range conditions.AlarmInfo {
+        types.SetYListKey(conditions.AlarmInfo[i], i)
         conditions.EntityData.Children.Append(types.GetSegmentPath(conditions.AlarmInfo[i]), types.YChild{"AlarmInfo", conditions.AlarmInfo[i]})
     }
     conditions.EntityData.Leafs = types.NewOrderedMap()
@@ -2756,6 +2830,7 @@ func (conditions *Alarms_Brief_BriefCard_BriefLocations_BriefLocation_Conditions
 type Alarms_Brief_BriefCard_BriefLocations_BriefLocation_Conditions_AlarmInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Alarm location. The type is string with length: 0..128.
     Location interface{}
@@ -2789,7 +2864,8 @@ func (alarmInfo *Alarms_Brief_BriefCard_BriefLocations_BriefLocation_Conditions_
     alarmInfo.EntityData.YangName = "alarm-info"
     alarmInfo.EntityData.BundleName = "cisco_ios_xr"
     alarmInfo.EntityData.ParentYangName = "conditions"
-    alarmInfo.EntityData.SegmentPath = "alarm-info"
+    alarmInfo.EntityData.SegmentPath = "alarm-info" + types.AddNoKeyToken(alarmInfo)
+    alarmInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-alarmgr-server-oper:alarms/brief/brief-card/brief-locations/brief-location/conditions/" + alarmInfo.EntityData.SegmentPath
     alarmInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     alarmInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     alarmInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2827,6 +2903,7 @@ func (active *Alarms_Brief_BriefCard_BriefLocations_BriefLocation_Active) GetEnt
     active.EntityData.BundleName = "cisco_ios_xr"
     active.EntityData.ParentYangName = "brief-location"
     active.EntityData.SegmentPath = "active"
+    active.EntityData.AbsolutePath = "Cisco-IOS-XR-alarmgr-server-oper:alarms/brief/brief-card/brief-locations/brief-location/" + active.EntityData.SegmentPath
     active.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     active.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     active.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2834,6 +2911,7 @@ func (active *Alarms_Brief_BriefCard_BriefLocations_BriefLocation_Active) GetEnt
     active.EntityData.Children = types.NewOrderedMap()
     active.EntityData.Children.Append("alarm-info", types.YChild{"AlarmInfo", nil})
     for i := range active.AlarmInfo {
+        types.SetYListKey(active.AlarmInfo[i], i)
         active.EntityData.Children.Append(types.GetSegmentPath(active.AlarmInfo[i]), types.YChild{"AlarmInfo", active.AlarmInfo[i]})
     }
     active.EntityData.Leafs = types.NewOrderedMap()
@@ -2848,6 +2926,7 @@ func (active *Alarms_Brief_BriefCard_BriefLocations_BriefLocation_Active) GetEnt
 type Alarms_Brief_BriefCard_BriefLocations_BriefLocation_Active_AlarmInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Alarm location. The type is string with length: 0..128.
     Location interface{}
@@ -2881,7 +2960,8 @@ func (alarmInfo *Alarms_Brief_BriefCard_BriefLocations_BriefLocation_Active_Alar
     alarmInfo.EntityData.YangName = "alarm-info"
     alarmInfo.EntityData.BundleName = "cisco_ios_xr"
     alarmInfo.EntityData.ParentYangName = "active"
-    alarmInfo.EntityData.SegmentPath = "alarm-info"
+    alarmInfo.EntityData.SegmentPath = "alarm-info" + types.AddNoKeyToken(alarmInfo)
+    alarmInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-alarmgr-server-oper:alarms/brief/brief-card/brief-locations/brief-location/active/" + alarmInfo.EntityData.SegmentPath
     alarmInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     alarmInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     alarmInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2919,6 +2999,7 @@ func (history *Alarms_Brief_BriefCard_BriefLocations_BriefLocation_History) GetE
     history.EntityData.BundleName = "cisco_ios_xr"
     history.EntityData.ParentYangName = "brief-location"
     history.EntityData.SegmentPath = "history"
+    history.EntityData.AbsolutePath = "Cisco-IOS-XR-alarmgr-server-oper:alarms/brief/brief-card/brief-locations/brief-location/" + history.EntityData.SegmentPath
     history.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     history.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     history.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2926,6 +3007,7 @@ func (history *Alarms_Brief_BriefCard_BriefLocations_BriefLocation_History) GetE
     history.EntityData.Children = types.NewOrderedMap()
     history.EntityData.Children.Append("alarm-info", types.YChild{"AlarmInfo", nil})
     for i := range history.AlarmInfo {
+        types.SetYListKey(history.AlarmInfo[i], i)
         history.EntityData.Children.Append(types.GetSegmentPath(history.AlarmInfo[i]), types.YChild{"AlarmInfo", history.AlarmInfo[i]})
     }
     history.EntityData.Leafs = types.NewOrderedMap()
@@ -2940,6 +3022,7 @@ func (history *Alarms_Brief_BriefCard_BriefLocations_BriefLocation_History) GetE
 type Alarms_Brief_BriefCard_BriefLocations_BriefLocation_History_AlarmInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Alarm location. The type is string with length: 0..128.
     Location interface{}
@@ -2973,7 +3056,8 @@ func (alarmInfo *Alarms_Brief_BriefCard_BriefLocations_BriefLocation_History_Ala
     alarmInfo.EntityData.YangName = "alarm-info"
     alarmInfo.EntityData.BundleName = "cisco_ios_xr"
     alarmInfo.EntityData.ParentYangName = "history"
-    alarmInfo.EntityData.SegmentPath = "alarm-info"
+    alarmInfo.EntityData.SegmentPath = "alarm-info" + types.AddNoKeyToken(alarmInfo)
+    alarmInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-alarmgr-server-oper:alarms/brief/brief-card/brief-locations/brief-location/history/" + alarmInfo.EntityData.SegmentPath
     alarmInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     alarmInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     alarmInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3011,6 +3095,7 @@ func (suppressed *Alarms_Brief_BriefCard_BriefLocations_BriefLocation_Suppressed
     suppressed.EntityData.BundleName = "cisco_ios_xr"
     suppressed.EntityData.ParentYangName = "brief-location"
     suppressed.EntityData.SegmentPath = "suppressed"
+    suppressed.EntityData.AbsolutePath = "Cisco-IOS-XR-alarmgr-server-oper:alarms/brief/brief-card/brief-locations/brief-location/" + suppressed.EntityData.SegmentPath
     suppressed.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     suppressed.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     suppressed.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3018,6 +3103,7 @@ func (suppressed *Alarms_Brief_BriefCard_BriefLocations_BriefLocation_Suppressed
     suppressed.EntityData.Children = types.NewOrderedMap()
     suppressed.EntityData.Children.Append("suppressed-info", types.YChild{"SuppressedInfo", nil})
     for i := range suppressed.SuppressedInfo {
+        types.SetYListKey(suppressed.SuppressedInfo[i], i)
         suppressed.EntityData.Children.Append(types.GetSegmentPath(suppressed.SuppressedInfo[i]), types.YChild{"SuppressedInfo", suppressed.SuppressedInfo[i]})
     }
     suppressed.EntityData.Leafs = types.NewOrderedMap()
@@ -3032,6 +3118,7 @@ func (suppressed *Alarms_Brief_BriefCard_BriefLocations_BriefLocation_Suppressed
 type Alarms_Brief_BriefCard_BriefLocations_BriefLocation_Suppressed_SuppressedInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Alarm location. The type is string with length: 0..128.
     Location interface{}
@@ -3065,7 +3152,8 @@ func (suppressedInfo *Alarms_Brief_BriefCard_BriefLocations_BriefLocation_Suppre
     suppressedInfo.EntityData.YangName = "suppressed-info"
     suppressedInfo.EntityData.BundleName = "cisco_ios_xr"
     suppressedInfo.EntityData.ParentYangName = "suppressed"
-    suppressedInfo.EntityData.SegmentPath = "suppressed-info"
+    suppressedInfo.EntityData.SegmentPath = "suppressed-info" + types.AddNoKeyToken(suppressedInfo)
+    suppressedInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-alarmgr-server-oper:alarms/brief/brief-card/brief-locations/brief-location/suppressed/" + suppressedInfo.EntityData.SegmentPath
     suppressedInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     suppressedInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     suppressedInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3111,6 +3199,7 @@ func (briefSystem *Alarms_Brief_BriefSystem) GetEntityData() *types.CommonEntity
     briefSystem.EntityData.BundleName = "cisco_ios_xr"
     briefSystem.EntityData.ParentYangName = "brief"
     briefSystem.EntityData.SegmentPath = "brief-system"
+    briefSystem.EntityData.AbsolutePath = "Cisco-IOS-XR-alarmgr-server-oper:alarms/brief/" + briefSystem.EntityData.SegmentPath
     briefSystem.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     briefSystem.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     briefSystem.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3144,6 +3233,7 @@ func (conditions *Alarms_Brief_BriefSystem_Conditions) GetEntityData() *types.Co
     conditions.EntityData.BundleName = "cisco_ios_xr"
     conditions.EntityData.ParentYangName = "brief-system"
     conditions.EntityData.SegmentPath = "conditions"
+    conditions.EntityData.AbsolutePath = "Cisco-IOS-XR-alarmgr-server-oper:alarms/brief/brief-system/" + conditions.EntityData.SegmentPath
     conditions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     conditions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     conditions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3151,6 +3241,7 @@ func (conditions *Alarms_Brief_BriefSystem_Conditions) GetEntityData() *types.Co
     conditions.EntityData.Children = types.NewOrderedMap()
     conditions.EntityData.Children.Append("alarm-info", types.YChild{"AlarmInfo", nil})
     for i := range conditions.AlarmInfo {
+        types.SetYListKey(conditions.AlarmInfo[i], i)
         conditions.EntityData.Children.Append(types.GetSegmentPath(conditions.AlarmInfo[i]), types.YChild{"AlarmInfo", conditions.AlarmInfo[i]})
     }
     conditions.EntityData.Leafs = types.NewOrderedMap()
@@ -3165,6 +3256,7 @@ func (conditions *Alarms_Brief_BriefSystem_Conditions) GetEntityData() *types.Co
 type Alarms_Brief_BriefSystem_Conditions_AlarmInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Alarm location. The type is string with length: 0..128.
     Location interface{}
@@ -3198,7 +3290,8 @@ func (alarmInfo *Alarms_Brief_BriefSystem_Conditions_AlarmInfo) GetEntityData() 
     alarmInfo.EntityData.YangName = "alarm-info"
     alarmInfo.EntityData.BundleName = "cisco_ios_xr"
     alarmInfo.EntityData.ParentYangName = "conditions"
-    alarmInfo.EntityData.SegmentPath = "alarm-info"
+    alarmInfo.EntityData.SegmentPath = "alarm-info" + types.AddNoKeyToken(alarmInfo)
+    alarmInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-alarmgr-server-oper:alarms/brief/brief-system/conditions/" + alarmInfo.EntityData.SegmentPath
     alarmInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     alarmInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     alarmInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3235,6 +3328,7 @@ func (active *Alarms_Brief_BriefSystem_Active) GetEntityData() *types.CommonEnti
     active.EntityData.BundleName = "cisco_ios_xr"
     active.EntityData.ParentYangName = "brief-system"
     active.EntityData.SegmentPath = "active"
+    active.EntityData.AbsolutePath = "Cisco-IOS-XR-alarmgr-server-oper:alarms/brief/brief-system/" + active.EntityData.SegmentPath
     active.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     active.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     active.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3242,6 +3336,7 @@ func (active *Alarms_Brief_BriefSystem_Active) GetEntityData() *types.CommonEnti
     active.EntityData.Children = types.NewOrderedMap()
     active.EntityData.Children.Append("alarm-info", types.YChild{"AlarmInfo", nil})
     for i := range active.AlarmInfo {
+        types.SetYListKey(active.AlarmInfo[i], i)
         active.EntityData.Children.Append(types.GetSegmentPath(active.AlarmInfo[i]), types.YChild{"AlarmInfo", active.AlarmInfo[i]})
     }
     active.EntityData.Leafs = types.NewOrderedMap()
@@ -3256,6 +3351,7 @@ func (active *Alarms_Brief_BriefSystem_Active) GetEntityData() *types.CommonEnti
 type Alarms_Brief_BriefSystem_Active_AlarmInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Alarm location. The type is string with length: 0..128.
     Location interface{}
@@ -3289,7 +3385,8 @@ func (alarmInfo *Alarms_Brief_BriefSystem_Active_AlarmInfo) GetEntityData() *typ
     alarmInfo.EntityData.YangName = "alarm-info"
     alarmInfo.EntityData.BundleName = "cisco_ios_xr"
     alarmInfo.EntityData.ParentYangName = "active"
-    alarmInfo.EntityData.SegmentPath = "alarm-info"
+    alarmInfo.EntityData.SegmentPath = "alarm-info" + types.AddNoKeyToken(alarmInfo)
+    alarmInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-alarmgr-server-oper:alarms/brief/brief-system/active/" + alarmInfo.EntityData.SegmentPath
     alarmInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     alarmInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     alarmInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3327,6 +3424,7 @@ func (history *Alarms_Brief_BriefSystem_History) GetEntityData() *types.CommonEn
     history.EntityData.BundleName = "cisco_ios_xr"
     history.EntityData.ParentYangName = "brief-system"
     history.EntityData.SegmentPath = "history"
+    history.EntityData.AbsolutePath = "Cisco-IOS-XR-alarmgr-server-oper:alarms/brief/brief-system/" + history.EntityData.SegmentPath
     history.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     history.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     history.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3334,6 +3432,7 @@ func (history *Alarms_Brief_BriefSystem_History) GetEntityData() *types.CommonEn
     history.EntityData.Children = types.NewOrderedMap()
     history.EntityData.Children.Append("alarm-info", types.YChild{"AlarmInfo", nil})
     for i := range history.AlarmInfo {
+        types.SetYListKey(history.AlarmInfo[i], i)
         history.EntityData.Children.Append(types.GetSegmentPath(history.AlarmInfo[i]), types.YChild{"AlarmInfo", history.AlarmInfo[i]})
     }
     history.EntityData.Leafs = types.NewOrderedMap()
@@ -3348,6 +3447,7 @@ func (history *Alarms_Brief_BriefSystem_History) GetEntityData() *types.CommonEn
 type Alarms_Brief_BriefSystem_History_AlarmInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Alarm location. The type is string with length: 0..128.
     Location interface{}
@@ -3381,7 +3481,8 @@ func (alarmInfo *Alarms_Brief_BriefSystem_History_AlarmInfo) GetEntityData() *ty
     alarmInfo.EntityData.YangName = "alarm-info"
     alarmInfo.EntityData.BundleName = "cisco_ios_xr"
     alarmInfo.EntityData.ParentYangName = "history"
-    alarmInfo.EntityData.SegmentPath = "alarm-info"
+    alarmInfo.EntityData.SegmentPath = "alarm-info" + types.AddNoKeyToken(alarmInfo)
+    alarmInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-alarmgr-server-oper:alarms/brief/brief-system/history/" + alarmInfo.EntityData.SegmentPath
     alarmInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     alarmInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     alarmInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3419,6 +3520,7 @@ func (suppressed *Alarms_Brief_BriefSystem_Suppressed) GetEntityData() *types.Co
     suppressed.EntityData.BundleName = "cisco_ios_xr"
     suppressed.EntityData.ParentYangName = "brief-system"
     suppressed.EntityData.SegmentPath = "suppressed"
+    suppressed.EntityData.AbsolutePath = "Cisco-IOS-XR-alarmgr-server-oper:alarms/brief/brief-system/" + suppressed.EntityData.SegmentPath
     suppressed.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     suppressed.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     suppressed.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3426,6 +3528,7 @@ func (suppressed *Alarms_Brief_BriefSystem_Suppressed) GetEntityData() *types.Co
     suppressed.EntityData.Children = types.NewOrderedMap()
     suppressed.EntityData.Children.Append("suppressed-info", types.YChild{"SuppressedInfo", nil})
     for i := range suppressed.SuppressedInfo {
+        types.SetYListKey(suppressed.SuppressedInfo[i], i)
         suppressed.EntityData.Children.Append(types.GetSegmentPath(suppressed.SuppressedInfo[i]), types.YChild{"SuppressedInfo", suppressed.SuppressedInfo[i]})
     }
     suppressed.EntityData.Leafs = types.NewOrderedMap()
@@ -3440,6 +3543,7 @@ func (suppressed *Alarms_Brief_BriefSystem_Suppressed) GetEntityData() *types.Co
 type Alarms_Brief_BriefSystem_Suppressed_SuppressedInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Alarm location. The type is string with length: 0..128.
     Location interface{}
@@ -3473,7 +3577,8 @@ func (suppressedInfo *Alarms_Brief_BriefSystem_Suppressed_SuppressedInfo) GetEnt
     suppressedInfo.EntityData.YangName = "suppressed-info"
     suppressedInfo.EntityData.BundleName = "cisco_ios_xr"
     suppressedInfo.EntityData.ParentYangName = "suppressed"
-    suppressedInfo.EntityData.SegmentPath = "suppressed-info"
+    suppressedInfo.EntityData.SegmentPath = "suppressed-info" + types.AddNoKeyToken(suppressedInfo)
+    suppressedInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-alarmgr-server-oper:alarms/brief/brief-system/suppressed/" + suppressedInfo.EntityData.SegmentPath
     suppressedInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     suppressedInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     suppressedInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3492,5 +3597,164 @@ func (suppressedInfo *Alarms_Brief_BriefSystem_Suppressed_SuppressedInfo) GetEnt
     suppressedInfo.EntityData.YListKeys = []string {}
 
     return &(suppressedInfo.EntityData)
+}
+
+// Alarms_Brief_AlarmId
+// Show brief system scope alarm related data.
+type Alarms_Brief_AlarmId struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Table of ActiveAlarm.
+    ActiveAlarms Alarms_Brief_AlarmId_ActiveAlarms
+}
+
+func (alarmId *Alarms_Brief_AlarmId) GetEntityData() *types.CommonEntityData {
+    alarmId.EntityData.YFilter = alarmId.YFilter
+    alarmId.EntityData.YangName = "alarm-id"
+    alarmId.EntityData.BundleName = "cisco_ios_xr"
+    alarmId.EntityData.ParentYangName = "brief"
+    alarmId.EntityData.SegmentPath = "alarm-id"
+    alarmId.EntityData.AbsolutePath = "Cisco-IOS-XR-alarmgr-server-oper:alarms/brief/" + alarmId.EntityData.SegmentPath
+    alarmId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    alarmId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    alarmId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    alarmId.EntityData.Children = types.NewOrderedMap()
+    alarmId.EntityData.Children.Append("active-alarms", types.YChild{"ActiveAlarms", &alarmId.ActiveAlarms})
+    alarmId.EntityData.Leafs = types.NewOrderedMap()
+
+    alarmId.EntityData.YListKeys = []string {}
+
+    return &(alarmId.EntityData)
+}
+
+// Alarms_Brief_AlarmId_ActiveAlarms
+// Table of ActiveAlarm
+type Alarms_Brief_AlarmId_ActiveAlarms struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Show the active alarms at this scope. The type is slice of
+    // Alarms_Brief_AlarmId_ActiveAlarms_ActiveAlarm.
+    ActiveAlarm []*Alarms_Brief_AlarmId_ActiveAlarms_ActiveAlarm
+}
+
+func (activeAlarms *Alarms_Brief_AlarmId_ActiveAlarms) GetEntityData() *types.CommonEntityData {
+    activeAlarms.EntityData.YFilter = activeAlarms.YFilter
+    activeAlarms.EntityData.YangName = "active-alarms"
+    activeAlarms.EntityData.BundleName = "cisco_ios_xr"
+    activeAlarms.EntityData.ParentYangName = "alarm-id"
+    activeAlarms.EntityData.SegmentPath = "active-alarms"
+    activeAlarms.EntityData.AbsolutePath = "Cisco-IOS-XR-alarmgr-server-oper:alarms/brief/alarm-id/" + activeAlarms.EntityData.SegmentPath
+    activeAlarms.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    activeAlarms.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    activeAlarms.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    activeAlarms.EntityData.Children = types.NewOrderedMap()
+    activeAlarms.EntityData.Children.Append("active-alarm", types.YChild{"ActiveAlarm", nil})
+    for i := range activeAlarms.ActiveAlarm {
+        activeAlarms.EntityData.Children.Append(types.GetSegmentPath(activeAlarms.ActiveAlarm[i]), types.YChild{"ActiveAlarm", activeAlarms.ActiveAlarm[i]})
+    }
+    activeAlarms.EntityData.Leafs = types.NewOrderedMap()
+
+    activeAlarms.EntityData.YListKeys = []string {}
+
+    return &(activeAlarms.EntityData)
+}
+
+// Alarms_Brief_AlarmId_ActiveAlarms_ActiveAlarm
+// Show the active alarms at this scope.
+type Alarms_Brief_AlarmId_ActiveAlarms_ActiveAlarm struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. Alarm ID. The type is string.
+    Aid interface{}
+
+    // Alarm Brief.
+    Alarm Alarms_Brief_AlarmId_ActiveAlarms_ActiveAlarm_Alarm
+}
+
+func (activeAlarm *Alarms_Brief_AlarmId_ActiveAlarms_ActiveAlarm) GetEntityData() *types.CommonEntityData {
+    activeAlarm.EntityData.YFilter = activeAlarm.YFilter
+    activeAlarm.EntityData.YangName = "active-alarm"
+    activeAlarm.EntityData.BundleName = "cisco_ios_xr"
+    activeAlarm.EntityData.ParentYangName = "active-alarms"
+    activeAlarm.EntityData.SegmentPath = "active-alarm" + types.AddKeyToken(activeAlarm.Aid, "aid")
+    activeAlarm.EntityData.AbsolutePath = "Cisco-IOS-XR-alarmgr-server-oper:alarms/brief/alarm-id/active-alarms/" + activeAlarm.EntityData.SegmentPath
+    activeAlarm.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    activeAlarm.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    activeAlarm.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    activeAlarm.EntityData.Children = types.NewOrderedMap()
+    activeAlarm.EntityData.Children.Append("alarm", types.YChild{"Alarm", &activeAlarm.Alarm})
+    activeAlarm.EntityData.Leafs = types.NewOrderedMap()
+    activeAlarm.EntityData.Leafs.Append("aid", types.YLeaf{"Aid", activeAlarm.Aid})
+
+    activeAlarm.EntityData.YListKeys = []string {"Aid"}
+
+    return &(activeAlarm.EntityData)
+}
+
+// Alarms_Brief_AlarmId_ActiveAlarms_ActiveAlarm_Alarm
+// Alarm Brief
+type Alarms_Brief_AlarmId_ActiveAlarms_ActiveAlarm_Alarm struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Alarm location. The type is string with length: 0..128.
+    Location interface{}
+
+    // Alarm severity. The type is AlarmSeverity.
+    Severity interface{}
+
+    // Alarm group. The type is AlarmGroups.
+    Group interface{}
+
+    // Alarm set time. The type is string with length: 0..64.
+    SetTime interface{}
+
+    // Alarm set time(timestamp format). The type is interface{} with range:
+    // 0..18446744073709551615.
+    SetTimestamp interface{}
+
+    // Alarm clear time. The type is string with length: 0..64.
+    ClearTime interface{}
+
+    // Alarm clear time(timestamp format). The type is interface{} with range:
+    // 0..18446744073709551615.
+    ClearTimestamp interface{}
+
+    // Alarm description. The type is string with length: 0..256.
+    Description interface{}
+}
+
+func (alarm *Alarms_Brief_AlarmId_ActiveAlarms_ActiveAlarm_Alarm) GetEntityData() *types.CommonEntityData {
+    alarm.EntityData.YFilter = alarm.YFilter
+    alarm.EntityData.YangName = "alarm"
+    alarm.EntityData.BundleName = "cisco_ios_xr"
+    alarm.EntityData.ParentYangName = "active-alarm"
+    alarm.EntityData.SegmentPath = "alarm"
+    alarm.EntityData.AbsolutePath = "Cisco-IOS-XR-alarmgr-server-oper:alarms/brief/alarm-id/active-alarms/active-alarm/" + alarm.EntityData.SegmentPath
+    alarm.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    alarm.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    alarm.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    alarm.EntityData.Children = types.NewOrderedMap()
+    alarm.EntityData.Leafs = types.NewOrderedMap()
+    alarm.EntityData.Leafs.Append("location", types.YLeaf{"Location", alarm.Location})
+    alarm.EntityData.Leafs.Append("severity", types.YLeaf{"Severity", alarm.Severity})
+    alarm.EntityData.Leafs.Append("group", types.YLeaf{"Group", alarm.Group})
+    alarm.EntityData.Leafs.Append("set-time", types.YLeaf{"SetTime", alarm.SetTime})
+    alarm.EntityData.Leafs.Append("set-timestamp", types.YLeaf{"SetTimestamp", alarm.SetTimestamp})
+    alarm.EntityData.Leafs.Append("clear-time", types.YLeaf{"ClearTime", alarm.ClearTime})
+    alarm.EntityData.Leafs.Append("clear-timestamp", types.YLeaf{"ClearTimestamp", alarm.ClearTimestamp})
+    alarm.EntityData.Leafs.Append("description", types.YLeaf{"Description", alarm.Description})
+
+    alarm.EntityData.YListKeys = []string {}
+
+    return &(alarm.EntityData)
 }
 

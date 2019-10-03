@@ -40,6 +40,7 @@ func (clock *Clock) GetEntityData() *types.CommonEntityData {
     clock.EntityData.BundleName = "cisco_ios_xr"
     clock.EntityData.ParentYangName = "Cisco-IOS-XR-infra-infra-clock-linux-cfg"
     clock.EntityData.SegmentPath = "Cisco-IOS-XR-infra-infra-clock-linux-cfg:clock"
+    clock.EntityData.AbsolutePath = clock.EntityData.SegmentPath
     clock.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clock.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clock.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -75,6 +76,7 @@ func (timeZone *Clock_TimeZone) GetEntityData() *types.CommonEntityData {
     timeZone.EntityData.BundleName = "cisco_ios_xr"
     timeZone.EntityData.ParentYangName = "clock"
     timeZone.EntityData.SegmentPath = "time-zone"
+    timeZone.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-infra-clock-linux-cfg:clock/" + timeZone.EntityData.SegmentPath
     timeZone.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     timeZone.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     timeZone.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

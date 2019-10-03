@@ -270,6 +270,7 @@ func (cISCONETSYNCMIB *CISCONETSYNCMIB) GetEntityData() *types.CommonEntityData 
     cISCONETSYNCMIB.EntityData.BundleName = "cisco_ios_xe"
     cISCONETSYNCMIB.EntityData.ParentYangName = "CISCO-NETSYNC-MIB"
     cISCONETSYNCMIB.EntityData.SegmentPath = "CISCO-NETSYNC-MIB:CISCO-NETSYNC-MIB"
+    cISCONETSYNCMIB.EntityData.AbsolutePath = cISCONETSYNCMIB.EntityData.SegmentPath
     cISCONETSYNCMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cISCONETSYNCMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCONETSYNCMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -308,6 +309,7 @@ func (ciscoNetsyncMIBNotifControl *CISCONETSYNCMIB_CiscoNetsyncMIBNotifControl) 
     ciscoNetsyncMIBNotifControl.EntityData.BundleName = "cisco_ios_xe"
     ciscoNetsyncMIBNotifControl.EntityData.ParentYangName = "CISCO-NETSYNC-MIB"
     ciscoNetsyncMIBNotifControl.EntityData.SegmentPath = "ciscoNetsyncMIBNotifControl"
+    ciscoNetsyncMIBNotifControl.EntityData.AbsolutePath = "CISCO-NETSYNC-MIB:CISCO-NETSYNC-MIB/" + ciscoNetsyncMIBNotifControl.EntityData.SegmentPath
     ciscoNetsyncMIBNotifControl.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ciscoNetsyncMIBNotifControl.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ciscoNetsyncMIBNotifControl.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -342,6 +344,7 @@ func (cnsClkSelGlobalTable *CISCONETSYNCMIB_CnsClkSelGlobalTable) GetEntityData(
     cnsClkSelGlobalTable.EntityData.BundleName = "cisco_ios_xe"
     cnsClkSelGlobalTable.EntityData.ParentYangName = "CISCO-NETSYNC-MIB"
     cnsClkSelGlobalTable.EntityData.SegmentPath = "cnsClkSelGlobalTable"
+    cnsClkSelGlobalTable.EntityData.AbsolutePath = "CISCO-NETSYNC-MIB:CISCO-NETSYNC-MIB/" + cnsClkSelGlobalTable.EntityData.SegmentPath
     cnsClkSelGlobalTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cnsClkSelGlobalTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cnsClkSelGlobalTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -366,6 +369,7 @@ func (cnsClkSelGlobalTable *CISCONETSYNCMIB_CnsClkSelGlobalTable) GetEntityData(
 type CISCONETSYNCMIB_CnsClkSelGlobalTable_CnsClkSelGlobalEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. An index that uniquely represents a clock
     // selection process.  This index is assigned arbitrarily by the system and
@@ -444,6 +448,7 @@ func (cnsClkSelGlobalEntry *CISCONETSYNCMIB_CnsClkSelGlobalTable_CnsClkSelGlobal
     cnsClkSelGlobalEntry.EntityData.BundleName = "cisco_ios_xe"
     cnsClkSelGlobalEntry.EntityData.ParentYangName = "cnsClkSelGlobalTable"
     cnsClkSelGlobalEntry.EntityData.SegmentPath = "cnsClkSelGlobalEntry" + types.AddKeyToken(cnsClkSelGlobalEntry.CnsClkSelGloProcIndex, "cnsClkSelGloProcIndex")
+    cnsClkSelGlobalEntry.EntityData.AbsolutePath = "CISCO-NETSYNC-MIB:CISCO-NETSYNC-MIB/cnsClkSelGlobalTable/" + cnsClkSelGlobalEntry.EntityData.SegmentPath
     cnsClkSelGlobalEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cnsClkSelGlobalEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cnsClkSelGlobalEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -490,6 +495,7 @@ func (cnsSelectedInputSourceTable *CISCONETSYNCMIB_CnsSelectedInputSourceTable) 
     cnsSelectedInputSourceTable.EntityData.BundleName = "cisco_ios_xe"
     cnsSelectedInputSourceTable.EntityData.ParentYangName = "CISCO-NETSYNC-MIB"
     cnsSelectedInputSourceTable.EntityData.SegmentPath = "cnsSelectedInputSourceTable"
+    cnsSelectedInputSourceTable.EntityData.AbsolutePath = "CISCO-NETSYNC-MIB:CISCO-NETSYNC-MIB/" + cnsSelectedInputSourceTable.EntityData.SegmentPath
     cnsSelectedInputSourceTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cnsSelectedInputSourceTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cnsSelectedInputSourceTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -514,6 +520,7 @@ func (cnsSelectedInputSourceTable *CISCONETSYNCMIB_CnsSelectedInputSourceTable) 
 type CISCONETSYNCMIB_CnsSelectedInputSourceTable_CnsSelectedInputSourceEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. An index that uniquely represents an entry in this
     // table. This index is assigned arbitrarily by the clock selection process
@@ -571,6 +578,7 @@ func (cnsSelectedInputSourceEntry *CISCONETSYNCMIB_CnsSelectedInputSourceTable_C
     cnsSelectedInputSourceEntry.EntityData.BundleName = "cisco_ios_xe"
     cnsSelectedInputSourceEntry.EntityData.ParentYangName = "cnsSelectedInputSourceTable"
     cnsSelectedInputSourceEntry.EntityData.SegmentPath = "cnsSelectedInputSourceEntry" + types.AddKeyToken(cnsSelectedInputSourceEntry.CnsSelInpSrcNetsyncIndex, "cnsSelInpSrcNetsyncIndex")
+    cnsSelectedInputSourceEntry.EntityData.AbsolutePath = "CISCO-NETSYNC-MIB:CISCO-NETSYNC-MIB/cnsSelectedInputSourceTable/" + cnsSelectedInputSourceEntry.EntityData.SegmentPath
     cnsSelectedInputSourceEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cnsSelectedInputSourceEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cnsSelectedInputSourceEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -612,6 +620,7 @@ func (cnsInputSourceTable *CISCONETSYNCMIB_CnsInputSourceTable) GetEntityData() 
     cnsInputSourceTable.EntityData.BundleName = "cisco_ios_xe"
     cnsInputSourceTable.EntityData.ParentYangName = "CISCO-NETSYNC-MIB"
     cnsInputSourceTable.EntityData.SegmentPath = "cnsInputSourceTable"
+    cnsInputSourceTable.EntityData.AbsolutePath = "CISCO-NETSYNC-MIB:CISCO-NETSYNC-MIB/" + cnsInputSourceTable.EntityData.SegmentPath
     cnsInputSourceTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cnsInputSourceTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cnsInputSourceTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -636,6 +645,7 @@ func (cnsInputSourceTable *CISCONETSYNCMIB_CnsInputSourceTable) GetEntityData() 
 type CISCONETSYNCMIB_CnsInputSourceTable_CnsInputSourceEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. An index that uniquely represents an entry in this
     // table. This index is assigned arbitrarily by the clock selection process
@@ -756,6 +766,7 @@ func (cnsInputSourceEntry *CISCONETSYNCMIB_CnsInputSourceTable_CnsInputSourceEnt
     cnsInputSourceEntry.EntityData.BundleName = "cisco_ios_xe"
     cnsInputSourceEntry.EntityData.ParentYangName = "cnsInputSourceTable"
     cnsInputSourceEntry.EntityData.SegmentPath = "cnsInputSourceEntry" + types.AddKeyToken(cnsInputSourceEntry.CnsInpSrcNetsyncIndex, "cnsInpSrcNetsyncIndex")
+    cnsInputSourceEntry.EntityData.AbsolutePath = "CISCO-NETSYNC-MIB:CISCO-NETSYNC-MIB/cnsInputSourceTable/" + cnsInputSourceEntry.EntityData.SegmentPath
     cnsInputSourceEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cnsInputSourceEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cnsInputSourceEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -814,6 +825,7 @@ func (cnsExtOutputTable *CISCONETSYNCMIB_CnsExtOutputTable) GetEntityData() *typ
     cnsExtOutputTable.EntityData.BundleName = "cisco_ios_xe"
     cnsExtOutputTable.EntityData.ParentYangName = "CISCO-NETSYNC-MIB"
     cnsExtOutputTable.EntityData.SegmentPath = "cnsExtOutputTable"
+    cnsExtOutputTable.EntityData.AbsolutePath = "CISCO-NETSYNC-MIB:CISCO-NETSYNC-MIB/" + cnsExtOutputTable.EntityData.SegmentPath
     cnsExtOutputTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cnsExtOutputTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cnsExtOutputTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -841,6 +853,7 @@ func (cnsExtOutputTable *CISCONETSYNCMIB_CnsExtOutputTable) GetEntityData() *typ
 type CISCONETSYNCMIB_CnsExtOutputTable_CnsExtOutputEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. An index that uniquely represents an entry in this
     // table.  This index is assigned arbitrarily by the clock selection process
@@ -910,6 +923,7 @@ func (cnsExtOutputEntry *CISCONETSYNCMIB_CnsExtOutputTable_CnsExtOutputEntry) Ge
     cnsExtOutputEntry.EntityData.BundleName = "cisco_ios_xe"
     cnsExtOutputEntry.EntityData.ParentYangName = "cnsExtOutputTable"
     cnsExtOutputEntry.EntityData.SegmentPath = "cnsExtOutputEntry" + types.AddKeyToken(cnsExtOutputEntry.CnsExtOutListIndex, "cnsExtOutListIndex")
+    cnsExtOutputEntry.EntityData.AbsolutePath = "CISCO-NETSYNC-MIB:CISCO-NETSYNC-MIB/cnsExtOutputTable/" + cnsExtOutputEntry.EntityData.SegmentPath
     cnsExtOutputEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cnsExtOutputEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cnsExtOutputEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -956,6 +970,7 @@ func (cnsT4ClockSourceTable *CISCONETSYNCMIB_CnsT4ClockSourceTable) GetEntityDat
     cnsT4ClockSourceTable.EntityData.BundleName = "cisco_ios_xe"
     cnsT4ClockSourceTable.EntityData.ParentYangName = "CISCO-NETSYNC-MIB"
     cnsT4ClockSourceTable.EntityData.SegmentPath = "cnsT4ClockSourceTable"
+    cnsT4ClockSourceTable.EntityData.AbsolutePath = "CISCO-NETSYNC-MIB:CISCO-NETSYNC-MIB/" + cnsT4ClockSourceTable.EntityData.SegmentPath
     cnsT4ClockSourceTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cnsT4ClockSourceTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cnsT4ClockSourceTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -981,6 +996,7 @@ func (cnsT4ClockSourceTable *CISCONETSYNCMIB_CnsT4ClockSourceTable) GetEntityDat
 type CISCONETSYNCMIB_CnsT4ClockSourceTable_CnsT4ClockSourceEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..4294967295.
     // Refers to
@@ -1108,6 +1124,7 @@ func (cnsT4ClockSourceEntry *CISCONETSYNCMIB_CnsT4ClockSourceTable_CnsT4ClockSou
     cnsT4ClockSourceEntry.EntityData.BundleName = "cisco_ios_xe"
     cnsT4ClockSourceEntry.EntityData.ParentYangName = "cnsT4ClockSourceTable"
     cnsT4ClockSourceEntry.EntityData.SegmentPath = "cnsT4ClockSourceEntry" + types.AddKeyToken(cnsT4ClockSourceEntry.CnsExtOutListIndex, "cnsExtOutListIndex") + types.AddKeyToken(cnsT4ClockSourceEntry.CnsT4ClkSrcNetsyncIndex, "cnsT4ClkSrcNetsyncIndex")
+    cnsT4ClockSourceEntry.EntityData.AbsolutePath = "CISCO-NETSYNC-MIB:CISCO-NETSYNC-MIB/cnsT4ClockSourceTable/" + cnsT4ClockSourceEntry.EntityData.SegmentPath
     cnsT4ClockSourceEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cnsT4ClockSourceEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cnsT4ClockSourceEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

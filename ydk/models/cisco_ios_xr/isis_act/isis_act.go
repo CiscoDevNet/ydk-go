@@ -46,6 +46,7 @@ func (clearIsisProcess *ClearIsisProcess) GetEntityData() *types.CommonEntityDat
     clearIsisProcess.EntityData.BundleName = "cisco_ios_xr"
     clearIsisProcess.EntityData.ParentYangName = "Cisco-IOS-XR-isis-act"
     clearIsisProcess.EntityData.SegmentPath = "Cisco-IOS-XR-isis-act:clear-isis-process"
+    clearIsisProcess.EntityData.AbsolutePath = clearIsisProcess.EntityData.SegmentPath
     clearIsisProcess.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearIsisProcess.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearIsisProcess.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -77,6 +78,7 @@ func (input *ClearIsisProcess_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-isis-process"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-isis-act:clear-isis-process/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -107,6 +109,7 @@ func (instance *ClearIsisProcess_Input_Instance) GetEntityData() *types.CommonEn
     instance.EntityData.BundleName = "cisco_ios_xr"
     instance.EntityData.ParentYangName = "input"
     instance.EntityData.SegmentPath = "instance"
+    instance.EntityData.AbsolutePath = "Cisco-IOS-XR-isis-act:clear-isis-process/input/" + instance.EntityData.SegmentPath
     instance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     instance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     instance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -136,6 +139,7 @@ func (clearIsisRoute *ClearIsisRoute) GetEntityData() *types.CommonEntityData {
     clearIsisRoute.EntityData.BundleName = "cisco_ios_xr"
     clearIsisRoute.EntityData.ParentYangName = "Cisco-IOS-XR-isis-act"
     clearIsisRoute.EntityData.SegmentPath = "Cisco-IOS-XR-isis-act:clear-isis-route"
+    clearIsisRoute.EntityData.AbsolutePath = clearIsisRoute.EntityData.SegmentPath
     clearIsisRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearIsisRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearIsisRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -167,6 +171,7 @@ func (input *ClearIsisRoute_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-isis-route"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-isis-act:clear-isis-route/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -197,6 +202,7 @@ func (instance *ClearIsisRoute_Input_Instance) GetEntityData() *types.CommonEnti
     instance.EntityData.BundleName = "cisco_ios_xr"
     instance.EntityData.ParentYangName = "input"
     instance.EntityData.SegmentPath = "instance"
+    instance.EntityData.AbsolutePath = "Cisco-IOS-XR-isis-act:clear-isis-route/input/" + instance.EntityData.SegmentPath
     instance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     instance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     instance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -226,6 +232,7 @@ func (clearIsisStat *ClearIsisStat) GetEntityData() *types.CommonEntityData {
     clearIsisStat.EntityData.BundleName = "cisco_ios_xr"
     clearIsisStat.EntityData.ParentYangName = "Cisco-IOS-XR-isis-act"
     clearIsisStat.EntityData.SegmentPath = "Cisco-IOS-XR-isis-act:clear-isis-stat"
+    clearIsisStat.EntityData.AbsolutePath = clearIsisStat.EntityData.SegmentPath
     clearIsisStat.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearIsisStat.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearIsisStat.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -257,6 +264,7 @@ func (input *ClearIsisStat_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-isis-stat"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-isis-act:clear-isis-stat/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -287,6 +295,7 @@ func (instance *ClearIsisStat_Input_Instance) GetEntityData() *types.CommonEntit
     instance.EntityData.BundleName = "cisco_ios_xr"
     instance.EntityData.ParentYangName = "input"
     instance.EntityData.SegmentPath = "instance"
+    instance.EntityData.AbsolutePath = "Cisco-IOS-XR-isis-act:clear-isis-stat/input/" + instance.EntityData.SegmentPath
     instance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     instance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     instance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -317,6 +326,7 @@ func (statistics *ClearIsisStat_Input_Statistics) GetEntityData() *types.CommonE
     statistics.EntityData.BundleName = "cisco_ios_xr"
     statistics.EntityData.ParentYangName = "input"
     statistics.EntityData.SegmentPath = "statistics"
+    statistics.EntityData.AbsolutePath = "Cisco-IOS-XR-isis-act:clear-isis-stat/input/" + statistics.EntityData.SegmentPath
     statistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -346,6 +356,7 @@ func (clearIsisDist *ClearIsisDist) GetEntityData() *types.CommonEntityData {
     clearIsisDist.EntityData.BundleName = "cisco_ios_xr"
     clearIsisDist.EntityData.ParentYangName = "Cisco-IOS-XR-isis-act"
     clearIsisDist.EntityData.SegmentPath = "Cisco-IOS-XR-isis-act:clear-isis-dist"
+    clearIsisDist.EntityData.AbsolutePath = clearIsisDist.EntityData.SegmentPath
     clearIsisDist.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearIsisDist.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearIsisDist.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -377,6 +388,7 @@ func (input *ClearIsisDist_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-isis-dist"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-isis-act:clear-isis-dist/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -407,6 +419,7 @@ func (instance *ClearIsisDist_Input_Instance) GetEntityData() *types.CommonEntit
     instance.EntityData.BundleName = "cisco_ios_xr"
     instance.EntityData.ParentYangName = "input"
     instance.EntityData.SegmentPath = "instance"
+    instance.EntityData.AbsolutePath = "Cisco-IOS-XR-isis-act:clear-isis-dist/input/" + instance.EntityData.SegmentPath
     instance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     instance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     instance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -436,6 +449,7 @@ func (clearIsisLocalLsp *ClearIsisLocalLsp) GetEntityData() *types.CommonEntityD
     clearIsisLocalLsp.EntityData.BundleName = "cisco_ios_xr"
     clearIsisLocalLsp.EntityData.ParentYangName = "Cisco-IOS-XR-isis-act"
     clearIsisLocalLsp.EntityData.SegmentPath = "Cisco-IOS-XR-isis-act:clear-isis-local-lsp"
+    clearIsisLocalLsp.EntityData.AbsolutePath = clearIsisLocalLsp.EntityData.SegmentPath
     clearIsisLocalLsp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearIsisLocalLsp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearIsisLocalLsp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -467,6 +481,7 @@ func (input *ClearIsisLocalLsp_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-isis-local-lsp"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-isis-act:clear-isis-local-lsp/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -497,6 +512,7 @@ func (instance *ClearIsisLocalLsp_Input_Instance) GetEntityData() *types.CommonE
     instance.EntityData.BundleName = "cisco_ios_xr"
     instance.EntityData.ParentYangName = "input"
     instance.EntityData.SegmentPath = "instance"
+    instance.EntityData.AbsolutePath = "Cisco-IOS-XR-isis-act:clear-isis-local-lsp/input/" + instance.EntityData.SegmentPath
     instance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     instance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     instance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -526,6 +542,7 @@ func (clearIsis *ClearIsis) GetEntityData() *types.CommonEntityData {
     clearIsis.EntityData.BundleName = "cisco_ios_xr"
     clearIsis.EntityData.ParentYangName = "Cisco-IOS-XR-isis-act"
     clearIsis.EntityData.SegmentPath = "Cisco-IOS-XR-isis-act:clear-isis"
+    clearIsis.EntityData.AbsolutePath = clearIsis.EntityData.SegmentPath
     clearIsis.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearIsis.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearIsis.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -563,6 +580,7 @@ func (input *ClearIsis_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-isis"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-isis-act:clear-isis/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -595,6 +613,7 @@ func (instance *ClearIsis_Input_Instance) GetEntityData() *types.CommonEntityDat
     instance.EntityData.BundleName = "cisco_ios_xr"
     instance.EntityData.ParentYangName = "input"
     instance.EntityData.SegmentPath = "instance"
+    instance.EntityData.AbsolutePath = "Cisco-IOS-XR-isis-act:clear-isis/input/" + instance.EntityData.SegmentPath
     instance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     instance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     instance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

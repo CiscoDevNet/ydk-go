@@ -71,6 +71,7 @@ func (poeOperData *PoeOperData) GetEntityData() *types.CommonEntityData {
     poeOperData.EntityData.BundleName = "cisco_ios_xe"
     poeOperData.EntityData.ParentYangName = "Cisco-IOS-XE-poe-oper"
     poeOperData.EntityData.SegmentPath = "Cisco-IOS-XE-poe-oper:poe-oper-data"
+    poeOperData.EntityData.AbsolutePath = poeOperData.EntityData.SegmentPath
     poeOperData.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     poeOperData.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     poeOperData.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -92,6 +93,7 @@ func (poeOperData *PoeOperData) GetEntityData() *types.CommonEntityData {
 type PoeOperData_PoePort struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of the POE interface. The type is string.
     IntfName interface{}
@@ -113,6 +115,7 @@ func (poePort *PoeOperData_PoePort) GetEntityData() *types.CommonEntityData {
     poePort.EntityData.BundleName = "cisco_ios_xe"
     poePort.EntityData.ParentYangName = "poe-oper-data"
     poePort.EntityData.SegmentPath = "poe-port" + types.AddKeyToken(poePort.IntfName, "intf-name")
+    poePort.EntityData.AbsolutePath = "Cisco-IOS-XE-poe-oper:poe-oper-data/" + poePort.EntityData.SegmentPath
     poePort.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     poePort.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     poePort.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

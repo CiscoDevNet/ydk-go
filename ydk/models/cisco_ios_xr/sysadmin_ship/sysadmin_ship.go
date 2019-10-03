@@ -1,3 +1,6 @@
+// This module contains definitions
+// for the Calvados model objects.
+// 
 // This module contains a collection of YANG
 // definitions for Cisco IOS-XR SysAdmin operational.
 // 
@@ -5,6 +8,9 @@
 // sysadmin ship process.
 // 
 // Copyright(c) 2010-2016 by Cisco Systems, Inc.
+// All rights reserved.
+// 
+// Copyright (c) 2012-2018 by Cisco Systems, Inc.
 // All rights reserved.
 package sysadmin_ship
 
@@ -39,6 +45,7 @@ func (stat *Stat) GetEntityData() *types.CommonEntityData {
     stat.EntityData.BundleName = "cisco_ios_xr"
     stat.EntityData.ParentYangName = "Cisco-IOS-XR-sysadmin-ship"
     stat.EntityData.SegmentPath = "Cisco-IOS-XR-sysadmin-ship:stat"
+    stat.EntityData.AbsolutePath = stat.EntityData.SegmentPath
     stat.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     stat.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stat.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -60,6 +67,7 @@ func (stat *Stat) GetEntityData() *types.CommonEntityData {
 type Stat_ShipComp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of component. The type is string.
     CompName interface{}
@@ -74,6 +82,7 @@ func (shipComp *Stat_ShipComp) GetEntityData() *types.CommonEntityData {
     shipComp.EntityData.BundleName = "cisco_ios_xr"
     shipComp.EntityData.ParentYangName = "stat"
     shipComp.EntityData.SegmentPath = "ship_comp" + types.AddKeyToken(shipComp.CompName, "comp-name")
+    shipComp.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-ship:stat/" + shipComp.EntityData.SegmentPath
     shipComp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     shipComp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     shipComp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -95,6 +104,7 @@ func (shipComp *Stat_ShipComp) GetEntityData() *types.CommonEntityData {
 type Stat_ShipComp_Process struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     ProcessName interface{}
@@ -109,6 +119,7 @@ func (process *Stat_ShipComp_Process) GetEntityData() *types.CommonEntityData {
     process.EntityData.BundleName = "cisco_ios_xr"
     process.EntityData.ParentYangName = "ship_comp"
     process.EntityData.SegmentPath = "process" + types.AddKeyToken(process.ProcessName, "process-name")
+    process.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-ship:stat/ship_comp/" + process.EntityData.SegmentPath
     process.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     process.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     process.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -130,6 +141,7 @@ func (process *Stat_ShipComp_Process) GetEntityData() *types.CommonEntityData {
 type Stat_ShipComp_Process_Client struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     ClientName interface{}
@@ -144,6 +156,7 @@ func (client *Stat_ShipComp_Process_Client) GetEntityData() *types.CommonEntityD
     client.EntityData.BundleName = "cisco_ios_xr"
     client.EntityData.ParentYangName = "process"
     client.EntityData.SegmentPath = "client" + types.AddKeyToken(client.ClientName, "client-name")
+    client.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-ship:stat/ship_comp/process/" + client.EntityData.SegmentPath
     client.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     client.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     client.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -165,6 +178,7 @@ func (client *Stat_ShipComp_Process_Client) GetEntityData() *types.CommonEntityD
 type Stat_ShipComp_Process_Client_Cat struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is CatName.
     CatName interface{}
@@ -179,6 +193,7 @@ func (cat *Stat_ShipComp_Process_Client_Cat) GetEntityData() *types.CommonEntity
     cat.EntityData.BundleName = "cisco_ios_xr"
     cat.EntityData.ParentYangName = "client"
     cat.EntityData.SegmentPath = "cat" + types.AddKeyToken(cat.CatName, "cat-name")
+    cat.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-ship:stat/ship_comp/process/client/" + cat.EntityData.SegmentPath
     cat.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cat.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cat.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -200,6 +215,7 @@ func (cat *Stat_ShipComp_Process_Client_Cat) GetEntityData() *types.CommonEntity
 type Stat_ShipComp_Process_Client_Cat_Counter32b struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     CounterName interface{}
@@ -244,6 +260,7 @@ func (counter32b *Stat_ShipComp_Process_Client_Cat_Counter32b) GetEntityData() *
     counter32b.EntityData.BundleName = "cisco_ios_xr"
     counter32b.EntityData.ParentYangName = "cat"
     counter32b.EntityData.SegmentPath = "counter-32b" + types.AddKeyToken(counter32b.CounterName, "counter-name")
+    counter32b.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-ship:stat/ship_comp/process/client/cat/" + counter32b.EntityData.SegmentPath
     counter32b.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     counter32b.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     counter32b.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

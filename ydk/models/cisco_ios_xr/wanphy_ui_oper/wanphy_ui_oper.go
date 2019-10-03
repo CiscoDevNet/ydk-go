@@ -62,6 +62,7 @@ func (wanphy *Wanphy) GetEntityData() *types.CommonEntityData {
     wanphy.EntityData.BundleName = "cisco_ios_xr"
     wanphy.EntityData.ParentYangName = "Cisco-IOS-XR-wanphy-ui-oper"
     wanphy.EntityData.SegmentPath = "Cisco-IOS-XR-wanphy-ui-oper:wanphy"
+    wanphy.EntityData.AbsolutePath = wanphy.EntityData.SegmentPath
     wanphy.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     wanphy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     wanphy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -92,6 +93,7 @@ func (controllers *Wanphy_Controllers) GetEntityData() *types.CommonEntityData {
     controllers.EntityData.BundleName = "cisco_ios_xr"
     controllers.EntityData.ParentYangName = "wanphy"
     controllers.EntityData.SegmentPath = "controllers"
+    controllers.EntityData.AbsolutePath = "Cisco-IOS-XR-wanphy-ui-oper:wanphy/" + controllers.EntityData.SegmentPath
     controllers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     controllers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     controllers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -113,6 +115,7 @@ func (controllers *Wanphy_Controllers) GetEntityData() *types.CommonEntityData {
 type Wanphy_Controllers_Controller struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Controller name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -128,6 +131,7 @@ func (controller *Wanphy_Controllers_Controller) GetEntityData() *types.CommonEn
     controller.EntityData.BundleName = "cisco_ios_xr"
     controller.EntityData.ParentYangName = "controllers"
     controller.EntityData.SegmentPath = "controller" + types.AddKeyToken(controller.ControllerName, "controller-name")
+    controller.EntityData.AbsolutePath = "Cisco-IOS-XR-wanphy-ui-oper:wanphy/controllers/" + controller.EntityData.SegmentPath
     controller.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     controller.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     controller.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -295,6 +299,7 @@ func (info *Wanphy_Controllers_Controller_Info) GetEntityData() *types.CommonEnt
     info.EntityData.BundleName = "cisco_ios_xr"
     info.EntityData.ParentYangName = "controller"
     info.EntityData.SegmentPath = "info"
+    info.EntityData.AbsolutePath = "Cisco-IOS-XR-wanphy-ui-oper:wanphy/controllers/controller/" + info.EntityData.SegmentPath
     info.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     info.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     info.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

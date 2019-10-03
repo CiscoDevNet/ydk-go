@@ -317,6 +317,7 @@ func (ptp *Ptp) GetEntityData() *types.CommonEntityData {
     ptp.EntityData.BundleName = "cisco_ios_xr"
     ptp.EntityData.ParentYangName = "Cisco-IOS-XR-ptp-oper"
     ptp.EntityData.SegmentPath = "Cisco-IOS-XR-ptp-oper:ptp"
+    ptp.EntityData.AbsolutePath = ptp.EntityData.SegmentPath
     ptp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ptp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ptp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -361,6 +362,7 @@ func (nodes *Ptp_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.BundleName = "cisco_ios_xr"
     nodes.EntityData.ParentYangName = "ptp"
     nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/" + nodes.EntityData.SegmentPath
     nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -382,6 +384,7 @@ func (nodes *Ptp_Nodes) GetEntityData() *types.CommonEntityData {
 type Ptp_Nodes_Node struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Node. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -409,6 +412,7 @@ func (node *Ptp_Nodes_Node) GetEntityData() *types.CommonEntityData {
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
     node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeName, "node-name")
+    node.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/nodes/" + node.EntityData.SegmentPath
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -445,6 +449,7 @@ func (nodeInterfaceForeignMasters *Ptp_Nodes_Node_NodeInterfaceForeignMasters) G
     nodeInterfaceForeignMasters.EntityData.BundleName = "cisco_ios_xr"
     nodeInterfaceForeignMasters.EntityData.ParentYangName = "node"
     nodeInterfaceForeignMasters.EntityData.SegmentPath = "node-interface-foreign-masters"
+    nodeInterfaceForeignMasters.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/nodes/node/" + nodeInterfaceForeignMasters.EntityData.SegmentPath
     nodeInterfaceForeignMasters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodeInterfaceForeignMasters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodeInterfaceForeignMasters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -467,6 +472,7 @@ func (nodeInterfaceForeignMasters *Ptp_Nodes_Node_NodeInterfaceForeignMasters) G
 type Ptp_Nodes_Node_NodeInterfaceForeignMasters_NodeInterfaceForeignMaster struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -486,6 +492,7 @@ func (nodeInterfaceForeignMaster *Ptp_Nodes_Node_NodeInterfaceForeignMasters_Nod
     nodeInterfaceForeignMaster.EntityData.BundleName = "cisco_ios_xr"
     nodeInterfaceForeignMaster.EntityData.ParentYangName = "node-interface-foreign-masters"
     nodeInterfaceForeignMaster.EntityData.SegmentPath = "node-interface-foreign-master" + types.AddKeyToken(nodeInterfaceForeignMaster.InterfaceName, "interface-name")
+    nodeInterfaceForeignMaster.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/nodes/node/node-interface-foreign-masters/" + nodeInterfaceForeignMaster.EntityData.SegmentPath
     nodeInterfaceForeignMaster.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodeInterfaceForeignMaster.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodeInterfaceForeignMaster.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -493,6 +500,7 @@ func (nodeInterfaceForeignMaster *Ptp_Nodes_Node_NodeInterfaceForeignMasters_Nod
     nodeInterfaceForeignMaster.EntityData.Children = types.NewOrderedMap()
     nodeInterfaceForeignMaster.EntityData.Children.Append("foreign-clock", types.YChild{"ForeignClock", nil})
     for i := range nodeInterfaceForeignMaster.ForeignClock {
+        types.SetYListKey(nodeInterfaceForeignMaster.ForeignClock[i], i)
         nodeInterfaceForeignMaster.EntityData.Children.Append(types.GetSegmentPath(nodeInterfaceForeignMaster.ForeignClock[i]), types.YChild{"ForeignClock", nodeInterfaceForeignMaster.ForeignClock[i]})
     }
     nodeInterfaceForeignMaster.EntityData.Leafs = types.NewOrderedMap()
@@ -509,6 +517,7 @@ func (nodeInterfaceForeignMaster *Ptp_Nodes_Node_NodeInterfaceForeignMasters_Nod
 type Ptp_Nodes_Node_NodeInterfaceForeignMasters_NodeInterfaceForeignMaster_ForeignClock struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The clock is qualified for best master clock selection. The type is bool.
     IsQualified interface{}
@@ -571,7 +580,8 @@ func (foreignClock *Ptp_Nodes_Node_NodeInterfaceForeignMasters_NodeInterfaceFore
     foreignClock.EntityData.YangName = "foreign-clock"
     foreignClock.EntityData.BundleName = "cisco_ios_xr"
     foreignClock.EntityData.ParentYangName = "node-interface-foreign-master"
-    foreignClock.EntityData.SegmentPath = "foreign-clock"
+    foreignClock.EntityData.SegmentPath = "foreign-clock" + types.AddNoKeyToken(foreignClock)
+    foreignClock.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/nodes/node/node-interface-foreign-masters/node-interface-foreign-master/" + foreignClock.EntityData.SegmentPath
     foreignClock.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     foreignClock.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     foreignClock.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -667,6 +677,7 @@ func (foreignClock *Ptp_Nodes_Node_NodeInterfaceForeignMasters_NodeInterfaceFore
     foreignClock.EntityData.BundleName = "cisco_ios_xr"
     foreignClock.EntityData.ParentYangName = "foreign-clock"
     foreignClock.EntityData.SegmentPath = "foreign-clock"
+    foreignClock.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/nodes/node/node-interface-foreign-masters/node-interface-foreign-master/foreign-clock/" + foreignClock.EntityData.SegmentPath
     foreignClock.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     foreignClock.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     foreignClock.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -716,6 +727,7 @@ func (utcOffset *Ptp_Nodes_Node_NodeInterfaceForeignMasters_NodeInterfaceForeign
     utcOffset.EntityData.BundleName = "cisco_ios_xr"
     utcOffset.EntityData.ParentYangName = "foreign-clock"
     utcOffset.EntityData.SegmentPath = "utc-offset"
+    utcOffset.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/nodes/node/node-interface-foreign-masters/node-interface-foreign-master/foreign-clock/foreign-clock/" + utcOffset.EntityData.SegmentPath
     utcOffset.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     utcOffset.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     utcOffset.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -749,6 +761,7 @@ func (receiver *Ptp_Nodes_Node_NodeInterfaceForeignMasters_NodeInterfaceForeignM
     receiver.EntityData.BundleName = "cisco_ios_xr"
     receiver.EntityData.ParentYangName = "foreign-clock"
     receiver.EntityData.SegmentPath = "receiver"
+    receiver.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/nodes/node/node-interface-foreign-masters/node-interface-foreign-master/foreign-clock/foreign-clock/" + receiver.EntityData.SegmentPath
     receiver.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     receiver.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receiver.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -782,6 +795,7 @@ func (sender *Ptp_Nodes_Node_NodeInterfaceForeignMasters_NodeInterfaceForeignMas
     sender.EntityData.BundleName = "cisco_ios_xr"
     sender.EntityData.ParentYangName = "foreign-clock"
     sender.EntityData.SegmentPath = "sender"
+    sender.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/nodes/node/node-interface-foreign-masters/node-interface-foreign-master/foreign-clock/foreign-clock/" + sender.EntityData.SegmentPath
     sender.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sender.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sender.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -825,6 +839,7 @@ func (address *Ptp_Nodes_Node_NodeInterfaceForeignMasters_NodeInterfaceForeignMa
     address.EntityData.BundleName = "cisco_ios_xr"
     address.EntityData.ParentYangName = "foreign-clock"
     address.EntityData.SegmentPath = "address"
+    address.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/nodes/node/node-interface-foreign-masters/node-interface-foreign-master/foreign-clock/" + address.EntityData.SegmentPath
     address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -859,6 +874,7 @@ func (macAddress *Ptp_Nodes_Node_NodeInterfaceForeignMasters_NodeInterfaceForeig
     macAddress.EntityData.BundleName = "cisco_ios_xr"
     macAddress.EntityData.ParentYangName = "address"
     macAddress.EntityData.SegmentPath = "mac-address"
+    macAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/nodes/node/node-interface-foreign-masters/node-interface-foreign-master/foreign-clock/address/" + macAddress.EntityData.SegmentPath
     macAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     macAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     macAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -889,6 +905,7 @@ func (ipv6Address *Ptp_Nodes_Node_NodeInterfaceForeignMasters_NodeInterfaceForei
     ipv6Address.EntityData.BundleName = "cisco_ios_xr"
     ipv6Address.EntityData.ParentYangName = "address"
     ipv6Address.EntityData.SegmentPath = "ipv6-address"
+    ipv6Address.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/nodes/node/node-interface-foreign-masters/node-interface-foreign-master/foreign-clock/address/" + ipv6Address.EntityData.SegmentPath
     ipv6Address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6Address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6Address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -922,6 +939,7 @@ func (announceGrant *Ptp_Nodes_Node_NodeInterfaceForeignMasters_NodeInterfaceFor
     announceGrant.EntityData.BundleName = "cisco_ios_xr"
     announceGrant.EntityData.ParentYangName = "foreign-clock"
     announceGrant.EntityData.SegmentPath = "announce-grant"
+    announceGrant.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/nodes/node/node-interface-foreign-masters/node-interface-foreign-master/foreign-clock/" + announceGrant.EntityData.SegmentPath
     announceGrant.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     announceGrant.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     announceGrant.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -956,6 +974,7 @@ func (syncGrant *Ptp_Nodes_Node_NodeInterfaceForeignMasters_NodeInterfaceForeign
     syncGrant.EntityData.BundleName = "cisco_ios_xr"
     syncGrant.EntityData.ParentYangName = "foreign-clock"
     syncGrant.EntityData.SegmentPath = "sync-grant"
+    syncGrant.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/nodes/node/node-interface-foreign-masters/node-interface-foreign-master/foreign-clock/" + syncGrant.EntityData.SegmentPath
     syncGrant.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     syncGrant.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     syncGrant.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -991,6 +1010,7 @@ func (delayResponseGrant *Ptp_Nodes_Node_NodeInterfaceForeignMasters_NodeInterfa
     delayResponseGrant.EntityData.BundleName = "cisco_ios_xr"
     delayResponseGrant.EntityData.ParentYangName = "foreign-clock"
     delayResponseGrant.EntityData.SegmentPath = "delay-response-grant"
+    delayResponseGrant.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/nodes/node/node-interface-foreign-masters/node-interface-foreign-master/foreign-clock/" + delayResponseGrant.EntityData.SegmentPath
     delayResponseGrant.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     delayResponseGrant.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     delayResponseGrant.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1058,6 +1078,7 @@ func (summary *Ptp_Nodes_Node_Summary) GetEntityData() *types.CommonEntityData {
     summary.EntityData.BundleName = "cisco_ios_xr"
     summary.EntityData.ParentYangName = "node"
     summary.EntityData.SegmentPath = "summary"
+    summary.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/nodes/node/" + summary.EntityData.SegmentPath
     summary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     summary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     summary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1097,6 +1118,7 @@ func (nodeInterfaces *Ptp_Nodes_Node_NodeInterfaces) GetEntityData() *types.Comm
     nodeInterfaces.EntityData.BundleName = "cisco_ios_xr"
     nodeInterfaces.EntityData.ParentYangName = "node"
     nodeInterfaces.EntityData.SegmentPath = "node-interfaces"
+    nodeInterfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/nodes/node/" + nodeInterfaces.EntityData.SegmentPath
     nodeInterfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodeInterfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodeInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1118,6 +1140,7 @@ func (nodeInterfaces *Ptp_Nodes_Node_NodeInterfaces) GetEntityData() *types.Comm
 type Ptp_Nodes_Node_NodeInterfaces_NodeInterface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -1270,6 +1293,7 @@ func (nodeInterface *Ptp_Nodes_Node_NodeInterfaces_NodeInterface) GetEntityData(
     nodeInterface.EntityData.BundleName = "cisco_ios_xr"
     nodeInterface.EntityData.ParentYangName = "node-interfaces"
     nodeInterface.EntityData.SegmentPath = "node-interface" + types.AddKeyToken(nodeInterface.InterfaceName, "interface-name")
+    nodeInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/nodes/node/node-interfaces/" + nodeInterface.EntityData.SegmentPath
     nodeInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodeInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodeInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1282,6 +1306,7 @@ func (nodeInterface *Ptp_Nodes_Node_NodeInterfaces_NodeInterface) GetEntityData(
     nodeInterface.EntityData.Children.Append("egress-conversion", types.YChild{"EgressConversion", &nodeInterface.EgressConversion})
     nodeInterface.EntityData.Children.Append("master-table", types.YChild{"MasterTable", nil})
     for i := range nodeInterface.MasterTable {
+        types.SetYListKey(nodeInterface.MasterTable[i], i)
         nodeInterface.EntityData.Children.Append(types.GetSegmentPath(nodeInterface.MasterTable[i]), types.YChild{"MasterTable", nodeInterface.MasterTable[i]})
     }
     nodeInterface.EntityData.Leafs = types.NewOrderedMap()
@@ -1345,6 +1370,7 @@ func (ipv6AddressArray *Ptp_Nodes_Node_NodeInterfaces_NodeInterface_Ipv6AddressA
     ipv6AddressArray.EntityData.BundleName = "cisco_ios_xr"
     ipv6AddressArray.EntityData.ParentYangName = "node-interface"
     ipv6AddressArray.EntityData.SegmentPath = "ipv6-address-array"
+    ipv6AddressArray.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/nodes/node/node-interfaces/node-interface/" + ipv6AddressArray.EntityData.SegmentPath
     ipv6AddressArray.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6AddressArray.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6AddressArray.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1378,6 +1404,7 @@ func (ipv4AddressArray *Ptp_Nodes_Node_NodeInterfaces_NodeInterface_Ipv4AddressA
     ipv4AddressArray.EntityData.BundleName = "cisco_ios_xr"
     ipv4AddressArray.EntityData.ParentYangName = "node-interface"
     ipv4AddressArray.EntityData.SegmentPath = "ipv4-address-array"
+    ipv4AddressArray.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/nodes/node/node-interfaces/node-interface/" + ipv4AddressArray.EntityData.SegmentPath
     ipv4AddressArray.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4AddressArray.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4AddressArray.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1409,6 +1436,7 @@ func (macAddress *Ptp_Nodes_Node_NodeInterfaces_NodeInterface_MacAddress) GetEnt
     macAddress.EntityData.BundleName = "cisco_ios_xr"
     macAddress.EntityData.ParentYangName = "node-interface"
     macAddress.EntityData.SegmentPath = "mac-address"
+    macAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/nodes/node/node-interfaces/node-interface/" + macAddress.EntityData.SegmentPath
     macAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     macAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     macAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1454,6 +1482,7 @@ func (ingressConversion *Ptp_Nodes_Node_NodeInterfaces_NodeInterface_IngressConv
     ingressConversion.EntityData.BundleName = "cisco_ios_xr"
     ingressConversion.EntityData.ParentYangName = "node-interface"
     ingressConversion.EntityData.SegmentPath = "ingress-conversion"
+    ingressConversion.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/nodes/node/node-interfaces/node-interface/" + ingressConversion.EntityData.SegmentPath
     ingressConversion.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ingressConversion.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ingressConversion.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1461,6 +1490,7 @@ func (ingressConversion *Ptp_Nodes_Node_NodeInterfaces_NodeInterface_IngressConv
     ingressConversion.EntityData.Children = types.NewOrderedMap()
     ingressConversion.EntityData.Children.Append("class-mapping", types.YChild{"ClassMapping", nil})
     for i := range ingressConversion.ClassMapping {
+        types.SetYListKey(ingressConversion.ClassMapping[i], i)
         ingressConversion.EntityData.Children.Append(types.GetSegmentPath(ingressConversion.ClassMapping[i]), types.YChild{"ClassMapping", ingressConversion.ClassMapping[i]})
     }
     ingressConversion.EntityData.Leafs = types.NewOrderedMap()
@@ -1480,6 +1510,7 @@ func (ingressConversion *Ptp_Nodes_Node_NodeInterfaces_NodeInterface_IngressConv
 type Ptp_Nodes_Node_NodeInterfaces_NodeInterface_IngressConversion_ClassMapping struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // From clock class. The type is interface{} with range: 0..255.
     FromClockClass interface{}
@@ -1493,7 +1524,8 @@ func (classMapping *Ptp_Nodes_Node_NodeInterfaces_NodeInterface_IngressConversio
     classMapping.EntityData.YangName = "class-mapping"
     classMapping.EntityData.BundleName = "cisco_ios_xr"
     classMapping.EntityData.ParentYangName = "ingress-conversion"
-    classMapping.EntityData.SegmentPath = "class-mapping"
+    classMapping.EntityData.SegmentPath = "class-mapping" + types.AddNoKeyToken(classMapping)
+    classMapping.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/nodes/node/node-interfaces/node-interface/ingress-conversion/" + classMapping.EntityData.SegmentPath
     classMapping.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     classMapping.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     classMapping.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1540,6 +1572,7 @@ func (egressConversion *Ptp_Nodes_Node_NodeInterfaces_NodeInterface_EgressConver
     egressConversion.EntityData.BundleName = "cisco_ios_xr"
     egressConversion.EntityData.ParentYangName = "node-interface"
     egressConversion.EntityData.SegmentPath = "egress-conversion"
+    egressConversion.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/nodes/node/node-interfaces/node-interface/" + egressConversion.EntityData.SegmentPath
     egressConversion.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     egressConversion.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     egressConversion.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1547,6 +1580,7 @@ func (egressConversion *Ptp_Nodes_Node_NodeInterfaces_NodeInterface_EgressConver
     egressConversion.EntityData.Children = types.NewOrderedMap()
     egressConversion.EntityData.Children.Append("class-mapping", types.YChild{"ClassMapping", nil})
     for i := range egressConversion.ClassMapping {
+        types.SetYListKey(egressConversion.ClassMapping[i], i)
         egressConversion.EntityData.Children.Append(types.GetSegmentPath(egressConversion.ClassMapping[i]), types.YChild{"ClassMapping", egressConversion.ClassMapping[i]})
     }
     egressConversion.EntityData.Leafs = types.NewOrderedMap()
@@ -1566,6 +1600,7 @@ func (egressConversion *Ptp_Nodes_Node_NodeInterfaces_NodeInterface_EgressConver
 type Ptp_Nodes_Node_NodeInterfaces_NodeInterface_EgressConversion_ClassMapping struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // From clock class. The type is interface{} with range: 0..255.
     FromClockClass interface{}
@@ -1579,7 +1614,8 @@ func (classMapping *Ptp_Nodes_Node_NodeInterfaces_NodeInterface_EgressConversion
     classMapping.EntityData.YangName = "class-mapping"
     classMapping.EntityData.BundleName = "cisco_ios_xr"
     classMapping.EntityData.ParentYangName = "egress-conversion"
-    classMapping.EntityData.SegmentPath = "class-mapping"
+    classMapping.EntityData.SegmentPath = "class-mapping" + types.AddNoKeyToken(classMapping)
+    classMapping.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/nodes/node/node-interfaces/node-interface/egress-conversion/" + classMapping.EntityData.SegmentPath
     classMapping.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     classMapping.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     classMapping.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1599,6 +1635,7 @@ func (classMapping *Ptp_Nodes_Node_NodeInterfaces_NodeInterface_EgressConversion
 type Ptp_Nodes_Node_NodeInterfaces_NodeInterface_MasterTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The configured communication model of the master clock. The type is
     // PtpBagCommunicationModel.
@@ -1638,7 +1675,8 @@ func (masterTable *Ptp_Nodes_Node_NodeInterfaces_NodeInterface_MasterTable) GetE
     masterTable.EntityData.YangName = "master-table"
     masterTable.EntityData.BundleName = "cisco_ios_xr"
     masterTable.EntityData.ParentYangName = "node-interface"
-    masterTable.EntityData.SegmentPath = "master-table"
+    masterTable.EntityData.SegmentPath = "master-table" + types.AddNoKeyToken(masterTable)
+    masterTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/nodes/node/node-interfaces/node-interface/" + masterTable.EntityData.SegmentPath
     masterTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     masterTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     masterTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1689,6 +1727,7 @@ func (address *Ptp_Nodes_Node_NodeInterfaces_NodeInterface_MasterTable_Address) 
     address.EntityData.BundleName = "cisco_ios_xr"
     address.EntityData.ParentYangName = "master-table"
     address.EntityData.SegmentPath = "address"
+    address.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/nodes/node/node-interfaces/node-interface/master-table/" + address.EntityData.SegmentPath
     address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1723,6 +1762,7 @@ func (macAddress *Ptp_Nodes_Node_NodeInterfaces_NodeInterface_MasterTable_Addres
     macAddress.EntityData.BundleName = "cisco_ios_xr"
     macAddress.EntityData.ParentYangName = "address"
     macAddress.EntityData.SegmentPath = "mac-address"
+    macAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/nodes/node/node-interfaces/node-interface/master-table/address/" + macAddress.EntityData.SegmentPath
     macAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     macAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     macAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1753,6 +1793,7 @@ func (ipv6Address *Ptp_Nodes_Node_NodeInterfaces_NodeInterface_MasterTable_Addre
     ipv6Address.EntityData.BundleName = "cisco_ios_xr"
     ipv6Address.EntityData.ParentYangName = "address"
     ipv6Address.EntityData.SegmentPath = "ipv6-address"
+    ipv6Address.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/nodes/node/node-interfaces/node-interface/master-table/address/" + ipv6Address.EntityData.SegmentPath
     ipv6Address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6Address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6Address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1783,6 +1824,7 @@ func (nodeInterfaceUnicastPeers *Ptp_Nodes_Node_NodeInterfaceUnicastPeers) GetEn
     nodeInterfaceUnicastPeers.EntityData.BundleName = "cisco_ios_xr"
     nodeInterfaceUnicastPeers.EntityData.ParentYangName = "node"
     nodeInterfaceUnicastPeers.EntityData.SegmentPath = "node-interface-unicast-peers"
+    nodeInterfaceUnicastPeers.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/nodes/node/" + nodeInterfaceUnicastPeers.EntityData.SegmentPath
     nodeInterfaceUnicastPeers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodeInterfaceUnicastPeers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodeInterfaceUnicastPeers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1804,6 +1846,7 @@ func (nodeInterfaceUnicastPeers *Ptp_Nodes_Node_NodeInterfaceUnicastPeers) GetEn
 type Ptp_Nodes_Node_NodeInterfaceUnicastPeers_NodeInterfaceUnicastPeer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -1826,6 +1869,7 @@ func (nodeInterfaceUnicastPeer *Ptp_Nodes_Node_NodeInterfaceUnicastPeers_NodeInt
     nodeInterfaceUnicastPeer.EntityData.BundleName = "cisco_ios_xr"
     nodeInterfaceUnicastPeer.EntityData.ParentYangName = "node-interface-unicast-peers"
     nodeInterfaceUnicastPeer.EntityData.SegmentPath = "node-interface-unicast-peer" + types.AddKeyToken(nodeInterfaceUnicastPeer.InterfaceName, "interface-name")
+    nodeInterfaceUnicastPeer.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/nodes/node/node-interface-unicast-peers/" + nodeInterfaceUnicastPeer.EntityData.SegmentPath
     nodeInterfaceUnicastPeer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodeInterfaceUnicastPeer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodeInterfaceUnicastPeer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1833,6 +1877,7 @@ func (nodeInterfaceUnicastPeer *Ptp_Nodes_Node_NodeInterfaceUnicastPeers_NodeInt
     nodeInterfaceUnicastPeer.EntityData.Children = types.NewOrderedMap()
     nodeInterfaceUnicastPeer.EntityData.Children.Append("peers", types.YChild{"Peers", nil})
     for i := range nodeInterfaceUnicastPeer.Peers {
+        types.SetYListKey(nodeInterfaceUnicastPeer.Peers[i], i)
         nodeInterfaceUnicastPeer.EntityData.Children.Append(types.GetSegmentPath(nodeInterfaceUnicastPeer.Peers[i]), types.YChild{"Peers", nodeInterfaceUnicastPeer.Peers[i]})
     }
     nodeInterfaceUnicastPeer.EntityData.Leafs = types.NewOrderedMap()
@@ -1850,6 +1895,7 @@ func (nodeInterfaceUnicastPeer *Ptp_Nodes_Node_NodeInterfaceUnicastPeers_NodeInt
 type Ptp_Nodes_Node_NodeInterfaceUnicastPeers_NodeInterfaceUnicastPeer_Peers struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The address of the unicast peer.
     Address Ptp_Nodes_Node_NodeInterfaceUnicastPeers_NodeInterfaceUnicastPeer_Peers_Address
@@ -1869,7 +1915,8 @@ func (peers *Ptp_Nodes_Node_NodeInterfaceUnicastPeers_NodeInterfaceUnicastPeer_P
     peers.EntityData.YangName = "peers"
     peers.EntityData.BundleName = "cisco_ios_xr"
     peers.EntityData.ParentYangName = "node-interface-unicast-peer"
-    peers.EntityData.SegmentPath = "peers"
+    peers.EntityData.SegmentPath = "peers" + types.AddNoKeyToken(peers)
+    peers.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/nodes/node/node-interface-unicast-peers/node-interface-unicast-peer/" + peers.EntityData.SegmentPath
     peers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1915,6 +1962,7 @@ func (address *Ptp_Nodes_Node_NodeInterfaceUnicastPeers_NodeInterfaceUnicastPeer
     address.EntityData.BundleName = "cisco_ios_xr"
     address.EntityData.ParentYangName = "peers"
     address.EntityData.SegmentPath = "address"
+    address.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/nodes/node/node-interface-unicast-peers/node-interface-unicast-peer/peers/" + address.EntityData.SegmentPath
     address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1949,6 +1997,7 @@ func (macAddress *Ptp_Nodes_Node_NodeInterfaceUnicastPeers_NodeInterfaceUnicastP
     macAddress.EntityData.BundleName = "cisco_ios_xr"
     macAddress.EntityData.ParentYangName = "address"
     macAddress.EntityData.SegmentPath = "mac-address"
+    macAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/nodes/node/node-interface-unicast-peers/node-interface-unicast-peer/peers/address/" + macAddress.EntityData.SegmentPath
     macAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     macAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     macAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1979,6 +2028,7 @@ func (ipv6Address *Ptp_Nodes_Node_NodeInterfaceUnicastPeers_NodeInterfaceUnicast
     ipv6Address.EntityData.BundleName = "cisco_ios_xr"
     ipv6Address.EntityData.ParentYangName = "address"
     ipv6Address.EntityData.SegmentPath = "ipv6-address"
+    ipv6Address.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/nodes/node/node-interface-unicast-peers/node-interface-unicast-peer/peers/address/" + ipv6Address.EntityData.SegmentPath
     ipv6Address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6Address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6Address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2012,6 +2062,7 @@ func (announceGrant *Ptp_Nodes_Node_NodeInterfaceUnicastPeers_NodeInterfaceUnica
     announceGrant.EntityData.BundleName = "cisco_ios_xr"
     announceGrant.EntityData.ParentYangName = "peers"
     announceGrant.EntityData.SegmentPath = "announce-grant"
+    announceGrant.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/nodes/node/node-interface-unicast-peers/node-interface-unicast-peer/peers/" + announceGrant.EntityData.SegmentPath
     announceGrant.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     announceGrant.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     announceGrant.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2046,6 +2097,7 @@ func (syncGrant *Ptp_Nodes_Node_NodeInterfaceUnicastPeers_NodeInterfaceUnicastPe
     syncGrant.EntityData.BundleName = "cisco_ios_xr"
     syncGrant.EntityData.ParentYangName = "peers"
     syncGrant.EntityData.SegmentPath = "sync-grant"
+    syncGrant.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/nodes/node/node-interface-unicast-peers/node-interface-unicast-peer/peers/" + syncGrant.EntityData.SegmentPath
     syncGrant.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     syncGrant.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     syncGrant.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2081,6 +2133,7 @@ func (delayResponseGrant *Ptp_Nodes_Node_NodeInterfaceUnicastPeers_NodeInterface
     delayResponseGrant.EntityData.BundleName = "cisco_ios_xr"
     delayResponseGrant.EntityData.ParentYangName = "peers"
     delayResponseGrant.EntityData.SegmentPath = "delay-response-grant"
+    delayResponseGrant.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/nodes/node/node-interface-unicast-peers/node-interface-unicast-peer/peers/" + delayResponseGrant.EntityData.SegmentPath
     delayResponseGrant.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     delayResponseGrant.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     delayResponseGrant.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2114,6 +2167,7 @@ func (packetCounters *Ptp_Nodes_Node_PacketCounters) GetEntityData() *types.Comm
     packetCounters.EntityData.BundleName = "cisco_ios_xr"
     packetCounters.EntityData.ParentYangName = "node"
     packetCounters.EntityData.SegmentPath = "packet-counters"
+    packetCounters.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/nodes/node/" + packetCounters.EntityData.SegmentPath
     packetCounters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     packetCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     packetCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2285,6 +2339,7 @@ func (counters *Ptp_Nodes_Node_PacketCounters_Counters) GetEntityData() *types.C
     counters.EntityData.BundleName = "cisco_ios_xr"
     counters.EntityData.ParentYangName = "packet-counters"
     counters.EntityData.SegmentPath = "counters"
+    counters.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/nodes/node/packet-counters/" + counters.EntityData.SegmentPath
     counters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     counters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     counters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2421,6 +2476,16 @@ type Ptp_Nodes_Node_PacketCounters_DropReasons struct {
     // 0..4294967295.
     MinClockClass interface{}
 
+    // Illegal clock class (255) in announce messages. The type is interface{}
+    // with range: 0..4294967295.
+    BadClockClass interface{}
+
+    // Steps removed too high. The type is interface{} with range: 0..4294967295.
+    StepsRemoved interface{}
+
+    // Reserved Clock ID. The type is interface{} with range: 0..4294967295.
+    ReservedClockId interface{}
+
     // Packet not compatible with G.8265.1 profile. The type is interface{} with
     // range: 0..4294967295.
     G82651Incompatible interface{}
@@ -2444,6 +2509,7 @@ func (dropReasons *Ptp_Nodes_Node_PacketCounters_DropReasons) GetEntityData() *t
     dropReasons.EntityData.BundleName = "cisco_ios_xr"
     dropReasons.EntityData.ParentYangName = "packet-counters"
     dropReasons.EntityData.SegmentPath = "drop-reasons"
+    dropReasons.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/nodes/node/packet-counters/" + dropReasons.EntityData.SegmentPath
     dropReasons.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dropReasons.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dropReasons.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2472,6 +2538,9 @@ func (dropReasons *Ptp_Nodes_Node_PacketCounters_DropReasons) GetEntityData() *t
     dropReasons.EntityData.Leafs.Append("no-offload-session", types.YLeaf{"NoOffloadSession", dropReasons.NoOffloadSession})
     dropReasons.EntityData.Leafs.Append("not-supported", types.YLeaf{"NotSupported", dropReasons.NotSupported})
     dropReasons.EntityData.Leafs.Append("min-clock-class", types.YLeaf{"MinClockClass", dropReasons.MinClockClass})
+    dropReasons.EntityData.Leafs.Append("bad-clock-class", types.YLeaf{"BadClockClass", dropReasons.BadClockClass})
+    dropReasons.EntityData.Leafs.Append("steps-removed", types.YLeaf{"StepsRemoved", dropReasons.StepsRemoved})
+    dropReasons.EntityData.Leafs.Append("reserved-clock-id", types.YLeaf{"ReservedClockId", dropReasons.ReservedClockId})
     dropReasons.EntityData.Leafs.Append("g8265-1-incompatible", types.YLeaf{"G82651Incompatible", dropReasons.G82651Incompatible})
     dropReasons.EntityData.Leafs.Append("g8275-1-incompatible", types.YLeaf{"G82751Incompatible", dropReasons.G82751Incompatible})
     dropReasons.EntityData.Leafs.Append("g8275-2-incompatible", types.YLeaf{"G82752Incompatible", dropReasons.G82752Incompatible})
@@ -2535,6 +2604,7 @@ func (summary *Ptp_Summary) GetEntityData() *types.CommonEntityData {
     summary.EntityData.BundleName = "cisco_ios_xr"
     summary.EntityData.ParentYangName = "ptp"
     summary.EntityData.SegmentPath = "summary"
+    summary.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/" + summary.EntityData.SegmentPath
     summary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     summary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     summary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2575,6 +2645,7 @@ func (interfaceConfigurationErrors *Ptp_InterfaceConfigurationErrors) GetEntityD
     interfaceConfigurationErrors.EntityData.BundleName = "cisco_ios_xr"
     interfaceConfigurationErrors.EntityData.ParentYangName = "ptp"
     interfaceConfigurationErrors.EntityData.SegmentPath = "interface-configuration-errors"
+    interfaceConfigurationErrors.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/" + interfaceConfigurationErrors.EntityData.SegmentPath
     interfaceConfigurationErrors.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceConfigurationErrors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceConfigurationErrors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2596,6 +2667,7 @@ func (interfaceConfigurationErrors *Ptp_InterfaceConfigurationErrors) GetEntityD
 type Ptp_InterfaceConfigurationErrors_InterfaceConfigurationError struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -2627,6 +2699,7 @@ func (interfaceConfigurationError *Ptp_InterfaceConfigurationErrors_InterfaceCon
     interfaceConfigurationError.EntityData.BundleName = "cisco_ios_xr"
     interfaceConfigurationError.EntityData.ParentYangName = "interface-configuration-errors"
     interfaceConfigurationError.EntityData.SegmentPath = "interface-configuration-error" + types.AddKeyToken(interfaceConfigurationError.InterfaceName, "interface-name")
+    interfaceConfigurationError.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/interface-configuration-errors/" + interfaceConfigurationError.EntityData.SegmentPath
     interfaceConfigurationError.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceConfigurationError.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceConfigurationError.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2819,6 +2892,7 @@ func (configurationErrors *Ptp_InterfaceConfigurationErrors_InterfaceConfigurati
     configurationErrors.EntityData.BundleName = "cisco_ios_xr"
     configurationErrors.EntityData.ParentYangName = "interface-configuration-error"
     configurationErrors.EntityData.SegmentPath = "configuration-errors"
+    configurationErrors.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/interface-configuration-errors/interface-configuration-error/" + configurationErrors.EntityData.SegmentPath
     configurationErrors.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configurationErrors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configurationErrors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2893,6 +2967,7 @@ func (interfaceForeignMasters *Ptp_InterfaceForeignMasters) GetEntityData() *typ
     interfaceForeignMasters.EntityData.BundleName = "cisco_ios_xr"
     interfaceForeignMasters.EntityData.ParentYangName = "ptp"
     interfaceForeignMasters.EntityData.SegmentPath = "interface-foreign-masters"
+    interfaceForeignMasters.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/" + interfaceForeignMasters.EntityData.SegmentPath
     interfaceForeignMasters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceForeignMasters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceForeignMasters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2914,6 +2989,7 @@ func (interfaceForeignMasters *Ptp_InterfaceForeignMasters) GetEntityData() *typ
 type Ptp_InterfaceForeignMasters_InterfaceForeignMaster struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -2933,6 +3009,7 @@ func (interfaceForeignMaster *Ptp_InterfaceForeignMasters_InterfaceForeignMaster
     interfaceForeignMaster.EntityData.BundleName = "cisco_ios_xr"
     interfaceForeignMaster.EntityData.ParentYangName = "interface-foreign-masters"
     interfaceForeignMaster.EntityData.SegmentPath = "interface-foreign-master" + types.AddKeyToken(interfaceForeignMaster.InterfaceName, "interface-name")
+    interfaceForeignMaster.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/interface-foreign-masters/" + interfaceForeignMaster.EntityData.SegmentPath
     interfaceForeignMaster.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceForeignMaster.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceForeignMaster.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2940,6 +3017,7 @@ func (interfaceForeignMaster *Ptp_InterfaceForeignMasters_InterfaceForeignMaster
     interfaceForeignMaster.EntityData.Children = types.NewOrderedMap()
     interfaceForeignMaster.EntityData.Children.Append("foreign-clock", types.YChild{"ForeignClock", nil})
     for i := range interfaceForeignMaster.ForeignClock {
+        types.SetYListKey(interfaceForeignMaster.ForeignClock[i], i)
         interfaceForeignMaster.EntityData.Children.Append(types.GetSegmentPath(interfaceForeignMaster.ForeignClock[i]), types.YChild{"ForeignClock", interfaceForeignMaster.ForeignClock[i]})
     }
     interfaceForeignMaster.EntityData.Leafs = types.NewOrderedMap()
@@ -2956,6 +3034,7 @@ func (interfaceForeignMaster *Ptp_InterfaceForeignMasters_InterfaceForeignMaster
 type Ptp_InterfaceForeignMasters_InterfaceForeignMaster_ForeignClock struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The clock is qualified for best master clock selection. The type is bool.
     IsQualified interface{}
@@ -3018,7 +3097,8 @@ func (foreignClock *Ptp_InterfaceForeignMasters_InterfaceForeignMaster_ForeignCl
     foreignClock.EntityData.YangName = "foreign-clock"
     foreignClock.EntityData.BundleName = "cisco_ios_xr"
     foreignClock.EntityData.ParentYangName = "interface-foreign-master"
-    foreignClock.EntityData.SegmentPath = "foreign-clock"
+    foreignClock.EntityData.SegmentPath = "foreign-clock" + types.AddNoKeyToken(foreignClock)
+    foreignClock.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/interface-foreign-masters/interface-foreign-master/" + foreignClock.EntityData.SegmentPath
     foreignClock.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     foreignClock.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     foreignClock.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3114,6 +3194,7 @@ func (foreignClock *Ptp_InterfaceForeignMasters_InterfaceForeignMaster_ForeignCl
     foreignClock.EntityData.BundleName = "cisco_ios_xr"
     foreignClock.EntityData.ParentYangName = "foreign-clock"
     foreignClock.EntityData.SegmentPath = "foreign-clock"
+    foreignClock.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/interface-foreign-masters/interface-foreign-master/foreign-clock/" + foreignClock.EntityData.SegmentPath
     foreignClock.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     foreignClock.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     foreignClock.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3163,6 +3244,7 @@ func (utcOffset *Ptp_InterfaceForeignMasters_InterfaceForeignMaster_ForeignClock
     utcOffset.EntityData.BundleName = "cisco_ios_xr"
     utcOffset.EntityData.ParentYangName = "foreign-clock"
     utcOffset.EntityData.SegmentPath = "utc-offset"
+    utcOffset.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/interface-foreign-masters/interface-foreign-master/foreign-clock/foreign-clock/" + utcOffset.EntityData.SegmentPath
     utcOffset.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     utcOffset.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     utcOffset.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3196,6 +3278,7 @@ func (receiver *Ptp_InterfaceForeignMasters_InterfaceForeignMaster_ForeignClock_
     receiver.EntityData.BundleName = "cisco_ios_xr"
     receiver.EntityData.ParentYangName = "foreign-clock"
     receiver.EntityData.SegmentPath = "receiver"
+    receiver.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/interface-foreign-masters/interface-foreign-master/foreign-clock/foreign-clock/" + receiver.EntityData.SegmentPath
     receiver.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     receiver.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receiver.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3229,6 +3312,7 @@ func (sender *Ptp_InterfaceForeignMasters_InterfaceForeignMaster_ForeignClock_Fo
     sender.EntityData.BundleName = "cisco_ios_xr"
     sender.EntityData.ParentYangName = "foreign-clock"
     sender.EntityData.SegmentPath = "sender"
+    sender.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/interface-foreign-masters/interface-foreign-master/foreign-clock/foreign-clock/" + sender.EntityData.SegmentPath
     sender.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sender.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sender.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3272,6 +3356,7 @@ func (address *Ptp_InterfaceForeignMasters_InterfaceForeignMaster_ForeignClock_A
     address.EntityData.BundleName = "cisco_ios_xr"
     address.EntityData.ParentYangName = "foreign-clock"
     address.EntityData.SegmentPath = "address"
+    address.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/interface-foreign-masters/interface-foreign-master/foreign-clock/" + address.EntityData.SegmentPath
     address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3306,6 +3391,7 @@ func (macAddress *Ptp_InterfaceForeignMasters_InterfaceForeignMaster_ForeignCloc
     macAddress.EntityData.BundleName = "cisco_ios_xr"
     macAddress.EntityData.ParentYangName = "address"
     macAddress.EntityData.SegmentPath = "mac-address"
+    macAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/interface-foreign-masters/interface-foreign-master/foreign-clock/address/" + macAddress.EntityData.SegmentPath
     macAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     macAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     macAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3336,6 +3422,7 @@ func (ipv6Address *Ptp_InterfaceForeignMasters_InterfaceForeignMaster_ForeignClo
     ipv6Address.EntityData.BundleName = "cisco_ios_xr"
     ipv6Address.EntityData.ParentYangName = "address"
     ipv6Address.EntityData.SegmentPath = "ipv6-address"
+    ipv6Address.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/interface-foreign-masters/interface-foreign-master/foreign-clock/address/" + ipv6Address.EntityData.SegmentPath
     ipv6Address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6Address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6Address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3369,6 +3456,7 @@ func (announceGrant *Ptp_InterfaceForeignMasters_InterfaceForeignMaster_ForeignC
     announceGrant.EntityData.BundleName = "cisco_ios_xr"
     announceGrant.EntityData.ParentYangName = "foreign-clock"
     announceGrant.EntityData.SegmentPath = "announce-grant"
+    announceGrant.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/interface-foreign-masters/interface-foreign-master/foreign-clock/" + announceGrant.EntityData.SegmentPath
     announceGrant.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     announceGrant.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     announceGrant.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3403,6 +3491,7 @@ func (syncGrant *Ptp_InterfaceForeignMasters_InterfaceForeignMaster_ForeignClock
     syncGrant.EntityData.BundleName = "cisco_ios_xr"
     syncGrant.EntityData.ParentYangName = "foreign-clock"
     syncGrant.EntityData.SegmentPath = "sync-grant"
+    syncGrant.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/interface-foreign-masters/interface-foreign-master/foreign-clock/" + syncGrant.EntityData.SegmentPath
     syncGrant.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     syncGrant.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     syncGrant.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3438,6 +3527,7 @@ func (delayResponseGrant *Ptp_InterfaceForeignMasters_InterfaceForeignMaster_For
     delayResponseGrant.EntityData.BundleName = "cisco_ios_xr"
     delayResponseGrant.EntityData.ParentYangName = "foreign-clock"
     delayResponseGrant.EntityData.SegmentPath = "delay-response-grant"
+    delayResponseGrant.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/interface-foreign-masters/interface-foreign-master/foreign-clock/" + delayResponseGrant.EntityData.SegmentPath
     delayResponseGrant.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     delayResponseGrant.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     delayResponseGrant.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3469,6 +3559,7 @@ func (interfaceInterops *Ptp_InterfaceInterops) GetEntityData() *types.CommonEnt
     interfaceInterops.EntityData.BundleName = "cisco_ios_xr"
     interfaceInterops.EntityData.ParentYangName = "ptp"
     interfaceInterops.EntityData.SegmentPath = "interface-interops"
+    interfaceInterops.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/" + interfaceInterops.EntityData.SegmentPath
     interfaceInterops.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceInterops.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceInterops.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3490,6 +3581,7 @@ func (interfaceInterops *Ptp_InterfaceInterops) GetEntityData() *types.CommonEnt
 type Ptp_InterfaceInterops_InterfaceInterop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -3524,6 +3616,7 @@ func (interfaceInterop *Ptp_InterfaceInterops_InterfaceInterop) GetEntityData() 
     interfaceInterop.EntityData.BundleName = "cisco_ios_xr"
     interfaceInterop.EntityData.ParentYangName = "interface-interops"
     interfaceInterop.EntityData.SegmentPath = "interface-interop" + types.AddKeyToken(interfaceInterop.InterfaceName, "interface-name")
+    interfaceInterop.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/interface-interops/" + interfaceInterop.EntityData.SegmentPath
     interfaceInterop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceInterop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceInterop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3532,6 +3625,7 @@ func (interfaceInterop *Ptp_InterfaceInterops_InterfaceInterop) GetEntityData() 
     interfaceInterop.EntityData.Children.Append("egress-interop", types.YChild{"EgressInterop", &interfaceInterop.EgressInterop})
     interfaceInterop.EntityData.Children.Append("ingress-interop", types.YChild{"IngressInterop", nil})
     for i := range interfaceInterop.IngressInterop {
+        types.SetYListKey(interfaceInterop.IngressInterop[i], i)
         interfaceInterop.EntityData.Children.Append(types.GetSegmentPath(interfaceInterop.IngressInterop[i]), types.YChild{"IngressInterop", interfaceInterop.IngressInterop[i]})
     }
     interfaceInterop.EntityData.Leafs = types.NewOrderedMap()
@@ -3589,6 +3683,7 @@ func (egressInterop *Ptp_InterfaceInterops_InterfaceInterop_EgressInterop) GetEn
     egressInterop.EntityData.BundleName = "cisco_ios_xr"
     egressInterop.EntityData.ParentYangName = "interface-interop"
     egressInterop.EntityData.SegmentPath = "egress-interop"
+    egressInterop.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/interface-interops/interface-interop/" + egressInterop.EntityData.SegmentPath
     egressInterop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     egressInterop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     egressInterop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3616,6 +3711,7 @@ func (egressInterop *Ptp_InterfaceInterops_InterfaceInterop_EgressInterop) GetEn
 type Ptp_InterfaceInterops_InterfaceInterop_IngressInterop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Peer address.
     Address Ptp_InterfaceInterops_InterfaceInterop_IngressInterop_Address
@@ -3629,7 +3725,8 @@ func (ingressInterop *Ptp_InterfaceInterops_InterfaceInterop_IngressInterop) Get
     ingressInterop.EntityData.YangName = "ingress-interop"
     ingressInterop.EntityData.BundleName = "cisco_ios_xr"
     ingressInterop.EntityData.ParentYangName = "interface-interop"
-    ingressInterop.EntityData.SegmentPath = "ingress-interop"
+    ingressInterop.EntityData.SegmentPath = "ingress-interop" + types.AddNoKeyToken(ingressInterop)
+    ingressInterop.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/interface-interops/interface-interop/" + ingressInterop.EntityData.SegmentPath
     ingressInterop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ingressInterop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ingressInterop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3673,6 +3770,7 @@ func (address *Ptp_InterfaceInterops_InterfaceInterop_IngressInterop_Address) Ge
     address.EntityData.BundleName = "cisco_ios_xr"
     address.EntityData.ParentYangName = "ingress-interop"
     address.EntityData.SegmentPath = "address"
+    address.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/interface-interops/interface-interop/ingress-interop/" + address.EntityData.SegmentPath
     address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3707,6 +3805,7 @@ func (macAddress *Ptp_InterfaceInterops_InterfaceInterop_IngressInterop_Address_
     macAddress.EntityData.BundleName = "cisco_ios_xr"
     macAddress.EntityData.ParentYangName = "address"
     macAddress.EntityData.SegmentPath = "mac-address"
+    macAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/interface-interops/interface-interop/ingress-interop/address/" + macAddress.EntityData.SegmentPath
     macAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     macAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     macAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3737,6 +3836,7 @@ func (ipv6Address *Ptp_InterfaceInterops_InterfaceInterop_IngressInterop_Address
     ipv6Address.EntityData.BundleName = "cisco_ios_xr"
     ipv6Address.EntityData.ParentYangName = "address"
     ipv6Address.EntityData.SegmentPath = "ipv6-address"
+    ipv6Address.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/interface-interops/interface-interop/ingress-interop/address/" + ipv6Address.EntityData.SegmentPath
     ipv6Address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6Address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6Address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3793,6 +3893,7 @@ func (interop *Ptp_InterfaceInterops_InterfaceInterop_IngressInterop_Interop) Ge
     interop.EntityData.BundleName = "cisco_ios_xr"
     interop.EntityData.ParentYangName = "ingress-interop"
     interop.EntityData.SegmentPath = "interop"
+    interop.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/interface-interops/interface-interop/ingress-interop/" + interop.EntityData.SegmentPath
     interop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3845,6 +3946,7 @@ func (localClock *Ptp_LocalClock) GetEntityData() *types.CommonEntityData {
     localClock.EntityData.BundleName = "cisco_ios_xr"
     localClock.EntityData.ParentYangName = "ptp"
     localClock.EntityData.SegmentPath = "local-clock"
+    localClock.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/" + localClock.EntityData.SegmentPath
     localClock.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     localClock.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     localClock.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3929,6 +4031,7 @@ func (clockProperties *Ptp_LocalClock_ClockProperties) GetEntityData() *types.Co
     clockProperties.EntityData.BundleName = "cisco_ios_xr"
     clockProperties.EntityData.ParentYangName = "local-clock"
     clockProperties.EntityData.SegmentPath = "clock-properties"
+    clockProperties.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/local-clock/" + clockProperties.EntityData.SegmentPath
     clockProperties.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clockProperties.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clockProperties.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3978,6 +4081,7 @@ func (utcOffset *Ptp_LocalClock_ClockProperties_UtcOffset) GetEntityData() *type
     utcOffset.EntityData.BundleName = "cisco_ios_xr"
     utcOffset.EntityData.ParentYangName = "clock-properties"
     utcOffset.EntityData.SegmentPath = "utc-offset"
+    utcOffset.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/local-clock/clock-properties/" + utcOffset.EntityData.SegmentPath
     utcOffset.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     utcOffset.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     utcOffset.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4011,6 +4115,7 @@ func (receiver *Ptp_LocalClock_ClockProperties_Receiver) GetEntityData() *types.
     receiver.EntityData.BundleName = "cisco_ios_xr"
     receiver.EntityData.ParentYangName = "clock-properties"
     receiver.EntityData.SegmentPath = "receiver"
+    receiver.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/local-clock/clock-properties/" + receiver.EntityData.SegmentPath
     receiver.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     receiver.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receiver.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4044,6 +4149,7 @@ func (sender *Ptp_LocalClock_ClockProperties_Sender) GetEntityData() *types.Comm
     sender.EntityData.BundleName = "cisco_ios_xr"
     sender.EntityData.ParentYangName = "clock-properties"
     sender.EntityData.SegmentPath = "sender"
+    sender.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/local-clock/clock-properties/" + sender.EntityData.SegmentPath
     sender.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sender.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sender.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4095,6 +4201,7 @@ func (virtualPort *Ptp_LocalClock_VirtualPort) GetEntityData() *types.CommonEnti
     virtualPort.EntityData.BundleName = "cisco_ios_xr"
     virtualPort.EntityData.ParentYangName = "local-clock"
     virtualPort.EntityData.SegmentPath = "virtual-port"
+    virtualPort.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/local-clock/" + virtualPort.EntityData.SegmentPath
     virtualPort.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     virtualPort.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     virtualPort.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4133,6 +4240,7 @@ func (interfacePacketCounters *Ptp_InterfacePacketCounters) GetEntityData() *typ
     interfacePacketCounters.EntityData.BundleName = "cisco_ios_xr"
     interfacePacketCounters.EntityData.ParentYangName = "ptp"
     interfacePacketCounters.EntityData.SegmentPath = "interface-packet-counters"
+    interfacePacketCounters.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/" + interfacePacketCounters.EntityData.SegmentPath
     interfacePacketCounters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfacePacketCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfacePacketCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4154,6 +4262,7 @@ func (interfacePacketCounters *Ptp_InterfacePacketCounters) GetEntityData() *typ
 type Ptp_InterfacePacketCounters_InterfacePacketCounter struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -4173,6 +4282,7 @@ func (interfacePacketCounter *Ptp_InterfacePacketCounters_InterfacePacketCounter
     interfacePacketCounter.EntityData.BundleName = "cisco_ios_xr"
     interfacePacketCounter.EntityData.ParentYangName = "interface-packet-counters"
     interfacePacketCounter.EntityData.SegmentPath = "interface-packet-counter" + types.AddKeyToken(interfacePacketCounter.InterfaceName, "interface-name")
+    interfacePacketCounter.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/interface-packet-counters/" + interfacePacketCounter.EntityData.SegmentPath
     interfacePacketCounter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfacePacketCounter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfacePacketCounter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4181,6 +4291,7 @@ func (interfacePacketCounter *Ptp_InterfacePacketCounters_InterfacePacketCounter
     interfacePacketCounter.EntityData.Children.Append("counters", types.YChild{"Counters", &interfacePacketCounter.Counters})
     interfacePacketCounter.EntityData.Children.Append("peer-counter", types.YChild{"PeerCounter", nil})
     for i := range interfacePacketCounter.PeerCounter {
+        types.SetYListKey(interfacePacketCounter.PeerCounter[i], i)
         interfacePacketCounter.EntityData.Children.Append(types.GetSegmentPath(interfacePacketCounter.PeerCounter[i]), types.YChild{"PeerCounter", interfacePacketCounter.PeerCounter[i]})
     }
     interfacePacketCounter.EntityData.Leafs = types.NewOrderedMap()
@@ -4348,6 +4459,7 @@ func (counters *Ptp_InterfacePacketCounters_InterfacePacketCounter_Counters) Get
     counters.EntityData.BundleName = "cisco_ios_xr"
     counters.EntityData.ParentYangName = "interface-packet-counter"
     counters.EntityData.SegmentPath = "counters"
+    counters.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/interface-packet-counters/interface-packet-counter/" + counters.EntityData.SegmentPath
     counters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     counters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     counters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4401,6 +4513,7 @@ func (counters *Ptp_InterfacePacketCounters_InterfacePacketCounter_Counters) Get
 type Ptp_InterfacePacketCounters_InterfacePacketCounter_PeerCounter struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Peer address.
     Address Ptp_InterfacePacketCounters_InterfacePacketCounter_PeerCounter_Address
@@ -4414,7 +4527,8 @@ func (peerCounter *Ptp_InterfacePacketCounters_InterfacePacketCounter_PeerCounte
     peerCounter.EntityData.YangName = "peer-counter"
     peerCounter.EntityData.BundleName = "cisco_ios_xr"
     peerCounter.EntityData.ParentYangName = "interface-packet-counter"
-    peerCounter.EntityData.SegmentPath = "peer-counter"
+    peerCounter.EntityData.SegmentPath = "peer-counter" + types.AddNoKeyToken(peerCounter)
+    peerCounter.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/interface-packet-counters/interface-packet-counter/" + peerCounter.EntityData.SegmentPath
     peerCounter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerCounter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerCounter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4458,6 +4572,7 @@ func (address *Ptp_InterfacePacketCounters_InterfacePacketCounter_PeerCounter_Ad
     address.EntityData.BundleName = "cisco_ios_xr"
     address.EntityData.ParentYangName = "peer-counter"
     address.EntityData.SegmentPath = "address"
+    address.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/interface-packet-counters/interface-packet-counter/peer-counter/" + address.EntityData.SegmentPath
     address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4492,6 +4607,7 @@ func (macAddress *Ptp_InterfacePacketCounters_InterfacePacketCounter_PeerCounter
     macAddress.EntityData.BundleName = "cisco_ios_xr"
     macAddress.EntityData.ParentYangName = "address"
     macAddress.EntityData.SegmentPath = "mac-address"
+    macAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/interface-packet-counters/interface-packet-counter/peer-counter/address/" + macAddress.EntityData.SegmentPath
     macAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     macAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     macAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4522,6 +4638,7 @@ func (ipv6Address *Ptp_InterfacePacketCounters_InterfacePacketCounter_PeerCounte
     ipv6Address.EntityData.BundleName = "cisco_ios_xr"
     ipv6Address.EntityData.ParentYangName = "address"
     ipv6Address.EntityData.SegmentPath = "ipv6-address"
+    ipv6Address.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/interface-packet-counters/interface-packet-counter/peer-counter/address/" + ipv6Address.EntityData.SegmentPath
     ipv6Address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6Address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6Address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4692,6 +4809,7 @@ func (counters *Ptp_InterfacePacketCounters_InterfacePacketCounter_PeerCounter_C
     counters.EntityData.BundleName = "cisco_ios_xr"
     counters.EntityData.ParentYangName = "peer-counter"
     counters.EntityData.SegmentPath = "counters"
+    counters.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/interface-packet-counters/interface-packet-counter/peer-counter/" + counters.EntityData.SegmentPath
     counters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     counters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     counters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4774,6 +4892,7 @@ func (advertisedClock *Ptp_AdvertisedClock) GetEntityData() *types.CommonEntityD
     advertisedClock.EntityData.BundleName = "cisco_ios_xr"
     advertisedClock.EntityData.ParentYangName = "ptp"
     advertisedClock.EntityData.SegmentPath = "advertised-clock"
+    advertisedClock.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/" + advertisedClock.EntityData.SegmentPath
     advertisedClock.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     advertisedClock.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     advertisedClock.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4859,6 +4978,7 @@ func (clockProperties *Ptp_AdvertisedClock_ClockProperties) GetEntityData() *typ
     clockProperties.EntityData.BundleName = "cisco_ios_xr"
     clockProperties.EntityData.ParentYangName = "advertised-clock"
     clockProperties.EntityData.SegmentPath = "clock-properties"
+    clockProperties.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/advertised-clock/" + clockProperties.EntityData.SegmentPath
     clockProperties.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clockProperties.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clockProperties.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4908,6 +5028,7 @@ func (utcOffset *Ptp_AdvertisedClock_ClockProperties_UtcOffset) GetEntityData() 
     utcOffset.EntityData.BundleName = "cisco_ios_xr"
     utcOffset.EntityData.ParentYangName = "clock-properties"
     utcOffset.EntityData.SegmentPath = "utc-offset"
+    utcOffset.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/advertised-clock/clock-properties/" + utcOffset.EntityData.SegmentPath
     utcOffset.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     utcOffset.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     utcOffset.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4941,6 +5062,7 @@ func (receiver *Ptp_AdvertisedClock_ClockProperties_Receiver) GetEntityData() *t
     receiver.EntityData.BundleName = "cisco_ios_xr"
     receiver.EntityData.ParentYangName = "clock-properties"
     receiver.EntityData.SegmentPath = "receiver"
+    receiver.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/advertised-clock/clock-properties/" + receiver.EntityData.SegmentPath
     receiver.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     receiver.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receiver.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4974,6 +5096,7 @@ func (sender *Ptp_AdvertisedClock_ClockProperties_Sender) GetEntityData() *types
     sender.EntityData.BundleName = "cisco_ios_xr"
     sender.EntityData.ParentYangName = "clock-properties"
     sender.EntityData.SegmentPath = "sender"
+    sender.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/advertised-clock/clock-properties/" + sender.EntityData.SegmentPath
     sender.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sender.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sender.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5004,6 +5127,7 @@ func (interfaces *Ptp_Interfaces) GetEntityData() *types.CommonEntityData {
     interfaces.EntityData.BundleName = "cisco_ios_xr"
     interfaces.EntityData.ParentYangName = "ptp"
     interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/" + interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5025,6 +5149,7 @@ func (interfaces *Ptp_Interfaces) GetEntityData() *types.CommonEntityData {
 type Ptp_Interfaces_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -5177,6 +5302,7 @@ func (self *Ptp_Interfaces_Interface) GetEntityData() *types.CommonEntityData {
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/interfaces/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5189,6 +5315,7 @@ func (self *Ptp_Interfaces_Interface) GetEntityData() *types.CommonEntityData {
     self.EntityData.Children.Append("egress-conversion", types.YChild{"EgressConversion", &self.EgressConversion})
     self.EntityData.Children.Append("master-table", types.YChild{"MasterTable", nil})
     for i := range self.MasterTable {
+        types.SetYListKey(self.MasterTable[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.MasterTable[i]), types.YChild{"MasterTable", self.MasterTable[i]})
     }
     self.EntityData.Leafs = types.NewOrderedMap()
@@ -5252,6 +5379,7 @@ func (ipv6AddressArray *Ptp_Interfaces_Interface_Ipv6AddressArray) GetEntityData
     ipv6AddressArray.EntityData.BundleName = "cisco_ios_xr"
     ipv6AddressArray.EntityData.ParentYangName = "interface"
     ipv6AddressArray.EntityData.SegmentPath = "ipv6-address-array"
+    ipv6AddressArray.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/interfaces/interface/" + ipv6AddressArray.EntityData.SegmentPath
     ipv6AddressArray.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6AddressArray.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6AddressArray.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5285,6 +5413,7 @@ func (ipv4AddressArray *Ptp_Interfaces_Interface_Ipv4AddressArray) GetEntityData
     ipv4AddressArray.EntityData.BundleName = "cisco_ios_xr"
     ipv4AddressArray.EntityData.ParentYangName = "interface"
     ipv4AddressArray.EntityData.SegmentPath = "ipv4-address-array"
+    ipv4AddressArray.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/interfaces/interface/" + ipv4AddressArray.EntityData.SegmentPath
     ipv4AddressArray.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4AddressArray.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4AddressArray.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5316,6 +5445,7 @@ func (macAddress *Ptp_Interfaces_Interface_MacAddress) GetEntityData() *types.Co
     macAddress.EntityData.BundleName = "cisco_ios_xr"
     macAddress.EntityData.ParentYangName = "interface"
     macAddress.EntityData.SegmentPath = "mac-address"
+    macAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/interfaces/interface/" + macAddress.EntityData.SegmentPath
     macAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     macAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     macAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5361,6 +5491,7 @@ func (ingressConversion *Ptp_Interfaces_Interface_IngressConversion) GetEntityDa
     ingressConversion.EntityData.BundleName = "cisco_ios_xr"
     ingressConversion.EntityData.ParentYangName = "interface"
     ingressConversion.EntityData.SegmentPath = "ingress-conversion"
+    ingressConversion.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/interfaces/interface/" + ingressConversion.EntityData.SegmentPath
     ingressConversion.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ingressConversion.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ingressConversion.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5368,6 +5499,7 @@ func (ingressConversion *Ptp_Interfaces_Interface_IngressConversion) GetEntityDa
     ingressConversion.EntityData.Children = types.NewOrderedMap()
     ingressConversion.EntityData.Children.Append("class-mapping", types.YChild{"ClassMapping", nil})
     for i := range ingressConversion.ClassMapping {
+        types.SetYListKey(ingressConversion.ClassMapping[i], i)
         ingressConversion.EntityData.Children.Append(types.GetSegmentPath(ingressConversion.ClassMapping[i]), types.YChild{"ClassMapping", ingressConversion.ClassMapping[i]})
     }
     ingressConversion.EntityData.Leafs = types.NewOrderedMap()
@@ -5387,6 +5519,7 @@ func (ingressConversion *Ptp_Interfaces_Interface_IngressConversion) GetEntityDa
 type Ptp_Interfaces_Interface_IngressConversion_ClassMapping struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // From clock class. The type is interface{} with range: 0..255.
     FromClockClass interface{}
@@ -5400,7 +5533,8 @@ func (classMapping *Ptp_Interfaces_Interface_IngressConversion_ClassMapping) Get
     classMapping.EntityData.YangName = "class-mapping"
     classMapping.EntityData.BundleName = "cisco_ios_xr"
     classMapping.EntityData.ParentYangName = "ingress-conversion"
-    classMapping.EntityData.SegmentPath = "class-mapping"
+    classMapping.EntityData.SegmentPath = "class-mapping" + types.AddNoKeyToken(classMapping)
+    classMapping.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/interfaces/interface/ingress-conversion/" + classMapping.EntityData.SegmentPath
     classMapping.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     classMapping.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     classMapping.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5447,6 +5581,7 @@ func (egressConversion *Ptp_Interfaces_Interface_EgressConversion) GetEntityData
     egressConversion.EntityData.BundleName = "cisco_ios_xr"
     egressConversion.EntityData.ParentYangName = "interface"
     egressConversion.EntityData.SegmentPath = "egress-conversion"
+    egressConversion.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/interfaces/interface/" + egressConversion.EntityData.SegmentPath
     egressConversion.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     egressConversion.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     egressConversion.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5454,6 +5589,7 @@ func (egressConversion *Ptp_Interfaces_Interface_EgressConversion) GetEntityData
     egressConversion.EntityData.Children = types.NewOrderedMap()
     egressConversion.EntityData.Children.Append("class-mapping", types.YChild{"ClassMapping", nil})
     for i := range egressConversion.ClassMapping {
+        types.SetYListKey(egressConversion.ClassMapping[i], i)
         egressConversion.EntityData.Children.Append(types.GetSegmentPath(egressConversion.ClassMapping[i]), types.YChild{"ClassMapping", egressConversion.ClassMapping[i]})
     }
     egressConversion.EntityData.Leafs = types.NewOrderedMap()
@@ -5473,6 +5609,7 @@ func (egressConversion *Ptp_Interfaces_Interface_EgressConversion) GetEntityData
 type Ptp_Interfaces_Interface_EgressConversion_ClassMapping struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // From clock class. The type is interface{} with range: 0..255.
     FromClockClass interface{}
@@ -5486,7 +5623,8 @@ func (classMapping *Ptp_Interfaces_Interface_EgressConversion_ClassMapping) GetE
     classMapping.EntityData.YangName = "class-mapping"
     classMapping.EntityData.BundleName = "cisco_ios_xr"
     classMapping.EntityData.ParentYangName = "egress-conversion"
-    classMapping.EntityData.SegmentPath = "class-mapping"
+    classMapping.EntityData.SegmentPath = "class-mapping" + types.AddNoKeyToken(classMapping)
+    classMapping.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/interfaces/interface/egress-conversion/" + classMapping.EntityData.SegmentPath
     classMapping.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     classMapping.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     classMapping.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5506,6 +5644,7 @@ func (classMapping *Ptp_Interfaces_Interface_EgressConversion_ClassMapping) GetE
 type Ptp_Interfaces_Interface_MasterTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The configured communication model of the master clock. The type is
     // PtpBagCommunicationModel.
@@ -5545,7 +5684,8 @@ func (masterTable *Ptp_Interfaces_Interface_MasterTable) GetEntityData() *types.
     masterTable.EntityData.YangName = "master-table"
     masterTable.EntityData.BundleName = "cisco_ios_xr"
     masterTable.EntityData.ParentYangName = "interface"
-    masterTable.EntityData.SegmentPath = "master-table"
+    masterTable.EntityData.SegmentPath = "master-table" + types.AddNoKeyToken(masterTable)
+    masterTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/interfaces/interface/" + masterTable.EntityData.SegmentPath
     masterTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     masterTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     masterTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5596,6 +5736,7 @@ func (address *Ptp_Interfaces_Interface_MasterTable_Address) GetEntityData() *ty
     address.EntityData.BundleName = "cisco_ios_xr"
     address.EntityData.ParentYangName = "master-table"
     address.EntityData.SegmentPath = "address"
+    address.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/interfaces/interface/master-table/" + address.EntityData.SegmentPath
     address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5630,6 +5771,7 @@ func (macAddress *Ptp_Interfaces_Interface_MasterTable_Address_MacAddress) GetEn
     macAddress.EntityData.BundleName = "cisco_ios_xr"
     macAddress.EntityData.ParentYangName = "address"
     macAddress.EntityData.SegmentPath = "mac-address"
+    macAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/interfaces/interface/master-table/address/" + macAddress.EntityData.SegmentPath
     macAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     macAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     macAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5660,6 +5802,7 @@ func (ipv6Address *Ptp_Interfaces_Interface_MasterTable_Address_Ipv6Address) Get
     ipv6Address.EntityData.BundleName = "cisco_ios_xr"
     ipv6Address.EntityData.ParentYangName = "address"
     ipv6Address.EntityData.SegmentPath = "ipv6-address"
+    ipv6Address.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/interfaces/interface/master-table/address/" + ipv6Address.EntityData.SegmentPath
     ipv6Address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6Address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6Address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5701,6 +5844,7 @@ func (dataset *Ptp_Dataset) GetEntityData() *types.CommonEntityData {
     dataset.EntityData.BundleName = "cisco_ios_xr"
     dataset.EntityData.ParentYangName = "ptp"
     dataset.EntityData.SegmentPath = "dataset"
+    dataset.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/" + dataset.EntityData.SegmentPath
     dataset.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dataset.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dataset.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5777,6 +5921,7 @@ func (defaultDs *Ptp_Dataset_DefaultDs) GetEntityData() *types.CommonEntityData 
     defaultDs.EntityData.BundleName = "cisco_ios_xr"
     defaultDs.EntityData.ParentYangName = "dataset"
     defaultDs.EntityData.SegmentPath = "default-ds"
+    defaultDs.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/dataset/" + defaultDs.EntityData.SegmentPath
     defaultDs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     defaultDs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     defaultDs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5827,6 +5972,7 @@ func (currentDs *Ptp_Dataset_CurrentDs) GetEntityData() *types.CommonEntityData 
     currentDs.EntityData.BundleName = "cisco_ios_xr"
     currentDs.EntityData.ParentYangName = "dataset"
     currentDs.EntityData.SegmentPath = "current-ds"
+    currentDs.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/dataset/" + currentDs.EntityData.SegmentPath
     currentDs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     currentDs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     currentDs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5895,6 +6041,7 @@ func (parentDs *Ptp_Dataset_ParentDs) GetEntityData() *types.CommonEntityData {
     parentDs.EntityData.BundleName = "cisco_ios_xr"
     parentDs.EntityData.ParentYangName = "dataset"
     parentDs.EntityData.SegmentPath = "parent-ds"
+    parentDs.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/dataset/" + parentDs.EntityData.SegmentPath
     parentDs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     parentDs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     parentDs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5934,6 +6081,7 @@ func (portDses *Ptp_Dataset_PortDses) GetEntityData() *types.CommonEntityData {
     portDses.EntityData.BundleName = "cisco_ios_xr"
     portDses.EntityData.ParentYangName = "dataset"
     portDses.EntityData.SegmentPath = "port-dses"
+    portDses.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/dataset/" + portDses.EntityData.SegmentPath
     portDses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     portDses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     portDses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5955,6 +6103,7 @@ func (portDses *Ptp_Dataset_PortDses) GetEntityData() *types.CommonEntityData {
 type Ptp_Dataset_PortDses_PortDs struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -6018,6 +6167,7 @@ func (portDs *Ptp_Dataset_PortDses_PortDs) GetEntityData() *types.CommonEntityDa
     portDs.EntityData.BundleName = "cisco_ios_xr"
     portDs.EntityData.ParentYangName = "port-dses"
     portDs.EntityData.SegmentPath = "port-ds" + types.AddKeyToken(portDs.InterfaceName, "interface-name")
+    portDs.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/dataset/port-dses/" + portDs.EntityData.SegmentPath
     portDs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     portDs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     portDs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6084,6 +6234,7 @@ func (timePropertiesDs *Ptp_Dataset_TimePropertiesDs) GetEntityData() *types.Com
     timePropertiesDs.EntityData.BundleName = "cisco_ios_xr"
     timePropertiesDs.EntityData.ParentYangName = "dataset"
     timePropertiesDs.EntityData.SegmentPath = "time-properties-ds"
+    timePropertiesDs.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/dataset/" + timePropertiesDs.EntityData.SegmentPath
     timePropertiesDs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     timePropertiesDs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     timePropertiesDs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6151,6 +6302,7 @@ func (globalConfigurationError *Ptp_GlobalConfigurationError) GetEntityData() *t
     globalConfigurationError.EntityData.BundleName = "cisco_ios_xr"
     globalConfigurationError.EntityData.ParentYangName = "ptp"
     globalConfigurationError.EntityData.SegmentPath = "global-configuration-error"
+    globalConfigurationError.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/" + globalConfigurationError.EntityData.SegmentPath
     globalConfigurationError.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     globalConfigurationError.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     globalConfigurationError.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6233,6 +6385,7 @@ func (configurationErrors *Ptp_GlobalConfigurationError_ConfigurationErrors) Get
     configurationErrors.EntityData.BundleName = "cisco_ios_xr"
     configurationErrors.EntityData.ParentYangName = "global-configuration-error"
     configurationErrors.EntityData.SegmentPath = "configuration-errors"
+    configurationErrors.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/global-configuration-error/" + configurationErrors.EntityData.SegmentPath
     configurationErrors.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configurationErrors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configurationErrors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6292,6 +6445,7 @@ func (grandmaster *Ptp_Grandmaster) GetEntityData() *types.CommonEntityData {
     grandmaster.EntityData.BundleName = "cisco_ios_xr"
     grandmaster.EntityData.ParentYangName = "ptp"
     grandmaster.EntityData.SegmentPath = "grandmaster"
+    grandmaster.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/" + grandmaster.EntityData.SegmentPath
     grandmaster.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     grandmaster.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     grandmaster.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6377,6 +6531,7 @@ func (clockProperties *Ptp_Grandmaster_ClockProperties) GetEntityData() *types.C
     clockProperties.EntityData.BundleName = "cisco_ios_xr"
     clockProperties.EntityData.ParentYangName = "grandmaster"
     clockProperties.EntityData.SegmentPath = "clock-properties"
+    clockProperties.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/grandmaster/" + clockProperties.EntityData.SegmentPath
     clockProperties.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clockProperties.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clockProperties.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6426,6 +6581,7 @@ func (utcOffset *Ptp_Grandmaster_ClockProperties_UtcOffset) GetEntityData() *typ
     utcOffset.EntityData.BundleName = "cisco_ios_xr"
     utcOffset.EntityData.ParentYangName = "clock-properties"
     utcOffset.EntityData.SegmentPath = "utc-offset"
+    utcOffset.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/grandmaster/clock-properties/" + utcOffset.EntityData.SegmentPath
     utcOffset.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     utcOffset.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     utcOffset.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6459,6 +6615,7 @@ func (receiver *Ptp_Grandmaster_ClockProperties_Receiver) GetEntityData() *types
     receiver.EntityData.BundleName = "cisco_ios_xr"
     receiver.EntityData.ParentYangName = "clock-properties"
     receiver.EntityData.SegmentPath = "receiver"
+    receiver.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/grandmaster/clock-properties/" + receiver.EntityData.SegmentPath
     receiver.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     receiver.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receiver.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6492,6 +6649,7 @@ func (sender *Ptp_Grandmaster_ClockProperties_Sender) GetEntityData() *types.Com
     sender.EntityData.BundleName = "cisco_ios_xr"
     sender.EntityData.ParentYangName = "clock-properties"
     sender.EntityData.SegmentPath = "sender"
+    sender.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/grandmaster/clock-properties/" + sender.EntityData.SegmentPath
     sender.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sender.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sender.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6535,6 +6693,7 @@ func (address *Ptp_Grandmaster_Address) GetEntityData() *types.CommonEntityData 
     address.EntityData.BundleName = "cisco_ios_xr"
     address.EntityData.ParentYangName = "grandmaster"
     address.EntityData.SegmentPath = "address"
+    address.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/grandmaster/" + address.EntityData.SegmentPath
     address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6569,6 +6728,7 @@ func (macAddress *Ptp_Grandmaster_Address_MacAddress) GetEntityData() *types.Com
     macAddress.EntityData.BundleName = "cisco_ios_xr"
     macAddress.EntityData.ParentYangName = "address"
     macAddress.EntityData.SegmentPath = "mac-address"
+    macAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/grandmaster/address/" + macAddress.EntityData.SegmentPath
     macAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     macAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     macAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6599,6 +6759,7 @@ func (ipv6Address *Ptp_Grandmaster_Address_Ipv6Address) GetEntityData() *types.C
     ipv6Address.EntityData.BundleName = "cisco_ios_xr"
     ipv6Address.EntityData.ParentYangName = "address"
     ipv6Address.EntityData.SegmentPath = "ipv6-address"
+    ipv6Address.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/grandmaster/address/" + ipv6Address.EntityData.SegmentPath
     ipv6Address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6Address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6Address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6630,6 +6791,7 @@ func (interfaceUnicastPeers *Ptp_InterfaceUnicastPeers) GetEntityData() *types.C
     interfaceUnicastPeers.EntityData.BundleName = "cisco_ios_xr"
     interfaceUnicastPeers.EntityData.ParentYangName = "ptp"
     interfaceUnicastPeers.EntityData.SegmentPath = "interface-unicast-peers"
+    interfaceUnicastPeers.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/" + interfaceUnicastPeers.EntityData.SegmentPath
     interfaceUnicastPeers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceUnicastPeers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceUnicastPeers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6651,6 +6813,7 @@ func (interfaceUnicastPeers *Ptp_InterfaceUnicastPeers) GetEntityData() *types.C
 type Ptp_InterfaceUnicastPeers_InterfaceUnicastPeer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -6673,6 +6836,7 @@ func (interfaceUnicastPeer *Ptp_InterfaceUnicastPeers_InterfaceUnicastPeer) GetE
     interfaceUnicastPeer.EntityData.BundleName = "cisco_ios_xr"
     interfaceUnicastPeer.EntityData.ParentYangName = "interface-unicast-peers"
     interfaceUnicastPeer.EntityData.SegmentPath = "interface-unicast-peer" + types.AddKeyToken(interfaceUnicastPeer.InterfaceName, "interface-name")
+    interfaceUnicastPeer.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/interface-unicast-peers/" + interfaceUnicastPeer.EntityData.SegmentPath
     interfaceUnicastPeer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceUnicastPeer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceUnicastPeer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6680,6 +6844,7 @@ func (interfaceUnicastPeer *Ptp_InterfaceUnicastPeers_InterfaceUnicastPeer) GetE
     interfaceUnicastPeer.EntityData.Children = types.NewOrderedMap()
     interfaceUnicastPeer.EntityData.Children.Append("peers", types.YChild{"Peers", nil})
     for i := range interfaceUnicastPeer.Peers {
+        types.SetYListKey(interfaceUnicastPeer.Peers[i], i)
         interfaceUnicastPeer.EntityData.Children.Append(types.GetSegmentPath(interfaceUnicastPeer.Peers[i]), types.YChild{"Peers", interfaceUnicastPeer.Peers[i]})
     }
     interfaceUnicastPeer.EntityData.Leafs = types.NewOrderedMap()
@@ -6697,6 +6862,7 @@ func (interfaceUnicastPeer *Ptp_InterfaceUnicastPeers_InterfaceUnicastPeer) GetE
 type Ptp_InterfaceUnicastPeers_InterfaceUnicastPeer_Peers struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The address of the unicast peer.
     Address Ptp_InterfaceUnicastPeers_InterfaceUnicastPeer_Peers_Address
@@ -6716,7 +6882,8 @@ func (peers *Ptp_InterfaceUnicastPeers_InterfaceUnicastPeer_Peers) GetEntityData
     peers.EntityData.YangName = "peers"
     peers.EntityData.BundleName = "cisco_ios_xr"
     peers.EntityData.ParentYangName = "interface-unicast-peer"
-    peers.EntityData.SegmentPath = "peers"
+    peers.EntityData.SegmentPath = "peers" + types.AddNoKeyToken(peers)
+    peers.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/interface-unicast-peers/interface-unicast-peer/" + peers.EntityData.SegmentPath
     peers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6762,6 +6929,7 @@ func (address *Ptp_InterfaceUnicastPeers_InterfaceUnicastPeer_Peers_Address) Get
     address.EntityData.BundleName = "cisco_ios_xr"
     address.EntityData.ParentYangName = "peers"
     address.EntityData.SegmentPath = "address"
+    address.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/interface-unicast-peers/interface-unicast-peer/peers/" + address.EntityData.SegmentPath
     address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6796,6 +6964,7 @@ func (macAddress *Ptp_InterfaceUnicastPeers_InterfaceUnicastPeer_Peers_Address_M
     macAddress.EntityData.BundleName = "cisco_ios_xr"
     macAddress.EntityData.ParentYangName = "address"
     macAddress.EntityData.SegmentPath = "mac-address"
+    macAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/interface-unicast-peers/interface-unicast-peer/peers/address/" + macAddress.EntityData.SegmentPath
     macAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     macAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     macAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6826,6 +6995,7 @@ func (ipv6Address *Ptp_InterfaceUnicastPeers_InterfaceUnicastPeer_Peers_Address_
     ipv6Address.EntityData.BundleName = "cisco_ios_xr"
     ipv6Address.EntityData.ParentYangName = "address"
     ipv6Address.EntityData.SegmentPath = "ipv6-address"
+    ipv6Address.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/interface-unicast-peers/interface-unicast-peer/peers/address/" + ipv6Address.EntityData.SegmentPath
     ipv6Address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6Address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6Address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6859,6 +7029,7 @@ func (announceGrant *Ptp_InterfaceUnicastPeers_InterfaceUnicastPeer_Peers_Announ
     announceGrant.EntityData.BundleName = "cisco_ios_xr"
     announceGrant.EntityData.ParentYangName = "peers"
     announceGrant.EntityData.SegmentPath = "announce-grant"
+    announceGrant.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/interface-unicast-peers/interface-unicast-peer/peers/" + announceGrant.EntityData.SegmentPath
     announceGrant.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     announceGrant.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     announceGrant.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6893,6 +7064,7 @@ func (syncGrant *Ptp_InterfaceUnicastPeers_InterfaceUnicastPeer_Peers_SyncGrant)
     syncGrant.EntityData.BundleName = "cisco_ios_xr"
     syncGrant.EntityData.ParentYangName = "peers"
     syncGrant.EntityData.SegmentPath = "sync-grant"
+    syncGrant.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/interface-unicast-peers/interface-unicast-peer/peers/" + syncGrant.EntityData.SegmentPath
     syncGrant.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     syncGrant.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     syncGrant.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6928,6 +7100,7 @@ func (delayResponseGrant *Ptp_InterfaceUnicastPeers_InterfaceUnicastPeer_Peers_D
     delayResponseGrant.EntityData.BundleName = "cisco_ios_xr"
     delayResponseGrant.EntityData.ParentYangName = "peers"
     delayResponseGrant.EntityData.SegmentPath = "delay-response-grant"
+    delayResponseGrant.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/interface-unicast-peers/interface-unicast-peer/peers/" + delayResponseGrant.EntityData.SegmentPath
     delayResponseGrant.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     delayResponseGrant.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     delayResponseGrant.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6992,6 +7165,7 @@ func (utcOffsetInfo *Ptp_UtcOffsetInfo) GetEntityData() *types.CommonEntityData 
     utcOffsetInfo.EntityData.BundleName = "cisco_ios_xr"
     utcOffsetInfo.EntityData.ParentYangName = "ptp"
     utcOffsetInfo.EntityData.SegmentPath = "utc-offset-info"
+    utcOffsetInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/" + utcOffsetInfo.EntityData.SegmentPath
     utcOffsetInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     utcOffsetInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     utcOffsetInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7005,6 +7179,7 @@ func (utcOffsetInfo *Ptp_UtcOffsetInfo) GetEntityData() *types.CommonEntityData 
     utcOffsetInfo.EntityData.Children.Append("gm-leap-second", types.YChild{"GmLeapSecond", &utcOffsetInfo.GmLeapSecond})
     utcOffsetInfo.EntityData.Children.Append("configured-leap-second", types.YChild{"ConfiguredLeapSecond", nil})
     for i := range utcOffsetInfo.ConfiguredLeapSecond {
+        types.SetYListKey(utcOffsetInfo.ConfiguredLeapSecond[i], i)
         utcOffsetInfo.EntityData.Children.Append(types.GetSegmentPath(utcOffsetInfo.ConfiguredLeapSecond[i]), types.YChild{"ConfiguredLeapSecond", utcOffsetInfo.ConfiguredLeapSecond[i]})
     }
     utcOffsetInfo.EntityData.Leafs = types.NewOrderedMap()
@@ -7042,6 +7217,7 @@ func (currentOffsetInfo *Ptp_UtcOffsetInfo_CurrentOffsetInfo) GetEntityData() *t
     currentOffsetInfo.EntityData.BundleName = "cisco_ios_xr"
     currentOffsetInfo.EntityData.ParentYangName = "utc-offset-info"
     currentOffsetInfo.EntityData.SegmentPath = "current-offset-info"
+    currentOffsetInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/utc-offset-info/" + currentOffsetInfo.EntityData.SegmentPath
     currentOffsetInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     currentOffsetInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     currentOffsetInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7082,6 +7258,7 @@ func (currentGmOffsetInfo *Ptp_UtcOffsetInfo_CurrentGmOffsetInfo) GetEntityData(
     currentGmOffsetInfo.EntityData.BundleName = "cisco_ios_xr"
     currentGmOffsetInfo.EntityData.ParentYangName = "utc-offset-info"
     currentGmOffsetInfo.EntityData.SegmentPath = "current-gm-offset-info"
+    currentGmOffsetInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/utc-offset-info/" + currentGmOffsetInfo.EntityData.SegmentPath
     currentGmOffsetInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     currentGmOffsetInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     currentGmOffsetInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7121,6 +7298,7 @@ func (configuredOffsetInfo *Ptp_UtcOffsetInfo_ConfiguredOffsetInfo) GetEntityDat
     configuredOffsetInfo.EntityData.BundleName = "cisco_ios_xr"
     configuredOffsetInfo.EntityData.ParentYangName = "utc-offset-info"
     configuredOffsetInfo.EntityData.SegmentPath = "configured-offset-info"
+    configuredOffsetInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/utc-offset-info/" + configuredOffsetInfo.EntityData.SegmentPath
     configuredOffsetInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configuredOffsetInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configuredOffsetInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7161,6 +7339,7 @@ func (previousGmOffsetInfo *Ptp_UtcOffsetInfo_PreviousGmOffsetInfo) GetEntityDat
     previousGmOffsetInfo.EntityData.BundleName = "cisco_ios_xr"
     previousGmOffsetInfo.EntityData.ParentYangName = "utc-offset-info"
     previousGmOffsetInfo.EntityData.SegmentPath = "previous-gm-offset-info"
+    previousGmOffsetInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/utc-offset-info/" + previousGmOffsetInfo.EntityData.SegmentPath
     previousGmOffsetInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     previousGmOffsetInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     previousGmOffsetInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7201,6 +7380,7 @@ func (hardwareOffsetInfo *Ptp_UtcOffsetInfo_HardwareOffsetInfo) GetEntityData() 
     hardwareOffsetInfo.EntityData.BundleName = "cisco_ios_xr"
     hardwareOffsetInfo.EntityData.ParentYangName = "utc-offset-info"
     hardwareOffsetInfo.EntityData.SegmentPath = "hardware-offset-info"
+    hardwareOffsetInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/utc-offset-info/" + hardwareOffsetInfo.EntityData.SegmentPath
     hardwareOffsetInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hardwareOffsetInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hardwareOffsetInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7245,6 +7425,7 @@ func (gmLeapSecond *Ptp_UtcOffsetInfo_GmLeapSecond) GetEntityData() *types.Commo
     gmLeapSecond.EntityData.BundleName = "cisco_ios_xr"
     gmLeapSecond.EntityData.ParentYangName = "utc-offset-info"
     gmLeapSecond.EntityData.SegmentPath = "gm-leap-second"
+    gmLeapSecond.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/utc-offset-info/" + gmLeapSecond.EntityData.SegmentPath
     gmLeapSecond.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     gmLeapSecond.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     gmLeapSecond.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7267,6 +7448,7 @@ func (gmLeapSecond *Ptp_UtcOffsetInfo_GmLeapSecond) GetEntityData() *types.Commo
 type Ptp_UtcOffsetInfo_ConfiguredLeapSecond struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The UTC offset (TAI - UTC), in seconds. The type is interface{} with range:
     // -32768..32767. Units are second.
@@ -7289,7 +7471,8 @@ func (configuredLeapSecond *Ptp_UtcOffsetInfo_ConfiguredLeapSecond) GetEntityDat
     configuredLeapSecond.EntityData.YangName = "configured-leap-second"
     configuredLeapSecond.EntityData.BundleName = "cisco_ios_xr"
     configuredLeapSecond.EntityData.ParentYangName = "utc-offset-info"
-    configuredLeapSecond.EntityData.SegmentPath = "configured-leap-second"
+    configuredLeapSecond.EntityData.SegmentPath = "configured-leap-second" + types.AddNoKeyToken(configuredLeapSecond)
+    configuredLeapSecond.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/utc-offset-info/" + configuredLeapSecond.EntityData.SegmentPath
     configuredLeapSecond.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configuredLeapSecond.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configuredLeapSecond.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7322,6 +7505,7 @@ func (platform *Ptp_Platform) GetEntityData() *types.CommonEntityData {
     platform.EntityData.BundleName = "cisco_ios_xr"
     platform.EntityData.ParentYangName = "ptp"
     platform.EntityData.SegmentPath = "Cisco-IOS-XR-ptp-pd-oper:platform"
+    platform.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/" + platform.EntityData.SegmentPath
     platform.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     platform.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     platform.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7445,6 +7629,7 @@ func (servo *Ptp_Platform_Servo) GetEntityData() *types.CommonEntityData {
     servo.EntityData.BundleName = "cisco_ios_xr"
     servo.EntityData.ParentYangName = "platform"
     servo.EntityData.SegmentPath = "servo"
+    servo.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/Cisco-IOS-XR-ptp-pd-oper:platform/" + servo.EntityData.SegmentPath
     servo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     servo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     servo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7504,6 +7689,7 @@ func (lastSetTime *Ptp_Platform_Servo_LastSetTime) GetEntityData() *types.Common
     lastSetTime.EntityData.BundleName = "cisco_ios_xr"
     lastSetTime.EntityData.ParentYangName = "servo"
     lastSetTime.EntityData.SegmentPath = "last-set-time"
+    lastSetTime.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/Cisco-IOS-XR-ptp-pd-oper:platform/servo/" + lastSetTime.EntityData.SegmentPath
     lastSetTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastSetTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastSetTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7537,6 +7723,7 @@ func (lastReceivedT1 *Ptp_Platform_Servo_LastReceivedT1) GetEntityData() *types.
     lastReceivedT1.EntityData.BundleName = "cisco_ios_xr"
     lastReceivedT1.EntityData.ParentYangName = "servo"
     lastReceivedT1.EntityData.SegmentPath = "last-received-t1"
+    lastReceivedT1.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/Cisco-IOS-XR-ptp-pd-oper:platform/servo/" + lastReceivedT1.EntityData.SegmentPath
     lastReceivedT1.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastReceivedT1.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastReceivedT1.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7570,6 +7757,7 @@ func (lastReceivedT2 *Ptp_Platform_Servo_LastReceivedT2) GetEntityData() *types.
     lastReceivedT2.EntityData.BundleName = "cisco_ios_xr"
     lastReceivedT2.EntityData.ParentYangName = "servo"
     lastReceivedT2.EntityData.SegmentPath = "last-received-t2"
+    lastReceivedT2.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/Cisco-IOS-XR-ptp-pd-oper:platform/servo/" + lastReceivedT2.EntityData.SegmentPath
     lastReceivedT2.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastReceivedT2.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastReceivedT2.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7603,6 +7791,7 @@ func (lastReceivedT3 *Ptp_Platform_Servo_LastReceivedT3) GetEntityData() *types.
     lastReceivedT3.EntityData.BundleName = "cisco_ios_xr"
     lastReceivedT3.EntityData.ParentYangName = "servo"
     lastReceivedT3.EntityData.SegmentPath = "last-received-t3"
+    lastReceivedT3.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/Cisco-IOS-XR-ptp-pd-oper:platform/servo/" + lastReceivedT3.EntityData.SegmentPath
     lastReceivedT3.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastReceivedT3.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastReceivedT3.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7636,6 +7825,7 @@ func (lastReceivedT4 *Ptp_Platform_Servo_LastReceivedT4) GetEntityData() *types.
     lastReceivedT4.EntityData.BundleName = "cisco_ios_xr"
     lastReceivedT4.EntityData.ParentYangName = "servo"
     lastReceivedT4.EntityData.SegmentPath = "last-received-t4"
+    lastReceivedT4.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/Cisco-IOS-XR-ptp-pd-oper:platform/servo/" + lastReceivedT4.EntityData.SegmentPath
     lastReceivedT4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastReceivedT4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastReceivedT4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7669,6 +7859,7 @@ func (preReceivedT1 *Ptp_Platform_Servo_PreReceivedT1) GetEntityData() *types.Co
     preReceivedT1.EntityData.BundleName = "cisco_ios_xr"
     preReceivedT1.EntityData.ParentYangName = "servo"
     preReceivedT1.EntityData.SegmentPath = "pre-received-t1"
+    preReceivedT1.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/Cisco-IOS-XR-ptp-pd-oper:platform/servo/" + preReceivedT1.EntityData.SegmentPath
     preReceivedT1.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     preReceivedT1.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     preReceivedT1.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7702,6 +7893,7 @@ func (preReceivedT2 *Ptp_Platform_Servo_PreReceivedT2) GetEntityData() *types.Co
     preReceivedT2.EntityData.BundleName = "cisco_ios_xr"
     preReceivedT2.EntityData.ParentYangName = "servo"
     preReceivedT2.EntityData.SegmentPath = "pre-received-t2"
+    preReceivedT2.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/Cisco-IOS-XR-ptp-pd-oper:platform/servo/" + preReceivedT2.EntityData.SegmentPath
     preReceivedT2.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     preReceivedT2.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     preReceivedT2.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7735,6 +7927,7 @@ func (preReceivedT3 *Ptp_Platform_Servo_PreReceivedT3) GetEntityData() *types.Co
     preReceivedT3.EntityData.BundleName = "cisco_ios_xr"
     preReceivedT3.EntityData.ParentYangName = "servo"
     preReceivedT3.EntityData.SegmentPath = "pre-received-t3"
+    preReceivedT3.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/Cisco-IOS-XR-ptp-pd-oper:platform/servo/" + preReceivedT3.EntityData.SegmentPath
     preReceivedT3.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     preReceivedT3.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     preReceivedT3.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7768,6 +7961,7 @@ func (preReceivedT4 *Ptp_Platform_Servo_PreReceivedT4) GetEntityData() *types.Co
     preReceivedT4.EntityData.BundleName = "cisco_ios_xr"
     preReceivedT4.EntityData.ParentYangName = "servo"
     preReceivedT4.EntityData.SegmentPath = "pre-received-t4"
+    preReceivedT4.EntityData.AbsolutePath = "Cisco-IOS-XR-ptp-oper:ptp/Cisco-IOS-XR-ptp-pd-oper:platform/servo/" + preReceivedT4.EntityData.SegmentPath
     preReceivedT4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     preReceivedT4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     preReceivedT4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

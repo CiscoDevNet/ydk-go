@@ -122,6 +122,7 @@ func (dISMANEVENTMIB *DISMANEVENTMIB) GetEntityData() *types.CommonEntityData {
     dISMANEVENTMIB.EntityData.BundleName = "cisco_ios_xe"
     dISMANEVENTMIB.EntityData.ParentYangName = "DISMAN-EVENT-MIB"
     dISMANEVENTMIB.EntityData.SegmentPath = "DISMAN-EVENT-MIB:DISMAN-EVENT-MIB"
+    dISMANEVENTMIB.EntityData.AbsolutePath = dISMANEVENTMIB.EntityData.SegmentPath
     dISMANEVENTMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dISMANEVENTMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dISMANEVENTMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -197,6 +198,7 @@ func (mteResource *DISMANEVENTMIB_MteResource) GetEntityData() *types.CommonEnti
     mteResource.EntityData.BundleName = "cisco_ios_xe"
     mteResource.EntityData.ParentYangName = "DISMAN-EVENT-MIB"
     mteResource.EntityData.SegmentPath = "mteResource"
+    mteResource.EntityData.AbsolutePath = "DISMAN-EVENT-MIB:DISMAN-EVENT-MIB/" + mteResource.EntityData.SegmentPath
     mteResource.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     mteResource.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mteResource.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -232,6 +234,7 @@ func (mteTrigger *DISMANEVENTMIB_MteTrigger) GetEntityData() *types.CommonEntity
     mteTrigger.EntityData.BundleName = "cisco_ios_xe"
     mteTrigger.EntityData.ParentYangName = "DISMAN-EVENT-MIB"
     mteTrigger.EntityData.SegmentPath = "mteTrigger"
+    mteTrigger.EntityData.AbsolutePath = "DISMAN-EVENT-MIB:DISMAN-EVENT-MIB/" + mteTrigger.EntityData.SegmentPath
     mteTrigger.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     mteTrigger.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mteTrigger.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -263,6 +266,7 @@ func (mteEvent *DISMANEVENTMIB_MteEvent) GetEntityData() *types.CommonEntityData
     mteEvent.EntityData.BundleName = "cisco_ios_xe"
     mteEvent.EntityData.ParentYangName = "DISMAN-EVENT-MIB"
     mteEvent.EntityData.SegmentPath = "mteEvent"
+    mteEvent.EntityData.AbsolutePath = "DISMAN-EVENT-MIB:DISMAN-EVENT-MIB/" + mteEvent.EntityData.SegmentPath
     mteEvent.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     mteEvent.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mteEvent.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -294,6 +298,7 @@ func (mteTriggerTable *DISMANEVENTMIB_MteTriggerTable) GetEntityData() *types.Co
     mteTriggerTable.EntityData.BundleName = "cisco_ios_xe"
     mteTriggerTable.EntityData.ParentYangName = "DISMAN-EVENT-MIB"
     mteTriggerTable.EntityData.SegmentPath = "mteTriggerTable"
+    mteTriggerTable.EntityData.AbsolutePath = "DISMAN-EVENT-MIB:DISMAN-EVENT-MIB/" + mteTriggerTable.EntityData.SegmentPath
     mteTriggerTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     mteTriggerTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mteTriggerTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -316,6 +321,7 @@ func (mteTriggerTable *DISMANEVENTMIB_MteTriggerTable) GetEntityData() *types.Co
 type DISMANEVENTMIB_MteTriggerTable_MteTriggerEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The owner of this entry. The exact semantics of
     // this string are subject to the security policy defined by the security
@@ -461,6 +467,7 @@ func (mteTriggerEntry *DISMANEVENTMIB_MteTriggerTable_MteTriggerEntry) GetEntity
     mteTriggerEntry.EntityData.BundleName = "cisco_ios_xe"
     mteTriggerEntry.EntityData.ParentYangName = "mteTriggerTable"
     mteTriggerEntry.EntityData.SegmentPath = "mteTriggerEntry" + types.AddKeyToken(mteTriggerEntry.MteOwner, "mteOwner") + types.AddKeyToken(mteTriggerEntry.MteTriggerName, "mteTriggerName")
+    mteTriggerEntry.EntityData.AbsolutePath = "DISMAN-EVENT-MIB:DISMAN-EVENT-MIB/mteTriggerTable/" + mteTriggerEntry.EntityData.SegmentPath
     mteTriggerEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     mteTriggerEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mteTriggerEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -517,6 +524,7 @@ func (mteTriggerDeltaTable *DISMANEVENTMIB_MteTriggerDeltaTable) GetEntityData()
     mteTriggerDeltaTable.EntityData.BundleName = "cisco_ios_xe"
     mteTriggerDeltaTable.EntityData.ParentYangName = "DISMAN-EVENT-MIB"
     mteTriggerDeltaTable.EntityData.SegmentPath = "mteTriggerDeltaTable"
+    mteTriggerDeltaTable.EntityData.AbsolutePath = "DISMAN-EVENT-MIB:DISMAN-EVENT-MIB/" + mteTriggerDeltaTable.EntityData.SegmentPath
     mteTriggerDeltaTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     mteTriggerDeltaTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mteTriggerDeltaTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -540,6 +548,7 @@ func (mteTriggerDeltaTable *DISMANEVENTMIB_MteTriggerDeltaTable) GetEntityData()
 type DISMANEVENTMIB_MteTriggerDeltaTable_MteTriggerDeltaEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with length: 0..32. Refers to
     // disman_event_mib.DISMANEVENTMIB_MteTriggerTable_MteTriggerEntry_MteOwner
@@ -586,6 +595,7 @@ func (mteTriggerDeltaEntry *DISMANEVENTMIB_MteTriggerDeltaTable_MteTriggerDeltaE
     mteTriggerDeltaEntry.EntityData.BundleName = "cisco_ios_xe"
     mteTriggerDeltaEntry.EntityData.ParentYangName = "mteTriggerDeltaTable"
     mteTriggerDeltaEntry.EntityData.SegmentPath = "mteTriggerDeltaEntry" + types.AddKeyToken(mteTriggerDeltaEntry.MteOwner, "mteOwner") + types.AddKeyToken(mteTriggerDeltaEntry.MteTriggerName, "mteTriggerName")
+    mteTriggerDeltaEntry.EntityData.AbsolutePath = "DISMAN-EVENT-MIB:DISMAN-EVENT-MIB/mteTriggerDeltaTable/" + mteTriggerDeltaEntry.EntityData.SegmentPath
     mteTriggerDeltaEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     mteTriggerDeltaEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mteTriggerDeltaEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -634,6 +644,7 @@ func (mteTriggerExistenceTable *DISMANEVENTMIB_MteTriggerExistenceTable) GetEnti
     mteTriggerExistenceTable.EntityData.BundleName = "cisco_ios_xe"
     mteTriggerExistenceTable.EntityData.ParentYangName = "DISMAN-EVENT-MIB"
     mteTriggerExistenceTable.EntityData.SegmentPath = "mteTriggerExistenceTable"
+    mteTriggerExistenceTable.EntityData.AbsolutePath = "DISMAN-EVENT-MIB:DISMAN-EVENT-MIB/" + mteTriggerExistenceTable.EntityData.SegmentPath
     mteTriggerExistenceTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     mteTriggerExistenceTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mteTriggerExistenceTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -657,6 +668,7 @@ func (mteTriggerExistenceTable *DISMANEVENTMIB_MteTriggerExistenceTable) GetEnti
 type DISMANEVENTMIB_MteTriggerExistenceTable_MteTriggerExistenceEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with length: 0..32. Refers to
     // disman_event_mib.DISMANEVENTMIB_MteTriggerTable_MteTriggerEntry_MteOwner
@@ -713,6 +725,7 @@ func (mteTriggerExistenceEntry *DISMANEVENTMIB_MteTriggerExistenceTable_MteTrigg
     mteTriggerExistenceEntry.EntityData.BundleName = "cisco_ios_xe"
     mteTriggerExistenceEntry.EntityData.ParentYangName = "mteTriggerExistenceTable"
     mteTriggerExistenceEntry.EntityData.SegmentPath = "mteTriggerExistenceEntry" + types.AddKeyToken(mteTriggerExistenceEntry.MteOwner, "mteOwner") + types.AddKeyToken(mteTriggerExistenceEntry.MteTriggerName, "mteTriggerName")
+    mteTriggerExistenceEntry.EntityData.AbsolutePath = "DISMAN-EVENT-MIB:DISMAN-EVENT-MIB/mteTriggerExistenceTable/" + mteTriggerExistenceEntry.EntityData.SegmentPath
     mteTriggerExistenceEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     mteTriggerExistenceEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mteTriggerExistenceEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -753,6 +766,7 @@ func (mteTriggerBooleanTable *DISMANEVENTMIB_MteTriggerBooleanTable) GetEntityDa
     mteTriggerBooleanTable.EntityData.BundleName = "cisco_ios_xe"
     mteTriggerBooleanTable.EntityData.ParentYangName = "DISMAN-EVENT-MIB"
     mteTriggerBooleanTable.EntityData.SegmentPath = "mteTriggerBooleanTable"
+    mteTriggerBooleanTable.EntityData.AbsolutePath = "DISMAN-EVENT-MIB:DISMAN-EVENT-MIB/" + mteTriggerBooleanTable.EntityData.SegmentPath
     mteTriggerBooleanTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     mteTriggerBooleanTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mteTriggerBooleanTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -776,6 +790,7 @@ func (mteTriggerBooleanTable *DISMANEVENTMIB_MteTriggerBooleanTable) GetEntityDa
 type DISMANEVENTMIB_MteTriggerBooleanTable_MteTriggerBooleanEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with length: 0..32. Refers to
     // disman_event_mib.DISMANEVENTMIB_MteTriggerTable_MteTriggerEntry_MteOwner
@@ -831,6 +846,7 @@ func (mteTriggerBooleanEntry *DISMANEVENTMIB_MteTriggerBooleanTable_MteTriggerBo
     mteTriggerBooleanEntry.EntityData.BundleName = "cisco_ios_xe"
     mteTriggerBooleanEntry.EntityData.ParentYangName = "mteTriggerBooleanTable"
     mteTriggerBooleanEntry.EntityData.SegmentPath = "mteTriggerBooleanEntry" + types.AddKeyToken(mteTriggerBooleanEntry.MteOwner, "mteOwner") + types.AddKeyToken(mteTriggerBooleanEntry.MteTriggerName, "mteTriggerName")
+    mteTriggerBooleanEntry.EntityData.AbsolutePath = "DISMAN-EVENT-MIB:DISMAN-EVENT-MIB/mteTriggerBooleanTable/" + mteTriggerBooleanEntry.EntityData.SegmentPath
     mteTriggerBooleanEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     mteTriggerBooleanEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mteTriggerBooleanEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -889,6 +905,7 @@ func (mteTriggerThresholdTable *DISMANEVENTMIB_MteTriggerThresholdTable) GetEnti
     mteTriggerThresholdTable.EntityData.BundleName = "cisco_ios_xe"
     mteTriggerThresholdTable.EntityData.ParentYangName = "DISMAN-EVENT-MIB"
     mteTriggerThresholdTable.EntityData.SegmentPath = "mteTriggerThresholdTable"
+    mteTriggerThresholdTable.EntityData.AbsolutePath = "DISMAN-EVENT-MIB:DISMAN-EVENT-MIB/" + mteTriggerThresholdTable.EntityData.SegmentPath
     mteTriggerThresholdTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     mteTriggerThresholdTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mteTriggerThresholdTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -912,6 +929,7 @@ func (mteTriggerThresholdTable *DISMANEVENTMIB_MteTriggerThresholdTable) GetEnti
 type DISMANEVENTMIB_MteTriggerThresholdTable_MteTriggerThresholdEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with length: 0..32. Refers to
     // disman_event_mib.DISMANEVENTMIB_MteTriggerTable_MteTriggerEntry_MteOwner
@@ -1042,6 +1060,7 @@ func (mteTriggerThresholdEntry *DISMANEVENTMIB_MteTriggerThresholdTable_MteTrigg
     mteTriggerThresholdEntry.EntityData.BundleName = "cisco_ios_xe"
     mteTriggerThresholdEntry.EntityData.ParentYangName = "mteTriggerThresholdTable"
     mteTriggerThresholdEntry.EntityData.SegmentPath = "mteTriggerThresholdEntry" + types.AddKeyToken(mteTriggerThresholdEntry.MteOwner, "mteOwner") + types.AddKeyToken(mteTriggerThresholdEntry.MteTriggerName, "mteTriggerName")
+    mteTriggerThresholdEntry.EntityData.AbsolutePath = "DISMAN-EVENT-MIB:DISMAN-EVENT-MIB/mteTriggerThresholdTable/" + mteTriggerThresholdEntry.EntityData.SegmentPath
     mteTriggerThresholdEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     mteTriggerThresholdEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mteTriggerThresholdEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1104,6 +1123,7 @@ func (mteObjectsTable *DISMANEVENTMIB_MteObjectsTable) GetEntityData() *types.Co
     mteObjectsTable.EntityData.BundleName = "cisco_ios_xe"
     mteObjectsTable.EntityData.ParentYangName = "DISMAN-EVENT-MIB"
     mteObjectsTable.EntityData.SegmentPath = "mteObjectsTable"
+    mteObjectsTable.EntityData.AbsolutePath = "DISMAN-EVENT-MIB:DISMAN-EVENT-MIB/" + mteObjectsTable.EntityData.SegmentPath
     mteObjectsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     mteObjectsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mteObjectsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1130,6 +1150,7 @@ func (mteObjectsTable *DISMANEVENTMIB_MteObjectsTable) GetEntityData() *types.Co
 type DISMANEVENTMIB_MteObjectsTable_MteObjectsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with length: 0..32. Refers to
     // disman_event_mib.DISMANEVENTMIB_MteTriggerTable_MteTriggerEntry_MteOwner
@@ -1182,6 +1203,7 @@ func (mteObjectsEntry *DISMANEVENTMIB_MteObjectsTable_MteObjectsEntry) GetEntity
     mteObjectsEntry.EntityData.BundleName = "cisco_ios_xe"
     mteObjectsEntry.EntityData.ParentYangName = "mteObjectsTable"
     mteObjectsEntry.EntityData.SegmentPath = "mteObjectsEntry" + types.AddKeyToken(mteObjectsEntry.MteOwner, "mteOwner") + types.AddKeyToken(mteObjectsEntry.MteObjectsName, "mteObjectsName") + types.AddKeyToken(mteObjectsEntry.MteObjectsIndex, "mteObjectsIndex")
+    mteObjectsEntry.EntityData.AbsolutePath = "DISMAN-EVENT-MIB:DISMAN-EVENT-MIB/mteObjectsTable/" + mteObjectsEntry.EntityData.SegmentPath
     mteObjectsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     mteObjectsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mteObjectsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1218,6 +1240,7 @@ func (mteEventTable *DISMANEVENTMIB_MteEventTable) GetEntityData() *types.Common
     mteEventTable.EntityData.BundleName = "cisco_ios_xe"
     mteEventTable.EntityData.ParentYangName = "DISMAN-EVENT-MIB"
     mteEventTable.EntityData.SegmentPath = "mteEventTable"
+    mteEventTable.EntityData.AbsolutePath = "DISMAN-EVENT-MIB:DISMAN-EVENT-MIB/" + mteEventTable.EntityData.SegmentPath
     mteEventTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     mteEventTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mteEventTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1240,6 +1263,7 @@ func (mteEventTable *DISMANEVENTMIB_MteEventTable) GetEntityData() *types.Common
 type DISMANEVENTMIB_MteEventTable_MteEventEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with length: 0..32. Refers to
     // disman_event_mib.DISMANEVENTMIB_MteTriggerTable_MteTriggerEntry_MteOwner
@@ -1273,6 +1297,7 @@ func (mteEventEntry *DISMANEVENTMIB_MteEventTable_MteEventEntry) GetEntityData()
     mteEventEntry.EntityData.BundleName = "cisco_ios_xe"
     mteEventEntry.EntityData.ParentYangName = "mteEventTable"
     mteEventEntry.EntityData.SegmentPath = "mteEventEntry" + types.AddKeyToken(mteEventEntry.MteOwner, "mteOwner") + types.AddKeyToken(mteEventEntry.MteEventName, "mteEventName")
+    mteEventEntry.EntityData.AbsolutePath = "DISMAN-EVENT-MIB:DISMAN-EVENT-MIB/mteEventTable/" + mteEventEntry.EntityData.SegmentPath
     mteEventEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     mteEventEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mteEventEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1311,6 +1336,7 @@ func (mteEventNotificationTable *DISMANEVENTMIB_MteEventNotificationTable) GetEn
     mteEventNotificationTable.EntityData.BundleName = "cisco_ios_xe"
     mteEventNotificationTable.EntityData.ParentYangName = "DISMAN-EVENT-MIB"
     mteEventNotificationTable.EntityData.SegmentPath = "mteEventNotificationTable"
+    mteEventNotificationTable.EntityData.AbsolutePath = "DISMAN-EVENT-MIB:DISMAN-EVENT-MIB/" + mteEventNotificationTable.EntityData.SegmentPath
     mteEventNotificationTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     mteEventNotificationTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mteEventNotificationTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1334,6 +1360,7 @@ func (mteEventNotificationTable *DISMANEVENTMIB_MteEventNotificationTable) GetEn
 type DISMANEVENTMIB_MteEventNotificationTable_MteEventNotificationEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with length: 0..32. Refers to
     // disman_event_mib.DISMANEVENTMIB_MteTriggerTable_MteTriggerEntry_MteOwner
@@ -1366,6 +1393,7 @@ func (mteEventNotificationEntry *DISMANEVENTMIB_MteEventNotificationTable_MteEve
     mteEventNotificationEntry.EntityData.BundleName = "cisco_ios_xe"
     mteEventNotificationEntry.EntityData.ParentYangName = "mteEventNotificationTable"
     mteEventNotificationEntry.EntityData.SegmentPath = "mteEventNotificationEntry" + types.AddKeyToken(mteEventNotificationEntry.MteOwner, "mteOwner") + types.AddKeyToken(mteEventNotificationEntry.MteEventName, "mteEventName")
+    mteEventNotificationEntry.EntityData.AbsolutePath = "DISMAN-EVENT-MIB:DISMAN-EVENT-MIB/mteEventNotificationTable/" + mteEventNotificationEntry.EntityData.SegmentPath
     mteEventNotificationEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     mteEventNotificationEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mteEventNotificationEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1402,6 +1430,7 @@ func (mteEventSetTable *DISMANEVENTMIB_MteEventSetTable) GetEntityData() *types.
     mteEventSetTable.EntityData.BundleName = "cisco_ios_xe"
     mteEventSetTable.EntityData.ParentYangName = "DISMAN-EVENT-MIB"
     mteEventSetTable.EntityData.SegmentPath = "mteEventSetTable"
+    mteEventSetTable.EntityData.AbsolutePath = "DISMAN-EVENT-MIB:DISMAN-EVENT-MIB/" + mteEventSetTable.EntityData.SegmentPath
     mteEventSetTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     mteEventSetTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mteEventSetTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1425,6 +1454,7 @@ func (mteEventSetTable *DISMANEVENTMIB_MteEventSetTable) GetEntityData() *types.
 type DISMANEVENTMIB_MteEventSetTable_MteEventSetEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with length: 0..32. Refers to
     // disman_event_mib.DISMANEVENTMIB_MteTriggerTable_MteTriggerEntry_MteOwner
@@ -1493,6 +1523,7 @@ func (mteEventSetEntry *DISMANEVENTMIB_MteEventSetTable_MteEventSetEntry) GetEnt
     mteEventSetEntry.EntityData.BundleName = "cisco_ios_xe"
     mteEventSetEntry.EntityData.ParentYangName = "mteEventSetTable"
     mteEventSetEntry.EntityData.SegmentPath = "mteEventSetEntry" + types.AddKeyToken(mteEventSetEntry.MteOwner, "mteOwner") + types.AddKeyToken(mteEventSetEntry.MteEventName, "mteEventName")
+    mteEventSetEntry.EntityData.AbsolutePath = "DISMAN-EVENT-MIB:DISMAN-EVENT-MIB/mteEventSetTable/" + mteEventSetEntry.EntityData.SegmentPath
     mteEventSetEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     mteEventSetEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mteEventSetEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
