@@ -1,7 +1,7 @@
 #!/bin/bash
 
 function print_msg {
-    echo -e "${MSG_COLOR}*** $(date): dependencies_xenial.sh | $@ ${NOCOLOR}"
+    echo -e "${MSG_COLOR}*** $(date): dependencies_ubuntu.sh | $@ ${NOCOLOR}"
 }
 
 function run_cmd {
@@ -46,7 +46,7 @@ function install_libydk {
   print_msg "Installing YDK 0.8.4 core library"
   if [[ $os_info == *"xenial"* ]]; then
     run_cmd wget https://devhub.cisco.com/artifactory/debian-ydk/0.8.4/xenial/libydk-0.8.4-1.amd64.deb
-   [[ $os_info == *"bionic"* ]]; then
+  elif [[ $os_info == *"bionic"* ]]; then
     run_cmd wget https://devhub.cisco.com/artifactory/debian-ydk/0.8.4/bionic/libydk-0.8.4-1.amd64.deb
   else
     MSG_COLOR=$RED
